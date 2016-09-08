@@ -1,7 +1,7 @@
 var
     gulp  = require('gulp'),
-    watch = require('./semantic/tasks/watch'),
-    build = require('./semantic/tasks/build'),
+    watch = require('./ui/tasks/watch'),
+    build = require('./ui/tasks/build'),
     pug = require('gulp-pug')
 ;
 
