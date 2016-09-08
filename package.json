@@ -1,0 +1,31 @@
+{
+  "name": "ds-ui: amedical",
+  "version": "0.0.1",
+  "description": "amedical",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.14.3",
+    "pug": "^2.0.0-beta6",
+    "semantic-ui": "^2.2.4"
+  },
+  "devDependencies": {
+    "gulp-pug": "^3.0.4",
+    "pug": "^2.0.0-beta6"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "frontend",
+    "semantic",
+    "ui",
+    "pug",
+    "digital",
+    "score"
+  ],
+  "author": "digital score",
+  "license": "MIT",
+  "optionalDependencies": {
+    "browser-sync": "^2.14.3"
+  }
+}
