@@ -76,23 +76,7 @@ module.exports = function(grunt){
             nonull: true,
             src: 'ui/app/semantic.min.js',
             dest: 'assets/js/vendor/semantic.min.js',
-        },
-
-            fulfillijs: {
-                nonull: true,
-                src: 'ui/app/fulfilli.js',
-                dest: 'assets/js/fulfilli.js',
-            },
-            // themefiles:{
-            //     files: [
-            //         // includes files within path
-            //         {expand: true, src: 'ui/app/themes/fulfilli/assets/**', dest: 'themes/fulfilli/assets', filter: 'isFile'},
-            //     ]
-            // }
-
-
-
-
+        }
 
         
 },
