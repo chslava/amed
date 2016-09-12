@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        link(rel="stylesheet", type='text/css', href='ui/semantic.css')
+        // Pagaidu font fix
+        | <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css'>
+        | <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700&subset=latin-ext" rel="stylesheet">
+    body
+        include blocks/header.pug
+
+        block content
+
+        include blocks/footer.pug
+
+        script(src="https://code.jquery.com/jquery-3.1.0.min.js"
+               integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+               crossorigin="anonymous")
+        script(src="/ui/semantic.min.js")
+        script(src="/js/main.js")
+
