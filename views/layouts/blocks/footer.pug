@@ -4,7 +4,9 @@ footer
             div.column
                 nav.ui.text.menu
                     ul
-                        each title, href in {"#1":'Medicīnas iekārtas',"#2":'Medicīnas preces', "#3":"Industriālie un drošības risinājumi", "#4": "Projektēšana", "#5": "Serviss", "#6": "Piegāde", "#7": "Atgriešana un apmaiņa", "#8": "Privātuma politika", "#9": "Par mums", "contact-us.html":"Kontakti"}
+                        li
+                            a(href="#").item.active  Medicīnas iekārtas
+                        each title, href in {"#2":'Medicīnas preces', "#3":"Industriālie un drošības risinājumi", "#4": "Projektēšana", "#5": "Serviss", "#6": "Piegāde", "#7": "Atgriešana un apmaiņa", "#8": "Privātuma politika", "#9": "Par mums", "contact-us.html":"Kontakti"}
                             li
                                 a(class="item" href=href)=  title
             div.column

@@ -323,9 +323,9 @@ header .ui.text.menu .lang:before {
   padding: 60px 0 100px 0;
 }
 .subscribe {
-  background: #686C78;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  background: #636463 url("../img/subscribe-background.png") repeat center;
+  padding-top: 105px;
+  padding-bottom: 105px;
 }
 .subscribe h4.ui.header {
   height: 33px;

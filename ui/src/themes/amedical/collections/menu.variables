@@ -119,17 +119,17 @@
 
 @labelTextMargin: 1em;
 @labelVerticalPadding: 0.3em;
-@labelHorizontalPadding: @relativeMini;
+@labelHorizontalPadding: 20px;
 
 @labelAndIconFloat: none;
 @labelAndIconMargin: 0em 0.5em 0em 0em;
 
 /* Dropdown in Menu */
-@dropdownMenuBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+@dropdownMenuBoxShadow: none;
 
 @dropdownBackground: #FFFFFF;
 @dropdownMenuDistance: 0em;
-@dropdownMenuBorderRadius: @borderRadius;
+@dropdownMenuBorderRadius: 0;
 
 @dropdownItemFontSize: @relativeMedium;
 @dropdownItemPadding: @relativeMini @relativeLarge;
@@ -167,9 +167,9 @@
 
 
 /* Active Item */
-@activeItemBackground: @transparentBlack;
-@activeItemTextColor: @selectedTextColor;
-@activeItemFontWeight: normal;
+@activeItemBackground: transparent!important;
+@activeItemTextColor: #ff6b01!important;
+@activeItemFontWeight: 700;
 @activeIconOpacity: 1;
 @activeItemBoxShadow: none;
 
