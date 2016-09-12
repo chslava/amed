@@ -12,7 +12,7 @@
 
 @boxShadow: @subtleShadow;
 @verticalPadding: 1em;
-@horizontalPadding: 1em;
+@horizontalPadding: 0.5em;
 @padding: @verticalPadding @horizontalPadding;
 
 @verticalMargin: 1rem;
