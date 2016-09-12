@@ -1,0 +1,33 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.input.search {
+  input {
+    width: 220px;
+    height: 42px;
+    background: #f7f7f7;
+    border: 1px solid #d8d8d8;
+    border-radius: 0;
+    box-sizing: border-box;
+
+    &::-moz-placeholder {
+      font-size:15px;
+      color: #909090;
+      opacity:1;
+    }
+  }
+}
+
+.input.subscribe {
+  background: rgba(255, 255, 255, 0.2) !important;
+  height: 50px;
+  border: none;
+  border-radius:0!important;
+  color:#FFF;
+  font-size: 15px;
+  &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+    color:#FFF;
+    opacity: 1;
+  }
+}

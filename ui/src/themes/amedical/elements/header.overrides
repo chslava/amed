@@ -1,0 +1,30 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+h2.ui.header {
+  //height: 46px;
+  color: #414141;
+  font-family: Futura, 'Lato';
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 46px;
+  margin: 20px 0 28px 0;
+  text-align: center;
+  &:before {
+    display: block;
+    content: "\00a0";
+    width: 98px;
+    height: 2px;
+    margin: 0 auto 20px auto;
+    padding-top: 98px;
+    border-bottom: 2px solid #e5702a;
+  }
+}
+
+h3.ui.header {
+  font-size: @h3;
+  font-weight: 500;
+  line-height: 33px;
+  font-family: Futura, 'Lato';
+}

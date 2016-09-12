@@ -1,0 +1,56 @@
+/*-------------------
+     Breakpoints
+--------------------*/
+
+@mobileBreakpoint            : 320px;
+@tabletBreakpoint            : 768px;
+@computerBreakpoint          : 992px;
+@largeMonitorBreakpoint      : 1140px;
+@widescreenMonitorBreakpoint : 1920px;
+
+/*******************************
+     User Global Variables
+*******************************/
+
+@pageMinWidth  : 1140px;// 1049px;
+@pageOverflowX : visible;
+
+@emSize: 15px;
+@fontSize : 15px;
+@lineHeight: 25px;
+@importGoogleFonts : false;
+
+@h1: 2.25em;
+
+@h2: 36px;
+@h3: 25px;
+
+@defaultBorderRadius: 0.30769em; /* 4px @ 13em */
+
+@disabledOpacity: 0.3;
+
+@black: #444C55;
+@orange: #FDE07B;
+
+@linkColor: #e5702a;
+@linkHoverColor: #C45500;
+@linkHoverUnderline: none;
+
+@borderColor: rgba(0, 0, 0, 0.13);
+@solidBorderColor: #DDDDDD;
+@internalBorderColor: rgba(0, 0, 0, 0.06);
+@selectedBorderColor: #51A7E8;
+
+/* Breakpoints */
+@largeMonitorBreakpoint: 1049px;
+@computerBreakpoint: @largeMonitorBreakpoint;
+@tabletBreakpoint: @largeMonitorBreakpoint;
+
+/* Colors */
+@blue: #80A6CD;
+@green: #60B044;
+@orange: #D26911;
+
+
+@infoBackgroundColor: #E6F1F6;
+@infoTextColor: #4E575B;
