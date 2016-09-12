@@ -24,9 +24,9 @@
 /* Sub Heading */
 @subHeadingDistance: @2px;
 @subHeadingFontSize: @relativeTiny;
-@subHeadingFontWeight: bold;
-@subHeadingTextTransform: uppercase;
-@subHeadingColor: '';
+@subHeadingFontWeight: 500;
+@subHeadingTextTransform: none;
+@subHeadingColor: #8f8f8f;
 
 @smallSubHeadingSize: @relativeMini;
 @largeSubHeadingSize: @relativeSmall;

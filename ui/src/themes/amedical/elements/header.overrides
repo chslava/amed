@@ -22,6 +22,38 @@ h2.ui.header {
   }
 }
 
+.ui.header.simple {
+  &:before {
+    display: none;
+  }
+}
+
+.ui.left.header {
+  text-align: left;
+  &:before {
+    display: block;
+    content: "\00a0";
+    width: 98px;
+    margin: 0;
+    height: 18px;
+    padding-top:0;
+    border-bottom:none;
+    border-top: 2px solid #e5702a;
+  }
+}
+
+h1.ui.header {
+  .sub.header {
+    color: #8f8f8f;
+    font-family: Futura;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+}
+
 h3.ui.header {
   font-size: @h3;
   font-weight: 500;

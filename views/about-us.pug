@@ -1,0 +1,84 @@
+extends layouts/home.pug
+
+block content
+    main.ui.container.about-us
+        div.ui.breadcrumb
+            a(href="index.html").section Sākums
+            div.divider //
+            div.active.section Par mums
+        div.ui.grid
+            div.two.column.row
+                div.column
+                    h1.ui.left.header Par A Medical
+                        div.ui.large.sub.header Dinamisks. Uzticams. Daudzpusīgs.
+                    p A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un
+                    | servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus
+                    | vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un
+                    | industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā.
+                div.column
+                    img(src="/img/about-us.jpg").ui.shadowed.image
+
+    section.secondary-services(style="background:#f7f7f7")
+        div.ui.container
+            h2.simple.ui.header A.Medical darbības virzieni:
+            div.ui.four.columns.relaxed.grid
+                div.column
+                    span.circle-check
+                    p.content Visa veida medicīnas iekārtu un medicīnas preču pārdošana
+                div.column
+                    span.circle-check
+                    p.content Medicīnas iekārtu uzstādīšana un apkalpošana
+                div.column
+                    span.circle-check
+                    p.content Medicīnas iestāžu un nodaļu projektēšana un renovācija
+                div.column
+                    span.circle-check
+                    p.content Industriālo un drošības risinājumu tirdzniecība, uzstādīšana un apkalpošana
+
+
+    section.benefits
+        div.ui.relaxed.grid.container
+            div.sixteen.wide.column
+                h2.ui.header Mūsu vīzija un misija
+                p.content VĪZIJA: Būt par klientu svarīgāko partneri medicīnas tehnoloģijās.
+                p.content MISIJA: Kā daudzpusīga un pieredzējusi profesionāļu komanda ar izcilu produktu portfolio mēs veidojam ilgtspējīgu medicīnas nozari Baltijā.
+                br
+                br
+        div.ui.divider
+
+    section.services
+        div.ui.container
+            div.ui.three.columns.center.aligned.divided.grid
+                div.column
+                    h3.ui.header
+                        img(src="/img/first-icon.png").ui.image
+                    p A.Medical uzskata, ka viens no tā veiksmes stūrakmeņiem ir izcila komanda ar uzkrātām zināšanām medicīnas tehnoloģiju,
+                        | kā arī industriālo un drošības risinājumu nozarēs.
+
+
+                div.column
+                    h3.ui.header
+                        img(src="/img/second-icon.png").ui.image
+                    p Darbiniekiem tiek nodrošinātas visas nepieciešamās apmācības pie iekārtu ražotājiem, tādējādi A.Medical vienmēr spēj ieteikt
+                        | klientu vēlmēm un vajadzībām atbilstošākos risinājumus.
+                div.column
+                    h3.ui.header
+                        img(src="/img/third-icon.png").ui.image
+                    p A.Medical piedāvā augstvērtīgus medicīnas produktus no pasaulē atzītiem ražotājiem. Mēs lepojamies, ka mūsu klientu vidū ir
+                        | visas vadošās Latvijas veselības aprūpes iestādes.
+
+
+    section.coo-respose
+        div.ui.container.grid
+            div.two.column.row
+                div.right.floated.column
+                    h2.ui.left.header Korporatīvā sociālā atbildība
+                    p A.Medical rūpējas par apkārtējo vidi un ir sociāli atbildīgs uzņēmums. Realizējot korporatīvās sociālās atbildības politiku,
+                        | uzņēmums nosaka savu attieksmi pret apkārtējās vides un sabiedrības labklājības uzlabošanu.
+                    p Lai nodrošinātu pilnvērtīgu elektrisko un elektronisko iekārtu utilizāciju, A.Medical uzsākusi sadarbību ar Zaļo jostu, kas veic
+                        | šo procesu atbilstoši valstī noteiktajām prasībām.
+                    p Līdz šim uzņēmuma dibinātāji vairāku gadu garumā ir atbalstījuši Latvijas slimnīcām nozīmīgus projektus, kā arī vairākkārtēji
+                        | ir atbalstījuši bāreņu biedrības.
+
+
+    include sections/subscribe

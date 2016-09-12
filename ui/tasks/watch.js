@@ -154,7 +154,7 @@ module.exports = function(callback) {
 
         // use 2 concurrent streams from same pipe
         uncompressedStream = stream.pipe(clone());
-        compressedStream   = stream.pipe(clone());
+        //compressedStream   = stream.pipe(clone());
 
         uncompressedStream
           .pipe(plumber())
@@ -166,7 +166,7 @@ module.exports = function(callback) {
           })
         ;
 
-        compressedStream = stream
+     /*   compressedStream = stream
           .pipe(plumber())
           .pipe(replace(assets.source, assets.compressed))
           .pipe(minifyCSS(settings.minify))
@@ -176,7 +176,7 @@ module.exports = function(callback) {
           .on('end', function() {
             gulp.start('package compressed css');
           })
-        ;
+        ;*/
       }
       else {
         console.log('Cannot find UI definition at path', lessPath);

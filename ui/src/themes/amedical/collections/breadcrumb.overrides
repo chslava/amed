@@ -1,0 +1,21 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.breadcrumb {
+  margin-top: 1rem !important;
+  a {
+    color: #8f8f8f;
+  }
+}
+
+.ui.breadcrumb .icon.divider {
+  height: 18px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.ui.breadcrumb .active.section {
+  color: #ff6b01;
+}

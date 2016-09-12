@@ -671,6 +671,11 @@ input::selection {
   font-weight: 700;
 }
 
+header {
+  box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
+  margin-bottom: 1rem;
+}
+
 header .logo {
   margin-top: 22px;
   display: block;
@@ -718,6 +723,14 @@ header .ui.text.menu .lang:before {
   margin-top: 60px;
 }
 
+main.about-us {
+  margin-bottom: 100px;
+}
+
+main.about-us .grid {
+  margin-top: 50px;
+}
+
 .services {
   border-bottom: 1px solid #e6e6e6;
 }
@@ -739,17 +752,17 @@ header .ui.text.menu .lang:before {
 }
 
 .services .column {
+  color: #636463;
   margin: 36px 0;
-  border-right: 1px solid #e6e6e6;
+}
+
+.services .column .ui.image {
+  width: auto;
 }
 
 .services .column p {
   max-width: 320px;
   margin: 0 auto 30px auto;
-}
-
-.services .column:last-child {
-  border-right: none;
 }
 
 .benefits {
@@ -888,6 +901,45 @@ header .ui.text.menu .lang:before {
   padding-left: 40px;
   padding-right: 40px;
   margin-left: 10px;
+}
+
+.secondary-services {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.secondary-services .ui.header {
+  margin-bottom: 55px;
+}
+
+.secondary-services .content {
+  color: #636463;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.circle-check {
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  float: left;
+  display: block;
+  border-radius: 100px;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+  background: #FFF url("../img/check-icon.png") no-repeat center;
+  -webkit-box-flex: 0 !important;
+  -ms-flex-positive: 0 !important;
+  flex-grow: 0 !important;
+  -webkit-flex-grow: 0 !important;
+  margin-bottom: 10px;
+}
+
+.coo-respose {
+  background: url("/img/light-bg.png") no-repeat left center;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 footer {
@@ -5183,7 +5235,7 @@ footer .copyright {
 ---------------*/
 
 .ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -5254,7 +5306,7 @@ footer .copyright {
   left: 50%;
   content: '';
   z-index: 3;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #e6e6e6;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
   height: calc(100% -  1rem );
@@ -5271,7 +5323,7 @@ footer .copyright {
 
 /* Inside grid */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1048px) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
     display: table;
@@ -5356,8 +5408,8 @@ footer .copyright {
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(34, 36, 38, 0.15) !important;
-  border-left-color: rgba(34, 36, 38, 0.15) !important;
+  border-top-color: rgba(0, 0, 0, 0.13) !important;
+  border-left-color: rgba(0, 0, 0, 0.13) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
 }
@@ -5393,24 +5445,6 @@ footer .copyright {
 
 .ui.divider {
   font-size: 1rem;
-}
-
-/*******************************
-         Theme Overrides
-*******************************/
-
-.ui.horizontal.divider:before,
-.ui.horizontal.divider:after {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC');
-}
-
-@media only screen and (max-width: 767px) {
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before,
-  .ui.stackable.grid .ui.vertical.divider:after,
-  .ui.grid .stackable.row .ui.vertical.divider:after {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC');
-  }
 }
 /*!
  * # Semantic UI 2.2.4 - Flag
@@ -6911,10 +6945,10 @@ h5.ui.header .sub.header {
 .ui.sub.header {
   padding: 0em;
   margin-bottom: 0.13333333rem;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 0.86666667em;
-  text-transform: uppercase;
-  color: '';
+  text-transform: none;
+  color: #8f8f8f;
 }
 
 .ui.small.sub.header {
@@ -7517,6 +7551,34 @@ h2.ui.header:before {
   border-bottom: 2px solid #e5702a;
 }
 
+.ui.header.simple:before {
+  display: none;
+}
+
+.ui.left.header {
+  text-align: left;
+}
+
+.ui.left.header:before {
+  display: block;
+  content: "\00a0";
+  width: 98px;
+  margin: 0;
+  height: 18px;
+  padding-top: 0;
+  border-bottom: none;
+  border-top: 2px solid #e5702a;
+}
+
+h1.ui.header .sub.header {
+  color: #8f8f8f;
+  font-family: Futura;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
 h3.ui.header {
   font-size: 25px;
   font-weight: 500;
@@ -8108,7 +8170,7 @@ img.ui.image {
 .ui.disabled.images,
 .ui.disabled.image {
   cursor: default;
-  opacity: 0.45;
+  opacity: 0.3;
 }
 
 /*******************************
@@ -8285,7 +8347,7 @@ img.ui.bordered.image {
 .ui.mini.image {
   width: 35px;
   height: auto;
-  font-size: 0.78571429rem;
+  font-size: 0.8rem;
 }
 
 .ui.tiny.images .image,
@@ -8294,7 +8356,7 @@ img.ui.bordered.image {
 .ui.tiny.image {
   width: 80px;
   height: auto;
-  font-size: 0.85714286rem;
+  font-size: 0.86666667rem;
 }
 
 .ui.small.images .image,
@@ -8303,7 +8365,7 @@ img.ui.bordered.image {
 .ui.small.image {
   width: 150px;
   height: auto;
-  font-size: 0.92857143rem;
+  font-size: 0.93333333rem;
 }
 
 .ui.medium.images .image,
@@ -8321,7 +8383,7 @@ img.ui.bordered.image {
 .ui.large.image {
   width: 450px;
   height: auto;
-  font-size: 1.14285714rem;
+  font-size: 1.13333333rem;
 }
 
 .ui.big.images .image,
@@ -8330,7 +8392,7 @@ img.ui.bordered.image {
 .ui.big.image {
   width: 600px;
   height: auto;
-  font-size: 1.28571429rem;
+  font-size: 1.26666667rem;
 }
 
 .ui.huge.images .image,
@@ -8339,7 +8401,7 @@ img.ui.bordered.image {
 .ui.huge.image {
   width: 800px;
   height: auto;
-  font-size: 1.42857143rem;
+  font-size: 1.4rem;
 }
 
 .ui.massive.images .image,
@@ -8348,7 +8410,7 @@ img.ui.bordered.image {
 .ui.massive.image {
   width: 960px;
   height: auto;
-  font-size: 1.71428571rem;
+  font-size: 1.73333333rem;
 }
 
 /*******************************
@@ -8370,6 +8432,19 @@ img.ui.bordered.image {
 /*******************************
          Theme Overrides
 *******************************/
+
+/*--------------
+    Shadowed
+---------------*/
+
+.ui.shadowed.images .image,
+.ui.shadowed.images img,
+.ui.shadowed.images svg,
+.ui.shadowed.image img,
+.ui.shadowed.image svg,
+img.ui.shadowed.image {
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
+}
 /*!
  * # Semantic UI 2.2.4 - Input
  * http://github.com/semantic-org/semantic-ui/
@@ -13874,26 +13949,26 @@ ol.ui.horizontal.list li:before,
 .ui.breadcrumb .divider {
   display: inline-block;
   opacity: 0.7;
-  margin: 0em 0.21428571rem 0em;
-  font-size: 0.92857143em;
-  color: rgba(0, 0, 0, 0.4);
+  margin: 0em 0.2rem 0em;
+  font-size: 0.93333333em;
+  color: #8f8f8f;
   vertical-align: baseline;
 }
 
 /* Link */
 
 .ui.breadcrumb a {
-  color: #4183C4;
+  color: #e5702a;
 }
 
 .ui.breadcrumb a:hover {
-  color: #1e70bf;
+  color: #C45500;
 }
 
 /* Icon Divider */
 
 .ui.breadcrumb .icon.divider {
-  font-size: 0.85714286em;
+  font-size: 0.86666667em;
   vertical-align: baseline;
 }
 
@@ -13913,7 +13988,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.breadcrumb.segment {
   display: inline-block;
-  padding: 0.78571429em 1em;
+  padding: 0.8em 1em;
 }
 
 /*******************************
@@ -13921,7 +13996,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .ui.breadcrumb .active.section {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /*******************************
@@ -13929,15 +14004,15 @@ ol.ui.horizontal.list li:before,
 *******************************/
 
 .ui.mini.breadcrumb {
-  font-size: 0.78571429rem;
+  font-size: 0.8rem;
 }
 
 .ui.tiny.breadcrumb {
-  font-size: 0.85714286rem;
+  font-size: 0.86666667rem;
 }
 
 .ui.small.breadcrumb {
-  font-size: 0.92857143rem;
+  font-size: 0.93333333rem;
 }
 
 .ui.breadcrumb {
@@ -13945,24 +14020,43 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.large.breadcrumb {
-  font-size: 1.14285714rem;
+  font-size: 1.13333333rem;
 }
 
 .ui.big.breadcrumb {
-  font-size: 1.28571429rem;
+  font-size: 1.26666667rem;
 }
 
 .ui.huge.breadcrumb {
-  font-size: 1.42857143rem;
+  font-size: 1.4rem;
 }
 
 .ui.massive.breadcrumb {
-  font-size: 1.71428571rem;
+  font-size: 1.73333333rem;
 }
 
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.breadcrumb {
+  margin-top: 1rem !important;
+}
+
+.ui.breadcrumb a {
+  color: #8f8f8f;
+}
+
+.ui.breadcrumb .icon.divider {
+  height: 18px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.ui.breadcrumb .active.section {
+  color: #ff6b01;
+}
 /*!
  * # Semantic UI 2.2.4 - Form
  * http://github.com/semantic-org/semantic-ui/
@@ -16316,7 +16410,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px #e6e6e6;
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -16350,7 +16444,7 @@ ol.ui.horizontal.list li:before,
 /* Divided Row */
 
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px #e6e6e6;
 }
 
 .ui.grid > .divided.row > .column:first-child {
@@ -16371,7 +16465,7 @@ ol.ui.horizontal.list li:before,
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px -1px 0px 0px #e6e6e6;
 }
 
 /* Padded Horizontally Divided */
@@ -16802,7 +16896,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px #e6e6e6;
   }
 
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -16813,7 +16907,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px #e6e6e6;
   }
 
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:last-child:before {
@@ -16854,7 +16948,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px #e6e6e6;
   }
 
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -16865,7 +16959,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px #e6e6e6;
   }
 
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:last-child:before {
@@ -16906,7 +17000,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px #e6e6e6;
   }
 
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -16917,7 +17011,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px #e6e6e6;
   }
 
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:last-child:before {

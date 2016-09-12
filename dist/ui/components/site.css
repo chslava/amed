@@ -165,6 +165,10 @@ input::selection {
   font-style: normal;
   font-weight: 700;
 }
+header {
+  box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
+  margin-bottom: 1rem;
+}
 header .logo {
   margin-top: 22px;
   display: block;
@@ -203,6 +207,12 @@ header .ui.text.menu .lang:before {
 .represent .center.aligned.row {
   margin-top: 60px;
 }
+main.about-us {
+  margin-bottom: 100px;
+}
+main.about-us .grid {
+  margin-top: 50px;
+}
 .services {
   border-bottom: 1px solid #e6e6e6;
 }
@@ -223,15 +233,15 @@ header .ui.text.menu .lang:before {
           align-items: center;
 }
 .services .column {
+  color: #636463;
   margin: 36px 0;
-  border-right: 1px solid #e6e6e6;
+}
+.services .column .ui.image {
+  width: auto;
 }
 .services .column p {
   max-width: 320px;
   margin: 0 auto 30px auto;
-}
-.services .column:last-child {
-  border-right: none;
 }
 .benefits {
   text-align: center;
@@ -348,6 +358,40 @@ header .ui.text.menu .lang:before {
   padding-left: 40px;
   padding-right: 40px;
   margin-left: 10px;
+}
+.secondary-services {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.secondary-services .ui.header {
+  margin-bottom: 55px;
+}
+.secondary-services .content {
+  color: #636463;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.circle-check {
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  float: left;
+  display: block;
+  border-radius: 100px;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+  background: #FFF url("../img/check-icon.png") no-repeat center;
+  -webkit-box-flex: 0 !important;
+      -ms-flex-positive: 0 !important;
+          flex-grow: 0 !important;
+  -webkit-flex-grow: 0 !important;
+  margin-bottom: 10px;
+}
+.coo-respose {
+  background: url("/img/light-bg.png") no-repeat left center;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 footer {
   background: #636463;
