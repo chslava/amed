@@ -61,6 +61,7 @@ header {
 .main-slider {
   margin:0;
   .content {
+    .container();
     h1 {
       color: #FFF;
     }

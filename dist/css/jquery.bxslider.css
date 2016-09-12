@@ -19,7 +19,7 @@
 	margin: 0 auto 60px;
 	padding: 0;
 	*zoom: 1;
-	max-width: 1140px!important;
+	max-width: 1440px!important;
 }
 
 .bx-wrapper img {
@@ -34,7 +34,7 @@
 }
 
 .bx-wrapper .content h1 {
-	width: 950px;
+
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 	color: white;
 	font-family: Futura;
@@ -153,12 +153,12 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: -55px;
+	left: 55px;
 	background: url("images/left-arrow-icon.png") no-repeat;
 }
 
 .bx-wrapper .bx-next {
-	right: -55px;
+	right:  55px;
 	background: url("images/right-arrow-icon.png") no-repeat;
 }
 
