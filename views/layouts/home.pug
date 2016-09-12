@@ -5,6 +5,9 @@ html(lang="en")
         link(rel="stylesheet", type='text/css', href='ui/semantic.css')
         // Pagaidu font fix
         | <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css'>
+        block head-content
+
+        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
     body
         include blocks/header.pug
 
@@ -12,9 +15,8 @@ html(lang="en")
 
         include blocks/footer.pug
 
-        script(src="https://code.jquery.com/jquery-3.1.0.min.js"
-               integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
-               crossorigin="anonymous")
         script(src="/ui/semantic.min.js")
+        script(src="/js/jquery.bxslider.min.js")
+
         script(src="/js/main.js")
 

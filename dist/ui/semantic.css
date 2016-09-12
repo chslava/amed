@@ -706,6 +706,10 @@ header .ui.text.menu .lang:before {
   border-left: 1px solid #D8D8D8;
 }
 
+.main-slider {
+  margin: 0;
+}
+
 .services {
   border-bottom: 1px solid #e6e6e6;
 }

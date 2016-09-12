@@ -1,5 +1,7 @@
 extends layouts/home.pug
 
+block head-content
+    link(rel="stylesheet", type='text/css', href='css/jquery.bxslider.css')
 block content
 
     include sections/slider
@@ -60,3 +62,8 @@ block content
     include sections/news
 
     include sections/subscribe
+
+    block footer-content
+        script(src="/js/jquery.bxslider.min.js")
+            script
+                | $('.main-slider').bxSlider();
