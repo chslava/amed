@@ -197,6 +197,12 @@ header .ui.text.menu .lang:before {
 .main-slider {
   margin: 0;
 }
+.main-slider .content h1 {
+  color: #FFF;
+}
+.represent .center.aligned.row {
+  margin-top: 60px;
+}
 .services {
   border-bottom: 1px solid #e6e6e6;
 }

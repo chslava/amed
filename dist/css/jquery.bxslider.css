@@ -19,6 +19,7 @@
 	margin: 0 auto 60px;
 	padding: 0;
 	*zoom: 1;
+	max-width: 1140px!important;
 }
 
 .bx-wrapper img {
@@ -26,6 +27,37 @@
 	display: block;
 }
 
+.bx-wrapper .content {
+	position: absolute;
+	top: 50%;
+	margin-top: -80px;
+}
+
+.bx-wrapper .content h1 {
+	width: 950px;
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	color: white;
+	font-family: Futura;
+	font-size: 50px;
+	font-weight: 500;
+	line-height: 65px;
+}
+
+#slider-prev, #slider-next{
+	position: absolute;
+	top: 50%;
+	margin-top:-38px;
+	width:22px;
+	height:38px;
+	background:red url("images/right-arrow-icon.png") no-repeat;
+	display: inline-block;
+	float:right;
+	cursor: pointer;
+}
+#slider-prev {
+	background:green url("images/left-arrow-icon.png") no-repeat;
+	float:left;
+}
 
 /** THEME
 ===================================*/
@@ -34,7 +66,6 @@
  	max-width: 1440px;
 	margin-left:auto;
 	margin-right: auto;
-	left: -5px;
 	background: #fff;
 	
 	/*fix other elements on the page moving (on Chrome)*/
@@ -48,10 +79,15 @@
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto {
 	position: absolute;
-	bottom: -30px;
+	bottom: 15px;
 	width: 100%;
 }
 
+.bx-wrapper .bx-controls-direction {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1440px;
+}
 /* LOADER */
 
 .bx-wrapper .bx-loading {
@@ -84,41 +120,54 @@
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a {
-	background: #666;
+	background: #FFF;
+	opacity: 0.5;
 	text-indent: -9999px;
 	display: block;
-	width: 10px;
-	height: 10px;
-	margin: 0 5px;
+	width: 20px;
+	height: 20px;
+	margin: 0 10px;
 	outline: 0;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	float:left;
 }
+.bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:after {
+	content: "\00a0";
+	width: 32px;
+	display: inline-block;
+	height:2px;
+	margin-top:8px;
+	border-top:1px solid #FFF;
+}
+.bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:last-child:after {
+	 width: 0px;
+}
+
+
 
 .bx-wrapper .bx-pager.bx-default-pager a:hover,
 .bx-wrapper .bx-pager.bx-default-pager a.active {
-	background: #000;
+	background-color: rgb(255, 107, 1);
+	opacity: 1;
 }
 
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: 10px;
-	background: url(images/controls.png) no-repeat 0 -32px;
+	left: -55px;
+	background: url("images/left-arrow-icon.png") no-repeat;
 }
 
 .bx-wrapper .bx-next {
-	right: 10px;
-	background: url(images/controls.png) no-repeat -43px -32px;
+	right: -55px;
+	background: url("images/right-arrow-icon.png") no-repeat;
 }
 
 .bx-wrapper .bx-prev:hover {
-	background-position: 0 0;
+
 }
 
 .bx-wrapper .bx-next:hover {
-	background-position: -43px 0;
+
 }
 
 .bx-wrapper .bx-controls-direction a {
@@ -126,8 +175,8 @@
 	top: 50%;
 	margin-top: -16px;
 	outline: 0;
-	width: 32px;
-	height: 32px;
+	width: 22px;
+	height: 38px;
 	text-indent: -9999px;
 	z-index: 9999;
 }
@@ -154,7 +203,7 @@
 
 .bx-wrapper .bx-controls-auto .bx-start:hover,
 .bx-wrapper .bx-controls-auto .bx-start.active {
-	background-position: -86px 0;
+
 }
 
 .bx-wrapper .bx-controls-auto .bx-stop {
@@ -169,7 +218,7 @@
 
 .bx-wrapper .bx-controls-auto .bx-stop:hover,
 .bx-wrapper .bx-controls-auto .bx-stop.active {
-	background-position: -86px -33px;
+
 }
 
 /* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
