@@ -2,7 +2,9 @@ var
     gulp  = require('gulp'),
     watch = require('./ui/tasks/watch'),
     build = require('./ui/tasks/build'),
-    pug = require('gulp-pug')
+    pug = require('gulp-pug'),
+    browserSyncConfig = require('./package.json')['browsersync'],
+    browserSync = require('browser-sync').create()
 ;
 
 function swallowError (error) {
@@ -19,7 +21,7 @@ gulp.task('semantic-build', build);
 
 // watch & build Pug
 gulp.task('pug-watch', function () {
-    gulp.watch('views/*.pug', ['pug-build'])
+    gulp.watch('views/**/*.pug', ['pug-build'])
 });
 
 gulp.task('pug-build', function buildHTML() {
@@ -31,4 +33,9 @@ gulp.task('pug-build', function buildHTML() {
 
 gulp.task('build-ui', ['semantic-build', 'pug-build']);
 gulp.task('develop', ['semantic-watch', 'pug-watch']);
+
+gulp.task('browser-sync', function () {
+    browserSync.init(browserSyncConfig);
+    gulp.watch(["dist/*.html", 'dist/ui/*.css']).on('change', browserSync.reload);
+});
 

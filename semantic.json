@@ -2,18 +2,18 @@
   "base": "ui",
   "paths": {
     "source": {
-      "config": "ui/src/theme.config",
-      "definitions": "ui/src/definitions/",
-      "site": "ui/src/site/",
-      "themes": "ui/src/themes/"
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
     },
     "output": {
-      "packaged": "./dist",
-      "uncompressed": "./dist/components/",
-      "compressed": "./dist/components/compressed/",
-      "themes": "./dist/themes/"
+      "packaged": "./../dist/ui/",
+      "uncompressed": "./../dist/ui/components/",
+      "compressed": "./../dist/ui/components/compressed/",
+      "themes": "./../dist/ui/themes/"
     },
-    "clean": "./dist/"
+    "clean": "dist/"
   },
   "permission": false,
   "autoInstall": false,

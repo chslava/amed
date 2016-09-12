@@ -1,8 +1,14 @@
 {
-  "name": "ds-ui: amedical",
+  "name": "ds-ui-amedical",
   "version": "0.0.1",
   "description": "amedical",
   "main": "index.js",
+  "browsersync": {
+    "browser": "firefox",
+    "server": {
+      "baseDir": "./dist"
+    }
+  },
   "dependencies": {
     "browser-sync": "^2.14.3",
     "pug": "^2.0.0-beta6",
