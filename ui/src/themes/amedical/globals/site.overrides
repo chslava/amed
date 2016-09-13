@@ -381,7 +381,15 @@ footer {
         font-size: 15px;
         font-weight: 500;
         line-height: 25px;
+        &:hover {
+          .soc-icon {
+            color: #e5702a;
+          }
+        }
       }
+    }
+    a.item {
+      color: #FFF;
     }
 
     .contacts, .follow-us {

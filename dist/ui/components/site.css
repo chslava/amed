@@ -496,6 +496,12 @@ footer .container > .grid .ui.text.menu a.item {
   font-weight: 500;
   line-height: 25px;
 }
+footer .container > .grid .ui.text.menu a.item:hover .soc-icon {
+  color: #e5702a;
+}
+footer .container > .grid a.item {
+  color: #FFF;
+}
 footer .container > .grid .contacts h4,
 footer .container > .grid .follow-us h4 {
   text-transform: uppercase;
