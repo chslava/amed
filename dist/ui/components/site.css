@@ -213,10 +213,11 @@ header .icon-basket-icon {
 .represent .center.aligned.row {
   margin-top: 60px;
 }
-main.about-us {
+main.page {
+  padding-top: 1rem;
   margin-bottom: 100px;
 }
-main.about-us .grid {
+main.page .grid {
   margin-top: 50px;
 }
 .services {
@@ -300,6 +301,7 @@ main.about-us .grid {
 }
 .benefits {
   text-align: center;
+  border-bottom: 1px solid #e6e6e6;
 }
 .benefits .content {
   margin: 0 auto;
@@ -336,6 +338,18 @@ main.about-us .grid {
   font-weight: 300;
   line-height: 65px;
 }
+.ui.segment h4 {
+  color: #414141;
+}
+.ui.segment h4.padded {
+  margin: 40px 0;
+}
+.ui.segment h4.large {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  min-height: 30px;
+}
 .benefits-icon {
   color: #e5702a;
   font-size: 58px;
@@ -344,6 +358,10 @@ main.about-us .grid {
 }
 .represent {
   padding-bottom: 105px;
+}
+.very.padded {
+  padding-top: 100px!important;
+  padding-bottom: 100px!important;
 }
 .home-news {
   background: #F7F7F7;
@@ -392,7 +410,7 @@ main.about-us .grid {
 }
 .home-news .view-all {
   text-align: center;
-  padding: 60px 0 100px 0;
+  padding: 60px 0 0 0;
 }
 .subscribe {
   background: #636463 url("../img/subscribe-background.png") repeat top center;
@@ -446,6 +464,7 @@ main.about-us .grid {
   }
 }
 .secondary-services {
+  background: #f7f7f7;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -457,6 +476,14 @@ main.about-us .grid {
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
+}
+.circle-list {
+  list-style: none;
+  padding: 1em 0;
+}
+.circle-list li {
+  min-height: 4em;
+  line-height: 3em;
 }
 .circle-check {
   margin-right: 20px;
@@ -479,6 +506,14 @@ main.about-us .grid {
   margin-top: 23px;
   display: block;
   color: #e5702a;
+}
+.circle-check.small {
+  width: 40px;
+  height: 40px;
+}
+.circle-check.small i {
+  margin-top: 15px;
+  font-size: 12px;
 }
 .coo-respose {
   background: url("/img/light-bg.png") no-repeat left center;

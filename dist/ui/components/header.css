@@ -728,7 +728,7 @@ h2.ui.header:before {
   width: 98px;
   height: 2px;
   margin: 0 auto 20px auto;
-  padding-top: 98px;
+  padding-top: 0;
   border-bottom: 2px solid #e5702a;
 }
 .ui.header.simple:before {

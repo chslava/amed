@@ -1,7 +1,7 @@
 extends layouts/home.pug
 
 block content
-    main.ui.container.about-us
+    main.ui.container.about-us.page
         div.ui.breadcrumb
             a(href="index.html").section Sākums
             div.divider //
@@ -18,7 +18,7 @@ block content
                 div.column
                     img(src="/img/about-us.jpg").ui.shadowed.image
 
-    section.secondary-services(style="background:#f7f7f7")
+    section.secondary-services
         div.ui.container
             h2.simple.ui.header A.Medical darbības virzieni:
             div.ui.four.columns.relaxed.grid
@@ -40,19 +40,15 @@ block content
                     p.content Industriālo un drošības risinājumu tirdzniecība, uzstādīšana un apkalpošana
 
 
-    section.benefits
+    section.benefits.very.padded
         div.ui.relaxed.grid.container
             div.sixteen.wide.column
                 h2.ui.header Mūsu vīzija un misija
                 p.content VĪZIJA: Būt par klientu svarīgāko partneri medicīnas tehnoloģijās.
                 p.content MISIJA: Kā daudzpusīga un pieredzējusi profesionāļu komanda ar izcilu produktu portfolio mēs veidojam ilgtspējīgu medicīnas nozari Baltijā.
-                br
-                br
-        div.ui.divider
-
     section.services
         div.ui.container
-            div.ui.three.columns.center.aligned.divided.grid
+            div.ui.three.columns.center.aligned.grid
                 div.column
                     h3.ui.header
                         div.service-icon.icon-first-icon
