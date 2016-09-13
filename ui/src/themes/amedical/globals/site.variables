@@ -12,7 +12,7 @@
      User Global Variables
 *******************************/
 
-@pageMinWidth  : 1140px;// 1049px;
+@pageMinWidth  : auto;// 1140px;// 1049px;
 @pageOverflowX : visible;
 
 @emSize: 15px;

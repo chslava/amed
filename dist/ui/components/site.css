@@ -24,7 +24,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: visible;
-  min-width: 1140px;
+  min-width: auto;
   background: #FFFFFF;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -454,76 +454,17 @@ footer {
   background: #636463;
   color: #FFF;
 }
-footer .container > .grid {
+footer a {
+  color: #FFF;
+}
+footer nav > div {
   border-bottom: 1px solid #8f8f8f;
-  padding: 44px 0;
+  padding: 25px 0;
 }
-footer .container > .grid > .column {
-  border-right: 1px solid #8f8f8f;
-}
-footer .container > .grid > .column:last-child {
-  border-right: none;
-}
-footer .container > .grid > .column .c-icon {
-  color: #8f8f8f;
-  font-size: 18px;
-  min-height: 30px;
-  float: left;
-  display: block;
-  margin-right: 14px;
-  min-width: 24px;
-  line-height: 24px;
-}
-footer .container > .grid .ui.text.menu {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-footer .container > .grid .ui.text.menu ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  -moz-columns: 2;
-  -webkit-columns: 2;
-  columns: 2;
-  column-gap: 80px;
-  -moz-column-gap: 80px;
-  -webkit-column-gap: 80px;
-}
-footer .container > .grid .ui.text.menu a.item {
+footer .ui.text.menu a.item,
+footer .ui.text.menu .item {
   color: #FFF;
-  min-height: 25px;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 25px;
-}
-footer .container > .grid .ui.text.menu a.item:hover .soc-icon {
-  color: #e5702a;
-}
-footer .container > .grid a.item {
-  color: #FFF;
-}
-footer .container > .grid .contacts h4,
-footer .container > .grid .follow-us h4 {
-  text-transform: uppercase;
-  height: 25px;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 25px;
-}
-footer .container > .grid .contacts > div,
-footer .container > .grid .follow-us > div {
-  width: 250px;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 25px;
-  min-height: 30px;
-  margin-bottom: 20px;
-}
-footer .container > .grid .column.contacts {
-  border-right: 1px solid #8f8f8f;
-  padding-left: 2rem!important;
+  margin-bottom: 14px;
 }
 footer .soc-icon {
   font-size: 30px;
@@ -533,12 +474,97 @@ footer .soc-icon {
   display: block;
   float: left;
 }
-footer .copyright {
-  display: block;
+footer .c-icon {
   color: #8f8f8f;
+  font-size: 18px;
+  min-height: 30px;
+  float: left;
+  display: block;
+  margin-right: 14px;
+  min-width: 24px;
+  line-height: 24px;
+}
+footer .footer-contacts,
+footer .follow-us {
+  /*  > div {
+      width: 250px;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 25px;
+      min-height: 30px;
+      margin-bottom:20px;
+    }*/
+}
+footer .footer-contacts h4,
+footer .follow-us h4 {
+  text-transform: uppercase;
+  height: 25px;
+  color: white;
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
-  margin-top: 50px;
-  padding-bottom: 30px;
+}
+footer .copyright {
+  background: #414141;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  padding: 18px 0;
+}
+@media (min-width: 768px) {
+  footer nav > div {
+    width: 100%;
+    border-bottom: 1px solid #8f8f8f;
+    -webkit-column-gap: 80px;
+       -moz-column-gap: 80px;
+            column-gap: 80px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+    padding: 25px 0;
+  }
+  footer .copyright {
+    background: #636463!important;
+    color: #8f8f8f;
+    line-height: 18px;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  footer nav > div {
+    border-right: 1px solid #8f8f8f;
+    width: 100%;
+    border-bottom: none;
+    margin: 0;
+    -webkit-column-gap: 80px;
+       -moz-column-gap: 80px;
+            column-gap: 80px;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+    padding: 0;
+  }
+  footer .footer-contacts {
+    margin-top: 1rem;
+  }
+  footer .footer-contacts > .ui.menu {
+    width: auto;
+    border-right: 1px solid #8f8f8f;
+    min-height: 195px;
+  }
+  footer .follow-us {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 1rem;
+  }
+  footer .copyright {
+    height: 25px;
+    line-height: 25px;
+    padding: 30px 0;
+  }
 }

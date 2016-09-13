@@ -1,30 +1,29 @@
 footer
     div.ui.container
-        div.ui.two.column.grid
-            div.column
+        div.ui.grid
+            div.sixteen.wide.tablet.eight.wide.computer.column
                 nav.ui.text.menu
-                    ul
-                        li
-                            a(href="#").item.active  Medicīnas iekārtas
-                        each title, href in {"#2":'Medicīnas preces', "#3":"Industriālie un drošības risinājumi", "#4": "Projektēšana", "#5": "Serviss", "#6": "Piegāde", "#7": "Atgriešana un apmaiņa", "#8": "Privātuma politika", "#9": "Par mums", "contact-us.html":"Kontakti"}
-                            li
+                    div
+                        a(href="#").item.active  Medicīnas iekārtas
+                            each title, href in {"#2":'Medicīnas preces', "#3":"Industriālie un drošības risinājumi", "#4": "Projektēšana", "#5": "Serviss", "#6": "Piegāde", "#7": "Atgriešana un apmaiņa", "#8": "Privātuma politika", "#9": "Par mums", "contact-us.html":"Kontakti"}
                                 a(class="item" href=href)=  title
-            div.column
+            div.sixteen.wide.mobile.eight.wide.computer.column
                 div.ui.grid
-                    div.eleven.wide.column.contacts
-                        h4 Kontakti
-                        div
-                            i.c-icon.icon-place-icon
-                            | Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067
-                        div
-                            i.c-icon.icon-phone-icon
-                            | Tālrunis: 66103002, 20277153
-                        div
-                            i.c-icon.icon-mail-icon
-                            | E-pasts: #[a(href="#").item info@amedical.eu]
-                    div.five.wide.column.follow-us
+                    div.sixteen.wide.mobile.eight.wide.tablet.ten.wide.computer.column.footer-contacts
+                        div.ui.vertical.text.menu
+                            h4 Kontakti
+                            div.item
+                                i.c-icon.icon-place-icon
+                                | Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067
+                            div.item
+                                i.c-icon.icon-phone-icon
+                                | Tālrunis: 66103002, 20277153
+                            div.item
+                                i.c-icon.icon-mail-icon
+                                | E-pasts: #[a(href="#") info@amedical.eu]
+                    div.sixteen.wide.mobile.eight.wide.tablet.six.wide.computer.column.follow-us
                         h4 Seko mums
-                        nav.ui.vertical.text.menu
+                        div.ui.text.menu.soc-menu
                             a.item
                                 i.soc-icon.icon-facebook-icon
                                 | Facebook
@@ -32,4 +31,4 @@ footer
                                 i.soc-icon.icon-linkedin-icon
                                 | LinkedIn
 
-    div.ui.center.aligned.container.copyright Visas tiesības aizsargātas &copy 2016 A.MEDICAL
+    div.copyright Visas tiesības aizsargātas &copy 2016 A.MEDICAL
