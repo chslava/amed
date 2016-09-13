@@ -98,10 +98,16 @@ main.about-us {
   }
   .column {
     color: #636463;
-    margin: 36px 0;
+    margin: 0 0 15px 0;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
     p {
-      max-width: 320px;
+      //max-width: 320px;
       margin:0 auto 30px auto;
+    }
+    &:last-child {
+      border-bottom: none;
     }
   }
 
@@ -113,6 +119,54 @@ main.about-us {
   border-bottom: 1px solid #e6e6e6;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .services {
+    .column {
+      padding: 20px 0 40px 0;
+      text-align: left;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .services {
+    .ui.header {
+      justify-content: flex-start;
+    }
+    .column {
+      p {
+        text-align: left;
+        width: 100%;
+      }
+    }
+
+  }
+
+}
+
+
+@media (min-width: 992px) {
+  .services {
+    .grid {
+      justify-content: center;
+    }
+    .ui.header {
+      justify-content: center;
+    }
+    .column {
+      margin: 36px 0;
+      border-left: 1px solid #e6e6e6;
+      text-align: center;
+      border-bottom: none;
+      p {
+        text-align: center;
+      }
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}
 // ------------------------------------------------------------
 .benefits {
   text-align: center;
@@ -136,6 +190,7 @@ main.about-us {
     font-weight: 500;
     line-height: 25px;
     padding-bottom: 75px!important;
+    margin-bottom: 2em!important;
     > img {
       margin:60px auto 0 auto;
       display: block;

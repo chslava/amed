@@ -761,17 +761,74 @@ main.about-us .grid {
 
 .services .column {
   color: #636463;
-  margin: 36px 0;
+  margin: 0 0 15px 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .services .column p {
-  max-width: 320px;
   margin: 0 auto 30px auto;
+}
+
+.services .column:last-child {
+  border-bottom: none;
 }
 
 .services .service-icon {
   color: #ff6b01;
   font-size: 52px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .services .column {
+    padding: 20px 0 40px 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .services .ui.header {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+
+  .services .column p {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .services .grid {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .services .ui.header {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .services .column {
+    margin: 36px 0;
+    border-left: 1px solid #e6e6e6;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .services .column p {
+    text-align: center;
+  }
+
+  .services .column:first-child {
+    border-left: none;
+  }
 }
 
 .benefits {
@@ -800,6 +857,7 @@ main.about-us .grid {
   font-weight: 500;
   line-height: 25px;
   padding-bottom: 75px!important;
+  margin-bottom: 2em!important;
 }
 
 .benefits .segment > img {
@@ -945,10 +1003,6 @@ main.about-us .grid {
 
   .subscribe h4.ui.header {
     width: auto;
-  }
-
-  .subscribe .ui.button {
-    margin-top: 0rem!important;
   }
 }
 
