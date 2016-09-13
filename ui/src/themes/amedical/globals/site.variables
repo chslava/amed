@@ -54,3 +54,5 @@
 
 @infoBackgroundColor: #E6F1F6;
 @infoTextColor: #4E575B;
+
+@inputBackground: #f7f7f7;

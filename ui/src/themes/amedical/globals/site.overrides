@@ -224,6 +224,7 @@ main.about-us {
     max-width: 285px;
     margin-left: 42px!important;
     font-weight: 700;
+    border:none!important;
   }
   .ui.button {
     padding-left: 40px;
@@ -269,6 +270,50 @@ main.about-us {
   padding-top:100px;
   padding-bottom:100px;
 
+}
+
+
+// -----------------------------------------
+.contacts {
+  color:#FFF;
+  position: relative;
+  p {
+    line-height: 30px;
+  }
+  >.ui.container {
+    min-height:700px;
+    z-index: 10;
+    position: relative;
+  }
+  .info {
+    background:#636463;
+    min-height: 700px;
+    width: 40%;
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .map {
+    position: absolute;
+    right:0;
+    top:0;
+    width: 60%;
+    float:left;
+    background: lightgoldenrodyellow;
+    min-height:700px;
+    z-index: 15;
+  }
+  .ui.container.grid {
+    //background:  #636463;
+  }
+  .divider {
+    opacity: 0.2;
+  }
+}
+
+.contact-form {
+  margin-top:1rem;
+  padding:100px 0;
 }
 // -----------------------------------------
 footer {

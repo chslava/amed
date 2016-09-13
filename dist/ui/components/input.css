@@ -39,7 +39,7 @@
   line-height: 1.2142em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.62623333em 0.93333333em;
-  background: #FFFFFF;
+  background: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.13);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.30769em;
@@ -136,7 +136,7 @@
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: #85B7D9;
-  background: #FFFFFF;
+  background: #f7f7f7;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }

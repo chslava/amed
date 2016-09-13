@@ -34,7 +34,78 @@
         </div>
       </div>
     </header>
-    <p>Šeit ir saturs kontaktiem....</p>
+    <main class="contacts">
+      <div class="ui container vertically divided grid">
+        <div class="five wide column">
+          <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
+            <div class="divider">//</div>
+            <div class="active section">Kontakti</div>
+          </div>
+          <h1>Kontakti</h1>
+          <p>Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067</p>
+          <p>Tālrunis: 66103003, 20277153</p>
+          <p>Fakss: 66103010</p>
+          <p>E-pasts: info@amedical.eu</p>
+          <p>Darba laiks: 8:30 - 17:30</p>
+          <div class="ui divider"></div>
+          <h1>Rekvizīti</h1>
+          <p>SIA "A.Medical"
+            PVN reģ. Nr. LV 40103599415
+            Varkaļu iela 13A, Rīga, Latvija, LV-1067
+          </p>
+          <p>A/S „Swedbank”
+            Konts: LV25HABA0551034365891
+            Kods: HABALV22
+          </p>
+        </div>
+      </div>
+      <div class="info"></div>
+      <div class="map contact-map" data-lat="56.940" data-lng="24.070"></div>
+    </main>
+    <section class="contact-form">
+      <div class="ui container grid">
+        <div class="two column row">
+          <div class="column">
+            <h2 class="left ui header">Sazinies ar mums</h2>
+            <form class="ui form">
+              <div class="eight wide field">
+                <label>Vārds un uzvārds</label>
+                <input type="text">
+              </div>
+              <div class="eight wide field">
+                <label>Uzņēmums</label>
+                <input type="text">
+              </div>
+              <div class="eight wide field">
+                <label>E-pasts</label>
+                <input type="text">
+              </div>
+              <div class="eight wide field">
+                <label>Tālrunis</label>
+                <input type="text">
+              </div>
+              <div class="fourteen wide field">
+                <label>Jūsu ziņa</label>
+                <textarea></textarea>
+              </div>
+              <button class="ui huge primary button" type="submit">Nosūtīt</button>
+            </form>
+          </div>
+          <div class="column"><img class="ui shadowed image" src="/img/contact-us.jpg"></div>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe">
+      <div class="ui container">
+        <form class="ui form">
+          <div class="ui centered relaxed grid">
+            <h4 class="ui header">Pieteikties Jaunumiem</h4>
+            <input class="subscribe ui input" placeholder="Ievadi savu e-pastu">
+            <button class="ui primary button">Pieteikties</button>
+          </div>
+        </form>
+      </div>
+    </section>
     <footer>
       <div class="ui container">
         <div class="ui two column grid">
@@ -77,6 +148,51 @@
     </footer>
     <script src="/ui/semantic.min.js"></script>
     <script src="/js/jquery.bxslider.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBKeYvaMBcJDXj6f8O4N02ZWjSfHdWM2-Q"></script>
+    <script src="/js/gmaps.js"></script>
+    <script>
+      $(function() {
+      map = new GMaps({
+              div: '.contact-map',
+              lat: $('.contact-map').data('lat'), //56.940,
+              lng: $('.contact-map').data('lng'), //24.070,
+              // zoom: 12,
+              scrollwheel: true,
+              disableDefaultUI: true,
+              styles: [
+                  {
+                      stylers: [
+                          {saturation: -75}
+                      ]
+                  },
+                  {
+                      featureType: "buildings",
+                      elementType: "geometry",
+                      stylers: [
+                          {visibility: "simplified"}
+                      ]
+                  }, {
+                      featureType: "road",
+                      elementType: "geometry",
+                      stylers: [
+                          {visibility: "simplified"}
+                      ]
+                  }, {
+                      featureType: "road",
+                      elementType: "labels",
+                      stylers: [
+                          {visibility: "simplified"}
+                      ]
+                  }
+              ]
+          });
+          map.addMarker({
+              lat: 56.940,
+              lng: 24.070,
+              icon: '/img/marker.png',
+          });
+      })
+    </script>
     <script src="/js/main.js"></script>
   </body>
 </html>
