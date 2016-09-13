@@ -154,16 +154,16 @@
 
 .bx-wrapper .bx-prev {
 	left: 55px;
-	background: url("images/left-arrow-icon.png") no-repeat;
+	background: url("images/left-arrow-icon.png") no-repeat center;
 }
 
 .bx-wrapper .bx-next {
 	right:  55px;
-	background: url("images/right-arrow-icon.png") no-repeat;
+	background: url("images/right-arrow-icon.png") no-repeat center;
 }
 
-.bx-wrapper .bx-prev:hover {
-
+.bx-wrapper .bx-prev:hover, .bx-wrapper .bx-next:hover {
+	background-color: rgba(255,255,255, 0.3);
 }
 
 .bx-wrapper .bx-next:hover {
@@ -175,8 +175,9 @@
 	top: 50%;
 	margin-top: -16px;
 	outline: 0;
-	width: 22px;
-	height: 38px;
+	display: block;
+	width: 59px;
+	height: 60px;
 	text-indent: -9999px;
 	z-index: 9999;
 }
