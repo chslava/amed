@@ -56,7 +56,14 @@ header {
         border-left: 1px solid #D8D8D8;
       }
     }
+  }
 
+  .icon-home-icon {
+    font-size: 19px;
+  }
+
+  .icon-basket-icon {
+    font-size: 24px;
   }
 }
 
@@ -91,15 +98,16 @@ main.about-us {
   }
   .column {
     color: #636463;
-    .ui.image {
-      width: auto;
-    }
-
     margin: 36px 0;
     p {
       max-width: 320px;
       margin:0 auto 30px auto;
     }
+  }
+
+  .service-icon {
+    color: #ff6b01;
+    font-size: 52px;
   }
 
   border-bottom: 1px solid #e6e6e6;
@@ -143,6 +151,14 @@ main.about-us {
     }
   }
 }
+
+.benefits-icon {
+  color: #e5702a;
+  font-size:58px;
+  display: block;
+  margin-top: 60px;
+}
+
 // ------------------------------------------------------------
 .represent {
   padding-bottom:105px;
@@ -258,10 +274,16 @@ main.about-us {
   display: block;
   border-radius: 100px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
-  background: #FFF url("../img/check-icon.png") no-repeat center;
+  background: #FFF;
+  text-align:center;
   flex-grow: 0 !important;
   -webkit-flex-grow: 0 !important;
   margin-bottom:10px;
+  i {
+    margin-top: 23px;
+    display: block;
+    color: #e5702a;
+  }
 }
 
 // -----------------------------------------
@@ -301,7 +323,7 @@ main.about-us {
     float:left;
     background: lightgoldenrodyellow;
     min-height:700px;
-    z-index: 15;
+    z-index: 10;
   }
   .ui.container.grid {
     //background:  #636463;
@@ -327,12 +349,15 @@ footer {
       &:last-child {
         border-right: none;
       }
-      .icon {
-        color: rgb(143, 143, 143);
-        font-size: 20px;
+      .c-icon {
+        color: #8f8f8f;
+        font-size: 18px;
         min-height: 30px;
         float: left;
-        margin-right:14px;
+        display: block;
+        margin-right: 14px;
+        min-width: 24px;
+        line-height: 24px;
       }
     }
 
@@ -349,13 +374,13 @@ footer {
         column-gap: 80px;
         -moz-column-gap: 80px;
         -webkit-column-gap: 80px;
-        a.item {
-          color: #FFF;
-          min-height:25px;
-          font-size: 15px;
-          font-weight: 500;
-          line-height: 25px;
-        }
+      }
+      a.item {
+        color: #FFF;
+        min-height:25px;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 25px;
       }
     }
 
@@ -382,6 +407,15 @@ footer {
       border-right: 1px solid #8f8f8f;
       padding-left: 2rem!important;
     }
+  }
+
+  .soc-icon {
+    font-size:30px;
+    margin-right:20px;
+    color: #d8d8d8;
+    margin-top:-2px;
+    display: block;
+    float:left;
   }
 
   .copyright {

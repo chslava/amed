@@ -711,6 +711,14 @@ header .ui.text.menu .lang:before {
   border-left: 1px solid #D8D8D8;
 }
 
+header .icon-home-icon {
+  font-size: 19px;
+}
+
+header .icon-basket-icon {
+  font-size: 24px;
+}
+
 .main-slider {
   margin: 0;
 }
@@ -756,13 +764,14 @@ main.about-us .grid {
   margin: 36px 0;
 }
 
-.services .column .ui.image {
-  width: auto;
-}
-
 .services .column p {
   max-width: 320px;
   margin: 0 auto 30px auto;
+}
+
+.services .service-icon {
+  color: #ff6b01;
+  font-size: 52px;
 }
 
 .benefits {
@@ -806,6 +815,13 @@ main.about-us .grid {
   font-size: 50px;
   font-weight: 300;
   line-height: 65px;
+}
+
+.benefits-icon {
+  color: #e5702a;
+  font-size: 58px;
+  display: block;
+  margin-top: 60px;
 }
 
 .represent {
@@ -929,12 +945,19 @@ main.about-us .grid {
   display: block;
   border-radius: 100px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
-  background: #FFF url("../img/check-icon.png") no-repeat center;
+  background: #FFF;
+  text-align: center;
   -webkit-box-flex: 0 !important;
   -ms-flex-positive: 0 !important;
   flex-grow: 0 !important;
   -webkit-flex-grow: 0 !important;
   margin-bottom: 10px;
+}
+
+.circle-check i {
+  margin-top: 23px;
+  display: block;
+  color: #e5702a;
 }
 
 .coo-respose {
@@ -975,7 +998,7 @@ main.about-us .grid {
   float: left;
   background: lightgoldenrodyellow;
   min-height: 700px;
-  z-index: 15;
+  z-index: 10;
 }
 
 .contacts .divider {
@@ -1005,12 +1028,15 @@ footer .container > .grid > .column:last-child {
   border-right: none;
 }
 
-footer .container > .grid > .column .icon {
+footer .container > .grid > .column .c-icon {
   color: #8f8f8f;
-  font-size: 20px;
+  font-size: 18px;
   min-height: 30px;
   float: left;
+  display: block;
   margin-right: 14px;
+  min-width: 24px;
+  line-height: 24px;
 }
 
 footer .container > .grid .ui.text.menu {
@@ -1030,7 +1056,7 @@ footer .container > .grid .ui.text.menu ul {
   -webkit-column-gap: 80px;
 }
 
-footer .container > .grid .ui.text.menu ul a.item {
+footer .container > .grid .ui.text.menu a.item {
   color: #FFF;
   min-height: 25px;
   font-size: 15px;
@@ -1062,6 +1088,15 @@ footer .container > .grid .follow-us > div {
 footer .container > .grid .column.contacts {
   border-right: 1px solid #8f8f8f;
   padding-left: 2rem!important;
+}
+
+footer .soc-icon {
+  font-size: 30px;
+  margin-right: 20px;
+  color: #d8d8d8;
+  margin-top: -2px;
+  display: block;
+  float: left;
 }
 
 footer .copyright {
@@ -8163,6 +8198,113 @@ i.icons .corner.icon {
 
 i.icons .inverted.corner.icon {
   text-shadow: -1px -1px 0 #444C55, 1px -1px 0 #444C55, -1px 1px 0 #444C55, 1px 1px 0 #444C55;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?oiqyrj');
+  src: url('/fonts/icomoon.eot?oiqyrj#iefix') format('embedded-opentype'), url('/fonts/icomoon.ttf?oiqyrj') format('truetype'), url('/fonts/icomoon.woff?oiqyrj') format('woff'), url('/fonts/icomoon.svg?oiqyrj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-b1:before {
+  content: "\e900";
+}
+
+.icon-b2:before {
+  content: "\e901";
+}
+
+.icon-b3:before {
+  content: "\e902";
+}
+
+.icon-b4:before {
+  content: "\e903";
+}
+
+.icon-basket-icon:before {
+  content: "\e904";
+}
+
+.icon-check-icon:before {
+  content: "\e905";
+}
+
+.icon-facebook-icon:before {
+  content: "\e906";
+}
+
+.icon-first-icon:before {
+  content: "\e907";
+}
+
+.icon-home-icon:before {
+  content: "\e908";
+}
+
+.icon-left-arrow-icon .path1:before {
+  content: "\e909";
+  color: #000000;
+  opacity: 0.15;
+}
+
+.icon-left-arrow-icon .path2:before {
+  content: "\e90a";
+  margin-left: -0.57910156em;
+  color: #000000;
+}
+
+.icon-linkedin-icon:before {
+  content: "\e90b";
+}
+
+.icon-mail-icon:before {
+  content: "\e90c";
+}
+
+.icon-phone-icon:before {
+  content: "\e90d";
+}
+
+.icon-place-icon:before {
+  content: "\e90e";
+}
+
+.icon-right-arrow-icon .path1:before {
+  content: "\e90f";
+  color: #000000;
+  opacity: 0.15;
+}
+
+.icon-right-arrow-icon .path2:before {
+  content: "\e910";
+  margin-left: -0.57910156em;
+  color: #000000;
+}
+
+.icon-second-icon:before {
+  content: "\e911";
+}
+
+.icon-third-icon:before {
+  content: "\e912";
 }
 /*!
  * # Semantic UI 2.2.4 - Image

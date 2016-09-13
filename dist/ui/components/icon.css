@@ -475,3 +475,91 @@ i.icons .corner.icon {
 i.icons .inverted.corner.icon {
   text-shadow: -1px -1px 0 #444C55, 1px -1px 0 #444C55, -1px 1px 0 #444C55, 1px 1px 0 #444C55;
 }
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?oiqyrj');
+  src: url('/fonts/icomoon.eot?oiqyrj#iefix') format('embedded-opentype'), url('/fonts/icomoon.ttf?oiqyrj') format('truetype'), url('/fonts/icomoon.woff?oiqyrj') format('woff'), url('/fonts/icomoon.svg?oiqyrj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-b1:before {
+  content: "\e900";
+}
+.icon-b2:before {
+  content: "\e901";
+}
+.icon-b3:before {
+  content: "\e902";
+}
+.icon-b4:before {
+  content: "\e903";
+}
+.icon-basket-icon:before {
+  content: "\e904";
+}
+.icon-check-icon:before {
+  content: "\e905";
+}
+.icon-facebook-icon:before {
+  content: "\e906";
+}
+.icon-first-icon:before {
+  content: "\e907";
+}
+.icon-home-icon:before {
+  content: "\e908";
+}
+.icon-left-arrow-icon .path1:before {
+  content: "\e909";
+  color: #000000;
+  opacity: 0.15;
+}
+.icon-left-arrow-icon .path2:before {
+  content: "\e90a";
+  margin-left: -0.57910156em;
+  color: #000000;
+}
+.icon-linkedin-icon:before {
+  content: "\e90b";
+}
+.icon-mail-icon:before {
+  content: "\e90c";
+}
+.icon-phone-icon:before {
+  content: "\e90d";
+}
+.icon-place-icon:before {
+  content: "\e90e";
+}
+.icon-right-arrow-icon .path1:before {
+  content: "\e90f";
+  color: #000000;
+  opacity: 0.15;
+}
+.icon-right-arrow-icon .path2:before {
+  content: "\e910";
+  margin-left: -0.57910156em;
+  color: #000000;
+}
+.icon-second-icon:before {
+  content: "\e911";
+}
+.icon-third-icon:before {
+  content: "\e912";
+}
