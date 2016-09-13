@@ -346,9 +346,9 @@ main.about-us .grid {
   padding: 60px 0 100px 0;
 }
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") repeat center;
-  padding-top: 105px;
-  padding-bottom: 105px;
+  background: #636463 url("../img/subscribe-background.png") repeat top center;
+  padding-top: 38px;
+  padding-bottom: 58px;
 }
 .subscribe h4.ui.header {
   height: 33px;
@@ -357,21 +357,47 @@ main.about-us .grid {
   font-size: 25px;
   font-weight: 500;
   line-height: 50px;
+  margin-top: 0px;
+  margin-bottom: 30px;
 }
 .subscribe .ui.button,
 .subscribe .input.subscribe {
   height: 50px;
+  margin-top: 1rem;
 }
-.subscribe .input.subscribe {
+.subscribe .subscribe.input {
   max-width: 285px;
-  margin-left: 42px!important;
   font-weight: 700;
   border: none!important;
+  margin-bottom: 2em;
 }
 .subscribe .ui.button {
   padding-left: 40px;
   padding-right: 40px;
   margin-left: 10px;
+}
+@media (min-width: 768px) {
+  .subscribe {
+    padding-bottom: 80px;
+  }
+  .subscribe h4.ui.header {
+    width: 100%;
+  }
+  .subscribe .ui.button {
+    margin-top: 0rem!important;
+  }
+}
+@media (min-width: 992px) {
+  .subscribe {
+    padding-top: 105px;
+    padding-bottom: 105px;
+  }
+  .subscribe h4.ui.header {
+    width: auto;
+  }
+  .subscribe .ui.button {
+    margin-top: 0rem!important;
+  }
 }
 .secondary-services {
   padding-top: 100px;
@@ -524,6 +550,9 @@ footer .copyright {
        -moz-columns: 2;
             columns: 2;
     padding: 25px 0;
+  }
+  footer .footer-contacts .menu .item {
+    line-height: 25px;
   }
   footer .copyright {
     background: #636463!important;
