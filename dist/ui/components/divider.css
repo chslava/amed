@@ -196,8 +196,8 @@
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.13) !important;
-  border-left-color: rgba(0, 0, 0, 0.13) !important;
+  border-top-color: #8f8f8f !important;
+  border-left-color: #8f8f8f !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
 }

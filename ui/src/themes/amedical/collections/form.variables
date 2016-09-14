@@ -22,8 +22,8 @@
 /* Form Label */
 @labelDistance: @4px;
 @labelMargin: 0em 0em @labelDistance 0em;
-@labelFontSize: @relativeSmall;
-@labelFontWeight: bold;
+@labelFontSize: 15px;
+@labelFontWeight: 400;
 @labelTextTransform: none;
 @labelColor: @textColor;
 
@@ -84,7 +84,7 @@
 
 /* Input Focus */
 @inputFocusBackground: @inputBackground;
-@inputFocusBorderColor: @focusedFormBorderColor;
+@inputFocusBorderColor: #8f8f8f;
 @inputFocusColor: @selectedTextColor;
 @inputFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @selectedBorderColor inset;
 @inputFocusBorderRadius: @inputBorderRadius;
@@ -100,9 +100,9 @@
 @disabledLabelOpacity: @disabledOpacity;
 
 /* Errored Input */
-@formErrorColor: @negativeTextColor;
-@formErrorBorder: @negativeBorderColor;
-@formErrorBackground: @negativeBackgroundColor;
+@formErrorColor: #636463;
+@formErrorBorder: #df3a3a;
+@formErrorBackground: #f7f7f7;
 
 /* AutoFill */
 @inputAutoFillBackground: #FFFFF0;

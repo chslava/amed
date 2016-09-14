@@ -27,8 +27,8 @@
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   font-weight: normal;
-  border: 1px solid rgba(0, 0, 0, 0.13);
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.13);
+  border: 1px solid #8f8f8f;
+  box-shadow: 0px 1px 2px 0 #8f8f8f;
   border-radius: 0.30769em;
   min-height: 2.86666667em;
 }
@@ -87,7 +87,7 @@
   background: none;
   padding: 0.93333333em 1.13333333em;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
   font-weight: normal;
   -webkit-transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
   transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
@@ -236,7 +236,7 @@
   font-size: 1em !important;
   padding: 0.8em 1.13333333em !important;
   background: transparent !important;
-  color: rgba(0, 0, 0, 0.87) !important;
+  color: #636463 !important;
   text-transform: none !important;
   font-weight: normal !important;
   box-shadow: none !important;
@@ -502,7 +502,7 @@ Floated Menu / Item
       -ms-flex-direction: column;
           flex-direction: column;
   background: #FFFFFF;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 1px 2px 0 #8f8f8f;
 }
 
 /*--- Item ---*/
@@ -618,7 +618,7 @@ Floated Menu / Item
   border-right: 1px solid transparent;
   border-top: 2px solid transparent;
   padding: 0.93333333em 1.4em;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -907,7 +907,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.13);
+  border-bottom: 2px solid #8f8f8f;
 }
 .ui.secondary.pointing.menu .item {
   border-bottom-color: transparent;
@@ -938,7 +938,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .link.item:hover,
 .ui.secondary.pointing.menu a.item:hover {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
 }
 
 /* Pressed */
@@ -946,7 +946,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .link.item:active,
 .ui.secondary.pointing.menu a.item:active {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.13);
+  border-color: #8f8f8f;
 }
 
 /* Active */
@@ -974,7 +974,7 @@ Floated Menu / Item
   border-bottom-width: 0px;
   border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: rgba(0, 0, 0, 0.13);
+  border-right-color: #8f8f8f;
 }
 .ui.secondary.vertical.pointing.menu .item {
   border-bottom: none;
@@ -996,7 +996,7 @@ Floated Menu / Item
 }
 .ui.secondary.inverted.pointing.menu {
   border-width: 2px;
-  border-color: rgba(0, 0, 0, 0.13);
+  border-color: #8f8f8f;
 }
 .ui.secondary.inverted.pointing.menu .item {
   color: rgba(255, 255, 255, 0.9);
@@ -1890,7 +1890,7 @@ Floated Menu / Item
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.13), none;
+  box-shadow: 0px 1px 2px 0 #8f8f8f, none;
   border-radius: 0em 0em 0.30769em 0.30769em;
 }
 .ui[class*="bottom attached"].menu:last-child {
@@ -2016,7 +2016,7 @@ Floated Menu / Item
   font-size: 1em !important;
   padding: 0.8em 1.13333333em !important;
   background: transparent !important;
-  color: rgba(0, 0, 0, 0.87) !important;
+  color: #636463 !important;
   text-transform: none !important;
   font-weight: normal !important;
   box-shadow: none !important;

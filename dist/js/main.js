@@ -1,6 +1,10 @@
 $(function() {
     $('.ui.dropdown').dropdown();
 
+    $('.ui.rating').rating({
+        maxRating: 5
+    });
+
     $('.main-slider').bxSlider();
 
     $('.represent-slider').bxSlider({

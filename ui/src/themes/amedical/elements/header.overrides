@@ -1,63 +1,75 @@
 /*******************************
          Theme Overrides
 *******************************/
-
-h2.ui.header {
-  //height: 46px;
+.ui.header {
+  font-family: Lato;
   color: #414141;
-  font-family: Futura, 'Lato';
+}
+h1.ui.header {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 65px;
+}
+h2.ui.header {
   font-size: 36px;
-  font-weight: 500;
-  line-height: 46px;
-  margin: 20px 0 28px 0;
-  text-align: center;
-  &:before {
-    display: block;
-    content: "\00a0";
-    width: 98px;
-    height: 2px;
-    margin: 0 auto 20px auto;
-    //padding-top: 98px;
-    padding-top:0;
-    border-bottom: 2px solid #e5702a;
+  font-weight: 700;
+  line-height: 44px;
+}
+h3.ui.header {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+}
+h4.ui.header {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+
+.ui.header {
+  &.centered {
+    text-align: center;
+    &.decored:before {
+      display: block;
+      content: "\00a0";
+      width: 98px;
+      height: 2px;
+      margin-left:auto;
+      margin-right: auto;
+      //padding-top: 98px;
+      padding-top:0;
+      margin-bottom:15px;
+      margin-top:-25px;
+      border-bottom: 2px solid #e5702a;
+    }
+
+  }
+  &.left {
+    text-align: left;
+    &.decored:before {
+      display: block;
+      content: "\00a0";
+      width: 98px;
+      height: 2px;
+      margin:0;
+      padding-top:0;
+      margin-bottom:15px;
+      margin-top:-25px;
+      border-bottom: 2px solid #e5702a;
+      border-top: none;
+    }
   }
 }
 
-.ui.header.simple {
-  &:before {
-    display: none;
-  }
-}
-
-.ui.left.header {
-  text-align: left;
-  &:before {
-    display: block;
-    content: "\00a0";
-    width: 98px;
-    margin: 0;
-    height: 18px;
-    padding-top:0;
-    border-bottom:none;
-    border-top: 2px solid #e5702a;
-  }
-}
 
 h1.ui.header {
   .sub.header {
     color: #8f8f8f;
-    font-family: Futura;
     font-size: 25px;
     font-weight: 500;
     letter-spacing: 1px;
     line-height: 32px;
   }
 
-}
-
-h3.ui.header {
-  font-size: @h3;
-  font-weight: 500;
-  line-height: 33px;
-  font-family: Futura, 'Lato';
 }

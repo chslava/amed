@@ -32,11 +32,13 @@
 @black: #444C55;
 @orange: #FDE07B;
 
+@textColor: #636463;;
+
 @linkColor: #e5702a;
 @linkHoverColor: #C45500;
 @linkHoverUnderline: none;
 
-@borderColor: rgba(0, 0, 0, 0.13);
+@borderColor: #8f8f8f;
 @solidBorderColor: #DDDDDD;
 @internalBorderColor: rgba(0, 0, 0, 0.06);
 @selectedBorderColor: #51A7E8;

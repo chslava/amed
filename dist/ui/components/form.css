@@ -55,9 +55,9 @@
 .ui.form .field > label {
   display: block;
   margin: 0em 0em 0.26666667rem 0em;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.93333333em;
-  font-weight: bold;
+  color: #636463;
+  font-size: 15px;
+  font-weight: 400;
   text-transform: none;
 }
 
@@ -109,7 +109,7 @@
   font-size: 1em;
   background: #f7f7f7;
   border: 1px solid #d8d8d8;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
   border-radius: 0;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -125,7 +125,7 @@
   background: #f7f7f7;
   border: 1px solid #d8d8d8;
   outline: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
   border-radius: 0;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -165,7 +165,7 @@
   border-radius: 0;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 0.93333333em;
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -257,8 +257,8 @@
 .ui.form .field .prompt.label {
   white-space: normal;
   background: #FFFFFF !important;
-  border: 1px solid #E0B4B4 !important;
-  color: #9F3A38 !important;
+  border: 1px solid #df3a3a !important;
+  color: #636463 !important;
 }
 .ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
@@ -308,42 +308,42 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: #ffffff;
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: #ffffff;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: #ffffff;
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: #d6d6d6;
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: #d6d6d6;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: #d6d6d6;
 }
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #e7bdbc;
+  color: #c9cac9;
 }
 .ui.form .error :-ms-input-placeholder {
-  color: #e7bdbc !important;
+  color: #c9cac9 !important;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #e7bdbc;
+  color: #c9cac9;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #da9796;
+  color: #b0b0b0;
 }
 .ui.form .error :focus:-ms-input-placeholder {
-  color: #da9796 !important;
+  color: #b0b0b0 !important;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #da9796;
+  color: #b0b0b0;
 }
 
 /*--------------------
@@ -363,14 +363,14 @@
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #85B7D9;
+  border-color: #8f8f8f;
   border-radius: 0;
   background: #f7f7f7;
   box-shadow: 0px 0em 0em 0em #51A7E8 inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #85B7D9;
+  border-color: #8f8f8f;
   border-radius: 0;
   background: #f7f7f7;
   box-shadow: 0px 0em 0em 0em #51A7E8 inset;
@@ -436,11 +436,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #9F3A38;
+  color: #636463;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #9F3A38;
+  border-color: #636463;
   color: #FFFFFF;
 }
 .ui.form .fields.error .field textarea,
@@ -471,9 +471,9 @@
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="file"],
 .ui.form .field.error input[type="url"] {
-  background: #FFF6F6;
-  border-color: #E0B4B4;
-  color: #9F3A38;
+  background: #f7f7f7;
+  border-color: #df3a3a;
+  color: #636463;
   border-radius: '';
   box-shadow: none;
 }
@@ -512,20 +512,20 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #FFF6F6;
-  color: #9F3A38;
+  background: #f7f7f7;
+  color: #636463;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  border-color: #E0B4B4 !important;
+  border-color: #df3a3a !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  border-color: #E0B4B4 !important;
+  border-color: #df3a3a !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  border-color: #E0B4B4;
+  border-color: #df3a3a;
 }
 .ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.error .ui.multiple.selection.dropdown > .label {
@@ -559,20 +559,20 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #9F3A38;
+  color: #636463;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #FFF6F6;
-  border-color: #E0B4B4;
+  background: #f7f7f7;
+  border-color: #df3a3a;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #9F3A38;
+  color: #636463;
 }
 
 /*--------------------
@@ -724,7 +724,7 @@
 .ui.inverted.form input[type="url"] {
   background: #f7f7f7;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.87);
+  color: #636463;
   box-shadow: none;
 }
 
@@ -743,9 +743,9 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0em 0em 0.26666667rem 0em;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.93333333em;
-  font-weight: bold;
+  color: #636463;
+  font-size: 15px;
+  font-weight: 400;
   text-transform: none;
 }
 .ui.form .grouped.fields .field,
@@ -978,9 +978,9 @@
   margin-top: 0em;
   margin-bottom: 0em;
   vertical-align: baseline;
-  font-size: 0.93333333em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.87);
+  font-size: 15px;
+  font-weight: 400;
+  color: #636463;
   text-transform: none;
 }
 

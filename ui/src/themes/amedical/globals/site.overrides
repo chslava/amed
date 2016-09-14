@@ -82,7 +82,7 @@ header {
 main.page {
   padding-top:1rem;
   margin-bottom:100px;
-  .grid {
+  > .grid {
     margin-top: 50px;
   }
 }
@@ -231,10 +231,6 @@ main.page {
 }
 
 // ------------------------------------------------------------
-.represent {
-  padding-bottom:105px;
-}
-
 .very.padded {
   padding-top:100px!important;
   padding-bottom:100px!important;
@@ -370,15 +366,112 @@ main.page {
   }
 }
 
-
-.circle-list {
+// -----------------------------------------
+ul.list, ol.list {
   list-style: none;
   padding:1em 0;
   li {
-    min-height:4em;
-    line-height: 3em;
+    margin-bottom:15px;
+    &:before {
+      content: "\00a0";
+      float:left;
+    }
   }
 }
+ul.list {
+  li {
+    &:before {
+      display: block;
+      width: 13px;
+      height:13px;
+      background: #ff6b01;
+      margin-top:0.3em;
+      margin-right:9px;
+    }
+  }
+}
+ol.list {
+  counter-reset: li;
+  li {
+    counter-increment: li;
+    list-style: none;
+    &:before {
+      display: block;
+      content: counter(li) '';
+      background:#FFF;
+      width: 20px;
+      height: 20px;
+      border:1px solid #ff6b01;
+      color: #ff6b01;
+      margin-right:15px;
+      text-align: center;
+      font-size:13px;
+      line-height: 20px;
+      list-style-position: inside;
+    }
+  }
+}
+
+blockquote {
+  border-left: 2px solid #e5702a;
+  padding-left: 17px;
+  margin-left: 0;
+}
+
+
+.ui.title {
+  min-height: 27px;
+  color: #414141;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+
+
+
+.circles-list {
+  list-style: none;
+  padding:1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  li {
+    width: 100%;
+    min-height: 70px;
+    align-self: flex-start;
+    line-height: 65px;
+    &:before {
+      content: "\e905";
+      font-family: 'icomoon' !important;
+      width: 60px;
+      height: 60px;
+      display: block;
+      border-radius: 50px;
+      background: #FFF;
+      float: left;
+      margin-right: 20px;
+      color: #e5702a;
+      text-align: center;
+     // padding-top: 2px;
+      box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    }
+  }
+  &.small {
+    li {
+      min-height:55px;
+      line-height: 40px;
+      &:before {
+        width: 40px;
+        height: 40px;
+        font-size:13px;
+      }
+    }
+  }
+
+}
+
 .circle-check {
   margin-right: 20px;
   width: 60px;
@@ -397,14 +490,6 @@ main.page {
     margin-top: 23px;
     display: block;
     color: #e5702a;
-  }
-  &.small {
-    width: 40px;
-    height: 40px;
-    i {
-      margin-top: 15px;
-      font-size: 12px;
-    }
   }
 }
 
