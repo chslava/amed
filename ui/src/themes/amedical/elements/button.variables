@@ -22,7 +22,7 @@
 @primaryHoverBoxShadow: 0 6px 10px rgba(64, 64, 64, 0.45);
 
 
-@basicBackground: #FFF;
+@basicBackground: transparent;
 @basicBoxShadow: none;
 @basicHoverBackground: #FF6B01;
 @basicHoverTextColor: #FFF;

@@ -24,6 +24,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-mob-toogle-close:before {
+  content: "\e917";
+}
+.icon-small-arrow-icon .path1:before {
+  content: "\e918";
+  color: rgb(0, 0, 0);
+}
+.icon-small-arrow-icon .path2:before {
+  content: "\e919";
+  margin-left: -1.94140625em;
+  color: rgb(0, 0, 0);
+}
+.icon-small-next-icon .path1:before {
+  content: "\e91a";
+  color: rgb(0, 0, 0);
+}
+.icon-small-next-icon .path2:before {
+  content: "\e91b";
+  margin-left: -0.548828125em;
+  color: rgb(0, 0, 0);
+}
+.icon-mob-toogle-open:before {
+  content: "\e915";
+}
+.icon-arrow-down-icon:before {
+  content: "\23cc";
+}
+.icon-arrow-up-icon:before {
+  content: "\e916";
+}
 .icon-b1:before {
   content: "\e900";
 }
@@ -94,11 +124,4 @@
 }
 .icon-third-icon:before {
   content: "\e914";
-}
-
-.icon-arrow-down-icon:before {
-  content: "\e915";
-}
-.icon-arrow-up-icon:before {
-  content: "\e916";
 }

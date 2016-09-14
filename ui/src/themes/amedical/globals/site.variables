@@ -32,11 +32,15 @@
 @black: #444C55;
 @orange: #FDE07B;
 
-@textColor: #636463;;
+@textColor: #636463;
 
 @linkColor: #e5702a;
 @linkHoverColor: #C45500;
 @linkHoverUnderline: none;
+
+@inputColor: @textColor;
+@inputPlaceholderColor: lighten(@textColor, 15);
+@inputPlaceholderFocusColor: lighten(@inputColor, 45);
 
 @borderColor: #8f8f8f;
 @solidBorderColor: #DDDDDD;

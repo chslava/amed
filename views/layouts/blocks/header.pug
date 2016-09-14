@@ -1,4 +1,62 @@
 header
+    div.ui.container.grid.mobile.tablet.only(style="background:#FFF;")
+        div.two.column.row
+            div.left.aligned.column
+                a(href="index.html").logo
+                    img(src="img/logo-sm.png")
+            div.right.aligned.column
+                a(href="#").mob-a.mob-toogle-menu
+                    i.icon-mob-toogle-open
+                a(href="#").mob-a.mob-search
+                    i.search.icon
+        div.one.column.row.search-row(style="display:none;")
+            div.column
+                form.ui.large.form
+                    div.field
+                        input(placeholder="Meklēt...")
+
+    div.ui.container.computer.vertically.reversed.grid.mob-menu(style="display:none")
+        div.row
+            div.sixteen.wide.column
+                div.ui.small.text.menu.four.item.lang
+                    a(href="#").item.active LV
+                    a(href="#").item EN
+                    a(href="#").item RU
+                    div.menu.auth
+                        a(href="#")
+                            span.ui.basic.small.button Autorizācija
+            div.main-menu
+                nav.ui.secondary.stackable.menu
+                    a(href="index.html").item.home
+                        span Galvenā
+                            i.icon-home-icon.computer.only
+                    div.ui.dropdown.item Medicīnas iekārtas
+                        div.menu
+                            a(href="#").item Medicīnas preces
+                            a(href="#").item Instrumenti un aprīkojums
+                    div.ui.dropdown.item Medicīnas preces
+                        div.menu
+                            a(href="#").item Medicīnas preces
+                            a(href="#").item Instrumenti un aprīkojums
+                    a(href="#").item Apģērbi un aizsarglīdzekļi
+                    a(href="projects.html").item Projektēšana
+                    a(href="services.html").item Iekārtu serviss
+                    div.right.menu.basket
+                        a(href="#").item
+                            i.icon-basket-icon
+                            span Grozs
+        div.row
+            div.ui.secondary.text.stackable.menu.top-menu
+                div.item.computer-search
+                    div.ui.icon.input.search
+                        input(placeholder="Meklēt")
+                        i.search.icon
+                a(href="content.html").item Jaunumi
+                a(href="#").item Blogs
+                a(href="#").item Biežāk uzdotie jautājumi
+                a(href="about-us.html").item Par mums
+                a(href="contact-us.html").item Kontakti
+//
     div.ui.container.relaxed.grid
         div.ui.two.wide.column
             a(href="index.html").logo

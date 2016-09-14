@@ -26,8 +26,8 @@
   border-radius:0!important;
   color:#FFF;
   font-size: 15px;
-  &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+ /* &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
     color:#FFF;
     opacity: 1;
-  }
+  }*/
 }

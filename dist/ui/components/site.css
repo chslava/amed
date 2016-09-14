@@ -167,42 +167,253 @@ input::selection {
 }
 header {
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
-  margin-bottom: 1rem;
+  background: #F7F7F7;
+  /*
+  .ui.secondary.menu {
+    border-top:1px solid #d8d8d8;
+    padding-top: 18px;
+    .item {
+      padding-bottom: 20px;
+      background:transparent!important;
+    }
+    .item:hover {
+      background:transparent;
+    }
+    .active.item:before {
+      content: "56";
+      top:0.5rem;
+      float:right;
+      position: relative;
+      background:red;
+      width: 50%;
+      height: 1px;
+      display: block;
+      border-top: 2px solid #ff6b01;
+      float: right;
+      position: absolute;
+      bottom: 17px;
+      left: 25%;
+      top: 40px;
+    }
+  }
+*/
+  /*
+
+  .ui.fourteen.wide.column {
+    margin-left: -2em;
+    margin-right: -2em;
+  }
+  .ui.text.menu {
+    .left.menu a.item {
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+    .item {
+      height: 17px;
+      color: #8f8f8f;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+      &.active {
+        color: #ff6b01;
+      }
+    }
+    .lang {
+      &:before {
+        content: "\00a0";
+        width: 20px;
+        height:30px;
+        margin-top:8px;
+        border-left: 1px solid #D8D8D8;
+      }
+    }
+  }
+
+  .icon-home-icon {
+    font-size: 19px;
+  }
+
+  .icon-basket-icon {
+    font-size: 24px;
+  }*/
+}
+header .ui.mobile.container {
+  box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
+  width: 100%!important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+header .grid.mobile.tablet > .row {
+  padding-bottom: 0!important;
 }
 header .logo {
-  margin-top: 22px;
+  padding-top: 10px;
+  display: inline-block;
+}
+header a {
+  color: #636463;
+}
+header a.mob-search,
+header a.mob-toogle-menu {
+  width: 22px;
+  height: 22px;
+  display: block;
+  float: right;
+  margin-left: 30px;
+  margin-top: 25px;
+  font-size: 22px;
+}
+header a.mob-toogle-menu {
+  font-size: 16px;
+  margin-top: 27px;
+}
+header a.mob-toogle-menu .icon-mob-toogle-close {
+  font-size: 22px;
+}
+header .search-row {
+  display: none;
+}
+header .search-row .ui.form {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+header .search-row .ui.form input {
+  border: none !important;
+}
+header .home span {
+  display: inline-block;
+}
+header .home i {
+  display: none;
+}
+header .main-menu {
+  border-top: 1px solid #E6E6E6;
+  padding-top: 1rem;
+  width: 100%;
+}
+header .main-menu .item {
+  font-size: 14px!important;
+  line-height: 34px;
+  display: block!important;
+}
+header .basket {
+  padding-top: 5px;
+  width: 100%;
+  border-top: 1px solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6;
+}
+header .basket .item:after {
+  font-family: 'icomoon';
+  content: "\e90f";
+  float: right;
+  text-align: right;
+  width: 100%;
+  display: block;
+  margin-top: -1rem;
+}
+header .basket .item .icon-basket-icon:before {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  margin-left: -0.5rem;
+}
+header .basket .item span {
+  font-size: inherit;
+}
+header .basket:before {
+  background: green;
+  float: right;
+  width: 20px;
+  height: 20px;
   display: block;
 }
-header .ui.fourteen.wide.column {
-  margin-left: -2em;
-  margin-right: -2em;
-}
-header .ui.text.menu .left.menu a.item {
-  padding-left: 20px;
-  padding-right: 10px;
-}
-header .ui.text.menu .item {
-  height: 17px;
+header .auth .ui.button {
+  height: 38px;
   color: #8f8f8f;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
 }
-header .ui.text.menu .item.active {
-  color: #ff6b01;
+header .computer-search {
+  display: none!important;
 }
-header .ui.text.menu .lang:before {
-  content: "\00a0";
-  width: 20px;
-  height: 30px;
-  margin-top: 8px;
-  border-left: 1px solid #D8D8D8;
+header .top-menu {
+  width: 100%!important;
+  border-top: none!important;
+  font-size: 12px!important;
+  font-weight: 400;
+  margin: -2rem 0 0 0 !important;
 }
-header .icon-home-icon {
-  font-size: 19px;
+header .top-menu .item {
+  line-height: 34px!important;
+  color: #8f8f8f;
 }
-header .icon-basket-icon {
-  font-size: 24px;
+header .ui .menu .item:hover {
+  background: transparent!important;
+}
+header .ui.dropdown.item:after,
+header .ui.dropdown.item.active:after {
+  font-family: 'icomoon';
+  content: "\e919";
+  float: right;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  width: 22px;
+  top: 0;
+  margin-top: 3px;
+  text-align: right;
+  color: #a2a2a2;
+}
+header .ui.dropdown.item.active:after {
+  position: absolute;
+  right: 1.2em;
+  
+/* IE 9 */
+  -webkit-transform: rotate(180deg);
+  
+/* Safari */
+  transform: rotate(180deg);
+  color: #FF6B01;
+  margin-top: 1rem;
+}
+header .ui.dropdown.item.active {
+  border: none;
+  font-weight: normal;
+}
+header .ui.dropdown.item.active .menu {
+  border: none;
+  z-index: 13;
+  background: transparent;
+  position: relative;
+  top: 1em;
+  left: 0;
+  padding: 0;
+}
+header .ui.dropdown.item.active .menu .item {
+  padding: 0.8em 0.93333333em!important;
+  border-bottom: 0;
+  text-align: left;
+  background: transparent;
+}
+header .ui.dropdown.item.active .menu .item:hover {
+  background: transparent;
+}
+@media (min-width: 992px) {
+  header {
+    background: #FFF;
+  }
+  .mob-menu {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+  }
+}
+section.slider {
+  margin-top: 1rem;
 }
 .main-slider {
   margin: 0;

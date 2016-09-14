@@ -39,7 +39,7 @@
   width: auto;
 }
 .ui.dropdown > .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
   font-size: 7px;
 }
 
@@ -51,18 +51,18 @@
 
 /* Sub Menu */
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 /* Vertical Menu Dropdown */
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
   //content: "\f0da"/*rtl:"\f0d9"*/;
-  content: '\e915';
+  content: '\23cc';
 }
 
 .ui.dropdown.selected  {
