@@ -14,7 +14,9 @@
             <div class="ui icon input search">
               <input placeholder="Meklēt"><i class="search icon"></i>
             </div>
-          </div><a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a>
+          </div>
+					<?php top_menu(); ?>
+					<!-- <a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a> -->
         </div>
         <div class="right menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a></div>
         <div class="right menu auth"><a href="#"><span class="ui basic small button">Autorizācija</span></a></div>
