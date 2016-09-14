@@ -1,3 +1,5 @@
 # Dev
 .idea/*
 node_modules
+dist/ui/components/*
+dist/ui/themes/*
