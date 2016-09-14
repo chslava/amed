@@ -29,7 +29,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
   define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/');
   switch($_SERVER['HTTP_HOST'])
   {
-    
+
     default:
       define( 'DB_NAME','dig_amedical');
       define( 'DB_USER','dig_amedical');
