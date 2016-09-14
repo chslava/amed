@@ -6,7 +6,7 @@
 	<body <?php body_class(); ?>>
 <header>
   <div class="ui container relaxed grid">
-    <div class="ui two wide column"><a class="logo" href="index.html"><img src="img/logo.png"></a></div>
+    <div class="ui two wide column"><a class="logo" href="index.html"><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png"></a></div>
     <div class="ui fourteen wide column">
       <div class="ui text menu">
         <div class="left menu">

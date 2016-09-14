@@ -8,7 +8,7 @@ Template Name: Homepage
 <section class="slider" style="background: #686C78">
   <div>
     <ul class="main-slider">
-      <li><img src="img/slides/slide-1.jpg">
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/slides/slide-1.jpg">
         <div class="content">
           <div class="ui container centered grid">
             <div class="thirteen wide column">
@@ -17,7 +17,7 @@ Template Name: Homepage
           </div>
         </div>
       </li>
-      <li><img src="img/slides/slide-2.jpg">
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/slides/slide-2.jpg">
         <div class="content">
           <div class="ui container centered grid">
             <div class="thirteen wide column">
@@ -93,12 +93,12 @@ Template Name: Homepage
   <h2 class="ui centered header centered decored">Mēs pārstāvam</h2>
   <div class="ui six column center aligned grid">
     <ul class="represent-slider">
-      <li><img src="img/represent/1.png"></li>
-      <li><img src="img/represent/2.png"></li>
-      <li><img src="img/represent/3.png"></li>
-      <li><img src="img/represent/4.png"></li>
-      <li><img src="img/represent/5.png"></li>
-      <li><img src="img/represent/6.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/1.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/2.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/3.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/4.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/5.png"></li>
+      <li><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/represent/6.png"></li>
       <li><img src="http://placehold.it/150x68&amp;text=7"></li>
       <li><img src="http://placehold.it/150x68&amp;text=8"></li>
       <li><img src="http://placehold.it/150x68&amp;text=9"></li>
@@ -112,7 +112,7 @@ Template Name: Homepage
     <h2 class="ui centered header centered decored">Jaunumi / Blogs</h2>
     <div class="ui grid">
       <div class="sixteen wide mobile eight wide computer column">
-        <div class="image-container"><img src="img/news1.jpg">
+        <div class="image-container"><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/news1.jpg">
           <time><span>24</span> Okt</time>
         </div>
         <h3 class="ui header"><a href="#">A.Medical kļūst par oficiālo “Toshiba Medical systems corporation” pārstāvi Latvijā.</a></h3>
@@ -120,7 +120,7 @@ Template Name: Homepage
           Kļūstot par oficiālo pārstāvi Latvijā, “A.Medical” nodrošinās slimnīcas un veselības aprūpes iestādes ar augstas kvalitātes medicīnasiekārtām radioloģijas jomā. Esam patiesi lepni par sadarbību, kas mums sniedz iespēju…<a href="#">Lasīt vairāk<i class="long right arrow icon"></i></a></p>
       </div>
       <div class="sixteen wide mobile eight wide computer column">
-        <div class="image-container"><img src="img/news2.jpg">
+        <div class="image-container"><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/news2.jpg">
           <time><span>09</span> Okt</time>
         </div>
         <h3 class="ui header"><a href="#">A.Medical piedalījusies Mobilā diagnostikas kompleksa izveidē</a></h3>
