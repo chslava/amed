@@ -31,7 +31,7 @@
 @rowBorder: 1px solid @internalBorderColor;
 
 /* Table Cell */
-@cellVerticalPadding: 0.8em;
+@cellVerticalPadding: 0.7em;
 @cellHorizontalPadding: 15px;
 @cellVerticalAlign: inherit;
 @cellTextAlign: inherit;
@@ -44,7 +44,7 @@
 @headerAlign: inherit;
 @headerVerticalAlign: inherit;
 @headerColor: @textColor;
-@headerVerticalPadding: 0.8em;
+@headerVerticalPadding: 0.7em;
 @headerHorizontalPadding: @cellHorizontalPadding;
 @headerFontStyle: none;
 @headerFontWeight: 400;

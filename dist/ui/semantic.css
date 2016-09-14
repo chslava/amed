@@ -20862,7 +20862,7 @@ header .ui.secondary.menu .active.item:after {
   background: #f7f7f7;
   text-align: inherit;
   color: #636463;
-  padding: 0.8em 15px;
+  padding: 0.7em 15px;
   vertical-align: inherit;
   font-style: none;
   font-weight: 400;
@@ -20899,7 +20899,7 @@ header .ui.secondary.menu .active.item:after {
   background: #F9FAFB;
   text-align: inherit;
   color: #636463;
-  padding: 0.8em 15px;
+  padding: 0.7em 15px;
   vertical-align: middle;
   font-style: normal;
   font-weight: normal;
@@ -20935,7 +20935,7 @@ header .ui.secondary.menu .active.item:after {
 /* Table Cells */
 
 .ui.table td {
-  padding: 0.8em 15px;
+  padding: 0.7em 15px;
   text-align: inherit;
 }
 
@@ -21350,7 +21350,7 @@ header .ui.secondary.menu .active.item:after {
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
   color: inherit;
-  padding: 0.8em 15px;
+  padding: 0.7em 15px;
 }
 
 /* Other States */
