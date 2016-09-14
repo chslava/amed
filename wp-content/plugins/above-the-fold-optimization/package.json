@@ -1,0 +1,21 @@
+{
+  "name": "abovethefold",
+  "version": "2.3.14",
+  "description": "Above the fold Optimization",
+  "author": {
+    "name": "info@optimalisatie.nl",
+    "email": "info@optimalisatie.nl",
+    "web": "optimalisatie.nl"
+  },
+  "engines": {
+    "node": "~0.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-uglify": "latest",
+    "matchdep": "latest",
+    "penthouse": "latest"
+  }
+}
