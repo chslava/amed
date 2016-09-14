@@ -144,19 +144,51 @@ block content
                                     option Stage 3
                                     option Stage 4
             div.row
-                table.ui.compact.definition.table
-                    thead.full-width
-                        tr
-                            th
-                            th Product Name
-                            th Rating
-                            th Price
-                    tbody
-                        tr
-                            td Ch
-                            td Product name
-                            td
-                                div.ui.star.rating(data-rating="5")
-                            td 145.00 Euro
+                div.seven.wide.column.centered.row
+                    h4.ui.title.aligned.center Table
+                    table.ui.celled.table
+                        thead.full-width
+                            tr
+                                th
+                                th Product Name
+                                th Rating
+                                th Price
+                        tbody
+                            tr
+                                td
+                                    div.ui.checkbox
+                                        input(type="checkbox" class="hidden" checked="checked")
+                                        label
+                                td Product name
+                                td
+                                    div.ui.star.rating(data-rating="5")
+                                td 145.00 Euro
+                            tr
+                                td
+                                    div.ui.checkbox
+                                        input(type="checkbox" class="hidden")
+                                        label
+                                td Product name
+                                td
+                                    div.ui.star.rating(data-rating="5")
+                                td 145.00 Euro
+                            tr
+                                td
+                                    div.ui.checkbox
+                                        input(type="checkbox" class="hidden")
+                                        label
+                                td Product name
+                                td
+                                    div.ui.star.rating(data-rating="5")
+                                td 145.00 Euro
+                            tr
+                                td
+                                    div.ui.checkbox
+                                        input(type="checkbox" class="hidden")
+                                        label
+                                td Product name
+                                td
+                                    div.ui.star.rating(data-rating="5")
+                                td 145.00 Euro
 
     include sections/subscribe

@@ -40,7 +40,7 @@
 
 @borderColor: #8f8f8f;
 @solidBorderColor: #DDDDDD;
-@internalBorderColor: rgba(0, 0, 0, 0.06);
+@internalBorderColor: #d8d8d8;
 @selectedBorderColor: #51A7E8;
 
 /* Breakpoints */

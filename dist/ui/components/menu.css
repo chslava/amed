@@ -104,7 +104,7 @@
   right: 0px;
   height: 100%;
   width: 1px;
-  background: rgba(0, 0, 0, 0.06);
+  background: #d8d8d8;
 }
 
 /*--------------
@@ -386,7 +386,7 @@
 }
 @media only screen and (min-width: 1049px) {
   .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
-    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 1px solid #d8d8d8;
   }
 }
 
@@ -548,7 +548,7 @@ Floated Menu / Item
   left: 0px;
   width: 100%;
   height: 1px;
-  background: rgba(0, 0, 0, 0.06);
+  background: #d8d8d8;
 }
 .ui.vertical.menu .item:first-child:before {
   display: none !important;
@@ -1254,7 +1254,7 @@ Floated Menu / Item
     left: 0px;
     width: 100%;
     height: 1px;
-    background: rgba(0, 0, 0, 0.06);
+    background: #d8d8d8;
   }
   .ui.stackable.menu .left.menu,
   .ui.stackable.menu .left.item {
@@ -1459,7 +1459,7 @@ Floated Menu / Item
   background-color: #DB2828;
 }
 .ui.inverted.red.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.red.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1471,7 +1471,7 @@ Floated Menu / Item
   background-color: #D26911;
 }
 .ui.inverted.orange.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.orange.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1483,7 +1483,7 @@ Floated Menu / Item
   background-color: #FBBD08;
 }
 .ui.inverted.yellow.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.yellow.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1495,7 +1495,7 @@ Floated Menu / Item
   background-color: #B5CC18;
 }
 .ui.inverted.olive.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.olive.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1507,7 +1507,7 @@ Floated Menu / Item
   background-color: #60B044;
 }
 .ui.inverted.green.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.green.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1519,7 +1519,7 @@ Floated Menu / Item
   background-color: #00B5AD;
 }
 .ui.inverted.teal.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.teal.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1531,7 +1531,7 @@ Floated Menu / Item
   background-color: #80A6CD;
 }
 .ui.inverted.blue.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.blue.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1543,7 +1543,7 @@ Floated Menu / Item
   background-color: #6435C9;
 }
 .ui.inverted.violet.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.violet.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1555,7 +1555,7 @@ Floated Menu / Item
   background-color: #A333C8;
 }
 .ui.inverted.purple.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.purple.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1567,7 +1567,7 @@ Floated Menu / Item
   background-color: #E03997;
 }
 .ui.inverted.pink.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.pink.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1579,7 +1579,7 @@ Floated Menu / Item
   background-color: #A5673F;
 }
 .ui.inverted.brown.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.brown.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -1591,7 +1591,7 @@ Floated Menu / Item
   background-color: #767676;
 }
 .ui.inverted.grey.menu .item:before {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #d8d8d8;
 }
 .ui.inverted.grey.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;

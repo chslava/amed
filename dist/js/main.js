@@ -5,6 +5,8 @@ $(function() {
         maxRating: 5
     });
 
+    $('.ui.checkbox').checkbox();
+
     $('.main-slider').bxSlider();
 
     $('.represent-slider').bxSlider({
