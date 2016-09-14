@@ -201,7 +201,7 @@
 .ui.stacked.inverted.segment:before,
 .ui.stacked.inverted.segment:after {
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid #51A7E8;
+  border-top: 1px solid #8f8f8f;
 }
 
 /*-------------------

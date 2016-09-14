@@ -12,7 +12,7 @@
 ;
 @borderRadius: 0;
 
-@raisedShadow: 0px 2px 3px 0px @borderColor;
+@raisedShadow: none;
 
 /*-------------------
        Content
@@ -52,7 +52,7 @@
 @itemBorder: none;
 @itemHeight: auto;
 @itemDivider: none;
-@itemColor: @textColor;
+@itemColor: #636463;
 @itemVerticalPadding: @mini;
 @itemHorizontalPadding: @large;
 @itemPadding: @itemVerticalPadding @itemHorizontalPadding;
@@ -140,7 +140,7 @@
 @selectionMessagePadding: @selectionItemPadding;
 
 /* <select> */
-@selectBorder: 1px solid @borderColor;
+@selectBorder: 1px solid #d8d8d8;
 @selectPadding: 0.5em;
 @selectVisibility: visible;
 @selectHeight: 38px;
@@ -151,7 +151,7 @@
 @selectionTextUnderlayColor: @inputPlaceholderFocusColor;
 
 @selectionBoxShadow: none;
-@selectionBorderColor: @borderColor;
+@selectionBorderColor: #d8d8d8;
 @selectionBorder: 1px solid @selectionBorderColor;
 @selectionBorderRadius: @borderRadius;
 
@@ -192,7 +192,7 @@
 @selectionHoverBoxShadow: none;
 
 /* Focus */
-@selectionFocusBorderColor: @focusedFormMutedBorderColor;
+@selectionFocusBorderColor: #8f8f8f;
 @selectionFocusBoxShadow: none;
 @selectionFocusMenuBoxShadow: @raisedShadow;
 

@@ -569,3 +569,9 @@ i.icons .inverted.corner.icon {
 .icon-third-icon:before {
   content: "\e914";
 }
+.icon-arrow-down-icon:before {
+  content: "\e915";
+}
+.icon-arrow-up-icon:before {
+  content: "\e916";
+}

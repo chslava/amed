@@ -142,7 +142,7 @@
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
   background: #F9FAFB;
-  border-color: #51A7E8;
+  border-color: #8f8f8f;
 }
 .ui.checkbox .box:active::after,
 .ui.checkbox label:active::after {
