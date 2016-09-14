@@ -7935,11 +7935,11 @@ h4.ui.header {
 }
 
 h1.ui.header .sub.header {
-  color: #8f8f8f;
+  color: #d8d8d8;
   font-size: 25px;
-  font-weight: 500;
   letter-spacing: 1px;
-  line-height: 32px;
+  line-height: 30px;
+  font-weight: 700;
 }
 /*!
  * # Semantic UI 2.2.4 - Icon
