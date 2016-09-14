@@ -14,5 +14,3 @@ node_modules/
 wp-content/themes/amedical/.idea/
 dist/ui/components/*
 dist/ui/themes/*
-
-wp-config.php
