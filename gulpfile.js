@@ -34,6 +34,12 @@ gulp.task('pug-build', function buildHTML() {
 gulp.task('copytotheme', function() {
     gulp.src('./dist/ui/**/*.{css,js,eot,svg,ttf,woff,woff2}')
         .pipe(gulp.dest('./wp-content/themes/amedical/ui/'));
+
+    gulp.src('./dist/css/**/*.*')
+        .pipe(gulp.dest('./wp-content/themes/amedical/css/'));
+
+    gulp.src('./dist/js/**/*.*')
+        .pipe(gulp.dest('./wp-content/themes/amedical/js/'));
 });
 
 gulp.task('build-ui', ['semantic-build', 'pug-build','copytotheme']);
