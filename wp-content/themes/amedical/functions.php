@@ -30,4 +30,4 @@
  require_once('includes/gravity-forms-columns.php');
 
  // Add post types
-  require_once('includes/post_types/slider.php');
+  //require_once('includes/post_types/slider.php');
