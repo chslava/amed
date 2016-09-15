@@ -153,89 +153,37 @@ input::selection {
 
 @font-face {
   font-family: 'Lato';
-  src: url("fonts/Lato-Regular.eot");
-  src: url("fonts/Lato-Regular.eot"), url("fonts/Lato-Regular.eot?#iefix") format('embedded-opentype'), url("fonts/Lato-Regular.woff") format('woff'), url("fonts/Lato-Regular.woff2") format('woff2'), url("fonts/Lato-Regular.ttf") format('truetype'), url("fonts/Lato-Regular.svg#Lato-Regular") format('svg');
+  src: url("../fonts/Lato-Regular.eot");
+  src: url("../fonts/Lato-Regular.eot"), url("../fonts/Lato-Regular.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Regular.woff") format('woff'), url("../fonts/Lato-Regular.woff2") format('woff2'), url("../fonts/Lato-Regular.ttf") format('truetype'), url("../fonts/Lato-Regular.svg#Lato-Regular") format('svg');
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: 'Lato';
-  src: url("fonts/Lato-Bold.eot");
-  src: url("fonts/Lato-Bold.eot"), url("fonts/Lato-Bold.eot?#iefix") format('embedded-opentype'), url("fonts/Lato-Bold.woff") format('woff'), url("fonts/Lato-Bold.woff2") format('woff2'), url("fonts/Lato-Bold.ttf") format('truetype'), url("fonts/Lato-Bold.svg#Lato-Regular") format('svg');
+  src: url("../fonts/Lato-Light.eot");
+  src: url("../fonts/Lato-Light.eot"), url("../fonts/Lato-Light.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Light.woff") format('woff'), url("../fonts/Lato-Light.woff2") format('woff2'), url("../fonts/Lato-Light.ttf") format('truetype'), url("../fonts/Lato-Light.svg#Lato-Light") format('svg');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Bold.eot");
+  src: url("../fonts/Lato-Bold.eot"), url("../fonts/Lato-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Bold.woff") format('woff'), url("../fonts/Lato-Bold.woff2") format('woff2'), url("../fonts/Lato-Bold.ttf") format('truetype'), url("../fonts/Lato-Bold.svg#Lato-Bold") format('svg');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Bold.eot");
+  src: url("../fonts/Lato-Bold.eot"), url("../fonts/Lato-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Bold.woff") format('woff'), url("../fonts/Lato-Bold.woff2") format('woff2'), url("../fonts/Lato-Bold.ttf") format('truetype'), url("../fonts/Lato-Bold.svg#Lato-Bold") format('svg');
   font-style: normal;
   font-weight: 700;
 }
 header {
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
   background: #F7F7F7;
-  /*
-  .ui.secondary.menu {
-    border-top:1px solid #d8d8d8;
-    padding-top: 18px;
-    .item {
-      padding-bottom: 20px;
-      background:transparent!important;
-    }
-    .item:hover {
-      background:transparent;
-    }
-    .active.item:before {
-      content: "56";
-      top:0.5rem;
-      float:right;
-      position: relative;
-      background:red;
-      width: 50%;
-      height: 1px;
-      display: block;
-      border-top: 2px solid #ff6b01;
-      float: right;
-      position: absolute;
-      bottom: 17px;
-      left: 25%;
-      top: 40px;
-    }
-  }
-*/
-  /*
-
-  .ui.fourteen.wide.column {
-    margin-left: -2em;
-    margin-right: -2em;
-  }
-  .ui.text.menu {
-    .left.menu a.item {
-      padding-left: 20px;
-      padding-right: 10px;
-    }
-    .item {
-      height: 17px;
-      color: #8f8f8f;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 17px;
-      &.active {
-        color: #ff6b01;
-      }
-    }
-    .lang {
-      &:before {
-        content: "\00a0";
-        width: 20px;
-        height:30px;
-        margin-top:8px;
-        border-left: 1px solid #D8D8D8;
-      }
-    }
-  }
-
-  .icon-home-icon {
-    font-size: 19px;
-  }
-
-  .icon-basket-icon {
-    font-size: 24px;
-  }*/
+  margin-top: -1rem;
+  padding-top: 1rem;
 }
 header .logo-big {
   display: none!important;
@@ -427,6 +375,17 @@ header .ui.dropdown.item.active .menu .item {
 }
 header .ui.dropdown.item.active .menu .item:hover {
   background: transparent;
+}
+header .ui.menu.lang.four.item {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+header .ui.menu.lang.four.item .item {
+  width: 22%;
+}
+header .ui.menu.lang.four.item .item:last-child {
+  width: 45%;
 }
 @media (min-width: 992px) {
   header {
@@ -634,8 +593,8 @@ main.page > .grid {
 .services {
   border-bottom: 1px solid #e6e6e6;
 }
-.services .ui.header {
-  margin-top: 0;
+.services .icon-title {
+  margin-top: 30px;
   min-height: 40px;
   margin-bottom: 25px;
   display: -webkit-box;
@@ -749,13 +708,24 @@ main.page > .grid {
   font-weight: 300;
   line-height: 65px;
 }
-.ui.segment h4 {
+.ui.segment h4,
+.ui.segment h3,
+.ui.segment .title {
   color: #414141;
 }
-.ui.segment h4.padded {
+.ui.segment h4.title,
+.ui.segment h3.title,
+.ui.segment .title.title {
+  margin-top: 15px;
+}
+.ui.segment h4.padded,
+.ui.segment h3.padded,
+.ui.segment .title.padded {
   margin: 40px 0;
 }
-.ui.segment h4.large {
+.ui.segment h4.large,
+.ui.segment h3.large,
+.ui.segment .title.large {
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
@@ -841,7 +811,7 @@ main.page > .grid {
   padding-top: 38px;
   padding-bottom: 58px;
 }
-.subscribe h4.ui.header {
+.subscribe div.title {
   height: 33px;
   color: white;
   font-size: 25px;
@@ -1037,6 +1007,9 @@ blockquote {
 .contacts p {
   line-height: 30px;
 }
+.contacts .ui.header {
+  color: #FFF;
+}
 .contacts > .ui.container {
   min-height: 700px;
   z-index: 10;
@@ -1149,26 +1122,17 @@ footer .c-icon {
   min-width: 24px;
   line-height: 24px;
 }
-footer .footer-contacts,
-footer .follow-us {
-  /*  > div {
-      width: 250px;
-      color: white;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 25px;
-      min-height: 30px;
-      margin-bottom:20px;
-    }*/
-}
-footer .footer-contacts h4,
-footer .follow-us h4 {
+footer .footer-contacts div.title,
+footer .follow-us div.title {
   text-transform: uppercase;
   height: 25px;
   color: white;
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
+}
+footer .follow-us a.item:hover .soc-icon {
+  color: #ff6b01;
 }
 footer .copyright {
   background: #414141;
@@ -1192,6 +1156,9 @@ footer .copyright {
   }
   footer .footer-contacts .menu .item {
     line-height: 25px;
+  }
+  footer .follow-us .ui.menu {
+    display: block;
   }
   footer .copyright {
     background: #636463!important;
