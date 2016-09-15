@@ -12,4 +12,7 @@ Template Name: Homepage
 
 <?php include("includes/parts/homepage_we_represent.php"); ?>
 
+<?php include("includes/parts/homepage_latest_posts.php"); ?>
+
+
 <?php get_footer(); ?>
