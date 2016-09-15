@@ -117,10 +117,13 @@
 *******************************/
 
 .ui.breadcrumb {
-  margin-top: 1rem !important;
+  margin-top: 2rem !important;
 }
 .ui.breadcrumb a {
   color: #8f8f8f;
+}
+.contacts .ui.breadcrumb {
+  margin-top: 1rem !important;
 }
 .ui.breadcrumb .icon.divider {
   height: 18px;
