@@ -31,7 +31,12 @@ gulp.task('pug-build', function buildHTML() {
         })).on('error', swallowError).pipe(gulp.dest('./dist'))
 });
 
-gulp.task('build-ui', ['semantic-build', 'pug-build']);
+gulp.task('copytotheme', function() {
+    gulp.src('./dist/ui/**/*.{css,js,eot,svg,ttf,woff,woff2}')
+        .pipe(gulp.dest('./wp-content/themes/amedical/ui/'));
+});
+
+gulp.task('build-ui', ['semantic-build', 'pug-build','copytotheme']);
 gulp.task('develop', ['semantic-watch', 'pug-watch']);
 
 gulp.task('browser-sync', function () {
