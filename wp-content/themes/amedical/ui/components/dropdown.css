@@ -423,17 +423,17 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu > .message {
   padding: 0.8rem 1.13333333rem;
 }
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.selection.dropdown .menu {
     max-height: 8.1rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.selection.dropdown .menu {
     max-height: 10.8rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.selection.dropdown .menu {
     max-height: 16.2rem;
   }
@@ -599,17 +599,17 @@ select.ui.dropdown {
           backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 }
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.search.dropdown .menu {
     max-height: 8.1rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.search.dropdown .menu {
     max-height: 10.8rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
     max-height: 16.2rem;
   }
@@ -828,7 +828,7 @@ select.ui.dropdown {
 
 .ui.dropdown:not(.button) > .default.text,
 .ui.default.dropdown:not(.button) > .text {
-  color: #ffffff;
+  color: #898a89;
 }
 .ui.dropdown:not(.button) > input:focus + .default.text,
 .ui.default.dropdown:not(.button) > input:focus + .text {
@@ -1083,19 +1083,19 @@ select.ui.dropdown {
     min-width: calc(100% -  17px );
   }
 }
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 10.4rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 15.6rem;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 20.8rem;
@@ -1389,7 +1389,7 @@ select.ui.dropdown {
   width: auto;
 }
 .ui.dropdown > .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
   font-size: 7px;
 }
 .ui.dropdown.selection.active > .dropdown.icon:before {
@@ -1400,16 +1400,16 @@ select.ui.dropdown {
 
 /* Sub Menu */
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 /* Vertical Menu Dropdown */
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 .ui.dropdown.selected {
   background: rgba(0, 0, 0, 0.03);

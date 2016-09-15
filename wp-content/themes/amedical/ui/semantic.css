@@ -673,50 +673,527 @@ input::selection {
 
 header {
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
-  margin-bottom: 1rem;
+  background: #F7F7F7;
+  /*
+  .ui.secondary.menu {
+    border-top:1px solid #d8d8d8;
+    padding-top: 18px;
+    .item {
+      padding-bottom: 20px;
+      background:transparent!important;
+    }
+    .item:hover {
+      background:transparent;
+    }
+    .active.item:before {
+      content: "56";
+      top:0.5rem;
+      float:right;
+      position: relative;
+      background:red;
+      width: 50%;
+      height: 1px;
+      display: block;
+      border-top: 2px solid #ff6b01;
+      float: right;
+      position: absolute;
+      bottom: 17px;
+      left: 25%;
+      top: 40px;
+    }
+  }
+*/
+  /*
+
+  .ui.fourteen.wide.column {
+    margin-left: -2em;
+    margin-right: -2em;
+  }
+  .ui.text.menu {
+    .left.menu a.item {
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+    .item {
+      height: 17px;
+      color: #8f8f8f;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+      &.active {
+        color: #ff6b01;
+      }
+    }
+    .lang {
+      &:before {
+        content: "\00a0";
+        width: 20px;
+        height:30px;
+        margin-top:8px;
+        border-left: 1px solid #D8D8D8;
+      }
+    }
+  }
+
+  .icon-home-icon {
+    font-size: 19px;
+  }
+
+  .icon-basket-icon {
+    font-size: 24px;
+  }*/
+}
+
+header .logo-big {
+  display: none!important;
+}
+
+header .ui.mobile.container.grid {
+  background: #FFF;
+  box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
+  width: 100%!important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
+header .mob-menu {
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+
+header .main-logo {
+  display: none!important;
+  width: 0!important;
+}
+
+header .main-column {
+  width: 100%!important;
+  padding-left: 0!important;
+  padding-right: 0!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+
+header .main-column .ui.grid {
+  margin-left: 0.5rem!important;
+  margin-right: 0.5rem!important;
+}
+
+header .mobile.tablet > .row {
+  padding-bottom: 0!important;
 }
 
 header .logo {
-  margin-top: 22px;
+  padding-top: 10px;
+  display: inline-block;
+}
+
+header a {
+  color: #636463;
+}
+
+header a.mob-search,
+header a.mob-toogle-menu {
+  width: 22px;
+  height: 22px;
+  display: block;
+  float: right;
+  margin-left: 30px;
+  margin-top: 25px;
+  font-size: 22px;
+}
+
+header a.mob-toogle-menu {
+  font-size: 16px;
+  margin-top: 27px;
+}
+
+header a.mob-toogle-menu .icon-mob-toogle-close {
+  font-size: 22px;
+}
+
+header .search-row {
+  display: none;
+}
+
+header .search-row .ui.form {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+header .search-row .ui.form input {
+  border: none !important;
+}
+
+header .home span {
+  display: inline-block;
+}
+
+header .home i {
+  display: none;
+}
+
+header .main-menu {
+  border-top: 1px solid #E6E6E6;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+header .main-menu .logo {
+  display: none;
+}
+
+header .main-menu .item {
+  font-size: 14px;
+  line-height: 34px;
+  display: block!important;
+}
+
+header .basket {
+  padding-top: 5px;
+  width: 100%;
+  border-top: 1px solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+header .basket .item:after {
+  font-family: 'icomoon';
+  content: "\e90f";
+  float: right;
+  text-align: right;
+  width: 100%;
+  display: block;
+  margin-top: -1rem;
+}
+
+header .basket .item .icon-basket-icon:before {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  margin-left: -0.5rem;
+}
+
+header .basket .item span {
+  font-size: inherit;
+}
+
+header .basket:before {
+  background: green;
+  float: right;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
-header .ui.fourteen.wide.column {
-  margin-left: -2em;
-  margin-right: -2em;
-}
-
-header .ui.text.menu .left.menu a.item {
-  padding-left: 20px;
-  padding-right: 10px;
-}
-
-header .ui.text.menu .item {
-  height: 17px;
+header .auth .ui.button {
+  height: 38px;
   color: #8f8f8f;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
 }
 
-header .ui.text.menu .item.active {
-  color: #ff6b01;
+header .computer-search {
+  display: none!important;
 }
 
-header .ui.text.menu .lang:before {
-  content: "\00a0";
-  width: 20px;
-  height: 30px;
-  margin-top: 8px;
-  border-left: 1px solid #D8D8D8;
+header .top-menu {
+  width: 100%!important;
+  border-top: none!important;
+  font-size: 12px!important;
+  font-weight: 400;
+  margin: -2rem 0 0 0 !important;
 }
 
-header .icon-home-icon {
-  font-size: 19px;
+header .top-menu .item {
+  line-height: 34px!important;
+  color: #8f8f8f;
 }
 
-header .icon-basket-icon {
-  font-size: 24px;
+header .ui .menu .item:hover {
+  background: transparent!important;
+}
+
+header .ui.dropdown.item:after,
+header .ui.dropdown.item.active:after {
+  font-family: 'icomoon';
+  content: "\e919";
+  float: right;
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  width: 22px;
+  top: 0;
+  margin-top: 3px;
+  text-align: right;
+  color: #a2a2a2;
+}
+
+header .ui.dropdown.item.active:after {
+  position: absolute;
+  right: 1.2em;
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Safari */
+  transform: rotate(180deg);
+  color: #FF6B01;
+  margin-top: 1rem;
+}
+
+header .ui.dropdown.item.active {
+  border: none;
+  font-weight: normal;
+}
+
+header .ui.dropdown.item.active .menu {
+  border: none;
+  z-index: 13;
+  background: transparent;
+  position: relative;
+  top: 1em;
+  left: 0;
+  padding: 0;
+}
+
+header .ui.dropdown.item.active .menu .item {
+  padding: 0.8em 0.93333333em!important;
+  border-bottom: 0;
+  text-align: left;
+  background: transparent;
+}
+
+header .ui.dropdown.item.active .menu .item:hover {
+  background: transparent;
+}
+
+@media (min-width: 992px) {
+  header {
+    background: #FFF;
+  }
+
+  header .mob-menu {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+  }
+
+  header .main-menu {
+    margin-top: -0.5rem;
+    padding-top: 0;
+  }
+
+  header .main-menu .menu .item.home {
+    padding-left: 0;
+    padding-right: 5px;
+  }
+
+  header .main-menu .menu .item {
+    font-size: 16px;
+  }
+
+  header .main-menu .logo {
+    display: block;
+    float: left;
+  }
+
+  header .ui.menu.top-menu {
+    margin-top: -15px !important;
+  }
+
+  header .ui.menu.top-menu .item {
+    color: #8f8f8f;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+
+  header .ui.menu.top-menu .item:first-child {
+    padding-left: 0;
+    padding-right: 5px;
+  }
+
+  header .computer-search {
+    display: inline-block !important;
+  }
+
+  header .home span {
+    display: none;
+  }
+
+  header .home i {
+    display: inline-block;
+  }
+
+  header .ui.dropdown.item {
+    padding-bottom: 23px!important;
+    margin-top: 11px!important;
+  }
+
+  header .ui.dropdown.item:after {
+    content: "\00a0";
+  }
+
+  header .ui.dropdown.item:hover .menu {
+    display: block;
+    left: -25%;
+    border-color: #e8e8e8;
+    padding-top: 0;
+    margin-top: -1px !important;
+    position: absolute;
+  }
+
+  header .ui.dropdown.item:hover .menu > .item {
+    text-align: center;
+    border-bottom: 1px solid #E8E8E8;
+    margin: 10px;
+  }
+
+  header .ui.dropdown.item:hover .menu > .item:last-child {
+    border-bottom: none;
+  }
+
+  header .ui.dropdown.item:hover .menu > .item:hover {
+    background: none!important;
+    color: #FF6B01!important;
+  }
+
+  header .ui.menu.lang {
+    margin-top: -70px;
+    z-index: 30;
+    position: relative;
+    width: 270px;
+    height: 30px;
+    border-bottom: none;
+    border-left: 1px solid #d8d8d8;
+    float: right;
+  }
+
+  header .ui.menu.lang.four.item {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  header .ui.menu.lang.four.item .item {
+    width: 11%;
+  }
+
+  header .ui.menu.lang.four.item .item:last-child {
+    width: 45%;
+    margin-left: 18%!important;
+  }
+
+  header .item.home {
+    font-size: 21px !important;
+  }
+
+  header .auth {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  header .auth .ui.button {
+    height: 42px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  header .basket {
+    width: 115px;
+    height: 30px;
+    margin-top: 13px!important;
+    text-align: right;
+    border: none;
+    border-left: 1px solid #E6E6E6;
+  }
+
+  header .basket .item {
+    margin-right: 0!important;
+    padding-right: 0!important;
+  }
+
+  header .basket .item:after {
+    display: none;
+  }
+
+  header .basket .item .icon-basket-icon:before {
+    display: block;
+    float: left;
+    font-size: 22px;
+    margin-right: 10px;
+    margin-left: 0;
+    margin-top: -3px;
+  }
+
+  header .basket .item span {
+    font-size: inherit;
+  }
+
+  header .basket:before {
+    background: green;
+    float: right;
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  header .main-logo {
+    width: 10.5%!important;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+  }
+
+  header .main-column {
+    width: 88.5% !important;
+  }
+
+  header .main-column .mob-menu {
+    margin-left: 1rem!important;
+    margin-right: 1rem!important;
+    margin-top: -5px;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+  header .main-logo img {
+    width: 100%;
+  }
+
+  header .computer-search {
+    width: 140px;
+    margin-left: -10px !important;
+  }
+
+  header .top-menu .item {
+    padding-left: 13px!important;
+    padding-right: 6px!important;
+  }
+
+  header .ui.menu.lang {
+    width: 240px;
+  }
+
+  header .main-menu .menu .item {
+    font-size: 14px;
+    padding-left: 0.2em!important;
+    padding-right: 0.2em!important;
+  }
+
+  header .basket {
+    margin-left: 5px;
+    width: 130px;
+  }
+}
+
+section.slider {
+  margin-top: 1rem;
 }
 
 .main-slider {
@@ -897,6 +1374,24 @@ main.page > .grid {
   font-size: 58px;
   display: block;
   margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .benefits-icon {
+    color: #e5702a;
+    font-size: 58px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .benefits-icon + strong {
+    display: inline-block !important;
+    color: #636463;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 30px;
+  }
 }
 
 .very.padded {
@@ -1187,6 +1682,7 @@ blockquote {
 }
 
 .contacts {
+  margin-top: 1rem;
   color: #FFF;
   position: relative;
 }
@@ -1223,6 +1719,60 @@ blockquote {
 
 .contacts .divider {
   opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 769px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 769px) {
+  .contacts .info {
+    width: 40%;
+  }
+
+  .contacts .map {
+    width: 60%;
+  }
 }
 
 .contact-form {
@@ -2162,7 +2712,7 @@ footer .copyright {
 
 .ui.basic.buttons .button,
 .ui.basic.button {
-  background: #FFF !important;
+  background: transparent !important;
   color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
   border-radius: 0;
@@ -5662,7 +6212,7 @@ footer .copyright {
 
 /* Inside grid */
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
     display: table;
@@ -8498,6 +9048,44 @@ i.icons .inverted.corner.icon {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-mob-toogle-close:before {
+  content: "\e917";
+}
+
+.icon-small-arrow-icon .path1:before {
+  content: "\e918";
+  color: #000000;
+}
+
+.icon-small-arrow-icon .path2:before {
+  content: "\e919";
+  margin-left: -1.94140625em;
+  color: #000000;
+}
+
+.icon-small-next-icon .path1:before {
+  content: "\e91a";
+  color: #000000;
+}
+
+.icon-small-next-icon .path2:before {
+  content: "\e91b";
+  margin-left: -0.54882812em;
+  color: #000000;
+}
+
+.icon-mob-toogle-open:before {
+  content: "\e915";
+}
+
+.icon-arrow-down-icon:before {
+  content: "\23cc";
+}
+
+.icon-arrow-up-icon:before {
+  content: "\e916";
+}
+
 .icon-b1:before {
   content: "\e900";
 }
@@ -8588,14 +9176,6 @@ i.icons .inverted.corner.icon {
 
 .icon-third-icon:before {
   content: "\e914";
-}
-
-.icon-arrow-down-icon:before {
-  content: "\e915";
-}
-
-.icon-arrow-up-icon:before {
-  content: "\e916";
 }
 /*!
  * # Semantic UI 2.2.4 - Image
@@ -8921,6 +9501,7 @@ img.ui.bordered.image {
 .ui.shadowed.image img,
 .ui.shadowed.image svg,
 img.ui.shadowed.image {
+  margin-top: 45px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 /*!
@@ -8979,15 +9560,15 @@ img.ui.shadowed.image {
 /* browsers require these rules separate */
 
 .ui.input input::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.input input::-moz-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.input input:-ms-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 /*******************************
@@ -9505,13 +10086,10 @@ img.ui.shadowed.image {
   border-radius: 0!important;
   color: #FFF;
   font-size: 15px;
-}
-
-.input.subscribe::-moz-placeholder,
-.input.subscribe::-webkit-input-placeholder,
-.input.subscribe:-ms-input-placeholder {
-  color: #FFF;
-  opacity: 1;
+  /* &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+    color:#FFF;
+    opacity: 1;
+  }*/
 }
 /*!
  * # Semantic UI 2.2.4 - Label
@@ -14859,15 +15437,15 @@ ol.ui.horizontal.list li:before,
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.form :-ms-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.form ::-moz-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.form :focus::-webkit-input-placeholder {
@@ -15427,7 +16005,7 @@ ol.ui.horizontal.list li:before,
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.form .fields {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -15532,7 +16110,7 @@ ol.ui.horizontal.list li:before,
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -18370,7 +18948,7 @@ ol.ui.horizontal.list li:before,
     Container
 ---------------*/
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.menu > .ui.container {
     width: 100% !important;
     margin-left: 0em !important;
@@ -18378,7 +18956,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
     border-left: 1px solid #d8d8d8;
   }
@@ -19323,7 +19901,7 @@ Floated Menu / Item
     Stackable
 ---------------*/
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -20200,78 +20778,87 @@ Floated Menu / Item
          Theme Overrides
 *******************************/
 
+/*
 .ui.menu .dropdown.item .menu {
-  min-width: calc(100% - 1px);
-  border-radius: 0;
-  background: #FFFFFF;
+
+  min-width: ~"calc(100% - 1px)";
+  border-radius:0;
+  background: @dropdownBackground;
   margin: 0;
-  box-shadow: none;
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: normal !important;
-  -ms-flex-direction: column !important;
+  box-shadow: @dropdownMenuBoxShadow;
   flex-direction: column !important;
-  padding-left: 15px;
-  padding-right: 15px;
-  left: -35%;
+  padding-left:15px;
+  padding-right:15px;
+  left:-35%;
   margin-top: 2px !important;
 }
 
+.ui.menu .item {
+  //padding-bottom:36px!important;
+}
 .ui.menu .item:hover {
-  background: transparent;
+  background:transparent;
 }
 
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
   text-align: center;
-  font-size: 1em !important;
-  padding: 0.8em 1.13333333em !important;
-  background: transparent !important;
-  color: #636463 !important;
-  text-transform: none !important;
-  font-weight: normal !important;
-  box-shadow: none !important;
-  -webkit-transition: none !important;
-  transition: none !important;
-  border-bottom: 1px solid  #e6e6e6;
+  font-size: @dropdownItemFontSize !important;
+  padding: @dropdownItemPadding !important;
+  background: @dropdownItemBackground !important;
+  color: @dropdownItemColor !important;
+  text-transform: @dropdownItemTextTransform !important;
+  font-weight: @dropdownItemFontWeight !important;
+  box-shadow: @dropdownItemBoxShadow !important;
+  transition: @dropdownItemTransition !important;
+  border-bottom:1px solid  #e6e6e6;
   border-radius: 0;
-  padding-top: 20px!important;
-  padding-bottom: 20px!important;
+  padding-top:20px!important;
+  padding-bottom:20px!important;
 }
 
-header .ui.secondary.menu {
-  border-top: 1px solid #d8d8d8;
-  padding-top: 18px;
-}
-
-header .ui.secondary.menu .item {
-  padding-bottom: 20px;
-  background: transparent!important;
-}
-
-header .ui.secondary.menu .item:hover {
-  background: transparent;
-}
-
-header .ui.secondary.menu .active.item:after {
-  content: "\00a0";
-  width: 50%;
-  height: 1px;
-  display: block;
-  border-top: 2px solid #ff6b01;
-  float: right;
-  position: absolute;
-  bottom: 17px;
-  left: 25%;
-  top: 40px;
-}
 
 .ui.menu .ui.dropdown .menu > .item:last-child {
-  border-bottom: none;
+  border-bottom:none;
 }
 
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: transparent !important;
   color: #ff6b01!important;
+}*/
+
+@media (max-width: 992px) {
+  .ui.stackable.menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
+
+  .ui.stackable.menu .item:before {
+    position: absolute;
+    content: '';
+    top: auto;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+  }
+
+  .ui.stackable.menu .left.menu,
+  .ui.stackable.menu .left.item {
+    margin-right: 0 !important;
+  }
+
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .right.item {
+    margin-left: 0 !important;
+  }
 }
 /*!
  * # Semantic UI 2.2.4 - Message
@@ -20973,7 +21560,7 @@ header .ui.secondary.menu .active.item:after {
 
 /* Responsive */
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.table:not(.unstackable) {
     width: 100%;
   }
@@ -21228,7 +21815,7 @@ header .ui.secondary.menu .active.item:after {
     Stackable
 ---------------*/
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 991px) {
   .ui[class*="tablet stackable"].table,
   .ui[class*="tablet stackable"].table tbody,
   .ui[class*="tablet stackable"].table tr,
@@ -26714,19 +27301,19 @@ select.ui.dropdown {
   padding: 0.8rem 1.13333333rem;
 }
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.selection.dropdown .menu {
     max-height: 8.1rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.selection.dropdown .menu {
     max-height: 10.8rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.selection.dropdown .menu {
     max-height: 16.2rem;
   }
@@ -26918,19 +27505,19 @@ select.ui.dropdown {
   -webkit-overflow-scrolling: touch;
 }
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.search.dropdown .menu {
     max-height: 8.1rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.search.dropdown .menu {
     max-height: 10.8rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
     max-height: 16.2rem;
   }
@@ -27167,7 +27754,7 @@ select.ui.dropdown {
 
 .ui.dropdown:not(.button) > .default.text,
 .ui.default.dropdown:not(.button) > .text {
-  color: #ffffff;
+  color: #898a89;
 }
 
 .ui.dropdown:not(.button) > input:focus + .default.text,
@@ -27451,21 +28038,21 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 10.4rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 15.6rem;
   }
 }
 
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 20.8rem;
@@ -27791,7 +28378,7 @@ select.ui.dropdown {
 }
 
 .ui.dropdown > .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
   font-size: 7px;
 }
 
@@ -27804,18 +28391,18 @@ select.ui.dropdown {
 /* Sub Menu */
 
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 /* Vertical Menu Dropdown */
 
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: '\e915';
+  content: '\23cc';
 }
 
 .ui.dropdown.selected {

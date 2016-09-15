@@ -718,7 +718,7 @@
 
 .ui.basic.buttons .button,
 .ui.basic.button {
-  background: #FFF !important;
+  background: transparent !important;
   color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
   border-radius: 0;

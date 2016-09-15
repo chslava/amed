@@ -55,13 +55,13 @@
 
 /* browsers require these rules separate */
 .ui.input input::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 .ui.input input::-moz-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 .ui.input input:-ms-input-placeholder {
-  color: #ffffff;
+  color: #898a89;
 }
 
 
@@ -522,10 +522,8 @@
   border-radius: 0!important;
   color: #FFF;
   font-size: 15px;
-}
-.input.subscribe::-moz-placeholder,
-.input.subscribe::-webkit-input-placeholder,
-.input.subscribe:-ms-input-placeholder {
-  color: #FFF;
-  opacity: 1;
+  /* &::-moz-placeholder, &::-webkit-input-placeholder, &:-ms-input-placeholder {
+    color:#FFF;
+    opacity: 1;
+  }*/
 }

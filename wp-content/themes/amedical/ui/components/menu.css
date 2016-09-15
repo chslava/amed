@@ -377,14 +377,14 @@
     Container
 ---------------*/
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.menu > .ui.container {
     width: 100% !important;
     margin-left: 0em !important;
     margin-right: 0em !important;
   }
 }
-@media only screen and (min-width: 1049px) {
+@media only screen and (min-width: 992px - 1) {
   .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
     border-left: 1px solid #d8d8d8;
   }
@@ -1236,7 +1236,7 @@ Floated Menu / Item
     Stackable
 ---------------*/
 
-@media only screen and (max-width: 1048px) {
+@media only screen and (max-width: 990px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1992,68 +1992,80 @@ Floated Menu / Item
          Theme Overrides
 *******************************/
 
+/*
 .ui.menu .dropdown.item .menu {
-  min-width: calc(100% - 1px);
-  border-radius: 0;
-  background: #FFFFFF;
+
+  min-width: ~"calc(100% - 1px)";
+  border-radius:0;
+  background: @dropdownBackground;
   margin: 0;
-  box-shadow: none;
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: column !important;
-          flex-direction: column !important;
-  padding-left: 15px;
-  padding-right: 15px;
-  left: -35%;
+  box-shadow: @dropdownMenuBoxShadow;
+  flex-direction: column !important;
+  padding-left:15px;
+  padding-right:15px;
+  left:-35%;
   margin-top: 2px !important;
 }
-.ui.menu .item:hover {
-  background: transparent;
+
+.ui.menu .item {
+  //padding-bottom:36px!important;
 }
+.ui.menu .item:hover {
+  background:transparent;
+}
+
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
   text-align: center;
-  font-size: 1em !important;
-  padding: 0.8em 1.13333333em !important;
-  background: transparent !important;
-  color: #636463 !important;
-  text-transform: none !important;
-  font-weight: normal !important;
-  box-shadow: none !important;
-  -webkit-transition: none !important;
-  transition: none !important;
-  border-bottom: 1px solid  #e6e6e6;
+  font-size: @dropdownItemFontSize !important;
+  padding: @dropdownItemPadding !important;
+  background: @dropdownItemBackground !important;
+  color: @dropdownItemColor !important;
+  text-transform: @dropdownItemTextTransform !important;
+  font-weight: @dropdownItemFontWeight !important;
+  box-shadow: @dropdownItemBoxShadow !important;
+  transition: @dropdownItemTransition !important;
+  border-bottom:1px solid  #e6e6e6;
   border-radius: 0;
-  padding-top: 20px!important;
-  padding-bottom: 20px!important;
+  padding-top:20px!important;
+  padding-bottom:20px!important;
 }
-header .ui.secondary.menu {
-  border-top: 1px solid #d8d8d8;
-  padding-top: 18px;
-}
-header .ui.secondary.menu .item {
-  padding-bottom: 20px;
-  background: transparent!important;
-}
-header .ui.secondary.menu .item:hover {
-  background: transparent;
-}
-header .ui.secondary.menu .active.item:after {
-  content: "\00a0";
-  width: 50%;
-  height: 1px;
-  display: block;
-  border-top: 2px solid #ff6b01;
-  float: right;
-  position: absolute;
-  bottom: 17px;
-  left: 25%;
-  top: 40px;
-}
+
+
 .ui.menu .ui.dropdown .menu > .item:last-child {
-  border-bottom: none;
+  border-bottom:none;
 }
+
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: transparent !important;
   color: #ff6b01!important;
+}*/
+@media (max-width: 992px) {
+  .ui.stackable.menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
+  .ui.stackable.menu .item:before {
+    position: absolute;
+    content: '';
+    top: auto;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    background: #d8d8d8;
+  }
+  .ui.stackable.menu .left.menu,
+  .ui.stackable.menu .left.item {
+    margin-right: 0 !important;
+  }
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .right.item {
+    margin-left: 0 !important;
+  }
 }
