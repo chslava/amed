@@ -8,6 +8,11 @@
 @largeMonitorBreakpoint      : 1140px;
 @widescreenMonitorBreakpoint : 1920px;
 
+@largestMobileScreen : (@tabletBreakpoint - 1px);
+@largestTabletScreen : (@computerBreakpoint - 1px);
+@largestSmallMonitor : (@largeMonitorBreakpoint - 1px);
+@largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
+
 /*******************************
      User Global Variables
 *******************************/
@@ -48,8 +53,8 @@
 @selectedBorderColor: #8f8f8f;
 
 /* Breakpoints */
-@largeMonitorBreakpoint: 1049px;
-@computerBreakpoint: @largeMonitorBreakpoint;
+@largeMonitorBreakpoint: @computerBreakpoint - 1;//1049px;
+//@computerBreakpoint: @largeMonitorBreakpoint;
 @tabletBreakpoint: @largeMonitorBreakpoint;
 
 /* Colors */
