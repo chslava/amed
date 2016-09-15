@@ -1,5 +1,5 @@
 <?php if (have_rows("slider_items")): ?>
-    <section class="slider" style="background: #686C78">
+    <section class="slider">
         <div>
             <ul class="main-slider">
                 <?php $counter=0; ?>
