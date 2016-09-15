@@ -3,7 +3,10 @@
     <div class="ui grid">
       <div class="sixteen wide tablet eight wide computer column">
         <nav class="ui text menu">
-          <div><a class="item active" href="#"> Medicīnas iekārtas<a class="item" href="#2">Medicīnas preces</a><a class="item" href="#3">Industriālie un drošības risinājumi</a><a class="item" href="#4">Projektēšana</a><a class="item" href="#5">Serviss</a><a class="item" href="#6">Piegāde</a><a class="item" href="#7">Atgriešana un apmaiņa</a><a class="item" href="#8">Privātuma politika</a><a class="item" href="#9">Par mums</a><a class="item" href="contact-us.html">Kontakti</a></a></div>
+          <div>
+            <?php footer_menu(); ?>
+            <!-- <a class="item active" href="#"> Medicīnas iekārtas<a class="item" href="#2">Medicīnas preces</a><a class="item" href="#3">Industriālie un drošības risinājumi</a><a class="item" href="#4">Projektēšana</a><a class="item" href="#5">Serviss</a><a class="item" href="#6">Piegāde</a><a class="item" href="#7">Atgriešana un apmaiņa</a><a class="item" href="#8">Privātuma politika</a><a class="item" href="#9">Par mums</a><a class="item" href="contact-us.html">Kontakti</a></a> -->
+          </div>
         </nav>
       </div>
       <div class="sixteen wide mobile eight wide computer column">
