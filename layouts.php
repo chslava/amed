@@ -4,11 +4,11 @@ if (!in_array($_SERVER['REMOTE_ADDR'], ['46.109.44.8','195.244.135.220','87.110.
     die('no access '.$_SERVER['REMOTE_ADDR']);
 }
 
-$theme_name ="dswp";
+$theme_name ="";
 $current_dir = getcwd();
 $host = $_SERVER['HTTP_HOST'];
 
-$project_path =$current_dir."/wp-content/themes/".$theme_name."/html";
+$project_path =$current_dir."/dist";
 $project_url = str_replace($current_dir,$host, $project_path);
 
 
