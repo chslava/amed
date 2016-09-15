@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="ui/semantic.css">
-    <!-- Pagaidu font fix--><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   </head>
   <body>
     <header>
       <div class="ui container grid mobile tablet only">
         <div class="two column row">
-          <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo-sm.png"></a></div>
+          <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo-sm.png" alt="amedical" title="Amedical logo"></a></div>
           <div class="right aligned column"><a class="mob-a mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a><a class="mob-a mob-search" href="#"><i class="search icon"></i></a></div>
         </div>
         <div class="one column row search-row" style="display:none">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="ui container grid">
-        <div class="main-logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
         <div class="main-column">
           <div class="ui container computer vertically reversed grid mob-menu" style="display:none">
             <div class="row">
@@ -58,47 +58,6 @@
         </div>
       </div>
     </header>
-    <!--
-    div.ui.container.relaxed.grid
-        div.ui.two.wide.column
-            a(href="index.html").logo
-                img(src="img/logo.png")
-        div.ui.fourteen.wide.column
-            div.ui.text.menu
-                div.left.menu
-                    div.item
-                        div.ui.icon.input.search
-                            input(placeholder="Meklēt")
-                            i.search.icon
-                    a(href="content.html").item Jaunumi
-                    a(href="#").item Blogs
-                    a(href="#").item Biežāk uzdotie jautājumi
-                    a(href="about-us.html").item Par mums
-                    a(href="contact-us.html").item Kontakti
-                div.right.menu.lang
-                    a(href="#").item.active LV
-                    a(href="#").item EN
-                    a(href="#").item RU
-                div.right.menu.auth
-                    a(href="#")
-                        span.ui.basic.small.button Autorizācija
-    
-            nav.ui.secondary.menu
-                a(href="index.html").item
-                    i.icon-home-icon
-                a(href="content.html").item Medicīnas iekārtas
-                div.ui.simple.dropdown.item Medicīnas preces
-                    div.menu
-                        a(href="#").item Medicīnas preces
-                        a(href="#").item Instrumenti un aprīkojums
-                a(href="#").item Apģērbi un aizsarglīdzekļi
-                a(href="projects.html").item Projektēšana
-                a(href="services.html").item Iekārtu serviss
-                div.right.menu.auth
-                    a(href="#")
-                        i.icon-basket-icon
-                        span Grozs
-    -->
     <main class="contacts">
       <div class="ui container vertically divided grid">
         <div class="sixteen wide mobile eight wide tablet five wide computer column">
@@ -106,14 +65,14 @@
             <div class="divider">//</div>
             <div class="active section">Kontakti</div>
           </div>
-          <h1>Kontakti</h1>
+          <h1 class="ui header">Kontakti</h1>
           <p>Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067</p>
           <p>Tālrunis: 66103003, 20277153</p>
           <p>Fakss: 66103010</p>
           <p>E-pasts: info@amedical.eu</p>
           <p>Darba laiks: 8:30 - 17:30</p>
           <div class="ui divider"></div>
-          <h1>Rekvizīti</h1>
+          <h2 class="ui header">Rekvizīti</h2>
           <p>SIA "A.Medical"
             PVN reģ. Nr. LV 40103599415
             Varkaļu iela 13A, Rīga, Latvija, LV-1067
@@ -156,7 +115,7 @@
               <button class="ui huge primary button" type="submit">Nosūtīt</button>
             </form>
           </div>
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed image" src="/img/contact-us.jpg"></div>
+          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed image" src="img/contact-us.jpg"></div>
         </div>
       </div>
     </section>
@@ -164,7 +123,7 @@
       <div class="ui container">
         <form class="ui form">
           <div class="ui centered relaxed grid">
-            <h4 class="ui header">Pieteikties Jaunumiem</h4>
+            <div class="title">Pieteikties Jaunumiem</div>
             <input class="subscribe ui input" placeholder="Ievadi savu e-pastu">
             <button class="ui primary button">Pieteikties</button>
           </div>
@@ -183,14 +142,14 @@
             <div class="ui grid">
               <div class="sixteen wide mobile eight wide tablet ten wide computer column footer-contacts">
                 <div class="ui vertical text menu">
-                  <h4>Kontakti</h4>
+                  <div class="title">Kontakti</div>
                   <div class="item"><i class="c-icon icon-place-icon"></i>Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067</div>
-                  <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: 66103002, 20277153</div>
-                  <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="#">info@amedical.eu</a></div>
+                  <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: <a href="tel:66103002">66103002, </a> <a href="tel:20277153">20277153 </a></div>
+                  <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="mailto:info@amedical.eu">info@amedical.eu</a></div>
                 </div>
               </div>
               <div class="sixteen wide mobile eight wide tablet six wide computer column follow-us">
-                <h4>Seko mums</h4>
+                <div class="title">Seko mums</div>
                 <div class="ui text menu soc-menu"><a class="item"><i class="soc-icon icon-facebook-icon"></i>Facebook</a><a class="item"><i class="soc-icon icon-linkedin-icon"></i>LinkedIn</a></div>
               </div>
             </div>
@@ -199,10 +158,10 @@
       </div>
       <div class="copyright">Visas tiesības aizsargātas &copy 2016 A.MEDICAL</div>
     </footer>
-    <script src="/ui/semantic.min.js"></script>
-    <script src="/js/jquery.bxslider.min.js"></script>
+    <script src="ui/semantic.min.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyBKeYvaMBcJDXj6f8O4N02ZWjSfHdWM2-Q"></script>
-    <script src="/js/gmaps.js"></script>
+    <script src="js/gmaps.js"></script>
     <script>
       $(function() {
       map = new GMaps({
@@ -242,10 +201,10 @@
           map.addMarker({
               lat: 56.940,
               lng: 24.070,
-              icon: '/img/marker.png',
+              icon: 'img/marker.png',
           });
       })
     </script>
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

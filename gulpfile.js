@@ -38,6 +38,9 @@ gulp.task('copytotheme', function() {
     gulp.src('./dist/css/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/css/'));
 
+    gulp.src('./dist/fonts/**/*.*')
+        .pipe(gulp.dest('./wp-content/themes/amedical/fonts/'));
+
     gulp.src('./dist/js/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/js/'));
 });

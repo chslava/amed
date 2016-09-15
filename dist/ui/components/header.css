@@ -773,4 +773,6 @@ h1.ui.header .sub.header {
   letter-spacing: 1px;
   line-height: 30px;
   font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }

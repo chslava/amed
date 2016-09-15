@@ -613,6 +613,7 @@ header .ui.dropdown.item.active .menu .item:hover {
 }
 section.slider {
   margin-top: 1rem;
+  background: #686C78;
 }
 .main-slider {
   margin: 0;

@@ -12,7 +12,7 @@ function dswp_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 	// set_post_thumbnail_size(150, 150, false);
 
-    add_image_size( 'slider', 1280, 600, true ); // (cropped)
+    add_image_size( 'slide-big', 1440, 650, true ); // (cropped)
 
 	// rss thingy
 	// add_theme_support( 'automatic-feed-links' );
