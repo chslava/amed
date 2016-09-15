@@ -52,14 +52,14 @@ block content
                         button(type="submit").ui.huge.primary.button Nosūtīt
 
                 div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-                    img(src="/img/contact-us.jpg").ui.shadowed.image
+                    img(src="img/contact-us.jpg").ui.shadowed.image
 
 
     include sections/subscribe
 
 block footer-content
     script(src="https://maps.google.com/maps/api/js?key=AIzaSyBKeYvaMBcJDXj6f8O4N02ZWjSfHdWM2-Q")
-    script(src="/js/gmaps.js")
+    script(src="js/gmaps.js")
     script.
         $(function() {
         map = new GMaps({
@@ -99,6 +99,6 @@ block footer-content
             map.addMarker({
                 lat: 56.940,
                 lng: 24.070,
-                icon: '/img/marker.png',
+                icon: 'img/marker.png',
             });
         })
