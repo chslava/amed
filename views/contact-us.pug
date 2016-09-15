@@ -3,7 +3,7 @@ extends layouts/home.pug
 block content
     main.contacts
         div.ui.container.vertically.divided.grid
-            div.five.wide.column
+            div.sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
                 div.ui.breadcrumb
                     a(href="index.html").section Sākums
                     div.divider //
@@ -30,8 +30,8 @@ block content
 
     section.contact-form
         div.ui.container.grid
-            div.two.column.row
-                div.column
+            div.ui.row
+                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
                     h2.left.ui.header.decored Sazinies ar mums
                     form.ui.form
                         div.eight.wide.field
@@ -51,7 +51,7 @@ block content
                             textarea
                         button(type="submit").ui.huge.primary.button Nosūtīt
 
-                div.column
+                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
                     img(src="/img/contact-us.jpg").ui.shadowed.image
 
 

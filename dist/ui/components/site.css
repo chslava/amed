@@ -1062,6 +1062,54 @@ blockquote {
 .contacts .divider {
   opacity: 0.2;
 }
+@media (max-width: 768px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .contacts .map {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+@media (min-width: 769px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .contacts .map {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+@media (min-width: 769px) {
+  .contacts .info {
+    width: 40%;
+  }
+  .contacts .map {
+    width: 60%;
+  }
+}
 .contact-form {
   margin-top: 1rem;
   padding: 100px 0;

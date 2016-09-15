@@ -1721,6 +1721,60 @@ blockquote {
   opacity: 0.2;
 }
 
+@media (max-width: 768px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 769px) {
+  .contacts .info {
+    background: #636463;
+    min-height: 700px;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 700px;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 769px) {
+  .contacts .info {
+    width: 40%;
+  }
+
+  .contacts .map {
+    width: 60%;
+  }
+}
+
 .contact-form {
   margin-top: 1rem;
   padding: 100px 0;
@@ -9447,6 +9501,7 @@ img.ui.bordered.image {
 .ui.shadowed.image img,
 .ui.shadowed.image svg,
 img.ui.shadowed.image {
+  margin-top: 45px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 /*!
