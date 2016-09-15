@@ -14,6 +14,9 @@ function dswp_theme_support() {
 
     add_image_size( 'slide-big', 1440, 650, true ); // (cropped)
 	add_image_size( 'brand-logo', 0, 68, false ); // (cropped)
+	add_image_size( 'homepage-blog-image', 580, 380, true); // (cropped)
+
+
 
 
 
