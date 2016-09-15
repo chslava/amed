@@ -205,6 +205,28 @@ abstract class Abovethefold_LocalizeJSModule {
 	 */
 	 public function update_script( $script_file ) {
 
+	 	/**
+		 * Check file if is writeable
+		 *
+		 * @since  2.4.0
+		 */
+		if (!file_exists($script_file.'.check')) {
+			@touch($script_file.'.check');
+		}
+		if (!is_writable($script_file.'.check')) {
+
+			if (current_user_can('administrator')) {
+				wp_die('<h2>Above The Fold Optimization</h2>Localize JS error: update status file is not writeable. 
+<br /><br />
+<strong>'.$script_file.'.check</strong>
+
+<br /><br />
+This error is only visible to logged in admin users.');
+			}
+
+			return; // disable localizejs
+		}
+
 	 	$s = array(); $r = array();
 	 	foreach ($this->source_variables as $_s => $_r) {
 	 		$s[] = $_s;

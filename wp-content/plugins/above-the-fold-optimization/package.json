@@ -1,11 +1,11 @@
 {
   "name": "abovethefold",
-  "version": "2.3.14",
-  "description": "Above the fold Optimization",
+  "version": "2.4.1",
+  "description": "Above The Fold Optimization",
   "author": {
-    "name": "info@optimalisatie.nl",
-    "email": "info@optimalisatie.nl",
-    "web": "optimalisatie.nl"
+    "name": "info@pagespeed.pro",
+    "email": "info@pagespeed.pro",
+    "web": "pagespeed.pro"
   },
   "engines": {
     "node": "~0.10"
@@ -15,7 +15,6 @@
     "grunt": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-uglify": "latest",
-    "matchdep": "latest",
-    "penthouse": "latest"
+    "matchdep": "latest"
   }
 }

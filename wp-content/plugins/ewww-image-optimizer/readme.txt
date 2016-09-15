@@ -3,8 +3,8 @@ Contributors: nosilver4u
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MKMQKCBFFG3WW
 Tags: image, attachment, optimize, optimization, lossless, lossy, photo, picture, seo, compression, gmagick, jpegtran, gifsicle, optipng, pngout, pngquant, jpegmini, tinyjpg, tinypng, webp, wp-cli 
 Requires at least: 4.4
-Tested up to: 4.5.3
-Stable tag: 2.9.0
+Tested up to: 4.6
+Stable tag: 2.9.8
 License: GPLv3
 
 Reduce image sizes in WordPress including NextGEN, GRAND FlAGallery, FooGallery and more using lossless/lossy methods and image format conversion.
@@ -31,6 +31,10 @@ The tools used for optimization are [jpegtran](http://jpegclub.org/jpegtran/), [
 EWWW Image Optimizer calls optimization utilities directly which is well suited to shared hosting situations where these utilities may already be installed. Pre-compiled binaries/executables are provided for optipng, gifsicle, pngquant, cwebp, and jpegtran. Pngout can be installed with one-click from the settings page. If none of that works, there is a cloud option that will work for any site.
 
 If you need a version of this plugin for cloud use only, see [EWWW Image Optimizer Cloud](https://wordpress.org/plugins/ewww-image-optimizer-cloud/). It is much more compact as it does not contain any binaries or any mention of the exec() function.
+
+= Support =
+
+If you need assistance using the plugin, please visit our [Support Page](https://ewww.io/contact-us/). The forums are community supported only.
 
 = Bulk Optimize =
 
@@ -113,7 +117,7 @@ To receive updates when new strings are available for translation, you can signu
 1. *Recommended* Visit the settings page to enable/disable specific tools and turn on advanced optimization features.
 1. Done!
 
-If these steps do not work, more detailed instructions are available below the video tutorials.
+If these steps do not work, more detailed instructions are available below the video tutorials. If you need further assistance using the plugin, please visit our [Support Page](https://ewww.io/contact-us/). The forums are community supported only.
 
 At the bottom of this page, you will find a list of known working webhosts. If you have any contributions or corrections to these lists, please contact me via the form at https://ewww.io/contact-us/
 
@@ -252,6 +256,64 @@ Pngout, TinyJPG/TinyPNG, JPEGmini, and Pngquant were recommended by EWWW IO user
 
 * feature requests are sticky at the top of the support forums, vote for the ones you like: https://wordpress.org/support/plugin/ewww-image-optimizer
 * If you would like to help translate this plugin in your language, get started here: https://translate.wordpress.org/projects/wp-plugins/ewww-image-optimizer/
+
+= 2.9.8 =
+* fixed: also disable parallel mode iternally if background testing is not successful
+* fixed: fatal error when WP Retina 2x is enabled with EWWW's parallel mode
+* fixed: parallel opt would hang if resizes were missing
+* fixed: prevent background test from accidentally spawning more tests
+* fixed: background test stuck in queue indefinitely if it didn't succeed
+
+= 2.9.7 =
+* fixed: cached value for multisite uploads directory incorrect on some sites
+* fixed: retina/hidpi images required separate async task with parallel optimization
+* fixed: retina function would try to run an async optimization even if the file didn't exist
+* fixed: one-time convert links (like JPG2PNG) from Media Library not working when Parallel mode enabled
+* fixed: images with transparency were being converted if PNG2JPG enabled regardless of JPG background setting when using API
+* fixed: mime-type meta for resizes updated on conversion and restoration
+* fixed: resizes were being checked, even if no filename was available
+* added: thread limit for parallel optimization, set to 5, can be modified by filter
+* added: filter to modify timeout for parallel optimization
+* added: filter to disable (or modify) the suffix added to converted images
+* added: debugging page to view and clear background optimization queues (must have EWWW's debug setting enabled) - under Media menu
+* changed: parallel mode only enabled if using API or your images have more than 5 resizes each
+* changed: background mode only enabled if background test succeeds (on plugin upgrade)
+* changed: file types with disabled optimization no longer included in unoptimized image counts
+
+= 2.9.6 =
+* fixed: set_time_limit() was still being called in a couple spots even if set_time_limit() is disabled by PHP
+* fixed: regression in scheduled optimization which allowed multiple processes to run
+* fixed: total savings for multisite was incorrectly requerying site 1 for each blog
+* fixed: optimization being attempted via API even if license exceeded
+* added: ewwwio_images table is checked on settings page to make sure it exists
+* added: run utf8_encode() on all filenames for Scheduled Optimize and Scan & Optimize to avoid database update issues, please report any new issues with Scan & Optimize right away
+
+= 2.9.5 =
+* fixed: wrong path pre-pended using parallel optimization and wp-content or uploads folder is not within the WP root
+* fixed: absolute paths passed to async optimization are pre-pended with ABSPATH
+* fixed: Bulk Optimize excluding images from count based on wrong option (disabled generation vs. disabled optimization)
+* fixed: timeouts during Media optimize could corrupt metadata, added routine to rebuild the meta on re-optimization
+* changed: running out of API credits puts the verification function to sleep for up to 5 minutes
+* added: extra checks to make sure the Background/Async objects are properly initialized before using them
+
+= 2.9.4 =
+* fixed: permissions after optimization are different than what WP core uses and falls back to umask on unixy systems
+* fixed: API server address not re-fetched properly when cache expires
+* changed: Parallel Optimization no longer ON by default
+
+= 2.9.3 =
+* fixed: sorry, missed a session locking operation (manual optimize)
+
+= 2.9.2 =
+* changed: priority level of Alt WebP Rewriting so that pages do not get un-minified after Autoptimize runs
+* fixed: async requests for parallel optimization had an empty user agent
+* fixed: uploads broken because start_session() locks all async processes
+
+= 2.9.1 =
+* changed: full paths are not POSTed to avoid Local File Inclusion blocks put in place by various security plugins (Wordfence & Shield)
+* fixed: reduced number of database queries during parallel optimization
+* fixed: undefined methods for BFI thumb editor class
+* added: detect Shield's Lock to Location feature and disable background/parallel operations
 
 = 2.9.0 =
 * added: parallel optimization for Media uploads (original and resizes are done concurrently), turn off under Advanced if it affects site performance
