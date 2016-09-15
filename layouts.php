@@ -1,7 +1,7 @@
 <?php
 //minimal security
 if (!in_array($_SERVER['REMOTE_ADDR'], ['46.109.44.8','195.244.135.220','87.110.109.53','127.0.0.1'])) {
-    die('no access '.$_SERVER['REMOTE_ADDR']);
+    //die('no access '.$_SERVER['REMOTE_ADDR']);
 }
 
 $theme_name ="";
