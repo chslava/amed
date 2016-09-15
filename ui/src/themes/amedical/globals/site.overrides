@@ -690,6 +690,23 @@ main.page {
   margin-top: 60px;
 }
 
+@media (max-width:768px) {
+  .benefits-icon {
+    color: #e5702a;
+    font-size: 58px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+    & + strong {
+      display: inline-block!important;
+      color: #636463;
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 30px;
+    }
+  }
+}
+
 // ------------------------------------------------------------
 .very.padded {
   padding-top:100px!important;
