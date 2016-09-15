@@ -10,7 +10,7 @@ class WPML_ST_Upgrade_Db_Cache_Command extends WPML_WPDB_User implements IWPML_S
 	  `string_id` bigint(20) NOT NULL,
 	  `url_id` bigint(20) NOT NULL,
 	  PRIMARY KEY (`id`),
-	  UNIQUE KEY `string_string_id_to_url_id` (`string_id`,`url_id`)
+	  KEY `string_to_url_id` (`url_id`)
 		)
 	';
 
@@ -28,6 +28,9 @@ class WPML_ST_Upgrade_Db_Cache_Command extends WPML_WPDB_User implements IWPML_S
 	';
 
 	public function run() {
+		$this->wpdb->query( "DROP TABLE IF EXISTS `{$this->wpdb->prefix}icl_string_pages`" );
+		$this->wpdb->query( "DROP TABLE IF EXISTS `{$this->wpdb->prefix}icl_string_urls`" );
+
 		$charset_collate = $this->get_charset_collate();
 		$language_data   = $this->get_language_charset_and_collation();
 		$language_data   = 'CHARACTER SET ' . $language_data['charset'] . ' COLLATE ' . $language_data['collation'];
@@ -51,6 +54,14 @@ class WPML_ST_Upgrade_Db_Cache_Command extends WPML_WPDB_User implements IWPML_S
 
 	public function run_frontend() {
 	}
+
+	/**
+	 * @return string
+	 */
+	public static function get_commnand_id() {
+		return __CLASS__ . '_3';
+	}
+
 
 	/**
 	 * @return string

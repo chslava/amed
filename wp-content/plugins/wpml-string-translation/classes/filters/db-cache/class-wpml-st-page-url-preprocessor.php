@@ -39,12 +39,26 @@ class WPML_ST_Page_URL_Preprocessor {
 			return '/wp-admin/admin-ajax.php';
 		}
 
+		$url = $this->process_forum_topics( $url );
 		$url = $this->process_path( $url );
 		$url = $this->process_query( $url );
 
 		return $url;
 	}
 
+	/**
+	 * @param string $url
+	 *
+	 * @return string
+	 */
+	private function process_forum_topics( $url ) {
+		if ( false !== strpos( $url, '/forums/topic/' ) ) {
+			return '/forums/topic/';
+		} else {
+			return $url;
+		}
+	}
+	
 	/**
 	 * @param string $url
 	 *

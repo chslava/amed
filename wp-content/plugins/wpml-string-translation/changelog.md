@@ -1,3 +1,9 @@
+# 2.4.1.1
+
+## Fixes
+* [wpmlst-892] Moved table migration from Core plugin to String Translation, to avoid dependency issues
+* [wpmlst-895] Fixed index in icl_string_pages table
+
 # 2.4.1
 
 ## Fixes
