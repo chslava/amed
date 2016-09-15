@@ -1194,6 +1194,7 @@ header .ui.dropdown.item.active .menu .item:hover {
 
 section.slider {
   margin-top: 1rem;
+  background: #686C78;
 }
 
 .main-slider {
@@ -9027,8 +9028,8 @@ i.icons .inverted.corner.icon {
 
 @font-face {
   font-family: 'icomoon';
-  src: url('/fonts/icomoon.eot?k1oj4x');
-  src: url('/fonts/icomoon.eot?k1oj4x#iefix') format('embedded-opentype'), url('/fonts/icomoon.ttf?k1oj4x') format('truetype'), url('/fonts/icomoon.woff?k1oj4x') format('woff'), url('/fonts/icomoon.svg?k1oj4x#icomoon') format('svg');
+  src: url('../fonts/icomoon.eot?k1oj4x');
+  src: url('../fonts/icomoon.eot?k1oj4x#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?k1oj4x') format('truetype'), url('../fonts/icomoon.woff?k1oj4x') format('woff'), url('../fonts/icomoon.svg?k1oj4x#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }

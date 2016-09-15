@@ -524,6 +524,7 @@ header {
 // ------------------------------------------------------------
 section.slider {
   margin-top:1rem;
+  background: #686C78;
 }
 .main-slider {
   //padding:1rem 0 0 0;
