@@ -20,7 +20,9 @@ $(function() {
 
     $('.ui.checkbox').checkbox();
 
-    $('.main-slider').bxSlider();
+    $('.main-slider').bxSlider({
+        adaptiveHeight: true
+    });
 
     $('.represent-slider').bxSlider({
         slideWidth: 190,
