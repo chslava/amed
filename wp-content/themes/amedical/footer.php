@@ -26,15 +26,13 @@
               <div class="title"><?php the_field('contacts_title','option'); ?></div>
               <div class="item">
                 <i class="c-icon icon-place-icon"></i>
-                <?php the_field("address","option"); ?>
+                <?php the_field("address_title","option"); ?>: <?php the_field("address","option"); ?>
               </div>
               <div class="item">
                 <i class="c-icon icon-phone-icon"></i>
-                <?php the_field('phone_title','option'); ?>:
-                <a href="tel:<?php the_field("phone","option"); ?>">
+                <?php the_field('phone_title','option'); ?>: <a href="tel:<?php the_field("phone","option"); ?>">
                   <?php the_field("phone","option"); ?>
-                </a>
-                <?php if (get_field("phone-2","option")): ?>,
+                </a>, <?php if (get_field("phone-2","option")): ?>
                   <a href="tel:<?php the_field("phone-2","option"); ?>">
                     <?php the_field("phone-2","option"); ?>
                   </a>
