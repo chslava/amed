@@ -24,14 +24,14 @@
         <div class="ui grid">
           <div class="sixteen wide mobile eight wide tablet ten wide computer column footer-contacts">
             <div class="ui vertical text menu">
-              <h4>Kontakti</h4>
+              <div class="title">Kontakti</div>
               <div class="item"><i class="c-icon icon-place-icon"></i>Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067</div>
-              <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: 66103002, 20277153</div>
-              <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="#">info@amedical.eu</a></div>
+              <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: <a href="tel:66103002">66103002, </a> <a href="tel:20277153">20277153 </a></div>
+              <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="mailto:info@amedical.eu">info@amedical.eu</a></div>
             </div>
           </div>
           <div class="sixteen wide mobile eight wide tablet six wide computer column follow-us">
-            <h4>Seko mums</h4>
+            <div class="title">Seko mums</div>
             <div class="ui text menu soc-menu"><a class="item"><i class="soc-icon icon-facebook-icon"></i>Facebook</a><a class="item"><i class="soc-icon icon-linkedin-icon"></i>LinkedIn</a></div>
           </div>
         </div>
@@ -40,6 +40,3 @@
   </div>
   <div class="copyright">Visas tiesības aizsargātas &copy 2016 A.MEDICAL</div>
 </footer>
-        <?php wp_footer(); ?>
-  </body>
-</html>
