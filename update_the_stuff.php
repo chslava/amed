@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('max_execution_time', 360);
 
 
-if (!in_array($_SERVER['REMOTE_ADDR'], ['195.244.135.220','87.110.109.53']))
+if (!in_array($_SERVER['REMOTE_ADDR'], ['91.105.107.83','195.244.135.220','87.110.109.53']))
 {
     die('no access'.$_SERVER['REMOTE_ADDR']);
 }
