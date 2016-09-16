@@ -7,7 +7,7 @@
             <?php
             // the query
             $args =array();
-            $args['ļimit']=2;
+            $args['posts_per_page']=2;
             $the_query = new WP_Query( $args ); ?>
 
             <?php if ( $the_query->have_posts() ) : ?>
