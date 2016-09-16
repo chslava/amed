@@ -19,13 +19,15 @@
 
 
                     <div class="sixteen wide mobile eight wide computer column">
-                        <div class="image-container">
-                            <?php the_post_thumbnail("homepage-blog-image"); ?>
-                            <time>
-                                <span><?php the_date("d"); ?></span>
-                                <?php print(get_the_date("M")); ?>
-                            </time>
-                        </div>
+                        <?php if (has_post_thumbnail()): ?>
+                            <div class="image-container">
+                                <?php the_post_thumbnail("homepage-blog-image"); ?>
+                                <time>
+                                    <span><?php the_date("d"); ?></span>
+                                    <?php print(get_the_date("M")); ?>
+                                </time>
+                            </div>
+                        <?php endif; ?>
                         <h3 class="ui header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <p>
                             <?php print(strip_tags(get_the_excerpt())); ?>
