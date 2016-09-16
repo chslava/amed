@@ -28,9 +28,10 @@
                         </div>
                         <h3 class="ui header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <p>
-                            <?php the_excerpt(); ?>
+                            <?php print(strip_tags(get_the_excerpt())); ?>
                             <a href="<?php the_permalink(); ?>">
-                                <?php _e("Read more",'amedical'); ?><i class="long right arrow icon"></i>
+                                <?php _e("Read more",'amedical'); ?>
+                                <i class="long right arrow icon"></i>
                             </a>
                         </p>
                     </div>
@@ -52,9 +53,9 @@
         <div class="aligned center view-all">
             <?php
             $news_page_id = get_option('page_for_posts');
-
             ?>
-            <a class="ui primary button" href="<?php the_permalink($news_page_id); ?>"><?php _e("View all articles",'amedical'); ?>
+            <a class="ui primary button" href="<?php the_permalink($news_page_id); ?>">
+                <?php _e("View all articles",'amedical'); ?>
                 <i class="long right arrow icon"></i>
             </a>
         </div>
