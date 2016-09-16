@@ -23,7 +23,8 @@
                             <?php the_post_thumbnail("homepage-blog-image"); ?>
                             <time>
                                 <span><?php the_date("d"); ?></span>
-                                <?php the_date("M"); ?></time>
+                                <?php print(get_the_date("M")); ?>
+                            </time>
                         </div>
                         <h3 class="ui header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <p>
