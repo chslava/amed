@@ -189,6 +189,7 @@ header .logo-big {
   display: none!important;
 }
 header .ui.mobile.container.grid {
+  height: 87px;
   background: #FFF;
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
   width: 100%!important;
@@ -220,7 +221,8 @@ header .mobile.tablet > .row {
   padding-bottom: 0!important;
 }
 header .logo {
-  padding-top: 10px;
+  padding-top: 2px;
+  margin-left: -11px;
   display: inline-block;
 }
 header a {
@@ -232,13 +234,14 @@ header a.mob-toogle-menu {
   height: 22px;
   display: block;
   float: right;
-  margin-left: 30px;
-  margin-top: 25px;
+  margin-left: 32px;
+  margin-top: 23px;
   font-size: 22px;
 }
 header a.mob-toogle-menu {
-  font-size: 16px;
-  margin-top: 27px;
+  font-size: 18px;
+  margin-top: 26px;
+  margin-right: 4px;
 }
 header a.mob-toogle-menu .icon-mob-toogle-close {
   font-size: 22px;
