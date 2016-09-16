@@ -1,3 +1,14 @@
+<section class="subscribe">
+  <div class="ui container">
+    <form class="ui form">
+      <div class="ui centered relaxed grid">
+        <div class="title">Pieteikties Jaunumiem</div>
+        <input class="subscribe ui input" placeholder="Ievadi savu e-pastu">
+        <button class="ui primary button">Pieteikties</button>
+      </div>
+    </form>
+  </div>
+</section>
 <footer>
   <div class="ui container">
     <div class="ui grid">
