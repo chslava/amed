@@ -39,12 +39,12 @@
   width: auto;
 }
 .ui.dropdown > .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e900';
   font-size: 7px;
 }
 
 .ui.dropdown.selection.active > .dropdown.icon:before {
-  content: '\e916';
+  content: '\e901';
   font-size: 7px;
   color: #ff6b01;
 }
