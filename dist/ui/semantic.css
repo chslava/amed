@@ -831,7 +831,7 @@ header .basket {
 
 header .basket .item:after {
   font-family: 'icomoon';
-  content: "\e90f";
+  content: "\e917";
   float: right;
   text-align: right;
   width: 100%;
@@ -890,7 +890,7 @@ header .ui .menu .item:hover {
 header .ui.dropdown.item:after,
 header .ui.dropdown.item.active:after {
   font-family: 'icomoon';
-  content: "\e919";
+  content: "\e915";
   float: right;
   display: block;
   font-size: 9px;
@@ -23734,18 +23734,18 @@ select.ui.dropdown {
 /* Sub Menu */
 
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 
 /* Vertical Menu Dropdown */
 
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 
 .ui.dropdown.selected {

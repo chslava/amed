@@ -1400,16 +1400,16 @@ select.ui.dropdown {
 
 /* Sub Menu */
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 .ui.dropdown .item .left.dropdown.icon:before,
 .ui.dropdown .left.menu .item .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 
 /* Vertical Menu Dropdown */
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: '\23cc';
+  content: '\e915';
 }
 .ui.dropdown.selected {
   background: rgba(0, 0, 0, 0.03);
