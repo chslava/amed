@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 
 					// Original loadCSS
 					'public/js/abovethefold-loadcss.min.js' : [
-						'bower_components/loadcss/loadCSS.js',
+						'bower_components/loadcss/src/loadCSS.js',
 						'public/js/src/abovethefold.loadcss.js'
 					],
 

@@ -12,6 +12,8 @@
 		$options['localizejs_enabled'] = 1;
 	}
 
+	$autoptimize_active = is_plugin_active('autoptimize/autoptimize.php');
+
 ?>
 <form method="post" action="<?php echo admin_url('admin-post.php?action=abovethefold_localizejs'); ?>" class="clearfix">
 	<?php wp_nonce_field('abovethefold'); ?>
@@ -25,7 +27,16 @@
 						</h3>
 						<div class="inside">
 
-							<p><strong>Status: <?php if (intval($options['localizejs_enabled']) === 1) { print '<font color="green">enabled</font>'; } else { print '<font color="red">disabled</font>'; } ?></strong> (enable/disable via <a href="<?php echo admin_url('admin.php?page=abovethefold&tab=settings#localizejs'); ?>">settings</a>)</p>
+							<p><strong>Status: <?php if ($autoptimize_active && get_option('autoptimize_html')) {
+													if (intval($options['localizejs_enabled']) === 1) { print '<font color="green">enabled</font>'; } else { print '<font color="red">disabled</font>'; } ?></strong> (enable/disable via <a href="<?php echo admin_url('admin.php?page=abovethefold&tab=settings#localizejs'); ?>">settings</a>)
+													<?php
+												} else {
+													?>
+														<span style="color:red;font-weight:bold;">ERROR - Autoptimize not installed or (HTML optimization) not activated.</span>
+													<?php
+												}
+											?>
+												</p>
 							<p>This feature stores external javascript files locally to pass the <code>Leverage browser caching</code>-rule from Google PageSpeed Insights (<a href="https://developers.google.com/speed/docs/insights/LeverageBrowserCaching" target="_blank">documentation</a>).</p>
 
 							<p>This is a BETA feature and is not enabled by default. Please <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">report bugs</a>.</p>

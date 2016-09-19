@@ -40,7 +40,7 @@ if ( ! function_exists( 'main_menu' ) ) {
 				'depth'           => 0,
 				'walker' 					=> new Main_Menu_Walker()
 			);
-			echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' );
+		  echo strip_tags(wp_nav_menu( $menuParameters ), '<a><i><div>' );
 	}
 }
 

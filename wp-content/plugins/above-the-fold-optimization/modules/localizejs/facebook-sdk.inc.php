@@ -64,6 +64,11 @@ class Abovethefold_LocalizeJSModule_FacebookSdk extends Abovethefold_LocalizeJSM
 	 */
 	public function enqueue_script( ) {
 
+		// wait for detection of language
+		if (empty($this->lang)) {
+			return;
+		}
+
 		list($script_url, $script_time) = $this->get_script( true );
 
 		wp_enqueue_script( 'facebook-sdk-js', $script_url , array(), date('Ymd', $script_time) );
@@ -101,6 +106,7 @@ class Abovethefold_LocalizeJSModule_FacebookSdk extends Abovethefold_LocalizeJSM
 				$this->source_variables['%%LANG%%'] = $lang;
 				update_option( 'abovethefold', $options );
 			}
+
 
 			$regex = array();
 

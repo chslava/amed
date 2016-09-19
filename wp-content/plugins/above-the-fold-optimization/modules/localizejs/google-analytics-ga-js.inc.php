@@ -39,25 +39,12 @@ class Abovethefold_LocalizeJSModule_GoogleAnalyticsGaJs extends Abovethefold_Loc
 		if ($this->CTRL->options['localizejs'][$this->classname]['enabled']) {
 			switch ($this->CTRL->options['localizejs'][$this->classname]['incmethod']) {
 				default:
-					$this->CTRL->loader->add_action('wp_head', $this, 'setup_analytics_script', -1);
-					$this->CTRL->loader->add_action('wp_enqueue_scripts', $this, 'enqueue_script', -1);
+					
 				break;
 			}
 		}
 
 	}
-
-	/**
-	 * Include script
-	 */
-	public function enqueue_script( ) {
-
-		list($script_url, $script_time) = $this->get_script( true );
-
-		wp_enqueue_script( 'google-analytics-ga-js', $script_url , array(), date('Ymd', $script_time) );
-
-	}
-
 
 	/**
 	 * Parse Google Analytics javascript and return original code (to replace) and file-URL.
@@ -74,21 +61,24 @@ class Abovethefold_LocalizeJSModule_GoogleAnalyticsGaJs extends Abovethefold_Loc
 		 */
 		if (strpos($code,'google-analytics.com/ga.js') !== false) {
 
+
 			$regex = array();
 
-			$replace = '';
+			$replace = array();
 			if ($this->CTRL->options['localizejs'][$this->classname]['incmethod'] === 'replace') {
 
-				$regex[] = '#([\'|"])((http(s)?)?(:)?//[^/]+google-analytics\.com/ga\.js)[\'|"]#Ui';
-
 				list($script_url,$script_time) = $this->get_script( true );
-				$script_url = preg_replace('|^http(s)?:|Ui','',$script_url);
-				$replace = '$1$3$4$5' . $script_url . '$1';
+
+				$regex[] = '#\(\'https:\'\s*==(=)?\s*document[^\?]+\?\s*\'https:.*google-analytics\.com/ga\.js\';#Ui';
+				$replace[] = '\'' . $script_url . '\';';
+
+				$regex[] = '#([\'|"])((http(s)?)?(:)?//[^/]+google-analytics\.com/ga\.js)[\'|"]#Ui';
+				$replace[] = '$1$3$4$5' . $script_url . '$1';
 
 			}
 
-			foreach ($regex as $str) {
-				$code = preg_replace($str,$replace,$code);
+			foreach ($regex as $n => $str) {
+				$code = preg_replace($str,$replace[$n],$code);
 			}
 
 		}

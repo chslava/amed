@@ -1,9 +1,9 @@
 === Above The Fold Optimization ===
 Contributors: optimalisatie
-Donate link: https://optimalisatie.nl/
+Donate link: https://pagespeed.pro/
 Tags: optimization, above the fold, critical path, css, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, pagespeed, google pagespeed
 Requires at least: 3.0.1
-Tested up to: 4.4.2
+Tested up to: 4.6.1
 Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,13 +20,13 @@ The plugin is intended to work together with other optimization plugins such as 
 
 **Note:** *The plugin is intended to achieve the best possible result, not easy usage. It is intended for advanced WordPress users and optimization professionals.*
 
-### Critical Path CSS generation
+### Critical Path CSS
 
-The plugin enables automated Critical Path CSS generation via [Penthouse.js](https://github.com/pocketjoso/penthouse). The plugin will execute Penthouse.js to generate Critical Path CSS for multiple responsive dimensions and pages. It then combines the resulting CSS-code and then compresses the CSS-code via [Clean-CSS](https://github.com/jakubpawlowicz/clean-css).
+The plugin provides tools and information to create and install Critical Path CSS.
 
 ### Full CSS extraction
 
-The plugin enables the extraction of full CSS from pages for use in critical path CSS generation.
+The plugin enables the extraction of full CSS from pages for use in Critical Path CSS generators.
 
 ### Javascript localization
 
@@ -46,24 +46,23 @@ When the option ``Optimize CSS Delivery`` is enabled all CSS links are loaded as
 3. Navigate to the plugin settings-page
 4. Generate Critical Path CSS
 
-To make use of automated Critical Path CSS generation it is required to install the following software on the server:
-
-1. [PhantomJS](http://phantomjs.org/): ``npm install -g phantomjs``
-2. [Clean-CSS](https://github.com/jakubpawlowicz/clean-css): ``npm install -g clean-css``
-From the `above-the-fold-optimization/` directory:
-3. ``npm install``
-
-To be able to generate Critical Path CSS from within the WordPress admin the software needs to be executable from PHP which may pose a security risk. An alternative option is to generate a CLI command to execute via SSH.
-
 
 == Screenshots ==
 
 1. Settings, CSS delivery optimization, Google font optimization
-2. Automated critical path CSS generation via Penthouse.js
-3. Full CSS extraction
-4. Javascript localization
+2. Full CSS extraction
+3. Javascript localization
 
 == Changelog ==
+
+= 2.4.1 =
+* Added Content Security Policy (CSP) test in admin toolbar. ([SmashingMagazine](https://www.smashingmagazine.com/2016/09/content-security-policy-your-future-best-friend/))
+
+= 2.4 =
+* Removed server-side critical path CSS generator.
+* Improved admin toolbar.
+* Updated [loadCSS](https://github.com/filamentgroup/loadCSS) to v1.2.0
+* Bugfix Localize Javascript module for old Google Analytics ga.js. (@RebellionNT1)
 
 = 2.3.14 =
 * Minor improvements.
@@ -144,7 +143,11 @@ To be able to generate Critical Path CSS from within the WordPress admin the sof
 
 == Upgrade Notice ==
 
+= 2.4 =
+The server side critical path CSS generator has been removed.
+
 = 2.0 =
 The upgrade requires a new configuration of Critical Path CSS. The configuration from version 1.0 will not be preserved.
+
 
 

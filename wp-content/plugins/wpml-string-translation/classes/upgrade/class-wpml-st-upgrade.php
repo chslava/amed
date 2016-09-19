@@ -85,14 +85,14 @@ class WPML_ST_Upgrade {
 	 * @return bool
 	 */
 	private function has_been_command_executed( $class ) {
-		return isset( $this->string_settings[ $class . '_has_run' ] );
+		return isset( $this->string_settings[ $class::get_commnand_id() . '_has_run' ] );
 	}
 
 	/**
 	 * @param string $class
 	 */
 	private function mark_command_as_executed( $class ) {
-		$this->string_settings[ $class . '_has_run' ] = true;
+		$this->string_settings[ $class::get_commnand_id() . '_has_run' ] = true;
 		$this->sitepress->set_setting( 'st', $this->string_settings, true );
 		wp_cache_flush();
 	}

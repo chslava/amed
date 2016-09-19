@@ -14,6 +14,10 @@ class WPML_ST_Upgrade_Migrate_Originals extends WPML_WPDB_And_SP_User implements
 			$this->active_languages[] = $lang['code'];
 		}
 	}
+
+	public static function get_commnand_id() {
+		return __CLASS__;
+	}
 	
 	public function run() {
 		if ( $this->is_migration_required() ) {

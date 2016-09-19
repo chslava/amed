@@ -13,26 +13,24 @@
 
 							<table class="form-table">
 								<tr valign="top">
-									<th scope="row">Critical Path CSS
+									<th scope="row">Critical CSS
 										<?php if (trim($inlinecss) !== '') { print '<div style="font-size:11px;font-weight:normal;">'.size_format(strlen($inlinecss),2).'</div>'; } ?>
 									</th>
 									<td>
-										<p class="description" style="margin-bottom:5px;"><?php _e('Enter the CSS-code to be inserted <strong>inline</strong> into the <code>&lt;head&gt;</code> of the page. <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery" target="_blank">Click here</a> for the recommendations by Google.', 'abovethefold'); ?></p>
+										<p class="description" style="margin-bottom:5px;"><?php _e('Enter the CSS-code to be inserted <strong>inline</strong> into the <code>&lt;head&gt;</code> of the page. <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery" target="_blank">Click here</a> for the recommendations by Google. <a href="'.admin_url('admin.php?page=abovethefold&tab=generator').'">Click here</a> for generators.', 'abovethefold'); ?></p>
 										<textarea style="width: 100%;height:250px;font-size:11px;margin-bottom:5px;" id="abtfcss"<?php if (!isset($options['csseditor']) || intval($options['csseditor']) === 1) { print 'data-advanced="1"'; } ?> name="abovethefold[css]"><?php echo htmlentities($inlinecss); ?></textarea>
 
 										<span style="float:right;<?php if (!isset($options['csseditor']) || intval($options['csseditor']) === 1) { } else { print 'display:none;'; } ?>"><a href="javascript:void(0);" onclick="window.abtfcssToggle(this);">[+] Large Editor</a></span>
 
+										<div style="float:left;">
 										<a href="https://www.google.com/search?q=beautify+css+online" target="_blank" class="button button-secondary button-small">Beautify</a>
 										<a href="https://www.google.com/search?q=minify+css+online" target="_blank" class="button button-secondary button-small">Minify</a>
 										<a href="https://jigsaw.w3.org/css-validator/#validate_by_input+with_options" target="_blank" class="button button-secondary button-small">Validate</a>
+										</div>
+										<div style="float:left;margin-left:1.5em;padding-top:2px;">
+											<label style="font-size:12px;"><input type="checkbox" name="abovethefold[csseditor]" value="1"<?php if (!isset($options['csseditor']) || intval($options['csseditor']) === 1) { print ' checked=""'; } ?>> Use a CSS editor with error reporting (<a href="http://csslint.net/" target="_blank">CSS lint</a> using <a href="https://codemirror.net/" target="_blank">CodeMirror</a>).</label>
+										</div>
 
-									</td>
-								</tr>
-								<tr valign="top">
-									<th scope="row">Advanced CSS editor</th>
-									<td>
-										<label><input type="checkbox" name="abovethefold[csseditor]" value="1"<?php if (!isset($options['csseditor']) || intval($options['csseditor']) === 1) { print ' checked'; } ?>> Enabled</label>
-										<p class="description">Use a CSS editor with error reporting (<a href="http://csslint.net/" target="_blank">CSS lint</a> using <a href="https://codemirror.net/" target="_blank">CodeMirror</a>).</p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -64,10 +62,10 @@
 														<table cellpadding="0" cellspacing="0" border="0">
 															<tr>
 																<td valign="top" style="padding:0px;vertical-align:top;"><input type="number" min="0" max="3000" step="1" name="abovethefold[cssdelivery_renderdelay]" size="10" value="<?php print ((empty($options['cssdelivery_renderdelay']) || $options['cssdelivery_renderdelay'] === 0) ? '' : htmlentities($options['cssdelivery_renderdelay'],ENT_COMPAT,'utf-8')); ?>" onkeyup="if (jQuery(this).val() !== '' && jQuery(this).val() !== '0') { jQuery('#warnrenderdelay').show(); } else { jQuery('#warnrenderdelay').hide(); }" onchange="if (jQuery(this).val() === '0') { jQuery(this).val(''); } if (jQuery(this).val() !== '' && jQuery(this).val() !== '0') { jQuery('#warnrenderdelay').show(); } else { jQuery('#warnrenderdelay').hide(); }" placeholder="0 ms" /></td>
-																<td valign="top" style="padding:0px;vertical-align:top;padding-left:10px;font-size:11px;"><div id="warnrenderdelay" style="padding:0px;margin:0px;<?php print ((empty($options['cssdelivery_renderdelay']) || $options['cssdelivery_renderdelay'] === 0 || trim($options['cssdelivery_renderdelay']) === '') ? 'display:none;' : ''); ?>"><span style="color:red;font-weight:bold;">Warning:</span> Although a higher PageSpeed score can be achieved using this option, it may not be beneficial to the page rendering experience of your users. Often it is best to seek an alternative solution to pass the rule.</div></td>
+																<td valign="top" style="padding:0px;vertical-align:top;padding-left:10px;font-size:11px;"><div id="warnrenderdelay" style="padding:0px;margin:0px;<?php print ((empty($options['cssdelivery_renderdelay']) || $options['cssdelivery_renderdelay'] === 0 || trim($options['cssdelivery_renderdelay']) === '') ? 'display:none;' : ''); ?>"><span style="color:red;font-weight:bold;">Warning:</span> Although a higher PageSpeed score can be achieved using this option, it may not be beneficial to the page rendering experience of your users. Often it is best to seek an alternative solution to pass the rule. <br />Double check that it does not cause a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">FOUC</a>.	</div></td>
 															</tr>
 														</table>
-														<p class="description" style="clear:both;">Optionally, enter a time in microseconds to delay the rendering of CSS files. This option allows for fine tuning to the break point of the <code>Eliminate render-blocking JavaScript and CSS in above-the-fold content</code>-rule.</p>
+														<p class="description" style="clear:both;">Optionally, enter a time in milliseconds to delay the rendering of CSS files. This option allows for fine tuning to the break point of the <code>Eliminate render-blocking JavaScript and CSS in above-the-fold content</code>-rule.</p>
 
 													</td>
 												</tr>
@@ -155,18 +153,41 @@
 										Localize Javascript (BETA)<a name="localizejs">&nbsp;</a>
 									</th>
 									<td>
-										<label><input type="checkbox" name="abovethefold[localizejs_enabled]" value="1"<?php if (intval($options['localizejs_enabled']) === 1) { print ' checked'; } ?> onchange="if (jQuery(this).is(':checked')) { jQuery('.localizejsoptions').show(); } else { jQuery('.localizejsoptions').hide(); }"> Enabled &nbsp;<a href="<?php echo admin_url('admin.php?page=abovethefold&tab=localizejs'); ?>" class="localizejsoptions button button-secondary button-small">Settings</a></label>
+										<label><input type="checkbox" name="abovethefold[localizejs_enabled]" value="1"<?php if (intval($options['localizejs_enabled']) === 1) { print ' checked'; } ?> onchange="if (jQuery(this).is(':checked')) { jQuery('.localizejsoptions').show(); } else { jQuery('.localizejsoptions').hide(); }"> Enabled <?php
+												
+												if ($autoptimize_active && get_option('autoptimize_html')) {
+													?>
+														&nbsp;<a href="<?php echo admin_url('admin.php?page=abovethefold&tab=localizejs'); ?>" class="localizejsoptions button button-secondary button-small">Settings</a>
+													<?php
+												} else {
+													?>
+														<span style="color:red;font-weight:bold;">ERROR - Autoptimize not installed or (HTML optimization) not activated.</span>
+													<?php
+												}
+										?></label>
 										<p class="description">When enabled, recognized external javascript files are stored locally to pass the <code>Leverage browser caching</code>-rule from Google PageSpeed. </p>
 
 										</div>
 									</td>
 								</tr>
 
+								<!--tr valign="top">
+									<th scope="row">
+										Javascript on domready
+									</th>
+									<td>
+										<label><input type="checkbox" name="abovethefold[wwjs_enabled]" value="1"<?php if (intval($options['wwjs_enabled']) === 1) { print ' checked'; } ?>> Enabled</label>
+										<p class="description">When enabled, selected javascript files are loaded in the background using a Web Worker and executed on domready (<a href="https://github.com/optimalisatie/webworker-preload" target="_blank">webworker-preload</a>).</p>
+
+										</div>
+									</td>
+								</tr-->
+
 								<tr valign="top">
 									<th scope="row">Admin Bar Test Menu</th>
 									<td>
                                         <label><input type="checkbox" name="abovethefold[adminbar]" value="1"<?php if (!isset($options['adminbar']) || intval($options['adminbar']) === 1) { print ' checked'; } ?>> Enabled</label>
-                                        <p class="description">Show a <code>PageSpeed</code>-menu in the top admin bar with links to website speed and security tests such as Google PageSpeed Insights. The menu is intended for quick testing of individual pages.</p>
+                                        <p class="description">Show a <code>PageSpeed</code>-menu in the top admin bar with links to website speed and security tests such as Google PageSpeed Insights.</p>
 									</td>
 								</tr>
 								<tr valign="top">

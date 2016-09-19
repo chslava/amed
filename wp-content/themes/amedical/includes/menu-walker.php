@@ -39,6 +39,8 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 
 	function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {
 
+	 $item_html = '';
+
 	 $atts = array();
 	 $atts['title']  = ! empty( $object->attr_title ) ? $object->attr_title : '';
 	 $atts['target'] = ! empty( $object->target )     ? $object->target     : '';
@@ -55,10 +57,21 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 			 }
 	 }
 
-	 $output .= '<a'. $attributes .' class="item">';
-	 $output .= $args->link_before . apply_filters( 'the_title', $object->title, $object->ID ) . $args->link_after;
-	 $output .= '</a>';
+	 $classes = empty( $object->classes ) ? array() : (array) $object->classes;
+
+	 // Home menu
+	 if ( in_array( 'home', $classes ) ) {
+		 $item_html .= '<a'. $attributes .' class="item"><i class="icon-home-icon"></i></a>';
+	 }else{
+		 $item_html .= '<a'. $attributes .' class="item">';
+		 $item_html .= $args->link_before . apply_filters( 'the_title', $object->title, $object->ID ) . $args->link_after;
+		 $item_html .= '</a>';
+	 }
+
+	 $output .= $item_html;
+
  }
+
 
 }
 endif;
