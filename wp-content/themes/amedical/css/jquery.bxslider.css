@@ -13,10 +13,9 @@
 
 /** RESET AND LAYOUT
 ===================================*/
-
 .bx-wrapper {
 	position: relative;
-	margin: 0 auto 60px;
+	margin: 0 auto;
 	padding: 0;
 	*zoom: 1;
 	max-width: 1440px!important;
@@ -27,36 +26,6 @@
 	display: block;
 }
 
-.bx-wrapper .content {
-	position: absolute;
-	top: 50%;
-	margin-top: -80px;
-}
-
-.bx-wrapper .content h1 {
-
-	text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-	color: white;
-	font-size: 50px;
-	font-weight: 500;
-	line-height: 65px;
-}
-
-#slider-prev, #slider-next{
-	position: absolute;
-	top: 50%;
-	margin-top:-38px;
-	width:22px;
-	height:38px;
-	background:red url("images/right-arrow-icon.png") no-repeat;
-	display: inline-block;
-	float:right;
-	cursor: pointer;
-}
-#slider-prev {
-	background:green url("images/left-arrow-icon.png") no-repeat;
-	float:left;
-}
 
 /** THEME
 ===================================*/
@@ -108,7 +77,8 @@
 	font-family: Arial;
 	font-weight: bold;
 	color: #666;
-	padding-top: 20px;
+	padding-top: 10px; /* 20px */
+	bottom: 0;
 }
 
 .bx-wrapper .bx-pager .bx-pager-item,
@@ -123,18 +93,18 @@
 	opacity: 0.5;
 	text-indent: -9999px;
 	display: block;
-	width: 20px;
-	height: 20px;
+	width: 14px; /* 20px */
+	height: 14px;
 	margin: 0 10px;
 	outline: 0;
 	float:left;
 }
 .bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:after {
 	content: "\00a0";
-	width: 32px;
+	width: 16px; /* 32 */
 	display: inline-block;
 	height:2px;
-	margin-top:8px;
+	margin-top:6px; /* 8px */
 	border-top:1px solid #FFF;
 }
 .bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:last-child:after {
@@ -152,12 +122,15 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: 55px;
+	left: 0;
 	background: url("images/left-arrow-icon.png") no-repeat center;
-}
+}/*
+.bx-wrapper .bx-prev:after {
 
+}
+*/
 .bx-wrapper .bx-next {
-	right:  55px;
+	right:  0px;
 	background: url("images/right-arrow-icon.png") no-repeat center;
 }
 
@@ -171,14 +144,115 @@
 
 .bx-wrapper .bx-controls-direction a {
 	position: absolute;
-	top: 50%;
+	top: 45%;
 	margin-top: -16px;
 	outline: 0;
 	display: block;
-	width: 59px;
+	width: 25px;
 	height: 60px;
 	text-indent: -9999px;
 	z-index: 9999;
+}
+@media (min-width: 768px) {
+	.bx-wrapper .bx-controls-direction a {
+		position: absolute;
+		top: 47%;
+		margin-top: -18px;
+		outline: 0;
+		display: block;
+		width: 60px;
+		height: 60px;
+		text-indent: -9999px;
+		z-index: 9999;
+	}
+
+	.bx-wrapper .bx-prev {
+		left: 3px;
+	}
+	.bx-wrapper .bx-next {
+		right: 3px;
+	}
+	.bx-wrapper .bx-pager {
+		text-align: center;
+		font-size: .85em;
+		font-weight: bold;
+		color: #666;
+		padding-top: 10px; /* 20px */
+		bottom: 5px;
+	}
+
+	.bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:after {
+		content: "\00a0";
+		width: 26px; /* 32 */
+		display: inline-block;
+		height:2px;
+		margin-top:6px; /* 8px */
+		border-top:1px solid #FFF;
+	}
+
+
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		background: #FFF;
+		opacity: 0.5;
+		text-indent: -9999px;
+		display: block;
+		width: 16px; /* 20px */
+		height: 16px;
+		margin: 0 7px;
+		outline: 0;
+		float:left;
+	}
+}
+
+@media (min-width: 1200px) {
+	.bx-wrapper .bx-controls-direction a {
+		position: absolute;
+		top: 48%;
+		margin-top: -18px;
+		outline: 0;
+		display: block;
+		width: 60px;
+		height: 60px;
+		text-indent: -9999px;
+		z-index: 9999;
+	}
+
+	.bx-wrapper .bx-prev {
+		left: 28px;
+	}
+	.bx-wrapper .bx-next {
+		right: 28px;
+	}
+	.bx-wrapper .bx-pager {
+		text-align: center;
+		font-size: .85em;
+		font-weight: bold;
+		color: #666;
+		padding-top: 10px; /* 20px */
+		bottom: 18px;
+	}
+
+	.bx-wrapper .bx-pager.bx-default-pager .bx-pager-item:after {
+		content: "\00a0";
+		width:32px;
+		display: inline-block;
+		height:2px;
+		margin-top:8px; /* 8px */
+		border-top:1px solid #FFF;
+	}
+
+
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		background: #FFF;
+		opacity: 0.5;
+		text-indent: -9999px;
+		display: block;
+		width: 20px; /* 20px */
+		height: 20px;
+		margin: 0 7px;
+		outline: 0;
+		float:left;
+	}
 }
 
 .bx-wrapper .bx-controls-direction a.disabled {
@@ -251,7 +325,7 @@
 	font-size: .85em;
 	padding: 10px;
 }
-
+/*
 @media (max-width: 768px) {
 	.slider .bx-viewport {
 		min-height:300px;
@@ -289,4 +363,4 @@
 	.slider .bx-wrapper .bx-next {
 		right:0;
 	}
-}
+}*/
