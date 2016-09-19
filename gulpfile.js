@@ -1,10 +1,11 @@
 var
     gulp  = require('gulp'),
+    browserSyncConfig = require('./package.json')['browsersync'],
+    browserSync = require('browser-sync').create(),
     watch = require('./ui/tasks/watch'),
     build = require('./ui/tasks/build'),
-    pug = require('gulp-pug'),
-    browserSyncConfig = require('./package.json')['browsersync'],
-    browserSync = require('browser-sync').create()
+    pug = require('gulp-pug')
+
 ;
 
 function swallowError (error) {
@@ -48,8 +49,16 @@ gulp.task('copytotheme', function() {
 gulp.task('build-ui', ['semantic-build', 'pug-build','copytotheme']);
 gulp.task('develop', ['semantic-watch', 'pug-watch']);
 
+
+gulp.task('simple-build-css', ['build-css'], function() {
+    return gulp.src('./dist/ui/**/*.css')
+        .pipe(browserSync.stream());
+});
+
 gulp.task('browser-sync', function () {
     browserSync.init(browserSyncConfig);
-    gulp.watch(["dist/*.html", 'dist/ui/*.css']).on('change', browserSync.reload);
+    gulp.watch("./ui/src/themes/amedical/**/*.{overrides,variables,less}", ['simple-build-css']);
+    gulp.watch('views/**/*.pug', ['pug-build']);
+    gulp.watch(["dist/*.html"]).on('change', browserSync.reload);
 });
 

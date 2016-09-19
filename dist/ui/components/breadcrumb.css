@@ -122,6 +122,9 @@
 .ui.breadcrumb a {
   color: #8f8f8f;
 }
+.ui.breadcrumb a:hover {
+  color: #ff6b01;
+}
 .contacts .ui.breadcrumb {
   margin-top: 1rem !important;
 }

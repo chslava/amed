@@ -1,0 +1,138 @@
+// ------------------------------------------------------------
+section.slider {
+  margin-top:1rem;
+  background: #686C78;
+  .ui.container.grid {
+    margin-left:auto!important;
+    margin-right:auto!important;
+    > .column {
+      padding: 0!important;
+    }
+  }
+
+}
+.main-slider {
+  margin:0;
+  li {
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height:300px;
+
+    .content {
+      margin-top:-33px;
+      text-align: center;
+      //background:yellow;
+      align-self: center;
+      h1, h2 {
+        padding:0 20px 25px 20px;
+        margin:0;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+        color: white;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+      }
+
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* section.slider {
+     margin-top:1rem;
+     background: #686C78;
+     .ui.container.grid {
+       margin-left:auto!important;
+       margin-right:auto!important;
+       > .column {
+         padding: 0!important;
+       }
+     }
+   }
+   */
+  .main-slider {
+    margin:0;
+    li {
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height:450px;
+
+      .content {
+        margin-top:0;
+        text-align: left;
+        align-self: center;
+        h1, h2 {
+          text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+          color: white;
+          font-size: 42px;
+          font-weight: 700;
+          line-height: 60px;
+
+          padding:0 85px 25px 85px;
+          margin:0;
+        }
+        .ui.primary.button {
+          margin:0 0 0 85px;
+          height:62px;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 38px;
+          padding-left: 67px;
+          padding-right: 66px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  section.slider {
+    .ui.grid.container {
+      width:100%!important;
+      max-width: 1440px;
+    }
+  }
+  .main-slider {
+    margin:0 0;
+    li {
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height:650px;
+
+      .content {
+        width: 1200px;
+        margin: 0 auto;
+        h1, h2 {
+          font-size: 50px;
+          font-weight: 700;
+          max-width: 1000px;
+          line-height: 60px;
+
+          padding: 55px 0 0;
+          margin: 0 0 0 10px;
+        }
+        .ui.primary.button {
+          margin: 37px 0 0 10px;
+          height: 62px;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 38px;
+          padding-left: 67px;
+          padding-right: 66px;
+        }
+      }
+    }
+  }
+}

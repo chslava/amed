@@ -25,16 +25,14 @@ $(function() {
     });
 
     $('.represent-slider').bxSlider({
-        slideWidth: 190,
-        minSlides: 2,
+        slideWidth: 150,
+        minSlides: 1,
         maxSlides: 6,
-        moveSlides: 2,
-        slideMargin: 0,
-        controls: false,
+        moveSlides: 1,
+        slideMargin: 58,
         pager: false,
         infiniteLoop: true,
-        auto: true,
-        autoControls: false
+        auto: true
     });
 
     $('.mob-search').on('click', function (e) {
