@@ -64,6 +64,25 @@ main.page {
     margin-top: 50px;
   }
 }
+.about-us {
+  h1.ui.header {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+  }
+}
+@media (min-width: 1200px) {
+  .about-us .services {
+    margin-top:0;
+    padding-top:40px;
+    border-top:1px solid #e6e6e6!important;
+  }
+  .service .benefits-icon {
+    color: #ff6b01;
+    margin-top:60px;
+    font-size:60px;
+  }
+}
 
 
 .ui.segment {

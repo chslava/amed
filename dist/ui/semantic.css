@@ -2379,6 +2379,23 @@ section.slider .ui.container.grid > .column {
     text-align: left;
     margin: 12px 32px 38px -115px;
   }
+
+  .secondary-services {
+    background: #f7f7f7;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .secondary-services .ui.header {
+    margin-bottom: 37px;
+  }
+
+  .secondary-services .content {
+    color: #636463;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+  }
 }
 
 .coo-respose {
@@ -2904,6 +2921,26 @@ main.page {
 
 main.page > .grid {
   margin-top: 50px;
+}
+
+.about-us h1.ui.header {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+@media (min-width: 1200px) {
+  .about-us .services {
+    margin-top: 0;
+    padding-top: 40px;
+    border-top: 1px solid #e6e6e6!important;
+  }
+
+  .service .benefits-icon {
+    color: #ff6b01;
+    margin-top: 60px;
+    font-size: 60px;
+  }
 }
 
 .ui.segment h4,
