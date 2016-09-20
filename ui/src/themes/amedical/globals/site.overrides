@@ -131,9 +131,9 @@ main.page {
 
 
 // -----------------------------------------
-ul.list, ol.list {
+ul, li, ul.list, ol.list {
   list-style: none;
-  padding:1em 0;
+  padding:0 0;
   li {
     margin-bottom:15px;
     &:before {
@@ -143,7 +143,7 @@ ul.list, ol.list {
   }
 }
 
-ul.list {
+ul, ul.list {
   li {
     &:before {
       display: block;
@@ -156,7 +156,7 @@ ul.list {
   }
 }
 
-ol.list {
+ol, ol.list {
   counter-reset: li;
   li {
     counter-increment: li;

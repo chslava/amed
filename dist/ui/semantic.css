@@ -2993,23 +2993,30 @@ main.page > .grid {
   padding-bottom:100px!important;
 }*/
 
+ul,
+li,
 ul.list,
 ol.list {
   list-style: none;
-  padding: 1em 0;
+  padding: 0 0;
 }
 
+ul li,
+li li,
 ul.list li,
 ol.list li {
   margin-bottom: 15px;
 }
 
+ul li:before,
+li li:before,
 ul.list li:before,
 ol.list li:before {
   content: "\00a0";
   float: left;
 }
 
+ul li:before,
 ul.list li:before {
   display: block;
   width: 13px;
@@ -3019,15 +3026,18 @@ ul.list li:before {
   margin-right: 9px;
 }
 
+ol,
 ol.list {
   counter-reset: li;
 }
 
+ol li,
 ol.list li {
   counter-increment: li;
   list-style: none;
 }
 
+ol li:before,
 ol.list li:before {
   display: block;
   content: counter(li) '';
@@ -7691,22 +7701,27 @@ blockquote {
      Page
 ---------------*/
 
+h1,
 h1.ui.header {
   font-size: 2.25em;
 }
 
+h2,
 h2.ui.header {
   font-size: 36px;
 }
 
+h3,
 h3.ui.header {
   font-size: 25px;
 }
 
+h4,
 h4.ui.header {
   font-size: 1.071rem;
 }
 
+h5,
 h5.ui.header {
   font-size: 1rem;
 }
