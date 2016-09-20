@@ -2530,6 +2530,10 @@ footer .ui.text.menu a {
   line-height: 24px;
 }
 
+footer .ui.text.menu a:hover {
+  color: #ff6b01;
+}
+
 footer .footer-contacts,
 footer .follow-us {
   padding: 0;
@@ -2566,6 +2570,10 @@ footer .footer-contacts .item a {
   text-decoration: underline;
 }
 
+footer .footer-contacts .item a:hover {
+  color: #ff6b01;
+}
+
 footer .footer-contacts .c-icon {
   color: #8f8f8f;
   font-size: 16px;
@@ -2600,6 +2608,10 @@ footer .follow-us a.item {
   padding-top: 7px;
   padding-right: 17px;
   color: #FFF;
+}
+
+footer .follow-us a.item:hover {
+  color: #ff6b01;
 }
 
 footer .follow-us a.item:hover .soc-icon {
