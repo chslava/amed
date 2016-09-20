@@ -1043,11 +1043,6 @@ header .ui.menu.lang.four.item .item:last-child {
   header .main-menu .ui.dropdown.item {
     padding-bottom: 27px!important;
     margin-top: 12px!important;
-    /*border:1px solid red;
-        text-align: left;
-        padding-left: 0px;
-        margin-left: 16px !important;
-        margin-right: 3px !important;*/
   }
 
   header .main-menu .ui.dropdown.item:after {
@@ -1191,21 +1186,36 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .basket {
+    padding-top: 3px;
     width: 115px;
     height: 30px;
-    margin-top: 13px!important;
+    margin-top: 16px!important;
     text-align: right;
     border: none;
     border-left: 1px solid #E6E6E6;
   }
 
   header .basket .item {
+    font-size: 16px!important;
     margin-right: 0!important;
     padding-right: 0!important;
   }
 
-  header .basket .item:after {
-    display: none;
+  header .basket .item:hover {
+    color: #FF6B01 !important;
+  }
+
+  header .basket .item:hover::after {
+    float: none;
+    content: "\00a0";
+    display: block;
+    max-width: 55px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto -2px auto;
+    border-bottom: 2px solid #FF6B01;
+    height: 0px;
+    top: 8px;
   }
 
   header .basket .item .icon-basket-icon:before {
@@ -1345,6 +1355,8 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .main-menu .item {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
     font-size: 14px;
     line-height: 34px;
     display: block !important;
