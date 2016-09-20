@@ -1773,6 +1773,29 @@ section.slider .ui.container.grid > .column {
   font-weight: 700;
   border: none!important;
   margin-bottom: 5px;
+  color: #FFF!important;
+}
+
+.subscribe .subscribe.input::-webkit-input-placeholder {
+  color: #FFF;
+  opacity: 1;
+}
+
+.subscribe .subscribe.input :-moz-placeholder {
+  /* Firefox 18- */
+  color: #FFF;
+  opacity: 1;
+}
+
+.subscribe .subscribe.input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #FFF;
+  opacity: 1;
+}
+
+.subscribe .subscribe.input:-ms-input-placeholder {
+  color: #FFF;
+  opacity: 1;
 }
 
 .subscribe .ui.primary.button {
