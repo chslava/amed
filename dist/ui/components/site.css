@@ -464,6 +464,9 @@ header .ui.menu.lang.four.item .item:last-child {
   header .computer-search {
     display: inline-block !important;
   }
+  header .computer-search input {
+    padding-left: 19px!important;
+  }
   header .home span {
     display: none;
   }
