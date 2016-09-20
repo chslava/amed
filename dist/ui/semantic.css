@@ -9160,6 +9160,10 @@ i.icons .inverted.corner.icon {
   content: "\e919";
 }
 
+.icon-arrow-right:before {
+  content: "\e91a";
+}
+
 i.icon.long.arrow.left:before {
   content: "\e913";
 }
@@ -10437,7 +10441,18 @@ i.icon.long.arrow.left:before {
 }
 
 i.icon.long.arrow.right:before {
-  content: "→";
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 0.65em;
+  content: "\e91a";
 }
 
 i.icon.arrow.circle.outline.right:before {

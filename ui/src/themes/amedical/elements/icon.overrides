@@ -105,6 +105,10 @@
 .icon-third-icon:before {
   content: "\e919";
 }
+.icon-arrow-right:before {
+  content: "\e91a";
+}
+
 
 
 i.icon.long.arrow.left:before { content: "\e913"; }
@@ -446,7 +450,22 @@ i.icon.toggle.right:before { content: "\f152"; }
 i.icon.long.arrow.down:before { content: "\f175"; }
 i.icon.long.arrow.up:before { content: "\f176"; }
 i.icon.long.arrow.left:before { content: "\f177"; }
-i.icon.long.arrow.right:before { content: "→"; }
+i.icon.long.arrow.right:before {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size:0.65em;
+  content: "\e91a";
+
+}
 i.icon.arrow.circle.outline.right:before { content: "\f18e"; }
 i.icon.arrow.circle.outline.left:before { content: "\f190"; }
 i.icon.toggle.left:before { content: "\f191"; }
