@@ -939,6 +939,10 @@ header .ui.dropdown.item.active .menu .item:hover {
   background: transparent;
 }
 
+header .ui.menu.lang {
+  min-height: 30px;
+}
+
 header .ui.menu.lang.four.item {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -1073,7 +1077,7 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .ui.menu.lang {
-    margin-top: -70px;
+    margin-top: -66px;
     z-index: 30;
     position: relative;
     width: 270px;
