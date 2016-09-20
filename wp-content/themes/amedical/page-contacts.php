@@ -23,7 +23,15 @@ get_header();
     </div>
   </div>
   <div class="info"></div>
-  <div class="map contact-map" data-lat="56.940" data-lng="24.070"></div>
+
+  <?php
+        $ArrMap = the_field('map','option');
+        $lat = $ArrMap['lat'] > 0 ? $ArrMap['lat'] : '56.940';
+        $lng = $ArrMap['lng'] > 0 ? $ArrMap['lng'] : '24.070';
+
+  ?>
+
+  <div class="map contact-map" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>"></div>
 
   <script>
     jQuery(function($) {
@@ -62,8 +70,8 @@ get_header();
             ]
         });
         map.addMarker({
-            lat: 56.940,
-            lng: 24.070,
+            lat: <?php echo $lat; ?>,
+            lng: <?php echo $lng; ?>,
             icon: 'img/marker.png',
         });
     })
