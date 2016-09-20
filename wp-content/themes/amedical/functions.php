@@ -1,5 +1,11 @@
 <?php
 
+function wpdocs_theme_add_editor_styles() {
+    add_editor_style( 'editor-style.css');
+}
+add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
+
+
 // Various clean up functions
 // Removing some items
  require_once('includes/cleanup.php');
@@ -29,11 +35,123 @@
 // Gravity forms split in columns http://stackoverflow.com/questions/26308742/gravity-forms-columns-side-by-side
  require_once('includes/gravity-forms-columns.php');
 
+
+// Gravity forms split in columns http://stackoverflow.com/questions/26308742/gravity-forms-columns-side-by-side
+require_once('includes/reusable_functions.php');
+
+
  // Add post types
-  //require_once('includes/post_types/slider.php');
+  require_once('includes/post_types/partners.php');
 
 
 function wpdocs_excerpt_more( $more ) {
  return '...';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+
+
+function wpb_mce_buttons_2($buttons) {
+ array_unshift($buttons, 'styleselect');
+ return $buttons;
+}
+add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
+
+
+
+/*
+* Callback function to filter the MCE settings
+*/
+
+function my_mce_before_init_insert_formats( $init_array ) {
+
+// Define the style_formats array
+
+ $style_formats = array(
+  /*
+  * Each array child is a format with it's own settings
+  * Notice that each array has title, block, classes, and wrapper arguments
+  * Title is the label which will be visible in Formats menu
+  * Block defines whether it is a span, div, selector, or inline style
+  * Classes allows you to define CSS classes
+  * Wrapper whether or not to add a new block-level element around any selected elements
+  */
+     array (
+         'title' => 'List styles',
+         'items' => array(
+             array(
+                 'title' => 'Circle list',
+                 'block' => 'ul',
+                 'classes' => 'circles-list',
+                 'wrapper' => true,
+
+             ),
+             array(
+                 'title' => 'Circle list small',
+                 'block' => 'ul',
+                 'classes' => 'small circles-list',
+                 'wrapper' => true,
+             ),
+         )),
+
+     array (
+         'title' => 'Headers',
+         'items' => array(
+             array(
+                 'title' => 'h1 decored centred',
+                 'block' => 'h1',
+                 'classes' => 'centered decored ui header',
+             ),
+             array (
+                 'title' => 'h1 decored left',
+                 'block' => 'h1',
+                 'classes' => 'left decored ui header',
+             ),
+             array(
+                 'title' => 'h2 decored centred',
+                 'block' => 'h2',
+                 'classes' => 'centered decored ui header',
+             ),
+             array (
+                 'title' => 'h2 decored left',
+                 'block' => 'h2',
+                 'classes' => 'left decored ui header',
+             ),
+             array(
+                 'title' => 'h3 decored centred',
+                 'block' => 'h3',
+                 'classes' => 'centered decored ui header',
+             ),
+             array (
+                 'title' => 'h3 decored left',
+                 'block' => 'h3',
+                 'classes' => 'left decored ui header',
+             ),
+         )
+     ),
+     array (
+         'title' => 'Buttons',
+         'items' => array(
+             array(
+                 'title' => 'Basic button',
+                 'block' => 'a',
+                 'classes' => 'ui basic button',
+                 'wrapper' => true,
+             ),
+             array(
+                 'title' => 'Primary button',
+                 'block' => 'a',
+                 'classes' => 'ui primary button',
+                 'wrapper' => true,
+             )
+         )),
+
+ );
+ // Insert the array, JSON ENCODED, into 'style_formats'
+ $init_array['style_formats'] = json_encode( $style_formats );
+
+ return $init_array;
+
+}
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
