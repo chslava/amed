@@ -44,50 +44,53 @@ get_header();
 
 
 <?php if (have_rows("missinon_items")):?>
-<?php endif; ?>
-
-<section class="benefits very padded">
+  <section class="benefits very padded">
   <div class="ui relaxed grid container">
-    <div class="sixteen wide column">
-      <h2 class="ui header centered decored"><?php the_field("mission_title"); ?></h2>
-      <?php while (have_rows("missinon_items")): the_row(); ?>
+  <div class="sixteen wide column">
+  <h2 class="ui header centered decored"><?php the_field("mission_title"); ?></h2>
+  <?php while (have_rows("missinon_items")): the_row(); ?>
       <div class="sixteen wide mobile eight wide tablet four wide computer column">
         <p class="content"><?php the_sub_field("mission_title"); ?>: <?php the_sub_field("mission_text"); ?></p>
       </div>
-
-
+    <?php endwhile; ?>
     </div>
-  </div>
-</section>
+    </div>
+    </section>
+<?php endif; ?>
+
+
 
 
 <?php if (have_rows("key_point_items")):?>
+    <section class="services">
+      <div class="ui container">
+        <div class="ui center aligned grid">
+          <?php while(have_rows("key_point_items")): the_row(); ?>
+
+            <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
+              <div class="icon-title">
+                <div class="service-icon <?php the_sub_field("key_point_icon"); ?>"></div>
+              </div>
+              <p>
+                <?php the_sub_field("key_point_text"); ?></p>
+            </div>
+
+          <?php endwhile; ?>
+        </div>
+      </div>
+    </section>
 <?php endif; ?>
 
-<section class="services">
-  <div class="ui container">
-    <div class="ui center aligned grid">
-      <?php while(have_rows("key_point_items")): the_row(); ?>
 
-        <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
-          <div class="icon-title">
-            <div class="service-icon <?php the_sub_field("key_point_icon"); ?>"></div>
-          </div>
-          <p>
-            <?php the_sub_field("key_point_text"); ?></p>
-        </div>
-
-      <?php endwhile; ?>
-    </div>
-  </div>
-</section>
 
 
 <section class="coo-respose">
   <div class="ui container grid">
     <div class="ui row">
       <div class="sixteen wide mobile eight wide tablet eight wide computer column right floated column">
-        <h2 class="ui left header decored"><?php the_field("corp_resp_title"); ?></h2>
+        <h2 class="ui left header decored">
+          <?php the_field("corp_resp_title"); ?>
+        </h2>
         <?php the_field("corp_resp_text"); ?>
       </div>
     </div>
