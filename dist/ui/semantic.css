@@ -2212,8 +2212,8 @@ section.slider .ui.container.grid > .column {
     margin-top: 95px;
   }
 
-  .benefits {
-    margin-top: 126px;
+  .benefits .ui.header {
+    margin-bottom: 0;
   }
 
   .benefits .ui.header.centered {
@@ -2242,7 +2242,6 @@ section.slider .ui.container.grid > .column {
   .benefits .segment {
     line-height: 23px;
     padding-top: 56px !important;
-    padding-bottom: 43px !important;
     margin-bottom: 15px !important;
     margin-left: 0!important;
     margin-right: 0!important;
@@ -2291,18 +2290,18 @@ section.slider .ui.container.grid > .column {
     font-size: 15px;
     font-weight: 400;
     line-height: 25px;
-    padding-left: 25px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 16px;
     margin-top: 2px;
   }
 
   .represent {
-    margin-top: 95px;
+    margin-top: 73px;
     margin-bottom: 100px;
   }
 
   .represent .ui.header {
-    margin-bottom: 50px;
+    margin-bottom: 31px;
   }
 
   .represent .bx-wrapper {
@@ -2329,8 +2328,12 @@ section.slider .ui.container.grid > .column {
 
   .home-news {
     margin-top: 5px;
-    padding-top: 125px;
+    padding-top: 95px;
     padding-bottom: 79px;
+  }
+
+  .home-news h2.ui.header {
+    margin-bottom: 0;
   }
 
   .home-news .column {
