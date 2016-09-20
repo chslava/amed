@@ -991,6 +991,9 @@ section.slider .ui.container.grid > .column {
   margin-bottom: -15px;
   padding-bottom: 20px;
 }
+.home-news .column p a {
+  margin-left: 7px;
+}
 .home-news .header a {
   color: #414141;
 }
