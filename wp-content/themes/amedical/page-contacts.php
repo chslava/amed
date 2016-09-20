@@ -8,19 +8,14 @@ get_header();
 
 <main class="contacts">
   <div class="ui container vertically divided grid">
-    <div class="five wide column">
-      <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
-        <div class="divider">//</div>
-        <div class="active section">Kontakti</div>
-      </div>
-      <h1>Kontakti</h1>
-      <p>Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067</p>
-      <p>Tālrunis: 66103003, 20277153</p>
-      <p>Fakss: 66103010</p>
-      <p>E-pasts: info@amedical.eu</p>
-      <p>Darba laiks: 8:30 - 17:30</p>
-      <div class="ui divider"></div>
-      <h1>Rekvizīti</h1>
+    <div class="sixteen wide mobile eight wide tablet five wide computer column">
+
+      <?php include_once('includes/parts/breadcrumbs.php');?>
+
+      <h1 class="ui header"><?php the_title(); ?></h1>
+
+      gf<div class="ui divider"></div>
+      <h2 class="ui header">Rekvizīti</h2>
       <p>SIA "A.Medical"
         PVN reģ. Nr. LV 40103599415
         Varkaļu iela 13A, Rīga, Latvija, LV-1067
@@ -36,8 +31,8 @@ get_header();
 </main>
 <section class="contact-form">
   <div class="ui container grid">
-    <div class="two column row">
-      <div class="column">
+    <div class="ui row">
+      <div class="sixteen wide mobile eight wide tablet eight wide computer column">
         <h2 class="left ui header decored">Sazinies ar mums</h2>
         <form class="ui form">
           <div class="eight wide field">
@@ -63,19 +58,8 @@ get_header();
           <button class="ui huge primary button" type="submit">Nosūtīt</button>
         </form>
       </div>
-      <div class="column"><img class="ui shadowed image" src="<?php echo get_stylesheet_directory_uri() ;?>/img/contact-us.jpg"></div>
+      <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed image" src="img/contact-us.jpg"></div>
     </div>
-  </div>
-</section>
-<section class="subscribe">
-  <div class="ui container">
-    <form class="ui form">
-      <div class="ui centered relaxed grid">
-        <h4 class="ui header">Pieteikties Jaunumiem</h4>
-        <input class="subscribe ui input" placeholder="Ievadi savu e-pastu">
-        <button class="ui primary button">Pieteikties</button>
-      </div>
-    </form>
   </div>
 </section>
 

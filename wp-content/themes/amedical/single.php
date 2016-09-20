@@ -4,7 +4,7 @@ get_header();
 
 ?>
 
-<main class="ui container page">
+<main class="ui container page content-page">
   <?php include_once('includes/parts/breadcrumbs.php');?>
   <div class="ui grid">
 			<?php while ( have_posts() ) : the_post(); ?>
