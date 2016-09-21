@@ -3468,6 +3468,7 @@ blockquote {
   -ms-flex-item-align: start;
   align-self: flex-start;
   line-height: 65px;
+  margin-bottom: 0px;
 }
 
 .content-page .circles-list li:before,

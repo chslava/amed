@@ -1947,6 +1947,14 @@ section.slider .ui.container.grid > .column {
     margin-top: 30px;
   }
 }
+@media (min-width: 1920px) {
+  .contacts .info {
+    width: 40%;
+  }
+  .contacts .map {
+    width: 60%;
+  }
+}
 footer {
   background: #636463;
   color: #FFF;
@@ -2318,6 +2326,11 @@ main.page > .grid {
 .about-us ~ .benefits.very.padded {
   margin-bottom: 2rem;
 }
+.about-us ~ .benefits.very.padded .content em {
+  text-transform: none;
+  font-style: normal;
+  color: #8f8f8f;
+}
 .about-us ~ .coo-respose {
   background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
@@ -2332,11 +2345,6 @@ main.page > .grid {
 .about-us ~ .services .icon-title {
   margin-bottom: 1rem;
   margin-top: 0;
-}
-.benefits.very.padded .content em {
-  text-transform: none;
-  font-style: normal;
-  color: #8f8f8f;
 }
 @media (min-width: 1200px) {
   .about-us {
@@ -2359,13 +2367,6 @@ main.page > .grid {
     margin-top: -35px;
     padding-top: 45px;
     padding-bottom: 55px;
-    /*
-      margin-top: 40px;
-margin-left: 0;
-text-align: center;
-padding-bottom: 40px;
-border-bottom: 1px solid #e6e6e6;
-*/
     border-top: 1px solid #e6e6e6;
   }
   .about-us ~ .services .icon-title {
@@ -2553,6 +2554,7 @@ blockquote {
   -ms-flex-item-align: start;
       align-self: flex-start;
   line-height: 65px;
+  margin-bottom: 0px;
 }
 .content-page .circles-list li:before,
 .circles-list li:before {
