@@ -107,6 +107,7 @@ class WPML_Notices {
 		if ( $this->must_display_notices() ) {
 			wp_enqueue_style( 'otgs-notices', ICL_PLUGIN_URL . '/res/css/otgs-notices.css', array( 'sitepress-style' ) );
 			wp_enqueue_script( 'otgs-notices', ICL_PLUGIN_URL . '/res/js/otgs-notices.js' );
+			do_action( 'wpml-notices-scripts-enqueued' );
 		}
 	}
 
@@ -161,6 +162,23 @@ class WPML_Notices {
 		wp_send_json_error( __( 'Notice does not exists.', 'sitepress' ) );
 	}
 
+	function hide_notice_for_group() {
+		$notice_group   = sanitize_text_field( $_POST['group'] );
+		$nonce          = $_POST['nonce'];
+		$is_nonce_valid = wp_verify_nonce( $nonce, $_POST['action'] );
+		if ( $is_nonce_valid && $notice_group ) {
+			$notices = $this->get_notices_for_group( $notice_group );
+			if ( $notices ) {
+				/** @var WPML_Notice $notice */
+				foreach ( $notices as $notice ) {
+					$this->remove_notice( $notice_group, $notice->get_id() );
+				}
+				wp_send_json_success( true );
+			}
+		}
+		wp_send_json_error( __( 'Group does not exists.', 'sitepress' ) );
+	}
+
 	private function notice_group_and_id_exists( $group, $id ) {
 		return array_key_exists( $group, $this->notices ) && array_key_exists( $id, $this->notices[ $group ] );
 	}
@@ -181,5 +199,6 @@ class WPML_Notices {
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'wp_ajax_otgs-hide-notice', array( $this, 'hide_notice' ) );
+		add_action( 'wp_ajax_otgs-hide-notice-for-group', array( $this, 'hide_notice_for_group' ) );
 	}
 }

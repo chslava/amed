@@ -238,6 +238,13 @@ switch($request){
         echo $language_domains_helper->render();
         break;
     case 'icl_theme_localization_type':
+	    $display_strings_scan_notices = false;
+	    if ( array_key_exists( 'wpml_st_display_strings_scan_notices', $_POST ) ) {
+		    $display_strings_scan_notices = (bool) $_POST['wpml_st_display_strings_scan_notices'];
+	    }
+	    $themes_and_plugins_settings = new WPML_ST_Themes_And_Plugins_Settings();
+	    $themes_and_plugins_settings->set_strings_scan_notices( $display_strings_scan_notices );
+
         $icl_tl_type = @intval($_POST['icl_theme_localization_type']);
         $iclsettings['theme_localization_type'] = $icl_tl_type;
         $iclsettings['theme_localization_load_textdomain'] = @intval($_POST['icl_theme_localization_load_td']);
