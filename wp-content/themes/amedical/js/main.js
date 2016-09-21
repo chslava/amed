@@ -7,17 +7,20 @@ jQuery(function($) {
     }
 
     $('.menu').on('click', '.ui.dropdown', function (e) {
-        e.preventDefault();
-        $('.ui.dropdown').removeClass('active');
-        $(this).addClass('active');
-        if($(this).children('.menu').css('display')=='block') {
-            $(this).children('.menu').hide();
-            $(this).removeClass('active');
-            return;
+        if(window.innerWidth<=992) {
+            e.preventDefault();
+            $('.ui.dropdown').removeClass('active');
+            $(this).addClass('active');
+            if($(this).children('.menu').css('display')=='block') {
+                $(this).children('.menu').hide();
+                $(this).removeClass('active');
+                return;
+            }
+
+            $('.ui.dropdown .menu').hide();
+            $(this).children('.menu').slideToggle(200);
         }
 
-        $('.ui.dropdown .menu').hide();
-        $(this).children('.menu').slideToggle(200);
     })
     $('select.ui.dropdown').dropdown();
 

@@ -1966,6 +1966,7 @@ footer nav {
   margin-top: 35px !important;
   margin-bottom: 0!important;
   border-bottom: 1px solid #8f8f8f !important;
+  height: 100%;
 }
 footer .ui.text.menu .item,
 footer .ui.text.menu a {
@@ -2094,6 +2095,7 @@ footer .copyright {
     margin: 0 auto;
     border-bottom: 1px solid #8f8f8f;
     zoom: 1;
+    height: 100%;
   }
   footer .sub-column:before,
   footer .sub-column:after {
@@ -2217,6 +2219,7 @@ footer .copyright {
     margin: 0 auto;
     border-bottom: none;
     zoom: 1;
+    height: 100%;
   }
   footer .sub-column:before,
   footer .sub-column:after {
