@@ -28,7 +28,11 @@ jQuery(function($) {
     $('.ui.checkbox').checkbox();
 
     $('.main-slider').bxSlider({
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        infiniteLoop: true,
+        auto: true,
+        pause: 7000,
+        speed: 1000
     });
 
     $('.represent-slider').bxSlider({
