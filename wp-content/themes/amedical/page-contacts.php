@@ -107,7 +107,7 @@ get_header();
   				<?php endwhile; ?>
   			<?php endif;?>
       </div>
-      <div class="sixteen wide mobile eight wide tablet eight wide computer column"><?php echo the_post_thumbnail(); ?></div>
+      <div class="sixteen wide mobile eight wide tablet eight wide computer column"><?php echo the_post_thumbnail('',array( 'class' => 'ui shadowed image' )); ?></div>
     </div>
   </div>
 </section>
