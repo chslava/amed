@@ -428,6 +428,29 @@ header .ui.menu.lang.four.item .item:last-child {
 @media (min-width: 992px) {
   header {
     background: #FFF;
+    /*
+    .basket {
+      padding-top:5px;
+      padding-right: 1rem;
+      .item {
+        text-align: right;
+        width: 100%;
+        &:after {
+          font-family: 'icomoon';
+          content: "\e917";
+          //float: right;
+          text-align: right;
+          //width: 100%;
+          display: inline-block;
+          margin-top:-1rem;
+        }
+        .icon-basket-icon:before {
+          display: inline-block;
+          float:none;
+          margin-right: 13px;
+          margin-left: -0.5rem;
+        }
+       */
   }
   header .mob-menu {
     display: -webkit-box!important;
@@ -601,6 +624,7 @@ header .ui.menu.lang.four.item .item:last-child {
   }
   header .basket {
     padding-top: 3px;
+    padding-right: 1rem;
     width: 115px;
     height: 30px;
     margin-top: 16px!important;
@@ -609,6 +633,8 @@ header .ui.menu.lang.four.item .item:last-child {
     border-left: 1px solid #E6E6E6;
   }
   header .basket .item {
+    text-align: right;
+    width: 100%;
     font-size: 16px!important;
     margin-right: 0!important;
     padding-right: 0!important;
@@ -629,8 +655,9 @@ header .ui.menu.lang.four.item .item:last-child {
     top: 8px;
   }
   header .basket .item .icon-basket-icon:before {
-    display: block;
-    float: left;
+    display: inline-block;
+    float: none;
+    text-align: right;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -774,8 +801,6 @@ header .ui.menu.lang.four.item .item:last-child {
     display: none;
   }
   header .basket .item .icon-basket-icon:before {
-    display: block;
-    float: left;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -1246,6 +1271,9 @@ section.slider .ui.container.grid > .column {
     margin-top: 0px;
   }*/
 }
+.represent .bx-viewport {
+  height: 98px!important;
+}
 .represent .represent-slider li {
   width: 150px!important;
   margin: 0 85px;
@@ -1649,7 +1677,7 @@ section.slider .ui.container.grid > .column {
     margin-bottom: 31px;
   }
   .represent .bx-wrapper {
-    margin-bottom: 50px!important;
+    margin-bottom: 20px!important;
   }
   .represent .bx-wrapper li {
     margin: 0;
