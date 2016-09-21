@@ -33,7 +33,7 @@ get_header();
 
   <?php
         $ArrMap = the_field('map','option');
-        print_r($ArrMap);
+        //echo "<pre> *****"; print_r($ArrMap);exit;
         $lat = $ArrMap['lat'] > 0 ? $ArrMap['lat'] : '56.9638746';
         $lng = $ArrMap['lng'] > 0 ? $ArrMap['lng'] : '24.0318992';
         //$lat = '56.9638746';
@@ -52,9 +52,10 @@ get_header();
             zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
-            navigationControl: false,
+            navigationControl: true,
             mapTypeControl: false,
-            scaleControl: false,
+            scaleControl: true,
+            zoomControl:true,
             draggable: false,
             styles: [
                 {
