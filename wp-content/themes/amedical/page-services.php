@@ -15,7 +15,7 @@ get_header();
                         <?Php the_content(); ?>
                     </div>
                     <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                        <?php the_post_thumbnail(); ?>
+                        <?php the_post_thumbnail("service-side-content-image",array("class"=>"ui shadowed centered image")); ?>
                     </div>
                 </div>
                 <div class="stretched very padded row">
