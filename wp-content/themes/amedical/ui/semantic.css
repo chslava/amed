@@ -711,7 +711,7 @@ header .logo-big {
 }
 
 header .ui.mobile.container.grid {
-  height: 87px;
+  min-height: 87px;
   background: #FFF;
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
   width: 100%!important;
@@ -2539,12 +2539,6 @@ section.slider .ui.container.grid > .column {
   }
 }
 
-.coo-respose {
-  background: url("/img/light-bg.png") no-repeat left center;
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
 .contacts {
   margin-top: 1rem;
   color: #FFF;
@@ -2631,6 +2625,15 @@ section.slider .ui.container.grid > .column {
     min-height: 700px;
     z-index: 10;
   }
+
+  .contacts a {
+    color: #FFF;
+    text-decoration: underline;
+  }
+
+  .contacts a:hover {
+    color: #ff6b01;
+  }
 }
 
 @media (min-width: 769px) {
@@ -2640,6 +2643,52 @@ section.slider .ui.container.grid > .column {
 
   .contacts .map {
     width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .contacts > .ui.container {
+    min-height: 650px;
+  }
+
+  .contacts h1.ui.header,
+  .contacts h2.ui.header {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 65px;
+    margin-bottom: 10px;
+  }
+
+  .contacts h1.ui.header ~ p,
+  .contacts h2.ui.header ~ p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .contacts h1.ui.header ~ .ui.divider,
+  .contacts h2.ui.header ~ .ui.divider {
+    margin-top: 24px;
+    max-width: 301px;
+  }
+
+  .contacts h2.ui.header {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 3px;
+  }
+
+  .contacts h2.ui.header ~ p {
+    line-height: 25px;
+  }
+
+  .contacts .info {
+    width: 35%;
+    min-height: 650px;
+  }
+
+  .contacts .map {
+    width: 65%;
+    min-height: 650px;
   }
 }
 
@@ -3141,12 +3190,26 @@ main.page > .grid {
   .about-us ~ .coo-respose {
     max-width: 1440px;
     margin: 0 auto;
+    padding-bottom: 94px;
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
     background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
   }
 
   .about-us ~ .coo-respose .eight.wide.computer.column {
-    width: 54%!important;
+    width: 54% !important;
+  }
+
+  .about-us ~ .coo-respose .eight.wide.computer.column p {
+    padding-bottom: 10px;
+  }
+
+  .about-us ~ .coo-respose .ui.header {
+    margin-bottom: 10px;
+  }
+
+  .about-us ~ .coo-respose .ui.header:before {
+    margin-top: -24px !important;
+    margin-bottom: 23px !important;
   }
 
   .benefits.very.padded .content {
@@ -3289,6 +3352,7 @@ blockquote {
   line-height: 27px;
 }
 
+.content-page .circles-list,
 .circles-list {
   list-style: none;
   padding: 1em 0;
@@ -3307,6 +3371,7 @@ blockquote {
   justify-content: center;
 }
 
+.content-page .circles-list li,
 .circles-list li {
   width: 100%;
   min-height: 70px;
@@ -3315,6 +3380,7 @@ blockquote {
   line-height: 65px;
 }
 
+.content-page .circles-list li:before,
 .circles-list li:before {
   content: "\e907";
   font-family: 'icomoon' !important;
@@ -3330,11 +3396,13 @@ blockquote {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
 }
 
+.content-page .circles-list.small li,
 .circles-list.small li {
   min-height: 55px;
   line-height: 40px;
 }
 
+.content-page .circles-list.small li:before,
 .circles-list.small li:before {
   width: 40px;
   height: 40px;
@@ -8616,13 +8684,6 @@ a.ui.inverted.grey.header:hover {
 }
 
 h1.ui.header {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 65px;
-  margin-bottom: 30px;
-}
-
-h2.ui.header {
   padding-top: 1em;
   padding-bottom: 0.5em;
   font-size: 36px;
@@ -8630,16 +8691,51 @@ h2.ui.header {
   line-height: 44px;
 }
 
-h3.ui.header {
+h2.ui.header {
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
 }
 
-h4.ui.header {
+h3.ui.header {
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
+}
+
+h4.ui.header {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media (min-width: 992px) {
+  h1.ui.header {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 65px;
+    margin-bottom: 30px;
+  }
+
+  h2.ui.header {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+  }
+
+  h3.ui.header {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  h4.ui.header {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 27px;
+  }
 }
 
 .ui.header.centered {
@@ -14781,7 +14877,11 @@ img.ui.shadowed.image {
 }
 
 .contacts .ui.breadcrumb {
-  margin-top: 1rem !important;
+  margin-top: 20px !important;
+}
+
+.contacts .ui.breadcrumb .divider {
+  margin: 0 0.4rem!important;
 }
 
 .ui.breadcrumb .icon.divider {
