@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <main class="contacts">
-  <div class="ui container vertically divided grid">
+  <div class="ui container">
     <div class="sixteen wide mobile eight wide tablet five wide computer column">
       <?php include_once('includes/parts/breadcrumbs.php'); ?>
       <h1 class="ui header"><?php echo get_the_title(); ?></h1>
