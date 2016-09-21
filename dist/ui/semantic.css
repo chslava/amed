@@ -1866,7 +1866,7 @@ section.slider .ui.container.grid > .column {
 
 .subscribe .subscribe.input {
   max-width: 270px;
-  font-weight: 700;
+  font-size: 15px;
   border: none!important;
   margin-bottom: 5px;
   color: #FFF!important;
