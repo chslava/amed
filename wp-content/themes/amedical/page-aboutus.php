@@ -23,10 +23,10 @@ get_header();
   </div>
 </main>
 
-<?php if (have_rows("services_items")):?>
+<?php if (have_rows("service_items")):?>
   <section class="secondary-services">
     <div class="ui container">
-      <h2 class="centered ui header"><?php the_field("services_title"); ?></h2>
+      <h2 class="centered ui header"><?php the_field("searvice_block_title"); ?></h2>
       <div class="ui relaxed grid">
         <?php while (have_rows("services_items")): the_row(); ?>
           <div class="sixteen wide mobile eight wide tablet four wide computer column">
