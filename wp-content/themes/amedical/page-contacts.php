@@ -15,7 +15,7 @@ get_header();
       <p><?php echo the_field('phone_title','option'); ?>:
           <a href="tel:<?php echo the_field('phone','option'); ?>">
             <?php echo the_field('phone','option'); ?>
-          </a>, 
+          </a>,
           <a href="tel:<?php echo the_field('phone-2','option'); ?>">
               <?php echo the_field('phone-2','option'); ?>
           </a>
@@ -33,8 +33,10 @@ get_header();
 
   <?php
         $ArrMap = the_field('map','option');
-        $lat = $ArrMap['lat'] > 0 ? $ArrMap['lat'] : '56.940';
-        $lng = $ArrMap['lng'] > 0 ? $ArrMap['lng'] : '24.070';
+      //  $lat = $ArrMap['lat'] > 0 ? $ArrMap['lat'] : '56.9638746';
+      //  $lng = $ArrMap['lng'] > 0 ? $ArrMap['lng'] : '24.0318992';
+        $lat = '56.9638746';
+        $lng = '24.0318992';
 
   ?>
 
@@ -46,7 +48,7 @@ get_header();
             div: '.contact-map',
             lat: $('.contact-map').data('lat'), //56.940,
             lng: $('.contact-map').data('lng'), //24.070,
-            // zoom: 12,
+            zoom: 14,
             scrollwheel: false,
             disableDefaultUI: true,
             navigationControl: false,
