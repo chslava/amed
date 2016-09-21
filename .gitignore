@@ -15,4 +15,5 @@ wp-content/themes/amedical/.idea/
 dist/ui/components/*
 dist/ui/themes/*
 
-shop/*
+
+shop/pictures/*

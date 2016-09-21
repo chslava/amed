@@ -1,0 +1,17 @@
+/* Editoram */
+
+body, tr, td, table {
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	}
+	
+a: {	font-family: Tahoma, Geneva, sans-serif;	font-size:12px;	color:#0000ff;}
+a:link {	color:#0000ff;text-decoration: none;}
+a:visited { color:#000000; text-decoration: none;}
+a:hover {	color:#cccccc;text-decoration: underline;}
+
+
+.partners-border {
+	background: url(../include/images/tr-dot.gif) repeat-x center;
+}

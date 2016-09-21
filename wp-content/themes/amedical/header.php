@@ -43,7 +43,7 @@
 
                                     <?php foreach($menu_items as $item):?>
 
-                                        <?php if (count($item["children"])>0):?>
+                                        <?php if (isset($item["children"]) && count($item["children"])>0):?>
                                             <div class="ui dropdown item">
                                                 <?php print($item["item"]->title); ?>
                                                 <div class="menu">

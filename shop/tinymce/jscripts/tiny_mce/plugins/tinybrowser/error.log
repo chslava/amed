@@ -1,0 +1,259 @@
+2010-03-20 18:17:09 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:09 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:09 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:09 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:09 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:17:13 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:13 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:13 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:17:16 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: edit.php	Line: 243	
+2010-03-20 18:17:16 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 245	
+2010-03-20 18:17:16 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 283	
+2010-03-20 18:17:16 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:16 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:16 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:17:17 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:17 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:17 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:17:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:18 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:18 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:18 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:17:42 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:42 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:17:42 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:17:42 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:17:42 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:49 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:18:49 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:18:49 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:49 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:49 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:52 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:18:52 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:18:52 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:52 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:52 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:53 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:53 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:53 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:54 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:54 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:54 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:58 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:58 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:58 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:18:59 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:18:59 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:18:59 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:19:00 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:19:00 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:19:00 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:19:00 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:19:00 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:19:04 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:19:04 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:19:04 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:19:10 (EET)	8 Notice	Undefined variable: success	File: upload_file.php	Line: 35	
+2010-03-20 18:19:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:19:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:19:18 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:19:18 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:19:18 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:20:22 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:22 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:22 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:22 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:22 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../..//uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:20:22 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:20:22 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:20:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:20:43 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:20:43 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:20:43 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:24:10 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:24:10 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:24:10 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:24:10 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:24:10 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:24:10 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:24:10 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:24:13 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:24:13 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:24:13 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:25:55 (EET)	8 Notice	Undefined variable: success	File: upload_file.php	Line: 35	
+2010-03-20 18:26:04 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:04 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:04 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:04 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:04 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:04 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:04 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:06 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:06 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:06 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:08 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:08 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:08 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:08 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:08 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:08 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:08 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:09 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: edit.php	Line: 243	
+2010-03-20 18:26:09 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 245	
+2010-03-20 18:26:09 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 283	
+2010-03-20 18:26:09 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:09 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:09 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:10 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:10 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:10 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:12 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:12 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:12 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:13 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:13 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:13 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:26:14 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:14 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:14 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:14 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:26:14 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:26:14 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:26:14 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:31:50 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:31:50 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:31:50 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:31:50 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:31:50 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:31:50 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:31:50 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:31:50 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:32:27 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:32:27 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:32:27 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:32:27 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:32:27 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:32:27 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites../../../uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:32:27 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:32:27 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:33:43 (EET)	2 Warning	opendir(/Users/girtsvilks/SitesUser/girtsvilks/Sites/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:33:43 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:33:43 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:23 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:34:23 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:34:23 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:34:33 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:33 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:33 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:33 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:33 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:34:33 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:34:33 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:34:33 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:35:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:06 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:06 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:35:06 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:35:06 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:35:17 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:17 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:17 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:17 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:17 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:17 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:35:17 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:35:17 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:35:36 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:36 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:36 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:36 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:36 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:35:36 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:35:36 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:35:36 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:36:11 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:11 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:11 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:11 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:11 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:11 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:36:11 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:36:11 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:36:16 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:36:16 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:36:16 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:36:17 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: edit.php	Line: 243	
+2010-03-20 18:36:17 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 245	
+2010-03-20 18:36:17 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: edit.php	Line: 283	
+2010-03-20 18:36:17 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:36:17 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:36:17 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:36:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:18 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:36:18 (EET)	2 Warning	opendir(/Users/girtsvilks/Siteshttp://webstyle/e-davanukarte/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:36:18 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:36:18 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:42:51 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:42:51 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:42:51 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:42:51 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-20 18:42:51 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/FU/upload/useruploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-20 18:42:51 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-20 18:42:51 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-20 18:44:55 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/useruploads/images/_thumbs/_af333179.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-20 18:49:00 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_ak001331.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-20 18:49:07 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_ak001365.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-20 18:49:07 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_ak001525.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-20 18:49:07 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_ak001876.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-20 18:49:07 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_ak001967.jpg' for writing: No such file or directory	File: fns_tinybrowser.php	Line: 113	
+2010-03-21 19:10:41 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: Permission denied	File: fns_tinybrowser.php	Line: 5	
+2010-03-21 19:10:41 (EET)	2 Warning	mkdir() [<a href='function.mkdir'>function.mkdir</a>]: No such file or directory	File: fns_tinybrowser.php	Line: 5	
+2010-03-21 19:10:41 (EET)	2 Warning	opendir(/Users/girtsvilks/Sites/uploads/images/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory	File: fns_tinybrowser.php	Line: 363	
+2010-03-21 19:10:41 (EET)	2 Warning	readdir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 364	
+2010-03-21 19:10:41 (EET)	2 Warning	closedir(): supplied argument is not a valid Directory resource	File: fns_tinybrowser.php	Line: 380	
+2010-03-21 19:11:44 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_titullapas-fons.jpg' for writing: Permission denied	File: fns_tinybrowser.php	Line: 113	
+2010-03-21 19:11:46 (EET)	2 Warning	imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open '/Users/girtsvilks/Sites/e-davanukarte/uploads/images/_thumbs/_titullapas-fons.jpg' for writing: Permission denied	File: fns_tinybrowser.php	Line: 113	
+2015-03-11 13:12:56 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:56 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:56 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:56 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: type	File: upload.php	Line: 46	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: type	File: upload.php	Line: 58	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: 	File: upload.php	Line: 58	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined variable: filestr	File: upload.php	Line: 59	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: type	File: upload.php	Line: 59	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: 	File: upload.php	Line: 59	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: type	File: upload.php	Line: 120	
+2015-03-11 13:12:56 (EET)	8 Notice	Undefined index: 	File: upload.php	Line: 120	
+2015-03-11 13:12:57 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:58 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:58 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:58 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
+2015-03-11 13:12:58 (EET)	8192 	Function sql_regcase() is deprecated	File: fns_tinybrowser.php	Line: 355	
