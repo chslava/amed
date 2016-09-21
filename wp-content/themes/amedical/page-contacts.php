@@ -42,6 +42,7 @@ get_header();
             // zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
+            draggable: false,
             styles: [
                 {
                     stylers: [
