@@ -216,11 +216,32 @@ jQuery(document).ready(function(){
     jQuery(document).on('click', '#installer_registration_form :submit', function(){
         jQuery('#installer_registration_form').find('input[name=button_action]').val(jQuery(this).attr('name'));
     });
+
+    manageWizardButtonStatesSpinner();
 	
 	// Initialize the language switcher preview on document ready
 	updateSwitcherPreview();
 });
 
+function manageWizardButtonStatesSpinner(){
+    var buttons = jQuery( '#icl_setup_back_1, #icl_setup_next_1, #icl_setup_back_2' );
+    var submit_buttons = jQuery( '#icl_initial_language .buttons-wrap .button-primary, #icl_setup_back_2, #icl_setup_nav_3 .button-primary, #installer_registration_form div .button-primary' );
+    var forms = jQuery( '#icl_initial_language, #icl_save_language_switcher_options, #installer_registration_form' );
+    var spinner = jQuery( '<span class="spinner"></span>' );
+    var spinner_location = '#icl_initial_language .buttons-wrap input, #icl_setup_back_1, #icl_setup_back_2, #icl_save_language_switcher_options, #installer_registration_form div .button-primary';
+
+    spinner.insertBefore( spinner_location );
+
+    jQuery( forms ).submit(function(){
+        spinner.addClass( 'is-active' );
+        jQuery( submit_buttons ).attr( 'disabled', 'disabled' );
+    });
+
+    jQuery( buttons ).click(function(){
+        spinner.addClass( 'is-active' );
+        buttons.attr( 'disabled', 'disabled');
+    });
+}
 
 function updateSwitcherPreview(){
 

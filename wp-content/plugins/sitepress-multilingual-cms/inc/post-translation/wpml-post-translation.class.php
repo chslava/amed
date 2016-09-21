@@ -321,6 +321,11 @@ abstract class WPML_Post_Translation extends WPML_Element_Translation {
 						AND t.element_type = CONCAT('post_', p.post_type)";
 	}
 
+	protected function get_type_prefix() {
+		return 'post_';
+	}
+
+
 	public function is_translated_type( $post_type ) {
 		global $sitepress;
 

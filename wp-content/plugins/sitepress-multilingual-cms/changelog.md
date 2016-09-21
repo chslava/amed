@@ -1,3 +1,34 @@
+# 3.5.2
+
+## Fixes
+* [wpmlcore-3244] Fixed an issue with the re-initialization of WPML in Network install, after resetting settings of main sub-site.
+* [wpmlcore-2663] Fixed an issue with the browser redirection when using languages in directories.
+* [wpmlcore-2682] Fixed an issue with the browser redirection when using languages with regional variations (e.g. fr-CA).
+* [wpmlcore-3009] Fixed duplicated language querystring argument when redirecting to a child page.
+* [wpmlcore-3310] Post meta won't return an empty value after automatic post meta synchronization is ran.
+* [wpmlcore-3334] Fixed some issues when translating **from a non-default language** and MO files are used for gettext strings (introduced in WP 4.6).
+* [wpmltm-1532] Ensure the correct source language is used when sending translation jobs to Translation Proxy.
+* Other minor bug fixes.
+
+## API
+
+### Filters
+* [wpmlcore-3160] Added `wpml_is_translated_taxonomy`.
+
+### Actions
+* [wpmlcore-3316] Added `wpml_user_switch_language`.
+
+## Performances
+* [wpmlcore-3227] Reduced the number of queries in the posts listing pages.
+* [wpmlcore-2692] Added caching for Twig templates.
+
+## Features
+* [wpmlcore-3320] Users can now login across domains when WPML is configured to use languages per domain (it uses the "window.postMessage" web API).
+
+## Usability
+* [wpmlcore-3006] Improved usability of the admin notice "Term hierarchy synchronization".
+* [wpmlcore-1101] Added a spinner and disabled buttons in the WPML installation wizard.
+
 # 3.5.1.1
 
 # Fixes
@@ -35,6 +66,9 @@
  
 ## Fixes
 * [wpmltm-1487] Reduced automatic calls to ICanLocalize server to one per hour
+
+## Compatibility
+* [wpmlcore-3143] Add filters for the Events Calendar and Events Pro plugins to use for recurring events 
 
 # 3.4.1
 

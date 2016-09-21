@@ -37,6 +37,7 @@ class WPML_URL_Filters extends WPML_SP_And_PT_User {
 		// posts and pages links filters
 		add_filter( 'post_link', array( $this, 'permalink_filter' ), 1, 2 );
 		add_filter( 'post_type_link', array( $this, 'permalink_filter' ), 1, 2 );
+		add_filter( 'wpml_filter_link', array( $this, 'permalink_filter' ), 1, 2 );
 		add_filter( 'get_edit_post_link', array( $this, 'get_edit_post_link' ), 1, 3 );
 		if ( $this->has_wp_get_canonical_url() ) {
 			add_filter( 'get_canonical_url', array( $this, 'get_canonical_url_filter' ), 1, 2 );
