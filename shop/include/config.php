@@ -61,11 +61,13 @@ $url = 'http://';
 if(!getenv('APPLICATION_ENV')){define('APPLICATION_ENV','production');}else{define('APPLICATION_ENV',getenv('APPLICATION_ENV'));}
 
 
-$url .= str_replace('\\','',$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']));
-$db_host = 'localhost';
-$db_user='root';//MySql username
-$db_password='quinau';//MySql password
-$db_name="dig_amedical_shop";//MySql database name
+require_once (dirname(dirname(__FILE__)) . "/config.php");
+// config example !!!
+//$url .= str_replace('\\','',$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']));
+//$db_host = 'localhost';
+//$db_user='root';//MySql username
+//$db_password='pass';//MySql password
+//$db_name="dig_amedical_shop";//MySql database name
 
 
 $root_dir =  $url . '/';
