@@ -2,6 +2,8 @@
 require_once("config.php");
 require_once($wolf_path."check.php");
 
+global $result_db;
+
 if(isset($_POST["submit"]))
 {
 	$change_from=array("'","\\","\"");
@@ -12,7 +14,7 @@ if(isset($_POST["submit"]))
 		$sadala=str_replace($change_from,$change_to,$_POST["sadala"]);
 		$sadala=trim($sadala);
 		
-		$req=mysqli_query($result_db,"Select place from items where parent_id='$sadala' order by place desc limit 0,1");echo mysqli_error();
+		$req=mysqli_query($result_db,"Select place from items where parent_id='$sadala' order by place desc limit 0,1");echo mysqli_error($result_db);
 		if($roq=mysqli_fetch_array($req))
 		{
 			$place=$roq["place"];
@@ -57,7 +59,7 @@ if(isset($_POST["submit"]))
 		'$f[price]', '$f[discount]', '$f[discount_price]', '$f[new]', '$f[storage]', '$f[speciality]', '$f[items]', '$f[person]', '$f[branch]', 
 		'$f[rate]', '$f[buy]', '$f[discount_percent]', '$name'	
 		)
-		"); echo mysqli_error();
+		"); echo mysqli_error($result_db);
 		
 		$last_id = mysqli_insert_id();
 		

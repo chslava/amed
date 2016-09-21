@@ -119,6 +119,8 @@ function login($username, $password)
 
 function AddStatistic($ip,$user_id,$ses_id,$url,$comment,$status)
 {
+	global $result_db;
+
 	$result = mysqli_query($result_db,"insert into user_statistic value (
 	'',
 	'$ip',
@@ -129,7 +131,7 @@ function AddStatistic($ip,$user_id,$ses_id,$url,$comment,$status)
 	'$comment',
 	'$status')");
 
-	echo mysqli_error();
+	echo mysqli_error($result_db);
 }
 
 $datax = array();
@@ -148,6 +150,7 @@ $datax["en"] = array(
 
 
 $_GET['url'] = trim(str_replace(array('/shop'), '', $_SERVER['REQUEST_URI']), '/');
+$_GET['url'] = strtok($_GET['url'], '?');
 $_GET['url'] = trim($_GET['url']);
 
 
@@ -646,7 +649,7 @@ if(isset($_GET["url"]))
 		else
 		{
 			$result = mysqli_query($result_db,"insert into basket values (
-				'',
+				null,
 				'$ip',
 				'$user_id',
 				'$ses_id',
@@ -654,7 +657,7 @@ if(isset($_GET["url"]))
 				'$quantity'
 
 			)");
-
+			
 			//Pievienota prece preču grozam
 			AddStatistic($ip,$user_id,$ses_id,$url,'',0);
 		}

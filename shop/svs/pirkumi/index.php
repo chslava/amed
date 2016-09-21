@@ -1,4 +1,5 @@
 <?php
+global $result_db;
 //ielâdçjam funkcijas
 require_once("../config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
@@ -357,7 +358,7 @@ else
 						$statuss_text = array(0 => $statuses[0], 1 => $statuses[1], 2 => $statuses[2], 3 => $statuses[3], 4 => $statuses[4], 5 => $statuses[5], 6 => $statuses[6]);
 	  				
 						$rep=mysqli_query($result_db,$select2);
-						echo mysqli_error();
+						echo mysqli_error($result_db);
 	  					$a=1;
 	 					while($rop=mysqli_fetch_array($rep))
 						{
