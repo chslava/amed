@@ -40,7 +40,7 @@ get_header();
             lat: $('.contact-map').data('lat'), //56.940,
             lng: $('.contact-map').data('lng'), //24.070,
             // zoom: 12,
-            scrollwheel: true,
+            scrollwheel: false,
             disableDefaultUI: true,
             styles: [
                 {

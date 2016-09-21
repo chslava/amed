@@ -1866,7 +1866,7 @@ section.slider .ui.container.grid > .column {
 
 .subscribe .subscribe.input {
   max-width: 270px;
-  font-weight: 700;
+  font-size: 15px;
   border: none!important;
   margin-bottom: 5px;
   color: #FFF!important;
@@ -1904,8 +1904,8 @@ section.slider .ui.container.grid > .column {
 
 .secondary-services {
   background: #f7f7f7;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .secondary-services .ui.header {
@@ -2554,14 +2554,28 @@ section.slider .ui.container.grid > .column {
 }
 
 .contacts > .ui.container {
-  min-height: 700px;
   z-index: 10;
   position: relative;
 }
 
+.contacts h1.ui.header ~ p,
+.contacts h2.ui.header ~ p {
+  margin: 0;
+  padding: 0;
+}
+
+.contacts h1.ui.header ~ .ui.divider,
+.contacts h2.ui.header ~ .ui.divider {
+  margin-top: 24px;
+  max-width: 301px;
+}
+
+.contacts h2.ui.header ~ p {
+  line-height: 25px;
+}
+
 .contacts .info {
   background: #636463;
-  min-height: 700px;
   width: 40%;
   position: absolute;
   left: 0;
@@ -2575,8 +2589,8 @@ section.slider .ui.container.grid > .column {
   width: 60%;
   float: left;
   background: lightgoldenrodyellow;
-  min-height: 700px;
   z-index: 10;
+  margin-bottom: 2rem;
 }
 
 .contacts .divider {
@@ -2586,7 +2600,7 @@ section.slider .ui.container.grid > .column {
 @media (max-width: 768px) {
   .contacts .info {
     background: #636463;
-    min-height: 700px;
+    min-height: 100%;
     width: 100%;
     position: absolute;
     left: 0;
@@ -2600,8 +2614,26 @@ section.slider .ui.container.grid > .column {
     width: 100%;
     float: none;
     background: lightgoldenrodyellow;
-    min-height: 700px;
+    min-height: 400px;
     z-index: 10;
+    margin-top: 2rem;
+  }
+
+  .contact-form {
+    margin-top: 1rem;
+    padding: 2rem 0;
+  }
+
+  .contact-form h2.ui.header {
+    margin-top: 0!important;
+  }
+
+  .contact-form h2.ui.header:before {
+    margin-top: 0;
+  }
+
+  .contact-form .ui.form .eight.wide.field {
+    width: 100%!important;
   }
 }
 
@@ -2690,11 +2722,36 @@ section.slider .ui.container.grid > .column {
     width: 65%;
     min-height: 650px;
   }
-}
 
-.contact-form {
-  margin-top: 1rem;
-  padding: 100px 0;
+  .contact-form {
+    margin-top: 64px;
+    padding: 2rem 0 6rem 0;
+  }
+
+  .contact-form h2.ui.header {
+    margin-top: 0!important;
+  }
+
+  .contact-form h2.ui.header:before {
+    margin-top: 0;
+  }
+
+  .contact-form .ui.form .eight.wide.field {
+    width: 50%!important;
+  }
+
+  .contact-form .ui.form input {
+    width: 300px;
+  }
+
+  .contact-form .ui.form textarea {
+    width: 460px;
+    height: 160px;
+  }
+
+  .contact-form .shadowed.image {
+    margin-top: 30px;
+  }
 }
 
 footer {
@@ -3131,9 +3188,32 @@ main.page > .grid {
   line-height: 44px;
 }
 
+.about-us ~ .benefits.very.padded {
+  margin-bottom: 2rem;
+}
+
 .about-us ~ .coo-respose {
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+  padding-bottom: 2rem;
+}
+
+.about-us ~ .services {
+  margin-top: 0;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #e6e6e6;
+}
+
+.about-us ~ .services .icon-title {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.benefits.very.padded .content em {
+  text-transform: none;
+  font-style: normal;
+  color: #8f8f8f;
 }
 
 @media (min-width: 1200px) {
@@ -3161,11 +3241,19 @@ main.page > .grid {
     margin-top: -35px;
     padding-top: 45px;
     padding-bottom: 55px;
+    /*
+      margin-top: 40px;
+margin-left: 0;
+text-align: center;
+padding-bottom: 40px;
+border-bottom: 1px solid #e6e6e6;
+*/
     border-top: 1px solid #e6e6e6;
   }
 
   .about-us ~ .services .icon-title {
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 1rem;
   }
 
   .about-us ~ .services .column p {
@@ -3187,7 +3275,12 @@ main.page > .grid {
     font-size: 58px;
   }
 
+  .about-us ~ .benefits.very.padded {
+    margin-bottom: 107px;
+  }
+
   .about-us ~ .coo-respose {
+    padding-top: 100px;
     max-width: 1440px;
     margin: 0 auto;
     padding-bottom: 94px;
@@ -3216,12 +3309,6 @@ main.page > .grid {
     padding-bottom: 14px;
     width: 600px;
     margin: 0 auto;
-  }
-
-  .benefits.very.padded .content em {
-    text-transform: none;
-    font-style: normal;
-    color: #8f8f8f;
   }
 
   .service .benefits-icon {
@@ -7428,6 +7515,12 @@ blockquote {
   padding-left: 34px;
 }
 
+.ui.huge.button {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
 /*
 .ui.labeled.icon.buttons .button > .icon,
 .ui.labeled.icon.button > .icon {
@@ -8683,31 +8776,35 @@ a.ui.inverted.grey.header:hover {
   color: #414141;
 }
 
+/*
 h1.ui.header {
-  padding-top: 1em;
-  padding-bottom: 0.5em;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 44px;
-}
-
-h2.ui.header {
+  padding-top:1em;
+  padding-bottom:0.5em;
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
+  margin-bottom:15px;
+  margin-top:0;
+}*/
+
+h2.ui.header {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 15px;
 }
 
-h3.ui.header {
+/*h3.ui.header {
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
 }
-
 h4.ui.header {
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
 }
+*/
 
 @media (min-width: 992px) {
   h1.ui.header {
@@ -13271,6 +13368,19 @@ img.ui.shadowed.image {
   margin-top: -12px;
   margin-left: 96px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
+}
+
+@media (max-width: 768px) {
+  .ui.shadowed.images .image,
+  .ui.shadowed.images img,
+  .ui.shadowed.images svg,
+  .ui.shadowed.image img,
+  .ui.shadowed.image svg,
+  img.ui.shadowed.image {
+    margin-top: 30px!important;
+    margin-left: auto;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
+  }
 }
 /*!
  * # Semantic UI 2.2.4 - Input
