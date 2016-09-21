@@ -94,6 +94,20 @@ main.page {
     line-height: 44px;
   }
 }
+
+.about-us {
+  ~ .coo-respose {
+    //background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+    .eight.wide.computer.column {
+      // width: 54%!important;
+      // background:red;
+    }
+  }
+
+}
+
+
 @media (min-width: 1200px) {
   .about-us {
     margin-bottom: 65px !important;
@@ -143,7 +157,8 @@ main.page {
       }
     }
     ~ .coo-respose {
-      //background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 100%);
+      max-width: 1440px;
+      margin:0 auto;
       background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
       .eight.wide.computer.column {
         width: 54%!important;
