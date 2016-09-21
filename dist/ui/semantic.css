@@ -3263,6 +3263,12 @@ main.page > .grid {
   margin-top: 0;
 }
 
+.service .benefits-icon {
+  color: #ff6b01;
+  margin-top: 32px;
+  font-size: 48px;
+}
+
 @media (min-width: 1200px) {
   .about-us {
     margin-bottom: 85px !important;
@@ -3352,7 +3358,6 @@ main.page > .grid {
   }
 
   .service .benefits-icon {
-    color: #ff6b01;
     margin-top: 60px;
     font-size: 60px;
   }
