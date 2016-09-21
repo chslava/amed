@@ -3,12 +3,18 @@
 *******************************/
 
 .ui.breadcrumb {
-  margin-top: 2rem !important;
+  margin-top: 33px !important;
   a {
     color: #8f8f8f;
     &:hover {
       color: #ff6b01;
     }
+  }
+  .section {
+    margin: 0 5px 0 0;
+  }
+  .divider {
+    margin: 0 0.6rem!important;
   }
 }
 .contacts {
