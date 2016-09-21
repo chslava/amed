@@ -3193,6 +3193,12 @@ main.page > .grid {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
 }
 
+.benefits.very.padded .content em {
+  text-transform: none;
+  font-style: normal;
+  color: #8f8f8f;
+}
+
 @media (min-width: 1200px) {
   .about-us {
     margin-bottom: 65px !important;
@@ -3273,12 +3279,6 @@ main.page > .grid {
     padding-bottom: 14px;
     width: 600px;
     margin: 0 auto;
-  }
-
-  .benefits.very.padded .content em {
-    text-transform: none;
-    font-style: normal;
-    color: #8f8f8f;
   }
 
   .service .benefits-icon {
