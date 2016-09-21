@@ -341,6 +341,7 @@ blockquote {
     min-height: 70px;
     align-self: flex-start;
     line-height: 65px;
+    margin-bottom:0px;
     &:before {
       content: "\e907";
       font-family: 'icomoon' !important;
