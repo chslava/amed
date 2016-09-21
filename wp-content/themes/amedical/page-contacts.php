@@ -12,9 +12,16 @@ get_header();
       <?php include_once('includes/parts/breadcrumbs.php'); ?>
       <h1 class="ui header"><?php echo get_the_title(); ?></h1>
       <p><?php echo the_field('address_title','option'); ?>: <?php echo the_field('address','option'); ?></p>
-      <p><?php echo the_field('phone_title','option'); ?>: <?php echo the_field('phone','option'); ?>,<?php echo the_field('phone-2','option'); ?></p>
+      <p><?php echo the_field('phone_title','option'); ?>:
+          <a href="tel:<?php echo the_field('phone','option'); ?>">
+            <?php echo the_field('phone','option'); ?>
+          </a>, 
+          <a href="tel:<?php echo the_field('phone-2','option'); ?>">
+              <?php echo the_field('phone-2','option'); ?>
+          </a>
+      </p>
       <p><?php echo the_field('fax_title','option'); ?>: <?php echo the_field('fax','option'); ?></p>
-      <p><?php echo the_field('email_title','option'); ?>: <?php echo the_field('email','option'); ?></p>
+      <p><?php echo the_field('email_title','option'); ?>: <a href="mailto:<?php echo the_field('email','option'); ?>"><?php echo the_field('email','option'); ?></a></p>
       <p><?php echo the_field('opening_hours_title','option'); ?>: <?php echo the_field('opening_hours','option'); ?></p>
       <div class="ui divider"></div>
       <h2 class="ui header"><?php echo the_field('title_registration','option'); ?></h2>
