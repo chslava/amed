@@ -657,6 +657,7 @@ header .ui.menu.lang.four.item .item:last-child {
   header .basket .item .icon-basket-icon:before {
     display: inline-block;
     float: none;
+    text-align: right;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -800,8 +801,6 @@ header .ui.menu.lang.four.item .item:last-child {
     display: none;
   }
   header .basket .item .icon-basket-icon:before {
-    display: block;
-    float: left;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -1272,6 +1271,9 @@ section.slider .ui.container.grid > .column {
     margin-top: 0px;
   }*/
 }
+.represent .bx-viewport {
+  height: 98px!important;
+}
 .represent .represent-slider li {
   width: 150px!important;
   margin: 0 85px;
@@ -1675,7 +1677,7 @@ section.slider .ui.container.grid > .column {
     margin-bottom: 31px;
   }
   .represent .bx-wrapper {
-    margin-bottom: 50px!important;
+    margin-bottom: 20px!important;
   }
   .represent .bx-wrapper li {
     margin: 0;
