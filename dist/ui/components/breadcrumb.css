@@ -132,7 +132,10 @@
   margin: 0 0.6rem!important;
 }
 .contacts .ui.breadcrumb {
-  margin-top: 1rem !important;
+  margin-top: 20px !important;
+}
+.contacts .ui.breadcrumb .divider {
+  margin: 0 0.4rem!important;
 }
 .ui.breadcrumb .icon.divider {
   height: 18px;

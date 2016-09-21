@@ -1769,11 +1769,6 @@ section.slider .ui.container.grid > .column {
     padding-right: 0;
   }
 }
-.coo-respose {
-  background: url("/img/light-bg.png") no-repeat left center;
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
 .contacts {
   margin-top: 1rem;
   color: #FFF;
@@ -1850,6 +1845,13 @@ section.slider .ui.container.grid > .column {
     min-height: 700px;
     z-index: 10;
   }
+  .contacts a {
+    color: #FFF;
+    text-decoration: underline;
+  }
+  .contacts a:hover {
+    color: #ff6b01;
+  }
 }
 @media (min-width: 769px) {
   .contacts .info {
@@ -1857,6 +1859,44 @@ section.slider .ui.container.grid > .column {
   }
   .contacts .map {
     width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .contacts > .ui.container {
+    min-height: 650px;
+  }
+  .contacts h1.ui.header,
+  .contacts h2.ui.header {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 65px;
+    margin-bottom: 10px;
+  }
+  .contacts h1.ui.header ~ p,
+  .contacts h2.ui.header ~ p {
+    margin: 0;
+    padding: 0;
+  }
+  .contacts h1.ui.header ~ .ui.divider,
+  .contacts h2.ui.header ~ .ui.divider {
+    margin-top: 24px;
+    max-width: 301px;
+  }
+  .contacts h2.ui.header {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 3px;
+  }
+  .contacts h2.ui.header ~ p {
+    line-height: 25px;
+  }
+  .contacts .info {
+    width: 35%;
+    min-height: 650px;
+  }
+  .contacts .map {
+    width: 65%;
+    min-height: 650px;
   }
 }
 .contact-form {

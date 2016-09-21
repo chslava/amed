@@ -19,7 +19,10 @@
 }
 .contacts {
   .ui.breadcrumb {
-    margin-top: 1rem !important;
+    margin-top: 20px !important;
+    .divider {
+      margin: 0 0.4rem!important;
+    }
   }
 }
 .ui.breadcrumb .icon.divider {
