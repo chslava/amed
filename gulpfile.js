@@ -33,7 +33,7 @@ gulp.task('pug-build', function buildHTML() {
 });
 
 gulp.task('copytotheme', function() {
-    gulp.src('./dist/ui/**/*.{css,js,eot,svg,ttf,woff,woff2}')
+    gulp.src('./dist/ui/**/*.{css,js}')
         .pipe(gulp.dest('./wp-content/themes/amedical/ui/'));
 
     gulp.src('./dist/css/**/*.*')
@@ -44,10 +44,6 @@ gulp.task('copytotheme', function() {
 
     gulp.src('./dist/js/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/js/'));
-
-
-    gulp.src('./dist/ui/fonts/**/*.*')
-        .pipe(gulp.dest('./wp-content/themes/amedical/fonts/'));
 });
 
 gulp.task('build-ui', ['semantic-build', 'pug-build','copytotheme']);
