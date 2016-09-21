@@ -122,6 +122,7 @@
 }
 .ui.breadcrumb a {
   color: #8f8f8f;
+  text-decoration: none;
 }
 .ui.breadcrumb a:hover {
   color: #ff6b01;

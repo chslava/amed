@@ -3192,6 +3192,12 @@ main.page > .grid {
   margin-bottom: 2rem;
 }
 
+.about-us ~ .benefits.very.padded .content em {
+  text-transform: none;
+  font-style: normal;
+  color: #8f8f8f;
+}
+
 .about-us ~ .coo-respose {
   background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
@@ -3208,12 +3214,6 @@ main.page > .grid {
 .about-us ~ .services .icon-title {
   margin-bottom: 1rem;
   margin-top: 0;
-}
-
-.benefits.very.padded .content em {
-  text-transform: none;
-  font-style: normal;
-  color: #8f8f8f;
 }
 
 @media (min-width: 1200px) {
@@ -3241,13 +3241,6 @@ main.page > .grid {
     margin-top: -35px;
     padding-top: 45px;
     padding-bottom: 55px;
-    /*
-      margin-top: 40px;
-margin-left: 0;
-text-align: center;
-padding-bottom: 40px;
-border-bottom: 1px solid #e6e6e6;
-*/
     border-top: 1px solid #e6e6e6;
   }
 
@@ -14973,6 +14966,7 @@ img.ui.shadowed.image {
 
 .ui.breadcrumb a {
   color: #8f8f8f;
+  text-decoration: none;
 }
 
 .ui.breadcrumb a:hover {
