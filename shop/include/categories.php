@@ -2,6 +2,9 @@
 $indent=20;
 $limenis=array();
 
+global $result_db;
+
+
 $row=mysqli_query($result_db,"Select * from categories where id='$catalog_id' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
 $fe=mysqli_fetch_array($row);
 
@@ -27,6 +30,7 @@ $cik=count($limenis);
 	
 function izvelnes($parent_id,$atstarpe,$cik,$limenis,$ver,$root_dir)
 {
+	global $result_db;
 	$cik--;
 	$r1=mysqli_query($result_db,"Select * from categories where parent_id='$parent_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
 	while($f1=mysqli_fetch_array($r1))

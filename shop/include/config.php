@@ -68,7 +68,7 @@ $db_password='quinau';//MySql password
 $db_name="dig_amedical_shop";//MySql database name
 
 
-$root_dir =  $url;
+$root_dir =  $url . '/';
 
 //$url = str_replace('/shop', '', $url);
 
@@ -92,7 +92,7 @@ $coupon_discount1 = 0;
 $coupon_text1 = "";
 $category_discount = 2;
 
-
+global $result_db;
 $result_db = mysqli_connect($db_host,$db_user,$db_password);
 
 
@@ -143,6 +143,10 @@ $datax["ru"] = array(
 $datax["en"] = array(
 /* 0 */ 	"<a href=\"http://www.webstyle.lv/en/web-pages-service/web-creation\" title=\"Creation of web pages\" target=\"_blank\">Creation of web pages WEBstyle.lv</a>"
 );
+
+
+$_GET['url'] = trim(str_replace(array('/shop'), '', $_SERVER['REQUEST_URI']), '/');
+$_GET['url'] = trim($_GET['url']);
 
 
 $default_language = "lv";
