@@ -75,7 +75,7 @@
                                 <div class="item computer-search">
                                     <div class="ui icon input search">
 
-                                            <input placeholder="<?php _e("Search","amedical"); ?>">
+                                            <input name="search" placeholder="<?php _e("Search","amedical"); ?>">
                                             <i class="search icon"></i>
 
 

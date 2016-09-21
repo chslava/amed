@@ -16,8 +16,8 @@ get_header();
         </h1>
         <?php the_content(); ?>
       </div>
-      <div class="sixteen wide mobile eight wide tablet ten wide computer column"><br>
-        <?php the_post_thumbnail() ?>
+      <div class="sixteen wide mobile eight wide tablet ten wide computer column">
+        <?php the_post_thumbnail("side-content-image",array("class"=>'ui shadowed image')) ?>
       </div>
     </div>
   </div>

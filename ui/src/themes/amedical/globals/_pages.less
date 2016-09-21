@@ -11,13 +11,30 @@
     color: #FFF;
   }
   >.ui.container {
-    min-height:700px;
+   // min-height:700px;
     z-index: 10;
     position: relative;
   }
+  h1.ui.header,  h2.ui.header {
+    & ~ p {
+      margin:0;
+      padding:0;
+    }
+    & ~ .ui.divider {
+      margin-top:24px;
+      max-width: 301px;
+    }
+  }
+
+  h2.ui.header {
+    & ~ p {
+      line-height: 25px;
+    }
+  }
+
   .info {
     background:#636463;
-    min-height: 700px;
+   // min-height: 700px;
     width: 40%;
     position: absolute;
     left:0;
@@ -30,9 +47,11 @@
     width: 60%;
     float:left;
     background: lightgoldenrodyellow;
-    min-height:700px;
+   // min-height:700px;
     z-index: 10;
+    margin-bottom: 2rem;
   }
+
   .ui.container.grid {
     //background:  #636463;
   }
@@ -45,7 +64,7 @@
   .contacts {
     .info {
       background:#636463;
-      min-height: 700px;
+      min-height: 100%;
       width: 100%;
       position: absolute;
       left:0;
@@ -58,8 +77,25 @@
       width: 100%;
       float:none;
       background: lightgoldenrodyellow;
-      min-height:700px;
+      min-height:400px;
       z-index: 10;
+      margin-top: 2rem;
+
+    }
+  }
+  .contact-form {
+    margin-top:1rem;
+    padding:2rem 0;
+    h2.ui.header {
+      margin-top:0!important;
+      &:before {
+        margin-top:0;
+      }
+    }
+    .ui.form {
+      .eight.wide.field {
+        width: 100%!important;
+      }
     }
   }
 }
@@ -112,10 +148,10 @@
       min-height: 650px;
     }
     h1.ui.header,  h2.ui.header {
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 65px;
-      margin-bottom: 10px;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 65px;
+        margin-bottom: 10px;
       & ~ p {
         margin:0;
         padding:0;
@@ -127,15 +163,13 @@
     }
 
     h2.ui.header {
-      padding-top:0;
-      margin-top:0;
-      padding-bottom:3px;
+         padding-top:0;
+         margin-top:0;
+         padding-bottom:3px;
       & ~ p {
         line-height: 25px;
       }
     }
-
-
     .info {
       width: 35%;
       min-height: 650px;
@@ -145,9 +179,31 @@
       min-height: 650px;
     }
   }
-}
 
-.contact-form {
-  margin-top:1rem;
-  padding:100px 0;
+  .contact-form {
+    margin-top:64px;
+    padding:2rem 0 6rem 0;
+    h2.ui.header {
+      margin-top:0!important;
+      &:before {
+        margin-top:0;
+      }
+    }
+    .ui.form {
+      .eight.wide.field {
+        width: 50%!important;
+      }
+      input {
+        width: 300px;
+      }
+      textarea {
+        width: 460px;
+        height:160px;
+      }
+    }
+
+    .shadowed.image {
+      margin-top:30px;
+    }
+  }
 }

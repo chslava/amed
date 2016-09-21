@@ -113,12 +113,12 @@ a img {
 }
 
 #menu a {
-	text-transform: uppercase;
+  text-transform: none;
 	text-decoration: none;
-	font-size: 17px;
-	padding: 3px 5px;
+	font-size: 16px;
+	padding: 3px 15px;
 	display: inline-block;
-	color: #65646a;
+	color: rgb(99, 100, 99);
 }
 
 #menu .active {
@@ -482,17 +482,17 @@ a img {
 
 #content {
 	width:1000px;
-	background: #efefef url(../include/images/content-background-2013.png) repeat-y;
+	/*background: #efefef url(../include/images/content-background-2013.png) repeat-y;*/
 }
 
 #text {
 	width:1000px;
-	background: #ffffff url(../include/images/text-background-2013.png) repeat-y;
+	/*background: #ffffff url(../include/images/text-background-2013.png) repeat-y;*/
 }
 
 #categories {
 	float:left;
-	width:230px;
+	width:229px;
 	padding: 10px 0;
 	background: #efefef url(../include/images/content-background-2013.png) repeat-y;
 }
@@ -520,13 +520,13 @@ a img {
 
 #content-top, #content-bottom {
 	height: 1px;
-	background: #efefef url(../include/images/content-background-top-bottom-2013.png) no-repeat;
+	/*background: #efefef url(../include/images/content-background-top-bottom-2013.png) no-repeat; */
 	clear: both;
 }
 
 #text-top, #text-bottom {
 	height: 1px;
-	background: #efefef url(../include/images/text-background-top-bottom-2013.png) no-repeat;
+	/*background: #efefef url(../include/images/text-background-top-bottom-2013.png) no-repeat; */
 }
 
 #content-top, #text-top {
@@ -556,7 +556,7 @@ a img {
 
 .cat1-on, .cat1d-on {
 	background: white;
-	border: 1px solid #65646a;
+  font-weight: bold;
 	border-right: none;
 	padding: 1px 1px 1px 1px;
 	margin: 1px 0;
@@ -577,9 +577,9 @@ a img {
 
 .cat1:hover {
 	background: #fefefe;
-	border: 1px solid #65646a;
+  font-weight: bold;
 	border-right: none;
-	padding: 1px 0 1px 1px;
+	padding: 2px 0 2px 1px;
 }
 
 .cat1d:hover {

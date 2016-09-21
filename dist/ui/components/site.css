@@ -1781,13 +1781,24 @@ section.slider .ui.container.grid > .column {
   color: #FFF;
 }
 .contacts > .ui.container {
-  min-height: 700px;
   z-index: 10;
   position: relative;
 }
+.contacts h1.ui.header ~ p,
+.contacts h2.ui.header ~ p {
+  margin: 0;
+  padding: 0;
+}
+.contacts h1.ui.header ~ .ui.divider,
+.contacts h2.ui.header ~ .ui.divider {
+  margin-top: 24px;
+  max-width: 301px;
+}
+.contacts h2.ui.header ~ p {
+  line-height: 25px;
+}
 .contacts .info {
   background: #636463;
-  min-height: 700px;
   width: 40%;
   position: absolute;
   left: 0;
@@ -1800,8 +1811,8 @@ section.slider .ui.container.grid > .column {
   width: 60%;
   float: left;
   background: lightgoldenrodyellow;
-  min-height: 700px;
   z-index: 10;
+  margin-bottom: 2rem;
 }
 .contacts .divider {
   opacity: 0.2;
@@ -1809,7 +1820,7 @@ section.slider .ui.container.grid > .column {
 @media (max-width: 768px) {
   .contacts .info {
     background: #636463;
-    min-height: 700px;
+    min-height: 100%;
     width: 100%;
     position: absolute;
     left: 0;
@@ -1822,8 +1833,22 @@ section.slider .ui.container.grid > .column {
     width: 100%;
     float: none;
     background: lightgoldenrodyellow;
-    min-height: 700px;
+    min-height: 400px;
     z-index: 10;
+    margin-top: 2rem;
+  }
+  .contact-form {
+    margin-top: 1rem;
+    padding: 2rem 0;
+  }
+  .contact-form h2.ui.header {
+    margin-top: 0!important;
+  }
+  .contact-form h2.ui.header:before {
+    margin-top: 0;
+  }
+  .contact-form .ui.form .eight.wide.field {
+    width: 100%!important;
   }
 }
 @media (min-width: 769px) {
@@ -1898,10 +1923,29 @@ section.slider .ui.container.grid > .column {
     width: 65%;
     min-height: 650px;
   }
-}
-.contact-form {
-  margin-top: 1rem;
-  padding: 100px 0;
+  .contact-form {
+    margin-top: 64px;
+    padding: 2rem 0 6rem 0;
+  }
+  .contact-form h2.ui.header {
+    margin-top: 0!important;
+  }
+  .contact-form h2.ui.header:before {
+    margin-top: 0;
+  }
+  .contact-form .ui.form .eight.wide.field {
+    width: 50%!important;
+  }
+  .contact-form .ui.form input {
+    width: 300px;
+  }
+  .contact-form .ui.form textarea {
+    width: 460px;
+    height: 160px;
+  }
+  .contact-form .shadowed.image {
+    margin-top: 30px;
+  }
 }
 footer {
   background: #636463;

@@ -31,7 +31,7 @@
   font-weight: 500;
   line-height: 18px;
 }
-
+.ui.breadcrumb .breadcrumb_last,
 .ui.breadcrumb .active.section {
   color: #ff6b01;
 }
