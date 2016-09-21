@@ -156,13 +156,24 @@ main.page {
         font-size: 58px;
       }
     }
+
     ~ .coo-respose {
       max-width: 1440px;
-      margin:0 auto;
+      margin: 0 auto;
+      padding-bottom: 94px;
       background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
       .eight.wide.computer.column {
-        width: 54%!important;
-        // background:red;
+        width: 54% !important;
+        p {
+          padding-bottom: 10px;
+        }
+      }
+      .ui.header {
+        margin-bottom: 10px;
+        &:before {
+          margin-top: -24px !important;
+          margin-bottom: 23px !important;
+        }
       }
     }
   }
