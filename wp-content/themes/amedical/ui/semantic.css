@@ -982,6 +982,29 @@ header .ui.menu.lang.four.item .item:last-child {
 @media (min-width: 992px) {
   header {
     background: #FFF;
+    /*
+    .basket {
+      padding-top:5px;
+      padding-right: 1rem;
+      .item {
+        text-align: right;
+        width: 100%;
+        &:after {
+          font-family: 'icomoon';
+          content: "\e917";
+          //float: right;
+          text-align: right;
+          //width: 100%;
+          display: inline-block;
+          margin-top:-1rem;
+        }
+        .icon-basket-icon:before {
+          display: inline-block;
+          float:none;
+          margin-right: 13px;
+          margin-left: -0.5rem;
+        }
+       */
   }
 
   header .mob-menu {
@@ -1187,6 +1210,7 @@ header .ui.menu.lang.four.item .item:last-child {
 
   header .basket {
     padding-top: 3px;
+    padding-right: 1rem;
     width: 115px;
     height: 30px;
     margin-top: 16px!important;
@@ -1196,6 +1220,8 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .basket .item {
+    text-align: right;
+    width: 100%;
     font-size: 16px!important;
     margin-right: 0!important;
     padding-right: 0!important;
@@ -1219,8 +1245,9 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .basket .item .icon-basket-icon:before {
-    display: block;
-    float: left;
+    display: inline-block;
+    float: none;
+    text-align: right;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -1388,8 +1415,6 @@ header .ui.menu.lang.four.item .item:last-child {
   }
 
   header .basket .item .icon-basket-icon:before {
-    display: block;
-    float: left;
     font-size: 22px;
     margin-right: 10px;
     margin-left: 0;
@@ -1925,6 +1950,10 @@ section.slider .ui.container.grid > .column {
   }*/
 }
 
+.represent .bx-viewport {
+  height: 98px!important;
+}
+
 .represent .represent-slider li {
   width: 150px!important;
   margin: 0 85px;
@@ -2394,7 +2423,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .represent .bx-wrapper {
-    margin-bottom: 50px!important;
+    margin-bottom: 20px!important;
   }
 
   .represent .bx-wrapper li {
@@ -2776,6 +2805,7 @@ footer nav {
   margin-top: 35px !important;
   margin-bottom: 0!important;
   border-bottom: 1px solid #8f8f8f !important;
+  height: 100%;
 }
 
 footer .ui.text.menu .item,
@@ -2812,6 +2842,7 @@ footer .follow-us .ui.vertical.menu {
 }
 
 footer .footer-contacts {
+  height: 100%;
   padding-bottom: 8px;
   border-bottom: 1px solid #8F8F8F;
   margin-bottom: 10px;
@@ -2928,6 +2959,7 @@ footer .copyright {
     margin: 0 auto;
     border-bottom: 1px solid #8f8f8f;
     zoom: 1;
+    height: 100%;
   }
 
   footer .sub-column:before,
@@ -3072,6 +3104,7 @@ footer .copyright {
     margin: 0 auto;
     border-bottom: none;
     zoom: 1;
+    height: 100%;
   }
 
   footer .sub-column:before,
