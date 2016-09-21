@@ -1,4 +1,5 @@
 <?php
+global $result_db;
 //iel�d�jam funkcijas
 require_once("../config.php");
 //p�rbaudam, vai lietot�js ir re�istr�jies
@@ -107,7 +108,7 @@ $select2 = "select * from clients order by id desc LIMIT $begin, $interval";
 						$time = time();
 	  				 	$today = mktime(0,0,0,date("n",$time),date("j",$time),date("Y",$time));
 						$rep=mysqli_query($result_db,$select2);
-						echo mysqli_error();
+						echo mysqli_error($result_db);
 	  					$a=1;
 	 					while($rop=mysqli_fetch_array($rep))
 						{

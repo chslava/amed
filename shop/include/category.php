@@ -1,3 +1,4 @@
+<?php global $result_db; ?>
 <div id="content-top"></div>
 <div id="content">
 
@@ -217,7 +218,7 @@
 				items.id as group_type,
 				items.parent_id
 				$group_parameter
-				 from items left join categories on categories.id = items.parent_id $branch_query where categories.statuss='2' and items.statuss = '2' and copy = '0' and (categories.type = '0' or categories.type = '$_SESSION[t]') $filters $buy_filter $group_filter $orders"); echo mysqli_error();
+				 from items left join categories on categories.id = items.parent_id $branch_query where categories.statuss='2' and items.statuss = '2' and copy = '0' and (categories.type = '0' or categories.type = '$_SESSION[t]') $filters $buy_filter $group_filter $orders"); echo mysqli_error($result_db);
 
 				$query = mysqli_query($result_db,"select
 				items.picture,
