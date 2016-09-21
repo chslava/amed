@@ -2754,6 +2754,16 @@ section.slider .ui.container.grid > .column {
   }
 }
 
+@media (min-width: 1920px) {
+  .contacts .info {
+    width: 40%;
+  }
+
+  .contacts .map {
+    width: 60%;
+  }
+}
+
 footer {
   background: #636463;
   color: #FFF;
