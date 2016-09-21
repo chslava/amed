@@ -99,6 +99,13 @@ main.page {
   }
   ~ .benefits.very.padded {
     margin-bottom:2rem;
+    .content {
+      em {
+        text-transform: none;
+        font-style: normal;
+        color: #8f8f8f;
+      }
+    }
   }
   ~ .coo-respose {
     //background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 100%);
@@ -122,13 +129,6 @@ main.page {
   }
 }
 
-.benefits.very.padded .content {
-  em {
-    text-transform: none;
-    font-style: normal;
-    color: #8f8f8f;
-  }
-}
 
 @media (min-width: 1200px) {
   .about-us {
@@ -155,13 +155,6 @@ main.page {
       margin-top:-35px;
       padding-top:45px;
       padding-bottom:55px;
-      /*
-      margin-top: 40px;
-margin-left: 0;
-text-align: center;
-padding-bottom: 40px;
-border-bottom: 1px solid #e6e6e6;
-*/
       border-top:1px solid #e6e6e6;
       .icon-title {
         margin-top: 30px;

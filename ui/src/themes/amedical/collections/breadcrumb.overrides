@@ -6,6 +6,7 @@
   margin-top: 33px !important;
   a {
     color: #8f8f8f;
+    text-decoration: none;
     &:hover {
       color: #ff6b01;
     }
