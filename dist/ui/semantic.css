@@ -2800,6 +2800,10 @@ footer {
   line-height: 20px;
 }
 
+footer > .ui.grid {
+  display: block;
+}
+
 footer nav {
   padding-bottom: 15px;
   margin-top: 35px !important;
@@ -10874,7 +10878,7 @@ i.icon.long.arrow.right:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.65em;
-  content: "\e91a";
+  content: "\e91a" !important;
 }
 
 i.icon.arrow.circle.outline.right:before {
