@@ -15,10 +15,10 @@ get_header();
                         <?Php the_content(); ?>
                     </div>
                     <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                        <?php the_post_thumbnail("service-side-content-image",array("class"=>'ui shadowed centered image')); ?>
+                        <?php the_post_thumbnail(); ?>
                     </div>
                 </div>
-                <div class="stretched row">
+                <div class="stretched very padded row">
 
                     <div class="sixteen wide mobile eight wide tablet eleven wide computer column">
 
@@ -41,11 +41,6 @@ get_header();
                             <div class="large title"><?php the_field("service_phone_title"); ?></div>
                             <div class="large title"><?php the_field("service_phone"); ?></div>
                         </div>
-                    </div>
-                </div>
-                <div class="stretched very padded row">
-                    <div class="sixteen wide mobile eight wide tablet eleven wide computer column">
-                        <?php the_field("support_content"); ?>
                     </div>
                 </div>
             </div>
