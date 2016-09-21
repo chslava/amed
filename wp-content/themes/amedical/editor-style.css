@@ -1,3 +1,24 @@
+
+@font-face {
+    font-family: 'Icons';
+    src: url("./fonts/icons.eot");
+    src: url("./fonts/icons.eot"), url("./fonts/icons.eot?#iefix") format('embedded-opentype'), url("./fonts/icons.woff") format('woff'), url("./fonts/icons.woff2") format('woff2'), url("./fonts/icons.ttf") format('truetype'), url("./fonts/icons.svg#icons") format('svg');
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('./fonts/icomoon.eot?k1oj4x');
+    src: url('./fonts/icomoon.eot?k1oj4x#iefix') format('embedded-opentype'), url('./fonts/icomoon.ttf?k1oj4x') format('truetype'), url('./fonts/icomoon.woff?k1oj4x') format('woff'), url('./fonts/icomoon.svg?k1oj4x#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 ul,
 li,
 ul.list,
@@ -195,4 +216,108 @@ ol.list li:before {
     text-decoration: none;
     text-transform: none;
     vertical-align: baseline;
+}
+
+
+.content-page .circles-list, .circles-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: outside none none;
+    padding: 1em 0;
+}
+
+
+.circles-list li::before, .circles-list li::before {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    color: #e5702a;
+    content: "";
+    display: block;
+    float: left;
+    font-family: "icomoon" !important;
+    height: 60px;
+    margin-right: 20px;
+    text-align: center;
+    width: 60px;
+}
+ul li::before, ul.list li::before {
+    background: #ff6b01 none repeat scroll 0 0;
+    display: block;
+    height: 13px;
+    margin-right: 9px;
+    margin-top: 0.3em;
+    width: 13px;
+}
+ul li::before, ul.list li::before, ol.list li::before {
+    content: " ";
+    float: left;
+}
+.circles-list li::before, .circles-list li::before {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    color: #e5702a;
+    content: "";
+    display: block;
+    float: left;
+    font-family: "icomoon" !important;
+    height: 60px;
+    margin-right: 20px;
+    text-align: center;
+    width: 60px;
+}
+
+
+.content-page .circles-list.small li::before, .circles-list.small li::before {
+    font-size: 13px;
+    height: 40px;
+    width: 40px;
+}
+.content-page .circles-list.small li::before, .circles-list.small li::before {
+    font-size: 13px;
+    height: 40px;
+    width: 40px;
+}
+.content-page .circles-list li::before, .circles-list li::before {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    color: #e5702a;
+    content: "";
+    display: block;
+    float: left;
+    font-family: "icomoon" !important;
+    height: 60px;
+    margin-right: 20px;
+    text-align: center;
+    width: 60px;
+}
+.content-page ul li::before, ul.list li::before {
+    background: #ff6b01 none repeat scroll 0 0;
+    display: block;
+    height: 13px;
+    margin-right: 9px;
+    margin-top: 0.3em;
+    width: 13px;
+}
+.content-page ul li::before, ul.list li::before, ol.list li::before {
+    content: " ";
+    float: left;
+}
+.content-page .circles-list li::before, .circles-list li::before {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    color: #e5702a;
+    content: "";
+    display: block;
+    float: left;
+    font-family: "icomoon" !important;
+    height: 60px;
+    margin-right: 20px;
+    text-align: center;
+    width: 60px;
 }
