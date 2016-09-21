@@ -4,38 +4,90 @@
 		<?php include('includes/parts/head_common.php'); ?>
 	</head>
 	<body <?php body_class(); ?>>
-<header>
-  <div class="ui container relaxed grid">
-    <div class="ui two wide column"><a class="logo" href="index.html"><img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png"></a></div>
-    <div class="ui fourteen wide column">
-      <div class="ui text menu">
-        <div class="left menu">
-          <div class="item">
-            <div class="ui icon input search">
-              <input placeholder="Meklēt"><i class="search icon"></i>
+        <header>
+
+            <?php include("includes/parts/mobile_logo_search.php"); ?>
+           
+            <div class="ui container grid">
+                <div class="main-logo">
+                    <a href="<?php home_url(); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png" alt="<?php print(get_bloginfo( 'name' )); ?>" title="<?php print(get_bloginfo( 'name' )); ?>">
+                    </a>
+                </div>
+                <div class="main-column">
+                    <div class="ui container computer vertically reversed grid mob-menu" style="display:none">
+                        <div class="row">
+                            <div class="sixteen wide column">
+                                <div class="ui small text menu four item lang">
+
+                                    <?php $languages = apply_filters( 'wpml_active_languages', NULL, array( 'skip_missing' => 0, 'link_empty_to' => get_home_url() ) ); ?>
+                                    <?php foreach($languages as $key=> $lang): ?>
+                                        <a class="item <?php if ($lang["active"]):?>active<?php endif;?>" href="<?php print($lang['url']); ?>">
+                                            <?php print(strtoupper($lang['language_code'])); ?>
+                                        </a>
+                                    <?php endforeach; ?>
+
+
+                                    <div class="item auth">
+                                        <a href="<?php the_field("login_url","option"); ?>">
+                                            <span class="ui basic small button"><?php _e("Login","amedical"); ?></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-menu">
+                                <nav class="ui secondary stackable menu">
+                                    <a class="item home" href="<?php home_url(); ?>"><span><?php print(get_bloginfo( 'name' )); ?></span><i class="icon-home-icon"></i></a>
+
+                                    <?php $menu_items = get_menu_items("main-m"); ?>
+
+                                    <?php foreach($menu_items as $item):?>
+
+                                        <?php if (count($item["children"])>0):?>
+                                            <div class="ui dropdown item">
+                                                <?php print($item["item"]->title); ?>
+                                                <div class="menu">
+                                                    <?php foreach($item["children"] as $child): ?>
+                                                        <a class="item" href="<?php print($child->url); ?>"><?php print($child->title);?></a>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <a class="item" href="<?php print($item["item"]->url); ?>"><?php print($item["item"]->title); ?></a>
+                                        <?php endif; ?>
+                                    <?php endforeach;?>
+
+                                    <div class="right menu basket">
+                                        <a class="item" href="<?php the_field("cart_url","option"); ?>">
+                                            <i class="icon-basket-icon"></i><span><?php _e("Cart","amedical"); ?><!--<b>22</b>--></span>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <!--top row of menu --->
+
+
+                        <div class="row">
+                            <form method="get" action="<?php the_field("search_url","option"); ?>">
+                            <div class="ui secondary text stackable menu top-menu">
+
+                                <div class="item computer-search">
+                                    <div class="ui icon input search">
+
+                                            <input placeholder="<?php _e("Search","amedical"); ?>">
+                                            <i class="search icon"></i>
+
+
+                                    </div>
+                                </div>
+
+
+                                <?php print_menu("top-m","",1,0,"","SimpleLinks"); ?>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-					<?php top_menu(); ?>
-					<!-- <a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a> -->
-        </div>
-        <div class="right menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a></div>
-        <div class="right menu auth"><a href="#"><span class="ui basic small button">Autorizācija</span></a></div>
-      </div>
-      <nav class="ui secondary menu">
-				<?php  main_menu(); ?>
-<!--
-				<a class="item" href="index.html"><i class="icon-home-icon"></i></a>
-				<a class="item" href="content.html">Medicīnas iekārtas</a>
-        <div class="ui simple dropdown item">Medicīnas preces
-          <div class="menu">
-						<a class="item" href="#">Medicīnas preces</a>
-						<a class="item" href="#">Instrumenti un aprīkojums</a>
-					</div>
-        </div>
-				<a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a>
-			-->
-				<div class="right menu auth"><a href="#"><i class="icon-basket-icon"></i><span>Grozs</span></a></div>
-      </nav>
-    </div>
-  </div>
-</header>
+        </header>
