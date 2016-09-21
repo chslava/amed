@@ -633,6 +633,7 @@ header .ui.menu.lang.four.item .item:last-child {
     border-left: 1px solid #E6E6E6;
   }
   header .basket .item {
+    margin-top: -4px !important;
     text-align: right;
     width: 100%;
     font-size: 16px!important;
@@ -1989,6 +1990,9 @@ footer {
   font-size: 12px;
   line-height: 20px;
 }
+footer > .ui.grid {
+  display: block;
+}
 footer nav {
   padding-bottom: 15px;
   margin-top: 35px !important;
@@ -2378,11 +2382,16 @@ main.page > .grid {
   margin-bottom: 1rem;
   margin-top: 0;
 }
+.service .benefits-icon {
+  color: #ff6b01;
+  margin-top: 32px;
+  font-size: 48px;
+}
 @media (min-width: 1200px) {
   .about-us {
-    margin-bottom: 65px !important;
+    margin-bottom: 85px !important;
   }
-  .about-us .ui.header + p {
+  .about-us .ui.header ~ p {
     margin-right: -2rem;
     padding-bottom: 8px;
   }
@@ -2450,7 +2459,6 @@ main.page > .grid {
     margin: 0 auto;
   }
   .service .benefits-icon {
-    color: #ff6b01;
     margin-top: 60px;
     font-size: 60px;
   }
