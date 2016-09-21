@@ -6,7 +6,7 @@ get_header();
 
 ?>
 
-<main class="ui container about-us page">
+<main class="ui container about-us page content-page">
   <?php include_once('includes/parts/breadcrumbs.php');?>
   <div class="ui grid">
     <div class="ui row">

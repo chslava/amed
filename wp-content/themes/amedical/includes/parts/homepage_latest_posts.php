@@ -12,15 +12,9 @@ $the_query = new WP_Query( $args ); ?>
     <div class="ui container">
         <h2 class="ui centered header centered decored"><?php _e('News / Blog','amedical'); ?></h2>
         <div class="ui grid">
-
-
-
-                <!-- pagination here -->
-
                 <!-- the loop -->
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-
+                    
                     <div class="sixteen wide mobile eight wide computer column">
                         <?php if (has_post_thumbnail()): ?>
                             <div class="image-container">
