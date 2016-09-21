@@ -32,7 +32,7 @@ get_header();
   <div class="info"></div>
 
   <?php
-        $ArrMap = the_field('map','option');
+        $ArrMap = the_field('map_location','option');
         //echo "<pre> *****"; print_r($ArrMap);exit;
         $lat = $ArrMap['lat'] > 0 ? $ArrMap['lat'] : '56.9638746';
         $lng = $ArrMap['lng'] > 0 ? $ArrMap['lng'] : '24.0318992';
