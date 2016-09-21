@@ -13,12 +13,12 @@
 	<meta name="description" content="<?php echo $description; ?>" />
 	<meta name="keywords" content="<?php echo $keywords; ?>" />
 	<meta http-equiv="Content-Type" content="text/html; <?php echo $encoding; ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	
 
 	<link type="text/css" rel="stylesheet" href="<?php echo $css_dir; ?>style.css?version=<?php echo date ("YmdHis", filemtime($css_file)); ?>" />
   	<link rel="shortcut icon" href="<?php echo $root_dir; ?>include/favicon.ico" />
-  	
+
     <script language="javascript" type="text/javascript">
 	//<![CDATA[
 		var root_url = "<?php echo $root_dir; ?>";
@@ -30,15 +30,15 @@
 		var d4 = "<?php echo number_format(round($e[145] / $e[201],2),2,'.',''); ?>";
 		var kurss = "<?php echo $e[201]; ?>";
 		var picture_copyright = "";
-		
+
 	//]]>
     </script>
-    
+
     <script src="<?php echo $root_dir; ?>/include/javascript.js?version=<?php echo date ("YmdHis", filemtime("include/javascript.js")); ?>" type="text/javascript"></script>
    	<!--[if lt IE 7]>
    	<script type="text/javascript" src="<?php echo $root_dir; ?>include/unitpngfix.js"></script>
-	<![endif]--> 
-	
+	<![endif]-->
+
 	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/prototype.js"></script>
 	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/lightbox.js"></script>
@@ -48,9 +48,9 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
- 
+
   ga('create', 'UA-46092264-1', 'amedical.eu');
   ga('send', 'pageview');
- 
+
 </script>
 </head>
