@@ -9,6 +9,8 @@ class WPML_Notice_Action {
 	private $hide;
 	private $text;
 	private $url;
+	private $group_to_dismiss;
+	private $js_callback;
 
 	/**
 	 * WPML_Admin_Notice_Action constructor.
@@ -45,5 +47,21 @@ class WPML_Notice_Action {
 
 	public function must_display_as_button() {
 		return $this->display_as_button;
+	}
+
+	public function set_group_to_dismiss( $group_name ) {
+		$this->group_to_dismiss = $group_name;
+	}
+
+	public function get_group_to_dismiss() {
+		return $this->group_to_dismiss;
+	}
+
+	public function set_js_callback( $js_callback ) {
+		$this->js_callback = $js_callback;
+	}
+
+	public function get_js_callback() {
+		return $this->js_callback;
 	}
 }

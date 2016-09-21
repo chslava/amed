@@ -1,20 +1,49 @@
-html { 
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Regular.eot");
+  src: url("../fonts/Lato-Regular.eot"), url("../fonts/Lato-Regular.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Regular.woff") format('woff'), url("../fonts/Lato-Regular.woff2") format('woff2'), url("../fonts/Lato-Regular.ttf") format('truetype'), url("../fonts/Lato-Regular.svg#Lato-Regular") format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Light.eot");
+  src: url("../fonts/Lato-Light.eot"), url("../fonts/Lato-Light.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Light.woff") format('woff'), url("../fonts/Lato-Light.woff2") format('woff2'), url("../fonts/Lato-Light.ttf") format('truetype'), url("../fonts/Lato-Light.svg#Lato-Light") format('svg');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Bold.eot");
+  src: url("../fonts/Lato-Bold.eot"), url("../fonts/Lato-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Bold.woff") format('woff'), url("../fonts/Lato-Bold.woff2") format('woff2'), url("../fonts/Lato-Bold.ttf") format('truetype'), url("../fonts/Lato-Bold.svg#Lato-Bold") format('svg');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Bold.eot");
+  src: url("../fonts/Lato-Bold.eot"), url("../fonts/Lato-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/Lato-Bold.woff") format('woff'), url("../fonts/Lato-Bold.woff2") format('woff2'), url("../fonts/Lato-Bold.ttf") format('truetype'), url("../fonts/Lato-Bold.svg#Lato-Bold") format('svg');
+  font-style: normal;
+  font-weight: 700;
+}
+
+html {
 	width: 100%;
 	height: 100%;
 	padding:0;
 	margin:0;
 }
 
-body { 
+body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
-	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size:12px;
 	color:#000000;
-	background: #efefef url(../include/images/background.png) repeat-x;
-	
+	/*background: #efefef url(../include/images/background.png) repeat-x;*/
+
 }
 
 a {
@@ -31,11 +60,11 @@ a img {
 }
 
 #outer {
-	position:relative;		
+	position:relative;
 	width:100%;
 	_height:100%;
 	min-height:100%;
-	background:  url(../include/images/background-shadow.png) top no-repeat;
+	/*background:  url(../include/images/background-shadow.png) top no-repeat;*/
 }
 
 #inner {
@@ -94,7 +123,7 @@ a img {
 
 #menu .active {
 	color: #ff6b00;
-	font-weight: bold;	
+	font-weight: bold;
 }
 
 #menu a:hover {
@@ -235,7 +264,7 @@ a img {
 .basket-quantity {
 	border: 1px solid #dbbdbd;
 	background: #ffffff;
-	height: 18px;	
+	height: 18px;
 	padding: 0;
 	margin: 0;
 	width: 25px;
@@ -246,7 +275,7 @@ a img {
 #basket {
 	position: absolute;
 	top: 13px;
-	right: 115px;	
+	right: 115px;
 	padding: 0 0 0 25px;
 	background: url(../include/images/basket-2013.png) left no-repeat;
 	height: 16px;
@@ -265,7 +294,7 @@ a img {
 #industry {
 	position: absolute;
 	top: 85px;
-	right: 15px;	
+	right: 15px;
 	padding: 0 0 0 25px;
 	height: 16px;
 	line-height: 20px;
@@ -396,7 +425,7 @@ a img {
 }
 
 .titul-block-more {
-	text-align: right;	
+	text-align: right;
 }
 
 .titul-block-more a {
@@ -453,26 +482,26 @@ a img {
 
 #content {
 	width:1000px;
-	background: #efefef url(../include/images/content-background-2013.png) repeat-y;	
+	background: #efefef url(../include/images/content-background-2013.png) repeat-y;
 }
 
 #text {
 	width:1000px;
-	background: #ffffff url(../include/images/text-background-2013.png) repeat-y;	
+	background: #ffffff url(../include/images/text-background-2013.png) repeat-y;
 }
-	
+
 #categories {
 	float:left;
 	width:230px;
 	padding: 10px 0;
-	background: #efefef url(../include/images/content-background-2013.png) repeat-y;	
+	background: #efefef url(../include/images/content-background-2013.png) repeat-y;
 }
-	
+
 #categories ul {
 	margin: 0;
 	padding: 0;
 }
-	
+
 #categories ul li {
 	list-style-type: none;
 }
@@ -488,16 +517,16 @@ a img {
 	width:960px;
 	padding: 20px;
 }
-	
+
 #content-top, #content-bottom {
 	height: 1px;
-	background: #efefef url(../include/images/content-background-top-bottom-2013.png) no-repeat;	
+	background: #efefef url(../include/images/content-background-top-bottom-2013.png) no-repeat;
 	clear: both;
 }
 
 #text-top, #text-bottom {
 	height: 1px;
-	background: #efefef url(../include/images/text-background-top-bottom-2013.png) no-repeat;	
+	background: #efefef url(../include/images/text-background-top-bottom-2013.png) no-repeat;
 }
 
 #content-top, #text-top {
@@ -526,7 +555,7 @@ a img {
 }
 
 .cat1-on, .cat1d-on {
-	background: white; 		
+	background: white;
 	border: 1px solid #65646a;
 	border-right: none;
 	padding: 1px 1px 1px 1px;
@@ -536,27 +565,27 @@ a img {
 #categories .cat1 a, .cat1-on a {
 	text-decoration: none;
 	display: block;
-	padding: 4px 5px 4px 6px;	
+	padding: 4px 5px 4px 6px;
 }
 
 #categories .cat1d a, .cat1d-on a {
 	text-decoration: none;
 	display: block;
-	padding: 4px 5px 4px 6px;	
+	padding: 4px 5px 4px 6px;
 	color: #900028;
 }
 
 .cat1:hover {
-	background: #fefefe; 
-	border: 1px solid #65646a;	
-	border-right: none;	
+	background: #fefefe;
+	border: 1px solid #65646a;
+	border-right: none;
 	padding: 1px 0 1px 1px;
 }
 
 .cat1d:hover {
-	background: #fefefe; 
-	border: 1px solid #65646a;	
-	border-right: none;	
+	background: #fefefe;
+	border: 1px solid #65646a;
+	border-right: none;
 	padding: 1px 0 1px 1px;
 	color: #900028;
 }
@@ -580,7 +609,7 @@ a img {
 }
 
 .mcat1-on {
-	background: white; 		
+	background: white;
 	border: 1px solid #65646a;
 	border-right: none;
 	padding: 3px 1px 3px 32px;
@@ -591,13 +620,13 @@ a img {
 .mcat1 a, .mcat1-on a {
 	text-decoration: none;
 	display: block;
-	padding: 4px 5px 4px 6px;	
+	padding: 4px 5px 4px 6px;
 }
 
 .mcat1:hover {
-	background: #fefefe; 
-	border: 1px solid #65646a;	
-	border-right: none;	
+	background: #fefefe;
+	border: 1px solid #65646a;
+	border-right: none;
 	padding: 3px 0 3px 32px;
 }
 
@@ -614,7 +643,7 @@ a img {
 }
 
 #categories ul ul li {
-	background:  url(../include/images/bullet-2013.png) no-repeat left top;	
+	background:  url(../include/images/bullet-2013.png) no-repeat left top;
 }
 
 #item-container h1, #text-container h1 {
@@ -626,12 +655,12 @@ a img {
 }
 
 
-	
+
 #item-container h2 {
 	padding: 0 5px 0 5px;
 	font-size: 13px;
 	font-weight: bold;
-	text-align: left;	
+	text-align: left;
 	margin: 0;
 	height: 40px;
 	line-height: 13px;
@@ -640,7 +669,7 @@ a img {
 .item-code {
 	padding: 3px 3px 4px 5px;
 	font-size: 11px;
-	text-align: right;	
+	text-align: right;
 	color: #999999;
 	font-style: italic;
 	float: right;
@@ -649,7 +678,7 @@ a img {
 #item-code {
 	padding: 10px 10px 0 0;
 	font-size: 12px;
-	text-align: left;	
+	text-align: left;
 	color: #666666;
 	font-style: italic;
 	float: right;
@@ -682,7 +711,7 @@ a img {
 	position:relative;
 	width:100%;
 	height:100%;
-}	
+}
 
 .item-td {
 	text-align: center;
@@ -850,7 +879,7 @@ a img {
 #quantity input, .quantity-catalog input {
 	border: 1px solid #dbbdbd;
 	background: #ffffff;
-	height: 23px;	
+	height: 23px;
 	padding: 0;
 	margin: 0;
 	width: 25px;
@@ -940,7 +969,7 @@ a img {
 
 
 
-#add-categories {	
+#add-categories {
 	background: #efefef;
 	border: 1px solid #cccccc;
 	float: right;
@@ -1174,7 +1203,7 @@ a img {
 
 #user-login a, #user-popup-login a {
 	font-size: 11px;
-	padding: 5px 8px 0 0; 
+	padding: 5px 8px 0 0;
 }
 
 .user-login-input {
@@ -1373,7 +1402,7 @@ a img {
 
 .page
 {
-	float:left;	
+	float:left;
 	width:23px;
 	height:24px;
 	text-align:center;
@@ -1381,7 +1410,7 @@ a img {
 }
 
 .page a {
-	
+
 	display:block;
 	font-size:11px;
 	color:#000000;
@@ -1391,10 +1420,10 @@ a img {
 	background: #efefef;
 	padding: 5px 0 0 0;
 	border: 1px solid #dbbdbd;
-	
+
 }
 
-.page a:hover {	
+.page a:hover {
 	background:  #c9c9c9;
 	color: #000000;
 }
@@ -1404,7 +1433,7 @@ a img {
 	float:left;
 	width:23px;
 	height:24px;
-	text-align:center;	
+	text-align:center;
 	margin: 2px 3px;
 }
 
@@ -1413,8 +1442,8 @@ a img {
 	font-size:11px;
 	color:#ffffff;
 	text-decoration: none;
-	width:23px;  
-	height:19px;	
+	width:23px;
+	height:19px;
 	background: #ff6b00;
 	padding: 5px 0 0 0;
 	border: 1px solid #dbbdbd;
@@ -1429,12 +1458,12 @@ a img {
 	text-align: left;
 	display: block;
 	float: left;
-	margin: 17px 0 0 15px;	
+	margin: 17px 0 0 15px;
 }
 
 .benefits a {
 	font-size: 11px;
-	line-height: 100%;	
+	line-height: 100%;
 	text-decoration: none;
 	color: #900028;
 }
@@ -1459,7 +1488,7 @@ a img {
 }
 
 #album {
-	padding: 0 0 20px 0; 
+	padding: 0 0 20px 0;
 	clear: both;
 	width: 730px;
 }
@@ -1538,9 +1567,9 @@ a img {
 
 #items ul li {
 	list-style: none;
-	background: url(../include/images/bullet.gif) 0 5px no-repeat; 
+	background: url(../include/images/bullet.gif) 0 5px no-repeat;
 	padding: 0 0 0 15px;
-	
+
 }
 
 .item-name {
@@ -1580,17 +1609,17 @@ a img {
 	height:16px;
 	background:#ffffff url(../include/images/input-background.gif) bottom repeat-x;
 	border:1px solid #cccccc;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	padding:2px 5px;
 	font-weight:bold;
 	color:#333333;
-}	
+}
 
 .input1 {
 	height:16px;
 	background:#ffffff url(../include/images/input-background.gif) bottom repeat-x;
 	border:1px solid #cccccc;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	padding:2px 5px;
 	font-weight:bold;
 	color:#333333;
@@ -1599,7 +1628,7 @@ a img {
 .input-textarea {
 	background:#ffffff url(../include/images/input-background.gif) top repeat-x;
 	border:1px solid #cccccc;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	padding:5px;
 	font-weight:bold;
 	color:#333333;
@@ -1646,7 +1675,7 @@ a img {
 	color:#333333;
 }
 
-.star {	
+.star {
 	color:#999999;
 	vertical-align:top;
 }
@@ -1752,7 +1781,7 @@ a img {
 	padding: 4px 0 0 15px;
 }
 
-.cat-dot {	
+.cat-dot {
 	background: url(../include/images/tr-dot.gif) repeat-x center;
 	margin: 0 10px 0 0;
 }
@@ -1784,7 +1813,7 @@ a img {
 	z-index: 999999;
 	top: 0;
 	left: 0;
-	min-width: 1000px;	
+	min-width: 1000px;
 	text-align: center;
 	left: -9999px;
 }
@@ -1793,13 +1822,13 @@ a img {
 	width: 680px;
 	margin: 50px auto;
 	position: relative;
-	text-align: left;	
+	text-align: left;
 }
 
 .popup-text {
 	background: white;
 	padding: 20px;
-	border: 5px solid #bd4127;	
+	border: 5px solid #bd4127;
 	font-size: 13px;
 }
 
@@ -1838,10 +1867,10 @@ a img {
 }
 
 .titul-container {
-	margin-left: -29px; 
-	width: 1058px; 
-	padding-top: 80px; 
-	padding-bottom: 50px; 
+	margin-left: -29px;
+	width: 1058px;
+	padding-top: 80px;
+	padding-bottom: 50px;
 	position: relative;
 }
 

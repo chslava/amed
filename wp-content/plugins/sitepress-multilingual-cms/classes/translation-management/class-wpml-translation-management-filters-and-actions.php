@@ -1,14 +1,15 @@
 <?php
 
 class WPML_Translation_Management_Filters_And_Actions extends WPML_SP_User {
-	
+
+	/** @param TranslationManagement tm_instance */
 	public function __construct( &$tm_instance, &$sitepress ) {
 		parent::__construct( $sitepress );
 
 		if ( ! is_admin() ) {
-
 			$this->add_filters_for_translating_link_targets( $tm_instance );
 		}
+
 	}
 	
 	private function add_filters_for_translating_link_targets( &$tm_instance ) {

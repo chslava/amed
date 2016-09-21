@@ -62,15 +62,17 @@ get_header();
 
 
 
-    <?php if (get_field("cta_block_title")): ?>
+
         <section class="ui container very padded">
             <div class="ui grid">
                 <div class="ui stretched row">
                     <div class="sixteen wide mobile eight wide tablet ten wide computer column">
-                        <h2 class="ui left header decored">
-                            <?php the_field("cta_block_title"); ?>
-                        </h2>
+                        <?php if (get_field("cta_block_title")): ?>
+                            <h2 class="ui left header decored">
+                                <?php the_field("cta_block_title"); ?>
+                            </h2>
                         <?php the_field("cta_block_text"); ?>
+                        <?php endif; ?>
                     </div>
                     <div class="sixteen wide mobile eight wide tablet six wide computer column">
                         <div class="ui raised center aligned padded segment">
@@ -87,7 +89,7 @@ get_header();
                 </div>
             </div>
         </section>
-    <?php endif; ?>
+
 
 
 <?php endwhile;?>

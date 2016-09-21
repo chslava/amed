@@ -439,6 +439,11 @@ class WPML_WP_API {
 		return $pagenow === 'customize.php';
 	}
 
+	public function is_comments_post_page() {
+		global $pagenow;
+		return $pagenow === 'wp-comments-post.php';
+	}
+
 	/**
 	 * Wrapper for \is_feed that returns false if called before the loop
 	 *
@@ -1223,6 +1228,16 @@ class WPML_WP_API {
 			array_shift($debug_backtrace);
 		}
 		return $debug_backtrace;
+	}
+
+	/**
+	 * @return WP_Filesystem_Direct
+	 */
+	public function get_wp_filesystem_direct() {
+		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
+		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' );
+
+		return new WP_Filesystem_Direct( null );
 	}
 
 }
