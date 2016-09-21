@@ -7512,6 +7512,8 @@ blockquote {
   font-size: 15px;
   font-weight: 700;
   line-height: 18px;
+  width: 150px;
+  height: 50px;
 }
 
 /*
