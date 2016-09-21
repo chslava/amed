@@ -14812,6 +14812,7 @@ img.ui.shadowed.image {
             States
 *******************************/
 
+.ui.breadcrumb .breadcrumb_last,
 .ui.breadcrumb .active.section {
   font-weight: 500;
 }
@@ -14891,6 +14892,7 @@ img.ui.shadowed.image {
   line-height: 18px;
 }
 
+.ui.breadcrumb .breadcrumb_last,
 .ui.breadcrumb .active.section {
   color: #ff6b01;
 }

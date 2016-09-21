@@ -1,6 +1,5 @@
-<div class="ui breadcrumb">
+
   <?php if ( function_exists('yoast_breadcrumb') ){
-          yoast_breadcrumb('<div class="breadcrumbs">','</div>');
+          yoast_breadcrumb('<div class="ui breadcrumb">','</div>');
        }
   ?>
-</div>
