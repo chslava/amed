@@ -132,11 +132,11 @@ main.page {
 
 @media (min-width: 1200px) {
   .about-us {
-    margin-bottom: 65px !important;
+    margin-bottom: 85px !important;
     h1.ui.header {
 
     }
-    .ui.header + p {
+    .ui.header ~ p {
       margin-right: -2rem;
       padding-bottom:8px;
     }
