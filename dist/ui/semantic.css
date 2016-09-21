@@ -3409,6 +3409,7 @@ blockquote {
   line-height: 27px;
 }
 
+.content-page .circles-list,
 .circles-list {
   list-style: none;
   padding: 1em 0;
@@ -3427,6 +3428,7 @@ blockquote {
   justify-content: center;
 }
 
+.content-page .circles-list li,
 .circles-list li {
   width: 100%;
   min-height: 70px;
@@ -3435,6 +3437,7 @@ blockquote {
   line-height: 65px;
 }
 
+.content-page .circles-list li:before,
 .circles-list li:before {
   content: "\e907";
   font-family: 'icomoon' !important;
@@ -3450,11 +3453,13 @@ blockquote {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
 }
 
+.content-page .circles-list.small li,
 .circles-list.small li {
   min-height: 55px;
   line-height: 40px;
 }
 
+.content-page .circles-list.small li:before,
 .circles-list.small li:before {
   width: 40px;
   height: 40px;
@@ -14887,6 +14892,7 @@ img.ui.shadowed.image {
             States
 *******************************/
 
+.ui.breadcrumb .breadcrumb_last,
 .ui.breadcrumb .active.section {
   font-weight: 500;
 }
@@ -14966,6 +14972,7 @@ img.ui.shadowed.image {
   line-height: 18px;
 }
 
+.ui.breadcrumb .breadcrumb_last,
 .ui.breadcrumb .active.section {
   color: #ff6b01;
 }

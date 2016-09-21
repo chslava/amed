@@ -30,6 +30,9 @@ class TranslationManagement {
 	/** @var WPML_Custom_Field_Setting_Factory $settings_factory */
 	private $settings_factory;
 
+	/** @var  WPML_Cache_Facotry */
+	private $cache_factory;
+
 	/**
 	 * Keep list of message ID suffixes.
 	 *
@@ -37,14 +40,15 @@ class TranslationManagement {
 	 */
 	private $message_ids               = array( 'add_translator', 'edit_translator', 'remove_translator', 'save_notification_settings', 'cancel_jobs' );
 
-	function __construct(){
+	function __construct( ){
 
-		global $sitepress;
+		global $sitepress, $wpml_cache_factory;
 
 		$this->selected_translator     = new WPML_Translator();
 		$this->selected_translator->ID = 0;
 		$this->current_translator      = new WPML_Translator();
 		$this->current_translator->ID  = 0;
+		$this->cache_factory = $wpml_cache_factory;
 
 		add_action( 'init', array( $this, 'init' ), 1500 );
 		add_action( 'wp_loaded', array( $this, 'wp_loaded' ) );
@@ -1299,6 +1303,7 @@ class TranslationManagement {
 						$translation_id = $sitepress->set_element_language_details( null, $element_type, $post_trid, $lang, $translate_from );
 					} else {
 						$translation_id = $post_translations[ $lang ]->translation_id;
+						$sitepress->set_element_language_details( $post_translations[ $lang ]->element_id, $element_type, $post_trid, $lang, $translate_from );
 					}
 
 					// don't send documents that are in progress
@@ -1556,15 +1561,29 @@ class TranslationManagement {
 	function get_translation_job_id( $trid, $language_code ) {
 		global $wpdb;
 
-		$job_id = $wpdb->get_var( $wpdb->prepare( "
-			SELECT tj.job_id FROM {$wpdb->prefix}icl_translate_job tj
-				JOIN {$wpdb->prefix}icl_translation_status ts ON tj.rid = ts.rid
-				JOIN {$wpdb->prefix}icl_translations t ON ts.translation_id = t.translation_id
-				WHERE t.trid = %d AND t.language_code=%s
-				ORDER BY tj.job_id DESC LIMIT 1
-		", $trid, $language_code ) );
+		$found = false;
+		$cache = $this->cache_factory->get( 'TranslationManagement::get_translation_job_id' );
+		$job_ids = $cache->get( $trid, $found );
+		if ( ! $found ) {
 
-		return $job_id;
+			$results = $wpdb->get_results( $wpdb->prepare( "
+				SELECT tj.job_id, t.language_code FROM {$wpdb->prefix}icl_translate_job tj
+					JOIN {$wpdb->prefix}icl_translation_status ts ON tj.rid = ts.rid
+					JOIN {$wpdb->prefix}icl_translations t ON ts.translation_id = t.translation_id
+					WHERE t.trid = %d
+					ORDER BY tj.job_id DESC 
+					", $trid ) );
+
+			$job_ids = array();
+			foreach ( $results as $result ) {
+				if ( ! isset( $job_ids[ $result->language_code ] ) ) {
+					$job_ids[ $result->language_code ] = $result->job_id;
+				}
+			}
+			$cache->set( $trid, $job_ids );
+		}
+
+		return isset( $job_ids[ $language_code ] ) ? $job_ids[ $language_code ] : null;
 	}
 
 	function save_translation( $data ) {

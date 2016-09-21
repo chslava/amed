@@ -305,6 +305,7 @@ blockquote {
   line-height: 27px;
 }
 
+.content-page .circles-list,
 .circles-list {
   list-style: none;
   padding:1em 0;

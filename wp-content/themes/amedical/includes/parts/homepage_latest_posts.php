@@ -1,16 +1,19 @@
+<?php
+// the query
+$args =array();
+$args['posts_per_page']=2;
+$the_query = new WP_Query( $args ); ?>
+
+<?php if ( $the_query->have_posts() ) : ?>
+
+
+
 <section class="home-news very padded">
     <div class="ui container">
         <h2 class="ui centered header centered decored"><?php _e('News / Blog','amedical'); ?></h2>
         <div class="ui grid">
 
 
-            <?php
-            // the query
-            $args =array();
-            $args['posts_per_page']=2;
-            $the_query = new WP_Query( $args ); ?>
-
-            <?php if ( $the_query->have_posts() ) : ?>
 
                 <!-- pagination here -->
 
@@ -44,9 +47,7 @@
 
                 <?php wp_reset_postdata(); ?>
 
-            <?php else : ?>
-                <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-            <?php endif; ?>
+
 
 
 
@@ -63,3 +64,7 @@
 <!--        </div>-->
     </div>
 </section>
+
+<?php else : ?>
+
+<?php endif; ?>
