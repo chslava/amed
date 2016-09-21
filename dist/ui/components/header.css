@@ -722,19 +722,23 @@ a.ui.inverted.grey.header:hover {
   font-family: Lato;
   color: #414141;
 }
+/*
 h1.ui.header {
-  padding-top: 1em;
-  padding-bottom: 0.5em;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 44px;
-}
-h2.ui.header {
+  padding-top:1em;
+  padding-bottom:0.5em;
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
+  margin-bottom:15px;
+  margin-top:0;
+}*/
+h2.ui.header {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 15px;
 }
-h3.ui.header {
+/*h3.ui.header {
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
@@ -744,6 +748,7 @@ h4.ui.header {
   font-weight: 700;
   line-height: 24px;
 }
+*/
 @media (min-width: 992px) {
   h1.ui.header {
     font-size: 50px;

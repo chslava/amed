@@ -3474,6 +3474,11 @@
   padding-right: 34px;
   padding-left: 34px;
 }
+.ui.huge.button {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px;
+}
 /*
 .ui.labeled.icon.buttons .button > .icon,
 .ui.labeled.icon.button > .icon {
