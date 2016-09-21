@@ -1541,6 +1541,10 @@ section.slider .ui.container.grid > .column {
   .services .column:last-child {
     border-right: none;
   }
+  .services .column:nth-child(2) .ui.header {
+    margin-top: 4px !important;
+    margin-bottom: 32px;
+  }
   .services .column p {
     padding: 0 20px;
     text-align: center;
