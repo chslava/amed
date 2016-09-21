@@ -1,4 +1,10 @@
 jQuery(function($) {
+
+    if($(".mc4wp-notice").length>0){
+        $('html, body').animate({
+            scrollTop: $("#mc4wp-form-1").offset().top
+        }, 500);
+    }
     $('.menu').on('click', '.ui.dropdown', function (e) {
         e.preventDefault();
         $('.ui.dropdown').removeClass('active');
