@@ -65,6 +65,8 @@
                 $top_menu[] = '<a href="' . $wp_base_url . 'par-mums/">Par mums</a>';
                 $top_menu[] = '<a href="' . $wp_base_url . 'kontakti/">Kontakti</a>';
             } else if ($_GET["lang"] == 'en') {
+                $top_menu[] = '<a href="' . $wp_base_url . 'en/designing/">Designing</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'en/service/">Service</a>';
                 $top_menu[] = '<a href="' . $wp_base_url . 'en/about-a-medical/">About A.Medical</a>';
                 $top_menu[] = '<a href="' . $wp_base_url . 'en/contacts/">Contacts</a>';
             }

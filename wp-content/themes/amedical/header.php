@@ -7,10 +7,10 @@
         <header>
 
             <?php include("includes/parts/mobile_logo_search.php"); ?>
-           
+
             <div class="ui container grid">
                 <div class="main-logo">
-                    <a href="<?php home_url(); ?>">
+                    <a href="<?php echo home_url('/'); ?>">
                         <img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png" alt="<?php print(get_bloginfo( 'name' )); ?>" title="<?php print(get_bloginfo( 'name' )); ?>">
                     </a>
                 </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="main-menu">
                                 <nav class="ui secondary stackable menu">
-                                    <a class="item home" href="<?php home_url(); ?>"><span><?php print(get_bloginfo( 'name' )); ?></span><i class="icon-home-icon"></i></a>
+                                    <a class="item home" href="<?php echo home_url('/'); ?>"><span><?php print(get_bloginfo( 'name' )); ?></span><i class="icon-home-icon"></i></a>
 
                                     <?php $menu_items = get_menu_items("main-m"); ?>
 

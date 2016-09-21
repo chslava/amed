@@ -81,16 +81,14 @@ function my_mce_before_init_insert_formats( $init_array ) {
          'items' => array(
              array(
                  'title' => 'Circle list',
-                 'block' => 'ul',
+                 'selector' => 'ul',
                  'classes' => 'circles-list',
-                 'wrapper' => true,
 
              ),
              array(
                  'title' => 'Circle list small',
-                 'block' => 'ul',
+                 'selector' => 'ul',
                  'classes' => 'small circles-list',
-                 'wrapper' => true,
              ),
          )),
 
@@ -99,32 +97,32 @@ function my_mce_before_init_insert_formats( $init_array ) {
          'items' => array(
              array(
                  'title' => 'h1 decored centred',
-                 'block' => 'h1',
+                 'selector' => 'h1',
                  'classes' => 'centered decored ui header',
              ),
              array (
                  'title' => 'h1 decored left',
-                 'block' => 'h1',
+                 'selector' => 'h1',
                  'classes' => 'left decored ui header',
              ),
              array(
                  'title' => 'h2 decored centred',
-                 'block' => 'h2',
+                 'selector' => 'h2',
                  'classes' => 'centered decored ui header',
              ),
              array (
                  'title' => 'h2 decored left',
-                 'block' => 'h2',
+                 'selector' => 'h2',
                  'classes' => 'left decored ui header',
              ),
              array(
                  'title' => 'h3 decored centred',
-                 'block' => 'h3',
+                 'selector' => 'h3',
                  'classes' => 'centered decored ui header',
              ),
              array (
                  'title' => 'h3 decored left',
-                 'block' => 'h3',
+                 'selector' => 'h3',
                  'classes' => 'left decored ui header',
              ),
          )
@@ -134,15 +132,13 @@ function my_mce_before_init_insert_formats( $init_array ) {
          'items' => array(
              array(
                  'title' => 'Basic button',
-                 'block' => 'a',
+                 'selector' => 'a',
                  'classes' => 'ui basic button',
-                 'wrapper' => true,
              ),
              array(
                  'title' => 'Primary button',
-                 'block' => 'a',
+                 'selector' => 'a',
                  'classes' => 'ui primary button',
-                 'wrapper' => true,
              )
          )),
 
