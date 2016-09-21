@@ -6,7 +6,7 @@ get_header();
 
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
-    <main class="ui container projects page content-page">
+    <main class="ui container service page content-page">
         <?php include_once('includes/parts/breadcrumbs.php');?>
             <div class="ui grid">
                 <div class="ui row">
