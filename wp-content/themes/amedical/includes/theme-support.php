@@ -17,6 +17,7 @@ function dswp_theme_support() {
 	add_image_size( 'homepage-blog-image', 580, 380, true); // (cropped)
 	add_image_size( 'services-images', 380, 260	, true); // (cropped)
 	add_image_size( 'side-content-image', 610, 409, true);
+	add_image_size( 'service-side-content-image', 460, 580, true);
 
 
 
