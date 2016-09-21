@@ -49,3 +49,4 @@ jQuery(function($) {
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
 })
+
