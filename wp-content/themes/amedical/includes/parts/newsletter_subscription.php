@@ -1,7 +1,7 @@
 <section class="subscribe">
     <div class="ui container grid">
 
-        <?php $form = do_shortcode('[mc4wp_form id="236"]'); ?>
+        <?php $form = do_shortcode('[mc4wp_form id="252"]'); ?>
         <?php
             $form = strip_tags($form,"<input>,<form>,<script>,<div>");
             $form =str_replace('class="mc4wp-form ','class="mc4wp-form ui form"',$form);
