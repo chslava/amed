@@ -21,7 +21,7 @@ function base_url_lang() {
     }
 }
 
-function print_menu($location, $menu_class, $depth = 0, $level = 0, $menu_id = "") {
+function print_menu($location, $menu_class, $depth = 0, $level = 0, $menu_id = "",$walker="") {
     // most common parameters for getting the menu printout
     // if theme has several menus this code is recopied in several places
     // thats why its taken out in function
@@ -41,8 +41,12 @@ function print_menu($location, $menu_class, $depth = 0, $level = 0, $menu_id = "
         'link_after' => '',
         'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
         'depth' => $depth,
-        'walker' => new Foundationpress_Top_Bar_Walker()
+        //'walker' => new Foundationpress_Top_Bar_Walker()
     );
+    if($walker){
+        $defaults['walker']=new $walker();
+        $defaults['items_wrap']= '%3$s';
+    }
 
     wp_nav_menu($defaults);
 }
@@ -131,3 +135,102 @@ if (!function_exists("icl_object_id")) {
     }
 
 }
+
+
+
+class SimpleLinks extends Walker {
+
+    // menu walker that prints out only links
+
+    var $db_fields = array(
+        'parent' => 'menu_item_parent',
+        'id'     => 'db_id'
+    );
+
+
+    function start_lvl( &$output, $depth=0, $args = array() ) {
+        // build html
+        $output.= "";
+    }
+
+
+    /**
+     * At the start of each element, output a <li> and <a> tag structure.
+     *
+     * Note: Menu objects include url and title properties, so we will use those.
+     */
+
+//Walker::start_el(&$output, $object, $depth = 0, $args = Array, $current_object_id = 0)
+    function start_el( &$output, $item, $depth = 0, $args = array(),$current_object_id=0) {
+        $output.= sprintf( "\n<a class=\"item\" href='%s'%s>%s</a>\n",
+            $item->url,
+            ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
+            $item->title
+        );
+    }
+
+}
+
+
+
+function get_menu_id_by_menu_location($menu_location)
+{
+    //function gets menu_location as param
+    // returns assigned menu id
+    //
+    // use case we need to get only second level items for certain location
+    //
+    if ($menu_location)
+    {
+        $locations = get_nav_menu_locations();
+
+        foreach($locations as $loc_name => $menu_id)
+        {
+            if ($loc_name==$menu_location)
+            {
+                return $menu_id;
+            }
+        }
+    }
+    return null;
+
+}
+
+
+function get_menu_items($location){
+    $args = array(
+
+        'order'                  => 'ASC',
+        'orderby'                => 'menu_order',
+        'post_type'              => 'nav_menu_item',
+        'post_status'            => 'publish',
+        'output'                 => ARRAY_A,
+        'output_key'             => 'menu_order',
+        'nopaging'               => true,
+        'update_post_term_cache' => false );
+
+    $menu_id = get_menu_id_by_menu_location($location);
+    $all_items= wp_get_nav_menu_items( $menu_id, $args );
+
+    $rearranged_array = array();
+    foreach($all_items as $key=>$item){
+
+        if ($item->menu_item_parent!=0){
+            if (!isset($rearranged_array[$item->menu_item_parent])){
+                $rearranged_array[$item->menu_item_parent] =array();
+                $rearranged_array[$item->menu_item_parent]["children"] = array();
+            }
+            $rearranged_array[$item->menu_item_parent]["children"][]= $item;
+
+        } else {
+            if (!isset($rearranged_array[$key])){
+                $rearranged_array[$item->ID] =array();
+            }
+            $rearranged_array[$item->ID]["item"]= $item;
+        }
+
+    }
+    return $rearranged_array;
+}
+
+
