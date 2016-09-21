@@ -3133,6 +3133,15 @@ main.page > .grid {
     font-size: 58px;
   }
 
+  .about-us ~ .coo-respose {
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+  }
+
+  .about-us ~ .coo-respose .eight.wide.computer.column {
+    width: 54%!important;
+  }
+
   .benefits.very.padded .content {
     padding-bottom: 14px;
     width: 600px;
