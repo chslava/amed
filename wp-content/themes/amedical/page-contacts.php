@@ -25,8 +25,12 @@ get_header();
       <p><?php echo the_field('opening_hours_title','option'); ?>: <?php echo the_field('opening_hours','option'); ?></p>
       <div class="ui divider"></div>
       <h2 class="ui header"><?php echo the_field('title_registration','option'); ?></h2>
-      <p><?php echo the_field('registration','option'); ?></p>
-      <p><?php echo the_field('bank_details','option'); ?></p>
+      <p><?php echo the_field('registration_name','option'); ?></p>
+      <p><?php echo the_field('registration_no','option'); ?></p>
+      <p><?php echo the_field('registration_address','option'); ?></p><br>
+      <p><?php echo the_field('bank_name','option'); ?></p>
+      <p><?php echo the_field('bank_account','option'); ?></p>
+      <p><?php echo the_field('bank_code','option'); ?></p>
     </div>
   </div>
   <div class="info"></div>
