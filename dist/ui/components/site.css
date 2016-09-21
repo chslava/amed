@@ -1195,7 +1195,7 @@ section.slider .ui.container.grid > .column {
 }
 .subscribe .subscribe.input {
   max-width: 270px;
-  font-weight: 700;
+  font-size: 15px;
   border: none!important;
   margin-bottom: 5px;
   color: #FFF!important;
@@ -2315,9 +2315,23 @@ main.page > .grid {
   font-weight: 700;
   line-height: 44px;
 }
+.about-us ~ .benefits.very.padded {
+  margin-bottom: 2rem;
+}
 .about-us ~ .coo-respose {
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+  padding-bottom: 2rem;
+}
+.about-us ~ .services {
+  margin-top: 0;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #e6e6e6;
+}
+.about-us ~ .services .icon-title {
+  margin-bottom: 1rem;
+  margin-top: 0;
 }
 .benefits.very.padded .content em {
   text-transform: none;
@@ -2345,10 +2359,18 @@ main.page > .grid {
     margin-top: -35px;
     padding-top: 45px;
     padding-bottom: 55px;
+    /*
+      margin-top: 40px;
+margin-left: 0;
+text-align: center;
+padding-bottom: 40px;
+border-bottom: 1px solid #e6e6e6;
+*/
     border-top: 1px solid #e6e6e6;
   }
   .about-us ~ .services .icon-title {
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 1rem;
   }
   .about-us ~ .services .column p {
     margin-top: 20px!important;
@@ -2365,7 +2387,11 @@ main.page > .grid {
     margin-left: -7px;
     font-size: 58px;
   }
+  .about-us ~ .benefits.very.padded {
+    margin-bottom: 107px;
+  }
   .about-us ~ .coo-respose {
+    padding-top: 100px;
     max-width: 1440px;
     margin: 0 auto;
     padding-bottom: 94px;
