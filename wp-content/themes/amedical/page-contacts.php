@@ -72,7 +72,7 @@ get_header();
         map.addMarker({
             lat: <?php echo $lat; ?>,
             lng: <?php echo $lng; ?>,
-            icon: 'img/marker.png',
+            icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
         });
     })
   </script>
