@@ -42,6 +42,9 @@ get_header();
             // zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
+            navigationControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
             draggable: false,
             styles: [
                 {
