@@ -50,14 +50,24 @@
                 }
             }
 
+
             $wp_base_url = str_replace('/shop', '', $root_dir);
 
 
-            $top_menu[] = '<a href="' . $wp_base_url . 'projektesana/">Projektēšana</a>';
-            $top_menu[] = '<a href="' . $wp_base_url . 'iekartu-serviss/">Iekārtu serviss</a>';
-            $top_menu[] = '<a href="' . $wp_base_url . 'par-mums/">Par mums</a>';
-            $top_menu[] = '<a href="' . $wp_base_url . 'kontakti/">Kontakti</a>';
-
+            if ($_GET["lang"] == 'lv') {
+                $top_menu[] = '<a href="' . $wp_base_url . 'projektesana/">Projektēšana</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'iekartu-serviss/">Iekārtu serviss</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'par-mums/">Par mums</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'kontakti/">Kontakti</a>';
+            } else if($_GET["lang"] == 'ru') {
+                $top_menu[] = '<a href="' . $wp_base_url . 'projektesana/">Projektēšana</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'iekartu-serviss/">Iekārtu serviss</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'par-mums/">Par mums</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'kontakti/">Kontakti</a>';
+            } else if ($_GET["lang"] == 'en') {
+                $top_menu[] = '<a href="' . $wp_base_url . 'en/about-a-medical/">About A.Medical</a>';
+                $top_menu[] = '<a href="' . $wp_base_url . 'en/contacts/">Contacts</a>';
+            }
 
             $top_menu = implode("|", $top_menu);
 
