@@ -115,12 +115,47 @@ main.page {
       }
     }
 
+    ~ .services {
+      margin-top:-35px;
+      padding-top:45px;
+      padding-bottom:55px;
+      border-top:1px solid #e6e6e6;
+      .icon-title {
+        margin-bottom:0;
+
+      }
+      .column {
+        p {
+          margin-top: 20px!important;
+        }
+      }
+      .icon-first-icon {
+        font-size: 50px;
+        margin-top: 7px;
+        margin-left: 10px;
+      }
+      .icon-second-icon {
+        font-size: 58px;
+      }
+      .icon-third-icon {
+        margin-left: -7px;
+        font-size: 58px;
+      }
+    }
   }
-  .about-us .services {
-    margin-top:0;
-    padding-top:40px;
-    border-top:1px solid #e6e6e6!important;
+
+
+  .benefits.very.padded .content {
+    padding-bottom:14px;
+    width: 600px;
+    margin:0 auto;
+    em {
+      text-transform: none;
+      font-style: normal;
+      color: #8f8f8f;
+    }
   }
+
   .service .benefits-icon {
     color: #ff6b01;
     margin-top:60px;
