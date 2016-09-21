@@ -2510,7 +2510,7 @@ section.slider .ui.container.grid > .column {
   .secondary-services {
     background: #f7f7f7;
     padding-top: 75px;
-    padding-bottom: 75px;
+    padding-bottom: 90px;
   }
 
   .secondary-services .ui.header {
@@ -2522,6 +2522,20 @@ section.slider .ui.container.grid > .column {
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
+    padding-right: 2rem;
+  }
+
+  .ui.relaxed.grid {
+    margin-left: 0!important;
+  }
+
+  .ui.relaxed.grid .column {
+    padding-left: 0 !important;
+    padding-right: 0!important;
+  }
+
+  .ui.relaxed.grid .column:last-child .content {
+    padding-right: 0;
   }
 }
 
@@ -3069,6 +3083,15 @@ main.page > .grid {
 }
 
 @media (min-width: 1200px) {
+  .about-us {
+    margin-bottom: 65px !important;
+  }
+
+  .about-us .ui.header + p {
+    margin-right: -2rem;
+    padding-bottom: 8px;
+  }
+
   .about-us .services {
     margin-top: 0;
     padding-top: 40px;

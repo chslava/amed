@@ -865,7 +865,7 @@
   .secondary-services {
     background:#f7f7f7;
     padding-top: 75px;
-    padding-bottom: 75px;
+    padding-bottom: 90px;
     .ui.header {
       margin-bottom: 37px;
     }
@@ -874,6 +874,20 @@
       font-size: 16px;
       font-weight: 500;
       line-height: 22px;
+      padding-right: 2rem;
+    }
+  }
+
+  .ui.relaxed.grid {
+    margin-left:0!important;
+    .column {
+      padding-left: 0 !important;
+      padding-right: 0!important;
+    &:last-child {
+      .content {
+        padding-right: 0;
+      }
+    }
     }
   }
 }
