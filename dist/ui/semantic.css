@@ -711,7 +711,7 @@ header .logo-big {
 }
 
 header .ui.mobile.container.grid {
-  height: 87px;
+  min-height: 87px;
   background: #FFF;
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
   width: 100%!important;
@@ -8679,13 +8679,6 @@ a.ui.inverted.grey.header:hover {
 }
 
 h1.ui.header {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 65px;
-  margin-bottom: 30px;
-}
-
-h2.ui.header {
   padding-top: 1em;
   padding-bottom: 0.5em;
   font-size: 36px;
@@ -8693,16 +8686,51 @@ h2.ui.header {
   line-height: 44px;
 }
 
-h3.ui.header {
+h2.ui.header {
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
 }
 
-h4.ui.header {
+h3.ui.header {
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
+}
+
+h4.ui.header {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media (min-width: 992px) {
+  h1.ui.header {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 65px;
+    margin-bottom: 30px;
+  }
+
+  h2.ui.header {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+  }
+
+  h3.ui.header {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  h4.ui.header {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 27px;
+  }
 }
 
 .ui.header.centered {

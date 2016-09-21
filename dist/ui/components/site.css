@@ -199,7 +199,7 @@ header .logo-big {
   display: none!important;
 }
 header .ui.mobile.container.grid {
-  height: 87px;
+  min-height: 87px;
   background: #FFF;
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
   width: 100%!important;
