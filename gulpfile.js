@@ -46,8 +46,8 @@ gulp.task('copytotheme', function() {
         .pipe(gulp.dest('./wp-content/themes/amedical/js/'));
 
 
-    gulp.src('./dist/ui/fonts/**/*.*')
-        .pipe(gulp.dest('./wp-content/themes/amedical/fonts/'));
+    gulp.src('./dist/fonts/**/*.*')
+        .pipe(gulp.dest('./wp-content/themes/amedical/ui/fonts/'));
 });
 
 gulp.task('build-ui', ['semantic-build', 'pug-build','copytotheme']);
