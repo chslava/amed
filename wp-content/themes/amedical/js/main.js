@@ -1,4 +1,4 @@
-$(function() {
+jQuery(function($) {
     $('.menu').on('click', '.ui.dropdown', function (e) {
         e.preventDefault();
         $('.ui.dropdown').removeClass('active');
@@ -49,4 +49,3 @@ $(function() {
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
 })
-

@@ -1,6 +1,10 @@
 <?php get_header();
 ?>
 
+<main class="ui container page">
+
+<?php include_once('includes/parts/breadcrumbs.php'); ?>
+
 <div class="row">
 	<div class="small-12 columns">
 		<section class="main-content" role="main">
@@ -27,6 +31,7 @@
 
 		</section>
 
-		<?php get_sidebar(); ?>
+</main>
+		<?php // get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
