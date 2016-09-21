@@ -97,9 +97,10 @@ get_header();
   </script>
 
 </main>
+
 <section class="contact-form">
-  <div class="ui container grid">
-    <div class="ui row">
+  <div class="ui container">
+    <div class="ui grid">
       <div class="sixteen wide mobile eight wide tablet eight wide computer column">
         <?php if ( have_posts() ) : ?>
   				<?php while ( have_posts() ) : the_post(); ?>
@@ -111,6 +112,5 @@ get_header();
     </div>
   </div>
 </section>
-
 
 <?php get_footer(); ?>
