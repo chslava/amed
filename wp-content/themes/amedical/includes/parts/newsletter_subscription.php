@@ -12,6 +12,7 @@
             $form =str_replace(' type="text" ',' type="text" style="display:none;" ',$form);
             $form =str_replace('Given email address is already subscribed, thank you!',get_field("newsletter_email_exists","option"),$form);
             $form =str_replace('Thank you, your sign-up request was successful! Please check your email inbox to confirm.',get_field("newsletter_email_success","option"),$form);
+            $form =str_replace('Oops. Something went wrong. Please try again later.',get_field("newsletter_email_spmething_went_wrong","option"),$form);
 
 
 
