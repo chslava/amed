@@ -104,6 +104,17 @@ main.page {
       margin-right: -2rem;
       padding-bottom:8px;
     }
+
+    .ten.wide.computer.column {
+      text-align: left;
+      img {
+        margin-left:75px;
+        width: 100%;
+        max-width: 630px;
+        box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 31px -20px 0px #e6e6e6;
+      }
+    }
+
   }
   .about-us .services {
     margin-top:0;
