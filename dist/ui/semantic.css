@@ -693,6 +693,13 @@ input::selection {
   }
 }
 
+@media (max-width: 768px) {
+  .ui.container.page {
+    margin-left: 1.5rem!important;
+    margin-right: 1.5rem!important;
+  }
+}
+
 @media (min-width: 1200px) {
   .ui.container {
     width: 1180px!important;
@@ -1935,7 +1942,7 @@ section.slider .ui.container.grid > .column {
 }
 
 .secondary-services .ui.header {
-  margin-bottom: 55px;
+  margin-bottom: 2rem;
 }
 
 .secondary-services .content {
@@ -1943,6 +1950,11 @@ section.slider .ui.container.grid > .column {
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
+}
+
+.secondary-services .ui.container {
+  margin-left: 1.5rem!important;
+  margin-right: 1.5rem!important;
 }
 
 .represent {
@@ -2555,6 +2567,18 @@ section.slider .ui.container.grid > .column {
     padding-right: 2rem;
   }
 
+  .secondary-services + section {
+    padding-top: 100px;
+    padding-bottom: 87px;
+  }
+
+  .secondary-services + section .segment {
+    float: right;
+    max-width: 380px;
+    padding: 70px 55px!important;
+    margin-top: 10px;
+  }
+
   .secondary-services .ui.relaxed.grid {
     margin-left: 0!important;
   }
@@ -2803,6 +2827,8 @@ footer {
 
 footer > .ui.grid {
   display: block;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 
 footer nav {
@@ -13414,8 +13440,8 @@ img.ui.bordered.image {
 .ui.shadowed.image img,
 .ui.shadowed.image svg,
 img.ui.shadowed.image {
-  margin-top: -12px;
-  margin-left: 96px;
+  float: right;
+  margin-top: 10px;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 

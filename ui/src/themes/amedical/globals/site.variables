@@ -25,6 +25,8 @@
 @lineHeight: 25px;
 @importGoogleFonts : false;
 
+@mobileGutter: 1.5rem;
+
 @h1: 2.25em;
 
 @h2: 36px;

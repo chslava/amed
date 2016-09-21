@@ -43,6 +43,14 @@
   }
 }
 
+@media (max-width: 768px){
+  .ui.container.page {
+    margin-left: 1.5rem!important;
+    margin-right: 1.5rem!important;
+  }
+}
+
+
 @media (min-width: 1200px)  {
   .ui.container {
     width: 1180px!important;

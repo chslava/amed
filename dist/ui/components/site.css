@@ -184,6 +184,12 @@ input::selection {
     width: 598px !important;
   }
 }
+@media (max-width: 768px) {
+  .ui.container.page {
+    margin-left: 1.5rem!important;
+    margin-right: 1.5rem!important;
+  }
+}
 @media (min-width: 1200px) {
   .ui.container {
     width: 1180px!important;
@@ -1259,13 +1265,17 @@ section.slider .ui.container.grid > .column {
   padding-bottom: 3rem;
 }
 .secondary-services .ui.header {
-  margin-bottom: 55px;
+  margin-bottom: 2rem;
 }
 .secondary-services .content {
   color: #636463;
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
+}
+.secondary-services .ui.container {
+  margin-left: 1.5rem!important;
+  margin-right: 1.5rem!important;
 }
 .represent {
   /*.center.aligned.row {
@@ -1787,6 +1797,16 @@ section.slider .ui.container.grid > .column {
     line-height: 22px;
     padding-right: 2rem;
   }
+  .secondary-services + section {
+    padding-top: 100px;
+    padding-bottom: 87px;
+  }
+  .secondary-services + section .segment {
+    float: right;
+    max-width: 380px;
+    padding: 70px 55px!important;
+    margin-top: 10px;
+  }
   .secondary-services .ui.relaxed.grid {
     margin-left: 0!important;
   }
@@ -1992,6 +2012,8 @@ footer {
 }
 footer > .ui.grid {
   display: block;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 footer nav {
   padding-bottom: 15px;
