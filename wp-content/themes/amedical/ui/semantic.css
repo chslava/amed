@@ -2842,6 +2842,7 @@ footer .follow-us .ui.vertical.menu {
 }
 
 footer .footer-contacts {
+  height: 100%;
   padding-bottom: 8px;
   border-bottom: 1px solid #8F8F8F;
   margin-bottom: 10px;
