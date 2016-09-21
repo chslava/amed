@@ -1,16 +1,16 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$rex=mysql_query("Select * from categories where id='$id'");
-$rox=mysql_fetch_array($rex);
-mysql_free_result($rex);
+$rex=mysqli_query($result_db,"Select * from categories where id='$id'");
+$rox=mysqli_fetch_array($rex);
+mysqli_free_result($rex);
 
 unlink("../../categories/$rox[picture].png");
 
-$result=mysql_query("update categories set picture='' where id='$id'");
+$result=mysqli_query($result_db,"update categories set picture='' where id='$id'");
 
 $links = "mainit.php".$li;
 header("Location: $links");

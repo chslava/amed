@@ -6,13 +6,13 @@ require_once($wolf_path."check.php");
 
 $error="";
 
-$ord=mysql_query("Select * from orders where id='$name'");
-$pas=mysql_fetch_array($ord);
-mysql_free_result($ord);
+$ord=mysqli_query($result_db,"Select * from orders where id='$name'");
+$pas=mysqli_fetch_array($ord);
+mysqli_free_result($ord);
 
-$cli = mysql_query("select * from clients where id = '$pas[user_id]'");
-$client = mysql_fetch_array($cli);
-mysql_free_result($cli);
+$cli = mysqli_query($result_db,"select * from clients where id = '$pas[user_id]'");
+$client = mysqli_fetch_array($cli);
+mysqli_free_result($cli);
 
 $msg = '-';
 if($client["person"] == 1)
@@ -47,8 +47,8 @@ if(isset($_POST["submit"]))
 	}
 	
 	
-	$result = mysql_query("update orders set statuss='$statuss' where id='$name'");
-	$add_statuss = mysql_query("insert into statuses values (
+	$result = mysqli_query($result_db,"update orders set statuss='$statuss' where id='$name'");
+	$add_statuss = mysqli_query($result_db,"insert into statuses values (
 		'',
 		'$name',
 		'".time()."',		
@@ -136,8 +136,8 @@ if(isset($_POST["submit"]))
 									</tr>
 									<?php
 									$gifts = array("",$e[191],$e[192],$e[193]);
-									$query = mysql_query("select * from gifts where order_id = '$pas[id]'");
-									if($mysql = mysql_fetch_array($query))
+									$query = mysqli_query($result_db,"select * from gifts where order_id = '$pas[id]'");
+									if($mysql = mysqli_fetch_array($query))
 									{					
 										$gift_id = $mysql["type"];			
 									?>
@@ -147,12 +147,12 @@ if(isset($_POST["submit"]))
 									</tr>
 									<?php
 									}
-									mysql_free_result($query)
+									mysqli_free_result($query)
 									?>
 									<?php
 									
-									$query = mysql_query("select * from coupons where order_id = '$pas[id]'");
-									if($mysql = mysql_fetch_array($query))
+									$query = mysqli_query($result_db,"select * from coupons where order_id = '$pas[id]'");
+									if($mysql = mysqli_fetch_array($query))
 									{							
 									?>
 									<tr>
@@ -161,7 +161,7 @@ if(isset($_POST["submit"]))
 									</tr>
 									<?php
 									}
-									mysql_free_result($query)
+									mysqli_free_result($query)
 									?>
 									
                                     <tr>
@@ -299,19 +299,19 @@ if(isset($_POST["submit"]))
                               
                         <?php 
 							 $rates = array(); $all_pvn = ""; $all_rates = array();
-				$query = mysql_query("select * from rates order by name asc");
-				while($mysql = mysql_fetch_array($query))
+				$query = mysqli_query($result_db,"select * from rates order by name asc");
+				while($mysql = mysqli_fetch_array($query))
 				{
 					$value_id = $mysql["id"];
 					$value = $mysql["name"];
 					$rates[$value] = 0;
 					$all_rates[$value] = $value;
 				}
-				mysql_free_result($query);
+				mysqli_free_result($query);
 				
 								$data=time();								
-								$rep=mysql_query("Select * from ordered_items where parent_id='$pas[id]' order by id asc");
-								$z=mysql_num_rows($rep);
+								$rep=mysqli_query($result_db,"Select * from ordered_items where parent_id='$pas[id]' order by id asc");
+								$z=mysqli_num_rows($rep);
 								if($z>0)
 								{									
 									$kopsumma=0;
@@ -331,18 +331,18 @@ if(isset($_POST["submit"]))
                               </tr>
                         	<?php 
                         	$total_count = 0;
-									while($prece=mysql_fetch_array($rep))
+									while($prece=mysqli_fetch_array($rep))
 									{
 										$total_count = $total_count + $prece["count"];
 										$rat = $prece["rate"];
 										
-										$p=mysql_query("Select * from items where id='$prece[item_id]'");
-										$pr=mysql_fetch_array($p);
-										mysql_free_result($p);
+										$p=mysqli_query($result_db,"Select * from items where id='$prece[item_id]'");
+										$pr=mysqli_fetch_array($p);
+										mysqli_free_result($p);
 										
-										$pe=mysql_query("Select * from categories where id='$pr[parent_id]'");
-										$kategorija=mysql_fetch_array($pe);
-										mysql_free_result($pe);
+										$pe=mysqli_query($result_db,"Select * from categories where id='$pr[parent_id]'");
+										$kategorija=mysqli_fetch_array($pe);
+										mysqli_free_result($pe);
 										
 										$rate = $prece["rate"];	
 										$cena_ar_pvn = $prece["price"];			
@@ -393,8 +393,8 @@ if(isset($_POST["submit"]))
 													</tr>";
 													
 													
-													$query = mysql_query("select * from rates order by name asc");
-										while($mysql = mysql_fetch_array($query))
+													$query = mysqli_query($result_db,"select * from rates order by name asc");
+										while($mysql = mysqli_fetch_array($query))
 										{
 											$value = $mysql["name"];
 											$value_id = $mysql["id"];
@@ -408,7 +408,7 @@ if(isset($_POST["submit"]))
 													</tr>";
 											$rates[$value] = 0;
 										}
-										mysql_free_result($query);
+										mysqli_free_result($query);
 													
 														if($pas["deliver"] > 2)
 														{
@@ -433,22 +433,22 @@ if(isset($_POST["submit"]))
 													</tr>";
 													
 													$discount = 0;
-													$query = mysql_query("select * from points where type = '2' and order_id = '$pas[id]'");
-													if($mysql = mysql_fetch_array($query))
+													$query = mysqli_query($result_db,"select * from points where type = '2' and order_id = '$pas[id]'");
+													if($mysql = mysqli_fetch_array($query))
 													{
 														
 														$discount = $discount - $mysql["value"];
 													}
-													mysql_free_result($query);
+													mysqli_free_result($query);
 													
 													
 													
-													$query = mysql_query("select * from coupons where order_id = '$pas[id]'");
-													if($mysql = mysql_fetch_array($query))
+													$query = mysqli_query($result_db,"select * from coupons where order_id = '$pas[id]'");
+													if($mysql = mysqli_fetch_array($query))
 													{
 														$discount = $discount + $mysql["value"] / 100 * $kopa;
 													}
-													mysql_free_result($query);
+													mysqli_free_result($query);
 													
 													if($pas["d5"] == 1)
 													{
@@ -493,7 +493,7 @@ if(isset($_POST["submit"]))
 											</td>
 										</tr>";
 								}
-								mysql_free_result($rep); 
+								mysqli_free_result($rep); 
 								?>
                         
                         	</table>
@@ -509,8 +509,8 @@ if(isset($_POST["submit"]))
                            
                            	<?php
                            	$statuss_text = array(0 => $statuses[0], 1 => $statuses[1], 2 => $statuses[2], 3 => $statuses[3], 4 => $statuses[4], 5 => $statuses[5], 6 => $statuses[6]);
-                           	$query = mysql_query("select * from statuses where order_id = '$name' order by time asc");
-                           	$count = mysql_num_rows($query);
+                           	$query = mysqli_query($result_db,"select * from statuses where order_id = '$name' order by time asc");
+                           	$count = mysqli_num_rows($query);
                            	if($count > 0)
                            	{
                            		echo '
@@ -520,7 +520,7 @@ if(isset($_POST["submit"]))
                             	  			<td class="standart" bgcolor="#f2f3f7" valign="top" align="left"><b>'.$orders[146].'</b></td>
                             	  		</tr>
                             	  	';
-                           		while($mysql = mysql_fetch_array($query))
+                           		while($mysql = mysqli_fetch_array($query))
                            		{
                            			$st_id = $mysql["statuss"];
                            			echo '
@@ -536,7 +536,7 @@ if(isset($_POST["submit"]))
                             	  	</table>
                             	  	';
                            	}
-                           	mysql_free_result($query);
+                           	mysqli_free_result($query);
                            	?>   
                               
                               

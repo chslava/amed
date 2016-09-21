@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $interval="25";
@@ -58,8 +58,8 @@ $select2 = "select * from clients order by id desc LIMIT $begin, $interval";
 					
 				<?php 
 					
-					$r = mysql_query($select1);
-					$pavisam = mysql_num_rows($r);
+					$r = mysqli_query($result_db,$select1);
+					$pavisam = mysqli_num_rows($r);
 					$pages = ceil($pavisam/$interval);
 					$page = "";
 					$echo_pages = "";
@@ -106,10 +106,10 @@ $select2 = "select * from clients order by id desc LIMIT $begin, $interval";
 						$statuss_text = array("1"=>$orders[151], "2"=>$orders[152]);
 						$time = time();
 	  				 	$today = mktime(0,0,0,date("n",$time),date("j",$time),date("Y",$time));
-						$rep=mysql_query($select2);
-						echo mysql_error();
+						$rep=mysqli_query($result_db,$select2);
+						echo mysqli_error();
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 							
 							$datums = str_replace(" ","&nbsp;",date("d.m.Y H:i:s",$rop["reg_time"]));
@@ -126,12 +126,12 @@ $select2 = "select * from clients order by id desc LIMIT $begin, $interval";
 							}
 							
 							$user_points = 0;
-							$query = mysql_query("select * from points where client_id = '$rop[id]'");
-							while($mysql = mysql_fetch_array($query))
+							$query = mysqli_query($result_db,"select * from points where client_id = '$rop[id]'");
+							while($mysql = mysqli_fetch_array($query))
 							{
 								$user_points = $user_points + $mysql["value"];
 							}
-							mysql_free_result($query);
+							mysqli_free_result($query);
 							$user_points = number_format(round($user_points,2),2,".","");
 														
 	  						echo "
@@ -145,7 +145,7 @@ $select2 = "select * from clients order by id desc LIMIT $begin, $interval";
 							</tr>";
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  						echo "<tr><td class=\"st1\" colspan=\"7\">$orders[32]</td></tr>";

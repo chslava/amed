@@ -1,11 +1,11 @@
 <?php
 	$count = 0; $class = "text-container"; $content = "text"; $content_top = "text-top"; $content_bottom = "text-bottom";
-	$query = mysql_query("select * from content where parent_id = '$izv_id' and lang ='$_GET[lang]'");
-	if($mysql = mysql_fetch_array($query))
+	$query = mysqli_query($result_db,"select * from content where parent_id = '$izv_id' and lang ='$_GET[lang]'");
+	if($mysql = mysqli_fetch_array($query))
 	{
 		$count = 1; $class = "item-container"; $content = "content";  $content_top = "content-top"; $content_bottom = "content-bottom";
 	}
-	mysql_free_result($query);
+	mysqli_free_result($query);
 ?>
 
 <div id="<?php echo $content_top; ?>"></div>
@@ -74,13 +74,13 @@
 				    foreach ($matches[1] as $_match)
 				    {     
 				    	$this_album = '';
-				    	$query = mysql_query("select * from albums where id = '$_match'");
-				    	if($mysql = mysql_fetch_array($query))
+				    	$query = mysqli_query($result_db,"select * from albums where id = '$_match'");
+				    	if($mysql = mysqli_fetch_array($query))
 				    	{
 				    		$this_album .= '<div id="album">';
 				    		
-				    		$query1 = mysql_query("select * from pictures where parent_id = '$mysql[id]'");
-				    		while($mysql1 = mysql_fetch_array($query1))
+				    		$query1 = mysqli_query($result_db,"select * from pictures where parent_id = '$mysql[id]'");
+				    		while($mysql1 = mysqli_fetch_array($query1))
 				    		{
 				    			$this_album .= '
 				    			<div class="album-thumb"><a href="'.$root_dir.'pictures/albums/big/'.$mysql1["file_name"].'.jpg" rel="lightbox[items-'.$mysql['id'].']" title=""><img src="'.$root_dir.'pictures/albums/small/'.$mysql1["file_name"].'.jpg" alt="" /></a></div>
@@ -103,27 +103,27 @@
 				}	
 				if($album > 0)
 				{
-				    $query = mysql_query("select * from albums where id = '$album'");
-				    if($mysql = mysql_fetch_array($query))
+				    $query = mysqli_query($result_db,"select * from albums where id = '$album'");
+				    if($mysql = mysqli_fetch_array($query))
 				    {
 				    	echo '
 				    	<div id="album">
 				    		<h2>'.$mysql[$name_lang].'</h2>
 				    		<div id="album-text">'.$mysql[$text_lang].'</div>';
 				    	
-				    	$query1 = mysql_query("select * from pictures where parent_id = '$mysql[id]'");
-				    	while($mysql1 = mysql_fetch_array($query1))
+				    	$query1 = mysqli_query($result_db,"select * from pictures where parent_id = '$mysql[id]'");
+				    	while($mysql1 = mysqli_fetch_array($query1))
 				    	{
 				    		echo '
 				    		<div class="album-thumb"><a href="'.$root_dir.'pictures/albums/big/'.$mysql1["file_name"].'.jpg" rel="lightbox[items]" title=""><img src="'.$root_dir.'pictures/albums/small/'.$mysql1["file_name"].'.jpg" alt="" /></a></div>
 				    		';
 				    	}
-				    	mysql_free_result($query1);							
+				    	mysqli_free_result($query1);							
 				    	echo '
 				    	<div class="clear"></div>
 				    	</div>';
 				    }
-				    mysql_free_result($query);
+				    mysqli_free_result($query);
 				}								
 			}	
 			

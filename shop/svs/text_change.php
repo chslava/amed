@@ -1,20 +1,20 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once("check.php");
 
 if(isset($_POST["submit1"]))
 {
-	$ren=mysql_query("Select * from $tabula where id='$id'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	$text=stripslashes ($_POST["content"]);
 	$text=str_replace("'","`",$text);
 	$text = preg_replace('#<\?xml[^(/>)]*/>#m','',$text);
 
 	$laiks = time();
-	$backup = mysql_query("insert into content_backup values (
+	$backup = mysqli_query($result_db,"insert into content_backup values (
 	'',
 	'$id',
 	'$laiks',	
@@ -22,7 +22,7 @@ if(isset($_POST["submit1"]))
 	'$row[text]'
 	)");
 	
-	$rakstam=mysql_query("update $tabula set text='$text',accept='on' where id='$id'");
+	$rakstam=mysqli_query($result_db,"update $tabula set text='$text',accept='on' where id='$id'");
 	if (!$rakstam)
 	{
 		echo "<font color='#CC0000'>$teksti[36]</font>";
@@ -30,7 +30,7 @@ if(isset($_POST["submit1"]))
 	}
 	else
 	{
-		$result=mysql_query("update $tabula set cahce = '' where id='$id'"); 
+		$result=mysqli_query($result_db,"update $tabula set cahce = '' where id='$id'"); 
 		
 	header("Location: member.php$li");
 	exit;
@@ -40,14 +40,14 @@ if(isset($_POST["submit1"]))
 if(isset($_POST["submit2"]))
 {
 
-	$ren=mysql_query("Select * from $tabula where id='$id'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	$text=stripslashes ($_POST["content"]);
 	$text=str_replace("'","`",$text);
 	$text = preg_replace('#<\?xml[^(/>)]*/>#m','',$text);
 	
-	$rens=mysql_query("update $tabula set cache='$text', accept='off' where id='$id'");
+	$rens=mysqli_query($result_db,"update $tabula set cache='$text', accept='off' where id='$id'");
 	header("Location: member.php$li");
 		
 }

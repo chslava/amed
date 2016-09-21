@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -58,9 +58,9 @@ require_once($wolf_path."check.php");
 	  </tr>
 	  				<?php
 	  				$ok=$limit;
-					$rep=mysql_query("Select * from banners order by place desc");
+					$rep=mysqli_query($result_db,"Select * from banners order by place desc");
 	  				$a=1;
-	 				while($rop=mysql_fetch_array($rep))
+	 				while($rop=mysqli_fetch_array($rep))
 					{
 						$lang_1 = "";
 						$lang_2 = "";
@@ -139,7 +139,7 @@ require_once($wolf_path."check.php");
 							<td class=st1 valign=top><a href=\"".$wolf_path."banneri/down.php$li1&k=$rop[id]&iz=$rop[place]\"><img src=\"".$wolf_path."img/down.gif\" vspace=1 border=0></a></td></tr>";
 							$a++;
 					}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 				if($a==1)
 					{
 	  					echo "<tr><td class=\"st1\">$banneri[40]</td></tr>";

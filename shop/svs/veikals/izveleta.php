@@ -7,11 +7,11 @@
 				<tr>
 					<td class="izveleta">
 					<?php
-					$row=mysql_query("Select * from $tabula where id='$id'");
-					$fer=mysql_fetch_array($row);
+					$row=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+					$fer=mysqli_fetch_array($row);
 					$group_type = $fer["group_type"];
 					
-					mysql_free_result($row);
+					mysqli_free_result($row);
 					echo $teksti[19]."<b>".$fer["name_lv"]."</b>";
 					?>
 					</td>

@@ -122,9 +122,9 @@ imagejpeg($dimg,'../../pictures/big/'.$name_file.".jpg",90);
 //chmod('../../pictures/big/'.$name_file.".jpg", 0777);
 
 
-$ren1=mysql_query("Select place from pictures where parent_id='$name' order by place desc limit 0,1");
-$row1=mysql_fetch_array($ren1);
-mysql_free_result($ren1);
+$ren1=mysqli_query($result_db,"Select place from pictures where parent_id='$name' order by place desc limit 0,1");
+$row1=mysqli_fetch_array($ren1);
+mysqli_free_result($ren1);
 $place=$row1["place"];
 
 if(empty($place))
@@ -137,7 +137,7 @@ else
 }
 
 $laiks=time(); 
-$result = mysql_query("insert into pictures values ('','$name','$name_file','$place','$laiks','$comment_lv','$comment_ru','$comment_en')"); 
+$result = mysqli_query($result_db,"insert into pictures values ('','$name','$name_file','$place','$laiks','$comment_lv','$comment_ru','$comment_en')"); 
 if(!$result){
 echo "$foto[18]";
 exit;

@@ -1,13 +1,13 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-// izdzçðam visas apakðsadaïas
+// izdzï¿½ï¿½am visas apakï¿½sadaï¿½as
 
-$query = mysql_query("select id, picture from items where `copy` = '$name'");
-while($mysql = mysql_fetch_array($query))
+$query = mysqli_query($result_db,"select id, picture from items where `copy` = '$name'");
+while($mysql = mysqli_fetch_array($query))
 {
 	if(file_exists("../../pictures/items/small/$mysql[picture]"))
 	{
@@ -15,12 +15,12 @@ while($mysql = mysql_fetch_array($query))
 		unlink("../../pictures/items/big/$mysql[picture]");	
 	}
 
-	mysql_query("delete from branches_items where item_id='$mysql[id]'");
-	mysql_query("delete from items where id='$mysql[id]'");
+	mysqli_query($result_db,"delete from branches_items where item_id='$mysql[id]'");
+	mysqli_query($result_db,"delete from items where id='$mysql[id]'");
 }
 
-$r=mysql_query("Select * from items where id='$name'");
-$f=mysql_fetch_array($r);
+$r=mysqli_query($result_db,"Select * from items where id='$name'");
+$f=mysqli_fetch_array($r);
 
 if(file_exists("../../pictures/items/small/$f[picture]"))
 {
@@ -28,8 +28,8 @@ if(file_exists("../../pictures/items/small/$f[picture]"))
 	unlink("../../pictures/items/big/$f[picture]");	
 }
 
-mysql_query("delete from branches_items where item_id='$name'");
-mysql_query("delete from items where id='$name'");
+mysqli_query($result_db,"delete from branches_items where item_id='$name'");
+mysqli_query($result_db,"delete from items where id='$name'");
 
 
 $links = "index.php".$li;

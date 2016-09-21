@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 <html>
@@ -41,9 +41,9 @@ require_once($wolf_path."check.php");
 					</table>
 					<?php 
 					$nos = "specialities";
-					$ren=mysql_query("Select * from $nos where id='$k'");
-					$rop=mysql_fetch_array($ren);
-					mysql_free_result($ren);
+					$ren=mysqli_query($result_db,"Select * from $nos where id='$k'");
+					$rop=mysqli_fetch_array($ren);
+					mysqli_free_result($ren);
 					?>
 					<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border: 1px solid #d0d2dd">
 					

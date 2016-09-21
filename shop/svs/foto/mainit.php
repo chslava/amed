@@ -206,9 +206,9 @@ require_once($wolf_path."check.php");
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php 
-				  $rep=mysql_query("Select * from albums where id='$name'");
-	 				$rop=mysql_fetch_array($rep);
-					mysql_free_result($rep);
+				  $rep=mysqli_query($result_db,"Select * from albums where id='$name'");
+	 				$rop=mysqli_fetch_array($rep);
+					mysqli_free_result($rep);
 					
 					$name_ee = $rop["name_ee"];
 					$name_lv = $rop["name_lv"];

@@ -4,6 +4,6 @@
             <?php echo wp_title(); ?>
         </title>
 
-		<link type="image/x-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" rel="shortcut icon">
+		<link type="image/x-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico" rel="shortcut icon">
 
 		<?php wp_head(); ?>

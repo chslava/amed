@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $interval="25";
 if(empty($_GET["page"]))
@@ -123,8 +123,8 @@ $text_lang = "text_".$ver;
 					
 					<?php 
 					
-					$r = mysql_query($select1);
-					$pavisam = mysql_num_rows($r);
+					$r = mysqli_query($result_db,$select1);
+					$pavisam = mysqli_num_rows($r);
 					$pages = ceil($pavisam/$interval);
 					$page = "";
 					$echo_pages = "";
@@ -163,9 +163,9 @@ $text_lang = "text_".$ver;
 	  				</tr>
 	  				<?php
 						
-	  				$rep=mysql_query($select2);
+	  				$rep=mysqli_query($result_db,$select2);
 	  				$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 	 						if($rop["statuss"]==1)
 							{
@@ -178,8 +178,8 @@ $text_lang = "text_".$ver;
 							
 							if($rop['copy'] > 0)
 							{
-								$query = mysql_query("select * from items where id='$rop[copy]'");
-								$mysql = mysql_fetch_array($query);
+								$query = mysqli_query($result_db,"select * from items where id='$rop[copy]'");
+								$mysql = mysqli_fetch_array($query);
 								$nosaukums = $mysql[$name_lang];
 								$dala = strip_tags($mysql[$text_lang]);
 								$attels = $mysql["picture"];
@@ -260,7 +260,7 @@ $text_lang = "text_".$ver;
 							</tr>";
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 							echo "<tr><td class=\"st1\">$pr[4]</td></tr>";

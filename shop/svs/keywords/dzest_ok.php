@@ -1,11 +1,11 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 
-$result=mysql_query("delete from keywords where id='$_GET[k]'");
+$result=mysqli_query($result_db,"delete from keywords where id='$_GET[k]'");
 
 
 $links = "index.php".$li1;

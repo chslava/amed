@@ -1,8 +1,8 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $change_from=array("'","\\","&","\n");
@@ -38,19 +38,19 @@ $url_en = trim(str_replace($change_from,$change_to,$_POST["url_en"]));
 $url_ee = trim(str_replace($change_from,$change_to,$_POST["url_ee"]));
 $url_lt = trim(str_replace($change_from,$change_to,$_POST["url_lt"]));
 
-$text_lv = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
-$text_ru = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
-$text_en = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
-$text_ee = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
-$text_lt = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
+$text_lv = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
+$text_ru = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
+$text_en = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
+$text_ee = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
+$text_lt = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
 
 $limenis = 0;
 
-$ren=mysql_query("Select place from albums where parent_id = '$limenis' order by place desc Limit 0, 1");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select place from albums where parent_id = '$limenis' order by place desc Limit 0, 1");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
-// uzliekam jaunu mainîgo place
+// uzliekam jaunu mainï¿½go place
 $place=$row["place"];
 if(empty($place))
 {
@@ -64,7 +64,7 @@ else
 $laiks=time();
 
 
-$result = mysql_query("insert into albums values (
+$result = mysqli_query($result_db,"insert into albums values (
 '',
 '$limenis',
 '$place',
@@ -108,7 +108,7 @@ $result = mysql_query("insert into albums values (
 
 )");
 
-$n_id = mysql_insert_id(); 
+$n_id = mysqli_insert_id(); 
 
 $links = "index.php".$li1;
 header("Location: $links");

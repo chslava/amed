@@ -2,8 +2,8 @@
 $indent=20;
 $limenis=array();
 
-$row=mysql_query("Select * from categories where id='$catalog_id' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
-$fe=mysql_fetch_array($row);
+$row=mysqli_query($result_db,"Select * from categories where id='$catalog_id' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
+$fe=mysqli_fetch_array($row);
 
 if(!empty($fe))
 {
@@ -12,8 +12,8 @@ if(!empty($fe))
 	{	
 		if($fe["parent_id"]!=$parent_category_id)
 		{
-			$row=mysql_query("Select * from categories where id='$fe[parent_id]' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
-			$fe=mysql_fetch_array($row);
+			$row=mysqli_query($result_db,"Select * from categories where id='$fe[parent_id]' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
+			$fe=mysqli_fetch_array($row);
 			$limenis[]=$fe["id"];
 		}
 	}		
@@ -28,8 +28,8 @@ $cik=count($limenis);
 function izvelnes($parent_id,$atstarpe,$cik,$limenis,$ver,$root_dir)
 {
 	$cik--;
-	$r1=mysql_query("Select * from categories where parent_id='$parent_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from categories where parent_id='$parent_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 			
 		$name_lang = "name_".$ver;
@@ -88,8 +88,8 @@ if(!empty($limenis[$cik]))
 {
 	if($limenis[$cik]==0)
 	{
-		$r=mysql_query("Select id from categories where parent_id='$parent_category_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc limit 0,1");
-		$f=mysql_fetch_array($r);
+		$r=mysqli_query($result_db,"Select id from categories where parent_id='$parent_category_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc limit 0,1");
+		$f=mysqli_fetch_array($r);
 		$ko=$f["id"];
 	}
 	else
@@ -98,10 +98,10 @@ if(!empty($limenis[$cik]))
 	}
 }
 
-$r=mysql_query("Select * from categories where parent_id='$parent_category_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
+$r=mysqli_query($result_db,"Select * from categories where parent_id='$parent_category_id' and statuss='2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
 $cik--;
 
-while($f=mysql_fetch_array($r))
+while($f=mysqli_fetch_array($r))
 {
 	$item_url = $_GET["lang"]."/".$f[$url_lang];
 	if(empty($f[$url_lang]))

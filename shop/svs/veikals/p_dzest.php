@@ -1,18 +1,18 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $name_lang = "name_".$ver;
 $text_lang = "text_".$ver;
 
-$ren=mysql_query("Select * from items where id='$name'");
-$row=mysql_fetch_array($ren);
+$ren=mysqli_query($result_db,"Select * from items where id='$name'");
+$row=mysqli_fetch_array($ren);
 if($row['copy'] > 0)
 {
-    $query = mysql_query("select * from items where id='$row[copy]'");
-    $mysql = mysql_fetch_array($query);
+    $query = mysqli_query($result_db,"select * from items where id='$row[copy]'");
+    $mysql = mysqli_fetch_array($query);
     $nosaukums = $mysql[$name_lang];
 	$apraksts = $mysql[$text_lang];
 }

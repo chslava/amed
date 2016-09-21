@@ -1,22 +1,22 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $nos = "rates";
 /*
 $va="*".$k."*";
-$ren=mysql_query("Select * from preces where color like '%$va%'");
-while($row=mysql_fetch_array($ren))
+$ren=mysqli_query($result_db,"Select * from preces where color like '%$va%'");
+while($row=mysqli_fetch_array($ren))
 {
 	$valstis = str_replace($va,"",$row["color"]);
-	mysql_query("update preces set color = '$valstis' where id='$row[id]'");
+	mysqli_query($result_db,"update preces set color = '$valstis' where id='$row[id]'");
 }
-mysql_free_result($ren);
+mysqli_free_result($ren);
 */
 
-$result=mysql_query("delete from $nos where id='$k'");
+$result=mysqli_query($result_db,"delete from $nos where id='$k'");
 
 $links = "rate.php".$li1;
 header("Location: $links");

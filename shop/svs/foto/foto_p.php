@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -224,9 +224,9 @@ $(function(){
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php
-					$ren=mysql_query("Select * from albums where id='$name'");
-					$row=mysql_fetch_array($ren);
-					mysql_free_result($ren);
+					$ren=mysqli_query($result_db,"Select * from albums where id='$name'");
+					$row=mysqli_fetch_array($ren);
+					mysqli_free_result($ren);
 				?>
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tr>
@@ -260,14 +260,14 @@ $(function(){
 	  					</tr>
 	  					
 	  				<?php
-	  				$rep=mysql_query("Select * from pictures where parent_id = '$name' order by place asc");
-	  				$count = mysql_num_rows($rep);
+	  				$rep=mysqli_query($result_db,"Select * from pictures where parent_id = '$name' order by place asc");
+	  				$count = mysqli_num_rows($rep);
 	  				if($count > 0)
 	  				{
 	  					echo '<tr>						
 							<td class="st1" valign="top" align="left">';
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 	 					
 	  						echo "
@@ -286,7 +286,7 @@ $(function(){
 					{
 						echo "<tr><td class=\"st1\">$foto[59]</td></tr>";
 					}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	  				?>
 						
 	 				</table>

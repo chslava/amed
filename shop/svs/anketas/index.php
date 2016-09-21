@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -48,9 +48,9 @@ require_once($wolf_path."check.php");
 	  					<td bgcolor="#f2f3f7" colspan="6" class="standart"><b><?php echo $sabloni[1]; ?></b></td>
 	  				</tr>
 	  				<?php
-					  $rep=mysql_query("Select * from anketas where value='1' order by place desc");
+					  $rep=mysqli_query($result_db,"Select * from anketas where value='1' order by place desc");
 	  				$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
                                	  					echo "<tr>
 							<td class=st1 valign=top width=100%><b><a href=\"lauki.php$li1&name=$rop[id]\" class=\"standart_link\">$rop[name]</a></b></td>
@@ -60,7 +60,7 @@ require_once($wolf_path."check.php");
 							";
 							$a++;
 						}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  					echo "<tr><td class=\"st1\">$sabloni[2]</td></tr>";

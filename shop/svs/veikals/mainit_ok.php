@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $change_from=array("'","\\");
@@ -49,11 +49,11 @@ $target_en = trim(str_replace($change_from,$change_to,$_POST["target_en"]));
 $target_ee = trim(str_replace($change_from,$change_to,$_POST["target_ee"]));
 $target_lt = trim(str_replace($change_from,$change_to,$_POST["target_lt"]));
 
-$text_lv = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
-$text_ru = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
-$text_en = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
-$text_ee = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
-$text_lt = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
+$text_lv = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
+$text_ru = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
+$text_en = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
+$text_ee = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
+$text_lt = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
 
 if(isset($_POST["discount"]))
 {
@@ -107,7 +107,7 @@ else
 	$style = 0;
 }
 
-$result=mysql_query("update $tabula set 
+$result=mysqli_query($result_db,"update $tabula set 
 
 name_lv='$name_lv',
 name_ru='$name_ru',
@@ -166,19 +166,19 @@ where id='$id'");
 
 if($group_type == 2)
 {
-	$query = mysql_query("update branches_items set group_type = '0' where category_id = '$id'");
+	$query = mysqli_query($result_db,"update branches_items set group_type = '0' where category_id = '$id'");
 }
 else
 {
 	
-	$query = mysql_query("select * from branches_items where category_id = '$id'");
-	while($mysql = mysql_fetch_array($query))
+	$query = mysqli_query($result_db,"select * from branches_items where category_id = '$id'");
+	while($mysql = mysqli_fetch_array($query))
 	{
 	
-		$result= mysql_query("update branches_items set group_type = '$mysql[item_id]' where id = '$mysql[id]'");
+		$result= mysqli_query($result_db,"update branches_items set group_type = '$mysql[item_id]' where id = '$mysql[id]'");
 		
 	}
-	mysql_free_result($query);
+	mysqli_free_result($query);
 }
 
 $links = "index.php".$li;

@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -47,8 +47,8 @@ require_once($wolf_path."check.php");
 	  					<td class="standart" bgcolor="#f2f3f7" colspan="8"><b><?php echo $text[7]; ?></b></td>
 	  				</tr>
 	  				<?php
-					$rep=mysql_query("Select * from keywords order by id asc");
-	  				while($rop=mysql_fetch_array($rep))
+					$rep=mysqli_query($result_db,"Select * from keywords order by id asc");
+	  				while($rop=mysqli_fetch_array($rep))
 					{		
 						
 	  					echo "
@@ -60,7 +60,7 @@ require_once($wolf_path."check.php");
 							</tr>";
 						
 					}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 					
 	  				?>
 	 				</table>

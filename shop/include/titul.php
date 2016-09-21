@@ -3,15 +3,15 @@
     	
     <div class="left-h1"><a href="<?php echo $root_dir.$_GET['lang'].'/industry' ?>" title="<?php echo $mysql[$name_lang]; ?>">
 	    <?php
-	    $query = mysql_query("select * from categories where parent_id = '0' and industry = '1'");
-	    $mysql = mysql_fetch_array($query);
+	    $query = mysqli_query($result_db,"select * from categories where parent_id = '0' and industry = '1'");
+	    $mysql = mysqli_fetch_array($query);
 	    echo $mysql[$name_lang];
 	    ?>
     </a></div>
     <div class="right-h1"><a href="<?php echo $root_dir.$_GET['lang'].'/medicine' ?>" title="<?php echo $mysql[$name_lang]; ?>">
 	    <?php
-	    $query = mysql_query("select * from categories where parent_id = '0' and industry = '2'");
-	    $mysql = mysql_fetch_array($query);
+	    $query = mysqli_query($result_db,"select * from categories where parent_id = '0' and industry = '2'");
+	    $mysql = mysqli_fetch_array($query);
 	    echo $mysql[$name_lang];
 	    ?>
     </a></div>

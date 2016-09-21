@@ -7,17 +7,17 @@ require_once("../config.php");
 //prbaudam, vai lietotjs ir reistrjies
 require_once($wolf_path."check.php");
 
-$ord=mysql_query("Select * from orders where id='$name'");
-$pas=mysql_fetch_array($ord);
-mysql_free_result($ord);
+$ord=mysqli_query($result_db,"Select * from orders where id='$name'");
+$pas=mysqli_fetch_array($ord);
+mysqli_free_result($ord);
 
-$ord_valsts=mysql_query("Select * from country where id='$pas[country]'");
-$pas_valsts=mysql_fetch_array($ord_valsts);
-mysql_free_result($ord_valsts);
+$ord_valsts=mysqli_query($result_db,"Select * from country where id='$pas[country]'");
+$pas_valsts=mysqli_fetch_array($ord_valsts);
+mysqli_free_result($ord_valsts);
 
-$ord_zieds=mysql_query("Select * from flowers where id='$pas[parent_id]'");
-$pas_zieds=mysql_fetch_array($ord_zieds);
-mysql_free_result($ord_zieds);
+$ord_zieds=mysqli_query($result_db,"Select * from flowers where id='$pas[parent_id]'");
+$pas_zieds=mysqli_fetch_array($ord_zieds);
+mysqli_free_result($ord_zieds);
 
 $change_from=array("&quot;");
 $change_to=array("\"");
@@ -33,7 +33,7 @@ $sect = &$rtf->addSection();
 $par = new ParFormat('center');
 $sect->writeText("<b>$fakss[0]</b>", new Font(14, 'Times New Roman'), $par);
 
-// Melna lînija
+// Melna lï¿½nija
 $parBlack = new ParFormat('center');
 $parBlack->setBackColor('#000000');
 $parBlack->setSpaceBefore(2);
@@ -43,7 +43,7 @@ $fontSmall = new Font(1);
 
 $sect->emptyParagraph($fontSmall, $parBlack);
 
-// Ðodienas datums
+// ï¿½odienas datums
 $par = new ParFormat('left');
 $sect->writeText("<b>".date("d.m.Y")."</b>, $fakss[1]", new Font(12, 'Times New Roman'), $par);
 
@@ -66,7 +66,7 @@ $parEnter->setSpaceBefore(3);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// No kâ
+// No kï¿½
 $par = new ParFormat('left');
 $sect->writeText("$fakss[3]", new Font(12, 'Times New Roman'), $par);
 
@@ -77,7 +77,7 @@ $parEnter->setSpaceBefore(12);
 $parEnter->setSpaceAfter(6);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Lûdzam piegâdât ziedus...
+// Lï¿½dzam piegï¿½dï¿½t ziedus...
 $par = new ParFormat('left');
 $sect->writeText("<b>$fakss[4]</b>", new Font(12, 'Times New Roman'), $par);
 
@@ -88,7 +88,7 @@ $parEnter->setSpaceBefore(6);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Ziedu sastâvs
+// Ziedu sastï¿½vs
 $par = new ParFormat('left');
 if($pas["big_small"]==2)
 {
@@ -120,7 +120,7 @@ $parEnter->setSpaceBefore(3);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Piegâdes datums
+// Piegï¿½des datums
 $pieg_datums = date("d.m.Y",$pas["del_time"]);
 $piegade_m = array("","9.00-10.00","10.00-11.00","11.00-12.00","12.00-13.00","13.00-14.00","14.00-15.00","15.00-16.00","16.00-17.00","17.00-18.00","18.00-19.00");
 if($pas[p_laiks]>0)
@@ -145,11 +145,11 @@ $parEnter->setSpaceBefore(3);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Ziedu saòçmçjs
+// Ziedu saï¿½ï¿½mï¿½js
 $par = new ParFormat('left');
 $sect->writeText("<b>$fakss[9]</b>", new Font(12, 'Times New Roman'), $par);
 
-// Vârds, uzvârds, E-pasts, Iela, Telefons, Vieta
+// Vï¿½rds, uzvï¿½rds, E-pasts, Iela, Telefons, Vieta
 $par = new ParFormat('left');
 $par->setBorders(new BorderFormat(1, '#666666'));
 $par->setSpaceBetweenLines(2);
@@ -174,7 +174,7 @@ $parEnter->setSpaceBefore(3);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Teksts kartiòâ
+// Teksts kartiï¿½ï¿½
 $par = new ParFormat('left');
 $kartina = $pas["card_text"]." ".$pas["card_name"];
 $kartina = str_replace("\n","",$kartina);
@@ -202,7 +202,7 @@ $parEnter->setSpaceBefore(6);
 $parEnter->setSpaceAfter(6);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Rekvizîti
+// Rekvizï¿½ti
 $par = new ParFormat('left');
 $sect->writeText("<b>$fakss[20]</b> $fakss[21]", new Font(12, 'Times New Roman'), $par);
 $sect->writeText("<b>$fakss[22]</b>", new Font(12, 'Times New Roman'), $par);
@@ -215,7 +215,7 @@ $parEnter->setSpaceBefore(6);
 $parEnter->setSpaceAfter(6);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Apmaksu garantçjam
+// Apmaksu garantï¿½jam
 $sect->writeText("$fakss[24]", new Font(12, 'Times New Roman'), $par);
 
 // Enter
@@ -225,7 +225,7 @@ $parEnter->setSpaceBefore(3);
 $parEnter->setSpaceAfter(3);
 $sect->emptyParagraph($fontMiddle, $parEnter);
 
-// Paldies par sadarbîbu
+// Paldies par sadarbï¿½bu
 $sect->writeText("$fakss[25]", new Font(12, 'Times New Roman'), $par);
 
 // Enter

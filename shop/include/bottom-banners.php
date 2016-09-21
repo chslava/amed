@@ -11,10 +11,10 @@
 	{	
 		$cats = "";
 	}
-	$resb=mysql_query("SELECT * FROM banners where bdat>='$end_data' and sdat<='$data' and lang like '%*$_GET[lang]*%' and novietojums='2' and formats < '3' $cats order by rand()");
+	$resb=mysqli_query($result_db,"SELECT * FROM banners where bdat>='$end_data' and sdat<='$data' and lang like '%*$_GET[lang]*%' and novietojums='2' and formats < '3' $cats order by rand()");
 
 	$buttons = "";
-	if($rowb=mysql_fetch_array($resb))
+	if($rowb=mysqli_fetch_array($resb))
 	{
 		$ww = 1000;
 		$hh = 130;
@@ -37,6 +37,6 @@
 			echo "<div id=\"banner-1\" ><a href=\"".$root_dir."include/ads.php?id=$_GET[lang]/$rowb[id]\" target=\"_blank\"><img src=\"".$root_dir."banners/$rowb[datne]\" border=\"0\" width=\"$ww\" height=\"$hh\" /></a></div>\n";
 		}		
 	}
-	mysql_free_result($resb);
+	mysqli_free_result($resb);
 	
 ?>

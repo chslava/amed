@@ -9,39 +9,39 @@
 		{
 			if($_SESSION['industry'] == 2)
 			{
-	    		$queryx = mysql_query("select * from categories where parent_id = '0' and industry = '1'");
-	    		$mysqlx = mysql_fetch_array($queryx);
+	    		$queryx = mysqli_query($result_db,"select * from categories where parent_id = '0' and industry = '1'");
+	    		$mysqlx = mysqli_fetch_array($queryx);
 	    		$mysqlx_url = 'industry';
 	    	}
 	    	else
 	    	{
-	    		$queryx = mysql_query("select * from categories where parent_id = '0' and industry = '2'");
-	    		$mysqlx = mysql_fetch_array($queryx);
+	    		$queryx = mysqli_query($result_db,"select * from categories where parent_id = '0' and industry = '2'");
+	    		$mysqlx = mysqli_fetch_array($queryx);
 	    		$mysqlx_url = 'medicine';
 	    	}	   
 	    
 	    	echo '<div id="industry"><a href="'.$root_dir.$_GET["lang"].'/'.$mysqlx_url.'" title="'.$mysqlx[$name_lang].'">'.$mysqlx[$name_lang].'</a></div>';
 		}
 		
-		$query = mysql_query("select * from content where template = '3' and publish = 'on' and lang = '$_GET[lang]'");
-		if($mysql = mysql_fetch_array($query))
+		$query = mysqli_query($result_db,"select * from content where template = '3' and publish = 'on' and lang = '$_GET[lang]'");
+		if($mysql = mysqli_fetch_array($query))
 		{
 		    echo '<div id="basket">';
 		    $basket_content = '';
-		    $ch = mysql_query("select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id = '$user_id'  order by id asc");	
-		    $cik = mysql_num_rows($ch);
+		    $ch = mysqli_query($result_db,"select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id = '$user_id'  order by id asc");	
+		    $cik = mysqli_num_rows($ch);
 		    if($cik > 0 )
 		    {	
 		    	$count = 0;
 		    	$total = 0;
-		    	while($exists=mysql_fetch_array($ch))
+		    	while($exists=mysqli_fetch_array($ch))
 		    	{
-		    		$query1 = mysql_query("select * from items where id = '$exists[parent_id]'");
-		    		$mysql1 = mysql_fetch_array($query1);
+		    		$query1 = mysqli_query($result_db,"select * from items where id = '$exists[parent_id]'");
+		    		$mysql1 = mysqli_fetch_array($query1);
 		    		
 		    		$tagad = time();
-					$di = mysql_query("select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and cats like '%*$mysql1[parent_id]*%' and type < '3'");
-					if($disc = mysql_fetch_array($di))
+					$di = mysqli_query($result_db,"select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and cats like '%*$mysql1[parent_id]*%' and type < '3'");
+					if($disc = mysqli_fetch_array($di))
 					{
 						$time_discount = $disc["value"];
 					}
@@ -134,18 +134,18 @@
 		<div id="copyright">
 		<?php
 /*
-		$query0 = mysql_query("select * from content where publish = 'on' and type = '4' and lang = '$_GET[lang]'");
-		$mysql0 = mysql_fetch_array($query0);
-		mysql_free_result($query0);
+		$query0 = mysqli_query($result_db,"select * from content where publish = 'on' and type = '4' and lang = '$_GET[lang]'");
+		$mysql0 = mysqli_fetch_array($query0);
+		mysqli_free_result($query0);
 		
 		echo  '<p>';$a = 1;
-		$query = mysql_query("select * from keywords order by rand() limit 0,20");
-		while($mysql = mysql_fetch_array($query))
+		$query = mysqli_query($result_db,"select * from keywords order by rand() limit 0,20");
+		while($mysql = mysqli_fetch_array($query))
 		{
 			echo '<a href="'.$root_dir.$_GET["lang"].'/'.$mysql0["url"].'" title="'.$mysql["name"].'" class="item-name">'.$mysql["name"].'</a>';
 			$a++;
 		}
-		mysql_free_result($query);
+		mysqli_free_result($query);
 		echo '</p>'*/;
 		
 		
@@ -186,8 +186,8 @@ src="http://www.kurpirkt.lv/media/kurpirkt88.gif" width=88 height=31></a></div>
 		<div class="popup-content" id="popup-content">
 			<div class="popup-text" id="popup-text">
 			<?php
-			$query = mysql_query("select * from content where template = '4' and lang = '$_GET[lang]'");
-			if($mysql = mysql_fetch_array($query))
+			$query = mysqli_query($result_db,"select * from content where template = '4' and lang = '$_GET[lang]'");
+			if($mysql = mysqli_fetch_array($query))
 			{
 				echo $mysql['text'];
 			}

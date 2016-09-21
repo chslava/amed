@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Testçjam sadaïas</title>
+	<title>Testï¿½jam sadaï¿½as</title>
 </head>
 
 <body>
@@ -13,18 +13,18 @@ $db_user="aliens";
 $db_password="KI3voatO9T";
 $db_name="aliens";
 
-$result_db = mysql_connect($db_host,$db_user,$db_password);
-mysql_select_db($db_name,$result_db);
+$result_db = mysqli_connect($db_host,$db_user,$db_password);
+mysqli_select_db($result_db, $db_name);
 
-$r=mysql_query("Select * from sadalas_lv where parent_id='0' order by place asc");
-while($f=mysql_fetch_array($r))
+$r=mysqli_query($result_db,"Select * from sadalas_lv where parent_id='0' order by place asc");
+while($f=mysqli_fetch_array($r))
 {
 		echo "
 		<tr>
 			<td>$f[id]</t><td>$f[name]</td><td>$f[text]</td>
 		</tr>\n";
 }
-mysql_free_result($r);
+mysqli_free_result($r);
 ?>
 
 </table>

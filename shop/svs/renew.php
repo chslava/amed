@@ -1,17 +1,17 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once("check.php");
 
 if($name > 0)
 {
-	$ren=mysql_query("Select * from $tabula where id='$id'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	
 	$laiks = time();
-	$backup = mysql_query("insert into content_backup values (
+	$backup = mysqli_query($result_db,"insert into content_backup values (
 	'',
 	'$id',
 	'$laiks',	
@@ -19,11 +19,11 @@ if($name > 0)
 	'$row[text]'
 	)");
 	
-	$ren=mysql_query("Select * from content_backup where id='$name'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from content_backup where id='$name'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
-	$rens=mysql_query("update $tabula set text='$row[text]' where id='$id'");
+	$rens=mysqli_query($result_db,"update $tabula set text='$row[text]' where id='$id'");
 }
 
 $links = "member.php".$li;

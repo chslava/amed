@@ -1,13 +1,13 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$ren=mysql_query("Select * from user where id='$_GET[name]'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
 	
 if(isset($_POST["submit"])){
@@ -44,8 +44,8 @@ if(isset($_POST["submit"])){
 
 	if($error =="")
 	{
-		$ren=mysql_query("Select * from user where id!='$_GET[name]'");
-		while($row=mysql_fetch_array($ren))
+		$ren=mysqli_query($result_db,"Select * from user where id!='$_GET[name]'");
+		while($row=mysqli_fetch_array($ren))
 		{
 			if($row["username"]==$lietotajs)
 			{
@@ -60,14 +60,14 @@ if(isset($_POST["submit"])){
 		
 		if($error == "")
 		{
-		$rr=mysql_query("Select * from user where id='$_GET[name]'");
-			$rrr=mysql_fetch_array($rr);
+		$rr=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+			$rrr=mysqli_fetch_array($rr);
 			$useris=$rrr["username"];
-			mysql_free_result($rr);
+			mysqli_free_result($rr);
 			
 			$password=md5($parole1);
 			$password=md5($password);
-			$result = mysql_query("update user set username='$lietotajs', password='$password' where id='$_GET[name]'"); 
+			$result = mysqli_query($result_db,"update user set username='$lietotajs', password='$password' where id='$_GET[name]'"); 
 			
 			
 			$cik = count($valodas);
@@ -76,14 +76,14 @@ if(isset($_POST["submit"])){
 			while($s<$cik)
 			{
 				$tab="sadalas_".$valodas[$s];
-				$rr=mysql_query("Select * from $tab");
-				while($rrr=mysql_fetch_array($rr))
+				$rr=mysqli_query($result_db,"Select * from $tab");
+				while($rrr=mysqli_fetch_array($rr))
 				{
 					$info=$rrr["user"];
 					$info=str_replace("$useris","$lietotajs",$info);
-					$ziel=mysql_query("update $tab set user='$info' where id='$rrr[id]'"); 
+					$ziel=mysqli_query($result_db,"update $tab set user='$info' where id='$rrr[id]'"); 
 				}
-			mysql_free_result($rr);
+			mysqli_free_result($rr);
 			$s++;
 			}
 		
@@ -130,9 +130,9 @@ $lietotajs = $row["username"];
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				
 								<?php
-								$ren=mysql_query("Select * from user where id='$_GET[name]'");
-								$ros=mysql_fetch_array($ren);
-								mysql_free_result($ren);
+								$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+								$ros=mysqli_fetch_array($ren);
+								mysqli_free_result($ren);
 								?>
 								<table cellpadding="3" cellspacing="2" width="100%" style="border: 1px solid #d0d2dd">
 								<form action="<?php echo $wolf_path; ?>users/apstiprinat.php<?php echo $li1."&name=".$_GET["name"]; ?>" method="post" name="pievienot">
@@ -146,8 +146,8 @@ $kr=0;
 
 function sad($parent_id,$atstarpe,$user,$tabula)
 {
-	$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 	$ch2="";
 	echo "<input class=\"ch\" type=\"Checkbox\" name=\"vvv[]\" value=\"$f1[id]\"";
@@ -166,8 +166,8 @@ echo "</ul>\n";
 	}
 }
 
-	$r=mysql_query("Select * from $tabula where parent_id='0' order by place asc");
-	while($f=mysql_fetch_array($r))
+	$r=mysqli_query($result_db,"Select * from $tabula where parent_id='0' order by place asc");
+	while($f=mysqli_fetch_array($r))
 	{
 	$ch1="";
 		echo "<tr bgcolor=\"$krasa[$kr]\"><td width=100% class=\"standart\"><input class=\"ch\" type=\"Checkbox\" name=\"vvv[]\" value=\"$f[id]\"";
@@ -185,7 +185,7 @@ echo "</ul>\n";
 		if($kr==0){	$kr=1;}
 		elseif($kr==1){	$kr=0;}
 	}
-mysql_free_result($r)
+mysqli_free_result($r)
 
 
 

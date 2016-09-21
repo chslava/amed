@@ -4,9 +4,9 @@ require_once("config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$ren=mysql_query("Select * from items where id='$name'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from items where id='$name'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
 $picture = $row["picture"];
 $current_picture = $picture;
@@ -50,11 +50,11 @@ if(isset($_POST["submit"]))
 	$url_ee = trim(str_replace($change_from,$change_to,$_POST["url_ee"]));
 	$url_lt = trim(str_replace($change_from,$change_to,$_POST["url_lt"]));
 	
-	$text_lv = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
-	$text_ru = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
-	$text_en = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
-	$text_ee = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
-	$text_lt = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
+	$text_lv = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
+	$text_ru = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
+	$text_en = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
+	$text_ee = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
+	$text_lt = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
 	
 	$text_lv = str_replace($change_from1,$change_to1,$text_lv);
 	$text_ru = str_replace($change_from1,$change_to1,$text_ru);
@@ -283,7 +283,7 @@ if(isset($_POST["submit"]))
 		}
 	}
 			
-	$rakstam=mysql_query("update items set 
+	$rakstam=mysqli_query($result_db,"update items set 
 	
 	title_lv = '$title_lv',
 	title_ru = '$title_ru',
@@ -339,8 +339,8 @@ if(isset($_POST["submit"]))
 	where id='$name'");
 		
 	$all_current_items = array();
-	$te = mysql_query("select * from branches_items where item_id = '$name'");
-	while($tes = mysql_fetch_array($te))
+	$te = mysqli_query($result_db,"select * from branches_items where item_id = '$name'");
+	while($tes = mysqli_fetch_array($te))
 	{
 		$br_id = $tes["branche_id"];
 		$all_current_items[$br_id] = $br_id;
@@ -353,15 +353,15 @@ if(isset($_POST["submit"]))
 	    $branch = str_replace("*","",$br[$i]);
 	    if(!empty($branch))
 	    {
-	    	$te = mysql_query("select * from branches_items where item_id = '$name' and branche_id = '$branch'");
-	    	if($tes = mysql_fetch_array($te))
+	    	$te = mysqli_query($result_db,"select * from branches_items where item_id = '$name' and branche_id = '$branch'");
+	    	if($tes = mysqli_fetch_array($te))
 	    	{
 	    	
 	    	}
 	    	else
 	    	{
-	    		$pl = mysql_query("select * from branches_items where branche_id = '$branch' order by place desc limit 0,1");
-	    		if($pla = mysql_fetch_array($pl))
+	    		$pl = mysqli_query($result_db,"select * from branches_items where branche_id = '$branch' order by place desc limit 0,1");
+	    		if($pla = mysqli_fetch_array($pl))
 	    		{
 	    			$place = $pla["place"] + 1;
 	    		}
@@ -369,7 +369,7 @@ if(isset($_POST["submit"]))
 	    		{
 	    			$place = 1;
 	    		}
-	    		$result = mysql_query("insert into branches_items values ('','$branch','$name','$place','$group_type','$id')");
+	    		$result = mysqli_query($result_db,"insert into branches_items values ('','$branch','$name','$place','$group_type','$id')");
 	    		
 	    	}
 	    	unset($all_current_items[$branch]);
@@ -378,13 +378,13 @@ if(isset($_POST["submit"]))
 	
 	foreach($all_current_items as $key => $value)
 	{
-		$result = mysql_query("delete from branches_items where item_id = '$name' and branche_id = '$all_current_items[$key]'");
+		$result = mysqli_query($result_db,"delete from branches_items where item_id = '$name' and branche_id = '$all_current_items[$key]'");
 	}
 	
 	
 	#Sakopējam informāciju saistītajās precēs
-	$query = mysql_query("select id, picture from items where `copy` = '$name'");
-	while($mysql = mysql_fetch_array($query))
+	$query = mysqli_query($result_db,"select id, picture from items where `copy` = '$name'");
+	while($mysql = mysqli_fetch_array($query))
 	{
 		$url_lv_n = str_replace('-'.$name,'',$url_lv);
 		$url_ru_n = str_replace('-'.$name,'',$url_ru);
@@ -418,7 +418,7 @@ if(isset($_POST["submit"]))
 		}
 		
 		
-		$rakstam=mysql_query("update items set 
+		$rakstam=mysqli_query($result_db,"update items set 
 			
 		title_lv = '$title_lv',
 		title_ru = '$title_ru',
@@ -473,12 +473,12 @@ if(isset($_POST["submit"]))
 		    
 		where id='$mysql[id]'");
 		
-		$result = mysql_query("delete from branches_items where item_id = '$mysql[id]'");
+		$result = mysqli_query($result_db,"delete from branches_items where item_id = '$mysql[id]'");
 		
-		$query1 = mysql_query("select * from branches_items where item_id = '$name'");
-		while($mysql1 = mysql_fetch_array($query1))
+		$query1 = mysqli_query($result_db,"select * from branches_items where item_id = '$name'");
+		while($mysql1 = mysqli_fetch_array($query1))
 		{
-			$result = mysql_query("insert into branches_items (`branche_id`,`item_id`,`place`,`group_type`,`category_id`) values ('$mysql1[branche_id]','$mysql[id]','$mysql1[place]','$mysql1[group_type]','$mysql1[category_id]')");
+			$result = mysqli_query($result_db,"insert into branches_items (`branche_id`,`item_id`,`place`,`group_type`,`category_id`) values ('$mysql1[branche_id]','$mysql[id]','$mysql1[place]','$mysql1[group_type]','$mysql1[category_id]')");
 		}
 	}
 	
@@ -489,8 +489,8 @@ if(isset($_POST["submit"]))
 }
 else
 {
-	$ren=mysql_query("Select * from items where id='$name'");
-	$row=mysql_fetch_array($ren);
+	$ren=mysqli_query($result_db,"Select * from items where id='$name'");
+	$row=mysqli_fetch_array($ren);
 	
 	$name_lv=$row["name_lv"];
 	$name_ru=$row["name_ru"];
@@ -592,9 +592,9 @@ else
 						
 				<?php
 				
-					$row1=mysql_query("Select * from $tabula where id='$id'");
-					$fer1=mysql_fetch_array($row1);
-					mysql_free_result($row1);
+					$row1=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+					$fer1=mysqli_fetch_array($row1);
+					mysqli_free_result($row1);
 				?>
 					
 				
@@ -1064,15 +1064,15 @@ else
 							<select class="input" name="rate">
                      			<option value="0" <?php if($rate == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from rates order by name asc");
+								$rep=mysqli_query($result_db,"Select * from rates order by name asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$k = $rop["id"];
 									echo "<option value=\"$rop[id]\""; if($rate == $k){echo " selected";} echo ">$rop[name]%</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1121,9 +1121,9 @@ else
 							<select class="input" name="specialities[]" multiple="multiple" size="20" style="width: 500px">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from specialities order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from specialities order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$c_id = $rop["id"];
 									if(isset($specialities[$c_id]))
@@ -1137,7 +1137,7 @@ else
 									echo "<option value=\"$rop[id]\"$se>$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1148,9 +1148,9 @@ else
 							<select class="input" name="branches[]" multiple="multiple" size="20" style="width: 500px">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from branches order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from branches order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$c_id = $rop["id"];
 									if(isset($branches[$c_id]))
@@ -1164,7 +1164,7 @@ else
 									echo "<option value=\"$rop[id]\"$se>$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1175,15 +1175,15 @@ else
 							<select class="input" name="person">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from persons order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from persons order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$k = $rop["id"];
 									echo "<option value=\"$rop[id]\""; if($person == $k){echo " selected";} echo ">$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1194,8 +1194,8 @@ else
                      			<select class="input" name="items[]" multiple size="20" style="width: 500px">
                      				<option value="0"></option>
                         			<?php
-                     				$mysql = mysql_query("select * from items where id <> '$name' order by name_lv asc");
-									while($cat = mysql_fetch_array($mysql))
+                     				$mysql = mysqli_query($result_db,"select * from items where id <> '$name' order by name_lv asc");
+									while($cat = mysqli_fetch_array($mysql))
 									{	
 										$c_id = $cat["id"];
 										if(isset($ite[$c_id]))
@@ -1208,7 +1208,7 @@ else
 										}
 										echo "<option value=\"$cat[id]\"$se>$cat[name_lv]</option>\n";				
 									}
-									mysql_free_result($mysql);
+									mysqli_free_result($mysql);
 									?>
                      			</select>
                      		</td>

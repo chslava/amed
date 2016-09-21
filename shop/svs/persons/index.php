@@ -49,9 +49,9 @@ require_once($wolf_path."check.php");
 	  				</tr>
 	  				<?php
 						$nos = "persons";
-						$rep=mysql_query("Select * from $nos order by name_lv asc ");
+						$rep=mysqli_query($result_db,"Select * from $nos order by name_lv asc ");
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 	 						
 	  					echo "<tr>
@@ -61,7 +61,7 @@ require_once($wolf_path."check.php");
 							</tr>";
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  						echo "<tr><td class=\"st1\">$org[2]</td></tr>";

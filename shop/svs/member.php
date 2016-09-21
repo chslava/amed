@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once("check.php");
 
 ?>
@@ -70,9 +70,9 @@ require_once("check.php");
 							<?php
 							if($fer_ok == "off")
 							{
-								$ren=mysql_query("Select * from $tabula where id='$id'");
-								$row=mysql_fetch_array($ren);
-								mysql_free_result($ren);
+								$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+								$row=mysqli_fetch_array($ren);
+								mysqli_free_result($ren);
 								echo $row["cache"];
 							}
 							else
@@ -91,13 +91,13 @@ require_once("check.php");
 							<?php 
 							echo "<p>$teksti[163]:</p>";
 							$a = 1;
-							$query = mysql_query("select * from content_backup where parent_id = '$id' order by time desc limit 0,10");
-							while($mysql = mysql_fetch_array($query))
+							$query = mysqli_query($result_db,"select * from content_backup where parent_id = '$id' order by time desc limit 0,10");
+							while($mysql = mysqli_fetch_array($query))
 							{
 								echo "<p class=\"standart\" style=\"padding: 0px; margin: 0px;\">$a. <a href=\"apskatit.php$li"."&name=$mysql[id]\" class=\"standart_link\">".date("d.m.Y H:i:s",$mysql["time"])."</a></p>";
 								$a++;
 							} 
-							mysql_free_result($query);
+							mysqli_free_result($query);
 							?></td>
 						</tr>
                		</table>

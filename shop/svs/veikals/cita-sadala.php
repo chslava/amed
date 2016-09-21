@@ -27,9 +27,9 @@ if(isset($_POST["submit"]))
 	
 	if($error == "")
 	{
-		$req=mysql_query("Select place from items where parent_id='$sadala' order by place desc Limit 0, 1");
-		$roq=mysql_fetch_array($req);
-		mysql_free_result($req);
+		$req=mysqli_query($result_db,"Select place from items where parent_id='$sadala' order by place desc Limit 0, 1");
+		$roq=mysqli_fetch_array($req);
+		mysqli_free_result($req);
 		$place=$roq["place"];
 		
 		if(empty($place)){$place=1;}
@@ -38,7 +38,7 @@ if(isset($_POST["submit"]))
 		for($i=0; $i<count($prec_mas);$i++)
 		{	
 			$place++;
-			$rakstam=mysql_query("update items set parent_id='$sadala', place='$place' where id='$prec_mas[$i]'");
+			$rakstam=mysqli_query($result_db,"update items set parent_id='$sadala', place='$place' where id='$prec_mas[$i]'");
 		}
 		$links ="index.php".$li;
 		header("Location: $links");
@@ -126,8 +126,8 @@ $kr=0;
 $tabula="categories";
 function sad($parent_id,$indent,$tabula,$ver,$kr)
 {$indent=$indent."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 		echo "$indent<input type=\"radio\" name=\"sadala\" value=\"$f1[id]\"><b>$f1[name_lv]</b><br>\n";
 	
@@ -135,8 +135,8 @@ function sad($parent_id,$indent,$tabula,$ver,$kr)
 	}
 }
 $indent="&nbsp;&nbsp;&nbsp;&nbsp;";
-	$r=mysql_query("Select * from $tabula where parent_id='0' order by place asc");
-	while($f=mysql_fetch_array($r))
+	$r=mysqli_query($result_db,"Select * from $tabula where parent_id='0' order by place asc");
+	while($f=mysqli_fetch_array($r))
 	{
 	
 		echo "<tr bgcolor=\"$krasa[$kr]\"><td class=text3 width=300><input type=\"radio\" name=\"sadala\" value=\"$f[id]\"><b>$f[name_lv]</b><br>\n";
@@ -147,7 +147,7 @@ $indent="&nbsp;&nbsp;&nbsp;&nbsp;";
 		if($kr==0){	$kr=1;}
 		elseif($kr==1){	$kr=0;}
 	}
-mysql_free_result($r)
+mysqli_free_result($r)
 ?>
   								</table>
 								</td>

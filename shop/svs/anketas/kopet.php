@@ -1,16 +1,16 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $error="";
 
-$rez=mysql_query("Select * from anketas where id='$name'");
-$roz=mysql_fetch_array($rez);
-mysql_free_result($rez);
+$rez=mysqli_query($result_db,"Select * from anketas where id='$name'");
+$roz=mysqli_fetch_array($rez);
+mysqli_free_result($rez);
 
-$ren=mysql_query("Select * from anketas where value='1' order by place desc Limit 0, 1");
-$row=mysql_fetch_array($ren);
+$ren=mysqli_query($result_db,"Select * from anketas where value='1' order by place desc Limit 0, 1");
+$row=mysqli_fetch_array($ren);
 $place=$row["place"];
 if(empty($place))
 {
@@ -21,7 +21,7 @@ else
 	$place++;
 }
 	
-$result = mysql_query("insert into anketas values (
+$result = mysqli_query($result_db,"insert into anketas values (
 '',
 '0',
 '$place',
@@ -41,12 +41,12 @@ $result = mysql_query("insert into anketas values (
 '$roz[type]'
 )"); 
 
-$n_id = mysql_insert_id();
+$n_id = mysqli_insert_id();
 
-$rez=mysql_query("Select * from anketas where parent_id='$name' order by place asc");
-while($roz=mysql_fetch_array($rez))
+$rez=mysqli_query($result_db,"Select * from anketas where parent_id='$name' order by place asc");
+while($roz=mysqli_fetch_array($rez))
 {	
-	$result = mysql_query("insert into anketas values (
+	$result = mysqli_query($result_db,"insert into anketas values (
 	'',
 	'$n_id',
 	'$roz[place]',
@@ -66,7 +66,7 @@ while($roz=mysql_fetch_array($rez))
 	'$roz[type]'
 	)");
 }
-mysql_free_result($rez);
+mysqli_free_result($rez);
 		
 
 $links = "index.php";

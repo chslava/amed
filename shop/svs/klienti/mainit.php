@@ -4,9 +4,9 @@ require_once("../config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$res = mysql_query("select * from clients where id = '$id'");
-$rop = mysql_fetch_array($res);
-mysql_free_result($res);
+$res = mysqli_query($result_db,"select * from clients where id = '$id'");
+$rop = mysqli_fetch_array($res);
+mysqli_free_result($res);
 	
 $error = "";
 
@@ -68,7 +68,7 @@ if(isset($_POST["submit"]))
 			}
 		}
 		
-		$rakstam=mysql_query("update clients set 
+		$rakstam=mysqli_query($result_db,"update clients set 
 		company_name = '$client_name',
 		company_code = '$client_code',
 		company_address = '$client_address',
@@ -111,7 +111,7 @@ if(isset($_POST["submit"]))
 			}
 		}
 				
-		$rakstam=mysql_query("update clients set 
+		$rakstam=mysqli_query($result_db,"update clients set 
 		person_name = '$client_name',
 		person_code = '$client_code',
 		person_deliver = '$client_deliver',

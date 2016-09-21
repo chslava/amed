@@ -41,7 +41,7 @@ if(isset($_POST["add-discount"]))
 	$start_time = mktime($_POST["s_hour"],$_POST["s_minute"],0,$_POST["s_month"],$_POST["s_day"],$_POST["s_year"]);
 	$end_time = mktime($_POST["e_hour"],$_POST["e_minute"],0,$_POST["e_month"],$_POST["e_day"],$_POST["e_year"]);
 	
-	$result = mysql_query("update discounts set 
+	$result = mysqli_query($result_db,"update discounts set 
 	
 	start_time = '$start_time',
 	end_time = '$end_time',
@@ -60,9 +60,9 @@ if(isset($_POST["add-discount"]))
 } 
 else
 {
-	$ren=mysql_query("Select * from discounts where id='$name'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from discounts where id='$name'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
 	$name_lv = $row["name"];
 	$type = $row["type"];
@@ -140,8 +140,8 @@ else
                               	<?php
                               	function sub_cat($cat_id,$category,$cat_name)
                               	{
-                                 	$mysql1 = mysql_query("select * from categories where parent_id = '$cat_id' order by place asc");
-                                 	while($cat1 = mysql_fetch_array($mysql1))
+                                 	$mysql1 = mysqli_query($result_db,"select * from categories where parent_id = '$cat_id' order by place asc");
+                                 	while($cat1 = mysqli_fetch_array($mysql1))
                                  	{	
                                     	$parent_name = $cat_name." $cat1[name_lv]";
                                     
@@ -157,12 +157,12 @@ else
                                     	echo "<option value=\"$cat1[id]\"$se>$parent_name</option>\n";                                           
                                     	sub_cat($cat1["id"],$category,$cat_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");							
                                  	}
-                                 	mysql_free_result($mysql1);                                                                  
+                                 	mysqli_free_result($mysql1);                                                                  
                               	}
                               	function sub_cats($category)
                               	{
-                                	$mysql = mysql_query("select * from categories where parent_id = '0' order by place asc");
-                                 	while($cat = mysql_fetch_array($mysql))
+                                	$mysql = mysqli_query($result_db,"select * from categories where parent_id = '0' order by place asc");
+                                 	while($cat = mysqli_fetch_array($mysql))
                                  	{	
                                     	$c_id = $cat["id"];
                                     	if(isset($category[$c_id]))
@@ -177,7 +177,7 @@ else
                                     	$cat_name = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
                                     	sub_cat($cat["id"],$category,$cat_name);						
                                  	}
-                                 	mysql_free_result($mysql);
+                                 	mysqli_free_result($mysql);
                               	}
                               	?>
                           		<tr>

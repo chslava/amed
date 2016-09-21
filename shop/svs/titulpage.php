@@ -4,9 +4,9 @@ require_once("config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$ren=mysql_query("Select * from titulpage where id='1'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from titulpage where id='1'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
 $current_pictures = array($row["picture_1"],$row["picture_2"],$row["picture_3"]);
 $error = "";
@@ -73,11 +73,11 @@ if(isset($_POST["submit"]))
 	$url_3_ee = trim(str_replace($change_from,$change_to,$_POST["url_3_ee"]));
 	$url_3_lt = trim(str_replace($change_from,$change_to,$_POST["url_3_lt"]));
 		
-	$text_lv = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
-	$text_ru = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
-	$text_en = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
-	$text_ee = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
-	$text_lt = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
+	$text_lv = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
+	$text_ru = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
+	$text_en = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
+	$text_ee = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
+	$text_lt = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
 	
 	$text_lv = str_replace($change_from1,$change_to1,$text_lv);
 	$text_ru = str_replace($change_from1,$change_to1,$text_ru);
@@ -199,7 +199,7 @@ if(isset($_POST["submit"]))
 		}
 	}
 		
-	$rakstam=mysql_query("update titulpage set 
+	$rakstam=mysqli_query($result_db,"update titulpage set 
 	
 	name_1_ee = '$name_1_ee',
   	name_1_lv = '$name_1_lv',
@@ -274,9 +274,9 @@ if(isset($_POST["submit"]))
 }
 else
 {
-	$ren=mysql_query("Select * from titulpage where id='1'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from titulpage where id='1'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	
 	$name_1_lv=$row["name_1_lv"];
 	$name_1_ru=$row["name_1_ru"];

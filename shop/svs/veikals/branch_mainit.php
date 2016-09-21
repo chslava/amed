@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $error = "";
@@ -17,7 +17,7 @@ if(isset($_POST["submit"])){
 	$name_lt=str_replace($change_from,$change_to,$_POST["name_lt"]);$name_lt=trim($name_lt);
 		
 	$nos = "branches";
-	$rakstam=mysql_query("update $nos set name_lv='$name_lv', name_ru='$name_ru', name_en='$name_en', name_ee='$name_ee', name_lt='$name_lt' where id='$name'");
+	$rakstam=mysqli_query($result_db,"update $nos set name_lv='$name_lv', name_ru='$name_ru', name_en='$name_en', name_ee='$name_ee', name_lt='$name_lt' where id='$name'");
 	
 	$links = "branch.php".$li1;
 	header("Location: $links");
@@ -26,9 +26,9 @@ if(isset($_POST["submit"])){
 else
 {
 	$nos = "branches";
-	$ren=mysql_query("Select * from $nos where id='$name'");
-	$rop=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $nos where id='$name'");
+	$rop=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	$name_lv=$rop["name_lv"];
 	$name_en=$rop["name_en"];
 	$name_ru=$rop["name_ru"];

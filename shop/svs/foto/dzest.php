@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 <html>
@@ -34,9 +34,9 @@ require_once($wolf_path."check.php");
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 					<?php 
-					$rez=mysql_query("Select * from albums where id='$name'");
-					$roz=mysql_fetch_array($rez);
-					mysql_free_result($rez);
+					$rez=mysqli_query($result_db,"Select * from albums where id='$name'");
+					$roz=mysqli_fetch_array($rez);
+					mysqli_free_result($rez);
 					?>
    				<table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tr>

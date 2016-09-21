@@ -1,14 +1,14 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 					
-$rep=mysql_query("Select * from pictures where id='$k' ");
-$rop=mysql_fetch_array($rep);
-mysql_free_result($rep);
-$result = mysql_query("delete from pictures where id='$k'");
+$rep=mysqli_query($result_db,"Select * from pictures where id='$k' ");
+$rop=mysqli_fetch_array($rep);
+mysqli_free_result($rep);
+$result = mysqli_query($result_db,"delete from pictures where id='$k'");
 
 $file=$wolf_path."../pictures/albums/small/".$rop["file_name"].".jpg";
 unlink($file);

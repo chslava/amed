@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $change_from=array("'","\\");
@@ -49,11 +49,11 @@ $target_en = trim(str_replace($change_from,$change_to,$_POST["target_en"]));
 $target_ee = trim(str_replace($change_from,$change_to,$_POST["target_ee"]));
 $target_lt = trim(str_replace($change_from,$change_to,$_POST["target_lt"]));
 
-$text_lv = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
-$text_ru = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
-$text_en = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
-$text_ee = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
-$text_lt = mysql_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
+$text_lv = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
+$text_ru = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
+$text_en = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
+$text_ee = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
+$text_lt = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
 
 if(isset($_POST["discount"]))
 {
@@ -106,17 +106,17 @@ else
 	$style = 0;
 }
 
-$ren=mysql_query("Select * from $tabula where parent_id='$id ' order by place desc Limit 0, 1");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from $tabula where parent_id='$id ' order by place desc Limit 0, 1");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
-// uzliekam jaunu mainîgo place
+// uzliekam jaunu mainï¿½go place
 $place=$row["place"];
 $place++;
 
 
-	$result = mysql_query("insert into $tabula values ('','$id','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
-	$n_id=mysql_insert_id();
+	$result = mysqli_query($result_db,"insert into $tabula values ('','$id','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
+	$n_id=mysqli_insert_id();
 	if (!$result)
 	return "<b>$head[2]</b>";
 	

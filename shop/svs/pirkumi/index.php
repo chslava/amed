@@ -307,8 +307,8 @@ else
 					<table><tr><td>&nbsp;</td></tr></table>
 				<?php 
 					
-					$r = mysql_query($select1);
-					$pavisam = mysql_num_rows($r);
+					$r = mysqli_query($result_db,$select1);
+					$pavisam = mysqli_num_rows($r);
 					$pages = ceil($pavisam/$interval);
 					$page = "";
 					$echo_pages = "";
@@ -356,10 +356,10 @@ else
 						$nos = "orders";
 						$statuss_text = array(0 => $statuses[0], 1 => $statuses[1], 2 => $statuses[2], 3 => $statuses[3], 4 => $statuses[4], 5 => $statuses[5], 6 => $statuses[6]);
 	  				
-						$rep=mysql_query($select2);
-						echo mysql_error();
+						$rep=mysqli_query($result_db,$select2);
+						echo mysqli_error();
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 							//echo "$rop[id]";
 							$datums = str_replace(" ","&nbsp;",date("d.m.Y H:i:s",$rop["time"]));
@@ -378,9 +378,9 @@ else
 							if($rop["statuss"] == 0 || $rop["statuss"] == 1)
 							{
 								
-								$query = mysql_query("select * from statuses where order_id = '$rop[id]' order by time desc limit 0,1");
-								$mysql = mysql_fetch_array($query);
-								mysql_free_result($query);
+								$query = mysqli_query($result_db,"select * from statuses where order_id = '$rop[id]' order by time desc limit 0,1");
+								$mysql = mysqli_fetch_array($query);
+								mysqli_free_result($query);
 								
 								
 								$end = mktime(23,59,59,date("n"),date("j"),date("Y"));
@@ -487,7 +487,7 @@ else
 							</tr>";
 							$a++;
 						}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  					echo "<tr><td class=\"st1\" colspan=\"7\">$orders[32]</td></tr>";

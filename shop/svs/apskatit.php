@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once("check.php");
 
 ?>
@@ -58,9 +58,9 @@ require_once("check.php");
 						<tr>
 							<td class="text">
 							<?php
-							$query = mysql_query("select * from content_backup where id = '$name'");
-							$mysql = mysql_fetch_array($query);
-							mysql_free_result($query);
+							$query = mysqli_query($result_db,"select * from content_backup where id = '$name'");
+							$mysql = mysqli_fetch_array($query);
+							mysqli_free_result($query);
 							echo $mysql["text"];
 							
 							?></td>

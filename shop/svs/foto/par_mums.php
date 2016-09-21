@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -48,9 +48,9 @@ require_once($wolf_path."check.php");
 	  					<td bgcolor="#f2f3f7" colspan="6" class="standart"><b><?php echo $foto[25]; ?></b></td>
 	  				</tr>
 	  				<?php
-					  $rep=mysql_query("Select * from albums order by place asc");
+					  $rep=mysqli_query($result_db,"Select * from albums order by place asc");
 	  				$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
                                	  					echo "<tr>
 							<td class=st1 valign=top width=100%><b><a href=\"".$wolf_path."foto/foto_p.php$li1&name=$rop[id]\" class=\"standart_link\">$rop[name]</a></b></td>
@@ -61,7 +61,7 @@ require_once($wolf_path."check.php");
 							";
 							$a++;
 						}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  					echo "<tr><td class=\"st1\">$foto[24]</td></tr>";

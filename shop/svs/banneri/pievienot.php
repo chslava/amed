@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 if(isset($_POST["submit"])){
@@ -71,7 +71,7 @@ $saite_lt=str_replace($change_from,$change_to,$_POST["saite_lt"]);$saite_lt=trim
 
 $formats = str_replace($change_from,$change_to,$_POST["formats"]);
 $novietojums = str_replace($change_from,$change_to,$_POST["novietojums"]);
-$change_from=array("â","è","ç","ì","î","í","ï","ò","ð","û","þ","Â","È","Ç","Ì","Î","Í","Ï","Ò","Ð","Û","Þ");
+$change_from=array("ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½");
 $change_to=array("a","c","e","g","i","k","l","n","s","u","z","A","C","E","G","I","K","L","N","S","U","Z");
 $file=$_FILES["fails"]["tmp_name"];
 $filenameo=$_FILES["fails"]["name"];
@@ -83,9 +83,9 @@ if($_POST["lietotajs"]=="new"){$w8="off";}else{$w8="on";}
 if($w1=="on" && $w2=="on" && $w4=="on" && $w7=="on" && $w8=="on"){
 
 
-$req=mysql_query("Select * from banners order by place desc Limit 0, 1");
-$roq=mysql_fetch_array($req);
-mysql_free_result($req);
+$req=mysqli_query($result_db,"Select * from banners order by place desc Limit 0, 1");
+$roq=mysqli_fetch_array($req);
+mysqli_free_result($req);
 $place=$roq["place"];
 $place++;
 
@@ -141,11 +141,11 @@ if(isset($_POST["lt_category"]))
 	}
 }
 
-$rakstam=mysql_query("insert into banners values ('','$datums','$bdatums','$formats','$novietojums','$saite_ee','$saite_lv','$saite_lt','$saite_ru','$saite_en','$ups$filename','$place','0','','','','','','$langs','$notik')");
+$rakstam=mysqli_query($result_db,"insert into banners values ('','$datums','$bdatums','$formats','$novietojums','$saite_ee','$saite_lv','$saite_lt','$saite_ru','$saite_en','$ups$filename','$place','0','','','','','','$langs','$notik')");
 
-$req=mysql_query("Select * from banners order by place desc Limit 0, 1");
-$roq=mysql_fetch_array($req);
-mysql_free_result($req);
+$req=mysqli_query($result_db,"Select * from banners order by place desc Limit 0, 1");
+$roq=mysqli_fetch_array($req);
+mysqli_free_result($req);
 $nn=$roq["id"];
 
 if($nn == ""){$nn++;}
@@ -302,8 +302,8 @@ else
                <?php
                   	function sub_cat($cat_id,$category,$cat_name)
 							{
-								$mysql1 = mysql_query("select * from content where parent_id = '$cat_id' order by place asc");
-								while($cat1 = mysql_fetch_array($mysql1))
+								$mysql1 = mysqli_query($result_db,"select * from content where parent_id = '$cat_id' order by place asc");
+								while($cat1 = mysqli_fetch_array($mysql1))
 								{	
 									$parent_name = $cat_name." $cat1[name]";
 											
@@ -319,13 +319,13 @@ else
 											
 									sub_cat($cat1["id"],$category,$cat_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");							
 								}
-								mysql_free_result($mysql1);
+								mysqli_free_result($mysql1);
 																			
 							}
 							function sub_cats($category)
 							{
-								$mysql = mysql_query("select * from content where parent_id = '0' order by place asc");
-								while($cat = mysql_fetch_array($mysql))
+								$mysql = mysqli_query($result_db,"select * from content where parent_id = '0' order by place asc");
+								while($cat = mysqli_fetch_array($mysql))
 								{	
 									if($category == $cat["id"])
 									{
@@ -339,7 +339,7 @@ else
 									$cat_name = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
 									sub_cat($cat["id"],$category,$cat_name);						
 								}
-								mysql_free_result($mysql);
+								mysqli_free_result($mysql);
 							}
 						?>
                   <tr>

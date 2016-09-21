@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $error = array();
@@ -81,15 +81,15 @@ else
 								else
 								{
 									$a = 1;
-									$query = mysql_query("select * from items where id > '0' $filter");								
-									while($mysql = mysql_fetch_array($query))
+									$query = mysqli_query($result_db,"select * from items where id > '0' $filter");								
+									while($mysql = mysqli_fetch_array($query))
 									{
-										$update = mysql_query("update items set discount_percent = '$discount_percent' where id = '$mysql[id]'");
+										$update = mysqli_query($result_db,"update items set discount_percent = '$discount_percent' where id = '$mysql[id]'");
 										
 										echo "$a. $mysql[name_lv]<br />";
 										$a++;
 									}
-									mysql_free_result($query);
+									mysqli_free_result($query);
 									
 									if($a == 1)
 									{

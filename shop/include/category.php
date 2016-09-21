@@ -54,12 +54,12 @@
 						<option value="0"><?php echo $e[21]; ?></option>
 						<?php
 
-						$query = mysql_query("select * from specialities order by $name_lang asc");
-						while($mysql = mysql_fetch_array($query))
+						$query = mysqli_query($result_db,"select * from specialities order by $name_lang asc");
+						while($mysql = mysqli_fetch_array($query))
 						{
-							$query1 = mysql_query("select items.name_lv, categories.id from categories left join items on categories.id = items.parent_id where categories.statuss='2' and (categories.type = '0' or categories.type = '$_SESSION[t]') and items.speciality like '%*$mysql[id]*%'");
+							$query1 = mysqli_query($result_db,"select items.name_lv, categories.id from categories left join items on categories.id = items.parent_id where categories.statuss='2' and (categories.type = '0' or categories.type = '$_SESSION[t]') and items.speciality like '%*$mysql[id]*%'");
 
-							if($mysql1 = mysql_fetch_array($query1))
+							if($mysql1 = mysqli_fetch_array($query1))
 							{
 								if($_GET["speciality"] == $mysql["id"])
 								{
@@ -79,12 +79,12 @@
 					<select name="branch" onchange="javascript:document.search.submit();">
 						<option value="0"><?php echo $e[22]; ?></option>
 						<?php
-						$query = mysql_query("select * from branches order by $name_lang asc");
-						while($mysql = mysql_fetch_array($query))
+						$query = mysqli_query($result_db,"select * from branches order by $name_lang asc");
+						while($mysql = mysqli_fetch_array($query))
 						{
-							$query1 = mysql_query("select items.name_lv, categories.id from categories left join items on categories.id = items.parent_id where categories.statuss='2' and (categories.type = '0' or categories.type = '$_SESSION[t]') and items.branch like '%*$mysql[id]*%'");
+							$query1 = mysqli_query($result_db,"select items.name_lv, categories.id from categories left join items on categories.id = items.parent_id where categories.statuss='2' and (categories.type = '0' or categories.type = '$_SESSION[t]') and items.branch like '%*$mysql[id]*%'");
 
-							if($mysql1 = mysql_fetch_array($query1))
+							if($mysql1 = mysqli_fetch_array($query1))
 							{
 
 								if($_GET["branch"] == $mysql["id"])
@@ -200,7 +200,7 @@
 			if($search_on == 1)
 			{
 
-				$query_pages = mysql_query("select
+				$query_pages = mysqli_query($result_db,"select
 				items.picture,
 				items.$url_lang,
 				items.$name_lang,
@@ -217,9 +217,9 @@
 				items.id as group_type,
 				items.parent_id
 				$group_parameter
-				 from items left join categories on categories.id = items.parent_id $branch_query where categories.statuss='2' and items.statuss = '2' and copy = '0' and (categories.type = '0' or categories.type = '$_SESSION[t]') $filters $buy_filter $group_filter $orders"); echo mysql_error();
+				 from items left join categories on categories.id = items.parent_id $branch_query where categories.statuss='2' and items.statuss = '2' and copy = '0' and (categories.type = '0' or categories.type = '$_SESSION[t]') $filters $buy_filter $group_filter $orders"); echo mysqli_error();
 
-				$query = mysql_query("select
+				$query = mysqli_query($result_db,"select
 				items.picture,
 				items.$url_lang,
 				items.$name_lang,
@@ -240,18 +240,18 @@
 			}
 			else if($category_discount == 1)
 			{
-				$query_pages = mysql_query("select * , id as group_type from items where statuss = '2' and  discount = '2' and copy = '0' $filters $buy_filter");
-				$query = mysql_query("select * , id as group_type from items where statuss = '2' and discount = '2' and copy = '0' $filters $buy_filter order by parent_id asc, place asc LIMIT $begin, $interval ");
+				$query_pages = mysqli_query($result_db,"select * , id as group_type from items where statuss = '2' and  discount = '2' and copy = '0' $filters $buy_filter");
+				$query = mysqli_query($result_db,"select * , id as group_type from items where statuss = '2' and discount = '2' and copy = '0' $filters $buy_filter order by parent_id asc, place asc LIMIT $begin, $interval ");
 			}
 			else
 			{
-				$query_pages = mysql_query("select * , id as group_type from items where statuss = '2' and  parent_id = '$catalog_id' $filters $buy_filter $orders");
-				$query = mysql_query("select * , id as group_type from items where statuss = '2' and parent_id = '$catalog_id' $filters $buy_filter $orders LIMIT $begin, $interval ");
+				$query_pages = mysqli_query($result_db,"select * , id as group_type from items where statuss = '2' and  parent_id = '$catalog_id' $filters $buy_filter $orders");
+				$query = mysqli_query($result_db,"select * , id as group_type from items where statuss = '2' and parent_id = '$catalog_id' $filters $buy_filter $orders LIMIT $begin, $interval ");
 			}
 
 
 
-			$pavisam = mysql_num_rows($query_pages);
+			$pavisam = mysqli_num_rows($query_pages);
 			$pages = ceil($pavisam/$interval);
 			$page = "";
 			$echo_pages = "";
@@ -289,7 +289,7 @@
 
 
 
-			$count = mysql_num_rows($query);
+			$count = mysqli_num_rows($query);
 			if($count > 0)
 			{
 				?>
@@ -299,12 +299,12 @@
 			<?php
 				echo '<table cellpadding="0" cellspacing="1" border="0">';
 				$tr = 1; $tr_max = 3; $url_lang = 'url_lv';/*$name_lang = 'name_lv'; $text_lang = 'text_lv';*/
-				while($mysql = mysql_fetch_array($query))
+				while($mysql = mysqli_fetch_array($query))
 				{
 					if($mysql["group_type"] == 0)
 					{
-						$cats = mysql_query("select * from categories where id = '$mysql[parent_id]'");
-						$cat = mysql_fetch_array($cats);
+						$cats = mysqli_query($result_db,"select * from categories where id = '$mysql[parent_id]'");
+						$cat = mysqli_fetch_array($cats);
 
 						if($tr == 1)
 						{

@@ -1,18 +1,18 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-// izdzçðam visas apakðsadaïas
+// izdzï¿½ï¿½am visas apakï¿½sadaï¿½as
 
-$r=mysql_query("Select * from items where id='$name'");
-$f=mysql_fetch_array($r);
-mysql_free_result($r);
+$r=mysqli_query($result_db,"Select * from items where id='$name'");
+$f=mysqli_fetch_array($r);
+mysqli_free_result($r);
 
-$ren=mysql_query("Select * from items where parent_id='$f[parent_id]' order by place desc Limit 0,1");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from items where parent_id='$f[parent_id]' order by place desc Limit 0,1");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
 $place=$row["place"];
 $place++;
@@ -35,7 +35,7 @@ else
 	$picture = "";
 }
 
-$rakstam=mysql_query("insert into items values 
+$rakstam=mysqli_query($result_db,"insert into items values 
 	(
 	'',
 	'$f[parent_id]',
@@ -76,7 +76,7 @@ $rakstam=mysql_query("insert into items values
 	'$f[items]'
 	)");
 	
-	$n_id=mysql_insert_id();
+	$n_id=mysqli_insert_id();
 		
 
 $links = "index.php".$li."&page=$_GET[page]";

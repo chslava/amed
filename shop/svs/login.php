@@ -1,5 +1,5 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 $wolf_path="";
 require_once($wolf_path."config.php");
 
@@ -21,7 +21,7 @@ if ($username && $password)
 	  	$_SESSION["valid_user"]=$username;
 			$laiks = time();
 			$ip=$_SERVER["REMOTE_ADDR"];
-			$result=mysql_query("update user set ip='$ip', time='$laiks' where username='$username'"); 
+			$result=mysqli_query($result_db,"update user set ip='$ip', time='$laiks' where username='$username'"); 
 	  	header("Location: member.php");
 	  	exit;
     }  

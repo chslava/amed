@@ -12,8 +12,8 @@ if(isset($_POST["submit"]))
 		$sadala=str_replace($change_from,$change_to,$_POST["sadala"]);
 		$sadala=trim($sadala);
 		
-		$req=mysql_query("Select place from items where parent_id='$sadala' order by place desc limit 0,1");echo mysql_error();
-		if($roq=mysql_fetch_array($req))
+		$req=mysqli_query($result_db,"Select place from items where parent_id='$sadala' order by place desc limit 0,1");echo mysqli_error();
+		if($roq=mysqli_fetch_array($req))
 		{
 			$place=$roq["place"];
 			$place++;
@@ -23,8 +23,8 @@ if(isset($_POST["submit"]))
 			$place = 1;
 		}		
 		
-		$r=mysql_query("Select * from items where id='$name'");
-		$f=mysql_fetch_array($r);
+		$r=mysqli_query($result_db,"Select * from items where id='$name'");
+		$f=mysqli_fetch_array($r);
 			
 		if (!empty($f["picture"]))
 		{
@@ -40,7 +40,7 @@ if(isset($_POST["submit"]))
 			$picture = "";
 		}
 	 			
-		$rakstam=mysql_query("insert into items (
+		$rakstam=mysqli_query($result_db,"insert into items (
 		`parent_id`, `place`, `statuss`, `picture`, `title_ee`, `title_lv`, `title_lt`, `title_ru`, `title_en`, `description_ee`,
 		`description_lv`, `description_lt`, `description_ru`, `description_en`, `keywords_ee`, `keywords_lv`, `keywords_lt`, 
 		`keywords_ru`, `keywords_en`, `url_ee`, `url_lv`, `url_lt`, `url_ru`, `url_en`, `name_ee`, `name_lv`, `name_lt`,
@@ -57,9 +57,9 @@ if(isset($_POST["submit"]))
 		'$f[price]', '$f[discount]', '$f[discount_price]', '$f[new]', '$f[storage]', '$f[speciality]', '$f[items]', '$f[person]', '$f[branch]', 
 		'$f[rate]', '$f[buy]', '$f[discount_percent]', '$name'	
 		)
-		"); echo mysql_error();
+		"); echo mysqli_error();
 		
-		$last_id = mysql_insert_id();
+		$last_id = mysqli_insert_id();
 		
 		$url_lv_n = str_replace('-'.$name,'',$f['url_lv']);
 		$url_ru_n = str_replace('-'.$name,'',$f['url_ru']);
@@ -73,7 +73,7 @@ if(isset($_POST["submit"]))
 		$url_ee_n = $url_ee_n.'-'.$last_id;
 		$url_lt_n = $url_lt_n.'-'.$last_id;
 		
-		$result = mysql_query("update items set 
+		$result = mysqli_query($result_db,"update items set 
 	
 		url_lv = '$url_lv_n,
 		url_ru = '$url_ru_n',
@@ -83,10 +83,10 @@ if(isset($_POST["submit"]))
 		
 		where id = '$last_id'");
 		
-		$query1 = mysql_query("select * from branches_items where item_id = '$name'");
-		while($mysql1 = mysql_fetch_array($query1))
+		$query1 = mysqli_query($result_db,"select * from branches_items where item_id = '$name'");
+		while($mysql1 = mysqli_fetch_array($query1))
 		{
-			$result = mysql_query("insert into branches_items (`branche_id`,`item_id`,`place`,`group_type`,`category_id`) values ('$mysql1[branche_id]','$last_id','$mysql1[place]','$mysql1[group_type]','$mysql1[category_id]')");
+			$result = mysqli_query($result_db,"insert into branches_items (`branche_id`,`item_id`,`place`,`group_type`,`category_id`) values ('$mysql1[branche_id]','$last_id','$mysql1[place]','$mysql1[group_type]','$mysql1[category_id]')");
 		}
 		
 		$links ="index.php".$li1.'&id='.$sadala;
@@ -153,9 +153,9 @@ if(isset($_POST["submit"]))
 					function sad($parent_id,$indent,$tabula,$ver,$kr)
 					{
 						$indent=$indent."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' order by place asc");
+						$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
 							
-						while($f1=mysql_fetch_array($r1))
+						while($f1=mysqli_fetch_array($r1))
 						{
 							echo "$indent<input type=\"radio\" name=\"sadala\" value=\"$f1[id]\"> <b>$f1[name_lv]</b><br>\n";
 						
@@ -164,8 +164,8 @@ if(isset($_POST["submit"]))
 					}
 					
 					$indent="&nbsp;&nbsp;&nbsp;&nbsp;";
-					$r=mysql_query("Select * from categories where parent_id='0' order by place asc");
-					while($f=mysql_fetch_array($r))
+					$r=mysqli_query($result_db,"Select * from categories where parent_id='0' order by place asc");
+					while($f=mysqli_fetch_array($r))
 					{
 						echo "<tr bgcolor=\"$krasa[$kr]\"><td class=\"standart\" width=\"300\"><input type=\"radio\" name=\"sadala\" value=\"$f[id]\"> <b>$f[name_lv]</b><br>\n";
 													

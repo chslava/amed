@@ -16,8 +16,8 @@ else{
 	$db_password="raweicieya0ai9yo";//MySql password
 	$db_name="amedical";//MySql database name
 }
-$result_db = mysql_connect($db_host,$db_user,$db_password);
-mysql_select_db($db_name,$result_db);
+$result_db = mysqli_connect($db_host,$db_user,$db_password);
+mysqli_select_db($result_db, $db_name);
 
-mysql_query("SET NAMES utf8");
+mysqli_query($result_db,"SET NAMES utf8");
 ?>
