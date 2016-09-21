@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 if(isset($_POST["submit"]))
@@ -38,7 +38,7 @@ if(isset($_POST["submit"]))
 		$obl = 1;
 	}
 	
-	$result = mysql_query("update anketas set 
+	$result = mysqli_query($result_db,"update anketas set 
 	
 	field_name = '$nosaukums',
 	field_type = '$tips',
@@ -58,9 +58,9 @@ if(isset($_POST["submit"]))
 }
 else
 {
-	$ren=mysql_query("Select * from anketas where id='$k'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from anketas where id='$k'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
 	$nosaukums = $row["field_name"];
 	$tips =  $row["field_type"];
@@ -109,9 +109,9 @@ else
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php 
-$ren=mysql_query("Select * from anketas where id='$name'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from anketas where id='$name'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 
 
 ?>

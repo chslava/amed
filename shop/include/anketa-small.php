@@ -15,9 +15,9 @@
 		echo "<p>$error</p>";
 	}
 	$o=0;$a=1;
-	$lauki=mysql_query("Select * from anketas where parent_id='$anketa' order by place asc");
-	$cik = mysql_num_rows($lauki);
-	while($lauks=mysql_fetch_array($lauki))
+	$lauki=mysqli_query($result_db,"Select * from anketas where parent_id='$anketa' order by place asc");
+	$cik = mysqli_num_rows($lauki);
+	while($lauks=mysqli_fetch_array($lauki))
 	{			
 		$value=$lauks["id"];
 		$v_nos=str_replace($change_from,$change_to,$_POST[$value]); 
@@ -68,7 +68,7 @@
 		}
 		$a++;
 	}	
-	mysql_free_result($lauki);		
+	mysqli_free_result($lauki);		
 								
 	
 	

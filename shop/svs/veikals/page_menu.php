@@ -5,9 +5,9 @@
 			<table cellpadding="2" cellspacing="1" border="0" width="216">			
 <?php 
 $indent="";
-$row=mysql_query("Select id,parent_id from $tabula where id='$id' order by place asc");
-$fe=mysql_fetch_array($row);
-mysql_free_result($row);
+$row=mysqli_query($result_db,"Select id,parent_id from $tabula where id='$id' order by place asc");
+$fe=mysqli_fetch_array($row);
+mysqli_free_result($row);
 if(!empty($fe)){
 
 $limenis=array();
@@ -16,8 +16,8 @@ while($fe["parent_id"]!=0)
 {	
 	if($fe["parent_id"]!=0)
 	{
-		$row=mysql_query("Select id,parent_id from $tabula where id='$fe[parent_id]' order by place asc");
-		$fe=mysql_fetch_array($row);
+		$row=mysqli_query($result_db,"Select id,parent_id from $tabula where id='$fe[parent_id]' order by place asc");
+		$fe=mysqli_fetch_array($row);
 		$limenis[]=$fe["id"];
 	}
 }
@@ -30,8 +30,8 @@ function izvelnes($parent_id,$atstarpe,$cik,$limenis,$li1,$tabula,$wolf_path,$ve
 {
 	$nam = "name_".$ver;
 	$cik--;
-	$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 		
 		$linc="index.php$li1&id=$f1[id]";
@@ -69,8 +69,8 @@ function izvelnes($parent_id,$atstarpe,$cik,$limenis,$li1,$tabula,$wolf_path,$ve
 if(!empty($limenis[$cik])){
 if($limenis[$cik]==0)
 {
-	$r=mysql_query("Select id from $tabula where parent_id='0' and lang='$ver' order by place asc limit 0,1");
-	$f=mysql_fetch_array($r);
+	$r=mysqli_query($result_db,"Select id from $tabula where parent_id='0' and lang='$ver' order by place asc limit 0,1");
+	$f=mysqli_fetch_array($r);
 	$ko=$f["id"];
 }
 else
@@ -78,9 +78,9 @@ else
 	$ko=$limenis[$cik];
 }
 }
-	$r=mysql_query("Select * from $tabula where parent_id='0' order by place asc");
+	$r=mysqli_query($result_db,"Select * from $tabula where parent_id='0' order by place asc");
 	$cik--;
-	while($f=mysql_fetch_array($r))
+	while($f=mysqli_fetch_array($r))
 	{
 	
 		$linc="index.php$li1&id=$f[id]";
@@ -93,7 +93,7 @@ else
 		}
 		echo "</td></tr>\n";
 	}
-mysql_free_result($r);
+mysqli_free_result($r);
 }
 else{
 echo "<tr><td class=\"standart\">".$teksti[0]."</td></tr>";

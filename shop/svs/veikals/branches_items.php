@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $interval="25";
 if(empty($_GET["page"]))
@@ -70,9 +70,9 @@ $text_lang = "text_".$ver;
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php
 				$nos = "branches";
-				$ren=mysql_query("Select * from $nos where id='$id'");
-				$rop=mysql_fetch_array($ren);
-				mysql_free_result($ren);
+				$ren=mysqli_query($result_db,"Select * from $nos where id='$id'");
+				$rop=mysqli_fetch_array($ren);
+				mysqli_free_result($ren);
 				?>
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
 					<tr>
@@ -89,8 +89,8 @@ $text_lang = "text_".$ver;
 					
 					<?php 
 					
-					$r = mysql_query($select1);
-					$pavisam = mysql_num_rows($r);
+					$r = mysqli_query($result_db,$select1);
+					$pavisam = mysqli_num_rows($r);
 					$pages = ceil($pavisam/$interval);
 					$page = "";
 					$echo_pages = "";
@@ -129,13 +129,13 @@ $text_lang = "text_".$ver;
 	  				</tr>
 	  				<?php
 						
-	  				$rep=mysql_query($select2);
+	  				$rep=mysqli_query($result_db,$select2);
 	  				$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
-	 						$items = mysql_query("select * from items where id = '$rop[item_id]'");
-	 						$item = mysql_fetch_array($items);
-	 						mysql_free_result($items);
+	 						$items = mysqli_query($result_db,"select * from items where id = '$rop[item_id]'");
+	 						$item = mysqli_fetch_array($items);
+	 						mysqli_free_result($items);
 						
 							$dala = strip_tags($item["text_lv"]);
 							$dala = mb_substr($dala,0,200,"utf-8");
@@ -184,7 +184,7 @@ $text_lang = "text_".$ver;
 															</tr>";
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 							echo "<tr><td class=\"st1\">$pr[4]</td></tr>";

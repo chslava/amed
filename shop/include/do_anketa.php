@@ -7,9 +7,9 @@ $change_to=array("`","","&quot;");
 $p_cipari="^([0-9]+)$";
 $p_epasts="^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$";
 
-$an=mysql_query("Select * from anketas where id='$anketa'");
-$anket=mysql_fetch_array($an);
-mysql_free_result($an);
+$an=mysqli_query($result_db,"Select * from anketas where id='$anketa'");
+$anket=mysqli_fetch_array($an);
+mysqli_free_result($an);
 
 $check = 0;
 $correct = 0;
@@ -46,8 +46,8 @@ if(isset($_POST["submit"]))
 <table cellpadding=\"3\" cellspacing=\"1\">";
 
 	
-	$lauki=mysql_query("Select * from anketas where parent_id='$anketa' order by place asc");
-	while($lauks=mysql_fetch_array($lauki))
+	$lauki=mysqli_query($result_db,"Select * from anketas where parent_id='$anketa' order by place asc");
+	while($lauks=mysqli_fetch_array($lauki))
 	{		
 		//Ja nekas nav ierakstīts, vērtībai piešķiram tukšumu
 		$value=$lauks["id"];
@@ -175,7 +175,7 @@ if(isset($_POST["submit"]))
 			}
 		}				
 	}
-	mysql_free_result($lauki);
+	mysqli_free_result($lauki);
 	
 	$saturs_html .= "</table></body></html>";
 	
@@ -224,8 +224,8 @@ if(isset($_POST["submit"]))
 }
 else
 {
-	$lauki=mysql_query("Select * from anketas where parent_id='$anketa' order by place asc");
-	while($lauks=mysql_fetch_array($lauki))
+	$lauki=mysqli_query($result_db,"Select * from anketas where parent_id='$anketa' order by place asc");
+	while($lauks=mysqli_fetch_array($lauki))
 	{		
 		$value=$lauks["id"];
 		$_POST[$value] = ""; 
@@ -234,7 +234,7 @@ else
 			$show_check++;
 		}
 	}
-	mysql_free_result($lauki);
+	mysqli_free_result($lauki);
 
 }
 ?>

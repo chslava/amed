@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 if(isset($_POST["submit"]))
 {
@@ -43,7 +43,7 @@ if(isset($_POST["submit"]))
 	
 	
 	
-	$rakstam=mysql_query("insert into texts values ('','$teksts_ee','$teksts_lv','$teksts_lt','$teksts_ru','$teksts_en','$apraksts','$sadala')");
+	$rakstam=mysqli_query($result_db,"insert into texts values ('','$teksts_ee','$teksts_lv','$teksts_lt','$teksts_ru','$teksts_en','$apraksts','$sadala')");
 
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

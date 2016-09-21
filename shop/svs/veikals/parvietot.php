@@ -18,13 +18,13 @@ if(isset($_POST["submit"]))
 	}
 	if(empty($sadala))
 	{
-		$req=mysql_query("Select place from categories where parent_id='0' order by place desc Limit 0, 1");
-		$roq=mysql_fetch_array($req);
+		$req=mysqli_query($result_db,"Select place from categories where parent_id='0' order by place desc Limit 0, 1");
+		$roq=mysqli_fetch_array($req);
 		$place=$roq["place"];
 		$place++;
 		if(empty($place)){$place=1;}
 		
-		$rakstam=mysql_query("update categories set parent_id='$sadala', place='$place' where id='$id'");
+		$rakstam=mysqli_query($result_db,"update categories set parent_id='$sadala', place='$place' where id='$id'");
 		$links ="index.php".$li;
 		header("Location: $links");
 		exit;
@@ -32,13 +32,13 @@ if(isset($_POST["submit"]))
 	
 	if($error == "")
 	{
-		$req=mysql_query("Select place from categories where parent_id='$sadala' order by place desc Limit 0, 1");
-		$roq=mysql_fetch_array($req);
+		$req=mysqli_query($result_db,"Select place from categories where parent_id='$sadala' order by place desc Limit 0, 1");
+		$roq=mysqli_fetch_array($req);
 		$place=$roq["place"];
 		$place++;
 		if(empty($place)){$place=1;}
 		
-		$rakstam=mysql_query("update categories set parent_id='$sadala', place='$place' where id='$id'");
+		$rakstam=mysqli_query($result_db,"update categories set parent_id='$sadala', place='$place' where id='$id'");
 		$links ="index.php".$li;
 		header("Location: $links");
 		exit;
@@ -98,9 +98,9 @@ if(isset($_POST["submit"]))
 					function sad($parent_id,$indent,$tabula,$ver,$kr)
 					{
 						$indent=$indent."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-						$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' order by place asc");
+						$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
 							
-						while($f1=mysql_fetch_array($r1))
+						while($f1=mysqli_fetch_array($r1))
 						{
 							echo "$indent<input type=\"radio\" name=\"sadala\" value=\"$f1[id]\"> <b>$f1[name_lv]</b><br>\n";
 						
@@ -109,8 +109,8 @@ if(isset($_POST["submit"]))
 					}
 					
 					$indent="&nbsp;&nbsp;&nbsp;&nbsp;";
-					$r=mysql_query("Select * from categories where parent_id='0' order by place asc");
-					while($f=mysql_fetch_array($r))
+					$r=mysqli_query($result_db,"Select * from categories where parent_id='0' order by place asc");
+					while($f=mysqli_fetch_array($r))
 					{
 						echo "<tr bgcolor=\"$krasa[$kr]\"><td class=\"standart\" width=\"300\"><input type=\"radio\" name=\"sadala\" value=\"$f[id]\"> <b>$f[name_lv]</b><br>\n";
 													

@@ -1,12 +1,12 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$rep=mysql_query("Select * from banners where id='$name'");
-$rop=mysql_fetch_array($rep);
-mysql_free_result($rep);
+$rep=mysqli_query($result_db,"Select * from banners where id='$name'");
+$rop=mysqli_fetch_array($rep);
+mysqli_free_result($rep);
 
 if(isset($_POST["submit"])){
 
@@ -76,7 +76,7 @@ $formats = str_replace($change_from,$change_to,$_POST["formats"]);
 $novietojums = str_replace($change_from,$change_to,$_POST["novietojums"]);
 
 
-$change_from=array("â","è","ç","ì","î","í","ï","ò","ð","û","þ","Â","È","Ç","Ì","Î","Í","Ï","Ò","Ð","Û","Þ");
+$change_from=array("ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½","ï¿½");
 $change_to=array("a","c","e","g","i","k","l","n","s","u","z","A","C","E","G","I","K","L","N","S","U","Z");
 $file=$_FILES["fails"]["tmp_name"];
 $filenameo=$_FILES["fails"]["name"];
@@ -155,7 +155,7 @@ if(isset($_POST["lt_category"]))
 	}
 }
 
-$rakstam=mysql_query("update banners set sdat='$datums', bdat='$bdatums', novietojums='$novietojums', formats='$formats', saite_lv='$saite_lv', saite_ru='$saite_ru', saite_en='$saite_en', saite_lt='$saite_lt',saite_ee='$saite_ee', lang='$langs', category = '$notik' $datnes_f where id='$name'");
+$rakstam=mysqli_query($result_db,"update banners set sdat='$datums', bdat='$bdatums', novietojums='$novietojums', formats='$formats', saite_lv='$saite_lv', saite_ru='$saite_ru', saite_en='$saite_en', saite_lt='$saite_lt',saite_ee='$saite_ee', lang='$langs', category = '$notik' $datnes_f where id='$name'");
 
 
 
@@ -362,8 +362,8 @@ for($c=0;$c<count($langs);$c++)
                <?php
                   	function sub_cat($cat_id,$category,$cat_name)
 							{
-								$mysql1 = mysql_query("select * from content where parent_id = '$cat_id' order by place asc");
-								while($cat1 = mysql_fetch_array($mysql1))
+								$mysql1 = mysqli_query($result_db,"select * from content where parent_id = '$cat_id' order by place asc");
+								while($cat1 = mysqli_fetch_array($mysql1))
 								{	
 									$parent_name = $cat_name." $cat1[name]";
 									$item_id = $cat1["id"];	
@@ -379,13 +379,13 @@ for($c=0;$c<count($langs);$c++)
 											
 									sub_cat($cat1["id"],$category,$cat_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");							
 								}
-								mysql_free_result($mysql1);
+								mysqli_free_result($mysql1);
 																			
 							}
 							function sub_cats($category)
 							{
-								$mysql = mysql_query("select * from content where parent_id = '0' order by place asc");
-								while($cat = mysql_fetch_array($mysql))
+								$mysql = mysqli_query($result_db,"select * from content where parent_id = '0' order by place asc");
+								while($cat = mysqli_fetch_array($mysql))
 								{	
 									$cat_id = $cat["id"];
 									if(isset($category[$cat_id]))
@@ -400,7 +400,7 @@ for($c=0;$c<count($langs);$c++)
 									$cat_name = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
 									sub_cat($cat["id"],$category,$cat_name);						
 								}
-								mysql_free_result($mysql);
+								mysqli_free_result($mysql);
 							}
 						?>
                   <tr>

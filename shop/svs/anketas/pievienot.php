@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $error="";
 if(isset($_POST["submit"]))
@@ -16,15 +16,15 @@ if(isset($_POST["submit"]))
 		$error=$error. "<tr><td colspan=\"2\" class=\"sarkanst\">$sabloni[6]</tr></td>";
 	}
 
-	$rep=mysql_query("Select * from anketas where name = '$sablons'");
-	$cik = mysql_num_rows($rep);
+	$rep=mysqli_query($result_db,"Select * from anketas where name = '$sablons'");
+	$cik = mysqli_num_rows($rep);
 	if($cik>0)
 	{
 		$error=$error. "<tr><td colspan=\"2\" class=\"sarkanst\">$sabloni[4]</tr></td>";
 	}
 	
-	$ren=mysql_query("Select * from anketas where value='1' order by place desc Limit 0, 1");
-	$row=mysql_fetch_array($ren);
+	$ren=mysqli_query($result_db,"Select * from anketas where value='1' order by place desc Limit 0, 1");
+	$row=mysqli_fetch_array($ren);
 	$place=$row["place"];
 	if(empty($place))
 	{
@@ -49,7 +49,7 @@ if(isset($_POST["submit"]))
 	
 	if($error == "")
 	{
-		$result = mysql_query("insert into anketas values (
+		$result = mysqli_query($result_db,"insert into anketas values (
 		'',
 		'0',
 		'$place',

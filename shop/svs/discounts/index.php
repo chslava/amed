@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 ?>
@@ -49,8 +49,8 @@ require_once($wolf_path."check.php");
 	  				$all_discounts = array("",$discounts[34],$discounts[35],$discounts[36],$discounts[37],$discounts[39],$discounts[42]);
 	  				$a = 0;
 	  				$text_lang = "text_".$ver;
-					$rep=mysql_query("Select * from discounts order by start_time desc");
-	  				while($rop=mysql_fetch_array($rep))
+					$rep=mysqli_query($result_db,"Select * from discounts order by start_time desc");
+	  				while($rop=mysqli_fetch_array($rep))
 					{
 						$start_time = date("d.m.Y H:i",$rop["start_time"]);
 						$end_time = date("d.m.Y H:i",$rop["end_time"]);
@@ -96,7 +96,7 @@ require_once($wolf_path."check.php");
 							</tr>";
 						$a++;
 					}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 				if($a == 0)
 	 				{
 	 					echo "<tr><td class=\"standart\">$discounts[22]</td></tr>";
@@ -114,29 +114,29 @@ require_once($wolf_path."check.php");
 
 						$brands = array();
 						$brands[0] = "-";
-						$ren=mysql_query("Select * from tire_brands order by name asc");
-						while($row=mysql_fetch_array($ren))
+						$ren=mysqli_query($result_db,"Select * from tire_brands order by name asc");
+						while($row=mysqli_fetch_array($ren))
 						{
 							$brand_id = $row["id"];
 							$brands[$brand_id] = $row["name"];							
 						}
-						mysql_free_result($ren);
+						mysqli_free_result($ren);
 						
 						$seasons = array("-",$item[71],$item[72],$item[85]);
 						$types = array("-",$item[77],$item[78],$item[79],$item[86],$item[87],$item[88]);
 						$news = array("-",$item[90],$item[91]);
 
-						$query = mysql_query("select * from items where discount1 = '2' group by discount1_percents, parent_id, brand, season, type, new order by discount1_percents asc");
-						while($mysql = mysql_fetch_array($query))
+						$query = mysqli_query($result_db,"select * from items where discount1 = '2' group by discount1_percents, parent_id, brand, season, type, new order by discount1_percents asc");
+						while($mysql = mysqli_fetch_array($query))
 						{
 							$brand_id = $mysql["brand"];
 							$season_id = $mysql["season"];
 							$type_id = $mysql["type"];
 							$new_id = $mysql["new"];
 							
-							$query1 = mysql_query("select * from categories where id = '$mysql[parent_id]'");
-							$mysql1 = mysql_fetch_array($query1);
-							mysql_free_result($query1);
+							$query1 = mysqli_query($result_db,"select * from categories where id = '$mysql[parent_id]'");
+							$mysql1 = mysqli_fetch_array($query1);
+							mysqli_free_result($query1);
 							
 							echo "
 							<tr>
@@ -144,7 +144,7 @@ require_once($wolf_path."check.php");
 							</tr>
 							";
 						}
-						mysql_free_result($query);*/
+						mysqli_free_result($query);*/
 						?>
                   
                </table>

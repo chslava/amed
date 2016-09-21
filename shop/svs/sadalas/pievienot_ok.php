@@ -1,8 +1,8 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $change_from=array("'","\\","&","<");
@@ -59,19 +59,19 @@ $icon=trim($icon);
 		$under=$teksti[15];
 	}
 
-// aizliedzam visiem useriem pieeju jaunajai sadaïai
+// aizliedzam visiem useriem pieeju jaunajai sadaï¿½ai
 
 	
 	
-	$ren=mysql_query("Select * from $tabula where id='$id'");
-	$row=mysql_fetch_array($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+	$row=mysqli_fetch_array($ren);
 	
 	$pp = $row["parent_id"];
-	mysql_free_result($ren);
+	mysqli_free_result($ren);
 	
 	$useri="";
-	$rin=mysql_query("Select * from user");
-	while($riw=mysql_fetch_array($rin))
+	$rin=mysqli_query($result_db,"Select * from user");
+	while($riw=mysqli_fetch_array($rin))
 	{
 		if($riw["value"]=="no")
 		{
@@ -92,9 +92,9 @@ if($row['parent_id']>0)
 {
 	while($row["parent_id"]>0)
 	{	
-		$ren=mysql_query("Select id,parent_id,name from $tabula where id='$row[parent_id]' order by place asc");
-		$row=mysql_fetch_array($ren);
-		mysql_free_result($ren);
+		$ren=mysqli_query($result_db,"Select id,parent_id,name from $tabula where id='$row[parent_id]' order by place asc");
+		$row=mysqli_fetch_array($ren);
+		mysqli_free_result($ren);
 		$choosen="<a href=\"$row[url]\" class=\"izveleta\">".$fe["name"]."</a> / ".$choosen;
 			
 	}
@@ -103,11 +103,11 @@ if($row['parent_id']>0)
 
 if($id!=0){
 
-	$ren=mysql_query("Select * from $tabula where parent_id='$pp' and lang='$ver' order by place desc Limit 0, 1");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where parent_id='$pp' and lang='$ver' order by place desc Limit 0, 1");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
-	// uzliekam jaunu mainîgo place
+	// uzliekam jaunu mainï¿½go place
 	$place=$row["place"];
 	$place++;
 
@@ -116,23 +116,23 @@ if($id!=0){
 
 
 
-	// izveidojam jaunu pirmâs pakâpes sadaïu
+	// izveidojam jaunu pirmï¿½s pakï¿½pes sadaï¿½u
 	if($row["parent_id"]==0)
 	{
 		
-		$result = mysql_query("insert into $tabula values ('','0','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
-		$n_id=mysql_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values ('','0','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
+		$n_id=mysqli_insert_id();
 		if (!$result)
 		return "</b>$sadala[4]</b>";
 	}
 	
-	// izveidojam n-tâs pakâpes sadaïu
+	// izveidojam n-tï¿½s pakï¿½pes sadaï¿½u
 	else
 	{
 
 	$choosen = $name;
-		$result = mysql_query("insert into $tabula values ('','$pp','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
-		$n_id=mysql_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values ('','$pp','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
+		$n_id=mysqli_insert_id();
 		if (!$result)
 		return "</b>$sadala[4]</b>";
 	}
@@ -142,8 +142,8 @@ else
 {
 $choosen = $name;
 
-	$result = mysql_query("insert into $tabula values ('','0','$ver','1','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
-	$n_id=mysql_insert_id();
+	$result = mysqli_query($result_db,"insert into $tabula values ('','0','$ver','1','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
+	$n_id=mysqli_insert_id();
 	if (!$result)
 	return "</b>$sadala[4]</b>";
 }

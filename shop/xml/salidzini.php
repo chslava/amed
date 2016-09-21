@@ -13,12 +13,12 @@ $category="";
 function izvelnes($parent_id,$category,$_xml)
 {
 	global $_xml;
-	$r1=mysql_query("Select * from categories where parent_id='$parent_id' and statuss='2' order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from categories where parent_id='$parent_id' and statuss='2' order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 		$category1=$category." &gt; ".$f1["name_lv"];
-		$pr1=mysql_query("Select * from items where parent_id='$f1[id]' and statuss='2' order by place asc");
-		while($pf1=mysql_fetch_array($pr1))
+		$pr1=mysqli_query($result_db,"Select * from items where parent_id='$f1[id]' and statuss='2' order by place asc");
+		while($pf1=mysqli_fetch_array($pr1))
 		{
 			$price = $pf1["price"];
 			if($pf1["discount"] == 2){
@@ -40,19 +40,19 @@ function izvelnes($parent_id,$category,$_xml)
 				<category_link>http://www.amedical.eu/lv/$f1[url_lv]</category_link>
 			</item>";
 		}
-		mysql_free_result($pr1);
+		mysqli_free_result($pr1);
 		izvelnes($f1["id"],$category1,$_xml);
 	}
-	mysql_free_result($r1);
+	mysqli_free_result($r1);
 }
 
 
-$r=mysql_query("Select * from categories where parent_id='0' and statuss='2' order by place asc");
-while($f=mysql_fetch_array($r))
+$r=mysqli_query($result_db,"Select * from categories where parent_id='0' and statuss='2' order by place asc");
+while($f=mysqli_fetch_array($r))
 {
 	$category=$f["name_lv"];
-	$pr=mysql_query("Select * from items where parent_id='$f[id]' and statuss='2' order by place asc");
-	while($pf=mysql_fetch_array($pr))
+	$pr=mysqli_query($result_db,"Select * from items where parent_id='$f[id]' and statuss='2' order by place asc");
+	while($pf=mysqli_fetch_array($pr))
 	{
 		$price = $pf["price"];
 		if($pf["discount"] == 2){
@@ -75,11 +75,11 @@ while($f=mysql_fetch_array($r))
 		</item>";
 
 	}
-	mysql_free_result($pr);
+	mysqli_free_result($pr);
 
 	izvelnes($f["id"],$category,$_xml);
 }
-mysql_free_result($r);
+mysqli_free_result($r);
 
 $_xml .= "
 </root>";

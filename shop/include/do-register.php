@@ -56,12 +56,12 @@ if(isset($_POST["register"]))
 	
 	if(count($error) == 0)
 	{
-		$check_mail = mysql_query("select id from clients where email='$email'");
-		if(mysql_num_rows($check_mail) > 0)
+		$check_mail = mysqli_query($result_db,"select id from clients where email='$email'");
+		if(mysqli_num_rows($check_mail) > 0)
 		{
 			$error[3] = 1;
 		}
-		mysql_free_result($check_mail);
+		mysqli_free_result($check_mail);
 			
 		if(count($error) == 0)
 		{				
@@ -95,7 +95,7 @@ if(isset($_POST["register"]))
 				$ccode.=substr($chars,rand()%$m,1); 
 			}
 																	
-			$result = mysql_query("insert into clients values (
+			$result = mysqli_query($result_db,"insert into clients values (
 			'',
 			'$ses_id',
 			'1',

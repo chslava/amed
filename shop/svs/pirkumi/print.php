@@ -1,23 +1,23 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 require_once("user_auth.php");
 
-$ord=mysql_query("Select * from orders where id='$name'");
-$pas=mysql_fetch_array($ord);
-mysql_free_result($ord);
+$ord=mysqli_query($result_db,"Select * from orders where id='$name'");
+$pas=mysqli_fetch_array($ord);
+mysqli_free_result($ord);
 
-$print = mysql_query("update orders set print='2' where id='$name'");
+$print = mysqli_query($result_db,"update orders set print='2' where id='$name'");
 
-$ord_valsts=mysql_query("Select * from country where id='$pas[country]'");
-$pas_valsts=mysql_fetch_array($ord_valsts);
-mysql_free_result($ord_valsts);
+$ord_valsts=mysqli_query($result_db,"Select * from country where id='$pas[country]'");
+$pas_valsts=mysqli_fetch_array($ord_valsts);
+mysqli_free_result($ord_valsts);
 
-$ord_zieds=mysql_query("Select * from flowers where id='$pas[parent_id]'");
-$pas_zieds=mysql_fetch_array($ord_zieds);
-mysql_free_result($ord_zieds);
+$ord_zieds=mysqli_query($result_db,"Select * from flowers where id='$pas[parent_id]'");
+$pas_zieds=mysqli_fetch_array($ord_zieds);
+mysqli_free_result($ord_zieds);
 	
 ?>
 <html>
@@ -177,9 +177,9 @@ mysql_free_result($ord_zieds);
 	   							</tr>
 									<tr><td height="10" colspan="4" width="100%"></td></tr>
 									<?php if($pas["gift1_id"]>0){
-									$gi=mysql_query("Select * from gifts where id='$pas[gift1_id]'");
-									$gif=mysql_fetch_array($gi);
-									mysql_free_result($gi);
+									$gi=mysqli_query($result_db,"Select * from gifts where id='$pas[gift1_id]'");
+									$gif=mysqli_fetch_array($gi);
+									mysqli_free_result($gi);
 									?>
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[51]; ?></td>
@@ -188,9 +188,9 @@ mysql_free_result($ord_zieds);
 								
 									<?php } ?>
 									<?php if($pas["gift2_id"]>0){
-									$gi=mysql_query("Select * from gifts where id='$pas[gift2_id]'");
-									$gif=mysql_fetch_array($gi);
-									mysql_free_result($gi);
+									$gi=mysqli_query($result_db,"Select * from gifts where id='$pas[gift2_id]'");
+									$gif=mysqli_fetch_array($gi);
+									mysqli_free_result($gi);
 									?>
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[51]; ?></td>
@@ -199,9 +199,9 @@ mysql_free_result($ord_zieds);
 								
 									<?php } ?>
 									<?php if($pas["gift3_id"]>0){
-									$gi=mysql_query("Select * from gifts where id='$pas[gift3_id]'");
-									$gif=mysql_fetch_array($gi);
-									mysql_free_result($gi);
+									$gi=mysqli_query($result_db,"Select * from gifts where id='$pas[gift3_id]'");
+									$gif=mysqli_fetch_array($gi);
+									mysqli_free_result($gi);
 									?>
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[51]; ?></td>
@@ -215,35 +215,35 @@ mysql_free_result($ord_zieds);
 									<tr><td height="10" colspan="4" width="100%"></td></tr>
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[54]; ?></td>
-										<td class="standart" ><b><?php echo $pas["flower_price"];?> €</b></td>
+										<td class="standart" ><b><?php echo $pas["flower_price"];?> ï¿½</b></td>
                               <td valign="top" align="right" width="25%" class="standart"><?php echo $orders[55]; ?></td>
-										<td class="standart"><b><?php if($pas["gift_price"]== "0.00") {echo $pas["gift_price"]." €"; } else { ?><font color="#ff0000"><?php echo $pas["gift_price"];?> €</b></font><?php } ?></td>
+										<td class="standart"><b><?php if($pas["gift_price"]== "0.00") {echo $pas["gift_price"]." ï¿½"; } else { ?><font color="#ff0000"><?php echo $pas["gift_price"];?> ï¿½</b></font><?php } ?></td>
 									</tr>
 									
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[67]; ?></td>
-										<td class="standart"  ><b><?php echo $pas["taxes"];?> €</b></td>
+										<td class="standart"  ><b><?php echo $pas["taxes"];?> ï¿½</b></td>
                               <td valign="top" align="right" width="25%" class="standart"><?php echo $orders[97]; ?></td>
-										<td class="standart" ><b><?php if($pas["p_laiks"]>0){ echo "10.00";} else{ echo "0.00";}?> €</b></td>
+										<td class="standart" ><b><?php if($pas["p_laiks"]>0){ echo "10.00";} else{ echo "0.00";}?> ï¿½</b></td>
 									</tr>
                           
                            <tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[100]; ?></td>
-										<td class="standart"><b><?php if($pas["pap_1"]>0){ echo "$pas[pap_1]";} else{ echo "0.00";}?> €</b></td>
+										<td class="standart"><b><?php if($pas["pap_1"]>0){ echo "$pas[pap_1]";} else{ echo "0.00";}?> ï¿½</b></td>
                               <td valign="top" align="right" width="25%" class="standart"><?php echo $orders[101]; ?></td>
-										<td class="standart" ><b><?php if($pas["pap_2"]>0){ echo "$pas[pap_2]";} else{ echo "0.00";}?> €</b></td>
+										<td class="standart" ><b><?php if($pas["pap_2"]>0){ echo "$pas[pap_2]";} else{ echo "0.00";}?> ï¿½</b></td>
 									</tr>
                            
                            <tr>
 										<td valign="top" align="right" width="25%" class="standart"><?php echo $orders[102]; ?></td>
-										<td class="standart"  ><b><?php if($pas["pap_3"]>0){ echo "$pas[pap_3]";} else{ echo "0.00";}?> €</b></td>
+										<td class="standart"  ><b><?php if($pas["pap_3"]>0){ echo "$pas[pap_3]";} else{ echo "0.00";}?> ï¿½</b></td>
                               <td valign="top" align="right" width="25%" class="standart"><?php echo $orders[103]; ?></td>
-										<td class="standart" ><b><?php if($pas["pap_4"]>0){ echo "$pas[pap_4]";} else{ echo "0.00";}?> €</b></td>
+										<td class="standart" ><b><?php if($pas["pap_4"]>0){ echo "$pas[pap_4]";} else{ echo "0.00";}?> ï¿½</b></td>
 									</tr>
                           
 									<tr>
 										<td valign="top" align="right" width="25%" class="standart"><font size="+1"><b><?php echo $orders[56]; ?></b></font></td>
-										<td class="standart" colspan="3" width="75%"><font size="+1"><b><?php echo $pas["total_price"];?> €</b></font></td>
+										<td class="standart" colspan="3" width="75%"><font size="+1"><b><?php echo $pas["total_price"];?> ï¿½</b></font></td>
 									</tr>
 									<tr><td height="10" colspan="4" width="100%"></td></tr>
 								</table>

@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $interval="20";
 $select1 = "select id from preces where akcija='1'";
@@ -54,9 +54,9 @@ $select2 = "select * from preces where  akcija='1' order by place asc LIMIT $lim
 					$echo_pogas="";
 					
 					$begin=$limit;
-					$zi=mysql_query($select1);
-	  			$cik_tab = mysql_num_rows($zi);
-					mysql_query($zi);
+					$zi=mysqli_query($result_db,$select1);
+	  			$cik_tab = mysqli_num_rows($zi);
+					mysqli_query($result_db,$zi);
 	 				if($cik_tab>0)
 					{
 						$echo_pogas=$echo_pogas."
@@ -86,9 +86,9 @@ $select2 = "select * from preces where  akcija='1' order by place asc LIMIT $lim
 	  				</tr>
 	  				<?php
 						
-	  				$rep=mysql_query($select2);
+	  				$rep=mysqli_query($result_db,$select2);
 	  				$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 	 						if($rop["publish"]==1)
 							{
@@ -107,12 +107,12 @@ $select2 = "select * from preces where  akcija='1' order by place asc LIMIT $lim
 							</form></td>
 							<td class=st1 valign=top>";
 					
-							$bi=mysql_query("select * from preces_f where parent_id='$rop[id]' order by id asc");
-							$cik=mysql_num_rows($bi);
+							$bi=mysqli_query($result_db,"select * from preces_f where parent_id='$rop[id]' order by id asc");
+							$cik=mysqli_num_rows($bi);
 	 												
 							if($cik>0)
 							{
-								$bil=mysql_fetch_array($bi);
+								$bil=mysqli_fetch_array($bi);
 								
 								if(file_exists("../../preces/small/$bil[filename]"))
 								{
@@ -127,7 +127,7 @@ $select2 = "select * from preces where  akcija='1' order by place asc LIMIT $lim
 							{
 								echo "&nbsp;";
 							}
-							mysql_free_result($bi);
+							mysqli_free_result($bi);
                      
                      echo "</td>
 							<td class=st1 valign=top width=100%>
@@ -147,7 +147,7 @@ $select2 = "select * from preces where  akcija='1' order by place asc LIMIT $lim
 							</tr>";
 							$a++;
 						}
-	  				mysql_free_result($rep);
+	  				mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  					echo "<tr><td class=\"st1\">$pr[4]</td></tr>";

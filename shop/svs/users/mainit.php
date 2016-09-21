@@ -1,13 +1,13 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $error = "";
-$ren=mysql_query("Select * from user where id='$_GET[name]'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 		
 if(isset($_POST["submit"])){
 	
@@ -43,8 +43,8 @@ if(isset($_POST["submit"])){
 
 	if($error =="")
 	{
-		$ren=mysql_query("Select * from user where id!='$_GET[name]'");
-		while($row=mysql_fetch_array($ren))
+		$ren=mysqli_query($result_db,"Select * from user where id!='$_GET[name]'");
+		while($row=mysqli_fetch_array($ren))
 		{
 			if($row["username"]==$lietotajs)
 			{
@@ -59,14 +59,14 @@ if(isset($_POST["submit"])){
 		
 		if($error == "")
 		{
-		$rr=mysql_query("Select * from user where id='$_GET[name]'");
-			$rrr=mysql_fetch_array($rr);
+		$rr=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+			$rrr=mysqli_fetch_array($rr);
 			$useris=$rrr["username"];
-			mysql_free_result($rr);
+			mysqli_free_result($rr);
 			
 			$password=md5($parole1);
 			$password=md5($password);
-			$result = mysql_query("update user set username='$lietotajs', password='$password' where id='$name'"); 
+			$result = mysqli_query($result_db,"update user set username='$lietotajs', password='$password' where id='$name'"); 
 			
 			
 			$cik = count($valodas);
@@ -75,14 +75,14 @@ if(isset($_POST["submit"])){
 			while($s<$cik)
 			{
 				$tab="sadalas_".$valodas[$s];
-				$rr=mysql_query("Select * from $tab");
-				while($rrr=mysql_fetch_array($rr))
+				$rr=mysqli_query($result_db,"Select * from $tab");
+				while($rrr=mysqli_fetch_array($rr))
 				{
 					$info=$rrr["user"];
 					$info=str_replace("$useris","$lietotajs",$info);
-					$ziel=mysql_query("update $tab set user='$info' where id='$rrr[id]'"); 
+					$ziel=mysqli_query($result_db,"update $tab set user='$info' where id='$rrr[id]'"); 
 				}
-			mysql_free_result($rr);
+			mysqli_free_result($rr);
 			$s++;
 			}
 		

@@ -1,23 +1,23 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 
-$rep=mysql_query("Select * from anketas where place>'$iz' and parent_id='$name' order by place asc limit 0, 1");
+$rep=mysqli_query($result_db,"Select * from anketas where place>'$iz' and parent_id='$name' order by place asc limit 0, 1");
 
 $place_old=$iz;
-if($rop=mysql_fetch_array($rep))
+if($rop=mysqli_fetch_array($rep))
 {
 	$place_new=$rop["place"];
 }
 else{$place_new=$place_old;}
 $nn=$rop["id"];
-mysql_free_result($rep);
+mysqli_free_result($rep);
 
-$result = mysql_query("update anketas set place='$place_old' where id='$nn'"); 
-$result = mysql_query("update anketas set place='$place_new' where id='$k'"); 
+$result = mysqli_query($result_db,"update anketas set place='$place_old' where id='$nn'"); 
+$result = mysqli_query($result_db,"update anketas set place='$place_new' where id='$k'"); 
 
 $links = "lauki.php".$li1."&name=$name";
 header("Location: $links");

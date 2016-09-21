@@ -9,10 +9,10 @@ if(isset($_POST["remember"]))
 		$lietotajs=str_replace($change_from,$change_to,$_POST["email"]);
 		$lietotajs=trim($lietotajs);
 		
-		$pr=mysql_query("SELECT * FROM clients where email='$lietotajs'");
-		$z=mysql_num_rows($pr);
-		$zz=mysql_fetch_array($pr);
-		mysql_free_result($pr);
+		$pr=mysqli_query($result_db,"SELECT * FROM clients where email='$lietotajs'");
+		$z=mysqli_num_rows($pr);
+		$zz=mysqli_fetch_array($pr);
+		mysqli_free_result($pr);
 			
 		if($z>0)
 		{
@@ -29,7 +29,7 @@ if(isset($_POST["remember"]))
 			$password=md5($x);
 			$password=md5($password);
 			
-			$result = mysql_query("update clients set password='$password', password_changed = '1' where id='$zz[id]'");
+			$result = mysqli_query($result_db,"update clients set password='$password', password_changed = '1' where id='$zz[id]'");
 			
 			require_once("include/send-remember.php");
 									

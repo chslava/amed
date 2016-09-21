@@ -1,12 +1,12 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$rep=mysql_query("Select * from keywords where id='$_GET[name]'");
-$rop=mysql_fetch_array($rep);
-mysql_free_result($rep);
+$rep=mysqli_query($result_db,"Select * from keywords where id='$_GET[name]'");
+$rop=mysqli_fetch_array($rep);
+mysqli_free_result($rep);
 
 if(isset($_POST["submit"]))
 {
@@ -25,7 +25,7 @@ if(isset($_POST["submit"]))
 	$url_en=str_replace($change_from,$change_to,trim($_POST["url_en"]));
 
 	
-	$rakstam=mysql_query("update keywords set url_lv='$url_lv', url_ru='$url_ru', url_en = '$url_en', url_ee = '$url_ee', url_lt = '$url_lt', name='$name_lv' where id='$_GET[name]'");
+	$rakstam=mysqli_query($result_db,"update keywords set url_lv='$url_lv', url_ru='$url_ru', url_en = '$url_en', url_ee = '$url_ee', url_lt = '$url_lt', name='$name_lv' where id='$_GET[name]'");
 	
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

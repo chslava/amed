@@ -1,17 +1,17 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 
 	$error = "";	
 if(isset($_POST["submit"])){
 
-$ren=mysql_query("Select * from user where id='$_GET[name]'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 $name=$row["id"];
 	
 	
@@ -46,8 +46,8 @@ $name=$row["id"];
 
 	if($error =="")
 	{
-		$ren=mysql_query("Select * from user where id!='$_GET[name]'");
-		while($row=mysql_fetch_array($ren))
+		$ren=mysqli_query($result_db,"Select * from user where id!='$_GET[name]'");
+		while($row=mysqli_fetch_array($ren))
 		{
 			if($row["username"]==$lietotajs)
 			{
@@ -65,7 +65,7 @@ $name=$row["id"];
 					
 			$password=md5($parole1);
 			$password=md5($password);
-			$result = mysql_query("update user set username='$lietotajs', password='$password' where id='$_GET[name]'"); 
+			$result = mysqli_query($result_db,"update user set username='$lietotajs', password='$password' where id='$_GET[name]'"); 
 			$_SESSION['valid_user'] = $lietotajs;
 			$links = $wolf_path."member.php$li1";
 			header("Location: $links");
@@ -75,9 +75,9 @@ $name=$row["id"];
 }
 else{
 $lietotajs = $_SESSION['valid_user'];
-$ren=mysql_query("Select * from user where username='$lietotajs'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from user where username='$lietotajs'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 $name=$row["id"];
 }
 ?>

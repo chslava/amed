@@ -4,9 +4,9 @@ require_once("../config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$row=mysql_query("Select * from $tabula where id='$id'");
-$fer=mysql_fetch_array($row);
-mysql_free_result($row);
+$row=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+$fer=mysqli_fetch_array($row);
+mysqli_free_result($row);
 ?>
 
 <html>
@@ -156,12 +156,12 @@ mysql_free_result($row);
                      		<select class="input" name="anketa">
                    				<option value="0"></option>
                      			<?php
-									$ren=mysql_query("Select * from anketas where value='1' order by id asc");
-									while($row=mysql_fetch_array($ren))
+									$ren=mysqli_query($result_db,"Select * from anketas where value='1' order by id asc");
+									while($row=mysqli_fetch_array($ren))
 									{
 										echo "<option value=\"$row[id]\">$row[name]</option>";							
                      				}
-									mysql_free_result($ren);
+									mysqli_free_result($ren);
 								?>
                         	</select>
 							</td>
@@ -174,21 +174,21 @@ mysql_free_result($row);
                      		<?php
 									$name_lang = "name_".$ver;
 									$a = 1;
-									$ren=mysql_query("Select * from albums where parent_id = '0' order by place asc");
-									while($row=mysql_fetch_array($ren))
+									$ren=mysqli_query($result_db,"Select * from albums where parent_id = '0' order by place asc");
+									while($row=mysqli_fetch_array($ren))
 									{
 										echo "<option value=\"$row[id]\">$a. $row[$name_lang]</option>";
 										$b = 1;
-										$ren1=mysql_query("Select * from albums where parent_id = '$row[id]' order by place asc");
-										while($row1=mysql_fetch_array($ren1))
+										$ren1=mysqli_query($result_db,"Select * from albums where parent_id = '$row[id]' order by place asc");
+										while($row1=mysqli_fetch_array($ren1))
 										{
 											echo "<option value=\"$row1[id]\">&nbsp;&nbsp;&nbsp;&nbsp;$a.$b. $row1[$name_lang]</option>";
 											$b++;
 										}
-										mysql_free_result($ren1);
+										mysqli_free_result($ren1);
 										$a++;							
                      		}
-                     		mysql_free_result($ren);
+                     		mysqli_free_result($ren);
                      		?>
                         </select>
 							</td>

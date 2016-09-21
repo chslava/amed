@@ -2,10 +2,10 @@
 $error = array();
 if(isset($_GET["code"]))
 {
-	$check_client = mysql_query("select * from clients where code='$_GET[code]'");
-	if($client_exists = mysql_fetch_array($check_client))
+	$check_client = mysqli_query($result_db,"select * from clients where code='$_GET[code]'");
+	if($client_exists = mysqli_fetch_array($check_client))
 	{
-		$result = mysql_query("update clients set statuss='2' where id='$client_exists[id]' and statuss != '3'");
+		$result = mysqli_query($result_db,"update clients set statuss='2' where id='$client_exists[id]' and statuss != '3'");
 		if (strtoupper(substr(PHP_OS,0,3)=='WIN'))
 		{ 
 			$eol="\r\n"; 
@@ -191,7 +191,7 @@ if(isset($_GET["code"]))
 	{
 		$error[0] = 1;
 	}			
-	mysql_free_result($check_client);
+	mysqli_free_result($check_client);
 }
 else
 {

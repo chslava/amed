@@ -69,18 +69,18 @@ if(isset($_POST["register"]))
 	
 	if(count($error) == 0)
 	{
-		$check_mail = mysql_query("select id from clients where email='$email' and id <> '$user_id'");
-		if(mysql_num_rows($check_mail) > 0)
+		$check_mail = mysqli_query($result_db,"select id from clients where email='$email' and id <> '$user_id'");
+		if(mysqli_num_rows($check_mail) > 0)
 		{
 			$error[3] = 1;
 		}
-		mysql_free_result($check_mail);
+		mysqli_free_result($check_mail);
 			
 		if(count($error) == 0)
 		{				
 					
 			$_SESSION["valid_user"] = $email;									
-			$result = mysql_query("update clients set 
+			$result = mysqli_query($result_db,"update clients set 
 			
 			email = '$email',
 						

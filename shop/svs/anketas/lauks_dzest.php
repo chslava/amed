@@ -1,10 +1,10 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$result1=mysql_query("delete from anketas where id='$k'");
+$result1=mysqli_query($result_db,"delete from anketas where id='$k'");
 
 $links = "lauki.php".$li1."&name=$name";
 header("Location: $links");

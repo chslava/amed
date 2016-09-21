@@ -2,17 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php
-	$query = mysql_query("select * from keywords order by rand() limit 0,3");
-	while($mysql = mysql_fetch_array($query))
+	$query = mysqli_query($result_db,"select * from keywords order by rand() limit 0,3");
+	while($mysql = mysqli_fetch_array($query))
 	{
 		$keywords .= ", ".$mysql["name"];
 	}
-	mysql_free_result($query);
+	mysqli_free_result($query);
 	?>
 	<title><?php echo $title; ?></title>
 	<meta name="description" content="<?php echo $description; ?>" />
 	<meta name="keywords" content="<?php echo $keywords; ?>" />
 	<meta http-equiv="Content-Type" content="text/html; <?php echo $encoding; ?>" />
+
+	
+
 	<link type="text/css" rel="stylesheet" href="<?php echo $css_dir; ?>style.css?version=<?php echo date ("YmdHis", filemtime($css_file)); ?>" />
   	<link rel="shortcut icon" href="<?php echo $root_dir; ?>include/favicon.ico" />
   	
@@ -31,15 +34,15 @@
 	//]]>
     </script>
     
-    <script src="<?php echo $root_dir; ?>include/javascript.js?version=<?php echo date ("YmdHis", filemtime("include/javascript.js")); ?>" type="text/javascript"></script>
+    <script src="<?php echo $root_dir; ?>/include/javascript.js?version=<?php echo date ("YmdHis", filemtime("include/javascript.js")); ?>" type="text/javascript"></script>
    	<!--[if lt IE 7]>
    	<script type="text/javascript" src="<?php echo $root_dir; ?>include/unitpngfix.js"></script>
 	<![endif]--> 
 	
-	<script type="text/javascript" src="<?php echo $root_dir; ?>js/prototype.js"></script>
-	<script type="text/javascript" src="<?php echo $root_dir; ?>js/scriptaculous.js?load=effects,builder"></script>
-	<script type="text/javascript" src="<?php echo $root_dir; ?>js/lightbox.js"></script>
-	<link rel="stylesheet" href="<?php echo $root_dir; ?>css/lightbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/prototype.js"></script>
+	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/scriptaculous.js?load=effects,builder"></script>
+	<script type="text/javascript" src="<?php echo $root_dir; ?>/js/lightbox.js"></script>
+	<link rel="stylesheet" href="<?php echo $root_dir; ?>/css/lightbox.css" type="text/css" media="screen" />
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

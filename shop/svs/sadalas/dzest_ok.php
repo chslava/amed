@@ -1,31 +1,31 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-// izdzçðam visas apakðsadaïas
+// izdzï¿½ï¿½am visas apakï¿½sadaï¿½as
 function dzest($parent_id,$tabula,$ver)
 {
-	$r1=mysql_query("Select * from $tabula where parent_id='$parent_id' and lang='$ver' order by place asc");
-	while($f1=mysql_fetch_array($r1))
+	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' and lang='$ver' order by place asc");
+	while($f1=mysqli_fetch_array($r1))
 	{
 		dzest($f1["id"],$tabula,$ver);
 		
 		
 		
-		mysql_query("delete from $tabula where id='$f1[id]'");
+		mysqli_query($result_db,"delete from $tabula where id='$f1[id]'");
 	}
 }
 
-$r=mysql_query("Select * from $tabula where id='$id' and lang='$ver' order by place asc");
-$f=mysql_fetch_array($r);
+$r=mysqli_query($result_db,"Select * from $tabula where id='$id' and lang='$ver' order by place asc");
+$f=mysqli_fetch_array($r);
 dzest($f["id"],$tabula,$ver);
-mysql_free_result($r);
+mysqli_free_result($r);
 
-// izdzçðam galveno sadaïu
-if(mysql_query("delete from $tabula where id='$id'"))
+// izdzï¿½ï¿½am galveno sadaï¿½u
+if(mysqli_query($result_db,"delete from $tabula where id='$id'"))
 {
 	
 }

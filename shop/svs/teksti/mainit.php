@@ -1,12 +1,12 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$rep=mysql_query("Select * from texts where id='$_GET[name]'");
-$rop=mysql_fetch_array($rep);
-mysql_free_result($rep);
+$rep=mysqli_query($result_db,"Select * from texts where id='$_GET[name]'");
+$rop=mysqli_fetch_array($rep);
+mysqli_free_result($rep);
 
 if(isset($_POST["submit"]))
 {
@@ -46,7 +46,7 @@ if(isset($_POST["submit"]))
 	$sadala=trim($sadala);
 
 	
-	$rakstam=mysql_query("update texts set text_lv='$teksts_lv', text_ru='$teksts_ru', text_en = '$teksts_en', text_ee = '$teksts_ee', text_lt = '$teksts_lt', description='$apraksts', category='$sadala' where id='$_GET[name]'");
+	$rakstam=mysqli_query($result_db,"update texts set text_lv='$teksts_lv', text_ru='$teksts_ru', text_en = '$teksts_en', text_ee = '$teksts_ee', text_lt = '$teksts_lt', description='$apraksts', category='$sadala' where id='$_GET[name]'");
 	
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

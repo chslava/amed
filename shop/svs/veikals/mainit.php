@@ -4,9 +4,9 @@ require_once("config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$row=mysql_query("Select * from $tabula where id='$id'");
-$fer=mysql_fetch_array($row);
-mysql_free_result($row);
+$row=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+$fer=mysqli_fetch_array($row);
+mysqli_free_result($row);
 
 
 
@@ -36,9 +36,9 @@ mysql_free_result($row);
 				}
 				else
 				{
-					$row1=mysql_query("Select * from $tabula where id='$fer[parent_id]'");
-					$fer1=mysql_fetch_array($row1);
-					mysql_free_result($row1);
+					$row1=mysqli_query($result_db,"Select * from $tabula where id='$fer[parent_id]'");
+					$fer1=mysqli_fetch_array($row1);
+					mysqli_free_result($row1);
 				?>
 					var url_text = "<?php echo $fer1["name_lv"]."/"; ?>" + element.value;
 					var title_text  = element.value + "<?php echo " | ".$fer1["name_lv"]." | $e[4]"; ?>";

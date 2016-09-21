@@ -1,11 +1,11 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 require_once($wolf_path."check.php");
 
-// izdzçðam visas apakðsadaïas
+// izdzï¿½ï¿½am visas apakï¿½sadaï¿½as
 
-mysql_query("delete from discounts where id='$name'");
+mysqli_query($result_db,"delete from discounts where id='$name'");
 
 $links = "index.php".$li;
 header("Location: $links");

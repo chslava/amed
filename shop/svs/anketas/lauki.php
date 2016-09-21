@@ -34,9 +34,9 @@ require_once($wolf_path."check.php");
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php 
-				$ren=mysql_query("Select * from anketas where id='$name'");
-				$row=mysql_fetch_array($ren);
-				mysql_free_result($ren);
+				$ren=mysqli_query($result_db,"Select * from anketas where id='$name'");
+				$row=mysqli_fetch_array($ren);
+				mysqli_free_result($ren);
 				
 				?>
 					<table cellpadding="3" cellspacing="0" border="0" width="100%">
@@ -58,8 +58,8 @@ require_once($wolf_path."check.php");
       			</tr>
 					<?php 
 					$a=1;
-					$rez=mysql_query("Select * from anketas where parent_id='$name' order by place asc");
-					while($roz=mysql_fetch_array($rez))
+					$rez=mysqli_query($result_db,"Select * from anketas where parent_id='$name' order by place asc");
+					while($roz=mysqli_fetch_array($rez))
 					{
 						echo"
 							<tr>
@@ -119,7 +119,7 @@ $dis="disabled";
 echo "<tr>
 <td colspan=3 class=\"standart\">$sabloni[19]</td></tr>";
 }
-@mysql_free_result($rez);
+@mysqli_free_result($rez);
 ?>
 
     			</table>

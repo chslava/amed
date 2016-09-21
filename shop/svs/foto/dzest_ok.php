@@ -1,16 +1,16 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$res=mysql_query("Select * from albums where id='$name'");
-$ros=mysql_fetch_array($res);
-mysql_free_result($res);
+$res=mysqli_query($result_db,"Select * from albums where id='$name'");
+$ros=mysqli_fetch_array($res);
+mysqli_free_result($res);
 
-$ren=mysql_query("Select * from pictures where parent_id='$name'");
+$ren=mysqli_query($result_db,"Select * from pictures where parent_id='$name'");
 
-while($row=mysql_fetch_array($ren))
+while($row=mysqli_fetch_array($ren))
 {
 	$file=$wolf_path."../pictures/small/".$row["file_name"];
 	unlink($file);
@@ -18,13 +18,13 @@ while($row=mysql_fetch_array($ren))
 	$file=$wolf_path."../pictures/big/".$row["file_name"];
 	unlink($file);
 
-	mysql_query("delete from pictures where parent_id='$name'");
+	mysqli_query($result_db,"delete from pictures where parent_id='$name'");
 
 }
 
-mysql_free_result($ren);
+mysqli_free_result($ren);
 
-mysql_query("delete from albums where id='$name'");
+mysqli_query($result_db,"delete from albums where id='$name'");
 
 $links = "index.php".$li1;
 header("Location: $links");

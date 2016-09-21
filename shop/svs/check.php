@@ -16,9 +16,9 @@ if (isset($_SESSION['valid_user']) )
 
 	$laiks = time();
 	$ip=$_SERVER["REMOTE_ADDR"];
-	$ren=mysql_query("Select * from user where username='$_SESSION[valid_user]'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from user where username='$_SESSION[valid_user]'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
 	$user_id = $row["id"];
 	
@@ -42,7 +42,7 @@ if (isset($_SESSION['valid_user']) )
 			exit;
 		}
 	}
-	// pârbaudam, vai lietotâjs ir galvenais vai nç
+	// pï¿½rbaudam, vai lietotï¿½js ir galvenais vai nï¿½
 	$us = $row["value"];
 }
 else
@@ -52,5 +52,5 @@ else
 	exit;
 }
 $laiks = time();
-$result=mysql_query("update user set time='$laiks' where username='$_SESSION[valid_user]'"); 
+$result=mysqli_query($result_db,"update user set time='$laiks' where username='$_SESSION[valid_user]'"); 
 ?>

@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 if(isset($_POST["submit"]))
@@ -9,8 +9,8 @@ if(isset($_POST["submit"]))
 	$change_from=array("\"","\'","'","\\");
 	$change_to=array("&quot;","","","");
 		
-	$ren=mysql_query("Select * from anketas where parent_id='$name' order by place desc limit 0,1");
-	if($row=mysql_fetch_array($ren))
+	$ren=mysqli_query($result_db,"Select * from anketas where parent_id='$name' order by place desc limit 0,1");
+	if($row=mysqli_fetch_array($ren))
 	{
 		$place =  $row["place"] + 1;
 	}
@@ -18,7 +18,7 @@ if(isset($_POST["submit"]))
 	{
 		$place = 1;
 	}
-	mysql_free_result($ren);
+	mysqli_free_result($ren);
 			
 	$nosaukums=str_replace($change_from,$change_to,$_POST["nosaukums"]);
 	$nosaukums=trim($nosaukums);
@@ -49,7 +49,7 @@ if(isset($_POST["submit"]))
 		$obl = 1;
 	}
 	
-	$result = mysql_query("insert into anketas values (
+	$result = mysqli_query($result_db,"insert into anketas values (
 	'',
 	'$name',
 	'$place',
@@ -159,9 +159,9 @@ document.formas_lauks.platums.disabled=true;
 				</td>
 				<td bgcolor="#ffffff" width="100%" valign="top" class="text">
 				<?php 
-				$ren=mysql_query("Select * from anketas where id='$name'");
-				$row=mysql_fetch_array($ren);
-				mysql_free_result($ren);
+				$ren=mysqli_query($result_db,"Select * from anketas where id='$name'");
+				$row=mysqli_fetch_array($ren);
+				mysqli_free_result($ren);
 				?>
 					<table cellpadding="3" cellspacing="0" border="0" width="100%">
 						<tr>

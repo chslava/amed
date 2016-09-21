@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 if(isset($_POST["submit"]))
 {
@@ -19,7 +19,7 @@ if(isset($_POST["submit"]))
 	$url_ru=str_replace($change_from,$change_to,trim($_POST["url_ru"]));
 	$url_en=str_replace($change_from,$change_to,trim($_POST["url_en"]));		
 	
-	$rakstam=mysql_query("insert into keywords values ('','$name','$url_ee','$url_lv','$url_lt','$url_ru','$url_en')");
+	$rakstam=mysqli_query($result_db,"insert into keywords values ('','$name','$url_ee','$url_lv','$url_lt','$url_ru','$url_en')");
 
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

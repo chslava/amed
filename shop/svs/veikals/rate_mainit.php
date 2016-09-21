@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $error = "";
@@ -13,7 +13,7 @@ if(isset($_POST["submit"])){
 	$name_lv=str_replace($change_from,$change_to,$_POST["name_lv"]);$name_lv=trim($name_lv);
 		
 	$nos = "rates";
-	$rakstam=mysql_query("update $nos set name='$name_lv' where id='$name'");
+	$rakstam=mysqli_query($result_db,"update $nos set name='$name_lv' where id='$name'");
 	
 	$links = "rate.php".$li1;
 	header("Location: $links");
@@ -22,9 +22,9 @@ if(isset($_POST["submit"])){
 else
 {
 	$nos = "rates";
-	$ren=mysql_query("Select * from $nos where id='$name'");
-	$rop=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $nos where id='$name'");
+	$rop=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	$name=$rop["name"];
 }
 ?>

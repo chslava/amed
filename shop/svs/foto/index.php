@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -57,9 +57,9 @@ require_once($wolf_path."check.php");
 	  				</tr>
 	  				<?php
 						
-					  	$rep=mysql_query("Select * from albums where parent_id = '0' order by place asc");
+					  	$rep=mysqli_query($result_db,"Select * from albums where parent_id = '0' order by place asc");
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 							
                      echo "<tr>
@@ -71,8 +71,8 @@ require_once($wolf_path."check.php");
 							<td class=st1 valign=top><a href=\"down.php$li1&k=$rop[id]&iz=$rop[place]\"><img src=\"".$wolf_path."img/up.gif\" vspace=1 border=0></a></td></tr>
 							";
 							
-							$rep1=mysql_query("Select * from albums where parent_id = '$rop[id]' order by place asc");
-	  						while($rop1=mysql_fetch_array($rep1))
+							$rep1=mysqli_query($result_db,"Select * from albums where parent_id = '$rop[id]' order by place asc");
+	  						while($rop1=mysqli_fetch_array($rep1))
 							{
 							
                      	echo "
@@ -101,10 +101,10 @@ require_once($wolf_path."check.php");
 								</tr>";
 							
 							}
-							mysql_free_result($rep1);
+							mysqli_free_result($rep1);
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  						echo "<tr><td class=\"st1\">$foto[24]</td></tr>";

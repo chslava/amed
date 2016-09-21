@@ -1,14 +1,14 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$rr=mysql_query("Select * from user where id='$_GET[name]'");
-$rrr=mysql_fetch_array($rr);
+$rr=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$rrr=mysqli_fetch_array($rr);
 $useris=$rrr["username"];
-mysql_free_result($rr);
+mysqli_free_result($rr);
 
 $cik = count($valodas);
 
@@ -16,18 +16,18 @@ $s=0;
 while($s<$cik)
 {
 	$tab="content";
-	$rr=mysql_query("Select * from $tab");
-	while($rrr=mysql_fetch_array($rr))
+	$rr=mysqli_query($result_db,"Select * from $tab");
+	while($rrr=mysqli_fetch_array($rr))
 	{
 		$info=$rrr["user"];
 		$info=str_replace("$useris*","",$info);
-		$ziel=mysql_query("update $tab set user='$info' where id='$rrr[id]'"); 
+		$ziel=mysqli_query($result_db,"update $tab set user='$info' where id='$rrr[id]'"); 
 	}
-mysql_free_result($rr);
+mysqli_free_result($rr);
 $s++;
 }
 
-$result=mysql_query("delete from user where id='$_GET[name]'");
+$result=mysqli_query($result_db,"delete from user where id='$_GET[name]'");
 
 $links = $wolf_path."users/index.php".$li1;
 header("Location: $links");

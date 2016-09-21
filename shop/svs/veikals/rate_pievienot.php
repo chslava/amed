@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $error = "";
@@ -14,7 +14,7 @@ if(isset($_POST["submit"])){
 	
 	$nos = "rates";
 		
-	$rakstam=mysql_query("insert into $nos values ('','$name')");
+	$rakstam=mysqli_query($result_db,"insert into $nos values ('','$name')");
 	
 	$links = "rate.php".$li1;
 	header("Location: $links");

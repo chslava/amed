@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $error = "";
@@ -143,7 +143,7 @@ if(isset($_POST["submit"])){
 	}
 	
 		
-	$result = mysql_query("insert into persons values (
+	$result = mysqli_query($result_db,"insert into persons values (
 	'',
 	'1',
 	'$photo',
@@ -163,7 +163,7 @@ if(isset($_POST["submit"])){
 	'$phone'
 	)");
 		
-	$n_id = mysql_insert_id();
+	$n_id = mysqli_insert_id();
 	$links = "index.php".$li1;
 	header("Location: $links");
 	exit;

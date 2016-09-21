@@ -7,8 +7,8 @@
 			
 			<?php
 		
-			$bb = mysql_query("select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id = '$user_id' order by id asc");
-			$c = mysql_num_rows($bb);
+			$bb = mysqli_query($result_db,"select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id = '$user_id' order by id asc");
+			$c = mysqli_num_rows($bb);
 			$a = 1;
 			$sum = 0;
 			$count = 0;
@@ -17,8 +17,8 @@
 			$pvn = 0;
 			
 			$rates = array(); $all_pvn = ""; $all_rates = array();
-			$query = mysql_query("select * from rates order by name asc");
-			while($mysql = mysql_fetch_array($query))
+			$query = mysqli_query($result_db,"select * from rates order by name asc");
+			while($mysql = mysqli_fetch_array($query))
 			{
 				$value_id = $mysql["id"];
 				$value = $mysql["name"];
@@ -39,15 +39,15 @@
 						<td class="basket-th">'.$e[58].'</td>
 					</tr>';
 				
-				while($basket = mysql_fetch_array($bb))
+				while($basket = mysqli_fetch_array($bb))
 				{
-					$it = mysql_query("select * from items where id='$basket[parent_id]'");
-					$ite = mysql_fetch_array($it);
+					$it = mysqli_query($result_db,"select * from items where id='$basket[parent_id]'");
+					$ite = mysqli_fetch_array($it);
 							
 					$tagad = time();
 					$time_discount = 0;
-					$di = mysql_query("select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and cats like '%*$ite[parent_id]*%' and type < '3' order by value desc limit 0,1");
-					if($disc = mysql_fetch_array($di))
+					$di = mysqli_query($result_db,"select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and cats like '%*$ite[parent_id]*%' and type < '3' order by value desc limit 0,1");
+					if($disc = mysqli_fetch_array($di))
 					{
 						$time_discount = $disc["value"];
 					}
@@ -119,8 +119,8 @@
 					</tr>
 					';
 					
-				$query = mysql_query("select * from rates order by name asc");
-				while($mysql = mysql_fetch_array($query))
+				$query = mysqli_query($result_db,"select * from rates order by name asc");
+				while($mysql = mysqli_fetch_array($query))
 				{
 					$value = $mysql["name"];
 					$value_id = $mysql["id"];

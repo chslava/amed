@@ -13,9 +13,9 @@ $begin = $_GET["page"] * $interval - $interval;
 
 if($k > 0)
 {
-	$rows = mysql_query("select * from user_statistic where id = '$k'");
-	$row = mysql_fetch_array($rows);
-	mysql_free_result($rows);
+	$rows = mysqli_query($result_db,"select * from user_statistic where id = '$k'");
+	$row = mysqli_fetch_array($rows);
+	mysqli_free_result($rows);
 
 	$select1 = "select id from user_statistic where id > '0' and ip = '$row[ip]' and session_id = '$row[session_id]'";
 	$select2 = "select * from user_statistic where id > '0' and ip = '$row[ip]' and session_id = '$row[session_id]' order by time asc LIMIT $begin, $interval";
@@ -25,9 +25,9 @@ if($k > 0)
 	}
 	else
 	{
-	    $users = mysql_query("select * from clients where id = '$row[user_id]'");
-	    $user = mysql_fetch_array($users);
-	    mysql_free_result($users);
+	    $users = mysqli_query($result_db,"select * from clients where id = '$row[user_id]'");
+	    $user = mysqli_fetch_array($users);
+	    mysqli_free_result($users);
 	    $user_name = "$user[email]";
 	}
 	$izv = ' <img src="'.$wolf_path.'img/next.gif" align="absmiddle"><a href="stoped-orders.php'.$li.'&k='.$k.'" class="sad_link">'.$user_name.'</a>';
@@ -88,8 +88,8 @@ else
                      
 				<?php 
 					
-					$r = mysql_query($select1);
-					$pavisam = mysql_num_rows($r);
+					$r = mysqli_query($result_db,$select1);
+					$pavisam = mysqli_num_rows($r);
 					$pages = ceil($pavisam/$interval);
 					$page = "";
 					$echo_pages = "";
@@ -147,10 +147,10 @@ else
 						$nos = "orders";
 						$statuss_text = array(0 => $or_st[0], 1 => $or_st[1], 2 => $or_st[2], 3 => $or_st[3], 4 => $or_st[4], 5 => $or_st[5], 6 => $or_st[6], 7 => $or_st[7], 8 => $or_st[8]);
 	  				
-						$rep=mysql_query($select2);
-						echo mysql_error();
+						$rep=mysqli_query($result_db,$select2);
+						echo mysqli_error();
 	  					$a=1;
-	 					while($rop=mysql_fetch_array($rep))
+	 					while($rop=mysqli_fetch_array($rep))
 						{
 							$datums = str_replace(" ","&nbsp;",date("d.m.Y H:i:s",$rop["time"]));
 							if($rop["user_id"] == 0)
@@ -159,9 +159,9 @@ else
 							}
 							else
 							{
-								$users = mysql_query("select * from clients where id = '$rop[user_id]'");
-								$user = mysql_fetch_array($users);
-								mysql_free_result($users);
+								$users = mysqli_query($result_db,"select * from clients where id = '$rop[user_id]'");
+								$user = mysqli_fetch_array($users);
+								mysqli_free_result($users);
 								$user_name = "$user[email]";
 							}
 							
@@ -186,7 +186,7 @@ else
 							}
 							$a++;
 						}
-	  					mysql_free_result($rep);
+	  					mysqli_free_result($rep);
 	 					if($a==1)
 						{
 	  						echo "<tr><td class=\"st1\" colspan=\"7\">$orders[32]</td></tr>";

@@ -4,9 +4,9 @@ require_once("config.php");
 //pârbaudam, vai lietotâjs ir reìistrçjies
 require_once($wolf_path."check.php");
 
-$row=mysql_query("Select * from $tabula where id='$id'");
-$fer=mysql_fetch_array($row);
-mysql_free_result($row);
+$row=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+$fer=mysqli_fetch_array($row);
+mysqli_free_result($row);
 
 $type = 1;
 $industry = 2;

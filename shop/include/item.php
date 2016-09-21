@@ -51,31 +51,31 @@
 		<?php
 		//Papildus fotogrāfijas
 		if($item_copy > 0){$image_id = $item_copy;}else{$image_id = $item_id;}
-		$query = mysql_query("select * from images where parent_id = '$image_id'");
-		$count = mysql_num_rows($query);
+		$query = mysqli_query($result_db,"select * from images where parent_id = '$image_id'");
+		$count = mysqli_num_rows($query);
 		if($count > 0)
 		{
 			echo '
 			<div id="pictures-title">'.$e[185].'</div>
 			<div id="pictures">';
-			while($mysql = mysql_fetch_array($query))
+			while($mysql = mysqli_fetch_array($query))
 			{
 				echo '
 					<a href="'.$root_dir.'pictures/items/pic-big/'.$mysql["file"].'.jpg" rel="lightbox[items-'.$item_id.']" title="'.$izveleta.'"><img src="'.$root_dir.'pictures/items/pic-small/'.$mysql["file"].'.jpg" alt="'.$izveleta.'" /></a>';
 			}
 			echo '<div class="clear"></div></div>';
 		}
-		mysql_free_result($query);
+		mysqli_free_result($query);
 		?>
 		
 		<?php
-		$query = mysql_query("select * from persons where id = '$item_person'");
-		if($mysql = mysql_fetch_array($query))
+		$query = mysqli_query($result_db,"select * from persons where id = '$item_person'");
+		if($mysql = mysqli_fetch_array($query))
 		{
 			$cat_menu = "";	
-			$r=mysql_query("Select * from $tabula where parent_id='0' and publish='on' and lang='$_GET[lang]' and type = '3' order by place asc"); 
+			$r=mysqli_query($result_db,"Select * from $tabula where parent_id='0' and publish='on' and lang='$_GET[lang]' and type = '3' order by place asc"); 
         	$i = 0;
-        	while($f=mysql_fetch_array($r))
+        	while($f=mysqli_fetch_array($r))
         	{
         	    if($f["link"]=="null"){$linc=$root_dir.$_GET["lang"]."/".$f["url"];}
         	    else{$linc="$f[link]";}
@@ -129,8 +129,8 @@
 	  	{
 	  		
 	  		
-	  		$query = mysql_query("select * from items where $filter order by parent_id, place asc");
-	  		$count_items = mysql_num_rows($query);
+	  		$query = mysqli_query($result_db,"select * from items where $filter order by parent_id, place asc");
+	  		$count_items = mysqli_num_rows($query);
 	  		if($count_items > 0)
 	  		{
 	  			echo '
@@ -139,7 +139,7 @@
 	  			
 	  			echo '<table cellpadding="0" cellspacing="5" border="0">';
 				$tr = 1; $tr_max = 3;
-				while($mysql = mysql_fetch_array($query))
+				while($mysql = mysqli_fetch_array($query))
 				{					
 					if($tr == 1)
 					{

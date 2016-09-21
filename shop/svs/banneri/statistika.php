@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 ?>
 
@@ -43,13 +43,13 @@ require_once($wolf_path."check.php");
 	<?php 
 	$k1=0;
 	$k2=0;
-$result_b=mysql_query("select * from banners where id='$name'");
-$row_b=mysql_fetch_array($result_b);
+$result_b=mysqli_query($result_db,"select * from banners where id='$name'");
+$row_b=mysqli_fetch_array($result_b);
 
 	$i=1;
-	$results_b=mysql_query("select * from banners_$name order by id desc");
+	$results_b=mysqli_query($result_db,"select * from banners_$name order by id desc");
 	echo "<table cellpadding=2 cellspacing=1 border=0 width=100% style=\"border: 1px solid #d0d2dd\"><tr><td class=st1 bgcolor=\"#f2f3f7\"><b>$banneri[42]</b></td><td class=st1 bgcolor=\"#f2f3f7\"><b>$banneri[43]</b></td><td class=st1 bgcolor=\"#f2f3f7\"><b>$banneri[44]</b></td><td class=st1 bgcolor=\"#f2f3f7\"><b>$banneri[45]</b></td></tr>";
-	while($ron=mysql_fetch_array($results_b)){
+	while($ron=mysqli_fetch_array($results_b)){
 	$bsum=$ron["b0"]+$ron["b1"]+$ron["b2"]+$ron["b3"]+$ron["b4"]+$ron["b5"]+$ron["b6"]+$ron["b7"]+$ron["b8"]+$ron["b9"]+$ron["b10"]+$ron["b11"]+$ron["b12"]+$ron["b13"]+$ron["b14"]+$ron["b15"]+$ron["b16"]+$ron["b17"]+$ron["b18"]+$ron["b19"]+$ron["b20"]+$ron["b21"]+$ron["b22"]+$ron["b23"];
 	$asum=$ron["a0"]+$ron["a1"]+$ron["a2"]+$ron["a3"]+$ron["a4"]+$ron["a5"]+$ron["a6"]+$ron["a7"]+$ron["a8"]+$ron["a9"]+$ron["a10"]+$ron["a11"]+$ron["a12"]+$ron["a13"]+$ron["a14"]+$ron["a15"]+$ron["a16"]+$ron["a17"]+$ron["a18"]+$ron["a19"]+$ron["a20"]+$ron["a21"]+$ron["a22"]+$ron["a23"];
 if($bsum==0){

@@ -16,7 +16,7 @@ $comment_ru = trim(str_replace($change_from,$change_to,$_POST["comment_ru"]));
 $comment_en = trim(str_replace($change_from,$change_to,$_POST["comment_en"]));
 
 
-$rakstam=mysql_query("update pictures set 
+$rakstam=mysqli_query($result_db,"update pictures set 
 	
 		comment_lv = '$comment_lv',
 		comment_ru = '$comment_ru',		

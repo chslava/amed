@@ -50,7 +50,7 @@ if(isset($_POST["add-discount"]))
 	    $coupon.=substr($chars,rand()%$m,1); 
 	} 
 	
-	$result = mysql_query("insert into discounts values (
+	$result = mysqli_query($result_db,"insert into discounts values (
 	'',
 	'$start_time',
 	'$end_time',
@@ -133,8 +133,8 @@ else
                               	<?php
                               	function sub_cat($cat_id,$category,$cat_name)
                               	{
-                                 	$mysql1 = mysql_query("select * from categories where parent_id = '$cat_id' order by place asc");
-                                 	while($cat1 = mysql_fetch_array($mysql1))
+                                 	$mysql1 = mysqli_query($result_db,"select * from categories where parent_id = '$cat_id' order by place asc");
+                                 	while($cat1 = mysqli_fetch_array($mysql1))
                                  	{	
                                     	$parent_name = $cat_name." $cat1[name_lv]";
                                     
@@ -150,12 +150,12 @@ else
                                     	echo "<option value=\"$cat1[id]\"$se>$parent_name</option>\n";                                           
                                     	sub_cat($cat1["id"],$category,$cat_name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");							
                                  	}
-                                 	mysql_free_result($mysql1);                                                                  
+                                 	mysqli_free_result($mysql1);                                                                  
                               	}
                               	function sub_cats($category)
                               	{
-                                	$mysql = mysql_query("select * from categories where parent_id = '0' order by place asc");
-                                 	while($cat = mysql_fetch_array($mysql))
+                                	$mysql = mysqli_query($result_db,"select * from categories where parent_id = '0' order by place asc");
+                                 	while($cat = mysqli_fetch_array($mysql))
                                  	{	
                                     	$c_id = $cat["id"];
                                     	if(isset($category[$c_id]))
@@ -170,7 +170,7 @@ else
                                     	$cat_name = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
                                     	sub_cat($cat["id"],$category,$cat_name);						
                                  	}
-                                 	mysql_free_result($mysql);
+                                 	mysqli_free_result($mysql);
                               	}
                               	?>
                           		<tr>

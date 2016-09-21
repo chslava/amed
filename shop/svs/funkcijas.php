@@ -21,11 +21,11 @@ function login($username, $password)
 $password=md5($password);
 $password=md5($password);
 
-$result = mysql_query("select * from user where username='$username' and password = '$password'");
+$result = mysqli_query($result_db,"select * from user where username='$username' and password = '$password'");
 
   if (!$result)
   return 0;
-	if (mysql_num_rows($result)>0)
+	if (mysqli_num_rows($result)>0)
 	return 1;
 	else
 	return 0;

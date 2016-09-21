@@ -2,9 +2,9 @@
 <div id="text">
 		
 	<div id="text-container"><?php
-			$query = mysql_query("select * from content where template = '1' and lang = '$_GET[lang]'");
-			$mysql = mysql_fetch_array($query);
-			mysql_free_result($query);
+			$query = mysqli_query($result_db,"select * from content where template = '1' and lang = '$_GET[lang]'");
+			$mysql = mysqli_fetch_array($query);
+			mysqli_free_result($query);
 			$links = $root_dir.$_GET["lang"]."/$mysql[url]";
 			echo '<a href="'.$links.'" title="'.$mysql["name"].'" id="to-basket">'.$e[190].'</a>';
 			?>
@@ -27,8 +27,8 @@
 		<?php	
 		if(isset($_GET["id"]))
 		{
-			$query = mysql_query("select * from orders where user_id = '$user_id' and id= '$_GET[id]'");
-			if($mysql = mysql_fetch_array($query))
+			$query = mysqli_query($result_db,"select * from orders where user_id = '$user_id' and id= '$_GET[id]'");
+			if($mysql = mysqli_fetch_array($query))
 			{
 				echo '
 				<table cellpadding="5" cellspacing="2" border="0" width="100%">
@@ -40,8 +40,8 @@
 						<td class="basket-th">'.$e[58].'</td>
 					</tr>';
 				
-				$bb = mysql_query("select * from ordered_items where parent_id = '$mysql[id]' order by id asc");
-				$c = mysql_num_rows($bb);
+				$bb = mysqli_query($result_db,"select * from ordered_items where parent_id = '$mysql[id]' order by id asc");
+				$c = mysqli_num_rows($bb);
 				$a = 1;
 				$sum = 0;
 				$count = 0;
@@ -50,8 +50,8 @@
 				$pvn = 0;
 				
 				$rates = array(); $all_pvn = ""; $all_rates = array();
-				$query1 = mysql_query("select * from ordered_items where parent_id='$mysql[id]' group by rate order by rate asc");
-				while($mysql1 = mysql_fetch_array($query1))
+				$query1 = mysqli_query($result_db,"select * from ordered_items where parent_id='$mysql[id]' group by rate order by rate asc");
+				while($mysql1 = mysqli_fetch_array($query1))
 				{
 					$value_id = $mysql1["rate"];
 					$value = $mysql1["rate"];
@@ -59,10 +59,10 @@
 					$all_rates[$value_id] = $value;
 				}
 			
-				while($basket = mysql_fetch_array($bb))
+				while($basket = mysqli_fetch_array($bb))
 				{
-					$it = mysql_query("select * from items where id='$basket[item_id]'");
-					$ite = mysql_fetch_array($it);
+					$it = mysqli_query($result_db,"select * from items where id='$basket[item_id]'");
+					$ite = mysqli_fetch_array($it);
 											
 					$price = $basket["price"];						
 					$count = $count + $basket["count"];	
@@ -100,8 +100,8 @@
 					</tr>
 					';
 					
-				$query1 = mysql_query("select * from ordered_items where parent_id='$mysql[id]' group by rate order by rate asc");
-				while($mysql1 = mysql_fetch_array($query1))
+				$query1 = mysqli_query($result_db,"select * from ordered_items where parent_id='$mysql[id]' group by rate order by rate asc");
+				while($mysql1 = mysqli_fetch_array($query1))
 				{
 					$value = $mysql1["rate"];
 					$value_id = $mysql1["rate"];
@@ -131,14 +131,14 @@
 					
 				$discount = 0;
 				$kopa = $summa_ar_pvn;
-				$query2 = mysql_query("select * from points where type = '2' and order_id = '$mysql[id]'");
-				if($mysql2 = mysql_fetch_array($query2))
+				$query2 = mysqli_query($result_db,"select * from points where type = '2' and order_id = '$mysql[id]'");
+				if($mysql2 = mysqli_fetch_array($query2))
 				{
 				    $discount = $discount - $mysql2["value"];
 				}
 				
-				$query2 = mysql_query("select * from coupons where order_id = '$mysql[id]'");
-				if($mysql2 = mysql_fetch_array($query2))
+				$query2 = mysqli_query($result_db,"select * from coupons where order_id = '$mysql[id]'");
+				if($mysql2 = mysqli_fetch_array($query2))
 				{
 				    $discount = $discount + $kopa * $mysql2["value"]/100;
 				}
@@ -187,8 +187,8 @@
 		}
 		else
 		{	
-			$query = mysql_query("select * from orders where user_id = '$user_id' order by time desc");
-			$count = mysql_num_rows($query);
+			$query = mysqli_query($result_db,"select * from orders where user_id = '$user_id' order by time desc");
+			$count = mysqli_num_rows($query);
 			if($count > 0)
 			{
 				echo '
@@ -201,10 +201,10 @@
 				    	<td class="order-th">'.$e[167].'</td>
 				    </tr>';
 					
-				while($mysql = mysql_fetch_array($query))
+				while($mysql = mysqli_fetch_array($query))
 				{
-					$query1 = mysql_query("select * from points where order_id = '$mysql[id]' and type = '1'");
-					if($mysql1 = mysql_fetch_array($query1))
+					$query1 = mysqli_query($result_db,"select * from points where order_id = '$mysql[id]' and type = '1'");
+					if($mysql1 = mysqli_fetch_array($query1))
 					{
 						$points = $mysql1["value"];
 					}

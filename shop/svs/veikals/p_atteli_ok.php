@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 if(isset($_POST["add-file"]))
 {
@@ -12,8 +12,8 @@ if(isset($_POST["add-file"]))
 		$filename=$HTTP_POST_FILES["picture"]["tmp_name"];
 		$source = $filename;
 		
-		$req=mysql_query("Select * from images where parent_id = '$name' order by place desc Limit 0, 1");
-		if($roq=mysql_fetch_array($req))
+		$req=mysqli_query($result_db,"Select * from images where parent_id = '$name' order by place desc Limit 0, 1");
+		if($roq=mysqli_fetch_array($req))
 		{
 			$place = $roq["place"];
 			$place++;
@@ -22,7 +22,7 @@ if(isset($_POST["add-file"]))
 		{
 			$place = 1;
 		}
-		mysql_free_result($req);
+		mysqli_free_result($req);
 		
 		$ext = substr(strrchr($gh,'.'),1);
 		$parb="off";
@@ -133,7 +133,7 @@ if(isset($_POST["add-file"]))
 		
 	}
 	
-	$rakstam = mysql_query("insert into images values (
+	$rakstam = mysqli_query($result_db,"insert into images values (
 		'',
 		'$name',
 		'$place',

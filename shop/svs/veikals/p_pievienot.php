@@ -44,11 +44,11 @@ if(isset($_POST["submit"]))
 	$url_ee = trim(str_replace($change_from,$change_to,$_POST["url_ee"]));
 	$url_lt = trim(str_replace($change_from,$change_to,$_POST["url_lt"]));
 	
-	$text_lv = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
-	$text_ru = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
-	$text_en = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
-	$text_ee = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
-	$text_lt = mysql_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
+	$text_lv = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
+	$text_ru = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
+	$text_en = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
+	$text_ee = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
+	$text_lt = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
 	
 	$text_lv = str_replace($change_from1,$change_to1,$text_lv);
 	$text_ru = str_replace($change_from1,$change_to1,$text_ru);
@@ -88,9 +88,9 @@ if(isset($_POST["submit"]))
 	
 	
 		
-	$ren=mysql_query("Select * from items where parent_id='$id' order by place desc Limit 0,1");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from items where parent_id='$id' order by place desc Limit 0,1");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 
 	// uzliekam jaunu mainîgo place
 	$place=$row["place"];
@@ -259,7 +259,7 @@ if(isset($_POST["submit"]))
 
 	
 		
-	$rakstam=mysql_query("insert into items values 
+	$rakstam=mysqli_query($result_db,"insert into items values 
 	(
 	'',
 	'$id',
@@ -319,9 +319,9 @@ if(isset($_POST["submit"]))
 	'0'
 	)");
 		
-	$n_id=mysql_insert_id();
+	$n_id=mysqli_insert_id();
 	
-	$result = mysql_query("update items set 
+	$result = mysqli_query($result_db,"update items set 
 	
 		url_lv = '$url_lv-$n_id',
 		url_ru = '$url_ru-$n_id',
@@ -338,8 +338,8 @@ if(isset($_POST["submit"]))
 	    $branch = str_replace("*","",$br[$i]);
 	    if(!empty($branch))
 	    {
-	    	$pl = mysql_query("select * from branches_items where branche_id = '$branch' order by place desc limit 0,1");
-	    	if($pla = mysql_fetch_array($pl))
+	    	$pl = mysqli_query($result_db,"select * from branches_items where branche_id = '$branch' order by place desc limit 0,1");
+	    	if($pla = mysqli_fetch_array($pl))
 	    	{
 	    		$place = $pla["place"] + 1;
 	    	}
@@ -347,8 +347,8 @@ if(isset($_POST["submit"]))
 	    	{
 	    		$place = 1;
 	    	}
-	    	mysql_free_result($pl);
-	    	$result = mysql_query("insert into branches_items values ('','$branch','$n_id','$place','$group_type','$id')");
+	    	mysqli_free_result($pl);
+	    	$result = mysqli_query($result_db,"insert into branches_items values ('','$branch','$n_id','$place','$group_type','$id')");
 	    }
 	}
 	
@@ -411,8 +411,8 @@ else
 	$branches = 0;
 	$rate_start = 22;	
 	$discount_percent = 0;
-	$query = mysql_query("select * from rates where name = '$rate_start'");
-	if($mysql = mysql_fetch_array($query))
+	$query = mysqli_query($result_db,"select * from rates where name = '$rate_start'");
+	if($mysql = mysqli_fetch_array($query))
 	{
 		$rate = $mysql["id"];
 	}
@@ -420,7 +420,7 @@ else
 	{
 		$rate = 0;
 	}
-	mysql_free_result($query);
+	mysqli_free_result($query);
 	
 	$buy = 2;
 
@@ -443,9 +443,9 @@ else
 						
 				<?php
 				
-					$row1=mysql_query("Select * from $tabula where id='$id'");
-					$fer1=mysql_fetch_array($row1);
-					mysql_free_result($row1);
+					$row1=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+					$fer1=mysqli_fetch_array($row1);
+					mysqli_free_result($row1);
 				?>
 					
 				
@@ -917,15 +917,15 @@ else
 							<select class="input" name="rate">
                      			<option value="0" <?php if($rate == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from rates order by name asc");
+								$rep=mysqli_query($result_db,"Select * from rates order by name asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$k = $rop["id"];
 									echo "<option value=\"$rop[id]\""; if($rate == $k){echo " selected";} echo ">$rop[name]%</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -963,9 +963,9 @@ else
 							<select class="input" name="specialities[]" multiple="multiple" size="20" style="width: 500px">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from specialities order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from specialities order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$c_id = $rop["id"];
 									if(isset($specialities[$c_id]))
@@ -979,7 +979,7 @@ else
 									echo "<option value=\"$rop[id]\"$se>$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -990,9 +990,9 @@ else
 							<select class="input" name="branches[]" multiple="multiple" size="20" style="width: 500px">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from branches order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from branches order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$c_id = $rop["id"];
 									if(isset($branches[$c_id]))
@@ -1006,7 +1006,7 @@ else
 									echo "<option value=\"$rop[id]\"$se>$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1017,15 +1017,15 @@ else
 							<select class="input" name="person">
                      			<option value="0" <?php if($person == 0){echo " selected";} ?>></option>
 								<?php 
-								$rep=mysql_query("Select * from persons order by name_lv asc");
+								$rep=mysqli_query($result_db,"Select * from persons order by name_lv asc");
 								$a=0;
-								while($rop=mysql_fetch_array($rep))
+								while($rop=mysqli_fetch_array($rep))
 								{
 									$k = $rop["id"];
 									echo "<option value=\"$rop[id]\""; if($person == $k){echo " selected";} echo ">$rop[name_lv]</option>";
 									$a++;
 								}
-								mysql_free_result($rep);
+								mysqli_free_result($rep);
 							?>
 							</select>
 							</td>
@@ -1036,8 +1036,8 @@ else
                      			<select class="input" name="items[]" multiple size="20" style="width: 500px">
                      				<option value="0"></option>
                         			<?php
-                     				$mysql = mysql_query("select * from items order by name_lv asc");
-									while($cat = mysql_fetch_array($mysql))
+                     				$mysql = mysqli_query($result_db,"select * from items order by name_lv asc");
+									while($cat = mysqli_fetch_array($mysql))
 									{	
 										$c_id = $cat["id"];
 										if(isset($ite[$c_id]))
@@ -1050,7 +1050,7 @@ else
 										}
 										echo "<option value=\"$cat[id]\"$se>$cat[name_lv]</option>\n";				
 									}
-									mysql_free_result($mysql);
+									mysqli_free_result($mysql);
 									?>
                      			</select>
                      		</td>

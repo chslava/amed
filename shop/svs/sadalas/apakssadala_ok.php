@@ -1,8 +1,8 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
 $change_from=array("'","\\","&","<");
@@ -46,19 +46,19 @@ $album=trim($album);
 $icon=str_replace($change_from,$change_to,$_POST["icon"]);
 $icon=trim($icon);
 
-// aizliedzam visiem useriem pieeju jaunajai sadaïai
+// aizliedzam visiem useriem pieeju jaunajai sadaï¿½ai
 
 
 	
-	$ren=mysql_query("Select * from $tabula where id='$id'");
-	$row=mysql_fetch_array($ren);
-	mysql_free_result($ren);
+	$ren=mysqli_query($result_db,"Select * from $tabula where id='$id'");
+	$row=mysqli_fetch_array($ren);
+	mysqli_free_result($ren);
 	
 	$choosen = $name;
 	
 	$useri="";
-	$rin=mysql_query("Select * from user");
-	while($riw=mysql_fetch_array($rin))
+	$rin=mysqli_query($result_db,"Select * from user");
+	while($riw=mysqli_fetch_array($rin))
 	{
 		if($riw["value"]=="no")
 		{
@@ -72,9 +72,9 @@ $icon=trim($icon);
 		$useri=str_replace($_SESSION['valid_user']."*","",$useri);
 	}
 
-$ren=mysql_query("Select * from $tabula where parent_id='$id' and lang='$ver' order by place desc Limit 0, 1");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from $tabula where parent_id='$id' and lang='$ver' order by place desc Limit 0, 1");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 $place=$row["place"];
 $place++;
 
@@ -93,8 +93,8 @@ $place++;
 
 $type = 0;
 
-$result = mysql_query("insert into $tabula values ('','$id','$ver','$place','off','on','$name','$under','$cache','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
-$n_id=mysql_insert_id();
+$result = mysqli_query($result_db,"insert into $tabula values ('','$id','$ver','$place','off','on','$name','$under','$cache','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
+$n_id=mysqli_insert_id();
 
 $links = $wolf_path."member.php".$li1."&id=$n_id";
 header("Location: $links");

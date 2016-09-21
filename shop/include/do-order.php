@@ -166,12 +166,12 @@ if(isset($_POST["order-confirm"]))
 			}
 		}
 		
-		$gr = mysql_query("Select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id='$user_id' order by id asc");		
-		$gr_cik = mysql_num_rows($gr);
+		$gr = mysqli_query($result_db,"Select * from basket where ip = '$ip' and session_id = '$ses_id' and user_id='$user_id' order by id asc");		
+		$gr_cik = mysqli_num_rows($gr);
 		if($gr_cik > 0)
 		{
 			$laiks = time();			
-			$result = mysql_query("insert into orders values
+			$result = mysqli_query($result_db,"insert into orders values
 			(
 			'',
 			'$user_id',
@@ -222,9 +222,9 @@ if(isset($_POST["order-confirm"]))
 			'0'				
 			)"); 
 					
-			$parent_id=mysql_insert_id();	
+			$parent_id=mysqli_insert_id();	
 			
-			$add_statuss = mysql_query("insert into statuses values (
+			$add_statuss = mysqli_query($result_db,"insert into statuses values (
 			'',
 			'$parent_id',
 			'$laiks',		
@@ -295,8 +295,8 @@ if(isset($_POST["order-confirm"]))
 			$a=1;
 			
 			$rates = array(); $all_pvn = ""; $all_rates = array();
-			$query = mysql_query("select * from rates order by name asc");
-			while($mysql = mysql_fetch_array($query))
+			$query = mysqli_query($result_db,"select * from rates order by name asc");
+			while($mysql = mysqli_fetch_array($query))
 			{
 				$value_id = $mysql["id"];
 				$value = $mysql["name"];
@@ -308,17 +308,17 @@ if(isset($_POST["order-confirm"]))
 			$count_orders = 0;
 			if($parbaudits == "ok")
 			{
-				$query = mysql_query("select * from orders where statuss = '5' and user_id = '$user_id'");
-				$count_orders = mysql_num_rows($query);
+				$query = mysqli_query($result_db,"select * from orders where statuss = '5' and user_id = '$user_id'");
+				$count_orders = mysqli_num_rows($query);
 			}
 					
-			while($grozs = mysql_fetch_array($gr))
+			while($grozs = mysqli_fetch_array($gr))
 			{
-				$ite = mysql_query("select * from items where id='$grozs[parent_id]'");
-				$item = mysql_fetch_array($ite);
+				$ite = mysqli_query($result_db,"select * from items where id='$grozs[parent_id]'");
+				$item = mysqli_fetch_array($ite);
 				
-				$ite1 = mysql_query("select * from persons where id='$item[person]'");
-				$item1 = mysql_fetch_array($ite1);
+				$ite1 = mysqli_query($result_db,"select * from persons where id='$item[person]'");
+				$item1 = mysqli_fetch_array($ite1);
 				
 				$ee = $item1["email"];
 				$all_emails[$ee] =  $item1[$name_lang];
@@ -334,9 +334,9 @@ if(isset($_POST["order-confirm"]))
 				}				
 				
 				$tagad = time();
-				$di = mysql_query("select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time $add_filter order by value desc limit 0,1");
+				$di = mysqli_query($result_db,"select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time $add_filter order by value desc limit 0,1");
 								
-				if($disc = mysql_fetch_array($di))
+				if($disc = mysqli_fetch_array($di))
 				{
 					if($disc["value"] > $time_discount)
 					{
@@ -392,7 +392,7 @@ if(isset($_POST["order-confirm"]))
 				$pvn = number_format($cena/(1+$rate/100) * $rate/100, 2, '.','');
 				
 				
-				$add_item = mysql_query("insert into ordered_items values (
+				$add_item = mysqli_query($result_db,"insert into ordered_items values (
 				'',
 				'$parent_id',
 				'$item[id]',
@@ -437,8 +437,8 @@ if(isset($_POST["order-confirm"]))
 			$summa_bez_pvn_kopa = number_format($summa_bez_pvn_kopa, 2, '.','');
 			
 			$pvn_html = ""; $pvn_txt = "";
-			$query = mysql_query("select * from rates order by name asc");
-			while($mysql = mysql_fetch_array($query))
+			$query = mysqli_query($result_db,"select * from rates order by name asc");
+			while($mysql = mysqli_fetch_array($query))
 			{
 			    $value = $mysql["name"];
 			    $value_id = $mysql["id"];	
@@ -520,8 +520,8 @@ if(isset($_POST["order-confirm"]))
 				if($atlaide == 0 && $time_discount == 0 && $user_id > 0 && $count_orders > 0)
 				{
 					
-					$di = mysql_query("select * from discounts where id > '0' and '$tagad' >= start_time and '$tagad' <= end_time and type = '6'");
-					if($disc = mysql_fetch_array($di))
+					$di = mysqli_query($result_db,"select * from discounts where id > '0' and '$tagad' >= start_time and '$tagad' <= end_time and type = '6'");
+					if($disc = mysqli_fetch_array($di))
 					{
 						$atlaide = round($disc["value"] / 100 * $summa_ar_atlaidi,2);
 						$summa_ar_atlaidi = number_format($summa_ar_atlaidi - $atlaide,2,".","");
@@ -557,24 +557,24 @@ if(isset($_POST["order-confirm"]))
 			<table cellpadding=\"5\" cellspacing=\"1\" border=\"0\" width=\"100%\">
 				";
 	
-			$result = mysql_query("update orders set amount = '$kopa' where id='$parent_id'");
+			$result = mysqli_query($result_db,"update orders set amount = '$kopa' where id='$parent_id'");
 			
 			//Pievienojam balvas
 			$gift = 0;
-			$di = mysql_query("select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and type = '5' order by value desc limit 0,1");
-			if($disc = mysql_fetch_array($di))
+			$di = mysqli_query($result_db,"select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and type = '5' order by value desc limit 0,1");
+			if($disc = mysqli_fetch_array($di))
 			{				
 				$start_time = mktime(0,0,0,date("n"),1,date("Y"));
 				$end_time = mktime(0,0,0,date("t"),1,date("Y"));
-				$query = mysql_query("select * from gifts where client_id = '$user_id' and time >= '$start_time' and time <= '$end_time'");
-				if($mysql = mysql_fetch_array($query))
+				$query = mysqli_query($result_db,"select * from gifts where client_id = '$user_id' and time >= '$start_time' and time <= '$end_time'");
+				if($mysql = mysqli_fetch_array($query))
 				{			
 				}
 				else
 				{					
 					if ($kopa > 71.14 && $kopa < 142.29)
 					{
-						$result = mysql_query("insert into gifts values (
+						$result = mysqli_query($result_db,"insert into gifts values (
 						'',
 						'$parent_id',
 						'1',
@@ -591,7 +591,7 @@ if(isset($_POST["order-confirm"]))
 					}
 					else if ($kopa >= 142.29 && $kopa < 426.86)
 					{
-						$result = mysql_query("insert into gifts values (
+						$result = mysqli_query($result_db,"insert into gifts values (
 						'',
 						'$parent_id',
 						'2',
@@ -608,7 +608,7 @@ if(isset($_POST["order-confirm"]))
 					}
 					else if ($kopa >= 426.86)
 					{
-						$result = mysql_query("insert into gifts values (
+						$result = mysqli_query($result_db,"insert into gifts values (
 						'',
 						'$parent_id',
 						'3',
@@ -632,11 +632,11 @@ if(isset($_POST["order-confirm"]))
 				if($_POST["points"] == 1)
 				{
 					
-					$di = mysql_query("select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and type = '3'");
-					if($disc = mysql_fetch_array($di))
+					$di = mysqli_query($result_db,"select * from discounts where '$tagad' >= start_time and '$tagad' <= end_time and type = '3'");
+					if($disc = mysqli_fetch_array($di))
 					{
 						$points = round($summa_bez_pvn_kopa * $disc["value"] / 100,2);
-						$result = mysql_query("insert into points values (
+						$result = mysqli_query($result_db,"insert into points values (
 						'',
 						'$parent_id',
 						'1',
@@ -652,7 +652,7 @@ if(isset($_POST["order-confirm"]))
 				}
 				else
 				{
-					$result = mysql_query("insert into points values (
+					$result = mysqli_query($result_db,"insert into points values (
 					'',
 					'$parent_id',
 					'2',
@@ -668,7 +668,7 @@ if(isset($_POST["order-confirm"]))
 
 			if($coupon_accept == 1)
 			{
-				$result = mysql_query("insert into coupons values (
+				$result = mysqli_query($result_db,"insert into coupons values (
 				'',
 				'$parent_id',
 				'1',
@@ -982,7 +982,7 @@ if(isset($_POST["order-confirm"]))
 			5 - Pirkumu skaita atlaide
 			*/
 			
-			$update_discounts = mysql_query("update orders set 
+			$update_discounts = mysqli_query($result_db,"update orders set 
 			d1 = '$d1',	dv1 = '$d1_value',
 			d2 = '$d2',	dv2 = '$d2_value',
 			d3 = '$d3',	dv3 = '$d3_value',
@@ -992,12 +992,12 @@ if(isset($_POST["order-confirm"]))
 			d7 = '$d7',	dv7 = '$d7_value'
 			where id='$parent_id'");
 			
-			$result = mysql_query("delete from basket where session_id='$ses_id' and ip='$ip'");	
+			$result = mysqli_query($result_db,"delete from basket where session_id='$ses_id' and ip='$ip'");	
 			$links = $root_dir.$_GET["lang"]."/order-ok?gift=$gift";
 			
 			//Lietotājs pieslēdzies
 			AddStatistic($ip,$user_id,$ses_id,$url,'',8);
-			$result = mysql_query("delete from user_statistic where session_id='$ses_id' and ip='$ip'");
+			$result = mysqli_query($result_db,"delete from user_statistic where session_id='$ses_id' and ip='$ip'");
 			
 			header("Location: $links");
 			exit;

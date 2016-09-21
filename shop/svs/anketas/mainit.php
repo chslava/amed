@@ -1,7 +1,7 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 $error="";
 if(isset($_POST["submit"]))
@@ -17,9 +17,9 @@ if(isset($_POST["submit"]))
 	}
 
 	
-	$rep=mysql_query("Select * from anketas where name='$sablons' and id!='$name'");
-	$cik = mysql_num_rows($rep);
-	mysql_free_result($rep);
+	$rep=mysqli_query($result_db,"Select * from anketas where name='$sablons' and id!='$name'");
+	$cik = mysqli_num_rows($rep);
+	mysqli_free_result($rep);
 	if($cik>0)
 	{
 		$error=$error. "<tr><td colspan=\"2\" class=\"sarkanst\">$sabloni[4]</tr></td>";
@@ -42,7 +42,7 @@ if(isset($_POST["submit"]))
 	
 	if($error == "")
 	{
-		$result=mysql_query("update anketas set name='$sablons', email='$email', sent_text='$sent_teksts', before_text='$before_teksts', type = '$type' where id='$name'"); 
+		$result=mysqli_query($result_db,"update anketas set name='$sablons', email='$email', sent_text='$sent_teksts', before_text='$before_teksts', type = '$type' where id='$name'"); 
 		$links = "index.php";
 		header("Location: $links");
 		exit;
@@ -51,9 +51,9 @@ if(isset($_POST["submit"]))
 }
 else
 {
-	$rez=mysql_query("Select * from anketas where id='$name'");
-	$roz=mysql_fetch_array($rez);
-	mysql_free_result($rez);
+	$rez=mysqli_query($result_db,"Select * from anketas where id='$name'");
+	$roz=mysqli_fetch_array($rez);
+	mysqli_free_result($rez);
 	
 	$email=str_replace("<br>","\n",$roz["email"]);
 	$sablons = $roz["name"];

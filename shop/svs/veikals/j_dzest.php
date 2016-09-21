@@ -1,18 +1,18 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$r=mysql_query("Select * from preces_f where id='$k'");
-$f=mysql_fetch_array($r);
-mysql_free_result($r);
+$r=mysqli_query($result_db,"Select * from preces_f where id='$k'");
+$f=mysqli_fetch_array($r);
+mysqli_free_result($r);
 
 unlink("../../preces/small/$f[filename]");
 unlink("../../preces/big/$f[filename]");
 
-$result = mysql_query("delete from preces_f  where id='$k'");
+$result = mysqli_query($result_db,"delete from preces_f  where id='$k'");
 
 
 $links = "p_mainit.php".$li."&name=$name";

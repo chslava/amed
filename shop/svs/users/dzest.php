@@ -1,13 +1,13 @@
 <?php
-//ielâdçjam funkcijas
+//ielï¿½dï¿½jam funkcijas
 require_once("../config.php");
 if($ar > 0){header("Location: ".$wolf_path."member.php$li");	exit;}
-//pârbaudam, vai lietotâjs ir reìistrçjies
+//pï¿½rbaudam, vai lietotï¿½js ir reï¿½istrï¿½jies
 require_once($wolf_path."check.php");
 
-$ren=mysql_query("Select * from user where id='$_GET[name]'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren);
+$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren);
 ?>
 
 <html>
@@ -44,9 +44,9 @@ mysql_free_result($ren);
 					<table cellpadding="5" cellspacing="0" border="0">
 						<tr>
 							<td valign="middle" class="standart"><?php
-							$ren=mysql_query("Select * from user where id='$_GET[name]'");
-$row=mysql_fetch_array($ren);
-mysql_free_result($ren); 
+							$ren=mysqli_query($result_db,"Select * from user where id='$_GET[name]'");
+$row=mysqli_fetch_array($ren);
+mysqli_free_result($ren); 
 echo $lietotaji[16]."<b>".$row["username"]."</b>";?></td>
 						</tr>
 						<tr>
