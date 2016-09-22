@@ -49,10 +49,12 @@ get_header();
 
   <script>
     jQuery(function($) {
-    map = new GMaps({
+        var address ='<?php the_field("address","option"); ?>';
+
+        map = new GMaps({
             div: '.contact-map',
-            lat: $('.contact-map').data('lat'), //56.940,
-            lng: $('.contact-map').data('lng'), //24.070,
+            lat:  56.940,
+            lng: 24.070,
             zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
@@ -88,11 +90,37 @@ get_header();
                 }
             ]
         });
-        map.addMarker({
-            lat: <?php echo $lat; ?>,
-            lng: <?php echo $lng; ?>,
-            icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
-        });
+        <?php if (get_field("lat","option") && get_field("lng","option")): ?>
+            map.setCenter(<?php the_field("lat","option") ?>, <?php the_field("lng","option") ?>);
+            map.addMarker({
+                lat: <?php the_field("lat","option") ?>,
+                lng: <?php the_field("lng","option") ?>,
+                icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+            });
+
+        <?php else: ?>
+            //getting location by address
+            GMaps.geocode({
+                address: address,
+                callback: function(results, status) {
+                    if (status == 'OK') {
+                        var latlng = results[0].geometry.location;
+                        map.setCenter(latlng.lat(), latlng.lng());
+                        map.addMarker({
+                            lat: latlng.lat(),
+                            lng: latlng.lng(),
+                            icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+                        });
+                    }
+                }
+            });
+        <?php endif; ?>
+
+
+
+
+
+
     })
   </script>
 
