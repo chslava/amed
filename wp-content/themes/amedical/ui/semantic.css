@@ -693,6 +693,13 @@ input::selection {
   }
 }
 
+@media (max-width: 768px) {
+  .ui.container.page {
+    margin-left: 1.5rem!important;
+    margin-right: 1.5rem!important;
+  }
+}
+
 @media (min-width: 1200px) {
   .ui.container {
     width: 1180px!important;
@@ -1935,7 +1942,7 @@ section.slider .ui.container.grid > .column {
 }
 
 .secondary-services .ui.header {
-  margin-bottom: 55px;
+  margin-bottom: 2rem;
 }
 
 .secondary-services .content {
@@ -1945,6 +1952,11 @@ section.slider .ui.container.grid > .column {
   line-height: 22px;
 }
 
+.secondary-services .ui.container {
+  margin-left: 1.5rem!important;
+  margin-right: 1.5rem!important;
+}
+
 .represent {
   /*.center.aligned.row {
     margin-top: 0px;
@@ -1952,7 +1964,7 @@ section.slider .ui.container.grid > .column {
 }
 
 .represent .bx-viewport {
-  height: 98px!important;
+  height: 78px!important;
 }
 
 .represent .represent-slider li {
@@ -2419,6 +2431,10 @@ section.slider .ui.container.grid > .column {
     margin-bottom: 100px;
   }
 
+  .represent .bx-viewport {
+    height: 98px!important;
+  }
+
   .represent .ui.header {
     margin-bottom: 31px;
   }
@@ -2553,6 +2569,23 @@ section.slider .ui.container.grid > .column {
     font-weight: 500;
     line-height: 22px;
     padding-right: 2rem;
+  }
+
+  .secondary-services + section {
+    padding-top: 100px;
+    padding-bottom: 87px;
+  }
+
+  .secondary-services + section .segment {
+    float: right;
+    max-width: 380px;
+    padding: 70px 55px!important;
+    margin-top: 10px;
+  }
+
+  .secondary-services .ui.container {
+    margin-left: auto!important;
+    margin-right: auto!important;
   }
 
   .secondary-services .ui.relaxed.grid {
@@ -2803,6 +2836,8 @@ footer {
 
 footer > .ui.grid {
   display: block;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 
 footer nav {
@@ -3323,7 +3358,8 @@ main.page > .grid {
   }
 
   .about-us ~ .benefits.very.padded {
-    margin-bottom: 107px;
+    margin-bottom: 36px;
+    margin-top: 0;
   }
 
   .about-us ~ .coo-respose {
@@ -13443,8 +13479,8 @@ img.ui.bordered.image {
 .ui.shadowed.image img,
 .ui.shadowed.image svg,
 img.ui.shadowed.image {
-  margin-top: -12px;
-  margin-left: 96px;
+  float: right;
+  margin-top: 0;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 
