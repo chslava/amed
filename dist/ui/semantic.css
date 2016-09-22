@@ -2579,6 +2579,11 @@ section.slider .ui.container.grid > .column {
     margin-top: 10px;
   }
 
+  .secondary-services .ui.container {
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+
   .secondary-services .ui.relaxed.grid {
     margin-left: 0!important;
   }
