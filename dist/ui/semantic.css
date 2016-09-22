@@ -1964,7 +1964,7 @@ section.slider .ui.container.grid > .column {
 }
 
 .represent .bx-viewport {
-  height: 98px!important;
+  height: 78px!important;
 }
 
 .represent .represent-slider li {
@@ -2429,6 +2429,10 @@ section.slider .ui.container.grid > .column {
   .represent {
     margin-top: 73px;
     margin-bottom: 100px;
+  }
+
+  .represent .bx-viewport {
+    height: 98px!important;
   }
 
   .represent .ui.header {
