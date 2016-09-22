@@ -1,7 +1,7 @@
 <div class="ui container grid mobile tablet only">
     <div class="two column row">
         <div class="left aligned column">
-            <a class="logo" href="<?php home_url(); ?>">
+            <a class="logo" href="<?php echo home_url('/'); ?>">
                 <img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png" alt="<?php print(get_bloginfo( 'name' )); ?>" title="<?php print(get_bloginfo( 'name' )); ?>">
             </a>
         </div>
