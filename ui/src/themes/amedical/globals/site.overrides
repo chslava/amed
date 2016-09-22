@@ -192,7 +192,8 @@ main.page {
     }
 
     ~ .benefits.very.padded {
-      margin-bottom: 107px;
+      margin-bottom: 36px;
+      margin-top: 0;
     }
 
     ~ .coo-respose {
