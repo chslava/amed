@@ -4,13 +4,17 @@
 <div id="outer">
     <div id="inner">
         <?php
+        $lang_dir=$_GET["lang"];
+        if ($lang_dir=="lv"){
+            $lang_dir="";
+        }
         if ($content_change == 0) {
-            echo '<div id="logo"><a href="' . $root_dir . $_GET["lang"] . '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-large.png" width="142" height="150" alt="' . $e[1] . '" /></a></div>';
+            echo '<div id="logo"><a href="' . dirname($root_dir)."/" . $lang_dir . '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-large.png" width="142" height="150" alt="' . $e[1] . '" /></a></div>';
         } else {
             if ($_SESSION['industry'] == 1) {
-                echo '<div id="logo-industry"><a href="' . $root_dir . $_GET["lang"] . '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-industry.png" width="103" height="108" alt="' . $e[1] . '" /></a></div>';
+                echo '<div id="logo-industry"><a href="' . dirname($root_dir)."/" . $lang_dir. '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-industry.png" width="103" height="108" alt="' . $e[1] . '" /></a></div>';
             } else {
-                echo '<div id="logo-equipment"><a href="' . $root_dir . $_GET["lang"] . '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-equipment.png" width="102" height="108" alt="' . $e[1] . '" /></a></div>';
+                echo '<div id="logo-equipment"><a href="' . dirname($root_dir)."/" .$lang_dir . '" title="' . $e[1] . '"><img src="' . $root_dir . '/images/a-medical-equipment.png" width="102" height="108" alt="' . $e[1] . '" /></a></div>';
             }
         }
         ?>
