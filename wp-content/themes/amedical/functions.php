@@ -40,8 +40,12 @@ add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
 require_once('includes/reusable_functions.php');
 
 
- // Add post types
-  require_once('includes/post_types/partners.php');
+// Add post types
+require_once('includes/post_types/partners.php');
+
+
+// old link redirects
+require_once('includes/redirect.php');
 
 
 function wpdocs_excerpt_more( $more ) {
