@@ -968,6 +968,25 @@ section.slider .ui.container.grid > .column {
     padding-right: 66px;
   }
 }
+section.slider .bxslider {
+  height: 100% !important;
+}
+section.slider .bxslider li {
+  height: 100% !important;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+section.slider .bx-viewport,
+section.slider .bx-wrapper {
+  position: relative;
+  width: 100%!important;
+  height: 100% !important;
+  max-width: 100%!important;
+  top: 0;
+  left: 0;
+  border: none !important;
+}
 .services {
   margin-top: 2.35em;
 }

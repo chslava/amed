@@ -1,4 +1,8 @@
 // ------------------------------------------------------------
+
+
+
+
 section.slider {
   margin-top:1rem;
   background: #686C78;
@@ -134,5 +138,29 @@ section.slider {
         }
       }
     }
+  }
+}
+
+//bx slider full-width fix
+section.slider{
+  .bxslider{
+    height: 100% !important;
+
+    li{
+      height: 100% !important;
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+    }
+  }
+
+  .bx-viewport, .bx-wrapper{
+      position:relative;
+      width:100%!important;
+      height:100% !important;
+      max-width: 100%!important;
+      top:0;
+      left:0;
+      border: none !important;
   }
 }
