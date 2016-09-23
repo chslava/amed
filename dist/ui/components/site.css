@@ -1170,6 +1170,7 @@ section.slider .bx-wrapper {
 }
 .home-news .image-container img {
   width: 100%;
+  height: auto;
   margin: 0;
 }
 .home-news .image-container time {

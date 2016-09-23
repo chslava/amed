@@ -1835,6 +1835,7 @@ section.slider .bx-wrapper {
 
 .home-news .image-container img {
   width: 100%;
+  height: auto;
   margin: 0;
 }
 
@@ -13503,6 +13504,7 @@ img.ui.bordered.image {
 img.ui.shadowed.image {
   float: right;
   margin-top: 0;
+  height: auto;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 
