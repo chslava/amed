@@ -90,12 +90,18 @@ get_header();
                 }
             ]
         });
+        console.log(GMaps);
         <?php if (get_field("lat","option") && get_field("lng","option")): ?>
             map.setCenter(<?php the_field("lat","option") ?>, <?php the_field("lng","option") ?>);
+
             map.addMarker({
                 lat: <?php the_field("lat","option") ?>,
                 lng: <?php the_field("lng","option") ?>,
                 icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+                size: GMaps.Size(101, 101),
+                origin: GMaps.maps.Point(0, 0),
+                anchor: GMaps.maps.Point(51, 51),
+                scaledSize: GMaps.maps.Size(25, 25)
             });
 
         <?php else: ?>
@@ -110,6 +116,9 @@ get_header();
                             lat: latlng.lat(),
                             lng: latlng.lng(),
                             icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+                            size: new GMaps.Size(101, 101),
+                            origin: new GMaps.Point(0, 0),
+                            anchor: new GMaps.Point(51, 51),
                         });
                     }
                 }
