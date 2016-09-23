@@ -11,9 +11,9 @@ $fe=mysqli_fetch_array($row);
 if(!empty($fe))
 {
 	$limenis[]=$fe["id"];
-	while($fe["parent_id"]!=$parent_category_id)
+	while($fe["parent_id"]!=$parent_category_id and $fe[parent_id]!="")
 	{	
-		if($fe["parent_id"]!=$parent_category_id)
+		if($fe["parent_id"]!=$parent_category_id and $fe[parent_id]!="")
 		{
 			$row=mysqli_query($result_db,"Select * from categories where id='$fe[parent_id]' and statuss = '2' and (type = 0 or type = '$_SESSION[t]') order by place asc");
 			$fe=mysqli_fetch_array($row);
