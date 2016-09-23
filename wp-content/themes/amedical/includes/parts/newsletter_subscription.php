@@ -1,6 +1,5 @@
 <section class="subscribe">
     <div class="ui container grid">
-
         <?php $form = do_shortcode('[mc4wp_form id="252"]'); ?>
         <?php
             $form = strip_tags($form,"<input>,<form>,<script>,<div>");
@@ -13,27 +12,10 @@
             $form =str_replace('Given email address is already subscribed, thank you!',get_field("newsletter_email_exists","option"),$form);
             $form =str_replace('Thank you, your sign-up request was successful! Please check your email inbox to confirm.',get_field("newsletter_email_success","option"),$form);
             $form =str_replace('Oops. Something went wrong. Please try again later.',get_field("newsletter_email_spmething_went_wrong","option"),$form);
-
-
-
             $form.= '<div class="mc4wp-response"></div>';
 
-
             print($form);
-
-
         ?>
-
-
     </div>
-    <style>
-    /* additional for wordpres */
-    /* newsleter plugin */
-
-    .ui.form .mc4wp-response > .mc4wp-alert{
-        text-align: center;
-        color:#FFF;
-    }
-    </style>
 </section>
 
