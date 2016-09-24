@@ -1,80 +1,58 @@
-@btn-color: #FF6B01;
 
-.ui.button {
-  font-size:15px;
-  line-height: 18px;
-//  height:50px;
-}
+@btn-color: @orange;
 
-.ui.primary.button {
-  background: @btn-color;
+.ui{
+  &.button{
+    font-size: 15px;
+    line-height: 18px;
+    
+    // primary button
+    &.primary{
+      background: @btn-color;
+      
+      &:hover,
+      &:active{
+        background:@btn-color;
+        box-shadow: 0 6px 10px rgba(64, 64, 64, 0.15);
+      }
+    }
+    
+    // secondary button
+    &.secondary{
+      border: 1px solid;
+      border-color: #3D444C #2F353B #2C3137;
+      &:hover,
+      &:active{
+        border-color: #32373E #24282D #212429;
+      }
+    }
+    
+    // basic button
+    &.basic{
+      border: 2px solid @btn-color;
+      color: #636463;
+      font-weight: 700;
+      box-shadow: none;
+      &:hover,
+      &:active{
+        background: @btn-color;
+        color: #FFF;
+      }
+    }
+    
+    // small button
+    &.small{
+      height:42px;
+      line-height: 17px;
+    }
+    
+    // huge button
+    &.huge{
+      width: 150px;
+      height: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 18px;
+    }
+  }
 }
-.ui.primary.button:hover, .ui.primary.button:active {
- // border-color: #C59F43 #AA8326 #957321;
- // color: #111111;
-  background:@btn-color;
-  box-shadow: 0 6px 10px rgba(64, 64, 64, 0.15);
-}
-
-.ui.secondary.button {
-  border: 1px solid;
-  border-color: #3D444C #2F353B #2C3137;
-}
-.ui.secondary.button:hover {
-  border-color: #32373E #24282D #212429;
-}
-
-.ui.basic.button {
-  border: 2px solid @btn-color;
-  color: #636463;
-  font-weight: 700;
-  box-shadow: none;
-}
-.ui.basic.button:hover, .ui.basic.button:active {
-  background: @btn-color;
-  color: #FFF;
-}
-
-.ui.small.button {
-  height:42px;
-  line-height: 17px;
-}
-
-.auth button {
-  padding-right: 34px;
-  padding-left:34px;
-}
-
-.ui.huge.button {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  width: 150px;
-  height: 50px;
-}
-
-/*
-.ui.labeled.icon.buttons .button > .icon,
-.ui.labeled.icon.button > .icon {
-  padding-bottom: 0.48em;
-  padding-top: 0.48em;
-  position: absolute;
-  text-align: center;
-  width: 2em;
-  height: 2em;
-  top: 0.35em;
-  left: 0.4em;
-  border-radius: 3px;
-}
-.ui.right.labeled.icon.buttons .button > .icon,
-.ui.right.labeled.icon.button > .icon {
-  left: auto;
-  right: 0.4em;
-  border-radius: 3px;
-}
-
-.ui.basic.labeled.icon.buttons .button > .icon,
-.ui.basic.labeled.icon.button > .icon {
-  padding-top: 0.4em !important;
-}
-*/

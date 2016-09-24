@@ -1,3 +1,20 @@
+
+/*******************************
+        Import Theme Styles
+*******************************/
+
+/* Global */
+// @import "_variables";
+@import "_sections";
+@import "_pages";
+
+/* Views */
+@import "../views/header";
+@import "../views/footer";
+
+/* Modules */
+@import "../modules/slider";
+
 /*******************************
         Global Overrides
 *******************************/
@@ -36,28 +53,6 @@
   font-weight: 700;
 }
 
-@mediumContainerWidth: 598px;
-@media (min-width: 768px) and (max-width: 992px) {
-  .ui.container {
-    width: @mediumContainerWidth!important;
-  }
-}
-
-@media (max-width: 768px){
-  .ui.container.page {
-    margin-left: 1.5rem!important;
-    margin-right: 1.5rem!important;
-  }
-}
-
-
-@media (min-width: 1200px)  {
-  .ui.container {
-    width: 1180px!important;
-  }
-}
-
-
 .styleplaceholder(@color:#FFF) {
 
   &::-webkit-input-placeholder {
@@ -81,11 +76,6 @@
 }
 
 
-@import "_header";
-@import "_slider";
-@import "_sections";
-@import "_pages";
-@import "_footer";
 
 // -----------------------------------------
 main.page {

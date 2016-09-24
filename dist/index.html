@@ -11,10 +11,10 @@
   </head>
   <body>
     <header>
-      <div class="ui container grid mobile tablet only">
+      <div class="ui container grid mobile only">
         <div class="two column row">
           <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
-          <div class="right aligned column"><a class="mob-a mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a><a class="mob-a mob-search" href="#"><i class="search icon"></i></a></div>
+          <div class="right aligned column"><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a><a class="mob-search" href="#"><i class="search icon"></i></a></div>
         </div>
         <div class="one column row search-row" style="display:none">
           <div class="column">
@@ -26,18 +26,28 @@
           </div>
         </div>
       </div>
-      <div class="ui container grid">
-        <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
-        <div class="main-column">
-          <div class="ui container computer vertically reversed grid mob-menu" style="display:none">
-            <div class="row">
-              <div class="sixteen wide column">
-                <div class="ui small text menu four item lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a>
-                  <div class="item auth"><a href="#"><span class="ui basic small button">Autorizācija</span></a></div>
-                </div>
+      <div class="ui container grid tablet only">
+        <div class="two column row">
+          <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
+          <div class="right aligned column">
+            <div class="item computer-search">
+              <div class="ui icon input search">
+                <input placeholder="Meklēt"><i class="search icon"></i>
               </div>
-              <div class="main-menu">
-                <nav class="ui secondary stackable menu"><a class="item home" href="index.html"><span>Galvenā</span><i class="icon-home-icon"></i></a>
+            </div><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ui container desktop">
+        <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
+        <div class="ui container fluid main-column">
+          <div class="mob-menu" style="display:none">
+            <div class="ui computer vertically reversed grid">
+              <div class="ui text menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a>
+                <div class="right menu"><a class="ui basic small button" href="#">Autorizācija</a></div>
+              </div>
+              <div class="row">
+                <nav class="ui secondary stackable menu main-menu"><a class="item home" href="index.html"><span>Galvenā</span><i class="icon-home-icon"></i></a>
                   <div class="ui dropdown item">Medicīnas iekārtas
                     <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
                   </div>
@@ -47,14 +57,14 @@
                   <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs <!--<b>22</b>--></span></a></div>
                 </nav>
               </div>
-            </div>
-            <div class="row">
-              <div class="ui secondary text stackable menu top-menu">
-                <div class="item computer-search">
-                  <div class="ui icon input search">
-                    <input placeholder="Meklēt"><i class="search icon"></i>
-                  </div>
-                </div><a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a>
+              <div class="row">
+                <div class="ui secondary text stackable menu top-menu">
+                  <div class="item computer-search">
+                    <div class="ui icon input search">
+                      <input placeholder="Meklēt"><i class="search icon"></i>
+                    </div>
+                  </div><a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a>
+                </div>
               </div>
             </div>
           </div>

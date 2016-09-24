@@ -14,7 +14,7 @@
  background @defaultDuration @defaultEasing
 ;
 
-@hoverBackgroundColor: #FF6B01; //#E0E0E0;
+@hoverBackgroundColor: @orange;
 @hoverBackgroundImage: none;
 @hoverBoxShadow: 0 6px 10px rgba(64, 64, 64, 0.15);
 @hoverColor: inherit;
@@ -24,10 +24,10 @@
 
 @basicBackground: transparent;
 @basicBoxShadow: none;
-@basicHoverBackground: #FF6B01;
+@basicHoverBackground: @orange;
 @basicHoverTextColor: #FFF;
 @basicHoverBoxShadow: 0 6px 10px rgba(64, 64, 64, 0.15);
-@basicDownBackground: #FF6B01;
+@basicDownBackground: @orange;
 @selectedBorderColor: none;
 
 @borderRadius: 0;
@@ -37,28 +37,16 @@
 @backgroundColor: #F7F8FA;
 @backgroundImage: none;//linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
 @boxShadow: none;
- // 0 1px 0 1px rgba(255, 255, 255, 0.3) inset,
- // 0 0 0 1px #ADB2BB inset
-;
 
 @coloredBackgroundImage: none;// linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
-@coloredBoxShadow:
-  none
-  //0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset
-;
+@coloredBoxShadow: none;
 
-@downBoxShadow:
-  none
-  //0 0 0 1px #ADB2BB inset,
-  //0 1px 3px rgba(0, 0, 0, 0.2) inset
-;
+@downBoxShadow: none;
 
 @labeledIconBackgroundColor: #313A43;
 @labeledIconColor: #FFFFFF;
 @labeledIconBorder: transparent;
 
-@black: #444C55;
-@orange: #F4CC67;
 
 @coloredBackgroundImage: none;// linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
 @primaryColor: @orange;

@@ -2040,7 +2040,9 @@ Floated Menu / Item
   background: transparent !important;
   color: #ff6b01!important;
 }*/
-@media (max-width: 992px) {
+
+/* Tablet - Mobile */
+@media only screen and (max-width: 991px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

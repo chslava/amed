@@ -132,15 +132,15 @@
 
 h1,
 h1.ui.header {
-  font-size: 2.25em;
+  font-size: 2rem;
 }
 h2,
 h2.ui.header {
-  font-size: 36px;
+  font-size: 1.714rem;
 }
 h3,
 h3.ui.header {
-  font-size: 25px;
+  font-size: 1.28rem;
 }
 h4,
 h4.ui.header {
@@ -174,13 +174,13 @@ h5.ui.header .sub.header {
 
 .ui.huge.header {
   min-height: 1em;
-  font-size: 2.25em;
+  font-size: 2em;
 }
 .ui.large.header {
-  font-size: 36em;
+  font-size: 1.714em;
 }
 .ui.medium.header {
-  font-size: 25em;
+  font-size: 1.28em;
 }
 .ui.small.header {
   font-size: 1.071em;
@@ -348,13 +348,13 @@ a.ui.inverted.red.header:hover {
 /*--- Orange ---*/
 
 .ui.orange.header {
-  color: #D26911 !important;
+  color: #ff6b01 !important;
 }
 a.ui.orange.header:hover {
-  color: #c35c07 !important;
+  color: #e76000 !important;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #D26911;
+  border-bottom: 2px solid #ff6b01;
 }
 
 /* Inverted */
@@ -639,7 +639,7 @@ a.ui.inverted.grey.header:hover {
   padding: 0.8rem 1rem;
   box-shadow: none;
   border: 1px solid #DDDDDD;
-  border-radius: 0.30769em;
+  border-radius: 0.26666667rem;
 }
 .ui.tiny.block.header {
   font-size: 0.86666667rem;
@@ -680,12 +680,12 @@ a.ui.inverted.grey.header:hover {
 }
 .ui.top.attached.header {
   margin-bottom: 0em;
-  border-radius: 0.30769em 0.30769em 0em 0em;
+  border-radius: 0.26666667rem 0.26666667rem 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-top: none;
-  border-radius: 0em 0em 0.30769em 0.30769em;
+  border-radius: 0em 0em 0.26666667rem 0.26666667rem;
 }
 
 /* Attached Sizes */
@@ -710,7 +710,7 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 25em;
+  font-size: 1.28em;
 }
 
 

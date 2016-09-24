@@ -49,8 +49,8 @@
   color: #ff6b01!important;
 }*/
 
-
-@media (max-width: 992px) {
+/* Tablet - Mobile */
+@media only screen and (max-width: @largestTabletScreen) {
   .ui.stackable.menu {
     flex-direction: column;
   }

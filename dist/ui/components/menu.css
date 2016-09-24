@@ -29,7 +29,7 @@
   font-weight: normal;
   border: 1px solid #8f8f8f;
   box-shadow: 0px 1px 2px 0 #8f8f8f;
-  border-radius: 0.30769em;
+  border-radius: 0.26666667rem;
   min-height: 2.86666667em;
 }
 .ui.menu:after {
@@ -93,7 +93,7 @@
   transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
 }
 .ui.menu > .item:first-child {
-  border-radius: 0.30769em 0px 0px 0.30769em;
+  border-radius: 0.26666667rem 0px 0px 0.26666667rem;
 }
 
 /* Border */
@@ -377,14 +377,14 @@
     Container
 ---------------*/
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 767px) {
   .ui.menu > .ui.container {
     width: 100% !important;
     margin-left: 0em !important;
     margin-right: 0em !important;
   }
 }
-@media only screen and (min-width: 992px - 1) {
+@media only screen and (min-width: 768px) {
   .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
     border-left: 1px solid #d8d8d8;
   }
@@ -514,10 +514,10 @@ Floated Menu / Item
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.30769em 0.30769em 0px 0px;
+  border-radius: 0.26666667rem 0.26666667rem 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.30769em 0.30769em;
+  border-radius: 0px 0px 0.26666667rem 0.26666667rem;
 }
 
 /*--- Label ---*/
@@ -580,13 +580,13 @@ Floated Menu / Item
   box-shadow: none;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0.30769em 0.30769em 0em 0em;
+  border-radius: 0.26666667rem 0.26666667rem 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em 0.30769em 0.30769em;
+  border-radius: 0em 0em 0.26666667rem 0.26666667rem;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0.30769em;
+  border-radius: 0.26666667rem;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -639,7 +639,7 @@ Floated Menu / Item
   font-weight: bold;
   margin-bottom: -1px;
   box-shadow: none;
-  border-radius: 0.30769em 0.30769em 0px 0px !important;
+  border-radius: 0.26666667rem 0.26666667rem 0px 0px !important;
 }
 
 /* Coupling with segment for attachment */
@@ -677,7 +677,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-color: #DDDDDD;
   margin: -1px 0px 0px 0px;
-  border-radius: 0px 0px 0.30769em 0.30769em !important;
+  border-radius: 0px 0px 0.26666667rem 0.26666667rem !important;
 }
 
 /* Vertical Tabular (Left) */
@@ -700,7 +700,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-color: #DDDDDD;
   margin: 0px -1px 0px 0px;
-  border-radius: 0.30769em 0px 0px 0.30769em !important;
+  border-radius: 0.26666667rem 0px 0px 0.26666667rem !important;
 }
 
 /* Vertical Right Tabular */
@@ -724,7 +724,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-color: #DDDDDD;
   margin: 0px 0px 0px -1px;
-  border-radius: 0px 0.30769em 0.30769em 0px !important;
+  border-radius: 0px 0.26666667rem 0.26666667rem 0px !important;
 }
 
 /* Dropdown */
@@ -748,10 +748,10 @@ Floated Menu / Item
   vertical-align: middle;
 }
 .ui.pagination.menu .item:last-child {
-  border-radius: 0em 0.30769em 0.30769em 0em;
+  border-radius: 0em 0.26666667rem 0.26666667rem 0em;
 }
 .ui.compact.menu .item:last-child {
-  border-radius: 0em 0.30769em 0.30769em 0em;
+  border-radius: 0em 0.26666667rem 0.26666667rem 0em;
 }
 .ui.pagination.menu .item:last-child:before {
   display: none;
@@ -797,7 +797,7 @@ Floated Menu / Item
   background: none;
   -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
-  border-radius: 0.30769em;
+  border-radius: 0.26666667rem;
 }
 
 /* No Divider */
@@ -830,7 +830,7 @@ Floated Menu / Item
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
-  border-radius: 0.30769em;
+  border-radius: 0.26666667rem;
 }
 
 /* Active Hover */
@@ -884,7 +884,7 @@ Floated Menu / Item
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: 0em 0em 0.33333333em;
-  border-radius: 0.30769em !important;
+  border-radius: 0.26666667rem !important;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
@@ -1236,7 +1236,7 @@ Floated Menu / Item
     Stackable
 ---------------*/
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 767px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1280,8 +1280,8 @@ Floated Menu / Item
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: #D26911 !important;
-  color: #D26911 !important;
+  border-color: #ff6b01 !important;
+  color: #ff6b01 !important;
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
@@ -1468,7 +1468,7 @@ Floated Menu / Item
 /* Orange */
 .ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
-  background-color: #D26911;
+  background-color: #ff6b01;
 }
 .ui.inverted.orange.menu .item:before {
   background-color: #d8d8d8;
@@ -1644,7 +1644,7 @@ Floated Menu / Item
   display: inline-block;
 }
 .ui.compact.menu .item:last-child {
-  border-radius: 0em 0.30769em 0.30769em 0em;
+  border-radius: 0em 0.26666667rem 0.26666667rem 0em;
 }
 .ui.compact.menu .item:last-child:before {
   display: none;
@@ -1878,7 +1878,7 @@ Floated Menu / Item
   margin-bottom: 0em;
   top: 0px;
   margin-top: 1rem;
-  border-radius: 0.30769em 0.30769em 0em 0em;
+  border-radius: 0.26666667rem 0.26666667rem 0em 0em;
 }
 .ui.menu[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -1891,7 +1891,7 @@ Floated Menu / Item
   top: 0px;
   margin-bottom: 1rem;
   box-shadow: 0px 1px 2px 0 #8f8f8f, none;
-  border-radius: 0em 0em 0.30769em 0.30769em;
+  border-radius: 0em 0em 0.26666667rem 0.26666667rem;
 }
 .ui[class*="bottom attached"].menu:last-child {
   margin-bottom: 0em;
@@ -1899,10 +1899,10 @@ Floated Menu / Item
 
 /* Attached Menu Item */
 .ui.top.attached.menu > .item:first-child {
-  border-radius: 0.30769em 0em 0em 0em;
+  border-radius: 0.26666667rem 0em 0em 0em;
 }
 .ui.bottom.attached.menu > .item:first-child {
-  border-radius: 0em 0em 0em 0.30769em;
+  border-radius: 0em 0em 0em 0.26666667rem;
 }
 
 /* Tabular Attached */
@@ -2040,7 +2040,9 @@ Floated Menu / Item
   background: transparent !important;
   color: #ff6b01!important;
 }*/
-@media (max-width: 992px) {
+
+/* Tablet - Mobile */
+@media only screen and (max-width: 991px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
