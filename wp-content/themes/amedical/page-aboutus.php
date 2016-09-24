@@ -47,12 +47,12 @@ get_header();
 
 <?php if (have_rows("missinon_items")):?>
   <section class="benefits very padded">
-  <div class="ui relaxed grid container">
+  <div class="ui container">
   <div class="sixteen wide column">
   <h2 class="ui header centered decored"><?php the_field("mission_title"); ?></h2>
   <?php while (have_rows("missinon_items")): the_row(); ?>
       <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <p class="content"><?php the_sub_field("mission_title"); ?>: <?php the_sub_field("mission_text"); ?></p>
+        <p class="content"><em><?php the_sub_field("mission_title"); ?>:</em> <?php the_sub_field("mission_text"); ?></p>
       </div>
     <?php endwhile; ?>
     </div>

@@ -8,7 +8,7 @@ $the_query = new WP_Query( $args ); ?>
 
 
 
-<section class="home-news very padded">
+<section class="home-news">
     <div class="ui container">
         <h2 class="ui centered header centered decored"><?php _e('News / Blog','amedical'); ?></h2>
         <div class="ui grid">

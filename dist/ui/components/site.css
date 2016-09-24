@@ -336,6 +336,7 @@ input::selection {
 }
 .home-news .image-container img {
   width: 100%;
+  height: auto;
   margin: 0;
 }
 .home-news .image-container time {
@@ -1661,6 +1662,10 @@ footer .copyright {
   line-height: 15px;
   text-align: center;
   padding: 18px 0;
+}
+.ui.form .mc4wp-response > .mc4wp-alert {
+  text-align: center;
+  color: #FFF;
 }
 @media (min-width: 768px) {
   footer {

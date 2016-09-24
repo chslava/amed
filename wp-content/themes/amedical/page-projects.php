@@ -29,7 +29,7 @@ get_header();
                   <?php the_sub_field("title"); ?>
                 </h2>
 
-                <div class="ui grid">
+                <div class="ui stackable grid">
                     <div class="center aligned ten wide centered column">
                        <p><?php the_sub_field("content"); ?></p>
                     </div>
@@ -63,9 +63,9 @@ get_header();
 
 
 
-        <section class="ui container very padded">
+        <section class="ui container">
             <div class="ui grid">
-                <div class="ui stretched row">
+                <div class="ui stackable row">
                     <div class="sixteen wide mobile eight wide tablet ten wide computer column">
                         <?php if (get_field("cta_block_title")): ?>
                             <h2 class="ui left header decored">

@@ -95,8 +95,11 @@ $coupon_text1 = "";
 $category_discount = 2;
 
 global $result_db;
-$result_db = mysqli_connect($db_host,$db_user,$db_password);
+$result_db = mysqli_connect($db_host,$db_user,$db_password,$db_name);
 
+if (!is_object($result_db)){
+	die("Problem with connection");
+}
 
 mysqli_select_db($result_db, $db_name);
 
@@ -196,12 +199,17 @@ else
 
 $e = array();
 $valo = "text_".$_GET["lang"];
+
 $ev=mysqli_query($result_db,"Select * from texts order by id asc");
-while($es=mysqli_fetch_array($ev))
-{
-	$gid = $es["id"];
-	$e[$gid] = $es[$valo];
+
+if ($ev){
+	while($es=mysqli_fetch_array($ev))
+	{
+		$gid = $es["id"];
+		$e[$gid] = $es[$valo];
+	}
 }
+
 
 $parbaudits = "off";
 $user_discount = 0;
@@ -261,10 +269,21 @@ else
 {
 	$parbaudits="off";
 }
+$title="";
+if (isset($e[1])){
+	$title = $e[1];
+}
+$description="";
+if (isset($e[2])){
+	$description = $e[2];
+}
+$keywords="";
+if (isset($e[3])){
+	$keywords = $e[3];
+}
 
-$title = $e[1];
-$description = $e[2];
-$keywords = $e[3];
+
+
 
 $content_change = 0;
 $tabula="content";
