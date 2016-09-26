@@ -94,7 +94,7 @@ jQuery(function($) {
         //7.. Homepage events - add events for clicking various homepage elements
         //a.. Slider button - add event for clicking the slider button
 
-        $('main-slider').find('a').click(function(){
+        $('.main-slider').find('a').click(function(){
             var self=$(this);
             var button_text = self.text();
             var button_url = self.attr("href");
