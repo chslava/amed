@@ -1,4 +1,7 @@
-<?php 
+<?php
+$_SESSION['t'] = 2; // bad fix for bad code
+
+
 $indent=20;
 $limenis=array();
 
