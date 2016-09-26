@@ -50,6 +50,9 @@
                     (strpos($linc, '/products') !== false) ||
                     (strpos($linc, '/Продукты') !== false)
                 )  {
+                    if(strpos($linc, '/Продукты') !== false) {
+                        $linc = 'http://www.amedical.eu/shop/ru/mediciniskie-produkti/skidki-';
+                    }
                     $top_menu[] = "<a href=\"$linc\" title=\"$f[name]\"$cl>$f[name]</a>";
                 }
             }
