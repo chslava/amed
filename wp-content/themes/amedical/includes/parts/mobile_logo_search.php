@@ -16,7 +16,7 @@
     </div>
     <div class="one column row search-row" style="display:none">
         <div class="column">
-            <form class="ui large form" action="<?php the_field("search_url","option"); ?>" method="GET">
+            <form id="search-mobile-form" class="ui large form" action="<?php the_field("search_url","option"); ?>" method="GET">
                 <div class="field">
                     <input name="search" placeholder="<?php _e("Search",'amedical'); ?>">
                 </div>
