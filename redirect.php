@@ -1,6 +1,7 @@
 <?php
 
-return array(
+
+$redirect_map = array(
     // Navigation
     'lv/par-mums/par-mums'      => 'http://amedical.eu/par-mums/',
     'lv/produkti'               => 'http://amedical.eu/shop/lv/produkti',
@@ -13,7 +14,7 @@ return array(
     'en/services/service'       => 'http://amedical.eu/en/service/',
     'en/contacts'               => 'http://amedical.eu/en/contacts/',
     'en/e-shop'                 => 'http://amedical.eu/shop/en/e-shop',
-    
+
     'ru/%D0%9E-%D0%BD%D0%B0%D1%81/%D0%9E-%D0%BD%D0%B0%D1%81' => 'http://amedical.eu/par-mums/',
     'ru/%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B'    => 'http://amedical.eu/shop/ru/mediciniskie-produkti/skidki-',
     'ru/%D0%A3%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81'  => 'http://amedical.eu/iekartu-serviss/',
@@ -1653,3 +1654,34 @@ return array(
     'oftalmologijai/visual-chart-test' => 1,
     'mediciniskie-produkti/oftalmologijai/lensmeters' => 1
 );
+
+
+$request_uri =  trim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
+
+
+if(isset($redirect_map[$request_uri])) {
+    if(is_string($redirect_map[$request_uri])) {
+        header("Location: " . $redirect_map[$request_uri], true, 301);
+        die;
+    }
+}
+
+
+if(preg_match('/^(lv|ru|en)\/(.*)$/Usi', $request_uri, $match)) {
+    $lang = $match[1];
+    $request_uri = $match[2];
+
+
+    if(isset($redirect_map[$request_uri])) {
+        if(is_string($redirect_map[$request_uri])) {
+            header("Location: " . $redirect_map[$request_uri], true, 301);
+            die;
+        } else {
+            header("Location: " . 'http://www.amedical.eu' . '/shop/' . $lang . '/' . $request_uri, true, 301);
+            die;
+        }
+    }
+}
+
+
+unset($redirect_map);

@@ -44,10 +44,6 @@ require_once('includes/reusable_functions.php');
 require_once('includes/post_types/partners.php');
 
 
-// old link redirects
-require_once('includes/redirect.php');
-
-
 function wpdocs_excerpt_more( $more ) {
  return '...';
 }
