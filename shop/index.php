@@ -1,5 +1,8 @@
 <?php
-
+// old link redirects
+if(file_exists('../redirect.php')) {
+	require_once('../redirect.php');
+}
 
 //@ini_set('display_errors', '0');
 //error_reporting(0);
