@@ -69,7 +69,7 @@
 
 
                         <div class="row">
-                            <form method="get" action="<?php the_field("search_url","option"); ?>">
+                            <form id="search-form" method="get" action="<?php the_field("search_url","option"); ?>">
                             <div class="ui secondary text stackable menu top-menu">
 
                                 <div class="item computer-search">

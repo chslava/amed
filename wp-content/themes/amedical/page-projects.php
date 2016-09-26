@@ -12,6 +12,7 @@ get_header();
             <div class="ui row">
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
                     <h1 class="ui left header decored"><?php the_title(); ?></h1>
+                    <?php $page_title = get_the_title(); ?>
                     <?php the_content(); ?>
                 </div>
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
@@ -80,7 +81,7 @@ get_header();
                                 <?php the_field("cta_block_tagline"); ?>
                             </h3>
                             <p>
-                                <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>">
+                                <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>?<?php print(sanitize_title($page_title)); ?>">
                                     <?php the_field("cta_block_button"); ?>
                                 </a>
                             </p>

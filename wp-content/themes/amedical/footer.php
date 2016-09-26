@@ -57,13 +57,13 @@
               <div class="soc-menu">
 
                 <?php if (get_field("facebook","option")): ?>
-                  <a class="item" target="_blank" href="<?php the_field("facebook","option"); ?>">
+                  <a id="facebook-share" class="item" target="_blank" href="<?php the_field("facebook","option"); ?>">
                     <i class="soc-icon icon-facebook-icon"></i>
                   </a>
                 <?php endif; ?>
 
                 <?php if (get_field("linkedin","option")): ?>
-                  <a class="item" target="_blank" href="<?php the_field("linkedin","option"); ?>">
+                  <a id="linkedin-share" class="item" target="_blank" href="<?php the_field("linkedin","option"); ?>">
                     <i class="soc-icon icon-linkedin-icon"></i>
                   </a>
                 <?php endif; ?>
