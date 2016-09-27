@@ -1580,7 +1580,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider li .content {
-    width: 1200px;
+    // width: 1200px;
     margin: 0 auto;
   }
 
