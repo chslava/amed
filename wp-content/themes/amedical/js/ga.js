@@ -13,7 +13,6 @@ function remove_params_from_url(oldURL) {
 
 jQuery(function($) {
 
-
         //lang variable defined in head part of the output html
         //contact_page_link variable defined in head part of the output html
 
