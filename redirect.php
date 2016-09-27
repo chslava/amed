@@ -12,7 +12,7 @@ $redirect_map = array(
     'en/about-us/about-us'      => 'http://amedical.eu/en/about-a-medical/',
     'en/products'               => 'http://amedical.eu/shop/en/products',
     'en/services/service'       => 'http://amedical.eu/en/service/',
-    'en/contacts'               => 'http://amedical.eu/en/contacts/',
+    //'en/contacts'               => 'http://amedical.eu/en/contacts/',
     'en/e-shop'                 => 'http://amedical.eu/shop/en/e-shop',
 
     'ru/%D0%9E-%D0%BD%D0%B0%D1%81/%D0%9E-%D0%BD%D0%B0%D1%81' => 'http://amedical.eu/par-mums/',
