@@ -2884,6 +2884,10 @@ footer .ui.text.menu a:hover {
   color: #ff6b01;
 }
 
+footer .ui.text.menu div {
+  height:195px;
+}
+
 footer .footer-contacts,
 footer .follow-us {
   padding: 0;
