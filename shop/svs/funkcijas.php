@@ -17,7 +17,7 @@ function do_html_URL($url, $name)
 
 function login($username, $password)
 {
-
+	global $result_db;
 $password=md5($password);
 $password=md5($password);
 
