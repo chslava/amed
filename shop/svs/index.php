@@ -15,7 +15,7 @@ require_once($wolf_path."config.php");
 			<tr>
 				<td>
   				<table cellpadding="5" cellspacing="0" width="400" height="92" align="center" bgcolor="#f2f3f7" style="border: 1px solid #555b79">
-					<form method="post" action="login.php">
+					<form method="post" action="<?php echo $url; ?>/login.php">
 						<tr>
      					<td colspan="2" align="center"><img src="<?php echo $url; ?>/img/logo1.gif"></td>
 						</tr>
