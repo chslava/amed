@@ -50,11 +50,11 @@ if(isset($_POST["submit"]))
 	$url_ee = trim(str_replace($change_from,$change_to,$_POST["url_ee"]));
 	$url_lt = trim(str_replace($change_from,$change_to,$_POST["url_lt"]));
 	
-	$text_lv = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
-	$text_ru = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
-	$text_en = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
-	$text_ee = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
-	$text_lt = mysqli_real_escape_string(trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
+	$text_lv = mysqli_real_escape_string($result_db, trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lv"])));
+	$text_ru = mysqli_real_escape_string($result_db, trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ru"])));
+	$text_en = mysqli_real_escape_string($result_db, trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_en"])));
+	$text_ee = mysqli_real_escape_string($result_db, trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_ee"])));
+	$text_lt = mysqli_real_escape_string($result_db, trim(preg_replace('#<\?xml[^(/>)]*/>#m','',$_POST["text_lt"])));
 	
 	$text_lv = str_replace($change_from1,$change_to1,$text_lv);
 	$text_ru = str_replace($change_from1,$change_to1,$text_ru);
