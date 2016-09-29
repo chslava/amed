@@ -10,8 +10,9 @@ $p_cipari="^([0-9]+)$";
 $place_new=$name;
 
 $nos="items";
-if(eregi($p_cipari,$place_new))
+if(is_numeric($place_new))
 {
+	$place_new = (int)$place_new;
 // ja jaun� vieta ir t�da pati k� eso��, neko nemainam
 $rep0=mysqli_query($result_db,"Select * from $nos where id='$k'");
 $rop0=mysqli_fetch_array($rep0);

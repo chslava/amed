@@ -175,7 +175,7 @@ $text_lang = "text_".$ver;
 							{
 								$publicet=$pr[58];
 							}
-							
+
 							if($rop['copy'] > 0)
 							{
 								$query = mysqli_query($result_db,"select * from items where id='$rop[copy]'");
@@ -194,17 +194,17 @@ $text_lang = "text_".$ver;
 								$cena = $rop["price"];
 								$real_item_id = $rop['id'];
 							}
-						
-							
+
+
 							$dala = mb_substr($dala,0,200,"utf-8");
 							$cik_dala = mb_strlen($dala,"utf-8");
 							if($cik_dala>=200)
 							{
 								$dala = $dala."...";
 							}
-							
-							
-							
+
+
+
 	  						echo "
 							<tr>
 								<td class=st1 valign=top><b>$rop[id]</b></td>
@@ -214,7 +214,7 @@ $text_lang = "text_".$ver;
 								<input type=\"text\" name=\"vieta\" style=\"width: 30px\" value=\"$rop[place]\" class=\"input\" id=\"vieta_$a\">&nbsp;<INPUT TYPE=\"button\" VALUE=\"$pr[54]\" class=\"button1\" onclick=\"ChangePlace('$li&k=$rop[id]&page=$_GET[page]','vieta_$a');\">
 								</td>
 								<td class=st1 valign=top>";
-								
+
 								if(!empty($attels))
 								{
 								echo "
@@ -224,10 +224,10 @@ $text_lang = "text_".$ver;
 								else
 								{
 									echo "&nbsp;";
-								}								
-								
+								}
+
 								if($rop['copy'] > 0){$copy = '<span style="color: red;"><b>&nbsp;KOPIJA!!!</b></span>';}else{$copy = '';}
-								
+
 								echo "
 										
 								</td>
