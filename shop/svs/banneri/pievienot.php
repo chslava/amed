@@ -141,7 +141,7 @@ if(isset($_POST["lt_category"]))
 	}
 }
 
-$rakstam=mysqli_query($result_db,"insert into banners values ('','$datums','$bdatums','$formats','$novietojums','$saite_ee','$saite_lv','$saite_lt','$saite_ru','$saite_en','$ups$filename','$place','0','','','','','','$langs','$notik')");
+$rakstam=mysqli_query($result_db,"insert into banners values (null,'$datums','$bdatums','$formats','$novietojums','$saite_ee','$saite_lv','$saite_lt','$saite_ru','$saite_en','$ups$filename','$place','0','','','','','','$langs','$notik')");
 
 $req=mysqli_query($result_db,"Select * from banners order by place desc Limit 0, 1");
 $roq=mysqli_fetch_array($req);

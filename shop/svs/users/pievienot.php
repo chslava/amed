@@ -67,7 +67,7 @@ if(isset($_POST["submit"])){
 			$s1++;
 			}
 	
-			$result = mysqli_query($result_db,"INSERT INTO user VALUES ('', '$lietotajs', '$password','no','','','$val','off','off','off','off','off','off','off','off','off','off')"); 
+			$result = mysqli_query($result_db,"INSERT INTO user VALUES (null, '$lietotajs', '$password','no','','','$val','off','off','off','off','off','off','off','off','off','off')"); 
 
 			$cik =count($valodas);
 			$s=0;

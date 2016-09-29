@@ -22,7 +22,7 @@ else
 }
 	
 $result = mysqli_query($result_db,"insert into anketas values (
-'',
+null,
 '0',
 '$place',
 '1',
@@ -41,13 +41,13 @@ $result = mysqli_query($result_db,"insert into anketas values (
 '$roz[type]'
 )"); 
 
-$n_id = mysqli_insert_id();
+$n_id = mysqli_insert_id($result_db);
 
 $rez=mysqli_query($result_db,"Select * from anketas where parent_id='$name' order by place asc");
 while($roz=mysqli_fetch_array($rez))
 {	
 	$result = mysqli_query($result_db,"insert into anketas values (
-	'',
+	null,
 	'$n_id',
 	'$roz[place]',
 	'$roz[value]',

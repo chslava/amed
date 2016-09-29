@@ -43,7 +43,7 @@ if(isset($_POST["submit"]))
 	
 	
 	
-	$rakstam=mysqli_query($result_db,"insert into texts values ('','$teksts_ee','$teksts_lv','$teksts_lt','$teksts_ru','$teksts_en','$apraksts','$sadala')");
+	$rakstam=mysqli_query($result_db,"insert into texts values (null,'$teksts_ee','$teksts_lv','$teksts_lt','$teksts_ru','$teksts_en','$apraksts','$sadala')");
 
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

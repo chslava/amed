@@ -124,24 +124,24 @@ if($id!=0)
 	// izveidojam jaunu pirm�s pak�pes sada�u
 	if($row["parent_id"]==0)
 	{
-		$result = mysqli_query($result_db,"insert into $tabula values ('','0','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
-		$n_id=mysqli_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values (null,'0','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
+		$n_id=mysqli_insert_id($result_db);
 		
 	}
 	
 	// izveidojam n-t�s pak�pes sada�u
 	else
 	{
-		$result = mysqli_query($result_db,"insert into $tabula values ('','$row[parent_id]','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
-		$n_id=mysqli_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values (null,'$row[parent_id]','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')"); 
+		$n_id=mysqli_insert_id($result_db);
 		
 	}
 }
 
 else
 {
-	$result = mysqli_query($result_db,"insert into $tabula values ('','0','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')");
-	$n_id=mysqli_insert_id();
+	$result = mysqli_query($result_db,"insert into $tabula values (null,'0','2','$place','$title_ee','$title_lv','$title_lt','$title_ru','$title_en','$description_ee','$description_lv','$description_lt','$description_ru','$description_en','$keywords_ee','$keywords_lv','$keywords_lt','$keywords_ru','$keywords_en','$url_ee','$url_lv','$url_lt','$url_ru','$url_en','$name_ee','$name_lv','$name_lt','$name_ru','$name_en','$link_ee','$link_lv','$link_lt','$link_ru','$link_en','$target_ee','$target_lv','$target_ru','$target_ru','$target_en','$text_ee','$text_lv','$text_lt','$text_ru','$text_en','$type','$style','$group_type','$industry','$discount')");
+	$n_id=mysqli_insert_id($result_db);
 	
 }
 

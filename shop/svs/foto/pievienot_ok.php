@@ -65,7 +65,7 @@ $laiks=time();
 
 
 $result = mysqli_query($result_db,"insert into albums values (
-'',
+null,
 '$limenis',
 '$place',
 '$laiks',
@@ -108,7 +108,7 @@ $result = mysqli_query($result_db,"insert into albums values (
 
 )");
 
-$n_id = mysqli_insert_id(); 
+$n_id = mysqli_insert_id($result_db); 
 
 $links = "index.php".$li1;
 header("Location: $links");

@@ -369,7 +369,7 @@ if(isset($_POST["submit"]))
 	    		{
 	    			$place = 1;
 	    		}
-	    		$result = mysqli_query($result_db,"insert into branches_items values ('','$branch','$name','$place','$group_type','$id')");
+	    		$result = mysqli_query($result_db,"insert into branches_items values (null,'$branch','$name','$place','$group_type','$id')");
 	    		
 	    	}
 	    	unset($all_current_items[$branch]);

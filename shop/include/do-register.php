@@ -96,7 +96,7 @@ if(isset($_POST["register"]))
 			}
 																	
 			$result = mysqli_query($result_db,"insert into clients values (
-			'',
+			null,
 			'$ses_id',
 			'1',
 			'$laiks',

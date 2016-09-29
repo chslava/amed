@@ -51,7 +51,7 @@ if(isset($_POST["add-discount"]))
 	} 
 	
 	$result = mysqli_query($result_db,"insert into discounts values (
-	'',
+	null,
 	'$start_time',
 	'$end_time',
 	'$type',

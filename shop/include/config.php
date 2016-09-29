@@ -126,7 +126,7 @@ function AddStatistic($ip,$user_id,$ses_id,$url,$comment,$status)
 	global $result_db;
 
 	$result = mysqli_query($result_db,"insert into user_statistic value (
-	'',
+	null,
 	'$ip',
 	'$user_id',
 	'$ses_id',
@@ -599,7 +599,7 @@ if(isset($_GET["url"]))
 					else
 					{
 						$result = mysqli_query($result_db,"insert into basket values (
-							'',
+							null,
 							'$ip',
 							'$user_id',
 							'$ses_id',

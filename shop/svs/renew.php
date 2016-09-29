@@ -12,7 +12,7 @@ if($name > 0)
 	
 	$laiks = time();
 	$backup = mysqli_query($result_db,"insert into content_backup values (
-	'',
+	null,
 	'$id',
 	'$laiks',	
 	'$row[name]',

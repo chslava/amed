@@ -261,7 +261,7 @@ if(isset($_POST["submit"]))
 		
 	$rakstam=mysqli_query($result_db,"insert into items values 
 	(
-	'',
+	null,
 	'$id',
 	'$place',
 	'2',
@@ -319,7 +319,7 @@ if(isset($_POST["submit"]))
 	'0'
 	)");
 		
-	$n_id=mysqli_insert_id();
+	$n_id=mysqli_insert_id($result_db);
 	
 	$result = mysqli_query($result_db,"update items set 
 	
@@ -348,7 +348,7 @@ if(isset($_POST["submit"]))
 	    		$place = 1;
 	    	}
 	    	mysqli_free_result($pl);
-	    	$result = mysqli_query($result_db,"insert into branches_items values ('','$branch','$n_id','$place','$group_type','$id')");
+	    	$result = mysqli_query($result_db,"insert into branches_items values (null,'$branch','$n_id','$place','$group_type','$id')");
 	    }
 	}
 	

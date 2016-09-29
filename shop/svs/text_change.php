@@ -15,7 +15,7 @@ if(isset($_POST["submit1"]))
 
 	$laiks = time();
 	$backup = mysqli_query($result_db,"insert into content_backup values (
-	'',
+	null,
 	'$id',
 	'$laiks',	
 	'$row[name]',

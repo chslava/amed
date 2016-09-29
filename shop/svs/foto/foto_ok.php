@@ -137,7 +137,7 @@ else
 }
 
 $laiks=time(); 
-$result = mysqli_query($result_db,"insert into pictures values ('','$name','$name_file','$place','$laiks','$comment_lv','$comment_ru','$comment_en')"); 
+$result = mysqli_query($result_db,"insert into pictures values (null,'$name','$name_file','$place','$laiks','$comment_lv','$comment_ru','$comment_en')"); 
 if(!$result){
 echo "$foto[18]";
 exit;

@@ -14,7 +14,7 @@ if(isset($_POST["submit"])){
 	
 	$nos = "rates";
 		
-	$rakstam=mysqli_query($result_db,"insert into $nos values ('','$name')");
+	$rakstam=mysqli_query($result_db,"insert into $nos values (null,'$name')");
 	
 	$links = "rate.php".$li1;
 	header("Location: $links");

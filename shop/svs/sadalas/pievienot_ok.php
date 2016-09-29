@@ -120,8 +120,8 @@ if($id!=0){
 	if($row["parent_id"]==0)
 	{
 		
-		$result = mysqli_query($result_db,"insert into $tabula values ('','0','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
-		$n_id=mysqli_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values (null,'0','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
+		$n_id=mysqli_insert_id($result_db);
 		if (!$result)
 		return "</b>$sadala[4]</b>";
 	}
@@ -131,8 +131,8 @@ if($id!=0){
 	{
 
 	$choosen = $name;
-		$result = mysqli_query($result_db,"insert into $tabula values ('','$pp','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
-		$n_id=mysqli_insert_id();
+		$result = mysqli_query($result_db,"insert into $tabula values (null,'$pp','$ver','$place','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')"); 
+		$n_id=mysqli_insert_id($result_db);
 		if (!$result)
 		return "</b>$sadala[4]</b>";
 	}
@@ -142,8 +142,8 @@ else
 {
 $choosen = $name;
 
-	$result = mysqli_query($result_db,"insert into $tabula values ('','0','$ver','1','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
-	$n_id=mysqli_insert_id();
+	$result = mysqli_query($result_db,"insert into $tabula values (null,'0','$ver','1','off','on','$name','$under','','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
+	$n_id=mysqli_insert_id($result_db);
 	if (!$result)
 	return "</b>$sadala[4]</b>";
 }

@@ -61,7 +61,7 @@ if(isset($_POST["submit"]))
 		)
 		"); echo mysqli_error($result_db);
 		
-		$last_id = mysqli_insert_id();
+		$last_id = mysqli_insert_id($result_db);
 		
 		$url_lv_n = str_replace('-'.$name,'',$f['url_lv']);
 		$url_ru_n = str_replace('-'.$name,'',$f['url_ru']);

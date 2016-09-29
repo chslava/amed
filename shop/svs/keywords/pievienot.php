@@ -19,7 +19,7 @@ if(isset($_POST["submit"]))
 	$url_ru=str_replace($change_from,$change_to,trim($_POST["url_ru"]));
 	$url_en=str_replace($change_from,$change_to,trim($_POST["url_en"]));		
 	
-	$rakstam=mysqli_query($result_db,"insert into keywords values ('','$name','$url_ee','$url_lv','$url_lt','$url_ru','$url_en')");
+	$rakstam=mysqli_query($result_db,"insert into keywords values (null,'$name','$url_ee','$url_lv','$url_lt','$url_ru','$url_en')");
 
 	$links = "index.php?lang=$lang&ver=$ver";
 	header("Location: $links");

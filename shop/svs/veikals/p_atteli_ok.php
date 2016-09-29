@@ -134,7 +134,7 @@ if(isset($_POST["add-file"]))
 	}
 	
 	$rakstam = mysqli_query($result_db,"insert into images values (
-		'',
+		null,
 		'$name',
 		'$place',
 		'$name_file'

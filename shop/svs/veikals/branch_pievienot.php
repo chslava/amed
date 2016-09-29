@@ -18,7 +18,7 @@ if(isset($_POST["submit"])){
 	
 	$nos = "branches";
 		
-	$rakstam=mysqli_query($result_db,"insert into $nos values ('','$name_ee','$name_lv','$name_lt','$name_ru','$name_en')");
+	$rakstam=mysqli_query($result_db,"insert into $nos values (null,'$name_ee','$name_lv','$name_lt','$name_ru','$name_en')");
 	
 	$links = "branch.php".$li1;
 	header("Location: $links");

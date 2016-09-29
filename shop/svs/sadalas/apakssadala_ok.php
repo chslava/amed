@@ -93,8 +93,8 @@ $place++;
 
 $type = 0;
 
-$result = mysqli_query($result_db,"insert into $tabula values ('','$id','$ver','$place','off','on','$name','$under','$cache','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
-$n_id=mysqli_insert_id();
+$result = mysqli_query($result_db,"insert into $tabula values (null,'$id','$ver','$place','off','on','$name','$under','$cache','$title','$description','$keywords','$choosen','$url','$link','$target','$useri','$template','$type','$icon','$anketa','$album')");
+$n_id=mysqli_insert_id($result_db);
 
 $links = $wolf_path."member.php".$li1."&id=$n_id";
 header("Location: $links");

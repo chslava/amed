@@ -150,7 +150,7 @@ require_once("config.php");
 	}
 	
 	$laiks=time(); 
-	$result = mysqli_query($result_db,"insert into images values ('','$name','$place','$name_file')"); 
+	$result = mysqli_query($result_db,"insert into images values (null,'$name','$place','$name_file')"); 
 					
 	echo "success"; 
 

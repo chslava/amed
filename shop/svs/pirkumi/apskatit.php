@@ -49,7 +49,7 @@ if(isset($_POST["submit"]))
 	
 	$result = mysqli_query($result_db,"update orders set statuss='$statuss' where id='$name'");
 	$add_statuss = mysqli_query($result_db,"insert into statuses values (
-		'',
+		null,
 		'$name',
 		'".time()."',		
 		'$statuss'	

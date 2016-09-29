@@ -144,7 +144,7 @@ if(isset($_POST["submit"])){
 	
 		
 	$result = mysqli_query($result_db,"insert into persons values (
-	'',
+	null,
 	'1',
 	'$photo',
 	'$name_surname',
@@ -163,7 +163,7 @@ if(isset($_POST["submit"])){
 	'$phone'
 	)");
 		
-	$n_id = mysqli_insert_id();
+	$n_id = mysqli_insert_id($result_db);
 	$links = "index.php".$li1;
 	header("Location: $links");
 	exit;

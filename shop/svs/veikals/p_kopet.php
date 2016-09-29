@@ -37,7 +37,7 @@ else
 
 $rakstam=mysqli_query($result_db,"insert into items values 
 	(
-	'',
+	null,
 	'$f[parent_id]',
 	'$place',
 	'$f[statuss]',
@@ -76,7 +76,7 @@ $rakstam=mysqli_query($result_db,"insert into items values
 	'$f[items]'
 	)");
 	
-	$n_id=mysqli_insert_id();
+	$n_id=mysqli_insert_id($result_db);
 		
 
 $links = "index.php".$li."&page=$_GET[page]";

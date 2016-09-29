@@ -50,7 +50,7 @@ if(isset($_POST["submit"]))
 	if($error == "")
 	{
 		$result = mysqli_query($result_db,"insert into anketas values (
-		'',
+		null,
 		'0',
 		'$place',
 		'1',
