@@ -97,6 +97,7 @@ if(isset($_POST["submit"]))
 					$tabula="categories";
 					function sad($parent_id,$indent,$tabula,$ver,$kr)
 					{
+						global $result_db;
 						$indent=$indent."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 						$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
 							

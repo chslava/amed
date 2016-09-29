@@ -28,6 +28,7 @@ $cik=count($limenis);
 
 function izvelnes($parent_id,$atstarpe,$cik,$limenis,$li1,$tabula,$wolf_path,$ver,$id)
 {
+	global $result_db;
 	$cik--;
 	$r1=mysqli_query($result_db,"Select link,id,target,name,parent_id from $tabula where parent_id='$parent_id' and lang='$ver' order by place asc");
 	while($f1=mysqli_fetch_array($r1))

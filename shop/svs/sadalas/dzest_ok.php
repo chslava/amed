@@ -8,6 +8,7 @@ require_once($wolf_path."check.php");
 // izdz��am visas apak�sada�as
 function dzest($parent_id,$tabula,$ver)
 {
+	global $result_db;
 	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' and lang='$ver' order by place asc");
 	while($f1=mysqli_fetch_array($r1))
 	{

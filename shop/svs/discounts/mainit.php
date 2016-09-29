@@ -140,6 +140,7 @@ else
                               	<?php
                               	function sub_cat($cat_id,$category,$cat_name)
                               	{
+									global $result_db;
                                  	$mysql1 = mysqli_query($result_db,"select * from categories where parent_id = '$cat_id' order by place asc");
                                  	while($cat1 = mysqli_fetch_array($mysql1))
                                  	{	
@@ -161,6 +162,7 @@ else
                               	}
                               	function sub_cats($category)
                               	{
+									global $result_db;
                                 	$mysql = mysqli_query($result_db,"select * from categories where parent_id = '0' order by place asc");
                                  	while($cat = mysqli_fetch_array($mysql))
                                  	{	

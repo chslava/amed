@@ -146,6 +146,7 @@ $kr=0;
 
 function sad($parent_id,$atstarpe,$user,$tabula)
 {
+	global $result_db;
 	$r1=mysqli_query($result_db,"Select * from $tabula where parent_id='$parent_id' order by place asc");
 	while($f1=mysqli_fetch_array($r1))
 	{
