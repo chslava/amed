@@ -3,6 +3,9 @@
 if (!isset($id)) {
 	$id = 0;
 };
+if (!isset($ar)) {
+	$ar = 0;
+};
 ?>
 <?php if($id != 0){?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
