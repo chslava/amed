@@ -173,7 +173,7 @@ if(isset($_POST["order-confirm"]))
 			$laiks = time();			
 			$result = mysqli_query($result_db,"insert into orders values
 			(
-			'',
+			null,
 			'$user_id',
 			'$ses_id',
 			'$laiks',
@@ -222,10 +222,10 @@ if(isset($_POST["order-confirm"]))
 			'0'				
 			)"); 
 					
-			$parent_id=mysqli_insert_id();	
+			$parent_id=mysqli_insert_id($result_db);
 			
 			$add_statuss = mysqli_query($result_db,"insert into statuses values (
-			'',
+			null,
 			'$parent_id',
 			'$laiks',		
 			'0'	
@@ -393,7 +393,7 @@ if(isset($_POST["order-confirm"]))
 				
 				
 				$add_item = mysqli_query($result_db,"insert into ordered_items values (
-				'',
+				null,
 				'$parent_id',
 				'$item[id]',
 				'$item[name_ee]',
@@ -575,7 +575,7 @@ if(isset($_POST["order-confirm"]))
 					if ($kopa > 71.14 && $kopa < 142.29)
 					{
 						$result = mysqli_query($result_db,"insert into gifts values (
-						'',
+						null,
 						'$parent_id',
 						'1',
 						'$laiks',
@@ -592,7 +592,7 @@ if(isset($_POST["order-confirm"]))
 					else if ($kopa >= 142.29 && $kopa < 426.86)
 					{
 						$result = mysqli_query($result_db,"insert into gifts values (
-						'',
+						null,
 						'$parent_id',
 						'2',
 						'$laiks',
@@ -609,7 +609,7 @@ if(isset($_POST["order-confirm"]))
 					else if ($kopa >= 426.86)
 					{
 						$result = mysqli_query($result_db,"insert into gifts values (
-						'',
+						null,
 						'$parent_id',
 						'3',
 						'$laiks',
@@ -637,7 +637,7 @@ if(isset($_POST["order-confirm"]))
 					{
 						$points = round($summa_bez_pvn_kopa * $disc["value"] / 100,2);
 						$result = mysqli_query($result_db,"insert into points values (
-						'',
+						null,
 						'$parent_id',
 						'1',
 						'$laiks',
@@ -653,7 +653,7 @@ if(isset($_POST["order-confirm"]))
 				else
 				{
 					$result = mysqli_query($result_db,"insert into points values (
-					'',
+					null,
 					'$parent_id',
 					'2',
 					'$laiks',
@@ -669,7 +669,7 @@ if(isset($_POST["order-confirm"]))
 			if($coupon_accept == 1)
 			{
 				$result = mysqli_query($result_db,"insert into coupons values (
-				'',
+				null,
 				'$parent_id',
 				'1',
 				'$laiks',
