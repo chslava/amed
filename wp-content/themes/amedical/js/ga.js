@@ -13,6 +13,15 @@ function remove_params_from_url(oldURL) {
 
 jQuery(function($) {
 
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46092264-1', 'auto');
+        ga('send', 'pageview');
+
+
         //lang variable defined in head part of the output html
         //contact_page_link variable defined in head part of the output html
 
@@ -23,6 +32,9 @@ jQuery(function($) {
         });
         $('#linkedin-share').parent().click(function(){
             ga('send', 'event', 'Social button clicked', 'LinkedIn');
+        });
+        $('#teamviewer-download').parent().click(function(){
+          ga('send', 'event', 'TeamViewer downloaded', 'Teamviewer');
         });
 
 
