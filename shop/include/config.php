@@ -107,6 +107,7 @@ mysqli_query($result_db,"SET NAMES utf8");
 
 function login($username, $password)
 {
+	global $result_db;
 	$password=md5($password);
 	$password=md5($password);
 

@@ -12,6 +12,7 @@ $category="";
 
 function izvelnes($parent_id,$category,$_xml)
 {
+	global $result_db;
 	global $_xml;
 	$r1=mysqli_query($result_db,"Select * from categories where parent_id='$parent_id' and statuss='2' order by place asc");
 	while($f1=mysqli_fetch_array($r1))
