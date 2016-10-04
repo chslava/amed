@@ -38,6 +38,9 @@ jQuery(function($) {
             // code to run upon successful form submission
             if (form_id==contact_form_id){
                 ga('send', 'event', 'Contact form sent', lang);
+                //ga('send', 'event', 'Contact form sent', "formas nosaukums" +"Sent","referalis"); (direct)
+                //
+                //ga('send', 'event',"CTA button clicked", "button name" + " clicked","destination"); + referal 
             }
 
         });
@@ -58,6 +61,7 @@ jQuery(function($) {
                 click_position='Contacts email clicked';
             }
             ga('send', 'event', 'Email address clicked', click_position, selected_email.trim() );
+            //ga('send', 'event', 'Email address clicked', click_position+" clicked", selected_email.trim() );
         })
 
 
