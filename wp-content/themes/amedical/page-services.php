@@ -28,7 +28,7 @@ get_header();
                         <div class="ui basic compact segment">
                             <h3 class="large"><?php the_field("service_cta_text"); ?></h3>
                             <p>
-                                <a class="ui basic fluid button" href="<?php the_field("service_cta_button_link"); ?>">
+                                <a class="ui basic fluid button" id="service-btn" href="<?php the_field("service_cta_button_link"); ?>">
                                     <?php the_field("service_cta_button_text"); ?>
                                 </a>
                             </p>
