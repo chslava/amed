@@ -48,8 +48,8 @@ get_header();
 
     map = new GMaps({
             div: '.contact-map',
-            lat:  56.940,
-            lng: 24.070,
+            //lat:  56.940,
+            //lng: 24.070,
             zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
