@@ -48,8 +48,8 @@ get_header();
 
     map = new GMaps({
             div: '.contact-map',
-            //lat:  56.940,
-            //lng: 24.070,
+            lat:  <?php echo get_field("lat","option"); ?>,
+            lng: <?php echo get_field("lng","option"); ?>,
             zoom: 12,
             scrollwheel: false,
             disableDefaultUI: true,
@@ -85,36 +85,18 @@ get_header();
                 }
             ]
         });
-        <?php if (get_field("lat","option") && get_field("lng","option")): ?>
-            map.setCenter(<?php the_field("lat","option") ?>, <?php the_field("lng","option") ?>);
-
-            map.addMarker({
-                lat: <?php the_field("lat","option") ?>,
-                lng: <?php the_field("lng","option") ?>,
-                icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png'
-            });
-
-        <?php else: ?>
-            //getting location by address
-            GMaps.geocode({
-                address: address,
-                callback: function(results, status) {
-                    if (status == 'OK') {
-                        var latlng = results[0].geometry.location;
-                        map.setCenter(latlng.lat(), latlng.lng());
-                        map.addMarker({
-                            lat: latlng.lat(),
-                            lng: latlng.lng(),
-                            icon: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png'
-                        });
-                    }
-                }
-            });
-        <?php endif; ?>
-
-
-
-
+        map.setCenter(<?php the_field("lat","option") ?>, <?php the_field("lng","option") ?>);
+        var image = {
+                 url: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+                 size: new google.maps.Size(101, 101),
+                 origin: new google.maps.Point(0, 0),
+                 anchor: new google.maps.Point(50.5, 50.5)
+               };
+        map.addMarker({
+            lat: <?php the_field("lat","option") ?>,
+            lng: <?php the_field("lng","option") ?>,
+            icon: image
+        });
 
 
     })
