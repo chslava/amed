@@ -23,12 +23,7 @@ jQuery(function($) {
         $('#linkedin-share').parent().click(function(){
             ga('send', 'event', 'Social button clicked', 'LinkedIn');
         });
-        $('#teamviewer-download').parent().click(function(){
-          ga('send', 'event', 'TeamViewer downloaded', 'Teamviewer');
-        });
-        $('#service-btn').parent().click(function(){
-          ga('send', 'event', 'Remote support button clicked', 'Service');
-        });
+
 
         //2.. Search bar - add event for using the search bar
         $('#search-mobile-form, #search-form').submit(function( event ) {
@@ -36,10 +31,6 @@ jQuery(function($) {
             var searchterm = self.find('input[name=search]').first().val();
             ga('send', 'event', 'Search bar used', searchterm.trim());
         });
-
-
-
-
 
 
         //3.. Contact form - add event in the contacts page for successfully sending the contact form
@@ -147,9 +138,16 @@ jQuery(function($) {
 
         });
 
+        //9.. Remote support button - add event for clicking the “Remote support” button (for all lang.)
+        $('#service-btn').parent().click(function(){
+          ga('send', 'event', 'Remote support button clicked', $('#service-btn').text().' button clicked');
+        });
 
+        //10.. TeamViewer downloaded - add event for downloading TeamViewer
+        $('#teamviewer-download').parent().click(function(){
+          ga('send', 'event', 'TeamViewer downloaded', lang);
 
-
+        });
 
 
 
