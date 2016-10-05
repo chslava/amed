@@ -1,0 +1,1 @@
+?-õW<?php exit; ?>a:1:{s:7:"content";a:1:{s:4:"data";s:37:"http://amedical.dev/par-mums/jaunumi/";}}

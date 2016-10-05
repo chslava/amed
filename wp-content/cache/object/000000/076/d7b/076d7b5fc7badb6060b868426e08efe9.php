@@ -1,0 +1,1 @@
+?-�W<?php exit; ?>a:1:{s:7:"content";s:48:"Paldies, ka pierakstījāties jaunumu e-pastiem.";}

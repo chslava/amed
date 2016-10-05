@@ -1,0 +1,6 @@
+?-�W<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":23:{s:2:"ID";s:2:"56";s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2016-09-15 16:29:27";s:13:"post_date_gmt";s:19:"2016-09-15 16:29:27";s:12:"post_content";s:389:"Kļūstot par oficiālo pārstāvi Latvijā, “A.Medical” nodrošinās slimnīcas un veselības aprūpes iestādes ar augstas kvalitātes medicīnasiekārtām radioloģijas jomā.
+
+&nbsp;
+
+<!--more-->
+Esam patiesi lepni par sadarbību, kas mums sniedz iespēju klientiem piedāvāt modernākus diagnostikas risinājumus un ļauj veikt izmeklējumus precīzi, ātri un kvalitatīvi.";s:10:"post_title";s:94:"A.Medical kļūst par oficiālo “Toshiba Medical systems corporation” pārstāvi Latvijā.";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:4:"open";s:13:"post_password";s:0:"";s:9:"post_name";s:79:"medical-klust-par-oficialo-toshiba-medical-systems-corporation-parstavi-latvija";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2016-10-03 17:03:22";s:17:"post_modified_gmt";s:19:"2016-10-03 14:03:22";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";s:1:"0";s:4:"guid";s:37:"http://amedical.digitalscore.lv/?p=56";s:10:"menu_order";s:1:"1";s:9:"post_type";s:4:"post";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";}}

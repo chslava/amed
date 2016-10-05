@@ -1,0 +1,8 @@
+?-�W<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:63;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2016-09-16 07:21:24";s:13:"post_date_gmt";s:19:"2016-09-16 07:21:24";s:12:"post_content";s:816:"A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas. A.MEDICAL ir divi atbalsta centri Latvijā - Rīgā un Daugavpilī. Mūsu serviss sadarbojas ar vadošajām Latvijas medicīnas, industriālo un drošības risinājumu iestādēm, kā arī iestādēm ārpus Latvijas – Igaunijā, Lietuvā un Krievijā.
+<ul class="small circles-list">
+ 	<li>Nepārtrauktu iekārtu darbības nodrošināšanu par fiksētu mēneša maksu</li>
+ 	<li>Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā</li>
+ 	<li>Garantēta ātra inženieru ierašanās</li>
+ 	<li>Iespējama iekārtu aizvietošana</li>
+ 	<li>Papildus 10% atlaide produktiem un pakalpojumiem</li>
+</ul>";s:10:"post_title";s:16:"Iekārtu serviss";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:6:"closed";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:15:"iekartu-serviss";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2016-09-21 21:51:09";s:17:"post_modified_gmt";s:19:"2016-09-21 18:51:09";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:43:"http://amedical.digitalscore.lv/?page_id=63";s:10:"menu_order";i:8;s:9:"post_type";s:4:"page";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

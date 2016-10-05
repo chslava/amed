@@ -1,0 +1,1 @@
+?-�W<?php exit; ?>a:1:{s:7:"content";s:70:"Diemžēl neizdevās pievienot sarakstam. Mēģiniet vēlreiz vēlāk!";}
