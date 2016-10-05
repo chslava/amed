@@ -18,3 +18,5 @@ dist/ui/themes/*
 
 shop/pictures/*
 shop/config.php
+
+/update_the_stuff.php
