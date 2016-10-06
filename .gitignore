@@ -22,3 +22,5 @@ shop/config.php
 /update_the_stuff.php
 /wp-config.php
 /nginx.conf
+/wp-content/cache/*
+/wp-content/advanced-cache.php

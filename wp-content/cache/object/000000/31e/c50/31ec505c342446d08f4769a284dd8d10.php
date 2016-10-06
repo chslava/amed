@@ -1,1 +1,0 @@
-?-õW<?php exit; ?>a:1:{s:7:"content";a:2:{s:14:"_wpml_inactive";b:1;s:23:"active_sitewide_plugins";b:1;}}
