@@ -17,7 +17,9 @@
             <div class="footer-contacts">
 
               <div class="title">
+                <a href="<?php echo get_page_link(69); ?>">
                 <?php the_field('contacts_title','option'); ?>
+                </a>
               </div>
 
               <div class="item">
