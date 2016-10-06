@@ -14,7 +14,9 @@ get_header();
                 <?php the_content(); ?>
             </div>
             <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+              <a href="<?php the_post_thumbnail_url(); ?>">
                 <?php the_post_thumbnail(); ?>
+              </a>
             </div>
         </div>
     </div>
