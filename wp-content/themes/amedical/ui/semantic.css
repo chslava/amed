@@ -2948,6 +2948,14 @@ footer .footer-contacts .c-icon.icon-mail-icon {
   margin-top: -3px;
 }
 
+footer .footer-contacts .title a{
+  color: #ffffff;
+}
+
+footer .footer-contacts .title a:hover{
+  color: #e5702a;
+}
+
 footer .follow-us {
   margin-bottom: 40px;
 }
