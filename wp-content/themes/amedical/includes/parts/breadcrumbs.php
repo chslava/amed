@@ -11,9 +11,9 @@
       $last = explode("</div>",$breadcrumbs);
       $last = end($last);
       $breadcrumbs = str_replace($last,'<div class="active section">'.$last."</div>",$breadcrumbs);
-      
 
-            print($breadcrumbs);
+
+      print($breadcrumbs);
        }
   ?>
 </div>

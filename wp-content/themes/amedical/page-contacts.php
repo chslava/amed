@@ -3,7 +3,7 @@
 Template Name: Contacts
 */
 get_header();
-
+add_filter('wpseo_breadcrumb_single_link' ,'timersys_remove_links', 10 ,2);
 ?>
 
 <main class="contacts">

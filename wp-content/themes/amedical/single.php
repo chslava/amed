@@ -1,7 +1,7 @@
 <?php
 //news opened
 get_header();
-
+add_filter('wpseo_breadcrumb_single_link' ,'timersys_remove_links', 10 ,2);
 ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
