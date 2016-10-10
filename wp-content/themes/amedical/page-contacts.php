@@ -39,26 +39,24 @@ get_header();
   </div>
   <div class="info"></div>
 
-  <div class="map contact-map" data-lat="<?php echo get_field("lat","option"); ?>" data-lng="<?php echo get_field("lng","option"); ?>"></div>
+  <!-- <div class="map contact-map" data-lat="<?php echo get_field("lat","option"); ?>" data-lng="<?php echo get_field("lng","option"); ?>"></div> -->
 
+  <div id="map" class="map contact-map"></div>
 
   <script>
-    jQuery(function($) {
-        var address ='<?php the_field("address","option"); ?>';
-
-    map = new GMaps({
-            div: '.contact-map',
-            lat:  <?php echo get_field("lat","option"); ?>,
-            lng: <?php echo get_field("lng","option"); ?>,
-            zoom: 12,
-            scrollwheel: false,
-            disableDefaultUI: true,
-            navigationControl: true,
-            mapTypeControl: false,
-            scaleControl: true,
-            zoomControl:true,
-            draggable: false,
-            styles: [
+  function initMap() {
+    var uluru = {lat: <?php echo get_field("lat","option"); ?>, lng: <?php echo get_field("lng","option"); ?>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              center: uluru,
+              zoom: 13,
+              scrollwheel: false,
+              disableDefaultUI: true,
+              navigationControl: true,
+              mapTypeControl: false,
+              scaleControl: true,
+              zoomControl:true,
+              draggable: false,
+              styles: [
                 {
                     stylers: [
                         {saturation: -75}
@@ -83,25 +81,36 @@ get_header();
                         {visibility: "simplified"}
                     ]
                 }
-            ]
-        });
-        map.setCenter(<?php the_field("lat","option") ?>, <?php the_field("lng","option") ?>);
-        var image = {
-                 url: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
-                 size: new google.maps.Size(101, 101),
-                 origin: new google.maps.Point(0, 0),
-                 anchor: new google.maps.Point(50.5, 50.5)
-               };
-        map.addMarker({
-            lat: <?php the_field("lat","option") ?>,
-            lng: <?php the_field("lng","option") ?>,
-            icon: image
-        });
+              ]
+            });
 
+  var infowindow = new google.maps.InfoWindow({
+       content: 'Varkaļu iela 13A, RĪga, Latvija, LV-1067'
+     });
 
-    })
+   var image = {
+            url: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
+            size: new google.maps.Size(101, 101),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(50.5, 50.5)
+   };
+
+   var marker = new google.maps.Marker({
+     position: uluru,
+     icon: image,
+     map: map
+   });
+
+   marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+
+  }
   </script>
 
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_field('google_map_api','option'); ?>&callback=initMap">
+  </script>
 </main>
 
 <section class="contact-form">
