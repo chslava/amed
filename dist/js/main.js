@@ -45,7 +45,8 @@ jQuery(function($) {
             infiniteLoop: true,
             auto: true,
             pager: false,
-            slideMargin: 0
+            slideMargin: 0,
+            autoReload: true
         });
     } else {
         $('.represent-slider').bxSlider({
