@@ -1,0 +1,42 @@
+/* Custom CSS */
+
+
+footer .ui.text.menu div {
+  height:195px;
+}
+
+.main-slider li .content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+header .basket .item {
+  margin-top: -4px !important;
+}
+
+.map-info{
+  color: #636463;
+}
+.map-info a{
+  color: #e5702a;
+}
+
+footer > .ui.grid {
+  display: block;
+}
+
+.service .benefits-icon {
+  color: #ff6b01;
+  margin-top: 32px;
+  font-size: 48px;
+}
+
+@media (min-width: 1200px) {
+  .about-us {
+    margin-bottom: 85px !important;
+  }
+
+ .about-us .ui.header ~ p {
+     margin-right: -2rem;
+     padding-bottom: 8px;
+   }

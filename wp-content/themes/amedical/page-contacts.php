@@ -84,9 +84,12 @@ add_filter('wpseo_breadcrumb_single_link' ,'timersys_remove_links', 10 ,2);
               ]
             });
 
+
   var infowindow = new google.maps.InfoWindow({
-       content: 'Varkaļu iela 13A, RĪga, Latvija, LV-1067'
+       content: document.getElementById("hidden-info").innerHTML
      });
+
+     document.getElementById("hidden-info").style.visibility = "hidden";
 
    var image = {
             url: '<?php echo get_stylesheet_directory_uri() ;?>/img/marker.png',
@@ -108,11 +111,8 @@ add_filter('wpseo_breadcrumb_single_link' ,'timersys_remove_links', 10 ,2);
   }
   </script>
 
-  <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_field('google_map_api','option'); ?>&callback=initMap">
-  </script>
 </main>
-
+<div id='hidden-info'><span class='map-info'><?php echo the_field('map_info_window','option'); ?><span></div>
 <section class="contact-form">
   <div class="ui container">
     <div class="ui grid">

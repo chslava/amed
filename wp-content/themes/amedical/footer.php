@@ -86,5 +86,11 @@
     </footer>
 
     <?php wp_footer(); ?>
+
+<?php if(is_page_template ('page-contacts.php')){ ?>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_field('google_map_api','option'); ?>&callback=initMap">
+    </script>
+<?php } ?>
   </body>
 </html>
