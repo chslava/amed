@@ -865,6 +865,7 @@ input::selection {
 
 .home-news .image-container img {
   width: 100%;
+  height: auto;
   margin: 0;
 }
 
@@ -2439,6 +2440,11 @@ footer .copyright {
   padding: 18px 0;
 }
 
+.ui.form .mc4wp-response > .mc4wp-alert {
+  text-align: center;
+  color: #FFF;
+}
+
 @media (min-width: 768px) {
   footer {
     font-size: 15px;
@@ -2767,6 +2773,7 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -2807,6 +2814,7 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -7368,7 +7376,8 @@ blockquote {
   }
 
   .ui.grid.container {
-    width: calc( 600px  +  2rem );
+    width: calc(768px + 7rem);
+    margin: 0  auto !important;
   }
 
   .ui.relaxed.grid.container {
@@ -7377,6 +7386,12 @@ blockquote {
 
   .ui.very.relaxed.grid.container {
     width: calc( 600px  +  5rem );
+  }
+
+  header a.mob-toogle-menu {
+    font-size: 18px;
+    margin-top: 0;
+    margin-right: 0;
   }
 }
 
@@ -13136,6 +13151,7 @@ img.ui.bordered.image {
 img.ui.shadowed.image {
   float: right;
   margin-top: 0;
+  height: auto;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
 }
 
@@ -15825,7 +15841,6 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -16160,6 +16175,10 @@ img.ui.shadowed.image {
     margin-right: 0em;
     padding-left: 2em;
     padding-right: 2em;
+  }
+
+  .ui.grid > .row {
+    padding: 0 !important;
   }
 }
 
@@ -17345,6 +17364,7 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -17405,6 +17425,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17417,6 +17438,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17435,6 +17457,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17718,6 +17741,27 @@ img.ui.shadowed.image {
 
   .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
+  }
+
+  /* Right Aligned */
+
+  .ui[class*="right aligned"].grid > .column,
+  .ui[class*="right aligned"].grid > .row > .column,
+  .ui.grid > [class*="right aligned"].row > .column,
+  .ui.grid > [class*="right aligned"].column.column,
+  .ui.grid > .row > [class*="right aligned"].column.column {
+    text-align: right;
+    -ms-flex-item-align: inherit;
+    align-self: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 }
 
@@ -19085,6 +19129,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -19364,6 +19409,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;

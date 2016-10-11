@@ -1,17 +1,17 @@
 jQuery(function($) {
     //for wordpress subscription module
-    if($(".mc4wp-notice").length>0){
+    if ($(".mc4wp-notice").length > 0) {
         $('html, body').animate({
             scrollTop: $("#mc4wp-form-1").offset().top
         }, 500);
     }
 
-    $('.menu').on('click', '.ui.dropdown', function (e) {
-        if(window.innerWidth<=992) {
+    $('.menu').on('click', '.ui.dropdown', function(e) {
+        if (window.innerWidth <= 992) {
             e.preventDefault();
             $('.ui.dropdown').removeClass('active');
             $(this).addClass('active');
-            if($(this).children('.menu').css('display')=='block') {
+            if ($(this).children('.menu').css('display') == 'block') {
                 $(this).children('.menu').hide();
                 $(this).removeClass('active');
                 return;
@@ -38,29 +38,39 @@ jQuery(function($) {
         speed: 1000
     });
 
-    $('.represent-slider').bxSlider({
-        slideWidth: 150,
-        minSlides: 1,
-        maxSlides: 6,
-        moveSlides: 1,
-        slideMargin: 58,
-        pager: false,
-        infiniteLoop: true,
-        auto: true
-    });
 
-    $('.mob-search').on('click', function (e) {
+    if (($(window).width()) < 768) {
+        $('.represent-slider').bxSlider({
+            moveSlides: 1,
+            infiniteLoop: true,
+            auto: true,
+            pager: false,
+            slideMargin: 0
+        });
+    } else {
+        $('.represent-slider').bxSlider({
+            slideWidth: 150,
+            minSlides: 1,
+            maxSlides: 6,
+            moveSlides: 1,
+            slideMargin: 58,
+            pager: false,
+            infiniteLoop: true,
+            auto: true
+        });
+    }
+
+    $('.mob-search').on('click', function(e) {
         e.preventDefault();
         $('.search-row').slideToggle();
         if ($('.search-row').css('display') == 'flex') {
             $('.search-row input').focus();
         }
     })
-    $('.mob-toogle-menu').on('click', function (e) {
+    $('.mob-toogle-menu').on('click', function(e) {
         e.preventDefault();
         $('.mob-menu').slideToggle(200);
         $(this).children('i').toggleClass('icon-mob-toogle-close', 'icon-mob-toogle-open');
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
 })
-
