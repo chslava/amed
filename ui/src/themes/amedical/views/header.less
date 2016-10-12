@@ -32,6 +32,7 @@ header {
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+            padding-top: 15px;
             .main-column,
             .main-logo {
                 display: inline-block;
@@ -47,6 +48,7 @@ header {
             }
             .mob-menu {
                 display: flex!important;
+                height: 100%;
             }
             .ui {
                 &.reversed {
@@ -158,8 +160,8 @@ header {
                             margin-right: 18px;
                             border-left: 1px solid #d8d8d8;
                             display: flex;
-                            -ms-flex-item-align: center;
-                            align-self: center;
+                            // -ms-flex-item-align: center;
+                            // align-self: center;
                         }
                     }
                     .basket .item,
@@ -204,6 +206,7 @@ header {
                 }
             }
         }
+
     }
     // Small Monitor
     @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {

@@ -894,12 +894,16 @@
     .ui.header {
       margin-bottom: 37px;
     }
+    .circle-check {
+      margin-right: 0;
+    }
     .content {
       color: #636463;
       font-size: 16px;
       font-weight: 500;
       line-height: 22px;
-      padding-right: 2rem;
+      padding-right: 0;
+      padding-left: 80px;
     }
     + section {
       padding-top:100px;
@@ -928,6 +932,25 @@
       }
     }
   }
+.about-us {
+  .ui.header.left.decored:before{
+    margin: 30px 0 20px;
+  }
+  .ui.grid>.row>[class*="six wide computer"].column{
+    padding-left: 0;
+  }
+  .ui.row .sixteen.computer.column > p{
+    margin-right: 0;
+  }
+  .ten.wide.computer.column img.shadowed{
+    margin-top: 50px;
+    box-shadow: 0 6px 10px rgba(27,47,78,.14),16px -20px 0 #e6e6e6;
+  }
+}
 
-
+}
+@media (min-width: @largeMonitorBreakpoint){
+  .secondary-services .content {
+    padding-right: 2rem;
+  }
 }

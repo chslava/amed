@@ -1629,12 +1629,17 @@ input::selection {
     margin-bottom: 37px;
   }
 
+  .secondary-services .circle-check {
+    margin-right: 0;
+  }
+
   .secondary-services .content {
     color: #636463;
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    padding-right: 2rem;
+    padding-right: 0;
+    padding-left: 80px;
   }
 
   .secondary-services + section {
@@ -1665,6 +1670,29 @@ input::selection {
 
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
+  }
+
+  .about-us .ui.header.left.decored:before {
+    margin: 30px 0 20px;
+  }
+
+  .about-us .ui.grid > .row > [class*="six wide computer"].column {
+    padding-left: 0;
+  }
+
+  .about-us .ui.row .sixteen.computer.column > p {
+    margin-right: 0;
+  }
+
+  .about-us .ten.wide.computer.column img.shadowed {
+    margin-top: 50px;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
+  }
+}
+
+@media (min-width: 1440px) {
+  .secondary-services .content {
+    padding-right: 2rem;
   }
 }
 
@@ -1929,6 +1957,7 @@ header .main-logo {
     -ms-flex-align: center;
     -webkit-box-align: center;
     align-items: center;
+    padding-top: 15px;
   }
 
   header .desktop .main-column,
@@ -1951,6 +1980,7 @@ header .main-logo {
     display: -webkit-box!important;
     display: -ms-flexbox!important;
     display: flex!important;
+    height: 100%;
   }
 
   header .desktop .ui.reversed {
@@ -2086,8 +2116,6 @@ header .main-logo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-item-align: center;
-    align-self: center;
   }
 
   header .desktop .ui.main-menu .basket .item,
@@ -3052,6 +3080,12 @@ section.slider .ui.container.grid > .column {
     line-height: 38px;
     padding-left: 67px;
     padding-right: 66px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .main-slider li .content {
+    padding: 0 85px;
   }
 }
 
