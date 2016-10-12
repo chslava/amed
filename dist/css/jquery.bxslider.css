@@ -255,12 +255,12 @@
                 float: left;
             }
             .represent .bx-wrapper li {
-                margin: 0 20px;
+                margin: 0 16px;
             }
         }
         @media (min-width: 1440px) {
             .represent .bx-wrapper li {
-                margin: 0 24px;
+                margin: 0 20px;
             }
             .bx-wrapper .bx-controls-direction a.disabled {
                 display: none;
