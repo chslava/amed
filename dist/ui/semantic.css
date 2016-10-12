@@ -1931,8 +1931,8 @@ header .main-logo {
     align-items: center;
   }
 
-  header .desktop .main-logo,
-  header .desktop .main-column {
+  header .desktop .main-column,
+  header .desktop .main-logo {
     display: inline-block;
   }
 
@@ -2003,8 +2003,8 @@ header .main-logo {
     padding-right: 0;
   }
 
-  header .desktop .ui.top-menu .item:hover,
-  header .desktop .ui.top-menu .item:active {
+  header .desktop .ui.top-menu .item:active,
+  header .desktop .ui.top-menu .item:hover {
     color: #ff6b01;
   }
 
@@ -2054,7 +2054,7 @@ header .main-logo {
   }
 
   header .desktop .ui.main-menu .basket .item {
-    padding-right: 0!important;
+    padding-right: 0 !important;
   }
 
   header .desktop .ui.main-menu .basket .item::after {
@@ -2090,8 +2090,8 @@ header .main-logo {
     align-self: center;
   }
 
-  header .desktop .ui.main-menu > .item,
-  header .desktop .ui.main-menu .basket .item {
+  header .desktop .ui.main-menu .basket .item,
+  header .desktop .ui.main-menu > .item {
     margin: 0;
     display: block;
     font-size: 16px;
@@ -2100,8 +2100,8 @@ header .main-logo {
     align-self: baseline;
   }
 
-  header .desktop .ui.main-menu > .item.home,
-  header .desktop .ui.main-menu .basket .item.home {
+  header .desktop .ui.main-menu .basket .item.home,
+  header .desktop .ui.main-menu > .item.home {
     margin: 0;
     padding: 0;
     font-size: 20px;
@@ -2112,18 +2112,18 @@ header .main-logo {
     top: 2px;
   }
 
-  header .desktop .ui.main-menu > .item.home span,
-  header .desktop .ui.main-menu .basket .item.home span {
+  header .desktop .ui.main-menu .basket .item.home span,
+  header .desktop .ui.main-menu > .item.home span {
     display: none;
   }
 
-  header .desktop .ui.main-menu > .item.home i,
-  header .desktop .ui.main-menu .basket .item.home i {
+  header .desktop .ui.main-menu .basket .item.home i,
+  header .desktop .ui.main-menu > .item.home i {
     display: inline-block;
   }
 
-  header .desktop .ui.main-menu > .item:after,
-  header .desktop .ui.main-menu .basket .item:after {
+  header .desktop .ui.main-menu .basket .item:after,
+  header .desktop .ui.main-menu > .item:after {
     content: "";
     width: 45%;
     margin: 0 auto;
@@ -2133,17 +2133,17 @@ header .main-logo {
     top: 8px;
   }
 
-  header .desktop .ui.main-menu > .item:hover,
-  header .desktop .ui.main-menu .basket .item:hover,
+  header .desktop .ui.main-menu .basket .item:active,
   header .desktop .ui.main-menu > .item:active,
-  header .desktop .ui.main-menu .basket .item:active {
+  header .desktop .ui.main-menu .basket .item:hover,
+  header .desktop .ui.main-menu > .item:hover {
     color: #ff6b01 !important;
   }
 
-  header .desktop .ui.main-menu > .item:hover::after,
-  header .desktop .ui.main-menu .basket .item:hover::after,
+  header .desktop .ui.main-menu .basket .item:active::after,
   header .desktop .ui.main-menu > .item:active::after,
-  header .desktop .ui.main-menu .basket .item:active::after {
+  header .desktop .ui.main-menu .basket .item:hover::after,
+  header .desktop .ui.main-menu > .item:hover::after {
     border-color: #ff6b01;
   }
 }
@@ -2183,18 +2183,18 @@ header .main-logo {
     margin-right: 9px;
   }
 
-  header .desktop .ui.main-menu > .item,
-  header .desktop .ui.main-menu .basket .item {
+  header .desktop .ui.main-menu .basket .item,
+  header .desktop .ui.main-menu > .item {
     padding: 8px 9px;
   }
 
-  header .desktop .ui.main-menu > .item.home,
-  header .desktop .ui.main-menu .basket .item.home {
+  header .desktop .ui.main-menu .basket .item.home,
+  header .desktop .ui.main-menu > .item.home {
     display: none;
   }
 
-  header .desktop .ui.main-menu > .item.home + .item,
-  header .desktop .ui.main-menu .basket .item.home + .item {
+  header .desktop .ui.main-menu .basket .item.home + .item,
+  header .desktop .ui.main-menu > .item.home + .item {
     padding-left: 0;
   }
 }
@@ -2213,13 +2213,13 @@ header .main-logo {
     padding-right: 316px;
   }
 
-  header .desktop .ui.main-menu > .item,
-  header .desktop .ui.main-menu .basket .item {
+  header .desktop .ui.main-menu .basket .item,
+  header .desktop .ui.main-menu > .item {
     padding: 8px 18px;
   }
 
-  header .desktop .ui.main-menu > .item.home,
-  header .desktop .ui.main-menu .basket .item.home {
+  header .desktop .ui.main-menu .basket .item.home,
+  header .desktop .ui.main-menu > .item.home {
     padding-right: 18px;
   }
 
@@ -2236,12 +2236,12 @@ header .ui.mobile.container.grid {
   width: 100%!important;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-left: 0!important;
-  margin-right: 0!important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 header .mobile.tablet > .row {
-  padding-bottom: 0!important;
+  padding-bottom: 0 !important;
 }
 
 header .logo {
@@ -2321,6 +2321,139 @@ header .search-row .ui.form input {
     font-size: 18px;
     margin-top: 0;
     margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  header .desktop .ui.menu {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  header .desktop .ui.menu.lang {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    margin: 18px 0 0;
+    padding-bottom: 18px;
+  }
+
+  header .ui.menu.lang .item {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+
+  header .ui.menu.lang .right.menu {
+    margin-left: 0 !important;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 30%;
+    flex: 1 0 30%;
+    text-align: end;
+    display: block;
+  }
+
+  header .ui.menu.lang::after {
+    content: ' ';
+    visibility: inherit;
+    width: 100%;
+    display: block;
+    height: 1px;
+    background-color: #e6e6e6;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  header .icon-home-icon {
+    display: none;
+  }
+
+  header .ui.secondary.menu .dropdown.item {
+    position: relative;
+  }
+
+  header .ui.secondary.menu .dropdown.item::after {
+    position: absolute;
+    right: 0;
+    top: 23%;
+    cursor: pointer;
+    content: ' ';
+    height: 14px;
+    width: 14px;
+    border: 1px solid #a2a2a2;
+    border-width: 0 0 0.5px 0.5px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    display: inline-block;
+  }
+
+  header .ui.stackable.menu {
+    width: 100%;
+  }
+
+  header .ui.secondary.menu .dropdown.item > .menu {
+    min-width: calc(100% - 5px);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  header .right.menu.basket {
+    padding: 15px 0;
+    position: relative;
+  }
+
+  header .right.menu.basket .item {
+    margin: 0;
+  }
+
+  header .right.menu.basket::after {
+    content: ' ';
+    visibility: inherit;
+    width: 100%;
+    display: block;
+    height: 1px;
+    background-color: #e6e6e6;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  header .right.menu.basket::before {
+    content: ' ';
+    visibility: inherit;
+    width: 100%;
+    display: block;
+    height: 1px;
+    background-color: #e6e6e6;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  header .icon-basket-icon {
+    margin-right: 14px;
+  }
+
+  header .ui.secondary.menu .item.computer-search {
+    display: none;
+  }
+
+  header .ui.secondary.top-menu .item {
+    padding: .33333333em .93333333em;
   }
 }
 
@@ -7491,6 +7624,7 @@ blockquote {
 
 .ui.fluid.container {
   width: 100%;
+  margin: 0 auto;
 }
 
 /*******************************
@@ -16039,6 +16173,7 @@ img.ui.shadowed.image {
   -ms-flex-align: stretch;
   align-items: stretch;
   padding: 0em;
+  margin: 0 auto !important;
 }
 
 /*----------------------
