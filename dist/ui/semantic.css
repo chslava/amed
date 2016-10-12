@@ -1697,7 +1697,6 @@ input::selection {
 }
 
 .contacts {
-  margin-top: 1rem;
   color: #FFF;
   position: relative;
 }
@@ -1754,6 +1753,10 @@ input::selection {
   opacity: 0.2;
 }
 
+.contact-form .ui.form textarea:not([rows]) {
+  resize: none;
+}
+
 @media (max-width: 768px) {
   .contacts .info {
     background: #636463;
@@ -1782,7 +1785,7 @@ input::selection {
   }
 
   .contact-form h2.ui.header {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
 
   .contact-form h2.ui.header:before {
@@ -1833,11 +1836,23 @@ input::selection {
   .contacts .map {
     width: 60%;
   }
+
+  .contact-form .ui.header.left.decored:before {
+    margin: -52px 0 15px;
+  }
+
+  .contact-form .ui.shadowed.image {
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -16px 0 #e6e6e6;
+  }
 }
 
 @media (min-width: 992px) {
   .contacts > .ui.container {
     min-height: 650px;
+  }
+
+  .contacts > .ui.container .ui.grid > [class*="five wide computer"].column {
+    padding-left: 0;
   }
 
   .contacts h1.ui.header,
@@ -1871,22 +1886,22 @@ input::selection {
   }
 
   .contacts .info {
-    width: 35%;
+    width: 40%;
     min-height: 650px;
   }
 
   .contacts .map {
-    width: 65%;
+    width: 60%;
     min-height: 650px;
   }
 
   .contact-form {
     margin-top: 64px;
-    padding: 2rem 0 6rem 0;
+    padding: 2rem 0 6rem;
   }
 
   .contact-form h2.ui.header {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
 
   .contact-form h2.ui.header:before {
@@ -1897,13 +1912,25 @@ input::selection {
     width: 50%!important;
   }
 
-  .contact-form .ui.form input {
+  .contact-form .ui.form input[type=date],
+  .contact-form .ui.form input[type=datetime-local],
+  .contact-form .ui.form input[type=email],
+  .contact-form .ui.form input[type=file],
+  .contact-form .ui.form input[type=number],
+  .contact-form .ui.form input[type=password],
+  .contact-form .ui.form input[type=search],
+  .contact-form .ui.form input[type=tel],
+  .contact-form .ui.form input[type=text],
+  .contact-form .ui.form input[type=time],
+  .contact-form .ui.form input[type=url] {
     width: 300px;
+    max-width: 300px;
+    padding: 0.750em.93333333em;
   }
 
-  .contact-form .ui.form textarea {
+  .contact-form .ui.form textarea:not([rows]) {
     width: 460px;
-    height: 160px;
+    height: 9.375em;
   }
 
   .contact-form .shadowed.image {

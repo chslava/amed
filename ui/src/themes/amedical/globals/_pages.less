@@ -1,221 +1,233 @@
-
 // -----------------------------------------
 .contacts {
-  margin-top:1rem;
-  color:#FFF;
-  position: relative;
-  p {
-    line-height: 30px;
-  }
-  .ui.header {
     color: #FFF;
-  }
-  >.ui.container {
-   // min-height:700px;
-    z-index: 10;
     position: relative;
-  }
-  h1.ui.header,  h2.ui.header {
-    & ~ p {
-      margin:0;
-      padding:0;
+    p {
+        line-height: 30px;
     }
-    & ~ .ui.divider {
-      margin-top:24px;
-      max-width: 301px;
+    .ui.header {
+        color: #FFF;
     }
-  }
-
-  h2.ui.header {
-    & ~ p {
-      line-height: 25px;
+    > .ui.container {
+        // min-height:700px;
+        z-index: 10;
+        position: relative;
     }
-  }
-
-  .info {
-    background:#636463;
-   // min-height: 700px;
-    width: 40%;
-    position: absolute;
-    left:0;
-    top:0;
-  }
-  .map {
-    position: absolute;
-    right:0;
-    top:0;
-    width: 60%;
-    float:left;
-    background: lightgoldenrodyellow;
-   // min-height:700px;
-    z-index: 10;
-    margin-bottom: 2rem;
-  }
-
-  .ui.container.grid {
-    //background:  #636463;
-  }
-  .divider {
-    opacity: 0.2;
-  }
+    h1.ui.header,
+    h2.ui.header {
+        & ~ p {
+            margin: 0;
+            padding: 0;
+        }
+        & ~ .ui.divider {
+            margin-top: 24px;
+            max-width: 301px;
+        }
+    }
+    h2.ui.header {
+        & ~ p {
+            line-height: 25px;
+        }
+    }
+    .info {
+        background: #636463;
+        // min-height: 700px;
+        width: 40%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .map {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60%;
+        float: left;
+        background: lightgoldenrodyellow;
+        // min-height:700px;
+        z-index: 10;
+        margin-bottom: 2rem;
+    }
+    .ui.container.grid {
+        //background:  #636463;
+    }
+    .divider {
+        opacity: 0.2;
+    }
 }
-
+.contact-form .ui.form textarea:not([rows]) {
+    resize: none;
+}
 @media (max-width: 768px) {
-  .contacts {
-    .info {
-      background:#636463;
-      min-height: 100%;
-      width: 100%;
-      position: absolute;
-      left:0;
-      top:0;
+    .contacts {
+        .info {
+            background: #636463;
+            min-height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .map {
+            position: relative;
+            right: 0;
+            top: 0;
+            width: 100%;
+            float: none;
+            background: lightgoldenrodyellow;
+            min-height: 400px;
+            z-index: 10;
+            margin-top: 2rem;
+        }
     }
-    .map {
-      position: relative;
-      right:0;
-      top:0;
-      width: 100%;
-      float:none;
-      background: lightgoldenrodyellow;
-      min-height:400px;
-      z-index: 10;
-      margin-top: 2rem;
-
+    .contact-form {
+        margin-top: 1rem;
+        padding: 2rem 0;
+        h2.ui.header {
+            margin-top: 0 !important;
+            &:before {
+                margin-top: 0;
+            }
+        }
+        .ui.form {
+            .eight.wide.field {
+                width: 100%!important;
+            }
+        }
     }
-  }
-  .contact-form {
-    margin-top:1rem;
-    padding:2rem 0;
-    h2.ui.header {
-      margin-top:0!important;
-      &:before {
-        margin-top:0;
-      }
-    }
-    .ui.form {
-      .eight.wide.field {
-        width: 100%!important;
-      }
-    }
-  }
 }
-
 @media (min-width: 769px) {
-  .contacts {
-    .info {
-      background:#636463;
-      min-height: 700px;
-      width: 50%;
-      position: absolute;
-      left:0;
-      top:0;
+    .contacts {
+        .info {
+            background: #636463;
+            min-height: 700px;
+            width: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .map {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            float: none;
+            background: lightgoldenrodyellow;
+            min-height: 700px;
+            z-index: 10;
+        }
+        a {
+            color: #FFF;
+            text-decoration: underline;
+            &:hover {
+                color: #ff6b01;
+            }
+        }
     }
-    .map {
-      position: absolute;
-      right:0;
-      top:0;
-      width: 50%;
-      float:none;
-      background: lightgoldenrodyellow;
-      min-height:700px;
-      z-index: 10;
-    }
-
-    a {
-      color: #FFF;
-      text-decoration: underline;
-      &:hover {
-        color: #ff6b01;
-      }
-    }
-  }
 }
-
 @media (min-width: 769px) {
-  .contacts {
-    .info {
-      width: 40%;
+    .contacts {
+        .info {
+            width: 40%;
+        }
+        .map {
+            width: 60%;
+        }
     }
-    .map {
-      width: 60%;
+    .contact-form {
+        .ui.header.left.decored:before {
+            margin: -52px 0 15px;
+        }
+        .ui.shadowed.image {
+            box-shadow: 0 6px 10px rgba(27,47,78,.14),16px -16px 0 #e6e6e6;
+        }
     }
-  }
 }
-
 @media (min-width: 992px) {
-  .contacts {
-    >.ui.container {
-      min-height: 650px;
+    .contacts {
+        > .ui.container {
+            min-height: 650px;
+            .ui.grid > [class*="five wide computer"].column {
+                padding-left: 0;
+            }
+        }
+        h1.ui.header,
+        h2.ui.header {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 65px;
+            margin-bottom: 10px;
+            & ~ p {
+                margin: 0;
+                padding: 0;
+            }
+            & ~ .ui.divider {
+                margin-top: 24px;
+                max-width: 301px;
+            }
+        }
+        h2.ui.header {
+            padding-top: 0;
+            margin-top: 0;
+            padding-bottom: 3px;
+            & ~ p {
+                line-height: 25px;
+            }
+        }
+        .info {
+            width: 40%;
+            min-height: 650px;
+        }
+        .map {
+            width: 60%;
+            min-height: 650px;
+        }
     }
-    h1.ui.header,  h2.ui.header {
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 65px;
-        margin-bottom: 10px;
-      & ~ p {
-        margin:0;
-        padding:0;
-      }
-      & ~ .ui.divider {
-        margin-top:24px;
-        max-width: 301px;
-      }
+    .contact-form {
+        margin-top: 64px;
+        padding: 2rem 0 6rem;
+        h2.ui.header {
+            margin-top: 0 !important;
+            &:before {
+                margin-top: 0;
+            }
+        }
+        .ui.form {
+            .eight.wide.field {
+                width: 50%!important;
+            }
+            input[type=date],
+            input[type=datetime-local],
+            input[type=email],
+            input[type=file],
+            input[type=number],
+            input[type=password],
+            input[type=search],
+            input[type=tel],
+            input[type=text],
+            input[type=time],
+            input[type=url] {
+                width: 300px;
+                max-width: 300px;
+                padding: 0.750em.93333333em;
+            }
+            textarea:not([rows]) {
+                width: 460px;
+                height: 9.375em;
+            }
+        }
+        .shadowed.image {
+            margin-top: 30px;
+        }
     }
-
-    h2.ui.header {
-         padding-top:0;
-         margin-top:0;
-         padding-bottom:3px;
-      & ~ p {
-        line-height: 25px;
-      }
-    }
-    .info {
-      width: 35%;
-      min-height: 650px;
-    }
-    .map {
-      width: 65%;
-      min-height: 650px;
-    }
-  }
-
-  .contact-form {
-    margin-top:64px;
-    padding:2rem 0 6rem 0;
-    h2.ui.header {
-      margin-top:0!important;
-      &:before {
-        margin-top:0;
-      }
-    }
-    .ui.form {
-      .eight.wide.field {
-        width: 50%!important;
-      }
-      input {
-        width: 300px;
-      }
-      textarea {
-        width: 460px;
-        height:160px;
-      }
-    }
-
-    .shadowed.image {
-      margin-top:30px;
-    }
-  }
 }
-
 @media (min-width: 1920px) {
-  .contacts {
-    .info {
-      width: 40%;
+    .contacts {
+        .info {
+            width: 40%;
+        }
+        .map {
+            width: 60%;
+        }
     }
-    .map {
-      width: 60%;
-    }
-  }
-
 }
