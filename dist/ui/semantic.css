@@ -1347,6 +1347,19 @@ input::selection {
 
   .services .ui.grid > .column[class*="five wide computer"] {
     width: 33.3333333%!important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
 
   .services .column {
@@ -2303,6 +2316,14 @@ header .search-row .ui.form input {
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  header a.mob-toogle-menu {
+    font-size: 18px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
+
 footer {
   background: #636463;
   color: #FFF;
@@ -2581,6 +2602,7 @@ footer .copyright {
 
   footer .ui.grid.container {
     width: 1200px !important;
+    margin: 0 auto;
   }
 
   footer .ui.grid.container > .column {
@@ -2732,6 +2754,15 @@ footer .copyright {
     width: 1140px;
     margin: 44px auto 0 auto;
     border-top: 1px solid #8f8f8f;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  footer .ui.grid.container,
+  footer .ui.relaxed.grid.container,
+  footer .ui.very.relaxed.grid.container {
+    width: auto;
+    margin: 0 auto;
   }
 }
 
@@ -7364,6 +7395,13 @@ blockquote {
   .ui.very.relaxed.grid.container {
     width: auto;
   }
+
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container {
+    width: auto;
+    margin: 0 auto;
+  }
 }
 
 /* Tablet */
@@ -7377,7 +7415,7 @@ blockquote {
 
   .ui.grid.container {
     width: calc(768px + 7rem);
-    margin: 0  auto !important;
+    margin: 0 auto !important;
   }
 
   .ui.relaxed.grid.container {
@@ -7386,12 +7424,6 @@ blockquote {
 
   .ui.very.relaxed.grid.container {
     width: calc( 600px  +  5rem );
-  }
-
-  header a.mob-toogle-menu {
-    font-size: 18px;
-    margin-top: 0;
-    margin-right: 0;
   }
 }
 
@@ -16844,24 +16876,6 @@ img.ui.shadowed.image {
   .ui.grid > [class*="sixteen wide computer"].column,
   .ui.column.grid > [class*="sixteen wide computer"].column {
     width: 100% !important;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .services .ui.grid > .column[class*="five wide computer"] {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
   }
 }
 

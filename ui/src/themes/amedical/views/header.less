@@ -1,6 +1,6 @@
 header {
     box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
-    
+
     .desktop{
       .ui{
         &.menu {
@@ -38,7 +38,7 @@ header {
         -ms-flex-align: center;
         -webkit-align-items: center;
         align-items: center;
-        
+
         .main-logo,
         .main-column{
           display: inline-block;
@@ -47,7 +47,7 @@ header {
         .main-logo{
           height: 112px;
         }
-        
+
         .main-column{
           height: 135px;
           margin-top: 15px;
@@ -58,7 +58,7 @@ header {
         .mob-menu {
           display: flex!important;
         }
-        
+
         .ui{
           &.reversed{
             width: 100%;
@@ -100,22 +100,22 @@ header {
               font-weight: 400;
               line-height: 17px;
               padding: 7px 10px 7px 20px;
-              
+
               &:first-child {
                 padding-left: 0;
                 padding-right: 0;
               }
-              
+
               &:hover,
               &:active {
                 color: @orange;
               }
             }
           }
-          
+
           .computer-search {
             i.search.icon{
-              width: 55px; 
+              width: 55px;
             }
           }
 
@@ -187,7 +187,7 @@ header {
                 align-self: center;
               }
             }
-            
+
             > .item,
             .basket .item{
               margin: 0;
@@ -204,11 +204,11 @@ header {
                 padding-top: 5px;
                 position: relative;
                 top: 2px;
-                
+
                 span {
                   display: none;
                 }
-                
+
                 i {
                   display: inline-block;
                 }
@@ -236,7 +236,7 @@ header {
         }
       }
     }
-    
+
     // Small Monitor
     @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
       .desktop{
@@ -293,7 +293,7 @@ header {
 
       }
     }
-    
+
     // Large Monitor & Up
     @media only screen and (min-width: @largeMonitorBreakpoint) {
       .desktop{
@@ -329,7 +329,7 @@ header {
             height: 42px ;
           }
         }
-        
+
       }
     }
 
@@ -345,7 +345,7 @@ header {
         margin-left: 0!important;
         margin-right: 0!important;
     }
-    
+
     .mobile.tablet > .row {
         padding-bottom: 0!important;
     }
@@ -420,8 +420,8 @@ header {
     //             font-size: inherit;
     //         }
     //     }
-        
-        
+
+
     //     &:before {
     //         background: green;
     //         float: right;
@@ -489,7 +489,7 @@ header {
     //         }
     //     }
     // }
-    
+
 }
 
 @media (min-width: 768px) {
@@ -514,4 +514,13 @@ header {
             display: none;
         }
     }
+}
+
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  //need to replace to according less file
+  header a.mob-toogle-menu {
+      font-size: 18px;
+      margin-top: 0;
+      margin-right: 0;
+  }
 }

@@ -37,6 +37,12 @@
     .ui.very.relaxed.grid.container {
         width: @mobileVeryRelaxedGridWidth;
     }
+    .ui.grid.container,
+    .ui.relaxed.grid.container,
+    .ui.very.relaxed.grid.container {
+        width: auto;
+        margin: 0 auto;
+    }
 }
 /* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
@@ -47,19 +53,13 @@
     }
     .ui.grid.container {
         width: ~"calc(768px + 7rem)";
-        margin: 0  auto !important;
+        margin: 0 auto !important;
     }
     .ui.relaxed.grid.container {
         width: @tabletRelaxedGridWidth;
     }
     .ui.very.relaxed.grid.container {
         width: @tabletVeryRelaxedGridWidth;
-    }
-    //need to replace to according less file
-    header a.mob-toogle-menu {
-      font-size: 18px;
-      margin-top: 0;
-      margin-right: 0;
     }
 }
 /* Small Monitor */

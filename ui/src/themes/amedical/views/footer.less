@@ -252,6 +252,7 @@ footer {
   footer {
     .ui.grid.container {
       width: 1200px !important;
+      margin: 0 auto;
       > .column {
         padding-left: 10px;
         padding-right: 10px;
@@ -394,6 +395,14 @@ footer {
       border-top:1px solid #8f8f8f;
     }
   }
-
-
+}
+@media only screen and (max-width: 767px) {
+  footer {
+    .ui.grid.container,
+    .ui.relaxed.grid.container,
+    .ui.very.relaxed.grid.container {
+        width: auto;
+        margin: 0 auto;
+    }
+  }
 }
