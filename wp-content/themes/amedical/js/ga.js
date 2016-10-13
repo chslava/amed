@@ -144,7 +144,9 @@ jQuery(function($) {
 
         //9.. Remote support button - add event for clicking the “Remote support” button (for all lang.)
         $('#service-btn').parent().click(function(){
-          ga('send', 'event', 'Remote support button clicked', $('#service-btn').text()+' button clicked');
+            var self  = $(this);
+            var button_text  = self.text();
+          ga('send', 'event', 'Remote support button clicked', button_text.trim()+' button clicked');
         });
 
         //10.. TeamViewer downloaded - add event for downloading TeamViewer
