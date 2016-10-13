@@ -319,9 +319,10 @@
             .bx-wrapper {
                 max-width: none;
                 width: 100%;
+                width: 100vw;
             }
             .represent .represent-slider li {
-                width: 94vw !important;
+                width: 93vw !important;
                 margin: 0 auto;
             }
             .bx-wrapper img {
