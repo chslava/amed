@@ -54,7 +54,6 @@ jQuery(function($) {
             minSlides: 1,
             maxSlides: 6,
             moveSlides: 1,
-            // slideMargin: 40,
             pager: false,
             infiniteLoop: true,
             auto: true

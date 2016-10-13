@@ -694,19 +694,6 @@ input::selection {
   padding-bottom: 2rem!important;
 }
 
-.services .column:after {
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: -5px;
-  display: block;
-  content: "\00a0";
-  border-bottom: 1px solid #e6e6e6;
-}
-
-.services .column:last-child:after {
-  display: none;
-}
-
 .services .column p {
   padding: 0 15px;
   color: #636463;
@@ -714,6 +701,15 @@ input::selection {
   font-weight: 400;
   line-height: 20px;
   margin: 0 auto 1.5em auto;
+}
+
+.services .services-item:after {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: -5px;
+  display: block;
+  content: "\00a0";
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .services .service-icon {
@@ -944,6 +940,12 @@ input::selection {
   line-height: 27px;
 }
 
+.subscribe > .ui.container.grid {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .subscribe .ui.button,
 .subscribe .input.subscribe {
   height: 42px;
@@ -953,9 +955,9 @@ input::selection {
 .subscribe .subscribe.input {
   max-width: 270px;
   font-size: 15px;
-  border: none!important;
+  border: none !important;
   margin-bottom: 5px;
-  color: #FFF!important;
+  color: #FFF !important;
 }
 
 .subscribe .subscribe.input::-webkit-input-placeholder {
@@ -1005,9 +1007,8 @@ input::selection {
   line-height: 22px;
 }
 
-.secondary-services .ui.container {
-  margin-left: 1.5rem!important;
-  margin-right: 1.5rem!important;
+.secondary-services .three.column .image {
+  width: 100%;
 }
 
 .represent {
@@ -1029,6 +1030,35 @@ input::selection {
   display: none;
 }
 
+.description .ui.header.left.decored:before {
+  height: auto;
+}
+
+.description h2.ui.header.left {
+  padding-top: 0;
+}
+
+main.about-us ~ .coo-respose {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .coo-respose .ui.header.left.decored:before {
+    margin: 0 0 20px 0;
+  }
+
+  .services .column:last-child .services-item:after {
+    display: none;
+    border: none;
+  }
+
+  .description .ui.grid > .stackable.stackable.row > .column {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 @media (min-width: 768px) {
   .services {
     margin-top: 86px;
@@ -1047,18 +1077,8 @@ input::selection {
     justify-content: flex-start;
   }
 
-  .services .column {
-    text-align: left;
-  }
-
-  .services .column:after {
-    margin: 21px 0 0 0;
-    border-bottom: 1px solid #e6e6e6;
-  }
-
   .services .column p {
     padding: 0;
-    text-align: left;
     width: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -1278,6 +1298,8 @@ input::selection {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
     padding-top: 86px;
     padding-bottom: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .subscribe .ui.form {
@@ -1309,19 +1331,79 @@ input::selection {
   .subscribe .ui.primary.button {
     font-size: 15px;
     line-height: 18px;
-    margin-top: 0;
     margin-left: 15px;
   }
 }
 
+@media (max-width: 1200px) {
+  .subscribe div.title,
+  .subscribe .ui.input,
+  .subscribe .subscribe-btn {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .secondary-services .ui.container,
+  .services .ui.container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .ui.container.description {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .coo-respose h2.ui.header {
+    padding-top: 4rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .services .services-item {
+    position: relative;
+    height: 100%;
+  }
+
+  .services .services-item:after {
+    content: "\00a0";
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
 @media (min-width: 992px) {
-  /* .subscribe {
-     padding-top: 105px;
-     padding-bottom: 105px;
-     h4.ui.header {
-       width: auto;
-     }
-   }*/
+  .secondary-services .circle-check {
+    margin-right: 0;
+  }
+
+  .secondary-services .content {
+    color: #636463;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    padding-right: 0;
+    padding-left: 80px;
+  }
+
+  .ui.container.description {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1368,11 +1450,6 @@ input::selection {
     border-right: 1px solid #e6e6e6;
   }
 
-  .services .column:after {
-    display: none;
-    border: none;
-  }
-
   .services .column:last-child {
     border-right: none;
   }
@@ -1391,6 +1468,11 @@ input::selection {
     line-height: 25px;
     margin-bottom: 20px;
     margin-top: 32px;
+  }
+
+  .services .services-item:after {
+    display: none;
+    border: none;
   }
 
   .services .ui.basic.button {
@@ -1619,6 +1701,10 @@ input::selection {
     margin: 12px 32px 38px -115px;
   }
 
+  .subscribe .ui.primary.button {
+    margin-top: 0;
+  }
+
   .secondary-services {
     background: #f7f7f7;
     padding-top: 75px;
@@ -1627,19 +1713,6 @@ input::selection {
 
   .secondary-services .ui.header {
     margin-bottom: 37px;
-  }
-
-  .secondary-services .circle-check {
-    margin-right: 0;
-  }
-
-  .secondary-services .content {
-    color: #636463;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    padding-right: 0;
-    padding-left: 80px;
   }
 
   .secondary-services + section {
@@ -1670,23 +1743,6 @@ input::selection {
 
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
-  }
-
-  .about-us .ui.header.left.decored:before {
-    margin: 30px 0 20px;
-  }
-
-  .about-us .ui.grid > .row > [class*="six wide computer"].column {
-    padding-left: 0;
-  }
-
-  .about-us .ui.row .sixteen.computer.column > p {
-    margin-right: 0;
-  }
-
-  .about-us .ten.wide.computer.column img.shadowed {
-    margin-top: 50px;
-    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
   }
 }
 
@@ -1757,7 +1813,91 @@ input::selection {
   resize: none;
 }
 
-@media (max-width: 768px) {
+.service .circles-list.small li:before,
+.service .content-page .circles-list.small li:before {
+  margin-bottom: 50px;
+}
+
+.service .very.padded {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.service .ui[class*="center aligned"].segment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.service .ui[class*="center aligned"].segment .benefits-icon {
+  margin-top: 0;
+}
+
+.projects img.ui.shadowed.image {
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
+}
+
+.about-us .ui.grid > .row > [class*="six wide computer"].column {
+  padding-left: 0;
+}
+
+.contact-form .ui.grid > [class*="sixteen wide mobile"].column,
+.contacts .ui.grid > [class*="sixteen wide mobile"].column {
+  padding-left: 0;
+}
+
+main.page.about-us,
+main.page.projects {
+  margin-bottom: 2rem;
+}
+
+.about-us .ui.header.left.decored:before,
+.projects .ui.header.left.decored:before,
+.service .ui.header.left.decored:before {
+  margin: 30px 0 20px;
+}
+
+.about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2),
+.projects .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2),
+.service .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
+  padding: 0 1rem 0 0;
+}
+
+.about-us .ui.row .sixteen.computer.column > p,
+.projects .ui.row .sixteen.computer.column > p,
+.service .ui.row .sixteen.computer.column > p {
+  margin-right: 0;
+}
+
+.about-us .ten.wide.computer.column img.shadowed,
+.projects .ten.wide.computer.column img.shadowed,
+.service .ten.wide.computer.column img.shadowed {
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
+  width: 100%;
+}
+
+.projects .ui.grid > .row > [class*="sixteen wide mobile"].column,
+.service .ui.grid > .row > [class*="sixteen wide mobile"].column {
+  padding-left: 0;
+}
+
+.projects img.ui.shadowed.image,
+.service img.ui.shadowed.image {
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -20px 0 #e6e6e6;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
   .contacts .info {
     background: #636463;
     min-height: 100%;
@@ -1795,9 +1935,28 @@ input::selection {
   .contact-form .ui.form .eight.wide.field {
     width: 100%!important;
   }
+
+  .contact-form .ui.grid > [class*="sixteen wide mobile"].column {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .contact-form .ui.grid > [class*="sixteen wide mobile"].column:nth-child(2) {
+    padding: 0 1rem 0 0;
+  }
+
+  .contact-form .ui.shadowed.image {
+    margin-top: 30px !important;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -16px 0 #e6e6e6;
+    width: 100%;
+  }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+  .contacts > .ui.container {
+    min-height: 700px;
+  }
+
   .contacts .info {
     background: #636463;
     min-height: 700px;
@@ -1826,15 +1985,10 @@ input::selection {
   .contacts a:hover {
     color: #ff6b01;
   }
-}
 
-@media (min-width: 769px) {
-  .contacts .info {
-    width: 40%;
-  }
-
-  .contacts .map {
-    width: 60%;
+  .contact-form {
+    margin-top: 64px;
+    padding: 2rem 0 6rem;
   }
 
   .contact-form .ui.header.left.decored:before {
@@ -1846,13 +2000,31 @@ input::selection {
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .contact-form > .ui.container,
+  .contacts > .ui.container,
+  main.ui.container.page {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .contacts .info {
+    width: 45%;
+  }
+
+  .contacts .map {
+    width: 55%;
+  }
+
+  .service .ui.grid > .row.very.padded > [class*="sixteen wide mobile"].column:nth-child(2) {
+    max-height: 200px;
+  }
+}
+
 @media (min-width: 992px) {
   .contacts > .ui.container {
     min-height: 650px;
-  }
-
-  .contacts > .ui.container .ui.grid > [class*="five wide computer"].column {
-    padding-left: 0;
   }
 
   .contacts h1.ui.header,
@@ -1895,11 +2067,6 @@ input::selection {
     min-height: 650px;
   }
 
-  .contact-form {
-    margin-top: 64px;
-    padding: 2rem 0 6rem;
-  }
-
   .contact-form h2.ui.header {
     margin-top: 0 !important;
   }
@@ -1935,6 +2102,12 @@ input::selection {
 
   .contact-form .shadowed.image {
     margin-top: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-us .ten.wide.computer.column img.shadowed {
+    margin-top: 50px;
   }
 }
 
