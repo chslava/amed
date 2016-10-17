@@ -3,6 +3,8 @@
         <?php $form = do_shortcode('[mc4wp_form id="252"]'); ?>
         <?php
             $form = strip_tags($form,"<input>,<form>,<script>,<div>");
+            $form = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $form);
+
             $form =str_replace('class="mc4wp-form ','class="mc4wp-form ui form"',$form);
             $form =str_replace('type="email" ','type="email" class="subscribe ui input" placeholder="'.get_field("newsletter_placeholder","option").'" ',$form);
             $form =str_replace('Email address:','<div class="ui centered grid"><div class="title">'.get_field("newsletter_title","option").'</div>',$form);
