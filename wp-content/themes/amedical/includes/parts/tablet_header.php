@@ -10,7 +10,7 @@
         <div class="item computer-search">
             <form id="search-tablet-form" action="<?php the_field("search_url","option"); ?>" method="GET">
                 <div class="ui icon input search">
-                    <input placeholder="Meklēt"><i class="search icon"></i>
+                    <input name="search" placeholder="<?php _e("Search","amedical"); ?>"><i class="search icon"></i>
                 </div>
             </form>
         </div><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a>
