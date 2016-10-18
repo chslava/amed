@@ -51,14 +51,12 @@
 
                 <div class="ui secondary text stackable menu top-menu">
                     <div class="item computer-search">
-
                             <div class="ui icon input search">
                                 <form id="search-form" method="get" action="<?php the_field("search_url","option"); ?>">
-                                <input name="search" placeholder="<?php _e("Search","amedical"); ?>">
-                                <i class="search icon"></i>
+                                    <input name="search" placeholder="<?php _e("Search","amedical"); ?>">
+                                    <i class="search icon"></i>
                                 </form>
                             </div>
-
                     </div>
                     <?php print_menu("top-m","",1,0,"","SimpleLinks"); ?>
                 </div>
