@@ -40,14 +40,11 @@
                             <a class="item" href="<?php print($item["item"]->url); ?>"><?php print($item["item"]->title); ?></a>
                         <?php endif; ?>
                     <?php endforeach;?>
-
-
                     <div class="right menu basket">
                         <a class="item" href="<?php the_field("cart_url","option"); ?>">
                             <i class="icon-basket-icon"></i><span><?php _e("Cart","amedical"); ?><!--<b>22</b>--></span>
                         </a>
                     </div>
-
                 </nav>
             </div>
             <div class="row">
