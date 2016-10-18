@@ -1061,7 +1061,7 @@ main.about-us ~ .coo-respose {
 
 @media (min-width: 768px) {
   .services {
-    margin-top: 86px;
+    margin-top: 42px;
     margin-left: 0;
     text-align: left;
   }
@@ -1364,6 +1364,10 @@ main.about-us ~ .coo-respose {
   .coo-respose h2.ui.header {
     padding-top: 4rem;
   }
+
+  .services .ui.grid > [class*="sixteen wide mobile"].column {
+    text-align: left;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
@@ -1404,31 +1408,26 @@ main.about-us ~ .coo-respose {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-}
-
-@media (min-width: 1200px) {
-  .services {
-    margin-top: 40px;
-    margin-left: 0;
-    text-align: center;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #e6e6e6;
-  }
 
   .services .ui.header {
+    text-align: center;
+    margin-bottom: 25px;
     margin-top: 19px!important;
     font-size: 25px;
     font-weight: 700;
     line-height: 30px;
-    margin-bottom: 25px;
-    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .services .ui.three.columns.grid {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
 
   .services .ui.grid > .column[class*="five wide computer"] {
-    width: 33.3333333%!important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1444,6 +1443,25 @@ main.about-us ~ .coo-respose {
     justify-content: space-between;
   }
 
+  .services p {
+    margin-top: 25px;
+  }
+
+  .services .column:nth-child(2) .ui.header {
+    margin-top: 4px !important;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .services {
+    margin-top: 40px;
+    margin-left: 0;
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
   .services .column {
     text-align: center;
     padding-bottom: 1rem!important;
@@ -1454,11 +1472,6 @@ main.about-us ~ .coo-respose {
     border-right: none;
   }
 
-  .services .column:nth-child(2) .ui.header {
-    margin-top: 4px !important;
-    margin-bottom: 32px;
-  }
-
   .services .column p {
     padding: 0 20px;
     text-align: center;
@@ -1467,7 +1480,6 @@ main.about-us ~ .coo-respose {
     font-weight: 400;
     line-height: 25px;
     margin-bottom: 20px;
-    margin-top: 32px;
   }
 
   .services .services-item:after {
@@ -1811,6 +1823,18 @@ main.about-us ~ .coo-respose {
 
 .contact-form .ui.form textarea:not([rows]) {
   resize: none;
+}
+
+.gform_wrapper textarea.medium:not([rows]),
+.gform_wrapper textarea.medium {
+  resize: none;
+  height: 9.375em;
+}
+
+.gform_wrapper .gform_footer input.button:hover,
+.gform_wrapper .gform_footer input[type=submit]:hover {
+  background: #FF6B01;
+  box-shadow: 0 6px 10px rgba(64, 64, 64, 0.15);
 }
 
 .service .circles-list.small li:before,
@@ -2157,7 +2181,7 @@ header .main-logo {
     -ms-flex-align: center;
     -webkit-box-align: center;
     align-items: center;
-    padding-top: 15px;
+    padding: 1rem 0 25px;
   }
 
   header .desktop .main-column,
@@ -2195,6 +2219,7 @@ header .main-logo {
     top: 0;
     right: 0;
     z-index: 1;
+    padding-top: 1rem;
   }
 
   header .desktop .ui.lang:before {
@@ -2238,6 +2263,10 @@ header .main-logo {
     color: #ff6b01;
   }
 
+  header .desktop .ui .computer-search {
+    padding: 0;
+  }
+
   header .desktop .ui .computer-search i.search.icon {
     width: 55px;
   }
@@ -2245,12 +2274,12 @@ header .main-logo {
   header .desktop .ui.main-menu {
     width: 100%;
     margin: -1rem 0;
-    padding-top: 21px;
+    padding-top: 25px;
     border-top: 1px solid #8f8f8f;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item {
-    padding-bottom: 25px;
+    padding-bottom: 0;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item:hover .menu {
@@ -2260,6 +2289,7 @@ header .main-logo {
     padding-top: 0;
     margin-top: 0;
     position: absolute;
+    margin-top: 33px;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item:hover .menu > .item {
@@ -2886,6 +2916,17 @@ footer .copyright {
     line-height: 25px;
   }
 
+  footer .footer-contacts div.title a,
+  footer .follow-us div.title a {
+    color: #fff;
+  }
+
+  footer .footer-contacts div.title a:hover,
+  footer .follow-us div.title a:hover {
+    color: #C45500;
+    text-decoration: none;
+  }
+
   footer .footer-contacts {
     padding-left: 67px;
     padding-bottom: 8px;
@@ -3165,6 +3206,7 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3205,6 +3247,7 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -16239,7 +16282,6 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -17764,6 +17806,7 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -17824,6 +17867,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17836,6 +17880,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17854,6 +17899,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19525,6 +19571,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -19804,6 +19851,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;

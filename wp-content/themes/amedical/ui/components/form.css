@@ -822,7 +822,7 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 767px) {
   .ui.form .fields {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -908,7 +908,7 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 767px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -959,7 +959,6 @@
   margin: 0em 0em 1em;
   -webkit-box-align: center;
       -ms-flex-align: center;
-              -ms-grid-row-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .field {

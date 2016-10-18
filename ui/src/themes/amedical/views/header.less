@@ -32,7 +32,8 @@ header {
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
-            padding-top: 15px;
+            // padding-top: 15px;
+            padding: 1rem 0 25px;
             .main-column,
             .main-logo {
                 display: inline-block;
@@ -62,6 +63,7 @@ header {
                     top: 0;
                     right: 0;
                     z-index: 1;
+                    padding-top: 1rem;
                     &:before {
                         content: '';
                         width: 1px;
@@ -96,6 +98,7 @@ header {
                     }
                 }
                 .computer-search {
+                  padding: 0;
                     i.search.icon {
                         width: 55px;
                     }
@@ -103,11 +106,11 @@ header {
                 &.main-menu {
                     width: 100%;
                     margin: -1rem 0;
-                    padding-top: 21px;
+                    padding-top: 25px;
                     border-top: 1px solid @borderColor;
                     // submenu
                     .ui.dropdown.item {
-                        padding-bottom: 25px;
+                        padding-bottom: 0;
                         &:hover {
                             .menu {
                                 display: block;
@@ -116,6 +119,7 @@ header {
                                 padding-top: 0;
                                 margin-top: 0;
                                 position: absolute;
+                                margin-top: 33px;
                                 > .item {
                                     text-align: center;
                                     border-bottom: 1px solid #e6e6e6;
@@ -217,6 +221,7 @@ header {
             .ui {
                 &.lang {
                     width: 233px;
+                    // padding-top: 1rem;
                     &:before {
                         margin-right: 8px;
                     }

@@ -21,7 +21,7 @@
 }
 
 /* Mobile */
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 767px) {
   .ui.container {
     width: auto;
     margin-left: 1em;
@@ -36,59 +36,66 @@
   .ui.very.relaxed.grid.container {
     width: auto;
   }
+  .ui.grid.container,
+  .ui.relaxed.grid.container,
+  .ui.very.relaxed.grid.container {
+    width: auto;
+    margin: 0 auto;
+  }
 }
 
 /* Tablet */
-@media only screen and (min-width: 992px - 1) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.container {
-    width: 944px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
   .ui.grid.container {
-    width: calc( 944px  +  2rem );
+    width: calc(768px + 7rem);
+    margin: 0 auto !important;
   }
   .ui.relaxed.grid.container {
-    width: calc( 944px  +  3rem );
+    width: calc( 600px  +  3rem );
   }
   .ui.very.relaxed.grid.container {
-    width: calc( 944px  +  5rem );
+    width: calc( 600px  +  5rem );
   }
 }
 
 /* Small Monitor */
-@media only screen and (min-width: 992px) and (max-width: 990px) {
+@media only screen and (min-width: 992px) and (max-width: 1439px) {
   .ui.container {
-    width: 930px;
+    width: 940px;
     margin-left: auto;
     margin-right: auto;
   }
   .ui.grid.container {
-    width: calc( 930px  +  2rem );
+    width: calc( 940px  +  2rem );
   }
   .ui.relaxed.grid.container {
-    width: calc( 930px  +  3rem );
+    width: calc( 940px  +  3rem );
   }
   .ui.very.relaxed.grid.container {
-    width: calc( 930px  +  5rem );
+    width: calc( 940px  +  5rem );
   }
 }
 
 /* Large Monitor */
-@media only screen and (min-width: 992px - 1) {
+@media only screen and (min-width: 1440px) {
   .ui.container {
-    width: 914px;
+    width: 1180px;
     margin-left: auto;
     margin-right: auto;
   }
   .ui.grid.container {
-    width: calc( 914px  +  2rem );
+    width: calc( 1180px  +  2rem );
   }
   .ui.relaxed.grid.container {
-    width: calc( 914px  +  3rem );
+    width: calc( 1180px  +  3rem );
   }
   .ui.very.relaxed.grid.container {
-    width: calc( 914px  +  5rem );
+    width: calc( 1180px  +  5rem );
   }
 }
 
@@ -111,6 +118,7 @@
 /* Fluid */
 .ui.fluid.container {
   width: 100%;
+  margin: 0 auto;
 }
 
 
@@ -133,3 +141,9 @@
       -ms-hyphens: auto;
           hyphens: auto;
 }
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+

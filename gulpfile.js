@@ -35,13 +35,13 @@ gulp.task('pug-build', function buildHTML() {
 gulp.task('copytotheme', function() {
     gulp.src('./dist/ui/**/*.{css,js}')
         .pipe(gulp.dest('./wp-content/themes/amedical/ui/'));
-    
+
     gulp.src('./dist/css/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/css/'));
-    
+
     gulp.src('./dist/fonts/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/fonts/'));
-    
+
     gulp.src('./dist/js/**/*.*')
         .pipe(gulp.dest('./wp-content/themes/amedical/js/'));
 });
@@ -57,7 +57,12 @@ gulp.task('simple-build-css', ['build-css'], function() {
 
 gulp.task('browser-sync', function () {
     browserSync.init(browserSyncConfig);
-    gulp.watch("./ui/src/themes/amedical/**/*.{overrides,variables,less}", ['simple-build-css']);
+    gulp.watch("./ui/src/themes/amedical/**/*.less", ['simple-build-css']);
     gulp.watch('views/**/*.pug', ['pug-build']);
     gulp.watch(["dist/*.html"]).on('change', browserSync.reload);
 });
+
+// gulp.task('browser-sync', function () {
+//     browserSync.init(browserSyncConfig);
+//     gulp.watch(["dist/*.html", 'dist/ui/*.css']).on('change', browserSync.reload);
+// });
