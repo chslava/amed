@@ -70,12 +70,10 @@ get_header();
           <?php while(have_rows("key_point_items")): the_row(); ?>
 
             <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
-              <div class="services-item">
                 <div class="icon-title">
                   <div class="service-icon <?php the_sub_field("key_point_icon"); ?>"></div>
                 </div>
                 <p><?php the_sub_field("key_point_text"); ?></p>
-              </div>
             </div>
 
           <?php endwhile; ?>
