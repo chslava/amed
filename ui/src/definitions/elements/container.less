@@ -47,9 +47,12 @@
 /* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
     .ui.container {
-        width: @tabletWidth;
+        // width: @tabletWidth;
         margin-left: @tabletGutter;
         margin-right: @tabletGutter;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     .ui.grid.container {
         width: ~"calc(768px + 7rem)";
@@ -130,3 +133,20 @@
     hyphens: auto;
 }
 .loadUIOverrides();
+
+// test
+
+@media only screen and (max-width: 1199px) and (min-width: 992px){
+.ui.container {
+    width:~"calc( 933px + 2rem )" !important;
+   margin-left: auto !important;
+   margin-right: auto !important;
+}
+}
+@media only screen and (min-width: 1200px){
+.ui.container {
+    width:1180px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+}

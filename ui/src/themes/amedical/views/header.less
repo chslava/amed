@@ -32,7 +32,6 @@ header {
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
-            // padding-top: 15px;
             padding: 1rem 0 25px;
             .main-column,
             .main-logo {
@@ -177,7 +176,9 @@ header {
                         align-self: baseline;
                         &.home {
                             margin: 0;
-                            padding: 0;
+                            // padding: 0;
+                            padding-right: 18px;
+                            padding-left: 0;
                             font-size: 20px;
                             align-self: baseline;
                             padding-top: 5px;
@@ -212,7 +213,7 @@ header {
         }
 
     }
-    // Small Monitor
+
     @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
         .desktop {
             .main-column {
@@ -249,12 +250,6 @@ header {
                     .basket .item,
                     > .item {
                         padding: 8px 9px;
-                        &.home {
-                            display: none;
-                            & + .item {
-                                padding-left: 0;
-                            }
-                        }
                     }
                 }
             }
@@ -278,9 +273,6 @@ header {
                     .basket .item,
                     > .item {
                         padding: 8px 18px;
-                        &.home {
-                            padding-right: 18px;
-                        }
                     }
                 }
             }
@@ -346,6 +338,7 @@ header {
             }
         }
     }
+
     // .main-menu {
     //     border-top: 1px solid #E6E6E6;
     //     // padding-top: 1rem;
@@ -472,10 +465,6 @@ header {
         margin-right: 0;
     }
 }
-// //mobile only
-// @media only screen and (max-width: @tabletBreakpoint) {
-//     header {}
-// }
 @media only screen and (max-width: @largestMobileScreen){
   header {
     .desktop .ui.menu {
