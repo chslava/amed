@@ -7,7 +7,7 @@
                     <div class="sixteen wide mobile five wide computer column">
                         <h3 class="ui header"><?php the_sub_field("service_name"); ?></h3>
                         <p>
-                            <?php strip_tags(get_sub_field("service_text"),'<a><br><strong><b><i>'); ?>
+                            <?php print(strip_tags(get_sub_field("service_text"),'<a><br><strong><b><i>')); ?>
                         </p>
                         <?php if (get_sub_field("service_link") && get_sub_field("service_cta_text")): ?>
                             <a class="ui basic button" href="<?php the_sub_field("service_link"); ?>">
