@@ -1147,6 +1147,10 @@ main.about-us ~ .coo-respose {
     width: 99px;
   }
 
+  .benefits .content {
+    margin-left: 0;
+  }
+
   .benefits .segment {
     line-height: 23px;
     text-align: center;
@@ -1332,6 +1336,7 @@ main.about-us ~ .coo-respose {
     font-size: 15px;
     line-height: 18px;
     margin-left: 15px;
+    margin-top: 0;
   }
 }
 
@@ -2361,7 +2366,8 @@ header .main-logo {
   header .desktop .ui.main-menu .basket .item.home,
   header .desktop .ui.main-menu > .item.home {
     margin: 0;
-    padding: 0;
+    padding-right: 18px;
+    padding-left: 0;
     font-size: 20px;
     -ms-flex-item-align: baseline;
     align-self: baseline;
@@ -2445,16 +2451,6 @@ header .main-logo {
   header .desktop .ui.main-menu > .item {
     padding: 8px 9px;
   }
-
-  header .desktop .ui.main-menu .basket .item.home,
-  header .desktop .ui.main-menu > .item.home {
-    display: none;
-  }
-
-  header .desktop .ui.main-menu .basket .item.home + .item,
-  header .desktop .ui.main-menu > .item.home + .item {
-    padding-left: 0;
-  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -2474,11 +2470,6 @@ header .main-logo {
   header .desktop .ui.main-menu .basket .item,
   header .desktop .ui.main-menu > .item {
     padding: 8px 18px;
-  }
-
-  header .desktop .ui.main-menu .basket .item.home,
-  header .desktop .ui.main-menu > .item.home {
-    padding-right: 18px;
   }
 
   header .desktop .computer-search input {
@@ -3206,7 +3197,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3247,7 +3237,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -7816,9 +7805,11 @@ blockquote {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.container {
-    width: 600px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .ui.grid.container {
@@ -7928,6 +7919,22 @@ blockquote {
 /*******************************
          Theme Overrides
 *******************************/
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .ui.container {
+    width: calc( 933px + 2rem ) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: 1180px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
 /*!
  * # Semantic UI 2.2.4 - Divider
  * http://github.com/semantic-org/semantic-ui/
@@ -16282,6 +16289,7 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -17806,7 +17814,6 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
-  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -17867,7 +17874,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17880,7 +17886,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17899,7 +17904,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19571,7 +19575,6 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -19851,7 +19854,6 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;
