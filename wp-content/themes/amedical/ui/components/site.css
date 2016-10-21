@@ -579,6 +579,9 @@ main.about-us ~ .coo-respose {
     margin-left: 0;
     width: 99px;
   }
+  .benefits .content {
+    margin-left: 0;
+  }
   .benefits .segment {
     line-height: 23px;
     text-align: center;
@@ -738,6 +741,7 @@ main.about-us ~ .coo-respose {
     font-size: 15px;
     line-height: 18px;
     margin-left: 15px;
+    margin-top: 0;
   }
 }
 @media (max-width: 1200px) {
@@ -1601,7 +1605,8 @@ header .main-logo {
   header .desktop .ui.main-menu .basket .item.home,
   header .desktop .ui.main-menu > .item.home {
     margin: 0;
-    padding: 0;
+    padding-right: 18px;
+    padding-left: 0;
     font-size: 20px;
     -ms-flex-item-align: baseline;
         align-self: baseline;
@@ -1671,14 +1676,6 @@ header .main-logo {
   header .desktop .ui.main-menu > .item {
     padding: 8px 9px;
   }
-  header .desktop .ui.main-menu .basket .item.home,
-  header .desktop .ui.main-menu > .item.home {
-    display: none;
-  }
-  header .desktop .ui.main-menu .basket .item.home + .item,
-  header .desktop .ui.main-menu > .item.home + .item {
-    padding-left: 0;
-  }
 }
 @media only screen and (min-width: 1440px) {
   header .desktop .ui.lang {
@@ -1694,10 +1691,6 @@ header .main-logo {
   header .desktop .ui.main-menu .basket .item,
   header .desktop .ui.main-menu > .item {
     padding: 8px 18px;
-  }
-  header .desktop .ui.main-menu .basket .item.home,
-  header .desktop .ui.main-menu > .item.home {
-    padding-right: 18px;
   }
   header .desktop .computer-search input {
     width: 210px;
@@ -2317,7 +2310,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
 }
 .main-slider li .content h1,
@@ -2354,7 +2346,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
         align-self: center;
   }
   .main-slider li .content h1,

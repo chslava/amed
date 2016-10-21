@@ -255,7 +255,7 @@
                 float: left;
             }
             .represent .bx-wrapper li {
-                margin: 0 16px;
+                margin: 0 40px;
             }
         }
         @media (min-width: 1440px) {
