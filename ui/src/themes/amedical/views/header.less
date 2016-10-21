@@ -24,25 +24,49 @@ header {
     .main-logo {
         display: none;
     }
-    // Small Monitor & Up
+    // 768 - 1024
+    @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+
+      // added grid for header between 768px and 1023px
+      .ui.grid.container{
+        width: ~"calc(723px + 2rem)";
+        margin: 0 auto;
+        .right.aligned.column {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .mob-toogle-menu {
+          font-size: 18px;
+          margin-top: 0;
+          margin-right: 0;
+        }
+        }
+      }
+    }
+    // Small Monitor & Up (1024)
     @media only screen and (min-width: @computerBreakpoint) {
         .desktop {
+            // padding-top: 0;
             display: flex!important;
             -webkit-flex-align: center;
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
-            padding: 1rem 0 25px;
+            padding: 1rem 0 1rem;
+            // padding-bottom
+            padding-bottom: 1.4rem;
             .main-column,
             .main-logo {
                 display: inline-block;
             }
             .main-logo {
                 height: 112px;
+                padding-top: 1rem;
             }
             .main-column {
                 height: 135px;
-                margin-top: 15px;
+                // margin-top
+                margin-top: -0.4rem;
                 padding-left: 1.6rem;
                 position: relative;
             }
@@ -57,12 +81,12 @@ header {
                 }
                 &.lang {
                     margin: 0;
-                    padding: 0;
+                    padding: 1.5rem 0 0;
                     position: absolute;
                     top: 0;
                     right: 0;
                     z-index: 1;
-                    padding-top: 1rem;
+                    // padding-top: 1rem;
                     &:before {
                         content: '';
                         width: 1px;
@@ -85,7 +109,7 @@ header {
                         font-size: 14px;
                         font-weight: 400;
                         line-height: 17px;
-                        padding: 7px 10px 7px 20px;
+                        padding: 7px 10px 4px 20px;
                         &:first-child {
                             padding-left: 0;
                             padding-right: 0;
@@ -105,7 +129,8 @@ header {
                 &.main-menu {
                     width: 100%;
                     margin: -1rem 0;
-                    padding-top: 25px;
+                    padding-top: 1.2rem;
+                    padding-bottom: 0;
                     border-top: 1px solid @borderColor;
                     // submenu
                     .ui.dropdown.item {
@@ -118,7 +143,7 @@ header {
                                 padding-top: 0;
                                 margin-top: 0;
                                 position: absolute;
-                                margin-top: 33px;
+                                margin-top: 1.9rem;
                                 > .item {
                                     text-align: center;
                                     border-bottom: 1px solid #e6e6e6;
@@ -172,7 +197,7 @@ header {
                         margin: 0;
                         display: block;
                         font-size: 16px;
-                        line-height: 19px;
+                        line-height: 1;
                         align-self: baseline;
                         &.home {
                             margin: 0;
@@ -213,9 +238,10 @@ header {
         }
 
     }
-
+   //1024 - 1200
     @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
         .desktop {
+          padding-top: 0;
             .main-column {
                 padding-left: 1rem;
             }
@@ -249,15 +275,16 @@ header {
                     }
                     .basket .item,
                     > .item {
-                        padding: 8px 9px;
+                        padding: 8px 7px;
                     }
                 }
             }
         }
     }
-    // Large Monitor & Up
+    // Large Monitor & Up (1200)
     @media only screen and (min-width: @largeMonitorBreakpoint) {
         .desktop {
+              padding-top: 0;
             .ui {
                 &.lang {
                     width: 316px;
@@ -272,7 +299,7 @@ header {
                 &.main-menu {
                     .basket .item,
                     > .item {
-                        padding: 8px 18px;
+                        padding: 7px 18px;
                     }
                 }
             }
@@ -293,6 +320,10 @@ header {
         padding-right: 1rem;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        margin-bottom: 0;
+        .two.column.row {
+          padding-bottom: 0;
+        }
     }
     .mobile.tablet > .row {
         padding-bottom: 0 !important;
@@ -435,36 +466,8 @@ header {
     //     }
     // }
 }
-@media (min-width: 768px) {
-    header {
-        .ui.mobile.container.grid {
-            //    background:lightgoldenrodyellow;
-            height: 116px;
-        }
-        .logo {
-            padding-top: 10px;
-            margin-left: -4px;
-            width: 75px;
-        }
-        a.mob-toogle-menu {
-            font-size: 18px;
-            //margin-top: 41px;
-            //margin-right: -12px;
-            margin-top: 40px;
-            margin-right: 3px;
-        }
-        a.mob-search {
-            display: none;
-        }
-    }
-}
-@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
-    header a.mob-toogle-menu {
-        font-size: 18px;
-        margin-top: 0;
-        margin-right: 0;
-    }
-}
+
+
 @media only screen and (max-width: @largestMobileScreen){
   header {
     .desktop .ui.menu {
@@ -480,8 +483,18 @@ header {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin: 18px 0 0;
+            // padding top/left/right added
+            padding-top: 1rem;
             padding-bottom: 18px;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        // margin for mob menu
+        .mob-menu .ui.vertically.reversed.grid{
+          margin-left: -0.5em;
+          margin-right: -0.5em;
+          margin-bottom: 1rem;
+          margin-top: 0;
         }
         .ui.menu.lang .item {
             flex: 1 1 auto;
@@ -512,7 +525,7 @@ header {
         }
         .ui.secondary.menu .dropdown.item::after {
             position: absolute;
-            right: 0;
+            right: 2%;
             top: 23%;
             cursor: pointer;
             content: ' ';
@@ -527,15 +540,28 @@ header {
             width: 100%;
         }
         .ui.secondary.menu .dropdown.item > .menu {
-            min-width: ~"calc(100% - 5px)";
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
+            min-width: ~"calc(100% - 1em)";
+            margin-left: 0.8em;
+            margin-right: 0.8em;
         }
         .right.menu.basket {
             padding: 15px 0;
             position: relative;
             .item {
                 margin: 0;
+            }
+            .item::after{
+              position: absolute;
+              right: 2%;
+              top: 23%;
+              cursor: pointer;
+              content: ' ';
+              height: 14px;
+              width: 14px;
+              border: 1px solid #a2a2a2;
+              border-width: 0 0 0.5px 0.5px;
+              transform: rotate(-135deg);
+              display: inline-block;
             }
         }
         .right.menu.basket::after {
@@ -573,3 +599,28 @@ header {
         }
     }
 }
+
+//---------------CUSTOM STYLE -----------should be review
+// @media (min-width: 768px) {
+//     header {
+//         .ui.tablet.container.grid {
+//             //    background:lightgoldenrodyellow;
+//             height: 116px;
+//         }
+//         .logo {
+//             padding-top: 10px;
+//             margin-left: -4px;
+//             width: 75px;
+//         }
+//         a.mob-toogle-menu {
+//             font-size: 18px;
+//             //margin-top: 41px;
+//             //margin-right: -12px;
+//             margin-top: 40px;
+//             margin-right: 3px;
+//         }
+//         a.mob-search {
+//             display: none;
+//         }
+//     }
+// }

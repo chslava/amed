@@ -44,7 +44,7 @@ section.slider {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: @tabletBreakpoint) {
   /* section.slider {
      margin-top:1rem;
      background: #686C78;
@@ -96,7 +96,7 @@ section.slider {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: @largeMonitorBreakpoint ) {
   section.slider {
     .ui.grid.container {
       width:100%!important;
@@ -117,6 +117,7 @@ section.slider {
       .content {
         width: 1200px;
         margin: 0 auto;
+        padding: 0 85px;
         h1, h2 {
           font-size: 50px;
           font-weight: 700;
@@ -139,9 +140,9 @@ section.slider {
     }
   }
 }
-@media (min-width: 1200px) and (max-width: @largestSmallMonitor){
+@media (min-width: @widescreenMonitorBreakpoint){
   .main-slider li .content{
-    padding: 0 85px;
+    padding: 0;
   }
 }
 

@@ -27,7 +27,6 @@
   flex-wrap: wrap;
   align-items: stretch;
   padding: 0em;
-  margin: 0 auto !important;
 }
 
 /*----------------------
@@ -174,9 +173,6 @@
     margin-right: @tabletMargin;
     padding-left: @tabletGutter;
     padding-right: @tabletGutter;
-  }
-  .ui.grid>.row{
-    padding: 0 !important;
   }
 }
 @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
@@ -1486,18 +1482,6 @@
   }
   .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
-  }
-  /* Right Aligned */
-  .ui[class*="right aligned"].grid > .column,
-  .ui[class*="right aligned"].grid > .row > .column,
-  .ui.grid > [class*="right aligned"].row > .column,
-  .ui.grid > [class*="right aligned"].column.column,
-  .ui.grid > .row > [class*="right aligned"].column.column {
-    text-align: right;
-    align-self: inherit;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
 }
 

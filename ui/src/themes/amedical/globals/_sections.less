@@ -266,6 +266,11 @@
   }
   > .ui.container.grid{
     justify-content: center;
+    // added margin and width to form
+    margin: 0 auto;
+    .ui.form {
+      width: 100%;
+    }
   }
 
   .ui.button, .input.subscribe {
@@ -360,25 +365,25 @@ background-size: cover;
     border:none;
   }
   .description{
-    .ui.grid>.stackable.stackable.row>.column{
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-
-    }
+    // .ui.grid>.stackable.stackable.row>.column{
+    //   padding-left: 0 !important;
+    //   padding-right: 0 !important;
+    //
+    // }
   }
 }
-@media (min-width: 768px) {
+@media (min-width: @tabletBreakpoint) {
   .services {
     margin-top: 42px;
-    margin-left: 0;
-    text-align: left;
+    // margin-left: 0;
+    // text-align: left;
     .ui.header {
       font-size: 25px;
       font-weight: 700;
       line-height: 30px;
       margin-bottom: 13px;
-      text-align: left;
-      justify-content: flex-start;
+      // text-align: left;
+      // justify-content: flex-start;
     }
     .column {
       p {
@@ -401,8 +406,10 @@ background-size: cover;
       font-weight: 700;
       line-height: 24px;
       height: 50px;
-      padding-left: 38px;
-      padding-right: 35px;
+      // padding-left: 38px;
+      // padding-right: 35px;
+      // add width to button
+          // width: 190px;
     }
 
   }
@@ -635,13 +642,6 @@ background-size: cover;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
-  .secondary-services, .services{
-    .ui.container {
-      width: 100%;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
   .ui.container.description {
     width: 100%;
     padding-left: 1rem;
@@ -680,7 +680,7 @@ background-size: cover;
     }
   }
 }
-@media (min-width: 992px) {
+@media (min-width: @computerBreakpoint) {
   .secondary-services{
     .circle-check {
       margin-right: 0;
@@ -700,13 +700,16 @@ background-size: cover;
   }
   .services {
     .ui.header{
-      text-align: center;
+      // text-align: center;
       margin-bottom: 25px;
       margin-top:19px!important;
       font-size: 25px;
-      font-weight: 700;
-      line-height: 30px;
-      justify-content: center;
+      // font-weight: 700;
+      // line-height: 30px;
+      // justify-content: center;
+    }
+    .ui.basic.button{
+      width: auto;
     }
     .ui.three.columns.grid{
       justify-content: center;
@@ -732,7 +735,7 @@ background-size: cover;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: @largeMonitorBreakpoint) {
   .services {
     margin-top: 40px;
     margin-left: 0;

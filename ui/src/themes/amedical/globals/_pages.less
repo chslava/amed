@@ -118,7 +118,7 @@
 
 .about-us {
     .ui.grid > .row > [class*="six wide computer"].column {
-        padding-left: 0;
+        // padding-left: 0;
     }
 }
 // -----------------------------------------
@@ -126,7 +126,7 @@
 .contact-form,
 .contacts {
     .ui.grid > [class*="sixteen wide mobile"].column {
-        padding-left: 0;
+        // padding-left: 0;
     }
 }
 // -----------------------------------------
@@ -134,6 +134,10 @@
 main.page.about-us,
 main.page.projects {
     margin-bottom: 2rem;
+}
+// main page margin top bottom
+main.page>.grid {
+    margin-top: -1rem !important;
 }
 // -----------------------------------------
 
@@ -145,7 +149,8 @@ main.page.projects {
     }
 
     .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
-        padding: 0 1rem 0 0;
+        // padding: 0 1rem 0 0;
+        padding-right: 2rem;
     }
 
     .ui.row .sixteen.computer.column > p {
@@ -162,7 +167,7 @@ main.page.projects {
 .projects,
 .service {
     .ui.grid > .row > [class*="sixteen wide mobile"].column {
-        padding-left: 0;
+        // padding-left: 0;
     }
 
     img.ui.shadowed.image {
@@ -173,7 +178,7 @@ main.page.projects {
 // -----------------------------------------
 // -----------------------------------------
 //mobile only
-@media (max-width: 767px) {
+@media (max-width: @largestMobileScreen) {
     .contacts {
         .info {
             background: #636463;
@@ -198,7 +203,7 @@ main.page.projects {
     }
 
     .contact-form {
-        margin-top: 1rem;
+        // margin-top: 1rem;
         padding: 2rem 0;
 
         h2.ui.header {
@@ -215,23 +220,29 @@ main.page.projects {
             }
         }
 
-        .ui.grid > [class*="sixteen wide mobile"].column {
-            padding-left: 0;
-            padding-right: 0;
-        }
+        // .ui.grid > [class*="sixteen wide mobile"].column {
+        //     padding-left: 0;
+        //     padding-right: 0;
+        // }
 
         .ui.grid > [class*="sixteen wide mobile"].column:nth-child(2) {
-            padding: 0 1rem 0 0;
+            padding-right: 2rem;
         }
 
         .ui.shadowed.image {
             margin-top: 30px !important;
             box-shadow: 0 6px 10px rgba(27,47,78,.14),16px -16px 0 #e6e6e6;
             width: 100%;
+
         }
     }
+    .projects, .service {
+      .ui.grid {
+        margin-top: 0;
+      }
+    }
 }
-@media (min-width: 768px) {
+@media (min-width: @tabletBreakpoint) {
     .contacts {
         > .ui.container {
             min-height: 700px;
@@ -269,7 +280,7 @@ main.page.projects {
 
     .contact-form {
         margin-top: 64px;
-        padding: 2rem 0 6rem;
+        padding: 2rem 0 5rem;
 
         .ui.header.left.decored:before {
             margin: -52px 0 15px;
@@ -277,6 +288,7 @@ main.page.projects {
 
         .ui.shadowed.image {
             box-shadow: 0 6px 10px rgba(27,47,78,.14),16px -16px 0 #e6e6e6;
+            margin-right: 1rem;
         }
     }
 }
@@ -305,7 +317,7 @@ main.page.projects {
     }
 }
 // -------------------
-@media (min-width: 992px) {
+@media (min-width: @computerBreakpoint) {
     .contacts {
         > .ui.container {
             min-height: 650px;
@@ -393,14 +405,14 @@ main.page.projects {
         }
     }
 }
-@media (min-width: 1200px) {
+@media (min-width: @largeMonitorBreakpoint ) {
     .about-us {
         .ten.wide.computer.column img.shadowed {
             margin-top: 50px;
         }
     }
 }
-@media (min-width: 1920px) {
+@media (min-width: @widescreenMonitorBreakpoint) {
     .contacts {
         .info {
             width: 40%;
