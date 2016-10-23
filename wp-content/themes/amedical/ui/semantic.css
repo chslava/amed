@@ -657,6 +657,24 @@ input::selection {
 
 /* Global */
 
+/*-------------------
+     Breakpoints
+--------------------*/
+
+/*-------------------
+      Container
+--------------------*/
+
+/* Tablet */
+
+/* Small Monitor */
+
+/* Large Monitor */
+
+/*******************************
+     User Global Variables
+*******************************/
+
 .services {
   margin-top: 2.35em;
 }
@@ -692,6 +710,7 @@ input::selection {
   justify-content: center;
   text-align: center;
   padding-bottom: 2rem!important;
+  position: relative;
 }
 
 .services .column p {
@@ -944,6 +963,11 @@ input::selection {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin: 0 auto;
+}
+
+.subscribe > .ui.container.grid .ui.form {
+  width: 100%;
 }
 
 .subscribe .ui.button,
@@ -1053,17 +1077,29 @@ main.about-us ~ .coo-respose {
     border: none;
   }
 
-  .description .ui.grid > .stackable.stackable.row > .column {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  .services .column:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .services .column:nth-child(1):after,
+  .services .column:nth-child(2):after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 240px;
+    height: 1px;
+    background: #e6e6e6;
+    /* border: 1px solid #e6e6e6; */
+    /* margin: 0 auto; */
   }
 }
 
 @media (min-width: 768px) {
   .services {
     margin-top: 42px;
-    margin-left: 0;
-    text-align: left;
   }
 
   .services .ui.header {
@@ -1071,10 +1107,6 @@ main.about-us ~ .coo-respose {
     font-weight: 700;
     line-height: 30px;
     margin-bottom: 13px;
-    text-align: left;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
   }
 
   .services .column p {
@@ -1093,8 +1125,6 @@ main.about-us ~ .coo-respose {
     font-weight: 700;
     line-height: 24px;
     height: 50px;
-    padding-left: 38px;
-    padding-right: 35px;
   }
 
   .benefits,
@@ -1350,14 +1380,7 @@ main.about-us ~ .coo-respose {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .secondary-services .ui.container,
-  .services .ui.container {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui.container.description {
     width: 100%;
     padding-left: 1rem;
@@ -1395,7 +1418,7 @@ main.about-us ~ .coo-respose {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .secondary-services .circle-check {
     margin-right: 0;
   }
@@ -1415,15 +1438,13 @@ main.about-us ~ .coo-respose {
   }
 
   .services .ui.header {
-    text-align: center;
     margin-bottom: 25px;
     margin-top: 19px!important;
     font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+  }
+
+  .services .ui.basic.button {
+    width: auto;
   }
 
   .services .ui.three.columns.grid {
@@ -1763,7 +1784,7 @@ main.about-us ~ .coo-respose {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .secondary-services .content {
     padding-right: 2rem;
   }
@@ -1876,18 +1897,13 @@ main.about-us ~ .coo-respose {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
 }
 
-.about-us .ui.grid > .row > [class*="six wide computer"].column {
-  padding-left: 0;
-}
-
-.contact-form .ui.grid > [class*="sixteen wide mobile"].column,
-.contacts .ui.grid > [class*="sixteen wide mobile"].column {
-  padding-left: 0;
-}
-
 main.page.about-us,
 main.page.projects {
   margin-bottom: 2rem;
+}
+
+main.page > .grid {
+  margin-top: -1rem !important;
 }
 
 .about-us .ui.header.left.decored:before,
@@ -1899,7 +1915,7 @@ main.page.projects {
 .about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2),
 .projects .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2),
 .service .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
-  padding: 0 1rem 0 0;
+  padding-right: 2rem;
 }
 
 .about-us .ui.row .sixteen.computer.column > p,
@@ -1913,11 +1929,6 @@ main.page.projects {
 .service .ten.wide.computer.column img.shadowed {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
   width: 100%;
-}
-
-.projects .ui.grid > .row > [class*="sixteen wide mobile"].column,
-.service .ui.grid > .row > [class*="sixteen wide mobile"].column {
-  padding-left: 0;
 }
 
 .projects img.ui.shadowed.image,
@@ -1949,7 +1960,6 @@ main.page.projects {
   }
 
   .contact-form {
-    margin-top: 1rem;
     padding: 2rem 0;
   }
 
@@ -1965,19 +1975,19 @@ main.page.projects {
     width: 100%!important;
   }
 
-  .contact-form .ui.grid > [class*="sixteen wide mobile"].column {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .contact-form .ui.grid > [class*="sixteen wide mobile"].column:nth-child(2) {
-    padding: 0 1rem 0 0;
+    padding-right: 2rem;
   }
 
   .contact-form .ui.shadowed.image {
     margin-top: 30px !important;
     box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -16px 0 #e6e6e6;
     width: 100%;
+  }
+
+  .projects .ui.grid,
+  .service .ui.grid {
+    margin-top: 0;
   }
 }
 
@@ -2017,7 +2027,7 @@ main.page.projects {
 
   .contact-form {
     margin-top: 64px;
-    padding: 2rem 0 6rem;
+    padding: 2rem 0 5rem;
   }
 
   .contact-form .ui.header.left.decored:before {
@@ -2026,10 +2036,11 @@ main.page.projects {
 
   .contact-form .ui.shadowed.image {
     box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -16px 0 #e6e6e6;
+    margin-right: 1rem;
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .contact-form > .ui.container,
   .contacts > .ui.container,
   main.ui.container.page {
@@ -2051,7 +2062,7 @@ main.page.projects {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .contacts > .ui.container {
     min-height: 650px;
   }
@@ -2140,7 +2151,7 @@ main.page.projects {
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .contacts .info {
     width: 40%;
   }
@@ -2177,7 +2188,32 @@ header .main-logo {
   display: none;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  header .ui.grid.container {
+    width: calc(723px + 2rem);
+    margin: 0 auto;
+  }
+
+  header .ui.grid.container .right.aligned.column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  header .ui.grid.container .right.aligned.column .mob-toogle-menu {
+    font-size: 18px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   header .desktop {
     display: -webkit-box!important;
     display: -ms-flexbox!important;
@@ -2186,7 +2222,8 @@ header .main-logo {
     -ms-flex-align: center;
     -webkit-box-align: center;
     align-items: center;
-    padding: 1rem 0 25px;
+    padding: 1rem 0 1rem;
+    padding-bottom: 1.4rem;
   }
 
   header .desktop .main-column,
@@ -2196,11 +2233,12 @@ header .main-logo {
 
   header .desktop .main-logo {
     height: 112px;
+    padding-top: 1rem;
   }
 
   header .desktop .main-column {
     height: 135px;
-    margin-top: 15px;
+    margin-top: -0.4rem;
     padding-left: 1.6rem;
     position: relative;
   }
@@ -2219,12 +2257,11 @@ header .main-logo {
 
   header .desktop .ui.lang {
     margin: 0;
-    padding: 0;
+    padding: 1.5rem 0 0;
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
-    padding-top: 1rem;
   }
 
   header .desktop .ui.lang:before {
@@ -2255,7 +2292,7 @@ header .main-logo {
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
-    padding: 7px 10px 7px 20px;
+    padding: 7px 10px 4px 20px;
   }
 
   header .desktop .ui.top-menu .item:first-child {
@@ -2274,12 +2311,18 @@ header .main-logo {
 
   header .desktop .ui .computer-search i.search.icon {
     width: 55px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
   }
 
   header .desktop .ui.main-menu {
     width: 100%;
     margin: -1rem 0;
-    padding-top: 25px;
+    padding-top: 1.2rem;
+    padding-bottom: 0;
     border-top: 1px solid #8f8f8f;
   }
 
@@ -2294,7 +2337,7 @@ header .main-logo {
     padding-top: 0;
     margin-top: 0;
     position: absolute;
-    margin-top: 33px;
+    margin-top: 1.9rem;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item:hover .menu > .item {
@@ -2358,7 +2401,7 @@ header .main-logo {
     margin: 0;
     display: block;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 1;
     -ms-flex-item-align: baseline;
     align-self: baseline;
   }
@@ -2412,7 +2455,11 @@ header .main-logo {
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1439px) {
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  header .desktop {
+    padding-top: 0;
+  }
+
   header .desktop .main-column {
     padding-left: 1rem;
   }
@@ -2449,11 +2496,15 @@ header .main-logo {
 
   header .desktop .ui.main-menu .basket .item,
   header .desktop .ui.main-menu > .item {
-    padding: 8px 9px;
+    padding: 8px 7px;
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1200px) {
+  header .desktop {
+    padding-top: 0;
+  }
+
   header .desktop .ui.lang {
     width: 316px;
   }
@@ -2469,7 +2520,7 @@ header .main-logo {
 
   header .desktop .ui.main-menu .basket .item,
   header .desktop .ui.main-menu > .item {
-    padding: 8px 18px;
+    padding: 7px 18px;
   }
 
   header .desktop .computer-search input {
@@ -2487,6 +2538,11 @@ header .ui.mobile.container.grid {
   padding-right: 1rem;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  margin-bottom: 0;
+}
+
+header .ui.mobile.container.grid .two.column.row {
+  padding-bottom: 0;
 }
 
 header .mobile.tablet > .row {
@@ -2543,36 +2599,6 @@ header .search-row .ui.form input {
   border: none !important;
 }
 
-@media (min-width: 768px) {
-  header .ui.mobile.container.grid {
-    height: 116px;
-  }
-
-  header .logo {
-    padding-top: 10px;
-    margin-left: -4px;
-    width: 75px;
-  }
-
-  header a.mob-toogle-menu {
-    font-size: 18px;
-    margin-top: 40px;
-    margin-right: 3px;
-  }
-
-  header a.mob-search {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  header a.mob-toogle-menu {
-    font-size: 18px;
-    margin-top: 0;
-    margin-right: 0;
-  }
-}
-
 @media only screen and (max-width: 767px) {
   header .desktop .ui.menu {
     margin-top: 0;
@@ -2580,7 +2606,7 @@ header .search-row .ui.form input {
   }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1023px) {
   header .desktop .ui.menu.lang {
     position: relative;
     display: -webkit-box;
@@ -2590,8 +2616,17 @@ header .search-row .ui.form input {
     -ms-flex-pack: justify;
     justify-content: space-between;
     width: 100%;
-    margin: 18px 0 0;
+    padding-top: 1rem;
     padding-bottom: 18px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  header .mob-menu .ui.vertically.reversed.grid {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    margin-bottom: 1rem;
+    margin-top: 0;
   }
 
   header .ui.menu.lang .item {
@@ -2633,7 +2668,7 @@ header .search-row .ui.form input {
 
   header .ui.secondary.menu .dropdown.item::after {
     position: absolute;
-    right: 0;
+    right: 2%;
     top: 23%;
     cursor: pointer;
     content: ' ';
@@ -2651,9 +2686,9 @@ header .search-row .ui.form input {
   }
 
   header .ui.secondary.menu .dropdown.item > .menu {
-    min-width: calc(100% - 5px);
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    min-width: calc(100% - 1em);
+    margin-left: 0.8em;
+    margin-right: 0.8em;
   }
 
   header .right.menu.basket {
@@ -2663,6 +2698,21 @@ header .search-row .ui.form input {
 
   header .right.menu.basket .item {
     margin: 0;
+  }
+
+  header .right.menu.basket .item::after {
+    position: absolute;
+    right: 2%;
+    top: 23%;
+    cursor: pointer;
+    content: ' ';
+    height: 14px;
+    width: 14px;
+    border: 1px solid #a2a2a2;
+    border-width: 0 0 0.5px 0.5px;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    display: inline-block;
   }
 
   header .right.menu.basket::after {
@@ -2711,12 +2761,15 @@ footer {
   color: #FFF;
   font-size: 12px;
   line-height: 20px;
+  /*-------------------
+        media queries footer
+  --------------------*/
 }
 
 footer > .ui.grid {
   display: block;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 footer nav {
@@ -2841,11 +2894,6 @@ footer .copyright {
   line-height: 15px;
   text-align: center;
   padding: 18px 0;
-}
-
-.ui.form .mc4wp-response > .mc4wp-alert {
-  text-align: center;
-  color: #FFF;
 }
 
 @media (min-width: 768px) {
@@ -2986,6 +3034,17 @@ footer .copyright {
   }
 }
 
+.ui.form .mc4wp-response > .mc4wp-alert {
+  text-align: center;
+  color: #FFF;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  footer .ui.grid.container {
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1200px) {
   footer {
     font-size: 15px;
@@ -2994,7 +3053,6 @@ footer .copyright {
   }
 
   footer .ui.grid.container {
-    width: 1200px !important;
     margin: 0 auto;
   }
 
@@ -3150,15 +3208,6 @@ footer .copyright {
   }
 }
 
-@media only screen and (max-width: 767px) {
-  footer .ui.grid.container,
-  footer .ui.relaxed.grid.container,
-  footer .ui.very.relaxed.grid.container {
-    width: auto;
-    margin: 0 auto;
-  }
-}
-
 /* Modules */
 
 section.slider {
@@ -3166,12 +3215,12 @@ section.slider {
 }
 
 section.slider .ui.container.grid {
-  margin-left: auto!important;
-  margin-right: auto!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 section.slider .ui.container.grid > .column {
-  padding: 0!important;
+  padding: 0 !important;
 }
 
 .main-slider {
@@ -3197,12 +3246,13 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
 .main-slider li .content h1,
 .main-slider li .content h2 {
-  padding: 0 20px 25px 20px;
+  padding: 0 20px 25px;
   margin: 0;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   color: white;
@@ -3237,6 +3287,7 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -3247,7 +3298,7 @@ section.slider .ui.container.grid > .column {
     font-size: 42px;
     font-weight: 700;
     line-height: 60px;
-    padding: 0 85px 25px 85px;
+    padding: 0 85px 25px;
     margin: 0;
   }
 
@@ -3269,7 +3320,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider {
-    margin: 0 0;
+    margin: 0;
   }
 
   .main-slider li {
@@ -3290,6 +3341,7 @@ section.slider .ui.container.grid > .column {
   .main-slider li .content {
     width: 1200px;
     margin: 0 auto;
+    padding: 0 85px;
   }
 
   .main-slider li .content h1,
@@ -3313,9 +3365,9 @@ section.slider .ui.container.grid > .column {
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1439px) {
+@media (min-width: 1440px) {
   .main-slider li .content {
-    padding: 0 85px;
+    padding: 0;
   }
 }
 
@@ -3339,6 +3391,24 @@ section.slider .bx-wrapper {
   top: 0;
   left: 0;
   border: none !important;
+}
+
+@media (max-width: 767px) {
+  .slider .bx-wrapper .bx-next {
+    right: 1%;
+  }
+
+  .slider .bx-wrapper .bx-prev {
+    left: 1%;
+  }
+
+  .represent .bx-wrapper .bx-controls-direction .bx-next {
+    right: 7%;
+  }
+
+  .represent .bx-wrapper .bx-controls-direction .bx-prev {
+    left: 7%;
+  }
 }
 
 /*******************************
@@ -7752,7 +7822,7 @@ blockquote {
   vertical-align: baseline;
 }
 /*!
- * # Semantic UI 2.2.4 - Container
+ * # Semantic UI - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7792,29 +7862,19 @@ blockquote {
   .ui.very.relaxed.grid.container {
     width: auto;
   }
-
-  .ui.grid.container,
-  .ui.relaxed.grid.container,
-  .ui.very.relaxed.grid.container {
-    width: auto;
-    margin: 0 auto;
-  }
 }
 
 /* Tablet */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui.container {
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .ui.grid.container {
-    width: calc(768px + 7rem);
-    margin: 0 auto !important;
+    width: calc( 600px  +  2rem );
   }
 
   .ui.relaxed.grid.container {
@@ -7828,7 +7888,7 @@ blockquote {
 
 /* Small Monitor */
 
-@media only screen and (min-width: 992px) and (max-width: 1439px) {
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
   .ui.container {
     width: 940px;
     margin-left: auto;
@@ -7850,7 +7910,7 @@ blockquote {
 
 /* Large Monitor */
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1200px) {
   .ui.container {
     width: 1180px;
     margin-left: auto;
@@ -7890,7 +7950,6 @@ blockquote {
 
 .ui.fluid.container {
   width: 100%;
-  margin: 0 auto;
 }
 
 /*******************************
@@ -7920,20 +7979,162 @@ blockquote {
          Theme Overrides
 *******************************/
 
-@media only screen and (max-width: 1199px) and (min-width: 992px) {
+/*!
+ * # Semantic UI 2.2.4 - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+/*******************************
+            Container
+*******************************/
+
+/* All Sizes */
+
+.ui.container {
+  display: block;
+  max-width: 100%;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
   .ui.container {
-    width: calc( 933px + 2rem ) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .ui.grid.container {
+    width: auto;
+  }
+
+  .ui.relaxed.grid.container {
+    width: auto;
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: auto;
   }
 }
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .ui.container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ui.grid.container {
+    width: calc( 600px  +  2rem );
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 600px  +  3rem );
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 600px  +  5rem );
+  }
+}
+
+/* Small Monitor */
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .ui.container {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ui.grid.container {
+    width: calc( 940px  +  2rem );
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 940px  +  3rem );
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 940px  +  5rem );
+  }
+}
+
+/* Large Monitor */
 
 @media only screen and (min-width: 1200px) {
   .ui.container {
     width: 1180px;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  .ui.grid.container {
+    width: calc( 1180px  +  2rem );
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 1180px  +  3rem );
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 1180px  +  5rem );
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+/* Text Container */
+
+.ui.text.container {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+.ui.text.container {
+  font-size: 1.13333333rem;
+}
+
+/* Fluid */
+
+.ui.fluid.container {
+  width: 100%;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+
+.ui.justified.container {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 /*!
  * # Semantic UI 2.2.4 - Divider
@@ -16289,7 +16490,6 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -16456,7 +16656,6 @@ img.ui.shadowed.image {
   -ms-flex-align: stretch;
   align-items: stretch;
   padding: 0em;
-  margin: 0 auto !important;
 }
 
 /*----------------------
@@ -16618,7 +16817,7 @@ img.ui.shadowed.image {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -16626,13 +16825,9 @@ img.ui.shadowed.image {
     padding-left: 2em;
     padding-right: 2em;
   }
-
-  .ui.grid > .row {
-    padding: 0 !important;
-  }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -16642,7 +16837,7 @@ img.ui.shadowed.image {
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -16652,7 +16847,7 @@ img.ui.shadowed.image {
   }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -17067,7 +17262,7 @@ img.ui.shadowed.image {
 
 /* Tablet Sizing Combinations */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui.grid > .row > [class*="one wide tablet"].column,
   .ui.grid > .column.row > [class*="one wide tablet"].column,
   .ui.grid > [class*="one wide tablet"].column,
@@ -17183,7 +17378,7 @@ img.ui.shadowed.image {
 
 /* Computer/Desktop Sizing Combinations */
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui.grid > .row > [class*="one wide computer"].column,
   .ui.grid > .column.row > [class*="one wide computer"].column,
   .ui.grid > [class*="one wide computer"].column,
@@ -17299,7 +17494,7 @@ img.ui.shadowed.image {
 
 /* Large Monitor Sizing Combinations */
 
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
   .ui.grid > .row > [class*="one wide large screen"].column,
   .ui.grid > .column.row > [class*="one wide large screen"].column,
   .ui.grid > [class*="one wide large screen"].column,
@@ -17415,7 +17610,7 @@ img.ui.shadowed.image {
 
 /* Widescreen Sizing Combinations */
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui.grid > .row > [class*="one wide widescreen"].column,
   .ui.grid > .column.row > [class*="one wide widescreen"].column,
   .ui.grid > [class*="one wide widescreen"].column,
@@ -17731,19 +17926,19 @@ img.ui.shadowed.image {
 .ui.celled.grid {
   width: 100%;
   margin: 1em 0em;
-  box-shadow: 0px 0px 0px 1px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 
 .ui.celled.grid > .row {
   width: 100% !important;
   margin: 0em;
   padding: 0em;
-  box-shadow: 0px -1px 0px 0px #D4D4D5;
+  box-shadow: 0px -1px 0px 0px #DDDDDD;
 }
 
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  box-shadow: -1px 0px 0px 0px #D4D4D5;
+  box-shadow: -1px 0px 0px 0px #DDDDDD;
 }
 
 .ui.celled.grid > .column:first-child,
@@ -17814,6 +18009,7 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -17874,6 +18070,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17886,6 +18083,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17904,6 +18102,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -17957,7 +18156,7 @@ img.ui.shadowed.image {
 .ui.grid > .orange.row,
 .ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
-  background-color: #F2711C !important;
+  background-color: #ff6b01 !important;
   color: #FFFFFF;
 }
 
@@ -17984,7 +18183,7 @@ img.ui.shadowed.image {
 .ui.grid > .green.row,
 .ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #21BA45 !important;
+  background-color: #60B044 !important;
   color: #FFFFFF;
 }
 
@@ -18002,7 +18201,7 @@ img.ui.shadowed.image {
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2185D0 !important;
+  background-color: #80A6CD !important;
   color: #FFFFFF;
 }
 
@@ -18056,7 +18255,7 @@ img.ui.shadowed.image {
 .ui.grid > .black.row,
 .ui.grid > .black.column,
 .ui.grid > .row > .black.column {
-  background-color: #1B1C1D !important;
+  background-color: #444C55 !important;
   color: #FFFFFF;
 }
 
@@ -18130,7 +18329,7 @@ img.ui.shadowed.image {
   /* Celled Reversed */
 
   .ui[class*="mobile reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #DDDDDD;
   }
 
   .ui[class*="mobile reversed"].celled.grid > .row > .column:last-child {
@@ -18140,7 +18339,7 @@ img.ui.shadowed.image {
 
 /* Tablet */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui[class*="tablet reversed"].grid,
   .ui[class*="tablet reversed"].grid > .row,
   .ui.grid > [class*="tablet reversed"].row {
@@ -18182,38 +18381,17 @@ img.ui.shadowed.image {
   /* Celled Reversed */
 
   .ui[class*="tablet reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #DDDDDD;
   }
 
   .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
   }
-
-  /* Right Aligned */
-
-  .ui[class*="right aligned"].grid > .column,
-  .ui[class*="right aligned"].grid > .row > .column,
-  .ui.grid > [class*="right aligned"].row > .column,
-  .ui.grid > [class*="right aligned"].column.column,
-  .ui.grid > .row > [class*="right aligned"].column.column {
-    text-align: right;
-    -ms-flex-item-align: inherit;
-    align-self: inherit;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
 }
 
 /* Computer */
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui[class*="computer reversed"].grid,
   .ui[class*="computer reversed"].grid > .row,
   .ui.grid > [class*="computer reversed"].row {
@@ -18255,7 +18433,7 @@ img.ui.shadowed.image {
   /* Celled Reversed */
 
   .ui[class*="computer reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #DDDDDD;
   }
 
   .ui[class*="computer reversed"].celled.grid > .row > .column:last-child {
@@ -18269,7 +18447,7 @@ img.ui.shadowed.image {
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui.doubling.grid {
     width: auto;
   }
@@ -18553,7 +18731,7 @@ img.ui.shadowed.image {
   .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided:not(.vertically).grid > .row > .column {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid #8f8f8f;
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
@@ -18610,7 +18788,7 @@ img.ui.shadowed.image {
 
 /* Tablet Only Hide */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.tablet),
@@ -18642,7 +18820,7 @@ img.ui.shadowed.image {
 
 /* Computer Only Hide */
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),
@@ -18674,7 +18852,7 @@ img.ui.shadowed.image {
 
 /* Large Screen Only Hide */
 
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),
@@ -18699,7 +18877,7 @@ img.ui.shadowed.image {
 
 /* Widescreen Only Hide */
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),
@@ -18714,10 +18892,6 @@ img.ui.shadowed.image {
     display: none !important;
   }
 }
-
-/*******************************
-         Theme Overrides
-*******************************/
 /*
  * # Semantic - Menu
  * http://github.com/semantic-org/semantic-ui/
@@ -19575,6 +19749,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -19854,6 +20029,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;
@@ -21007,7 +21183,7 @@ Floated Menu / Item
 
 /* Tablet - Mobile */
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1023px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -21458,7 +21634,7 @@ Floated Menu / Item
     Stackable
 ---------------*/
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1023px) {
   .ui[class*="tablet stackable"].table,
   .ui[class*="tablet stackable"].table tbody,
   .ui[class*="tablet stackable"].table tr,
@@ -23415,13 +23591,13 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui.selection.dropdown .menu {
     max-height: 16.2rem;
   }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui.selection.dropdown .menu {
     max-height: 21.6rem;
   }
@@ -23619,13 +23795,13 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui.search.dropdown .menu {
     max-height: 16.2rem;
   }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui.search.dropdown .menu {
     max-height: 21.6rem;
   }
@@ -24154,14 +24330,14 @@ select.ui.dropdown {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 20.8rem;
   }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1440px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
     max-height: 20.8rem;
