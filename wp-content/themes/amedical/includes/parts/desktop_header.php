@@ -3,7 +3,7 @@
         <img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png" alt="<?php print(get_bloginfo( 'name' )); ?>" title="<?php print(get_bloginfo( 'name' )); ?>">
     </a>
 </div>
-<div class="ui container main-column">
+<div class="ui container fluid main-column">
     <div class="mob-menu" style="display:none">
         <div class="ui computer vertically reversed grid">
             <div class="ui text menu lang">
