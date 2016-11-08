@@ -492,7 +492,9 @@ class SitePress extends WPML_WPDB_User{
 			$this->taxonomy_translation = new WPML_Taxonomy_Translation( '', array(), new WPML_UI_Screen_Options_Factory( $this ) );
 		}
 
-		if ( WPML_LANGUAGE_NEGOTIATION_TYPE_DOMAIN === (int) $this->get_setting( 'language_negotiation_type' ) ) {
+		if ( WPML_LANGUAGE_NEGOTIATION_TYPE_DOMAIN === (int) $this->get_setting( 'language_negotiation_type' )
+		     && $this->get_setting( 'language_per_domain_sso_enabled', false )
+		) {
 			$sso = new WPML_Language_Per_Domain_SSO( $this );
 			$sso->init_hooks();
 		}
@@ -1405,6 +1407,7 @@ class SitePress extends WPML_WPDB_User{
 						$dependencies[ ] = $color_picker_handler;
 						$dependencies[ ] = 'sitepress-scripts';
 						$dependencies[ ] = 'wpml-domain-validation';
+						$dependencies[ ] = 'jquery-ui-dialog';
 						break;
 					case 'troubleshooting':
 						$dependencies [ ] = 'jquery-ui-dialog';

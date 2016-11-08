@@ -221,7 +221,16 @@ jQuery(document).ready(function(){
 	
 	// Initialize the language switcher preview on document ready
 	updateSwitcherPreview();
-});
+
+	jQuery(document).on('click', '#sso_information', function (e) {
+		e.preventDefault();
+		jQuery('#language_per_domain_sso_description').dialog({
+			modal: true,
+			width: 'auto',
+			height: 'auto'
+		});
+	});
+})
 
 function manageWizardButtonStatesSpinner(){
     var buttons = jQuery( '#icl_setup_back_1, #icl_setup_next_1, #icl_setup_back_2' );
@@ -600,6 +609,8 @@ function iclUseDirectoryToggle() {
 		var form = jQuery('#icl_save_language_negotiation_type');
 		var formName = jQuery(form).attr('name');
 		var ajxResponse = jQuery(form).find('.icl_ajx_response').attr('id');
+		var sso_enabled = jQuery('#sso_enabled').is(':checked');
+		var sso_notice  = jQuery('#sso_enabled_notice');
 
 		if (form.find('input[name=use_directory]').is(':checked')) {
 			useDirectory = 1;
@@ -625,7 +636,8 @@ function iclUseDirectoryToggle() {
 			show_on_root:                  form.find('input[name=show_on_root]:checked').val(),
 			root_html_file_path:           form.find('input[name=root_html_file_path]').val(),
 			hide_language_switchers:       hideSwitcher,
-			xdomain:                       xdomain
+			xdomain:                       xdomain,
+			sso_enabled:                   sso_enabled
 		};
 
 		jQuery.ajax({
@@ -637,6 +649,11 @@ function iclUseDirectoryToggle() {
 				var formErrors, rootHtmlFile, rootPage, spl;
 				if (response.success) {
 					fadeInAjxResp('#' + ajxResponse, icl_ajx_saved);
+					if ( sso_enabled ) {
+						sso_notice.addClass('updated').fadeIn();
+					} else {
+						sso_notice.removeClass('updated').fadeOut();
+					}
 
                     if(response.data) {
                         var formMessage = jQuery('form[name="' + formName + '"]').find('.wpml-form-message');

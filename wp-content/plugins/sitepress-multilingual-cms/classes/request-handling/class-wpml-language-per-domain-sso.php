@@ -44,7 +44,7 @@ class WPML_Language_Per_Domain_SSO extends WPML_SP_User {
 
 		// Add and remove hash keys.
 		add_action( 'wp_login',                          array( $this, 'store_hash_key_in_db' ) );
-		add_action( 'wp_logout',                         array( $this, 'remove_hash_key_from_db' ) );
+		add_action( 'wp_logout',                         array( $this, 'store_hash_key_in_db' ) );
 	}
 
 	/**
@@ -79,7 +79,7 @@ class WPML_Language_Per_Domain_SSO extends WPML_SP_User {
 				};
 			</script>
 			<?php
-			wp_die();
+			exit();
 		}
 	}
 
@@ -89,7 +89,7 @@ class WPML_Language_Per_Domain_SSO extends WPML_SP_User {
 	public function add_to_footer() {
 		foreach ( $this->domains as $domain ) {
 			$nonce = $this->get_url_hash( $domain );
-			if ( $nonce !== $this->get_url_hash() ) {
+			if ( $nonce !== $this->get_url_hash() && get_transient( '_wpml_sso_logged_in_time' ) ) {
 				?>
 				<iframe class="wpml_iframe" style="display:none" src="<?php echo $domain; ?>/?gen_iframe=true&_wpml_gen_iframe_nonce=<?php echo $nonce; ?>"></iframe>
 				<?php
@@ -113,6 +113,7 @@ class WPML_Language_Per_Domain_SSO extends WPML_SP_User {
 				'is_user_logged_in' => is_user_logged_in(),
 				'current_user_id'   => get_current_user_id(),
 				'nonce'             => $nonce,
+				'is_expired'        => ! get_transient( '_wpml_sso_logged_in_time' ),
 			)
 		);
 	}
@@ -141,6 +142,8 @@ class WPML_Language_Per_Domain_SSO extends WPML_SP_User {
 	public function sign_out_user() {
 		if ( $this->is_valid_ajax() && is_user_logged_in() ) {
 			wp_clear_auth_cookie();
+			$url_hash = $this->get_url_hash();
+			delete_transient( $url_hash );
 		}
 	}
 

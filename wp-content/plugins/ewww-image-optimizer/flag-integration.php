@@ -203,7 +203,7 @@ class ewwwflag {
 		// store the IDs to optimize in the options table of the db
 		update_option( 'ewww_image_optimizer_bulk_flag_attachments', $ids );
 		// add the EWWW IO javascript
-		wp_enqueue_script( 'ewwwbulkscript', plugins_url( '/includes/eio.js', __FILE__ ), array( 'jquery', 'jquery-ui-progressbar', 'jquery-ui-slider', 'postbox', 'dashboard' ) );
+		wp_enqueue_script( 'ewwwbulkscript', plugins_url( '/includes/eio.js', __FILE__ ), array( 'jquery', 'jquery-ui-progressbar', 'jquery-ui-slider', 'postbox', 'dashboard' ), EWWW_IMAGE_OPTIMIZER_VERSION );
 		// add the styling for the progressbar
 		wp_enqueue_style( 'jquery-ui-progressbar', plugins_url( '/includes/jquery-ui-1.10.1.custom.css', __FILE__ ) );
 		// prepare a few variables to be used by the javascript code
@@ -449,7 +449,7 @@ class ewwwflag {
 		// and output it to the user
 		$output['results'] .= sprintf( esc_html__( 'Elapsed: %.3f seconds', EWWW_IMAGE_OPTIMIZER_DOMAIN ) . "</p>", $elapsed );
 		// send the list back to the db
-		update_option( 'ewww_image_optimizer_bulk_flag_attachments', $attachments );
+		update_option( 'ewww_image_optimizer_bulk_flag_attachments', $attachments, false );
                 if ( ! empty( $attachments ) ) {
                         $next_attachment = array_shift( $attachments );
                         $next_file = $this->ewww_flag_bulk_filename( $next_attachment );
@@ -472,7 +472,7 @@ class ewwwflag {
 		}
 		// reset the bulk flags in the db
 		update_option('ewww_image_optimizer_bulk_flag_resume', '');
-		update_option('ewww_image_optimizer_bulk_flag_attachments', '');
+		update_option('ewww_image_optimizer_bulk_flag_attachments', '', false);
 		// and let the user know we are done
 		echo '<p><b>' . esc_html__('Finished Optimization!', EWWW_IMAGE_OPTIMIZER_DOMAIN) . '</b></p>';
 		die();

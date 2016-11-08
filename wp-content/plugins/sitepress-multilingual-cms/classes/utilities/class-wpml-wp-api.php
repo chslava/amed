@@ -682,6 +682,17 @@ class WPML_WP_API {
 	}
 
 	/**
+	 * Wrapper around PHP constant defined
+	 *
+	 * @param string $constant_name
+	 *
+	 * @return bool
+	 */
+	public function defined( $constant_name ) {
+		return defined( $constant_name );
+	}
+
+	/**
 	 * Wrapper around PHP constant lookup
 	 *
 	 * @param string $constant_name
@@ -690,7 +701,7 @@ class WPML_WP_API {
 	 */
 	public function constant( $constant_name ) {
 
-		return defined( $constant_name ) ? constant( $constant_name ) : null;
+		return $this->defined( $constant_name ) ? constant( $constant_name ) : null;
 	}
 
 	/**
