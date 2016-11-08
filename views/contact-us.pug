@@ -2,64 +2,65 @@ extends layouts/home.pug
 
 block content
     main.contacts
-        div.ui.container.vertically.divided.grid
-            div.five.wide.column
-                div.ui.breadcrumb
-                    a(href="index.html").section Sākums
-                    div.divider //
-                    div.active.section Kontakti
+        div.ui.container
+            div.ui.grid
+                div.sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
+                    div.ui.breadcrumb
+                        a(href="index.html").section Sākums
+                        div.divider //
+                        div.active.section Kontakti
 
-                h1 Kontakti
-                p Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067
-                p Tālrunis: 66103003, 20277153
-                p Fakss: 66103010
-                p E-pasts: info@amedical.eu
-                p Darba laiks: 8:30 - 17:30
-                div.ui.divider
-                h1 Rekvizīti
-                p SIA "A.Medical"
-                    | PVN reģ. Nr. LV 40103599415
-                    | Varkaļu iela 13A, Rīga, Latvija, LV-1067
-
-                p A/S „Swedbank”
-                    | Konts: LV25HABA0551034365891
-                    | Kods: HABALV22
+                    h1.ui.header Kontakti
+                    p Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067
+                    p Tālrunis: 66103003, 20277153
+                    p Fakss: 66103010
+                    p E-pasts: #[a(href="mailto:info@amedical.eu") info@amedical.eu]
+                    p Darba laiks: 8:30 - 17:30
+                    div.ui.divider
+                    h2.ui.header Rekvizīti
+                    p SIA "A.Medical"
+                    p PVN reģ. Nr. LV 40103599415
+                    p Varkaļu iela 13A, Rīga, Latvija, LV-1067
+                    br
+                    p A/S „Swedbank”
+                    p Konts: LV25HABA0551034365891
+                    p Kods: HABALV22
 
         div.info
         div.map.contact-map(data-lat="56.940" data-lng="24.070")
 
     section.contact-form
-        div.ui.container.grid
-            div.two.column.row
-                div.column
+        div.ui.container
+            div.ui.grid
+                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
                     h2.left.ui.header.decored Sazinies ar mums
                     form.ui.form
-                        div.eight.wide.field
+                        div.sixteen.wide.mobile.field.eight.wide.computer.field
                             label Vārds un uzvārds
                             input(type="text")
-                        div.eight.wide.field
+                        div.sixteen.wide.mobile.field.eight.wide.computer.field
                             label Uzņēmums
                             input(type="text")
-                        div.eight.wide.field
+                        div.sixteen.wide.mobile.field.eight.wide.computer.field
                             label E-pasts
                             input(type="text")
-                        div.eight.wide.field
+                        div.sixteen.wide.mobile.field.eight.wide.computer.field
                             label Tālrunis
                             input(type="text")
-                        div.fourteen.wide.field
+                        div.sixteen.wide.mobile.field.fourteen.wide.computer.field
                             label Jūsu ziņa
                             textarea
                         button(type="submit").ui.huge.primary.button Nosūtīt
 
-                div.column
-                    img(src="/img/contact-us.jpg").ui.shadowed.image
+                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+                    img(src="img/contact-us.jpg").ui.shadowed.image
 
 
     include sections/subscribe
 
 block footer-content
     script(src="https://maps.google.com/maps/api/js?key=AIzaSyBKeYvaMBcJDXj6f8O4N02ZWjSfHdWM2-Q")
-    script(src="/js/gmaps.js")
+    script(src="js/gmaps.js")
     script.
         $(function() {
         map = new GMaps({
@@ -99,6 +100,6 @@ block footer-content
             map.addMarker({
                 lat: 56.940,
                 lng: 24.070,
-                icon: '/img/marker.png',
+                icon: 'img/marker.png',
             });
         })

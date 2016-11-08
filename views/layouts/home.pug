@@ -1,10 +1,11 @@
 doctype html
 html(lang="en")
     head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="shortcut icon" href="favicon.ico")
         title= pageTitle
-        link(rel="stylesheet", type='text/css', href='ui/semantic.css')
-        // Pagaidu font fix
-        | <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css'>
+        link(rel="stylesheet", type='text/css', href='ui/semantic.min.css')
         block head-content
 
         script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
@@ -15,8 +16,8 @@ html(lang="en")
 
         include blocks/footer.pug
 
-        script(src="/ui/semantic.min.js")
-        script(src="/js/jquery.bxslider.min.js")
+        script(src="ui/semantic.min.js")
+        script(src="js/jquery.bxslider.min.js")
         block footer-content
-        script(src="/js/main.js")
+        script(src="js/main.js")
 

@@ -12,5 +12,24 @@
 .ui.shadowed.image img,
 .ui.shadowed.image svg,
 img.ui.shadowed.image {
+ // margin-top: -12px;
+ // margin-left:96px;
+  float: right;
+  margin-top: 0;
+  height:auto;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
+}
+
+@media (max-width: 768px) {
+
+  .ui.shadowed.images .image,
+  .ui.shadowed.images img,
+  .ui.shadowed.images svg,
+  .ui.shadowed.image img,
+  .ui.shadowed.image svg,
+  img.ui.shadowed.image {
+    margin-top: 30px!important;
+    margin-left:auto;
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 20px -20px 0px #e6e6e6;
+  }
 }

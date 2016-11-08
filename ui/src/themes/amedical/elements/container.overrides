@@ -1,0 +1,146 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+/*!
+ * # Semantic UI - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'container';
+//
+
+
+/*******************************
+            Container
+*******************************/
+
+/* All Sizes */
+.ui.container {
+  display: block;
+  max-width: @maxWidth;
+}
+
+/* Mobile */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.container {
+
+    width: @mobileWidth;
+    margin-left: @mobileGutter;
+    margin-right: @mobileGutter;
+  }
+  .ui.grid.container {
+    width: @mobileGridWidth;
+  }
+  .ui.relaxed.grid.container {
+    width: @mobileRelaxedGridWidth;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @mobileVeryRelaxedGridWidth;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui.container {
+    width: @tabletWidth;
+    margin-left: @tabletGutter;
+    margin-right: @tabletGutter;
+  }
+  .ui.grid.container {
+    width: @tabletGridWidth;
+  }
+  .ui.relaxed.grid.container {
+    width: @tabletRelaxedGridWidth;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @tabletVeryRelaxedGridWidth;
+  }
+}
+
+/* Small Monitor */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largeMonitorBreakpoint) {
+  .ui.container {
+    width: @computerWidth;
+    margin-left: @computerGutter;
+    margin-right: @computerGutter;
+  }
+  .ui.grid.container {
+    width: @computerGridWidth;
+  }
+  .ui.relaxed.grid.container {
+    width: @computerRelaxedGridWidth;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @computerVeryRelaxedGridWidth;
+  }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+  .ui.container {
+    width: @largeMonitorWidth;
+    margin-left: @largeMonitorGutter;
+    margin-right: @largeMonitorGutter;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth;
+  }
+  .ui.relaxed.grid.container {
+    width: @largeMonitorRelaxedGridWidth;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @largeMonitorVeryRelaxedGridWidth;
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+
+/* Text Container */
+.ui.text.container {
+  font-family: @textFontFamily;
+  max-width: @textWidth;
+  line-height: @textLineHeight;
+}
+
+.ui.text.container {
+  font-size: @textSize;
+}
+
+/* Fluid */
+.ui.fluid.container {
+  width: 100%;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+.ui.justified.container {
+  text-align: justify;
+  hyphens: auto;
+}

@@ -1,0 +1,9 @@
+/*!
+ * # Semantic UI - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */@media only screen and (min-width:1024px) and (max-width:1199px){.ui.container{width:940px;margin-left:auto;margin-right:auto}.ui.grid.container{width:calc(940px + 2rem)}.ui.relaxed.grid.container{width:calc(940px + 3rem)}.ui.very.relaxed.grid.container{width:calc(940px + 5rem)}}.ui.container{display:block;max-width:100%}@media only screen and (max-width:767px){.ui.container{width:auto;margin-left:1em;margin-right:1em}.ui.grid.container,.ui.relaxed.grid.container,.ui.very.relaxed.grid.container{width:auto}}@media only screen and (min-width:768px) and (max-width:1023px){.ui.container{width:600px;margin-left:auto;margin-right:auto}.ui.grid.container{width:calc(600px + 2rem)}.ui.relaxed.grid.container{width:calc(600px + 3rem)}.ui.very.relaxed.grid.container{width:calc(600px + 5rem)}}@media only screen and (min-width:1024px) and (max-width:1200px){.ui.container{width:940px;margin-left:auto;margin-right:auto}.ui.grid.container{width:calc(940px + 2rem)}.ui.relaxed.grid.container{width:calc(940px + 3rem)}.ui.very.relaxed.grid.container{width:calc(940px + 5rem)}}@media only screen and (min-width:1200px){.ui.container{width:1180px;margin-left:auto;margin-right:auto}.ui.grid.container{width:calc(1180px + 2rem)}.ui.relaxed.grid.container{width:calc(1180px + 3rem)}.ui.very.relaxed.grid.container{width:calc(1180px + 5rem)}}.ui.text.container{font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;max-width:700px;line-height:1.5;font-size:1.13333333rem}.ui.fluid.container{width:100%}.ui[class*="left aligned"].container{text-align:left}.ui[class*="center aligned"].container{text-align:center}.ui[class*="right aligned"].container{text-align:right}.ui.justified.container{text-align:justify;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}

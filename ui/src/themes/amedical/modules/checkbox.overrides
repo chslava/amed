@@ -20,7 +20,7 @@
   font-family: 'icomoon';
   font-weight: 700;
   font-size: 9px;
-  content: '\e905';
+  content: '\e907';
 }
 
 /* Indeterminate */

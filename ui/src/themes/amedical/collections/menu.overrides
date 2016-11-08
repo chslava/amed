@@ -1,6 +1,6 @@
 /*******************************
          Theme Overrides
-*******************************/
+*******************************//*
 .ui.menu .dropdown.item .menu {
 
   min-width: ~"calc(100% - 1px)";
@@ -21,6 +21,7 @@
 .ui.menu .item:hover {
   background:transparent;
 }
+
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
   text-align: center;
@@ -39,32 +40,6 @@
 }
 
 
-header {
-  .ui.secondary.menu {
-    border-top:1px solid #d8d8d8;
-    padding-top: 18px;
-    .item {
-      padding-bottom: 20px;
-      background:transparent!important;
-    }
-    .item:hover {
-      background:transparent;
-    }
-    .active.item:after {
-      content: "\00a0";
-      width: 50%;
-      height: 1px;
-      display: block;
-      border-top: 2px solid #ff6b01;
-      float: right;
-      position: absolute;
-      bottom: 17px;
-      left: 25%;
-      top: 40px;
-    }
-  }
-}
-
 .ui.menu .ui.dropdown .menu > .item:last-child {
   border-bottom:none;
 }
@@ -72,4 +47,33 @@ header {
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: transparent !important;
   color: #ff6b01!important;
+}*/
+
+/* Tablet - Mobile */
+@media only screen and (max-width: @largestTabletScreen) {
+  .ui.stackable.menu {
+    flex-direction: column;
+  }
+  .ui.stackable.menu .item {
+    width: 100% !important;
+  }
+  .ui.stackable.menu .item:before {
+    position: absolute;
+    content: '';
+    top: auto;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: @dividerSize;
+    background: @verticalDividerBackground;
+  }
+
+  .ui.stackable.menu .left.menu,
+  .ui.stackable.menu .left.item {
+    margin-right: 0 !important;
+  }
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .right.item {
+    margin-left: 0 !important;
+  }
 }
