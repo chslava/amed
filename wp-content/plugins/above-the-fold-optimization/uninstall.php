@@ -3,19 +3,35 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * - This method should be static
- * - Check if the $_REQUEST content actually is the plugin name
- * - Run an admin referrer check to make sure it goes through authentication
- * - Verify the output of $_GET makes sense
- * - Repeat with other user roles. Best directly by using the links/query string parameters.
- * - Repeat things for multisite. Once for a single site in the network, once sitewide.
- *
- * @link       https://optimalisatie.nl/
- * @since      1.0
+ * @link       https://pagespeed.pro/
+ * @since      2.5.0
  *
  * @package    abovethefold
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
+}
+
+/**
+ * Remove settings
+ */
+delete_option( 'abovethefold' );
+
+/**
+ * Remove above the fold cache directory
+ */
+$dir = wp_upload_dir();
+$path = trailingslashit($dir['basedir']) . 'abovethefold/';
+if (is_dir($path)) {
+
+	// Recursive delete
+	function __rmdir_recursive($dir) {
+		$files = array_diff(scandir($dir), array('.','..')); 
+		foreach ($files as $file) { 
+			(is_dir("$dir/$file")) ? __rmdir_recursive("$dir/$file") : @unlink("$dir/$file"); 
+		} 
+		return @rmdir($dir); 
+	}
+	__rmdir_recursive($path);
 }

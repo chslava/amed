@@ -8,180 +8,388 @@
  * @since      1.0
  * @package    abovethefold
  * @subpackage abovethefold/includes
- * @author     Optimalisatie.nl <info@optimalisatie.nl>
+ * @author     PageSpeed.pro <info@pagespeed.pro>
  */
+
 class Abovethefold {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0
-	 * @access   public
-	 * @var      Abovethefold_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * the plugin
 	 */
 	public $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0
-	 * @access   public
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * The unique identifier of this plugin
 	 */
 	public $plugin_name;
 
 	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * The current version of the plugin
 	 */
 	protected $version;
 
 	/**
-	 * Development environment
-	 *
-	 * @since    1.0
-	 * @access   public
-	 * @var      bool    Loaded via development / testing environment.
+	 * Disable abovethefold optimization
 	 */
-	public $debug = false;
+	public $disabled = false;
 
 	/**
-	 * Disable abovethefold (testing)
-	 *
-	 * @since    1.0
-	 * @access   public
-	 * @var      bool
+	 * Special view (e.g. full css export and critical css quality tester)
 	 */
-	public $noop = false;
-
-	/**
-	 * Extract CSS JSON for Critical Path CSS generator.
-	 *
-	 * @since    2.0
-	 * @access   public
-	 * @var      bool
-	 */
-	public $extractcss = false;
+	public $view = false;
 
 	/**
 	 * Options
-	 *
-	 * @since    2.0
-	 * @access   public
-	 * @var      array
 	 */
 
 	public $options;
 
 	/**
-	 * Construct and initiated Abovethefold class.
-	 *
-	 * @since    1.0
+	 * Sub-controllers
+	 */
+	public $admin;
+	public $optimization;
+	public $plugins;
+	public $gwfo;
+	public $proxy;
+	public $lazy;
+
+	/**
+	 * cURL controller
+	 */
+	public $curl;
+
+	/**
+	 * Template redirect hook called
+	 */
+	public $template_redirect_called = false;
+
+	/**
+	 * Default permissions
+	 */
+	public $CHMOD_DIR;
+	public $CHMOD_FILE;
+
+	/**
+	 * Construct and initiated Abovethefold class
 	 */
 	public function __construct() {
+		global $show_admin_bar;
 
+		// set plugin meta
 		$this->plugin_name = 'abovethefold';
-		$this->version = WPABOVETHEFOLD_VERSION;
+		$this->version = WPABTF_VERSION;
 
 		/**
 		 * Disable plugin in admin or for testing
 		 */
-		if (
-			is_admin()
-			|| ( defined( 'DOING_AJAX' ) && DOING_AJAX )
-			|| in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))
-		) {
-			$this->noop = true;
+		if (!$this->is_enabled()) {
+			$this->disabled = true;
 		}
+
+		// set permissions
+		$this->CHMOD_DIR = ( ! defined('FS_CHMOD_DIR') ) ? intval( substr(sprintf('%o', fileperms( ABSPATH )),-4), 8 ) : FS_CHMOD_DIR;
+		$this->CHMOD_FILE = ( ! defined('FS_CHMOD_FILE') ) ? intval( substr(sprintf('%o', fileperms( ABSPATH . 'index.php' )),-4), 8 ) : FS_CHMOD_FILE;
 
 		/**
 		 * Register Activate / Deactivate hooks.
 		 */
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-        register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-
-		$this->load_dependencies();
-		$this->set_locale();
-		$this->define_admin_hooks();
-
-		$this->options = get_option( 'abovethefold' );
+		register_activation_hook( WPABTF_SELF, array( $this, 'activate' ) );
+        register_deactivation_hook( WPABTF_SELF, array( $this, 'deactivate' ) );
 
 		/**
-		 * Verify hash to prevent extracting data outside the plugin
+		 * Special Views
 		 */
-		$this->extractcss = (isset($_REQUEST['extract-css']) && $_REQUEST['extract-css'] === md5(SECURE_AUTH_KEY . AUTH_KEY)) ? true : false;
+		
+		// a hash is used to prevent random traffic or abuse
+		$view_hash = md5(SECURE_AUTH_KEY . AUTH_KEY);
 
-		if ( !$this->noop ) {
-			$this->define_optimization_hooks();
+		// availabble views
+		$views = array(
+
+			// extract full CSS view
+			'extract-css' => array( 'admin_bar' => false ), 
+
+			// compare critical CSS with full CSS
+			'compare-abtf' => array( 'admin_bar' => false ), 
+
+			// view website with just the critical CSS
+			'abtf-critical-only' => array( 'admin_bar' => false ),
+
+			// view website regularly, but without the admin toolbar for comparison view
+			'abtf-critical-verify' => array( 'admin_bar' => false ),
+
+			// build tool HTML export for Gulp.js critical task
+			'abtf-buildtool-html' => array( 'admin_bar' => false ),
+
+			// build tool full css export for Gulp.js critical task
+			'abtf-buildtool-css' => array( 'admin_bar' => false ),
+
+			// external resource proxy
+			'abtf-proxy' => array( )
+		);
+		foreach ($views as $viewKey => $viewSettings) {
+
+			// check if view is active
+			if (isset($_REQUEST[$viewKey]) && $_REQUEST[$viewKey] === $view_hash) {
+
+				// set view
+				$this->view = $viewKey;
+
+				// hide admin bar
+				if (isset($viewSettings['admin_bar']) && $viewSettings['admin_bar'] === false) {
+					$show_admin_bar = false;
+				}
+			}
 		}
 
-		// Localize Javascript
-		$this->localizejs = new Abovethefold_LocalizeJS( $this );
 
+		// load dependencies
+		$this->load_dependencies();
 
+		// Load WordPress hook/filter loader
+		$this->loader = new Abovethefold_Loader();
+
+		// set language
+		$this->set_locale();
+
+		/**
+		 * Load options
+		 */
+		$this->options = get_option( 'abovethefold' );
+
+		// load webfont optimization controller
+		$this->gwfo = new Abovethefold_WebFonts($this);
+
+		/**
+		 * External resource proxy
+		 */
+		$this->proxy = new Abovethefold_Proxy($this);
+
+		// do not load rest of plugin for proxy
+		if ($this->view === 'abtf-proxy') {
+			return;
+		}
+
+		/**
+		 * Load admin controller
+		 */
+		$this->admin = new Abovethefold_Admin( $this );
+
+		// plugin module controller
+		$this->plugins = new Abovethefold_Plugins( $this );
+		$this->plugins->load_modules();
+
+		// load optimization controller
+		$this->optimization = new Abovethefold_Optimization( $this );
+
+		// load lazy script loading module
+		$this->lazy = new Abovethefold_LazyScripts($this);
+
+		/**
+		 * Use Above The Fold Optimization standard output buffer
+		 */
+		$this->loader->add_action('template_redirect', $this, 'template_redirect',-10);
 	}
 
 	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - Loader. Orchestrates the hooks of the plugin.
-	 * - i18n. Defines internationalization functionality.
-	 * - Admin. Defines all hooks for the dashboard.
-	 * - Optimization. Defines optimization functionality.
-	 *
-	 * Create an instance of the loader which will be used to register the hooks with WordPress.
-	 *
-	 * @since    1.0
-	 * @access   private
+	 * Check if optimization should be applied to output
+	 */
+	public function is_enabled() {
+
+		/**
+		 * Disable for Google AMP pages
+		 */
+		if (function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+			return false;
+		}
+
+		/**
+		 * Disable above the fold optimization
+		 */
+		if (defined('DONOTABTF') && DONOTABTF) {
+			return false;
+		}
+
+		/**
+         * Skip if admin
+         */
+        if (defined('WP_ADMIN')) {
+            return false;
+        }
+
+        /**
+         * Skip if doing AJAX
+         */
+        if (defined('DOING_AJAX')) {
+            return false;
+        }
+
+        /**
+         * Skip if doing cron
+         */
+        if (defined('DOING_CRON')) {
+            return false;
+        }
+
+        /**
+         * Skip if APP request
+         */
+        if (defined('APP_REQUEST')) {
+            return false;
+        }
+
+        /**
+         * Skip if XMLRPC request
+         */
+        if (defined('XMLRPC_REQUEST')) {
+            return false;
+        }
+
+        /**
+         * Check for WPMU's and WP's 3.0 short init
+         */
+        if (defined('SHORTINIT') && SHORTINIT) {
+            return false;
+        }
+
+        /**
+         * Check if we're displaying feed
+         */
+        if ($this->template_redirect_called && is_feed()) {
+            return false;
+        }
+
+        /**
+         * Register or login page
+         */
+        if (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
+        	return false;
+        }
+
+        return true;
+	}
+
+	/**
+	 * Template redirect hook (required for is_feed() enabled check)
+	 */
+	public function template_redirect() {
+
+		$this->template_redirect_called = true;
+
+		/**
+		 * Disable plugin
+		 */
+		if (!$this->is_enabled()) {
+			$this->disabled = true;
+		}
+	}
+
+	/**
+	 * Load the required dependencies
 	 */
 	private function load_dependencies() {
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
+		 * core plugin
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/loader.class.php';
+		require_once WPABTF_PATH . 'includes/loader.class.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
+		 * of the plugin
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/i18n.class.php';
+		require_once WPABTF_PATH . 'includes/i18n.class.php';
+
+		/**
+		 * The class responsible for defining all actions related to Web Font optimization
+		 */
+		require_once WPABTF_PATH . 'includes/webfonts.class.php';
+
+		/**
+		 * External resource proxy
+		 */
+		require_once WPABTF_PATH . 'includes/proxy.class.php';
+
+		// do not load the rest of the dependencies for proxy
+		if ($this->view === 'abtf-proxy') {
+			return;
+		}
 
 		/**
 		 * The class responsible for defining all actions related to optimization.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/optimization.class.php';
+		require_once WPABTF_PATH . 'includes/optimization.class.php';
 
 		/**
-		 * The class responsible Javascript localization.
+		 * The class responsible for defining all actions related to lazy script loading.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/localizejs.class.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'modules/localizejs.class.php';
+		require_once WPABTF_PATH . 'includes/lazyscripts.class.php';
+
+		/**
+		 * Extract Full CSS view
+		 */
+		if (in_array($this->view,array('extract-css','abtf-buildtool-css'))) {
+
+			/**
+			 * The class responsible for defining all actions related to full css extraction
+			 */
+			require_once WPABTF_PATH . 'includes/extract-full-css.class.php';
+		}
+
+		/**
+		 * Compare Critical CSS view
+		 */
+		if ($this->view === 'compare-abtf') {
+
+			/**
+			 * The class responsible for defining all actions related to compare critical CSS
+			 */
+			require_once WPABTF_PATH . 'includes/compare-abtf.class.php';
+		}
+
+		/**
+		 * The class responsible plugin extension modules.
+		 */
+		require_once WPABTF_PATH . 'includes/plugins.class.php';
+		require_once WPABTF_PATH . 'modules/plugins.class.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/admin.class.php';
+		require_once WPABTF_PATH . 'admin/admin.class.php';
 
-		$this->loader = new Abovethefold_Loader();
+	}
+	
+	/**
+	 * Return url with view query string
+	 */
+	public function view_url($view, $query = array(), $currenturl = false) {
 
+		if (!$currenturl) {
+			if (is_admin()
+				|| ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+				|| in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))
+			) {
+				$currenturl = home_url();
+			} else {
+				$currenturl = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+			}
+		}
+
+		/**
+		 * Return url with view query string
+		 */
+		return preg_replace('|\#.*$|Ui','',$currenturl) . ((strpos($currenturl,'?') !== false) ? '&' : '?') . $view . '=' . md5(SECURE_AUTH_KEY . AUTH_KEY) . (!empty($query) ? '&' . http_build_query($query) : '');
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
 	 * Uses the Abovethefold_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0
-	 * @access   private
+	 * with WordPress
 	 */
 	private function set_locale() {
 
@@ -193,111 +401,37 @@ class Abovethefold {
 	}
 
 	/**
-	 * Register all of the hooks related to the dashboard functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0
-	 * @access   private
-	 */
-	private function define_admin_hooks() {
-
-		$plugin_admin = new Abovethefold_Admin( $this );
-
-		// Hook in the admin styles and scripts
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts',30);
-
-		// Move plugin to be executed first
-		//$this->loader->add_action('activated_plugin', $plugin_admin, 'update_active_plugins',999999);
-
-		// Upgrade plugin
-		$this->loader->add_action('plugins_loaded', $plugin_admin, 'upgrade',10);
-
-		// Hook in the admin options page
-		$this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu',30);
-
-		// Register settings (data storage)
-		$this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
-
-	}
-
-	/**
-	 * Register all of the hooks related to optimization.
-	 *
-	 * @since    1.0
-	 * @access   private
-	 */
-	private function define_optimization_hooks() {
-
-		$plugin_optimization = new Abovethefold_Optimization( $this );
-
-		$this->loader->add_action('init', $plugin_optimization, 'start_buffering',99999);
-		$this->loader->add_action('wp_head', $plugin_optimization, 'header', 1);
-
-		$this->loader->add_action('wp_print_footer_scripts', $plugin_optimization, 'footer',99999);
-
-		/**
-		 * Autoptimize: skip Critical Path CSS
-		 */
-		$this->loader->add_filter( 'autoptimize_filter_css_exclude', $plugin_optimization, 'autoptimize_skip_css' );
-
-		/**
-		 * Autoptimize: skip Critical Path Javascript
-		 */
-		$this->loader->add_filter( 'autoptimize_filter_js_exclude', $plugin_optimization, 'autoptimize_skip_js' );
-
-
-		/**
-		 * Autoptimize: process @import (Google fonts etc)
-		 */
-         $this->loader->add_filter( 'autoptimize_css_after_minify', $plugin_optimization, 'autoptimize_process_css' );
-
-		/**
-		 * Autoptimize: process Javascript
-		 */
-         $this->loader->add_filter( 'autoptimize_js_after_minify', $plugin_optimization, 'autoptimize_process_js' );
-
-		/**
-		 * Autoptimize: process HTML
-		 */
-         $this->loader->add_filter( 'autoptimize_html_after_minify', $plugin_optimization, 'autoptimize_process_html' );
-
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    1.0
+	 * Run the loader to execute all of the hooks with WordPress
 	 */
 	public function run() {
+
 		$this->loader->run();
+
+		/**
+		 * If proxy, start processing request
+		 */
+		if ($this->view === 'abtf-proxy') {
+			$this->proxy->handle_request();
+		}
 	}
 
 	/**
 	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0
-	 * @return    string    The name of the plugin.
+	 * WordPress and to define internationalization functionality
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;
 	}
 
 	/**
-	 * The reference to the class that orchestrates the hooks with the plugin.
-	 *
-	 * @since     1.0
-	 * @return    Optimization_Loader    Orchestrates the hooks of the plugin.
+	 * The reference to the class that orchestrates the hooks with the plugin
 	 */
 	public function get_loader() {
 		return $this->loader;
 	}
 
 	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0
-	 * @return    string    The version number of the plugin.
+	 * Retrieve the version number of the plugin
 	 */
 	public function get_version() {
 		return $this->version;
@@ -307,10 +441,13 @@ class Abovethefold {
 	 * Cache path
 	 */
 	public function cache_path() {
+
 		$dir = wp_upload_dir();
-		$path = $dir['basedir'] . '/abovethefold/';
+		$path = trailingslashit($dir['basedir']) . 'abovethefold/';
 		if (!is_dir($path)) {
-			mkdir($path,0775);
+			if (!@mkdir( $path, $this->CHMOD_DIR)) {
+				wp_die('Failed to write to ' . $path);
+			}
 		}
 		return apply_filters('abovethefold_cache_path', $path);
 	}
@@ -318,60 +455,84 @@ class Abovethefold {
 	/**
 	 * Cache URL
 	 */
-	public function cache_dir() {
+	public function cache_dir( $cdn = '' ) {
 		$dir = wp_upload_dir();
-		$path = $dir['baseurl'] . '/abovethefold/';
-		return apply_filters('abovethefold_cache_dir', $path);
+
+		if ($cdn !== '') {
+			$path = trailingslashit($cdn) . trailingslashit(str_replace(trailingslashit(ABSPATH),'',$dir['basedir'])) . 'abovethefold/';
+		} else {
+			$path = trailingslashit($dir['baseurl']) . 'abovethefold/';
+		}
+		return apply_filters('abtf_cache_dir', $path);
+	}
+
+	/**
+	 * Remote get (previously cURL)
+	 */
+	public function remote_get($url, $args = array() ) {
+
+		$args = array_merge(array(
+			'timeout'     => 60,
+    		'sslverify'   => false,
+
+			// Chrome Generic Win10
+			// @link https://techblog.willshouse.com/2012/01/03/most-common-user-agents/
+			'user-agent'  => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36',
+		),$args);
+
+		$res = wp_remote_get($url, $args);
+
+		return trim($res['body']);
 	}
 
 	/**
 	 * Fired during plugin activation.
-	 *
-	 * @since     1.0
-	 * @return    string    The version number of the plugin.
 	 */
 	public function activate() {
-
-		/**
-		 * Curl
-		 */
-		if (function_exists('curl_version') || ini_get('allow_url_fopen')) {
-			trigger_error('PHP lib Curl should be installed or <em>allow_url_fopen</em> should be enabled.',E_USER_ERROR);
-		}
 
 		/**
 		 * Set default options
 		 */
 		$default_options = array( );
-		$default_options['debug'] = false;
+
+		/**
+		 * Critical CSS
+		 */
 		$default_options['csseditor'] = true;
-		$default_options['adminbar'] = true;
-		$default_options['gwfo'] = false;
-		$default_options['localizejs_enabled'] = false;
-		$default_options['cssdelivery'] = true;
+
+		/**
+		 * CSS Delivery Optimization
+		 */
+		$default_options['cssdelivery'] = false;
 		$default_options['loadcss_enhanced'] = true;
 		$default_options['cssdelivery_position'] = 'header';
-		$default_options['dimensions'] = '1600x1200, 720x1280, 320x480';
 
+		/**
+		 * Web Font Optimization
+		 */
+		$default_options['gwfo'] = false;
+		$default_options['gwfo_loadmethod'] = 'inline';
+		$default_options['gwfo_loadposition'] = 'header';
+
+		/**
+		 * Other
+		 */
+		$default_options['debug'] = false;
+		$default_options['adminbar'] = true;
+		$default_options['clear_pagecache'] = false;
+
+		// Store default options
 		$options = get_option( 'abovethefold' );
 		if ( empty( $options ) ) {
-			update_option( "abovethefold", $default_options );
+			update_option( "abovethefold", $default_options, true );
 		}
 
 	}
 
 	/**
 	 * Fired during plugin deactivation.
-	 *
-	 * @since     1.0
-	 * @return    string    The version number of the plugin.
 	 */
 	public function deactivate() {
-
-		/**
-		 * Remove options
-		 */
-		delete_option( 'abovethefold' );
 
 	}
 

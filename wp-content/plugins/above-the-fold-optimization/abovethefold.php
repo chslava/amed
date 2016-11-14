@@ -2,7 +2,7 @@
 /**
  * Above the fold optimization for WordPress
  *
- * This optimization plugin enables above the fold optimization based on the output of a critical path CSS generator and to pass the "Eliminate render-blocking JavaScript and CSS in above-the-fold content" rule from Google PageSpeed.
+ * Above the fold optimization toolkit that enables to achieve a Google PageSpeed 100 Score. Supports most optimization, minification and full page cache plugins.
  *
  * @link              https://pagespeed.pro/
  * @since             1.0
@@ -11,16 +11,18 @@
  * @wordpress-plugin
  * Plugin Name:       Above The Fold Optimization
  * Plugin URI:        https://pagespeed.pro/
- * Description:       Above the fold optimization to pass the "<em>Eliminate render-blocking JavaScript and CSS in above-the-fold content</em>" rule from Google PageSpeed.
- * Version:           2.4.1
+ * Description:       Above the fold optimization toolkit that enables to achieve a <a href="https://developers.google.com/speed/docs/insights/about" target="_blank">Google PageSpeed</a> 100 Score. Supports most optimization, minification and full page cache plugins.
+ * Version:           2.6.0
  * Author:            PageSpeed.pro
  * Author URI:        https://pagespeed.pro/
  * Text Domain:       abovethefold
  * Domain Path:       /languages
  */
 
-define('WPABOVETHEFOLD_VERSION','2.4.1');
-
+define('WPABTF_VERSION','2.6.0');
+define('WPABTF_URI', plugin_dir_url( __FILE__ ));
+define('WPABTF_PATH', plugin_dir_path( __FILE__ ));
+define('WPABTF_SELF', __FILE__);
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }

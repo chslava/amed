@@ -1,6 +1,6 @@
 {
   "name": "abovethefold",
-  "version": "2.4.1",
+  "version": "2.6.0",
   "description": "Above The Fold Optimization",
   "author": {
     "name": "info@pagespeed.pro",
@@ -10,9 +10,14 @@
   "engines": {
     "node": "~0.10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "lazyloadxt": "1.1.0",
+    "webfontloader": "^1.6.26"
+  },
   "devDependencies": {
     "grunt": "latest",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-uglify": "latest",
     "matchdep": "latest"
