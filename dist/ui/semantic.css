@@ -3212,7 +3212,7 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 1rem;
+  padding-top: 0;
 }
 
 section.slider .ui.container.grid {
