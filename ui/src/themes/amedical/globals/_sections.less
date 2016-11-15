@@ -256,15 +256,17 @@
 }
 // -----------------------------------------
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") repeat top center;
+  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
   // background-size: contain;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  // padding-top: 90px;
+  // padding-bottom: 90px;
+  background-size: cover;
+  height: 230px;
 
   div.title {
     color: white;
     margin-top:0;
-    margin-bottom:28px;
+    margin-bottom:0;
     font-size: 22px;
     font-weight: 700;
     line-height: 27px;
@@ -299,6 +301,10 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
+  }
+  .ui.centered.grid{
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
 }
 // -----------------------------------------
@@ -393,6 +399,37 @@ background-size: cover;
     //
     // }
   }
+
+
+}
+@media (max-width: 767px){
+  .subscribe{
+    // padding-top: 40px;
+    // padding-bottom: 40px;
+      height: 240px;
+    background-image: url('../img/subscribe-bg-mob.png');
+    div.title, .ui.input, .ui.primary.button{
+      flex: 1 1 100%;
+    }
+    .ui.centered.grid {
+      max-width: 270px;
+      margin: 0 auto;
+    }
+    div.title {
+      margin-bottom: 30px;
+    }
+    .ui.input {
+      margin-bottom: 20px;
+    }
+    .ui.primary.button{
+      margin-top:  20px;
+      max-width: 140px;
+    }
+    .ui.centered.grid{
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
 }
 @media (min-width: @tabletBreakpoint) {
   .services {
@@ -428,10 +465,10 @@ background-size: cover;
       font-weight: 700;
       line-height: 24px;
       height: 50px;
-      // padding-left: 38px;
-      // padding-right: 35px;
+      padding-left: 20px;
+      padding-right: 20px;
       // add width to button
-          // width: 190px;
+          min-width: 190px;
     }
 
   }
@@ -621,8 +658,7 @@ background-size: cover;
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
-    padding-top: 86px;
-    padding-bottom: 100px;
+
     background-size: cover;
     background-repeat: no-repeat;
     .ui.form {
@@ -635,10 +671,11 @@ background-size: cover;
       width: 100%;
       text-align: center;
       margin-top:0;
-      margin-bottom:38px;
+      margin-bottom:22px;
       font-size: 25px;
       font-weight: 700;
-      line-height: 30px;
+      line-height: 50px;
+
     }
 
     .ui.button, .input.subscribe {
@@ -654,15 +691,13 @@ background-size: cover;
       margin-left: 15px;
       margin-top: 0;
     }
-  }
-}
-@media (max-width: 1200px){
-  .subscribe{
-    div.title, .ui.input, .subscribe-btn {
-      flex: 1 1 100%;
+    .ui.centered.grid{
+      padding-top: 55px;
+      padding-bottom: 55px;
     }
   }
 }
+
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container.description {
     width: 100%;
@@ -755,6 +790,14 @@ background-size: cover;
       }
     }
   }
+  // .subscribe {
+  //   .ui.centered.grid{
+  //
+  //     padding-top: 90px;
+  //     padding-bottom: 90px;
+  //   }
+  //
+  // }
 }
 
 @media (min-width: @largeMonitorBreakpoint) {
@@ -1009,13 +1052,14 @@ background-size: cover;
   }
 
   .subscribe {
-    padding-top: 118px;
-    padding-bottom: 105px;
+    // padding-top: 118px;
+    // padding-bottom: 105px;
     div.title {
       display: inline-block;
       width: auto;
-      text-align: left;
-      margin:12px 32px 38px -115px;
+      padding-right: 40px;
+      // text-align: left;
+      // margin:12px 32px 38px -115px;
     }
     .ui.primary.button{
       margin-top: 0;
@@ -1069,6 +1113,14 @@ background-size: cover;
       }
     }
   }
+  .subscribe {
+    .ui.centered.grid{
+
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+  }
 }
 
 
@@ -1077,3 +1129,8 @@ background-size: cover;
     padding-right: 2rem;
   }
 }
+
+
+// .ui.form .field>label{
+//   margin-bottom: 0;
+// }

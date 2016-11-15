@@ -3,7 +3,9 @@
 *******************************/
 
 .ui.breadcrumb {
-  margin-top: 33px !important;
+  &:first-child{
+  margin-top:20px;
+  }
   a {
     color: #8f8f8f;
     text-decoration: none;

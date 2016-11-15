@@ -945,15 +945,15 @@ input::selection {
 }
 
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") repeat top center;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
+  background-size: cover;
+  height: 230px;
 }
 
 .subscribe div.title {
   color: white;
   margin-top: 0;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
@@ -1012,6 +1012,11 @@ input::selection {
   font-size: 12px;
   font-weight: 700;
   line-height: 15px;
+}
+
+.subscribe .ui.centered.grid {
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .secondary-services {
@@ -1097,6 +1102,44 @@ main.about-us ~ .coo-respose {
   }
 }
 
+@media (max-width: 767px) {
+  .subscribe {
+    height: 240px;
+    background-image: url('../img/subscribe-bg-mob.png');
+  }
+
+  .subscribe div.title,
+  .subscribe .ui.input,
+  .subscribe .ui.primary.button {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+
+  .subscribe .ui.centered.grid {
+    max-width: 270px;
+    margin: 0 auto;
+  }
+
+  .subscribe div.title {
+    margin-bottom: 30px;
+  }
+
+  .subscribe .ui.input {
+    margin-bottom: 20px;
+  }
+
+  .subscribe .ui.primary.button {
+    margin-top: 20px;
+    max-width: 140px;
+  }
+
+  .subscribe .ui.centered.grid {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
 @media (min-width: 768px) {
   .services {
     margin-top: 42px;
@@ -1125,6 +1168,9 @@ main.about-us ~ .coo-respose {
     font-weight: 700;
     line-height: 24px;
     height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 190px;
   }
 
   .benefits,
@@ -1330,8 +1376,6 @@ main.about-us ~ .coo-respose {
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
-    padding-top: 86px;
-    padding-bottom: 100px;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -1346,10 +1390,10 @@ main.about-us ~ .coo-respose {
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 38px;
+    margin-bottom: 22px;
     font-size: 25px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 50px;
   }
 
   .subscribe .ui.button,
@@ -1368,15 +1412,10 @@ main.about-us ~ .coo-respose {
     margin-left: 15px;
     margin-top: 0;
   }
-}
 
-@media (max-width: 1200px) {
-  .subscribe div.title,
-  .subscribe .ui.input,
-  .subscribe .subscribe-btn {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
+  .subscribe .ui.centered.grid {
+    padding-top: 55px;
+    padding-bottom: 55px;
   }
 }
 
@@ -1727,16 +1766,10 @@ main.about-us ~ .coo-respose {
     padding: 14px 52px 11px 53px;
   }
 
-  .subscribe {
-    padding-top: 118px;
-    padding-bottom: 105px;
-  }
-
   .subscribe div.title {
     display: inline-block;
     width: auto;
-    text-align: left;
-    margin: 12px 32px 38px -115px;
+    padding-right: 40px;
   }
 
   .subscribe .ui.primary.button {
@@ -1781,6 +1814,11 @@ main.about-us ~ .coo-respose {
 
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
+  }
+
+  .subscribe .ui.centered.grid {
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
 }
 
@@ -1849,6 +1887,10 @@ main.about-us ~ .coo-respose {
 
 .contact-form .ui.form textarea:not([rows]) {
   resize: none;
+}
+
+.contact-form .ui.form .field > label {
+  margin-bottom: 0;
 }
 
 .gform_wrapper textarea.medium:not([rows]),
@@ -2190,7 +2232,7 @@ header .main-logo {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header .ui.grid.container {
-    width: calc(723px + 2rem);
+    width: 728px;
     margin: 0 auto;
   }
 
@@ -2619,7 +2661,7 @@ header .search-row .ui.form input {
     padding-top: 1rem;
     padding-bottom: 18px;
     padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-right: 0;
   }
 
   header .mob-menu .ui.vertically.reversed.grid {
@@ -2692,7 +2734,7 @@ header .search-row .ui.form input {
   }
 
   header .right.menu.basket {
-    padding: 15px 0;
+    padding: 4px 0;
     position: relative;
   }
 
@@ -2836,7 +2878,7 @@ footer .footer-contacts .item a:hover {
 
 footer .footer-contacts .c-icon {
   color: #8f8f8f;
-  font-size: 16px;
+  font-size: 18px;
   float: left;
   display: block;
   margin-right: 0;
@@ -3212,7 +3254,7 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 1rem;
+  padding-top: 0;
 }
 
 section.slider .ui.container.grid {
@@ -3247,6 +3289,7 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3287,6 +3330,7 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -9299,6 +9343,14 @@ h4.ui.header {
   margin-top: -25px;
   border-bottom: 2px solid #e5702a;
   border-top: none;
+}
+
+@media (max-width: 767px) {
+  .ui.header.left.decored:before {
+    margin: 0 0 10px;
+    position: relative;
+    top: -10px;
+  }
 }
 
 h1.ui.header .sub.header {
@@ -15400,8 +15452,8 @@ img.ui.shadowed.image {
          Theme Overrides
 *******************************/
 
-.ui.breadcrumb {
-  margin-top: 33px !important;
+.ui.breadcrumb:first-child {
+  margin-top: 20px;
 }
 
 .ui.breadcrumb a {
@@ -16489,7 +16541,6 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18009,6 +18060,7 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -18069,6 +18121,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18081,6 +18134,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18099,6 +18153,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19745,6 +19800,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -20024,6 +20080,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;

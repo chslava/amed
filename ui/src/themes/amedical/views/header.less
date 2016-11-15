@@ -29,7 +29,7 @@ header {
 
       // added grid for header between 768px and 1023px
       .ui.grid.container{
-        width: ~"calc(723px + 2rem)";
+        width: 728px;
         margin: 0 auto;
         .right.aligned.column {
         display: flex;
@@ -492,7 +492,8 @@ header {
             padding-top: 1rem;
             padding-bottom: 18px;
             padding-left: 0.5rem;
-            padding-right: 0.5rem;
+            // padding-right: 0.5rem;
+            padding-right: 0;
         }
         // margin for mob menu
         .mob-menu .ui.vertically.reversed.grid{
@@ -509,6 +510,7 @@ header {
             flex: 1 0 30%;
             text-align: end;
             display: block;
+
         }
         .ui.menu.lang::after {
             content: ' ';
@@ -550,8 +552,9 @@ header {
             margin-right: 0.8em;
         }
         .right.menu.basket {
-            padding: 15px 0;
+            padding: 4px 0;
             position: relative;
+
             .item {
                 margin: 0;
             }
