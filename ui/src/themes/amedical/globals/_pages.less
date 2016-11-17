@@ -118,10 +118,10 @@
     }
 }
 // -----------------------------------------
-
+//should be cheked
 .about-us {
-    .ui.grid > .row > [class*="six wide computer"].column {
-        // padding-left: 0;
+  h1.ui.header  .sub.header {
+      color: #FF6B01;
     }
 }
 // -----------------------------------------
@@ -154,6 +154,7 @@ main.page>.grid {
     .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
         // padding: 0 1rem 0 0;
         padding-right: 2rem;
+        // padding-right: 35px;
     }
 
     .ui.row .sixteen.computer.column > p {
@@ -164,6 +165,11 @@ main.page>.grid {
         box-shadow: 0 6px 10px rgba(27,47,78,.14),16px -20px 0 #e6e6e6;
         width: 100%;
     }
+}
+.about-us{
+  .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
+      padding-right: 35px;
+  }
 }
 // -----------------------------------------
 
@@ -407,6 +413,13 @@ main.page>.grid {
             margin-top: 30px;
         }
     }
+    .service {
+      .padded.row {
+        .ui.left.header.decored{
+          padding-top: 0;
+        }
+      }
+    }
 }
 @media (min-width: @largeMonitorBreakpoint ) {
     .about-us {
@@ -414,15 +427,20 @@ main.page>.grid {
             margin-top: 50px;
         }
     }
+    .service{
+      .service-text {
+        max-width: 620px;
+      }
+    }
 }
 @media (min-width: @widescreenMonitorBreakpoint) {
     .contacts {
         .info {
-            width: 40%;
+            width: 35%;
         }
 
         .map {
-            width: 60%;
+            width: 65%;
         }
     }
 }

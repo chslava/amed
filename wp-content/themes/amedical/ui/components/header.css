@@ -806,7 +806,6 @@ h4.ui.header {
 }
 @media (max-width: 767px) {
   .ui.header.left.decored:before {
-    margin: 0 0 10px;
     position: relative;
     top: -10px;
   }
@@ -819,4 +818,9 @@ h1.ui.header .sub.header {
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .coo-respose .ui.header.left.decored:before {
+    margin: 0 0 10px;
+  }
 }

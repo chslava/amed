@@ -92,7 +92,8 @@ header {
                         width: 1px;
                         height: 30px;
                         margin-right: 23px;
-                        border-left: 1px solid @borderColor;
+                        // border-left: 1px solid @borderColor;
+                        border-left: 1px solid #d8d8d8;
                         display: flex;
                         align-self: center;
                     }
@@ -102,17 +103,20 @@ header {
                 }
                 &.top-menu {
                     width: 100%;
-                    margin: -1rem 0;
-                    padding-bottom: 1rem;
+                    // margin: -1rem 0;
+                    // padding-bottom: 1rem;
+                    margin: 0;
+                    padding-bottom: 0;
                     .item {
                         color: @borderColor;
                         font-size: 14px;
                         font-weight: 400;
                         line-height: 17px;
-                        padding: 7px 10px 4px 20px;
+                        padding: 4px 10px 4px 20px;
                         &:first-child {
-                            padding-left: 0;
-                            padding-right: 0;
+                            // padding-left: 0;
+                            // padding-right: 0;
+                            padding: 0;
                         }
                         &:active,
                         &:hover {
@@ -136,7 +140,8 @@ header {
                     margin: -1rem 0;
                     padding-top: 1.2rem;
                     padding-bottom: 0;
-                    border-top: 1px solid @borderColor;
+                    // border-top: 1px solid @borderColor;
+                    border-top:1px solid rgba(216, 216, 216, 0.66);
                     // submenu
                     .ui.dropdown.item {
                         padding-bottom: 0;

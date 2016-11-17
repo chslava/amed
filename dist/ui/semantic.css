@@ -1067,11 +1067,6 @@ input::selection {
   padding-top: 0;
 }
 
-main.about-us ~ .coo-respose {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 @media (max-width: 767px) {
   .coo-respose .ui.header.left.decored:before {
     margin: 0 0 20px 0;
@@ -1820,6 +1815,16 @@ main.about-us ~ .coo-respose {
     padding-top: 90px;
     padding-bottom: 90px;
   }
+
+  main.about-us ~ .services {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  main.about-us ~ .services .column p {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1939,6 +1944,10 @@ main.about-us ~ .coo-respose {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
 }
 
+.about-us h1.ui.header .sub.header {
+  color: #FF6B01;
+}
+
 main.page.about-us,
 main.page.projects {
   margin-bottom: 2rem;
@@ -1971,6 +1980,10 @@ main.page > .grid {
 .service .ten.wide.computer.column img.shadowed {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
   width: 100%;
+}
+
+.about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
+  padding-right: 35px;
 }
 
 .projects img.ui.shadowed.image,
@@ -2185,21 +2198,29 @@ main.page > .grid {
   .contact-form .shadowed.image {
     margin-top: 30px;
   }
+
+  .service .padded.row .ui.left.header.decored {
+    padding-top: 0;
+  }
 }
 
 @media (min-width: 1200px) {
   .about-us .ten.wide.computer.column img.shadowed {
     margin-top: 50px;
   }
+
+  .service .service-text {
+    max-width: 620px;
+  }
 }
 
 @media (min-width: 1440px) {
   .contacts .info {
-    width: 40%;
+    width: 35%;
   }
 
   .contacts .map {
-    width: 60%;
+    width: 65%;
   }
 }
 
@@ -2315,7 +2336,7 @@ header .main-logo {
     width: 1px;
     height: 30px;
     margin-right: 23px;
-    border-left: 1px solid #8f8f8f;
+    border-left: 1px solid #d8d8d8;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2329,8 +2350,8 @@ header .main-logo {
 
   header .desktop .ui.top-menu {
     width: 100%;
-    margin: -1rem 0;
-    padding-bottom: 1rem;
+    margin: 0;
+    padding-bottom: 0;
   }
 
   header .desktop .ui.top-menu .item {
@@ -2338,12 +2359,11 @@ header .main-logo {
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
-    padding: 7px 10px 4px 20px;
+    padding: 4px 10px 4px 20px;
   }
 
   header .desktop .ui.top-menu .item:first-child {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
   }
 
   header .desktop .ui.top-menu .item:active,
@@ -2369,7 +2389,7 @@ header .main-logo {
     margin: -1rem 0;
     padding-top: 1.2rem;
     padding-bottom: 0;
-    border-top: 1px solid #8f8f8f;
+    border-top: 1px solid rgba(216, 216, 216, 0.66);
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item {
@@ -3572,18 +3592,19 @@ main.page > .grid {
   }
 
   .about-us ~ .services .icon-title {
-    margin-top: 30px;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .about-us ~ .services .column p {
     margin-top: 20px!important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .about-us ~ .services .icon-first-icon {
     font-size: 50px;
     margin-top: 7px;
-    margin-left: 10px;
   }
 
   .about-us ~ .services .icon-second-icon {
@@ -3798,7 +3819,7 @@ blockquote {
   border-radius: 50px;
   background: #FFF;
   float: left;
-  margin-right: 20px;
+  margin-right: 14px;
   color: #e5702a;
   text-align: center;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
@@ -15462,7 +15483,7 @@ img.ui.shadowed.image {
 *******************************/
 
 .ui.breadcrumb:first-child {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .ui.breadcrumb a {
@@ -15483,7 +15504,7 @@ img.ui.shadowed.image {
 }
 
 .contacts .ui.breadcrumb {
-  margin-top: 20px !important;
+  margin-top: 30px !important;
 }
 
 .contacts .ui.breadcrumb .divider {
