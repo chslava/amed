@@ -18,6 +18,10 @@
   display: inline-block;
   margin: 0em 0em;
   vertical-align: middle;
+  z-index: 2;
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 .ui.breadcrumb:first-child {
   margin-top: 0em;
