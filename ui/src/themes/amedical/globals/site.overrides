@@ -399,3 +399,72 @@ blockquote {
   margin-top:100px;
   margin-bottom:107px;
 }
+
+// Frontend fixes
+
+// Desktop
+.ui.button:not(.icon)>.right.icon:not(.button):not(.dropdown) {
+  margin-left: 2px !important;
+}
+
+.ui.raised.segment, .ui.raised.segments {
+  border-top: 1px solid rgba(27, 47, 78, 0.03);
+}
+
+.home-news .column p a {
+  display: block;
+  margin-left: 0 !important;
+}
+
+.contacts {
+  margin-top: 15px;
+}
+
+.circles-list.small li:before {
+  margin-top: -2px;
+}
+
+// Tablet
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .secondary-services {
+    margin-bottom: 65px;
+  }
+  .secondary-services ~ .ui.container {
+    margin-bottom: 50px;
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+  .subscribe .ui.primary.button {
+    margin-top: 0;
+  }
+  .secondary-services .content {
+    max-width: 400px;
+    margin-top: 12px;
+  }
+  .coo-respose {
+    padding: 25px;
+  }
+  .coo-respose > .grid {
+    margin: 0;
+  }
+  .contacts {
+    margin-top: 30px;
+  }
+  .secondary-services {
+    margin-bottom: 65px;
+  }
+  .secondary-services ~ .ui.container {
+    margin-bottom: 50px;
+  }
+  .service.page .ui.basic.compact.segment {
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 410px) {
+  .subscribe .ui.primary.button {
+    margin-top: 15px;
+  }
+}
