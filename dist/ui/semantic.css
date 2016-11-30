@@ -14556,6 +14556,10 @@ img.ui.shadowed.image {
     opacity: 1;
   }*/
 }
+
+.search .i.icon.search {
+  cursor: pointer;
+}
 /*!
  * # Semantic UI 2.2.4 - Segment
  * http://github.com/semantic-org/semantic-ui/
