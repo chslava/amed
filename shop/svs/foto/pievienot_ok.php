@@ -38,11 +38,11 @@ $url_en = trim(str_replace($change_from,$change_to,$_POST["url_en"]));
 $url_ee = trim(str_replace($change_from,$change_to,$_POST["url_ee"]));
 $url_lt = trim(str_replace($change_from,$change_to,$_POST["url_lt"]));
 
-$text_lv = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
-$text_ru = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
-$text_en = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
-$text_ee = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
-$text_lt = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
+$text_lv = mysqli_real_escape_string($result_db, str_replace($change_from,$change_to,$_POST["text_lv"]));
+$text_ru = mysqli_real_escape_string($result_db, str_replace($change_from,$change_to,$_POST["text_ru"]));
+$text_en = mysqli_real_escape_string($result_db, str_replace($change_from,$change_to,$_POST["text_en"]));
+$text_ee = mysqli_real_escape_string($result_db, str_replace($change_from,$change_to,$_POST["text_ee"]));
+$text_lt = mysqli_real_escape_string($result_db, str_replace($change_from,$change_to,$_POST["text_lt"]));
 
 $limenis = 0;
 
