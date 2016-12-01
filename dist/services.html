@@ -19,7 +19,7 @@
           <div class="column">
             <form class="ui large form">
               <div class="field">
-                <input placeholder="Meklēt...">
+                <input placeholder="Meklēt..."><i class="search icon"></i>
               </div>
             </form>
           </div>
@@ -39,7 +39,8 @@
       </div>
       <div class="ui container desktop">
         <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
-        <div class="ui container fluid main-column">
+        <!-- removed .fluid class  below-->
+        <div class="ui container main-column">
           <div class="mob-menu" style="display:none">
             <div class="ui computer vertically reversed grid">
               <div class="ui text menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a>
@@ -53,7 +54,8 @@
                   <div class="ui dropdown item">Medicīnas preces
                     <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
                   </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a>
-                  <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs <!--<b>22</b>--></span></a></div>
+                  <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs
+                        <!-- <b>22</b>--></span></a></div>
                 </nav>
               </div>
               <div class="row">
@@ -77,9 +79,10 @@
       </div>
       <div class="ui grid">
         <div class="ui row">
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="sixteen wide mobile eight wide tablet nine wide computer column">
             <h1 class="ui left header decored">Serviss</h1>
-            <p>A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
+            <p class="service-text">
+              A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
               industriālo un drošības risinājumu servisa centra funkcijas. A.MEDICAL ir divi atbalsta centri Latvijā - Rīgā un
               Daugavpilī. Mūsu serviss sadarbojas ar vadošajām Latvijas medicīnas, industriālo un drošības risinājumu iestādēm,
               kā arī iestādēm ārpus Latvijas – Igaunijā, Lietuvā un Krievijā.
@@ -91,12 +94,13 @@
               <li>Iespējama iekārtu aizvietošana</li>
             </ul>
           </div>
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed centered image" src="img/service-img.jpg"></div>
+          <div class="sixteen wide mobile eight wide tablet seven wide computer column"><img class="ui shadowed centered image" src="img/service-img.jpg"></div>
         </div>
         <div class="stretched very padded row">
           <div class="sixteen wide mobile eight wide tablet eleven wide computer column">
             <h2 class="ui left header decored">Salabosim jebko</h2>
-            <p>A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
+            <p>
+              A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
               palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai,
               neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai,
               zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
@@ -118,7 +122,7 @@
       </div>
     </main>
     <section class="subscribe">
-      <div class="ui container grid">
+      <div class="ui container">
         <form class="ui form">
           <div class="ui centered grid">
             <div class="title">Pieteikties Jaunumiem</div>

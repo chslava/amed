@@ -1,7 +1,7 @@
 extends layouts/home.pug
 
 block content
-    main.ui.container.page
+    //-main.ui.container.page
         div.ui.breadcrumb
             a(href="index.html").section Sākums
             div.divider //
@@ -190,5 +190,193 @@ block content
                                 td
                                     div.ui.star.rating(data-rating="5")
                                 td 145.00 Euro
+
+    main.ui.container.page
+        .ui.breadcrumb
+          a.section(href='index.html') Sākums
+          .divider //
+          .active.section Content
+        .ui.grid
+          .two.column.row
+            .column
+              h1.ui.header A.Medical
+              h2.ui.header A.Medical
+              h3.ui.header A.Medical
+              h4.ui.header A.Medical
+            .column
+              h1.centered.decored.ui.header .centered.decored
+              h1.left.decored.ui.header .left.decored
+              h2.centered.decored.ui.header .centered.decored
+              h2.left.decored.ui.header .left.decored
+          .row
+            .column
+              p
+                | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā. Link
+          .row
+            .column
+              h4.ui.sub.header blockquote
+              blockquote
+                | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs.
+          .two.column.row
+            .column
+              h4.ui.sub.header ul.list
+              ul.list
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li Garantēta ātra inženieru ierašanās
+                li Iespējama iekārtu aizvietošana
+              h4.ui.sub.header .circle-list
+              ul.circles-list
+                li Nepārtrauktu iekārtu darbības
+                li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
+                li Garantēta ātra inženieru ierašanās
+                li Iespējama iekārtu aizvietošana
+                li Papildus 10% atlaidi produktiem un pakalpojumiem
+            .column
+              h4.ui.sub.header ol.list
+              ol.list
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+                li A.Medical komanda sastāv no nozares profesionāļiem
+              h4.ui.sub.header .small.circle-list
+              ul.small.circles-list
+                li Nepārtrauktu iekārtu darbības
+                li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
+                li Garantēta ātra inženieru ierašanās
+                li Iespējama iekārtu aizvietošana
+                li Papildus 10% atlaidi produktiem un pakalpojumiem
+          .two.column.row
+            .column
+              p
+                a.ui.basic.button Normal Button
+              p
+                a.ui.primary.button Normal button
+              p
+                a.ui.primary.button Active Button
+            .column
+              .ui.form
+                .field
+                  label Normal Field
+                  input
+                .field
+                  label Normal Field
+                  input
+                .field.error
+                  label Normal Field
+                  input(value='Wrong email')
+          .three.column.row
+            .column
+              img(src='img/projects/1.jpg')
+              h4.ui.title Title is located here
+              p
+                | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs.
+            .column
+              img(src='img/projects/2.jpg')
+              h4.ui.title Title is located here
+              p
+                | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs.
+            .column
+              img(src='img/projects/3.jpg')
+              h4.ui.title Title is located here
+              p
+                | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs.
+          .row
+            .center.aligned.column
+              h4.ui.title Testimonial / Quote
+          .row
+            .centered.aligned.ten.wide.column
+              .ui.raised.padded.center.aligned.segment
+                h2.ui.header Title / Logo
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae lectus purus. Mauris non facilisis sapien. Morbi rhoncus congue
+                  | volutpat. Aliquam vitae orci dolor. Nam nunc orci, mollis vel mi quis, aliquam porttitor ligula. Morbi sed enim at tortor
+                  | suscipit sagittis sit amet vitae dolor.
+          .two.column.row
+            .column
+              h3.ui.title Rating
+              p
+                .ui.star.rating(data-rating='5')
+              p
+                .ui.star.rating(data-rating='4')
+              p
+                .ui.star.rating(data-rating='3')
+            .column
+              h4.ui.title Dropdowns
+              .ui.two.column.grid
+                .column.ui.form
+                  .field
+                    select.ui.dropdown
+                      option Dropdown
+                      option Stage 2
+                      option Stage 3
+                  .field
+                    select.ui.dropdown.selected
+                      option Dropdown Selected
+                      option Stage 2
+                      option Stage 3
+                  .field
+                    select.ui.dropdown.disabled(disabled='disabled')
+                      option Dropdown Disabled
+                      option Stage 2
+                      option Stage 3
+                .column.ui.form
+                  .field
+                    select.ui.dropdown
+                      option Dropdown Active
+                      option Stage 1
+                      option Stage 2
+                      option Stage 3
+                      option Stage 4
+          .row
+            .seven.wide.column.centered.row
+              h4.ui.title.aligned.center Table
+              table.ui.celled.table
+                thead.full-width
+                  tr
+                    th
+                    th Product Name
+                    th Rating
+                    th Price
+                tbody
+                  tr
+                    td
+                      .ui.checkbox
+                        input.hidden(type='checkbox', checked='checked')
+                        label
+                    td Product name
+                    td
+                      .ui.star.rating(data-rating='5')
+                    td 145.00 Euro
+                  tr
+                    td
+                      .ui.checkbox
+                        input.hidden(type='checkbox')
+                        label
+                    td Product name
+                    td
+                      .ui.star.rating(data-rating='5')
+                    td 145.00 Euro
+                  tr
+                    td
+                      .ui.checkbox
+                        input.hidden(type='checkbox')
+                        label
+                    td Product name
+                    td
+                      .ui.star.rating(data-rating='5')
+                    td 145.00 Euro
+                  tr
+                    td
+                      .ui.checkbox
+                        input.hidden(type='checkbox')
+                        label
+                    td Product name
+                    td
+                      .ui.star.rating(data-rating='5')
+                    td 145.00 Euro
+
 
     include sections/subscribe

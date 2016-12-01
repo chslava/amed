@@ -159,18 +159,20 @@ main.page {
       padding-bottom:55px;
       border-top:1px solid #e6e6e6;
       .icon-title {
-        margin-top: 30px;
-        margin-bottom: 1rem;
+      margin-top:0;
+      margin-bottom: 0;
       }
       .column {
         p {
           margin-top: 20px!important;
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
         }
       }
       .icon-first-icon {
         font-size: 50px;
         margin-top: 7px;
-        margin-left: 10px;
+        // margin-left: 10px;
       }
       .icon-second-icon {
         font-size: 58px;
@@ -353,7 +355,7 @@ blockquote {
       border-radius: 50px;
       background: #FFF;
       float: left;
-      margin-right: 20px;
+      margin-right: 14px;
       color: #e5702a;
       text-align: center;
      // padding-top: 2px;

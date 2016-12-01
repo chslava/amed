@@ -527,3 +527,6 @@
     opacity: 1;
   }*/
 }
+.search .i.icon.search {
+  cursor: pointer;
+}

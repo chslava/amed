@@ -121,8 +121,8 @@
          Theme Overrides
 *******************************/
 
-.ui.breadcrumb {
-  margin-top: 33px !important;
+.ui.breadcrumb:first-child {
+  margin-top: 15px;
 }
 .ui.breadcrumb a {
   color: #8f8f8f;
@@ -138,7 +138,7 @@
   margin: 0 0.6rem!important;
 }
 .contacts .ui.breadcrumb {
-  margin-top: 20px !important;
+  margin-top: 30px !important;
 }
 .contacts .ui.breadcrumb .divider {
   margin: 0 0.4rem!important;

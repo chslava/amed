@@ -1,43 +1,83 @@
 extends layouts/home.pug
 
 block content
+    //- main.ui.container.service.page
+    //-     div.ui.breadcrumb
+    //-         a(href="index.html").section Sākums
+    //-         div.divider //
+    //-         div.active.section Iekārtu serviss
+    //-     div.ui.grid
+    //-         div.ui.row
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 h1.ui.left.header.decored Serviss
+    //-                 p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
+    //-                     | industriālo un drošības risinājumu servisa centra funkcijas. A.MEDICAL ir divi atbalsta centri Latvijā - Rīgā un
+    //-                     | Daugavpilī. Mūsu serviss sadarbojas ar vadošajām Latvijas medicīnas, industriālo un drošības risinājumu iestādēm,
+    //-                     | kā arī iestādēm ārpus Latvijas – Igaunijā, Lietuvā un Krievijā.
+    //-                 ul.small.circles-list
+    //-                     li Nepārtrauktu iekārtu darbības nodrošināšanu par fiksētu mēneša maksu
+    //-                     li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
+    //-                     li Garantēta ātra inženieru ierašanās
+    //-                     li Iespējama iekārtu aizvietošana
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 img(src="img/service-img.jpg").ui.shadowed.centered.image
+    //-
+    //-         div.stretched.very.padded.row
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eleven.wide.computer.column
+    //-                 h2.ui.left.header.decored Salabosim jebko
+    //-                 p A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
+    //-                     | palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai,
+    //-                     | neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai,
+    //-                     | zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
+    //-                     | servisam, IT risinājumu pārvaldībai u.c.
+    //-                 div.ui.basic.compact.segment
+    //-                     h3.large Vēlies realizēt projectu?
+    //-                     p
+    //-                         a.ui.basic.fluid.button Sazinies ar mums
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
+    //-                 div.ui.raised.center.aligned.padded.segment
+    //-                     div.benefits-icon.icon-service-phone-icon
+    //-                     div.large.title Servisa tālrunis
+    //-                     div.large.title +371 66103003
     main.ui.container.service.page
-        div.ui.breadcrumb
-            a(href="index.html").section Sākums
-            div.divider //
-            div.active.section Iekārtu serviss
-        div.ui.grid
-            div.ui.row
-                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-                    h1.ui.left.header.decored Serviss
-                    p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
-                        | industriālo un drošības risinājumu servisa centra funkcijas. A.MEDICAL ir divi atbalsta centri Latvijā - Rīgā un
-                        | Daugavpilī. Mūsu serviss sadarbojas ar vadošajām Latvijas medicīnas, industriālo un drošības risinājumu iestādēm,
-                        | kā arī iestādēm ārpus Latvijas – Igaunijā, Lietuvā un Krievijā.
-                    ul.small.circles-list
-                        li Nepārtrauktu iekārtu darbības nodrošināšanu par fiksētu mēneša maksu
-                        li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
-                        li Garantēta ātra inženieru ierašanās
-                        li Iespējama iekārtu aizvietošana
-                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-                    img(src="img/service-img.jpg").ui.shadowed.centered.image
+      .ui.breadcrumb
+        a.section(href='index.html') Sākums
+        .divider //
+        .active.section Iekārtu serviss
+      .ui.grid
+        .ui.row
+          .sixteen.wide.mobile.eight.wide.tablet.nine.wide.computer.column
+            h1.ui.left.header.decored Serviss
+            p.service-text
+              | A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
+              | industriālo un drošības risinājumu servisa centra funkcijas. A.MEDICAL ir divi atbalsta centri Latvijā - Rīgā un
+              | Daugavpilī. Mūsu serviss sadarbojas ar vadošajām Latvijas medicīnas, industriālo un drošības risinājumu iestādēm,
+              | kā arī iestādēm ārpus Latvijas – Igaunijā, Lietuvā un Krievijā.
+            ul.small.circles-list
+              li Nepārtrauktu iekārtu darbības nodrošināšanu par fiksētu mēneša maksu
+              li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
+              li Garantēta ātra inženieru ierašanās
+              li Iespējama iekārtu aizvietošana
+          .sixteen.wide.mobile.eight.wide.tablet.seven.wide.computer.column
+            img.ui.shadowed.centered.image(src='img/service-img.jpg')
+        .stretched.very.padded.row
+          .sixteen.wide.mobile.eight.wide.tablet.eleven.wide.computer.column
+            h2.ui.left.header.decored Salabosim jebko
+            p
+              | A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
+              | palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai,
+              | neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai,
+              | zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
+              | servisam, IT risinājumu pārvaldībai u.c.
+            .ui.basic.compact.segment
+              h3.large Vēlies realizēt projectu?
+              p
+                a.ui.basic.fluid.button Sazinies ar mums
+          .sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
+            .ui.raised.center.aligned.padded.segment
+              .benefits-icon.icon-service-phone-icon
+              .large.title Servisa tālrunis
+              .large.title +371 66103003
 
-            div.stretched.very.padded.row
-                div.sixteen.wide.mobile.eight.wide.tablet.eleven.wide.computer.column
-                    h2.ui.left.header.decored Salabosim jebko
-                    p A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
-                        | palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai,
-                        | neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai,
-                        | zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
-                        | servisam, IT risinājumu pārvaldībai u.c.
-                    div.ui.basic.compact.segment
-                        h3.large Vēlies realizēt projectu?
-                        p
-                            a.ui.basic.fluid.button Sazinies ar mums
-                div.sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
-                    div.ui.raised.center.aligned.padded.segment
-                        div.benefits-icon.icon-service-phone-icon
-                        div.large.title Servisa tālrunis
-                        div.large.title +371 66103003
 
     include sections/subscribe
