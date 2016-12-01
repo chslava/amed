@@ -406,7 +406,7 @@ blockquote {
 
 // Desktop
 .ui.button:not(.icon)>.right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
+  //margin-left: 2px !important;
 }
 
 .ui.raised.segment, .ui.raised.segments {
@@ -472,3 +472,6 @@ blockquote {
 }
 
 // Frontend fixes
+i.icon {
+  font-size: 19px;
+}

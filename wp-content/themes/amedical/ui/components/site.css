@@ -2499,6 +2499,7 @@ section.slider .ui.container.grid > .column {
     min-height: 650px;
   }
   .main-slider li .content {
+    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -2896,9 +2897,6 @@ blockquote {
   margin-top: 100px;
   margin-bottom: 107px;
 }
-.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
-}
 .ui.raised.segment,
 .ui.raised.segments {
   border-top: 1px solid rgba(27, 47, 78, 0.03);
@@ -2952,4 +2950,7 @@ blockquote {
   .subscribe .ui.primary.button {
     margin-top: 15px;
   }
+}
+i.icon {
+  font-size: 19px;
 }

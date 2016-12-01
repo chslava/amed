@@ -3406,6 +3406,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider li .content {
+    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -3866,10 +3867,6 @@ blockquote {
   margin-bottom: 107px;
 }
 
-.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
-}
-
 .ui.raised.segment,
 .ui.raised.segments {
   border-top: 1px solid rgba(27, 47, 78, 0.03);
@@ -3937,6 +3934,10 @@ blockquote {
   .subscribe .ui.primary.button {
     margin-top: 15px;
   }
+}
+
+i.icon {
+  font-size: 19px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
@@ -11420,7 +11421,7 @@ i.icon.long.arrow.right:before {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.65em;
+  font-size: 13px;
   content: "\e91a" !important;
 }
 
