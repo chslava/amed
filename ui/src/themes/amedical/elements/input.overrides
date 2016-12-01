@@ -32,6 +32,10 @@
   }*/
 }
 
-.search i.icon.search {
+.search i.search.icon {
   cursor: pointer !important;
+}
+
+.ui.icon.input.search > i.icon:not(.link) {
+  pointer-events: auto !important;
 }

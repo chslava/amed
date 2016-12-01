@@ -59,7 +59,7 @@ gulp.task('browser-sync', function () {
     browserSync.init(browserSyncConfig);
     gulp.watch("./ui/src/themes/amedical/**/*.less", ['simple-build-css']);
     gulp.watch('views/**/*.pug', ['pug-build']);
-    gulp.watch(["dist/*.html"]).on('change', browserSync.reload);
+    gulp.watch(["dist/*.html", 'dist/ui/*.css']).on('change', browserSync.reload);
 });
 
 // gulp.task('browser-sync', function () {

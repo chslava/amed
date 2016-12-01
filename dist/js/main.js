@@ -74,11 +74,19 @@ jQuery(function($) {
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
 
-    $('.search.icon').on('click', function(e) {
+    $('#desktop-search .search.icon').on('click', function(e) {
         e.preventDefault();
-        $('.input.search input').submit();
-        console.log("Form submitted");
+        $('#desktop-search').submit();
      })
 
+    $('#tablet-search .search.icon').on('click', function(e) {
+        e.preventDefault();
+        $('#tablet-search').submit();
+    })
+
+    $('#mobile-search .search.icon').on('click', function(e) {
+        e.preventDefault();
+        $('#mobile-search').submit();
+    })
 
 })

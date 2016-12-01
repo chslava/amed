@@ -14557,8 +14557,12 @@ img.ui.shadowed.image {
   }*/
 }
 
-.search .i.icon.search {
-  cursor: pointer;
+.search i.search.icon {
+  cursor: pointer !important;
+}
+
+.ui.icon.input.search > i.icon:not(.link) {
+  pointer-events: auto !important;
 }
 /*!
  * # Semantic UI 2.2.4 - Segment

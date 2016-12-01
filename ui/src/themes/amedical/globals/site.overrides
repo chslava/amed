@@ -470,3 +470,5 @@ blockquote {
     margin-top: 15px;
   }
 }
+
+// Frontend fixes

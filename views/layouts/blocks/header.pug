@@ -11,7 +11,7 @@ header
           i.search.icon
     .one.column.row.search-row(style='display:none')
       .column
-        form.ui.large.form
+        form#mobile-search.ui.large.form
           .field
             input(placeholder='Meklēt...')
             i.search.icon
@@ -22,7 +22,7 @@ header
           img(src='img/logo.png', alt='amedical', title='Amedical logo')
       .right.aligned.column
         .item.computer-search
-          .ui.icon.input.search
+          form#tablet-search.ui.icon.input.search
             input(placeholder='Meklēt')
             i.search.icon
         a.mob-toogle-menu(href='#')
@@ -68,7 +68,7 @@ header
           .row
             .ui.secondary.text.stackable.menu.top-menu
               .item.computer-search
-                .ui.icon.input.search
+                form#desktop-search.ui.icon.input.search
                   input(placeholder='Meklēt')
                   i.search.icon
               a.item(href='content.html') Jaunumi
