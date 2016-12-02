@@ -49,11 +49,11 @@ $target_en = trim(str_replace($change_from,$change_to,$_POST["target_en"]));
 $target_ee = trim(str_replace($change_from,$change_to,$_POST["target_ee"]));
 $target_lt = trim(str_replace($change_from,$change_to,$_POST["target_lt"]));
 
-$text_lv = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lv"]));
-$text_ru = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ru"]));
-$text_en = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_en"]));
-$text_ee = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_ee"]));
-$text_lt = mysqli_real_escape_string(str_replace($change_from,$change_to,$_POST["text_lt"]));
+$text_lv = mysqli_real_escape_string($result_db,str_replace($change_from,$change_to,$_POST["text_lv"]));
+$text_ru = mysqli_real_escape_string($result_db,str_replace($change_from,$change_to,$_POST["text_ru"]));
+$text_en = mysqli_real_escape_string($result_db,str_replace($change_from,$change_to,$_POST["text_en"]));
+$text_ee = mysqli_real_escape_string($result_db,str_replace($change_from,$change_to,$_POST["text_ee"]));
+$text_lt = mysqli_real_escape_string($result_db,str_replace($change_from,$change_to,$_POST["text_lt"]));
 
 if(isset($_POST["discount"]))
 {
