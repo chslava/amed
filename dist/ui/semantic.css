@@ -2257,7 +2257,7 @@ header .main-logo {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header .ui.grid.container {
-    width: 728px;
+    width: 600px;
     margin: 0 auto;
   }
 
@@ -3938,6 +3938,13 @@ blockquote {
 
 i.icon {
   font-size: 19px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .services .column {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+  }
 }
 /*!
  * # Semantic UI 2.2.4 - Button

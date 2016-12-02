@@ -475,3 +475,11 @@ blockquote {
 i.icon {
   font-size: 19px;
 }
+
+// 768 - 1024
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .services .column {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+  }
+}
