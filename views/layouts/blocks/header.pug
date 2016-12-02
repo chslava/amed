@@ -1,78 +1,80 @@
 header
-  .ui.container.grid.mobile.only
-    .two.column.row
-      .left.aligned.column
-        a.logo(href='index.html')
-          img(src='img/logo.png', alt='amedical', title='Amedical logo')
-      .right.aligned.column
-        a.mob-toogle-menu(href='#')
-          i.icon-mob-toogle-open
-        a.mob-search(href='#')
-          i.search.icon
-    .one.column.row.search-row(style='display:none')
-      .column
-        form.ui.large.form
-          .field
-            input(placeholder='Meklēt...')
-            i.search.icon
-  .ui.container.grid.tablet.only
-    .two.column.row
-      .left.aligned.column
-        a.logo(href='index.html')
-          img(src='img/logo.png', alt='amedical', title='Amedical logo')
-      .right.aligned.column
-        .item.computer-search
-          .ui.icon.input.search
-            input(placeholder='Meklēt')
-            i.search.icon
-        a.mob-toogle-menu(href='#')
-          i.icon-mob-toogle-open
-  .ui.container.desktop
-    .main-logo
-      a(href='index.html')
-        img(src='img/logo.png', alt='amedical', title='Amedical logo')
-    // removed .fluid class  below
-    .ui.container.main-column
-      .mob-menu(style='display:none')
-        .ui.computer.vertically.reversed.grid
-          .ui.text.menu.lang
-            a.item.active(href='#') LV
-            a.item(href='#') EN
-            a.item(href='#') RU
-            .right.menu
-              a.ui.basic.small.button(href='#') Autorizācija
-          .row
-            nav.ui.secondary.stackable.menu.main-menu
-              a.item.home(href='index.html')
-                span Galvenā
-                i.icon-home-icon
-              .ui.dropdown.item
-                | Medicīnas iekārtas
-                .menu
-                  a.item(href='#') Medicīnas preces
-                  a.item(href='#') Instrumenti un aprīkojums
-              .ui.dropdown.item
-                | Medicīnas preces
-                .menu
-                  a.item(href='#') Medicīnas preces
-                  a.item(href='#') Instrumenti un aprīkojums
-              a.item(href='#') Apģērbi un aizsarglīdzekļi
-              a.item(href='projects.html') Projektēšana
-              a.item(href='services.html') Iekārtu serviss
-              .right.menu.basket
-                a.item(href='#')
-                  i.icon-basket-icon
-                  span
-                    | Grozs
-                    // <b>22</b>
-          .row
-            .ui.secondary.text.stackable.menu.top-menu
-              .item.computer-search
-                .ui.icon.input.search
-                  input(placeholder='Meklēt')
-                  i.search.icon
-              a.item(href='content.html') Jaunumi
-              a.item(href='#') Blogs
-              a.item(href='#') Biežāk uzdotie jautājumi
-              a.item(href='about-us.html') Par mums
-              a.item(href='contact-us.html') Kontakti
+    div.ui.container.grid.mobile.only
+        div.two.column.row
+            div.left.aligned.column
+                a(href="index.html").logo
+                    img(src="img/logo.png" alt="amedical" title="Amedical logo")
+            div.right.aligned.column
+                a(href="#").mob-toogle-menu
+                    i.icon-mob-toogle-open
+                a(href="#").mob-search
+                    i.search.icon
+        div.one.column.row.search-row(style="display:none;")
+            div.column
+                form.ui.large.form
+                    div.field
+                        input(placeholder="Meklēt...")
+
+    div.ui.container.grid.tablet.only
+        div.two.column.row
+            div.left.aligned.column
+                a(href="index.html").logo
+                    img(src="img/logo.png" alt="amedical" title="Amedical logo")
+            div.right.aligned.column
+                div.item.computer-search
+                    div.ui.icon.input.search
+                        input(placeholder="Meklēt")
+                        i.search.icon
+                
+                a(href="#").mob-toogle-menu
+                    i.icon-mob-toogle-open
+
+    div.ui.container.desktop
+        div.main-logo
+            a(href="index.html")
+                img(src="img/logo.png" alt="amedical" title="Amedical logo")
+       
+        div.ui.container.fluid.main-column
+            div.mob-menu(style="display:none")
+                div.ui.computer.vertically.reversed.grid
+                    
+                    div.ui.text.menu.lang
+                        a(href="#").item.active LV
+                        a(href="#").item EN
+                        a(href="#").item RU
+                        div.right.menu
+                            a.ui.basic.small.button(href="#") Autorizācija
+                   
+                    div.row
+                        nav.ui.secondary.stackable.menu.main-menu
+                            a(href="index.html").item.home
+                                span Galvenā
+                                i.icon-home-icon
+                            div.ui.dropdown.item Medicīnas iekārtas
+                                div.menu
+                                    a(href="#").item Medicīnas preces
+                                    a(href="#").item Instrumenti un aprīkojums
+                            div.ui.dropdown.item Medicīnas preces
+                                div.menu
+                                    a(href="#").item Medicīnas preces
+                                    a(href="#").item Instrumenti un aprīkojums
+                            a(href="#").item Apģērbi un aizsarglīdzekļi
+                            a(href="projects.html").item Projektēšana
+                            a(href="services.html").item Iekārtu serviss
+                            div.right.menu.basket
+                                a(href="#").item
+                                    i.icon-basket-icon
+                                    span Grozs <!--<b>22</b>-->
+                    div.row
+                        div.ui.secondary.text.stackable.menu.top-menu
+                            div.item.computer-search
+                                div.ui.icon.input.search
+                                    input(placeholder="Meklēt")
+                                    i.search.icon
+                            
+                            a(href="content.html").item Jaunumi
+                            a(href="#").item Blogs
+                            a(href="#").item Biežāk uzdotie jautājumi
+                            a(href="about-us.html").item Par mums
+                            a(href="contact-us.html").item Kontakti
+                            

@@ -256,17 +256,15 @@
 }
 // -----------------------------------------
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
+  background: #636463 url("../img/subscribe-background.png") repeat top center;
   // background-size: contain;
-  // padding-top: 90px;
-  // padding-bottom: 90px;
-  background-size: cover;
-  height: 230px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 
   div.title {
     color: white;
     margin-top:0;
-    margin-bottom:0;
+    margin-bottom:28px;
     font-size: 22px;
     font-weight: 700;
     line-height: 27px;
@@ -301,10 +299,6 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
-  }
-  .ui.centered.grid{
-    padding-top: 90px;
-    padding-bottom: 90px;
   }
 }
 // -----------------------------------------
@@ -360,8 +354,8 @@
 }
 // -----------------------------------------
 main.about-us~.coo-respose{
-//   background-repeat: no-repeat;
-// background-size: cover;
+  background-repeat: no-repeat;
+background-size: cover;
 }
 // -----------------------------------------
 //Mobile Only
@@ -399,37 +393,6 @@ main.about-us~.coo-respose{
     //
     // }
   }
-
-
-}
-@media (max-width: 767px){
-  .subscribe{
-    // padding-top: 40px;
-    // padding-bottom: 40px;
-      height: 240px;
-    background-image: url('../img/subscribe-bg-mob.png');
-    div.title, .ui.input, .ui.primary.button{
-      flex: 1 1 100%;
-    }
-    .ui.centered.grid {
-      max-width: 270px;
-      margin: 0 auto;
-    }
-    div.title {
-      margin-bottom: 30px;
-    }
-    .ui.input {
-      margin-bottom: 20px;
-    }
-    .ui.primary.button{
-      margin-top:  20px;
-      max-width: 140px;
-    }
-    .ui.centered.grid{
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-  }
 }
 @media (min-width: @tabletBreakpoint) {
   .services {
@@ -465,10 +428,10 @@ main.about-us~.coo-respose{
       font-weight: 700;
       line-height: 24px;
       height: 50px;
-      padding-left: 20px;
-      padding-right: 20px;
+      // padding-left: 38px;
+      // padding-right: 35px;
       // add width to button
-          min-width: 190px;
+          // width: 190px;
     }
 
   }
@@ -658,7 +621,8 @@ main.about-us~.coo-respose{
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
-
+    padding-top: 86px;
+    padding-bottom: 100px;
     background-size: cover;
     background-repeat: no-repeat;
     .ui.form {
@@ -671,11 +635,10 @@ main.about-us~.coo-respose{
       width: 100%;
       text-align: center;
       margin-top:0;
-      margin-bottom:22px;
+      margin-bottom:38px;
       font-size: 25px;
       font-weight: 700;
-      line-height: 50px;
-
+      line-height: 30px;
     }
 
     .ui.button, .input.subscribe {
@@ -691,13 +654,15 @@ main.about-us~.coo-respose{
       margin-left: 15px;
       margin-top: 0;
     }
-    .ui.centered.grid{
-      padding-top: 55px;
-      padding-bottom: 55px;
+  }
+}
+@media (max-width: 1200px){
+  .subscribe{
+    div.title, .ui.input, .subscribe-btn {
+      flex: 1 1 100%;
     }
   }
 }
-
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container.description {
     width: 100%;
@@ -790,14 +755,6 @@ main.about-us~.coo-respose{
       }
     }
   }
-  // .subscribe {
-  //   .ui.centered.grid{
-  //
-  //     padding-top: 90px;
-  //     padding-bottom: 90px;
-  //   }
-  //
-  // }
 }
 
 @media (min-width: @largeMonitorBreakpoint) {
@@ -1052,14 +1009,13 @@ main.about-us~.coo-respose{
   }
 
   .subscribe {
-    // padding-top: 118px;
-    // padding-bottom: 105px;
+    padding-top: 118px;
+    padding-bottom: 105px;
     div.title {
       display: inline-block;
       width: auto;
-      padding-right: 40px;
-      // text-align: left;
-      // margin:12px 32px 38px -115px;
+      text-align: left;
+      margin:12px 32px 38px -115px;
     }
     .ui.primary.button{
       margin-top: 0;
@@ -1113,22 +1069,6 @@ main.about-us~.coo-respose{
       }
     }
   }
-  .subscribe {
-    .ui.centered.grid{
-
-      padding-top: 90px;
-      padding-bottom: 90px;
-    }
-
-  }
-  main.about-us~.services {
-    padding-top: 65px;
-    padding-bottom: 65px;
-    .column p {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-  }
 }
 
 
@@ -1137,8 +1077,3 @@ main.about-us~.coo-respose{
     padding-right: 2rem;
   }
 }
-
-
-// .ui.form .field>label{
-//   margin-bottom: 0;
-// }

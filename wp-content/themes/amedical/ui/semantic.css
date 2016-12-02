@@ -945,15 +945,15 @@ input::selection {
 }
 
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
-  background-size: cover;
-  height: 230px;
+  background: #636463 url("../img/subscribe-background.png") repeat top center;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .subscribe div.title {
   color: white;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 28px;
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
@@ -1014,11 +1014,6 @@ input::selection {
   line-height: 15px;
 }
 
-.subscribe .ui.centered.grid {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
 .secondary-services {
   background: #f7f7f7;
   padding-top: 3rem;
@@ -1067,6 +1062,11 @@ input::selection {
   padding-top: 0;
 }
 
+main.about-us ~ .coo-respose {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @media (max-width: 767px) {
   .coo-respose .ui.header.left.decored:before {
     margin: 0 0 20px 0;
@@ -1094,44 +1094,6 @@ input::selection {
     background: #e6e6e6;
     /* border: 1px solid #e6e6e6; */
     /* margin: 0 auto; */
-  }
-}
-
-@media (max-width: 767px) {
-  .subscribe {
-    height: 240px;
-    background-image: url('../img/subscribe-bg-mob.png');
-  }
-
-  .subscribe div.title,
-  .subscribe .ui.input,
-  .subscribe .ui.primary.button {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
-  }
-
-  .subscribe .ui.centered.grid {
-    max-width: 270px;
-    margin: 0 auto;
-  }
-
-  .subscribe div.title {
-    margin-bottom: 30px;
-  }
-
-  .subscribe .ui.input {
-    margin-bottom: 20px;
-  }
-
-  .subscribe .ui.primary.button {
-    margin-top: 20px;
-    max-width: 140px;
-  }
-
-  .subscribe .ui.centered.grid {
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 }
 
@@ -1163,9 +1125,6 @@ input::selection {
     font-weight: 700;
     line-height: 24px;
     height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    min-width: 190px;
   }
 
   .benefits,
@@ -1371,6 +1330,8 @@ input::selection {
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
+    padding-top: 86px;
+    padding-bottom: 100px;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -1385,10 +1346,10 @@ input::selection {
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 22px;
+    margin-bottom: 38px;
     font-size: 25px;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 30px;
   }
 
   .subscribe .ui.button,
@@ -1407,10 +1368,15 @@ input::selection {
     margin-left: 15px;
     margin-top: 0;
   }
+}
 
-  .subscribe .ui.centered.grid {
-    padding-top: 55px;
-    padding-bottom: 55px;
+@media (max-width: 1200px) {
+  .subscribe div.title,
+  .subscribe .ui.input,
+  .subscribe .subscribe-btn {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
   }
 }
 
@@ -1761,10 +1727,16 @@ input::selection {
     padding: 14px 52px 11px 53px;
   }
 
+  .subscribe {
+    padding-top: 118px;
+    padding-bottom: 105px;
+  }
+
   .subscribe div.title {
     display: inline-block;
     width: auto;
-    padding-right: 40px;
+    text-align: left;
+    margin: 12px 32px 38px -115px;
   }
 
   .subscribe .ui.primary.button {
@@ -1809,21 +1781,6 @@ input::selection {
 
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
-  }
-
-  .subscribe .ui.centered.grid {
-    padding-top: 90px;
-    padding-bottom: 90px;
-  }
-
-  main.about-us ~ .services {
-    padding-top: 65px;
-    padding-bottom: 65px;
-  }
-
-  main.about-us ~ .services .column p {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 }
 
@@ -1894,10 +1851,6 @@ input::selection {
   resize: none;
 }
 
-.contact-form .ui.form .field > label {
-  margin-bottom: 0;
-}
-
 .gform_wrapper textarea.medium:not([rows]),
 .gform_wrapper textarea.medium {
   resize: none;
@@ -1944,10 +1897,6 @@ input::selection {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
 }
 
-.about-us h1.ui.header .sub.header {
-  color: #FF6B01;
-}
-
 main.page.about-us,
 main.page.projects {
   margin-bottom: 2rem;
@@ -1980,10 +1929,6 @@ main.page > .grid {
 .service .ten.wide.computer.column img.shadowed {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
   width: 100%;
-}
-
-.about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
-  padding-right: 35px;
 }
 
 .projects img.ui.shadowed.image,
@@ -2198,34 +2143,22 @@ main.page > .grid {
   .contact-form .shadowed.image {
     margin-top: 30px;
   }
-
-  .service .padded.row .ui.left.header.decored {
-    padding-top: 0;
-  }
 }
 
 @media (min-width: 1200px) {
   .about-us .ten.wide.computer.column img.shadowed {
     margin-top: 50px;
   }
-
-  .service .service-text {
-    max-width: 620px;
-  }
 }
 
 @media (min-width: 1440px) {
   .contacts .info {
-    width: 35%;
+    width: 40%;
   }
 
   .contacts .map {
-    width: 65%;
+    width: 60%;
   }
-}
-
-main .ui.breadcrumb .section {
-  margin-right: 0;
 }
 
 /* Views */
@@ -2257,7 +2190,7 @@ header .main-logo {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header .ui.grid.container {
-    width: 728px;
+    width: calc(723px + 2rem);
     margin: 0 auto;
   }
 
@@ -2336,7 +2269,7 @@ header .main-logo {
     width: 1px;
     height: 30px;
     margin-right: 23px;
-    border-left: 1px solid #d8d8d8;
+    border-left: 1px solid #8f8f8f;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2350,8 +2283,8 @@ header .main-logo {
 
   header .desktop .ui.top-menu {
     width: 100%;
-    margin: 0;
-    padding-bottom: 0;
+    margin: -1rem 0;
+    padding-bottom: 1rem;
   }
 
   header .desktop .ui.top-menu .item {
@@ -2359,11 +2292,12 @@ header .main-logo {
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
-    padding: 4px 10px 4px 20px;
+    padding: 7px 10px 4px 20px;
   }
 
   header .desktop .ui.top-menu .item:first-child {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   header .desktop .ui.top-menu .item:active,
@@ -2389,7 +2323,7 @@ header .main-logo {
     margin: -1rem 0;
     padding-top: 1.2rem;
     padding-bottom: 0;
-    border-top: 1px solid rgba(216, 216, 216, 0.66);
+    border-top: 1px solid #8f8f8f;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item {
@@ -2685,7 +2619,7 @@ header .search-row .ui.form input {
     padding-top: 1rem;
     padding-bottom: 18px;
     padding-left: 0.5rem;
-    padding-right: 0;
+    padding-right: 0.5rem;
   }
 
   header .mob-menu .ui.vertically.reversed.grid {
@@ -2758,7 +2692,7 @@ header .search-row .ui.form input {
   }
 
   header .right.menu.basket {
-    padding: 4px 0;
+    padding: 15px 0;
     position: relative;
   }
 
@@ -2902,7 +2836,7 @@ footer .footer-contacts .item a:hover {
 
 footer .footer-contacts .c-icon {
   color: #8f8f8f;
-  font-size: 18px;
+  font-size: 16px;
   float: left;
   display: block;
   margin-right: 0;
@@ -3278,7 +3212,7 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 0;
+  padding-top: 1rem;
 }
 
 section.slider .ui.container.grid {
@@ -3313,7 +3247,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3354,7 +3287,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -3406,6 +3338,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider li .content {
+    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -3591,19 +3524,18 @@ main.page > .grid {
   }
 
   .about-us ~ .services .icon-title {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 1rem;
   }
 
   .about-us ~ .services .column p {
     margin-top: 20px!important;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .about-us ~ .services .icon-first-icon {
     font-size: 50px;
     margin-top: 7px;
+    margin-left: 10px;
   }
 
   .about-us ~ .services .icon-second-icon {
@@ -3818,7 +3750,7 @@ blockquote {
   border-radius: 50px;
   background: #FFF;
   float: left;
-  margin-right: 14px;
+  margin-right: 20px;
   color: #e5702a;
   text-align: center;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
@@ -3864,79 +3796,6 @@ blockquote {
 .very.padded {
   margin-top: 100px;
   margin-bottom: 107px;
-}
-
-.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
-}
-
-.ui.raised.segment,
-.ui.raised.segments {
-  border-top: 1px solid rgba(27, 47, 78, 0.03);
-}
-
-.home-news .column p a {
-  display: block;
-  margin-left: 0 !important;
-}
-
-.contacts {
-  margin-top: 15px;
-}
-
-.circles-list.small li:before {
-  margin-top: -2px;
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 768px) {
-  .secondary-services {
-    margin-bottom: 65px;
-  }
-
-  .secondary-services ~ .ui.container {
-    margin-bottom: 50px;
-  }
-}
-
-@media only screen and (max-width: 767px) and (min-width: 320px) {
-  .subscribe .ui.primary.button {
-    margin-top: 0;
-  }
-
-  .secondary-services .content {
-    max-width: 400px;
-    margin-top: 12px;
-  }
-
-  .coo-respose {
-    padding: 25px;
-  }
-
-  .coo-respose > .grid {
-    margin: 0;
-  }
-
-  .contacts {
-    margin-top: 30px;
-  }
-
-  .secondary-services {
-    margin-bottom: 65px;
-  }
-
-  .secondary-services ~ .ui.container {
-    margin-bottom: 50px;
-  }
-
-  .service.page .ui.basic.compact.segment {
-    margin: 30px auto;
-  }
-}
-
-@media (max-width: 410px) {
-  .subscribe .ui.primary.button {
-    margin-top: 15px;
-  }
 }
 /*!
  * # Semantic UI 2.2.4 - Button
@@ -9442,13 +9301,6 @@ h4.ui.header {
   border-top: none;
 }
 
-@media (max-width: 767px) {
-  .ui.header.left.decored:before {
-    position: relative;
-    top: -10px;
-  }
-}
-
 h1.ui.header .sub.header {
   color: #d8d8d8;
   font-size: 25px;
@@ -9457,12 +9309,6 @@ h1.ui.header .sub.header {
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 30px;
-}
-
-@media (max-width: 767px) {
-  .coo-respose .ui.header.left.decored:before {
-    margin: 0 0 10px;
-  }
 }
 /*!
  * # Semantic UI 2.2.4 - Icon
@@ -14556,10 +14402,6 @@ img.ui.shadowed.image {
     opacity: 1;
   }*/
 }
-
-.search .i.icon.search {
-  cursor: pointer;
-}
 /*!
  * # Semantic UI 2.2.4 - Segment
  * http://github.com/semantic-org/semantic-ui/
@@ -15562,8 +15404,8 @@ img.ui.shadowed.image {
          Theme Overrides
 *******************************/
 
-.ui.breadcrumb:first-child {
-  margin-top: 15px;
+.ui.breadcrumb {
+  margin-top: 33px !important;
 }
 
 .ui.breadcrumb a {
@@ -15584,7 +15426,7 @@ img.ui.shadowed.image {
 }
 
 .contacts .ui.breadcrumb {
-  margin-top: 30px !important;
+  margin-top: 20px !important;
 }
 
 .contacts .ui.breadcrumb .divider {
@@ -16651,6 +16493,7 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18170,7 +18013,6 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
-  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -18231,7 +18073,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18244,7 +18085,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18263,7 +18103,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19910,7 +19749,6 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -20190,7 +20028,6 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;

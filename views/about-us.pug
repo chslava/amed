@@ -1,169 +1,90 @@
 extends layouts/home.pug
 
 block content
-    //- main.ui.container.about-us.page
-    //-     div.ui.breadcrumb
-    //-         a(href="index.html").section Sākums
-    //-         div.divider //
-    //-         div.active.section Par mums
-    //-     div.ui.grid
-    //-         div.ui.row
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.six.wide.computer.column
-    //-                 h1.ui.header.left.decored Par A Medical
-    //-                     div.ui.large.sub.header Dinamisks. Uzticams. Daudzpusīgs.
-    //-                 p A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un
-    //-                     | servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus
-    //-                     | vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un
-    //-                     | industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā.
-    //-                 p A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu projektēšanas,
-    //-                     | funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
-    //-
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.ten.wide.computer.column
-    //-                 img(src="img/about-us.jpg").ui.shadowed.image
-    //-
-    //- section.secondary-services
-    //-     div.ui.container
-    //-         h2.centered.ui.header A.Medical darbības virzieni:
-    //-         div.ui.relaxed.grid
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-    //-                 span.circle-check
-    //-                     i.icon-check-icon
-    //-                 p.content Visa veida medicīnas iekārtu un medicīnas preču pārdošana
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-    //-                 span.circle-check
-    //-                     i.icon-check-icon
-    //-                 p.content Medicīnas iekārtu uzstādīšana un apkalpošana
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-    //-                 span.circle-check
-    //-                     i.icon-check-icon
-    //-                 p.content Medicīnas iestāžu un nodaļu projektēšana un renovācija
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-    //-                 span.circle-check
-    //-                     i.icon-check-icon
-    //-                 p.content Industriālo un drošības risinājumu tirdzniecība, uzstādīšana un apkalpošana
-    //-
-    //-
-    //- section.benefits.very.padded
-    //-     div.ui.container
-    //-         div.sixteen.wide.column
-    //-             h2.ui.header.centered.decored Mūsu vīzija un misija
-    //-             p.content
-    //-                 em VĪZIJA:
-    //-                 |  Būt par klientu svarīgāko partneri medicīnas tehnoloģijās.
-    //-             p.content
-    //-                 em MISIJA:
-    //-                 |  Kā daudzpusīga un pieredzējusi profesionāļu komanda ar izcilu produktu portfolio mēs veidojam ilgtspējīgu medicīnas nozari Baltijā.
-    //- section.services
-    //-     div.ui.container
-    //-         div.ui.center.aligned.grid
-    //-             div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-    //-                 div.icon-title
-    //-                     div.service-icon.icon-first-icon
-    //-                 p A.Medical uzskata, ka viens no tā veiksmes stūrakmeņiem ir izcila komanda ar uzkrātām zināšanām medicīnas tehnoloģiju,
-    //-                     | kā arī industriālo un drošības risinājumu nozarēs.
-    //-
-    //-             div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-    //-                 div.icon-title
-    //-                     div.service-icon.icon-second-icon
-    //-                 p Darbiniekiem tiek nodrošinātas visas nepieciešamās apmācības pie iekārtu ražotājiem, tādējādi A.Medical vienmēr spēj ieteikt
-    //-                     | klientu vēlmēm un vajadzībām atbilstošākos risinājumus.
-    //-             div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-    //-                 div.icon-title
-    //-                     div.service-icon.icon-third-icon
-    //-                 p A.Medical piedāvā augstvērtīgus medicīnas produktus no pasaulē atzītiem ražotājiem. Mēs lepojamies, ka mūsu klientu vidū ir
-    //-                     | visas vadošās Latvijas veselības aprūpes iestādes.
-    //-
-    //-
-    //- section.coo-respose
-    //-     div.ui.container.grid
-    //-         div.ui.row
-    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column.right.floated.column
-    //-                 h2.ui.left.header.decored Korporatīvā sociālā atbildība
-    //-                 p A.Medical rūpējas par apkārtējo vidi un ir sociāli atbildīgs uzņēmums. Realizējot korporatīvās sociālās atbildības politiku,
-    //-                     | uzņēmums nosaka savu attieksmi pret apkārtējās vides un sabiedrības labklājības uzlabošanu.
-    //-                 p Lai nodrošinātu pilnvērtīgu elektrisko un elektronisko iekārtu utilizāciju, A.Medical uzsākusi sadarbību ar Zaļo jostu, kas veic
-    //-                     | šo procesu atbilstoši valstī noteiktajām prasībām.
-    //-                 p Līdz šim uzņēmuma dibinātāji vairāku gadu garumā ir atbalstījuši Latvijas slimnīcām nozīmīgus projektus, kā arī vairākkārtēji
-    //-                     | ir atbalstījuši bāreņu biedrības.
     main.ui.container.about-us.page
-     .ui.breadcrumb
-       a.section(href='index.html') Sākums
-       .divider //
-       .active.section Par mums
-     .ui.grid
-       .ui.row
-         .sixteen.wide.mobile.eight.wide.tablet.seven.wide.computer.column
-           h1.ui.header.left.decored
-             | Par A Medical
-             .ui.large.sub.header Dinamisks. Uzticams. Daudzpusīgs.
-           p
-             | A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un
-             | servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus
-             | vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un
-             | industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā.
-           p
-             | A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu projektēšanas,funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
-         .sixteen.wide.mobile.eight.wide.tablet.nine.wide.computer.column
-           img.ui.shadowed.image(src='img/about-us.jpg')
+        div.ui.breadcrumb
+            a(href="index.html").section Sākums
+            div.divider //
+            div.active.section Par mums
+        div.ui.grid
+            div.ui.row
+                div.sixteen.wide.mobile.eight.wide.tablet.six.wide.computer.column
+                    h1.ui.header.left.decored Par A Medical
+                        div.ui.large.sub.header Dinamisks. Uzticams. Daudzpusīgs.
+                    p A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un
+                        | servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus
+                        | vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un
+                        | industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā.
+                    p A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu projektēšanas,
+                        | funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
+
+                div.sixteen.wide.mobile.eight.wide.tablet.ten.wide.computer.column
+                    img(src="img/about-us.jpg").ui.shadowed.image
+
     section.secondary-services
-     .ui.container
-       h2.centered.ui.header A.Medical darbības virzieni:
-       .ui.relaxed.grid
-         .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-           span.circle-check
-             i.icon-check-icon
-           p.content Visa veida medicīnas iekārtu un medicīnas preču pārdošana
-         .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-           span.circle-check
-             i.icon-check-icon
-           p.content Medicīnas iekārtu uzstādīšana un apkalpošana
-         .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-           span.circle-check
-             i.icon-check-icon
-           p.content Medicīnas iestāžu un nodaļu projektēšana un renovācija
-         .sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
-           span.circle-check
-             i.icon-check-icon
-           p.content Industriālo un drošības risinājumu tirdzniecība, uzstādīšana un apkalpošana
+        div.ui.container
+            h2.centered.ui.header A.Medical darbības virzieni:
+            div.ui.relaxed.grid
+                div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
+                    span.circle-check
+                        i.icon-check-icon
+                    p.content Visa veida medicīnas iekārtu un medicīnas preču pārdošana
+                div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
+                    span.circle-check
+                        i.icon-check-icon
+                    p.content Medicīnas iekārtu uzstādīšana un apkalpošana
+                div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
+                    span.circle-check
+                        i.icon-check-icon
+                    p.content Medicīnas iestāžu un nodaļu projektēšana un renovācija
+                div.sixteen.wide.mobile.eight.wide.tablet.four.wide.computer.column
+                    span.circle-check
+                        i.icon-check-icon
+                    p.content Industriālo un drošības risinājumu tirdzniecība, uzstādīšana un apkalpošana
+
+
     section.benefits.very.padded
-     .ui.container
-       .sixteen.wide.column
-         h2.ui.header.centered.decored Mūsu vīzija un misija
-         p.content
-           em VĪZIJA:
-           |  Būt par klientu svarīgāko partneri medicīnas tehnoloģijās.
-         p.content
-           em MISIJA:
-           |  Kā daudzpusīga un pieredzējusi profesionāļu komanda ar izcilu produktu portfolio mēs veidojam ilgtspējīgu medicīnas nozari Baltijā.
+        div.ui.container
+            div.sixteen.wide.column
+                h2.ui.header.centered.decored Mūsu vīzija un misija
+                p.content
+                    em VĪZIJA:
+                    |  Būt par klientu svarīgāko partneri medicīnas tehnoloģijās.
+                p.content
+                    em MISIJA:
+                    |  Kā daudzpusīga un pieredzējusi profesionāļu komanda ar izcilu produktu portfolio mēs veidojam ilgtspējīgu medicīnas nozari Baltijā.
     section.services
-     .ui.container
-       .ui.center.aligned.grid
-         .sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-           .icon-title
-             .service-icon.icon-first-icon
-           p
-             | A.Medical uzskata, ka viens no tā veiksmes stūrakmeņiem ir izcila komanda ar uzkrātām zināšanām medicīnas tehnoloģiju,kā arī industriālo un drošības risinājumu nozarēs.
-         .sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-           .icon-title
-             .service-icon.icon-second-icon
-           p
-             | Darbiniekiem tiek nodrošinātas visas nepieciešamās apmācības pie iekārtu ražotājiem, tādējādi A.Medical vienmēr spēj ieteiktklientu vēlmēm un vajadzībām atbilstošākos risinājumus.
-         .sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
-           .icon-title
-             .service-icon.icon-third-icon
-           p
-             | A.Medical piedāvā augstvērtīgus medicīnas produktus no pasaulē atzītiem ražotājiem. Mēs lepojamies, ka mūsu klientu vidū irvisas vadošās Latvijas veselības aprūpes iestādes.
+        div.ui.container
+            div.ui.center.aligned.grid
+                div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
+                    div.icon-title
+                        div.service-icon.icon-first-icon
+                    p A.Medical uzskata, ka viens no tā veiksmes stūrakmeņiem ir izcila komanda ar uzkrātām zināšanām medicīnas tehnoloģiju,
+                        | kā arī industriālo un drošības risinājumu nozarēs.
+
+                div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
+                    div.icon-title
+                        div.service-icon.icon-second-icon
+                    p Darbiniekiem tiek nodrošinātas visas nepieciešamās apmācības pie iekārtu ražotājiem, tādējādi A.Medical vienmēr spēj ieteikt
+                        | klientu vēlmēm un vajadzībām atbilstošākos risinājumus.
+                div.sixteen.wide.mobile.five.wide.tablet.five.wide.computer.center.aligned.column
+                    div.icon-title
+                        div.service-icon.icon-third-icon
+                    p A.Medical piedāvā augstvērtīgus medicīnas produktus no pasaulē atzītiem ražotājiem. Mēs lepojamies, ka mūsu klientu vidū ir
+                        | visas vadošās Latvijas veselības aprūpes iestādes.
+
+
     section.coo-respose
-     .ui.container
-       .ui.grid
-         .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column.right.floated.column
-           h2.ui.left.header.decored Korporatīvā sociālā atbildība
-           p
-             | A.Medical rūpējas par apkārtējo vidi un ir sociāli atbildīgs uzņēmums. Realizējot korporatīvās sociālās atbildības politiku,uzņēmums nosaka savu attieksmi pret apkārtējās vides un sabiedrības labklājības uzlabošanu.
-           p
-             | Lai nodrošinātu pilnvērtīgu elektrisko un elektronisko iekārtu utilizāciju, A.Medical uzsākusi sadarbību ar Zaļo jostu, kas veicšo procesu atbilstoši valstī noteiktajām prasībām.
-           p
-             | Līdz šim uzņēmuma dibinātāji vairāku gadu garumā ir atbalstījuši Latvijas slimnīcām nozīmīgus projektus, kā arī vairākkārtējiir atbalstījuši bāreņu biedrības.
+        div.ui.container.grid
+            div.ui.row
+                div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column.right.floated.column
+                    h2.ui.left.header.decored Korporatīvā sociālā atbildība
+                    p A.Medical rūpējas par apkārtējo vidi un ir sociāli atbildīgs uzņēmums. Realizējot korporatīvās sociālās atbildības politiku,
+                        | uzņēmums nosaka savu attieksmi pret apkārtējās vides un sabiedrības labklājības uzlabošanu.
+                    p Lai nodrošinātu pilnvērtīgu elektrisko un elektronisko iekārtu utilizāciju, A.Medical uzsākusi sadarbību ar Zaļo jostu, kas veic
+                        | šo procesu atbilstoši valstī noteiktajām prasībām.
+                    p Līdz šim uzņēmuma dibinātāji vairāku gadu garumā ir atbalstījuši Latvijas slimnīcām nozīmīgus projektus, kā arī vairākkārtēji
+                        | ir atbalstījuši bāreņu biedrības.
 
 
     include sections/subscribe

@@ -73,12 +73,4 @@ jQuery(function($) {
         $(this).children('i').toggleClass('icon-mob-toogle-close', 'icon-mob-toogle-open');
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
-
-    $('.search.icon').on('click', function(e) {
-        e.preventDefault();
-        $('.input.search input').submit();
-        console.log("Form submitted");
-     })
-
-
 })
