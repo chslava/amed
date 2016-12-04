@@ -482,4 +482,19 @@ i.icon {
     border-bottom: 1px solid #e7e7e7;
     margin-bottom: 20px;
   }
+  #header .logo {
+    width: 74px;
+  }
+  #header .ui.input.search input {
+    height: 50px;
+  }
+  #header .ui.grid.container .right.aligned.column .mob-toogle-menu {
+    font-size: 26px;
+  }
+}
+
+#mobile-search i.search.icon {
+  float: right;
+  margin-top: -34px;
+  margin-right: 15px;
 }
