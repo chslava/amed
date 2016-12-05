@@ -30,28 +30,32 @@ block content
     //-     div.map.contact-map(data-lat="56.940" data-lng="24.070")
     main.contacts
       .ui.container
-          .sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
+          .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column
             .ui.breadcrumb
               a.section(href='index.html') Sākums
               .divider //
               .active.section Kontakti
-            h1.ui.header Kontakti
-            p Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067
-            p Tālrunis: 66103003, 20277153
-            p Fakss: 66103010
-            p
-              | E-pasts:
-              a(href='mailto:info@amedical.eu') info@amedical.eu
-            p Darba laiks: 8:30 - 17:30
-            .ui.divider
-            h2.ui.header Rekvizīti
-            p SIA "A.Medical"
-            p PVN reģ. Nr. LV 40103599415
-            p Varkaļu iela 13A, Rīga, Latvija, LV-1067
-            br
-            p A/S „Swedbank”
-            p Konts: LV25HABA0551034365891
-            p Kods: HABALV22
+
+          .ui.grid
+              .eight.wide.tablet.sixteen.wide.desktop.column
+                h1.ui.header Kontakti
+                p Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067
+                p Tālrunis: 66103003, 20277153
+                p Fakss: 66103010
+                p
+                  | E-pasts:
+                  a(href='mailto:info@amedical.eu') info@amedical.eu
+                p Darba laiks: 8:30 - 17:30
+                .ui.divider.hide-for-tablet
+              .eight.wide.tablet.sixteen.wide.desktop.column
+                h2.ui.header Rekvizīti
+                p SIA "A.Medical"
+                p PVN reģ. Nr. LV 40103599415
+                p Varkaļu iela 13A, Rīga, Latvija, LV-1067
+                br
+                p A/S „Swedbank”
+                p Konts: LV25HABA0551034365891
+                p Kods: HABALV22
       .info
       .map.contact-map(data-lat='56.940', data-lng='24.070')
 

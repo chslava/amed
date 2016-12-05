@@ -2048,7 +2048,7 @@ main.page > .grid {
 
 @media (min-width: 768px) {
   .contacts > .ui.container {
-    min-height: 700px;
+    min-height: 300px;
   }
 
   .contacts .info {
@@ -3884,10 +3884,6 @@ blockquote {
   margin-left: 0 !important;
 }
 
-.contacts {
-  margin-top: 15px;
-}
-
 .circles-list.small li:before {
   margin-top: -2px;
 }
@@ -3899,6 +3895,27 @@ blockquote {
 
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
+  }
+
+  .contacts .info {
+    background: #636463;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 400px;
+    z-index: 10;
+    margin-top: 2rem;
   }
 }
 
@@ -3913,7 +3930,8 @@ blockquote {
   }
 
   .coo-respose {
-    padding: 25px;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
   }
 
   .coo-respose > .grid {
@@ -3940,16 +3958,20 @@ blockquote {
     margin-right: 15px;
     top: 6px;
   }
+
+  .image-icon.icon-shield {
+    top: 15px;
+  }
+
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
     margin-top: 15px;
   }
-}
-
-i.icon {
-  font-size: 19px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -3978,6 +4000,18 @@ i.icon {
     float: none !important;
     margin: 0 auto;
   }
+
+  .hide-for-tablet {
+    display: none !important;
+  }
+
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
+}
+
+i.icon {
+  font-size: 19px;
 }
 
 #mobile-search i.search.icon {

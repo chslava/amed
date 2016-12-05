@@ -419,7 +419,7 @@ blockquote {
 }
 
 .contacts {
-  margin-top: 15px;
+  //margin-top: 15px;
 }
 
 .circles-list.small li:before {
@@ -434,6 +434,30 @@ blockquote {
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
   }
+
+  .contacts {
+    .info {
+      background: #636463;
+      min-height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .map {
+      position: relative;
+      right: 0;
+      top: 0;
+      width: 100%;
+      float: none;
+      background: lightgoldenrodyellow;
+      min-height: 400px;
+      z-index: 10;
+      margin-top: 2rem;
+    }
+  }
+
 }
 
 // Mobile
@@ -470,20 +494,19 @@ blockquote {
   .image-icon.icon-shield {
     top: 15px;
   }
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
 }
 
+// Special breakpoint
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
     margin-top: 15px;
   }
 }
 
-// Frontend fixes
-i.icon {
-  font-size: 19px;
-}
-
-// 768 - 1024
+// Tablet 768 - 1024
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .services .column {
     border-bottom: 1px solid #e7e7e7;
@@ -505,6 +528,17 @@ i.icon {
     float: none !important;
     margin: 0 auto;
   }
+  .hide-for-tablet {
+    display: none !important;
+  }
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
+}
+
+// Frontend fixes
+i.icon {
+  font-size: 19px;
 }
 
 #mobile-search i.search.icon {
