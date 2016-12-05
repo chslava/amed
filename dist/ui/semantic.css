@@ -2336,7 +2336,6 @@ header .main-logo {
     width: 1px;
     height: 30px;
     margin-right: 23px;
-    border-left: 1px solid #d8d8d8;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2844,6 +2843,14 @@ footer nav {
   margin-bottom: 0!important;
   border-bottom: 1px solid #8f8f8f !important;
   height: 100%;
+}
+
+footer .footer-contacts a .title {
+  color: #FFF;
+}
+
+footer .footer-contacts a .title:hover {
+  color: #ff6b01;
 }
 
 footer .ui.text.menu .item,
@@ -3906,7 +3913,8 @@ blockquote {
   }
 
   .coo-respose {
-    padding: 25px;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
   }
 
   .coo-respose > .grid {
@@ -3927,6 +3935,15 @@ blockquote {
 
   .service.page .ui.basic.compact.segment {
     margin: 30px auto;
+  }
+
+  .image-icon {
+    margin-right: 15px;
+    top: 6px;
+  }
+
+  .image-icon.icon-shield {
+    top: 15px;
   }
 }
 
@@ -3957,12 +3974,31 @@ i.icon {
   #header .ui.grid.container .right.aligned.column .mob-toogle-menu {
     font-size: 26px;
   }
+
+  .image-icon {
+    margin-right: 30px;
+  }
+
+  .tablet-centered {
+    float: none !important;
+    margin: 0 auto;
+  }
 }
 
 #mobile-search i.search.icon {
   float: right;
   margin-top: -34px;
   margin-right: 15px;
+}
+
+.visibility-hidden {
+  visibility: hidden !important;
+}
+
+.image-icon {
+  float: left;
+  position: relative;
+  top: 3px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
