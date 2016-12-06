@@ -3918,9 +3918,16 @@ blockquote {
     margin-top: 0;
   }
 
+  .secondary-services {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   .secondary-services .content {
-    max-width: 400px;
     margin-top: 12px;
+    max-width: 190px;
+    vertical-align: middle;
+    display: table-cell;
   }
 
   .coo-respose {
@@ -3930,6 +3937,8 @@ blockquote {
     padding-bottom: 4rem !important;
     margin-bottom: -22px;
     border-top: 1px solid #e6e6e6;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .coo-respose > .grid {
@@ -3981,6 +3990,10 @@ blockquote {
   #about-us-text .ui.header.left:before {
     margin: 30px auto 20px;
   }
+
+  .benefits {
+    margin-top: 60px !important;
+  }
 }
 
 @media (max-width: 410px) {
@@ -3991,8 +4004,8 @@ blockquote {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .services .column {
-    border-bottom: 1px solid #e7e7e7;
     margin-bottom: 20px;
+    max-width: 370px;
   }
 
   #header .logo {
@@ -4030,19 +4043,24 @@ blockquote {
 
   #service-directions {
     font-size: 36px;
-    margin: 5px 0 50px 0;
+    margin: 20px 0 60px 0;
   }
 
   .coo-respose {
     margin-top: -34px;
-    padding-bottom: 38px !important;
+    padding-bottom: 55px !important;
     background-size: cover !important;
     margin-bottom: -24px;
+    border-top: 1px solid #e6e6e6;
   }
 
   .coo-respose h2.ui.header {
     font-size: 36px;
     line-height: 1;
+  }
+
+  .secondary-services .column {
+    margin-bottom: 30px;
   }
 }
 

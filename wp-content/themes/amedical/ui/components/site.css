@@ -2979,6 +2979,16 @@ blockquote {
   .hide-for-mobile {
     display: none !important;
   }
+  #about-us-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+  #about-us-text .ui.header.left {
+    text-align: center;
+  }
+  #about-us-text .ui.header.left:before {
+    margin: 30px auto 20px;
+  }
 }
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
