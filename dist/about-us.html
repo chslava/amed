@@ -53,34 +53,36 @@
                   </div>
                   <div class="ui dropdown item">Medicīnas preces
                     <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
-                  </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a>
+                  </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a><a class="item" href="about-us.html">Par mums</a>
                   <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs
                         <!-- <b>22</b>--></span></a></div>
                 </nav>
               </div>
-              <!--.row
-              .ui.secondary.text.stackable.menu.top-menu
-                .item.computer-search
-                  form#desktop-search.ui.icon.input.search
-                    input(placeholder='Meklēt')
-                    i.search.icon
-                a.item(href='content.html') Jaunumi
-                a.item(href='#') Blogs
-                a.item(href='#') Biežāk uzdotie jautājumi
-                a.item(href='about-us.html') Par mums
-                a.item(href='contact-us.html') Kontakti
-              -->
+              <div class="row">
+                <div class="ui secondary text stackable menu top-menu">
+                  <div class="item computer-search">
+                    <form class="ui icon input search" id="desktop-search">
+                      <input placeholder="Meklēt"><i class="search icon"></i>
+                    </form>
+                  </div>
+                  <!--a.item(href='content.html') Jaunumi-->
+                  <!--a.item(href='#') Blogs-->
+                  <!--a.item(href='#') Biežāk uzdotie jautājumi-->
+                  <!--a.item(href='about-us.html') Par mums-->
+                  <!--a.item(href='contact-us.html') Kontakti-->
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
     <main class="ui container about-us page">
-      <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
+      <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
         <div class="divider">//</div>
         <div class="active section">Par mums</div>
       </div>
-      <div class="ui grid">
+      <div class="ui grid" id="about-us-text">
         <div class="ui row">
           <div class="sixteen wide mobile sixteen wide tablet seven wide computer column">
             <h1 class="ui header left decored">Par A Medical
@@ -94,13 +96,13 @@
             </p>
             <p>A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu projektēšanas,funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.</p>
           </div>
-          <div class="sixteen wide mobile sixteen wide tablet nine wide computer column"><img class="ui shadowed image tablet-centered" src="img/about-us.jpg"></div>
+          <div class="sixteen wide mobile sixteen wide tablet nine wide computer column"><img class="ui shadowed image tablet-centered margin-top" id="about-image" src="img/about-us.jpg"></div>
         </div>
       </div>
     </main>
     <section class="secondary-services">
       <div class="ui container">
-        <h2 class="centered ui header">A.Medical darbības virzieni:</h2>
+        <h2 class="centered ui header" id="service-directions">A.Medical darbības virzieni:</h2>
         <div class="ui relaxed grid">
           <div class="sixteen wide mobile eight wide tablet four wide computer column">
             <!--span.circle-checki.icon-check-icon
@@ -137,19 +139,19 @@
     <section class="services">
       <div class="ui container">
         <div class="ui center aligned grid">
-          <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
+          <div class="sixteen wide mobile sixteen wide tablet five wide computer center aligned column">
             <div class="icon-title">
               <div class="service-icon icon-first-icon"></div>
             </div>
             <p>A.Medical uzskata, ka viens no tā veiksmes stūrakmeņiem ir izcila komanda ar uzkrātām zināšanām medicīnas tehnoloģiju,kā arī industriālo un drošības risinājumu nozarēs.</p>
           </div>
-          <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
+          <div class="sixteen wide mobile sixteen wide tablet five wide computer center aligned column">
             <div class="icon-title">
               <div class="service-icon icon-second-icon"></div>
             </div>
             <p>Darbiniekiem tiek nodrošinātas visas nepieciešamās apmācības pie iekārtu ražotājiem, tādējādi A.Medical vienmēr spēj ieteiktklientu vēlmēm un vajadzībām atbilstošākos risinājumus.</p>
           </div>
-          <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
+          <div class="sixteen wide mobile sixteen wide tablet five wide computer center aligned column">
             <div class="icon-title">
               <div class="service-icon icon-third-icon"></div>
             </div>

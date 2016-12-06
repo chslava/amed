@@ -518,7 +518,7 @@ input::selection {
 }
 @media (max-width: 767px) {
   .coo-respose .ui.header.left.decored:before {
-    margin: 0 0 20px 0;
+    margin: 40px auto 20px !important;
   }
   .services .column:last-child .services-item:after {
     display: none;
@@ -607,7 +607,6 @@ input::selection {
   .benefits,
   .represent,
   .home-news {
-    text-align: left;
     margin-top: 75px;
   }
   .benefits .ui.header,
@@ -640,11 +639,7 @@ input::selection {
     font-weight: 700;
     line-height: 44px;
   }
-  .benefits .ui.header.centered {
-    text-align: left;
-  }
   .benefits .ui.header.centered.decored:before {
-    margin-left: 0;
     width: 99px;
   }
   .benefits .content {
@@ -2951,6 +2946,10 @@ blockquote {
   .coo-respose {
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
+    background-size: cover !important;
+    padding-bottom: 4rem !important;
+    margin-bottom: -22px;
+    border-top: 1px solid #e6e6e6;
   }
   .coo-respose > .grid {
     margin: 0;
@@ -2976,6 +2975,9 @@ blockquote {
   }
   .contacts .ui.grid {
     margin-top: 15px;
+  }
+  .hide-for-mobile {
+    display: none !important;
   }
 }
 @media (max-width: 410px) {
@@ -3010,6 +3012,23 @@ blockquote {
   .contacts .ui.grid {
     margin-top: 15px;
   }
+  .about-us {
+    max-width: 600px !important;
+  }
+  #service-directions {
+    font-size: 36px;
+    margin: 5px 0 50px 0;
+  }
+  .coo-respose {
+    margin-top: -34px;
+    padding-bottom: 38px !important;
+    background-size: cover !important;
+    margin-bottom: -24px;
+  }
+  .coo-respose h2.ui.header {
+    font-size: 36px;
+    line-height: 1;
+  }
 }
 i.icon {
   font-size: 19px;
@@ -3026,4 +3045,7 @@ i.icon {
   float: left;
   position: relative;
   top: 3px;
+}
+#about-image {
+  margin-top: 50px !important;
 }
