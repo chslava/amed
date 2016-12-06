@@ -526,6 +526,24 @@ blockquote {
   .benefits {
     margin-top: 60px !important;
   }
+  .about-us ~ .services {
+    border-top: none;
+    position: relative;
+
+    &:before {
+      background: #e6e6e6;
+      width: 240px;
+      height: 1px;
+      margin: 0 auto;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+  }
+
 }
 
 // Special breakpoint
