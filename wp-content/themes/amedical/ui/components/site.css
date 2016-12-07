@@ -1227,7 +1227,7 @@ input::selection {
 }
 .service .circles-list.small li:before,
 .service .content-page .circles-list.small li:before {
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 .service .very.padded {
   margin-top: 0;
@@ -2906,7 +2906,7 @@ blockquote {
   margin-left: 0 !important;
 }
 .circles-list.small li:before {
-  margin-top: -2px;
+  margin-top: -5px;
 }
 @media only screen and (max-width: 1200px) and (min-width: 768px) {
   .secondary-services {
@@ -2937,6 +2937,23 @@ blockquote {
 }
 .contact-address br {
   display: none;
+}
+#service-image {
+  margin-top: 40px;
+}
+#service-phone {
+  margin-top: 30px;
+}
+#service-cta {
+  margin-top: -15px;
+  margin-left: -5px;
+}
+#service-cta-button {
+  line-height: 24px;
+  height: 50px;
+}
+#service-details {
+  margin-top: 20px;
 }
 @media only screen and (max-width: 767px) and (min-width: 320px) {
   .subscribe .ui.primary.button {
@@ -3161,6 +3178,9 @@ blockquote {
     content: '';
     display: block;
     margin: 30px 0;
+  }
+  .services-page {
+    max-width: 600px;
   }
 }
 i.icon {

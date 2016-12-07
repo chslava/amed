@@ -78,13 +78,13 @@
       </div>
     </header>
     <main class="ui container service page">
-      <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
+      <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
         <div class="divider">//</div>
         <div class="active section">Iekārtu serviss</div>
       </div>
       <div class="ui grid">
         <div class="ui row">
-          <div class="sixteen wide mobile eight wide tablet nine wide computer column">
+          <div class="sixteen wide mobile sixteen wide tablet nine wide computer column">
             <h1 class="ui left header decored">Serviss</h1>
             <p class="service-text">
               A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
@@ -97,12 +97,13 @@
               <li>Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā</li>
               <li>Garantēta ātra inženieru ierašanās</li>
               <li>Iespējama iekārtu aizvietošana</li>
+              <li>Papildus 10% atlaidi produktiem un pakalpojumiem</li>
             </ul>
           </div>
-          <div class="sixteen wide mobile eight wide tablet seven wide computer column"><img class="ui shadowed centered image" src="img/service-img.jpg"></div>
+          <div class="sixteen wide mobile sixteen wide tablet seven wide computer column"><img class="ui shadowed centered image" id="service-image" src="img/service-img.jpg"></div>
         </div>
-        <div class="stretched very padded row">
-          <div class="sixteen wide mobile eight wide tablet eleven wide computer column">
+        <div class="stretched very padded row" id="service-details">
+          <div class="sixteen wide mobile sixteen wide tablet eleven wide computer column">
             <h2 class="ui left header decored">Salabosim jebko</h2>
             <p>
               A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
@@ -111,13 +112,13 @@
               zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
               servisam, IT risinājumu pārvaldībai u.c.
             </p>
-            <div class="ui basic compact segment">
-              <h3 class="large">Vēlies realizēt projectu?</h3>
-              <p><a class="ui basic fluid button">Sazinies ar mums</a></p>
+            <div class="ui basic compact segment" id="service-cta">
+              <h3 class="large">Vēlies realizēt projektu?</h3>
+              <p><a class="ui basic fluid button" id="service-cta-button">Sazinies ar mums</a></p>
             </div>
           </div>
-          <div class="sixteen wide mobile eight wide tablet five wide computer column">
-            <div class="ui raised center aligned padded segment">
+          <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+            <div class="ui raised center aligned padded segment" id="service-phone">
               <div class="benefits-icon icon-service-phone-icon"></div>
               <div class="large title">Servisa tālrunis</div>
               <div class="large title">+371 66103003</div>

@@ -423,7 +423,7 @@ blockquote {
 }
 
 .circles-list.small li:before {
-  margin-top: -2px;
+  margin-top: -5px;
 }
 
 // Tablet
@@ -462,6 +462,30 @@ blockquote {
 
 .contact-address br {
   display: none;
+}
+
+
+// Service page
+#service-image {
+  margin-top: 40px;
+}
+
+#service-phone {
+  margin-top: 30px;
+}
+
+#service-cta {
+  margin-top: -15px;
+  margin-left: -5px;
+}
+
+#service-cta-button {
+  line-height: 24px;
+  height: 50px;
+}
+
+#service-details {
+  margin-top: 20px;
 }
 
 // Mobile
@@ -592,6 +616,51 @@ blockquote {
     }
   }
 
+  .service.page {
+    text-align: center;
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    margin-bottom: 50px;
+
+    .ui.header.left.decored {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+      &:before {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+
+    .circles-list.small li {
+      line-height: 20px;
+      text-align: left;
+      font-size: 12px;
+      &:before {
+        line-height: 40px;
+      }
+    }
+  }
+  #service-image {
+    margin-top: 0 !important;
+    margin-bottom: 50px;
+  }
+  #service-cta {
+    margin-top: 5px;
+    margin-left: auto;
+    h3 {
+      font-size: 20px !important;
+    }
+  }
+  #service-cta-button {
+    max-width: 200px;
+  }
+  #service-phone {
+    margin-top: 0;
+    min-height: 225px;
+    margin-right: -1em;
+  }
+
 }
 
 // Special breakpoint
@@ -693,6 +762,19 @@ blockquote {
     display: block;
     margin: 30px 0;
   }
+  .service.page {
+    max-width: 600px !important;
+    margin-bottom: 115px;
+  }
+  #service-cta {
+    margin-top: 5px;
+  }
+  #service-cta-button {
+    margin-top: 20px;
+  }
+  #service-phone {
+    min-height: 225px;
+  }
 
 }
 
@@ -729,3 +811,4 @@ i.icon {
   position: relative;
   top: 15px;
 }
+

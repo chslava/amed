@@ -40,13 +40,13 @@ block content
     //-                     div.large.title Servisa tālrunis
     //-                     div.large.title +371 66103003
     main.ui.container.service.page
-      .ui.breadcrumb
+      .ui.breadcrumb.hide-for-tablet.hide-for-mobile
         a.section(href='index.html') Sākums
         .divider //
         .active.section Iekārtu serviss
       .ui.grid
         .ui.row
-          .sixteen.wide.mobile.eight.wide.tablet.nine.wide.computer.column
+          .sixteen.wide.mobile.sixteen.wide.tablet.nine.wide.computer.column
             h1.ui.left.header.decored Serviss
             p.service-text
               | A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī
@@ -58,10 +58,11 @@ block content
               li Iekārtu pagarināto garantiju visā iekārtas kalpošanas laikā
               li Garantēta ātra inženieru ierašanās
               li Iespējama iekārtu aizvietošana
-          .sixteen.wide.mobile.eight.wide.tablet.seven.wide.computer.column
-            img.ui.shadowed.centered.image(src='img/service-img.jpg')
-        .stretched.very.padded.row
-          .sixteen.wide.mobile.eight.wide.tablet.eleven.wide.computer.column
+              li Papildus 10% atlaidi produktiem un pakalpojumiem
+          .sixteen.wide.mobile.sixteen.wide.tablet.seven.wide.computer.column
+            img.ui.shadowed.centered.image#service-image(src='img/service-img.jpg')
+        .stretched.very.padded.row#service-details
+          .sixteen.wide.mobile.sixteen.wide.tablet.eleven.wide.computer.column
             h2.ui.left.header.decored Salabosim jebko
             p
               | A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai
@@ -69,12 +70,12 @@ block content
               | neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai,
               | zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu
               | servisam, IT risinājumu pārvaldībai u.c.
-            .ui.basic.compact.segment
-              h3.large Vēlies realizēt projectu?
+            .ui.basic.compact.segment#service-cta
+              h3.large Vēlies realizēt projektu?
               p
-                a.ui.basic.fluid.button Sazinies ar mums
-          .sixteen.wide.mobile.eight.wide.tablet.five.wide.computer.column
-            .ui.raised.center.aligned.padded.segment
+                a.ui.basic.fluid.button#service-cta-button Sazinies ar mums
+          .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column
+            .ui.raised.center.aligned.padded.segment#service-phone
               .benefits-icon.icon-service-phone-icon
               .large.title Servisa tālrunis
               .large.title +371 66103003
