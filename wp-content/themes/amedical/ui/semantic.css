@@ -1873,7 +1873,7 @@ input::selection {
   position: absolute;
   right: 0;
   top: 0;
-  width: 60%;
+  width: 62%;
   float: left;
   background: lightgoldenrodyellow;
   z-index: 10;
@@ -2075,8 +2075,8 @@ main.page > .grid {
   }
 
   .contact-form {
-    margin-top: 64px;
-    padding: 2rem 0 5rem;
+    margin-top: 100px;
+    padding: 2rem 0 6.5rem;
   }
 
   .contact-form .ui.header.left.decored:before {
@@ -2210,11 +2210,11 @@ main.page > .grid {
 
 @media (min-width: 1440px) {
   .contacts .info {
-    width: 35%;
+    width: 38%;
   }
 
   .contacts .map {
-    width: 65%;
+    width: 62%;
   }
 }
 
@@ -3913,14 +3913,25 @@ blockquote {
   }
 }
 
+.contact-address br {
+  display: none;
+}
+
 @media only screen and (max-width: 767px) and (min-width: 320px) {
   .subscribe .ui.primary.button {
     margin-top: 0;
   }
 
+  .secondary-services {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   .secondary-services .content {
-    max-width: 400px;
     margin-top: 12px;
+    max-width: 190px;
+    vertical-align: middle;
+    display: table-cell;
   }
 
   .coo-respose {
@@ -3930,6 +3941,8 @@ blockquote {
     padding-bottom: 4rem !important;
     margin-bottom: -22px;
     border-top: 1px solid #e6e6e6;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .coo-respose > .grid {
@@ -3981,6 +3994,28 @@ blockquote {
   #about-us-text .ui.header.left:before {
     margin: 30px auto 20px;
   }
+
+  .benefits {
+    margin-top: 60px !important;
+  }
+
+  .about-us ~ .services {
+    border-top: none;
+    position: relative;
+  }
+
+  .about-us ~ .services:before {
+    background: #e6e6e6;
+    width: 240px;
+    height: 1px;
+    margin: 0 auto;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 410px) {
@@ -3991,8 +4026,8 @@ blockquote {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .services .column {
-    border-bottom: 1px solid #e7e7e7;
     margin-bottom: 20px;
+    max-width: 370px;
   }
 
   #header .logo {
@@ -4030,19 +4065,62 @@ blockquote {
 
   #service-directions {
     font-size: 36px;
-    margin: 5px 0 50px 0;
+    margin: 20px 0 60px 0;
   }
 
   .coo-respose {
     margin-top: -34px;
-    padding-bottom: 38px !important;
+    padding-bottom: 55px !important;
     background-size: cover !important;
     margin-bottom: -24px;
+    border-top: 1px solid #e6e6e6;
   }
 
   .coo-respose h2.ui.header {
     font-size: 36px;
     line-height: 1;
+  }
+
+  .secondary-services .column {
+    margin-bottom: 30px;
+  }
+
+  .contact-address {
+    margin-top: 40px !important;
+  }
+
+  .contact-details {
+    margin-top: 46px;
+  }
+
+  .contact-address h1,
+  .contact-details h2 {
+    font-size: 36px !important;
+  }
+
+  .contact-address br {
+    display: block;
+  }
+
+  .contacts .ui.container {
+    max-width: 600px;
+  }
+
+  .contacts {
+    margin-top: -15px;
+  }
+
+  .contact-form input {
+    max-width: 300px;
+  }
+
+  .contact-form textarea {
+    max-width: 460px;
+  }
+
+  #contact-image {
+    float: left;
+    margin-top: 30px;
   }
 }
 
@@ -4068,6 +4146,15 @@ i.icon {
 
 #about-image {
   margin-top: 50px !important;
+}
+
+.contact-address {
+  margin-top: 30px;
+}
+
+#contacts-divider {
+  position: relative;
+  top: 15px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button

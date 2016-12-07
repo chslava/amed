@@ -31,23 +31,23 @@ block content
     main.contacts
       .ui.container
           .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column
-            .ui.breadcrumb
+            .ui.breadcrumb.hide-for-tablet.hide-for-mobile
               a.section(href='index.html') Sākums
               .divider //
               .active.section Kontakti
 
           .ui.grid
-              .eight.wide.tablet.sixteen.wide.desktop.column
+              .eight.wide.tablet.sixteen.wide.desktop.column.contact-address
                 h1.ui.header Kontakti
-                p Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067
+                p Adrese: Varkaļu iela 13A, <br />Rīga, Latvija, LV-1067
                 p Tālrunis: 66103003, 20277153
                 p Fakss: 66103010
                 p
                   | E-pasts:
                   a(href='mailto:info@amedical.eu') info@amedical.eu
                 p Darba laiks: 8:30 - 17:30
-                .ui.divider.hide-for-tablet
-              .eight.wide.tablet.sixteen.wide.desktop.column
+                .ui.divider.hide-for-tablet#contacts-divider
+              .eight.wide.tablet.sixteen.wide.desktop.column.contact-details
                 h2.ui.header Rekvizīti
                 p SIA "A.Medical"
                 p PVN reģ. Nr. LV 40103599415
@@ -87,8 +87,8 @@ block content
     section.contact-form
      .ui.container
        .ui.grid
-         .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-           h2.left.ui.header.decored Sazinies ar mums
+         .sixteen.wide.mobile.sixteen.wide.tablet.eight.wide.computer.column
+           h2.left.ui.header.decored.mobile-centered Sazinies ar mums
            form.ui.form
              .sixteen.wide.mobile.field.eight.wide.computer.field
                label Vārds un uzvārds
@@ -106,8 +106,8 @@ block content
                label Jūsu ziņa
                textarea
              button.ui.huge.primary.button(type='submit') Nosūtīt
-         .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-           img.ui.shadowed.image(src='img/contact-us.jpg')
+         .sixteen.wide.mobile.sixteen.wide.tablet.eight.wide.computer.column
+           img.ui.shadowed.image#contact-image(src='img/contact-us.jpg')
 
 
     include sections/subscribe

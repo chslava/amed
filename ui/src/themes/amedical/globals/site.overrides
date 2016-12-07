@@ -460,6 +460,10 @@ blockquote {
 
 }
 
+.contact-address br {
+  display: none;
+}
+
 // Mobile
 @media only screen and (max-width: 767px) and (min-width: 320px) {
   .subscribe .ui.primary.button {
@@ -489,7 +493,7 @@ blockquote {
     margin: 0;
   }
   .contacts {
-    margin-top: 30px;
+    margin-top: -15px;
   }
   .secondary-services {
     margin-bottom: 65px;
@@ -543,6 +547,42 @@ blockquote {
 
     }
   }
+  .contact-address, .contact-details {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    p {
+      font-size: 12px !important;
+      line-height: 20px !important;
+    }
+  }
+  #contacts-divider {
+    top: 8px !important;
+  }
+  .contact-address h1, .contact-details h2 {
+    font-size: 26px !important;
+  }
+  .contact-form {
+    margin-top: 45px;
+  }
+  .contact-form textarea {
+    max-height: 140px !important;
+  }
+  .contact-form .button {
+    margin-top: 15px !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px !important;
+
+  }
+  .mobile-centered {
+    text-align: center !important;
+    &:before {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
 
 }
 
@@ -601,9 +641,41 @@ blockquote {
       line-height: 1;
     }
   }
-
   .secondary-services .column {
     margin-bottom: 30px;
+  }
+  .contact-address {
+    margin-top: 40px !important;
+  }
+  .contact-details {
+    margin-top: 46px;
+  }
+  .contact-address h1, .contact-details h2 {
+    font-size: 36px !important;
+  }
+  .contact-address br {
+    display: block;
+  }
+  .contacts .ui.container {
+    max-width: 600px;
+  }
+  .contacts {
+    margin-top: -15px;
+  }
+  .contact-form {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-form input {
+    max-width: 300px;
+  }
+  .contact-form textarea {
+    max-width: 460px;
+  }
+  #contact-image {
+    float: left;
+    margin-top: 30px;
   }
 
 }
@@ -631,4 +703,13 @@ i.icon {
 
 #about-image {
   margin-top: 50px !important;
+}
+
+.contact-address {
+  margin-top: 30px;
+}
+
+#contacts-divider {
+  position: relative;
+  top: 15px;
 }

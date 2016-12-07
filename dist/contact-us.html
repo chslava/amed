@@ -80,22 +80,22 @@
     <main class="contacts">
       <div class="ui container">
         <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
-          <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
+          <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
             <div class="divider">//</div>
             <div class="active section">Kontakti</div>
           </div>
         </div>
         <div class="ui grid">
-          <div class="eight wide tablet sixteen wide desktop column">
+          <div class="eight wide tablet sixteen wide desktop column contact-address">
             <h1 class="ui header">Kontakti</h1>
-            <p>Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067</p>
+            <p>Adrese: Varkaļu iela 13A, <br />Rīga, Latvija, LV-1067</p>
             <p>Tālrunis: 66103003, 20277153</p>
             <p>Fakss: 66103010</p>
             <p>E-pasts:<a href="mailto:info@amedical.eu">info@amedical.eu</a></p>
             <p>Darba laiks: 8:30 - 17:30</p>
-            <div class="ui divider hide-for-tablet"></div>
+            <div class="ui divider hide-for-tablet" id="contacts-divider"></div>
           </div>
-          <div class="eight wide tablet sixteen wide desktop column">
+          <div class="eight wide tablet sixteen wide desktop column contact-details">
             <h2 class="ui header">Rekvizīti</h2>
             <p>SIA "A.Medical"</p>
             <p>PVN reģ. Nr. LV 40103599415</p>
@@ -112,8 +112,8 @@
     <section class="contact-form">
       <div class="ui container">
         <div class="ui grid">
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-            <h2 class="left ui header decored">Sazinies ar mums</h2>
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+            <h2 class="left ui header decored mobile-centered">Sazinies ar mums</h2>
             <form class="ui form">
               <div class="sixteen wide mobile field eight wide computer field">
                 <label>Vārds un uzvārds</label>
@@ -138,7 +138,7 @@
               <button class="ui huge primary button" type="submit">Nosūtīt</button>
             </form>
           </div>
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed image" src="img/contact-us.jpg"></div>
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column"><img class="ui shadowed image" id="contact-image" src="img/contact-us.jpg"></div>
         </div>
       </div>
     </section>
