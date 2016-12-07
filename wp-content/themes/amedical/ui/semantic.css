@@ -2003,7 +2003,7 @@ main.page > .grid {
     width: 100%;
     float: none;
     background: lightgoldenrodyellow;
-    min-height: 400px;
+    min-height: 300px;
     z-index: 10;
     margin-top: 2rem;
   }
@@ -3950,7 +3950,7 @@ blockquote {
   }
 
   .contacts {
-    margin-top: 30px;
+    margin-top: -15px;
   }
 
   .secondary-services {
@@ -4015,6 +4015,64 @@ blockquote {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+  }
+
+  .contact-address,
+  .contact-details {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  .contact-address p,
+  .contact-details p {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+
+  #contacts-divider {
+    top: 8px !important;
+  }
+
+  .contact-address h1,
+  .contact-details h2 {
+    font-size: 26px !important;
+  }
+
+  .contact-form {
+    margin-top: 45px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .contact-form textarea {
+    max-height: 140px !important;
+  }
+
+  .contact-form .button {
+    margin-top: 15px !important;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 180px !important;
+  }
+
+  .mobile-centered {
+    text-align: center !important;
+  }
+
+  .mobile-centered:before {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-address a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .contact-address a:hover {
+    color: #ff6b01;
   }
 }
 
@@ -4090,7 +4148,7 @@ blockquote {
   }
 
   .contact-details {
-    margin-top: 46px;
+    margin-top: 47px;
   }
 
   .contact-address h1,
@@ -4110,6 +4168,12 @@ blockquote {
     margin-top: -15px;
   }
 
+  .contact-form {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .contact-form input {
     max-width: 300px;
   }
@@ -4121,6 +4185,16 @@ blockquote {
   #contact-image {
     float: left;
     margin-top: 30px;
+  }
+
+  .contact-details h2 {
+    margin-bottom: 24px !important;
+  }
+
+  .contact-details br {
+    content: '';
+    display: block;
+    margin: 30px 0;
   }
 }
 
