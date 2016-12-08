@@ -1118,11 +1118,10 @@ input::selection {
     padding-bottom: 90px;
   }
   .secondary-services .ui.header {
-    margin-bottom: 37px;
+    margin-bottom: 0;
   }
   .secondary-services + section {
-    padding-top: 100px;
-    padding-bottom: 87px;
+    padding-bottom: 40px;
   }
   .secondary-services + section .segment {
     float: right;
@@ -2938,8 +2937,33 @@ blockquote {
 .contact-address br {
   display: none;
 }
-#service-image {
+#service-image,
+#projects-image {
   margin-top: 40px;
+}
+#projects-image {
+  width: 460px;
+}
+#projects-details {
+  margin-top: -60px;
+}
+.secondary-services {
+  margin-top: 80px;
+}
+#services-additional p {
+  max-width: 700px;
+}
+#services-cta {
+  position: relative;
+  top: 15px;
+  height: 280px;
+}
+#services-cta h3 {
+  margin: 20px 0;
+}
+#services-cta .button {
+  height: 50px;
+  line-height: 25px;
 }
 #service-phone {
   margin-top: 30px;
@@ -2954,6 +2978,14 @@ blockquote {
 }
 #service-details {
   margin-top: 20px;
+}
+#service-images {
+  text-align: center;
+  margin-top: 40px;
+}
+#service-images img {
+  padding: 10px;
+  max-width: 380px;
 }
 @media only screen and (max-width: 767px) and (min-width: 320px) {
   .subscribe .ui.primary.button {
@@ -3083,6 +3115,109 @@ blockquote {
   .contact-address a:hover {
     color: #ff6b01;
   }
+  .service.page,
+  .projects.page {
+    text-align: center;
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    margin-bottom: 50px;
+  }
+  .service.page .ui.header.left.decored,
+  .projects.page .ui.header.left.decored {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .service.page .ui.header.left.decored:before,
+  .projects.page .ui.header.left.decored:before {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .service.page .circles-list.small li,
+  .projects.page .circles-list.small li {
+    line-height: 20px;
+    text-align: left;
+    font-size: 12px;
+  }
+  .service.page .circles-list.small li:before,
+  .projects.page .circles-list.small li:before {
+    line-height: 40px;
+  }
+  .projects.page .circles-list {
+    margin: 0 50px;
+  }
+  .projects.page .circles-list li {
+    line-height: 35px !important;
+  }
+  #projects-details {
+    margin-top: -15px;
+  }
+  .secondary-services {
+    margin-top: 0;
+    padding-top: 65px;
+    margin-bottom: 0;
+  }
+  #services-additional {
+    margin-top: -30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+  }
+  #services-additional h2 {
+    text-align: center;
+    font-size: 26px !important;
+  }
+  #services-additional h2:before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  #services-cta {
+    height: 175px;
+    top: 30px;
+  }
+  #services-cta h3 {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  #services-cta .button {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  #services-additional {
+    margin-bottom: -50px;
+  }
+  #service-image {
+    margin-top: 0 !important;
+    margin-bottom: 50px;
+  }
+  #projects-image {
+    margin-top: 40px !important;
+    margin-bottom: 25px;
+  }
+  #service-cta {
+    margin-top: 5px;
+    margin-left: auto;
+  }
+  #service-cta h3 {
+    font-size: 20px !important;
+  }
+  #service-cta-button {
+    max-width: 200px;
+  }
+  #service-phone {
+    margin-top: 0;
+    min-height: 225px;
+    margin-right: -1em;
+  }
+  #service-images {
+    margin-top: 20px;
+  }
+  #service-images img {
+    padding: 5px;
+    max-width: 270px;
+    margin-left: -15px;
+  }
 }
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
@@ -3116,7 +3251,8 @@ blockquote {
   .contacts .ui.grid {
     margin-top: 15px;
   }
-  .about-us {
+  .about-us,
+  .projects.page {
     max-width: 600px !important;
   }
   #service-directions {
@@ -3179,8 +3315,64 @@ blockquote {
     display: block;
     margin: 30px 0;
   }
-  .services-page {
-    max-width: 600px;
+  .service.page {
+    max-width: 600px !important;
+    margin-bottom: 115px;
+  }
+  #service-cta {
+    margin-top: 5px;
+  }
+  #service-cta-button {
+    margin-top: 20px;
+  }
+  #service-phone {
+    min-height: 225px;
+  }
+  #projects-details {
+    margin-top: -10px;
+  }
+  #projects-image {
+    float: left;
+    margin-top: 60px !important;
+  }
+  .secondary-services {
+    padding-top: 80px;
+  }
+  .secondary-services h2 {
+    font-size: 36px !important;
+  }
+  #service-image-container .sixteen.wide.tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #service-images {
+    margin-top: 0;
+  }
+  #service-images img {
+    max-width: 290px;
+  }
+  #services-additional {
+    margin-bottom: 0 !important;
+  }
+  #services-additional .very.padded {
+    margin-top: 10px !important;
+  }
+  #services-additional h2 {
+    font-size: 36px !important;
+    margin-bottom: 10px;
+    line-height: 60px;
+  }
+  #services-cta {
+    margin-top: 30px;
+    height: 205px;
+  }
+  #services-cta h3 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  #services-cta .button {
+    width: 280px !important;
+    margin: 0 auto;
   }
 }
 i.icon {

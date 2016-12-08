@@ -78,13 +78,13 @@
       </div>
     </header>
     <main class="ui container projects page">
-      <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
+      <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
         <div class="divider">//</div>
         <div class="active section">Projektēšana</div>
       </div>
       <div class="ui grid">
         <div class="ui row">
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
             <h1 class="ui left header decored">Projektēšana</h1>
             <p>A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpuprojektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.</p>
             <ul class="small circles-list">
@@ -92,34 +92,48 @@
               <li>Plašākā iekārtu izvēle</li>
               <li>Cits ieguvums</li>
             </ul>
-            <h2 class="ui left header decored">Visa veida projektēšana</h2>
+            <h2 class="ui left header decored" id="projects-details">Visa veida projektēšana</h2>
             <p>Operāciju zālēm, intensīvās terapijas un reanimācijas nodaļām, neonatoloģijas nodaļām, morgu un patanatomijas nodaļām,centrālās sterilizācijas nodaļām u.c.</p>
           </div>
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed centered image" src="img/projects-img.jpg"></div>
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column"><img class="ui shadowed centered image" id="projects-image" src="img/projects-img.jpg"></div>
         </div>
       </div>
     </main>
     <section class="secondary-services">
       <div class="ui container">
         <h2 class="ui header centered decored">Plašs aprīkojums</h2>
-        <div class="ui stackable grid">
-          <div class="center aligned ten wide centered column">
+        <div class="ui stackable grid" id="service-image-container">
+          <div class="center aligned sixteen wide tablet ten wide desktop centered column">
             <p>
               Māsu izsaukuma sistēmām, medicīnas gāzes sistēmām, sterilizācijas iekārtām, gaisa attīrīšanas risinājumiem,
               vizuālo diagnostiku (US, RTG, CR, DR, CT, MRI), iekārtām onkoloģijai, dezinfekcijai, dermatoloģijai,
               funkcionālai diagnostikai, LOR, stomatoloģijai, uroloģijai,  u.c.
             </p>
           </div>
-          <div class="three column row"><img class="ui image column" src="img/projects/1.jpg"><img class="ui image column" src="img/projects/2.jpg"><img class="ui image column" src="img/projects/3.jpg"></div>
-          <div class="three column row"><img class="ui image column" src="img/projects/1.jpg"><img class="ui image column" src="img/projects/2.jpg"><img class="ui image column" src="img/projects/3.jpg"></div>
+        </div>
+        <div class="ui two wide tablet three wide desktop row" id="service-images"><img src="img/projects/1.jpg"><img src="img/projects/2.jpg"><img src="img/projects/3.jpg"><img src="img/projects/1.jpg"><img src="img/projects/2.jpg"><img src="img/projects/3.jpg">
+          <!--.ui.two.wide.tablet.three.wide.desktop.row.grid
+            img.ui.image.column(src='img/projects/1.jpg')
+            img.ui.image.column(src='img/projects/2.jpg')
+            img.ui.image.column(src='img/projects/3.jpg')
+            img.ui.image.column(src='img/projects/3.jpg')
+          //.row
+            img.ui.image.column(src='img/projects/1.jpg')
+            img.ui.image.column(src='img/projects/2.jpg')
+            img.ui.image.column(src='img/projects/3.jpg')
+          
+          
+          
+          
+          -->
         </div>
       </div>
     </section>
-    <section class="ui container">
+    <section class="ui container" id="services-additional">
       <div class="ui grid">
         <!-- added classes .stretched very padded row-->
         <div class="ui stretched very padded row">
-          <div class="sixteen wide mobile eight wide tablet ten wide computer column">
+          <div class="sixteen wide mobile sixteen wide tablet ten wide computer column">
             <h2 class="ui left header decored">Vēl apraksts</h2>
             <p>
               A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas
@@ -131,9 +145,9 @@
               tehnoloģiskos risinājumus.
             </p>
           </div>
-          <div class="sixteen wide mobile eight wide tablet six wide computer column">
-            <div class="ui raised center aligned padded segment">
-              <h3 class="title padded large">Vēlies realizēt projectu?</h3>
+          <div class="sixteen wide mobile sixteen wide tablet six wide computer column">
+            <div class="ui raised center aligned padded segment" id="services-cta">
+              <h3 class="title padded large">Vēlies realizēt projektu?</h3>
               <p><a class="ui basic fluid button">Sazinies ar mums</a></p>
             </div>
           </div>

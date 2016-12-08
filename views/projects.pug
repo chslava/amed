@@ -25,13 +25,13 @@ block content
     //-                 img(src="img/projects-img.jpg").ui.shadowed.centered.image
 
     main.ui.container.projects.page
-          .ui.breadcrumb
+          .ui.breadcrumb.hide-for-tablet.hide-for-mobile
             a.section(href='index.html') Sākums
             .divider //
             .active.section Projektēšana
           .ui.grid
             .ui.row
-              .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+              .sixteen.wide.mobile.sixteen.wide.tablet.eight.wide.computer.column
                 h1.ui.left.header.decored Projektēšana
                 p
                   | A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpuprojektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
@@ -39,11 +39,11 @@ block content
                   li 10 gadu pieredze
                   li Plašākā iekārtu izvēle
                   li Cits ieguvums
-                h2.ui.left.header.decored Visa veida projektēšana
+                h2.ui.left.header.decored#projects-details Visa veida projektēšana
                 p
                   | Operāciju zālēm, intensīvās terapijas un reanimācijas nodaļām, neonatoloģijas nodaļām, morgu un patanatomijas nodaļām,centrālās sterilizācijas nodaļām u.c.
-              .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
-                img.ui.shadowed.centered.image(src='img/projects-img.jpg')
+              .sixteen.wide.mobile.sixteen.wide.tablet.eight.wide.computer.column
+                img.ui.shadowed.centered.image#projects-image(src='img/projects-img.jpg')
 
     //- section.secondary-services
     //-     div.ui.container
@@ -64,20 +64,28 @@ block content
     section.secondary-services
       .ui.container
         h2.ui.header.centered.decored Plašs aprīkojums
-        .ui.stackable.grid
-          .center.aligned.ten.wide.centered.column
+        .ui.stackable.grid#service-image-container
+          .center.aligned.sixteen.wide.tablet.ten.wide.desktop.centered.column
             p
               | Māsu izsaukuma sistēmām, medicīnas gāzes sistēmām, sterilizācijas iekārtām, gaisa attīrīšanas risinājumiem,
               | vizuālo diagnostiku (US, RTG, CR, DR, CT, MRI), iekārtām onkoloģijai, dezinfekcijai, dermatoloģijai,
               | funkcionālai diagnostikai, LOR, stomatoloģijai, uroloģijai,  u.c.
-          .three.column.row
-            img.ui.image.column(src='img/projects/1.jpg')
-            img.ui.image.column(src='img/projects/2.jpg')
-            img.ui.image.column(src='img/projects/3.jpg')
-          .three.column.row
-            img.ui.image.column(src='img/projects/1.jpg')
-            img.ui.image.column(src='img/projects/2.jpg')
-            img.ui.image.column(src='img/projects/3.jpg')
+        .ui.two.wide.tablet.three.wide.desktop.row#service-images
+          img(src='img/projects/1.jpg')
+          img(src='img/projects/2.jpg')
+          img(src='img/projects/3.jpg')
+          img(src='img/projects/1.jpg')
+          img(src='img/projects/2.jpg')
+          img(src='img/projects/3.jpg')
+          //.ui.two.wide.tablet.three.wide.desktop.row.grid
+              img.ui.image.column(src='img/projects/1.jpg')
+              img.ui.image.column(src='img/projects/2.jpg')
+              img.ui.image.column(src='img/projects/3.jpg')
+              img.ui.image.column(src='img/projects/3.jpg')
+            //.row
+              img.ui.image.column(src='img/projects/1.jpg')
+              img.ui.image.column(src='img/projects/2.jpg')
+              img.ui.image.column(src='img/projects/3.jpg')
 
 
 
@@ -99,11 +107,11 @@ block content
                         h3.title.padded.large Vēlies realizēt projectu?
                         p
                             a.ui.basic.fluid.button Sazinies ar mums
-    section.ui.container
+    section.ui.container#services-additional
       .ui.grid
         // added classes .stretched very padded row
         .ui.stretched.very.padded.row
-          .sixteen.wide.mobile.eight.wide.tablet.ten.wide.computer.column
+          .sixteen.wide.mobile.sixteen.wide.tablet.ten.wide.computer.column
             h2.ui.left.header.decored Vēl apraksts
             p
               | A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas
@@ -113,9 +121,9 @@ block content
               | kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu
               | projektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus
               | tehnoloģiskos risinājumus.
-          .sixteen.wide.mobile.eight.wide.tablet.six.wide.computer.column
-            .ui.raised.center.aligned.padded.segment
-              h3.title.padded.large Vēlies realizēt projectu?
+          .sixteen.wide.mobile.sixteen.wide.tablet.six.wide.computer.column
+            .ui.raised.center.aligned.padded.segment#services-cta
+              h3.title.padded.large Vēlies realizēt projektu?
               p
                 a.ui.basic.fluid.button Sazinies ar mums
 
