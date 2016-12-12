@@ -2862,10 +2862,11 @@ blockquote {
 .content-page .circles-list.small li,
 .circles-list.small li {
   min-height: 55px;
-  line-height: 40px;
+  line-height: 33px;
 }
 .content-page .circles-list.small li:before,
 .circles-list.small li:before {
+  line-height: 40px;
   width: 40px;
   height: 40px;
   font-size: 13px;
@@ -2941,7 +2942,12 @@ blockquote {
 #projects-image {
   margin-top: 40px;
 }
-#projects-image {
+.service.page .ui.header.left.decored:before,
+.projects.page .ui.header.left.decored:before {
+  margin-top: 32px;
+}
+#projects-image,
+#service-image {
   width: 460px;
 }
 #projects-details {
@@ -2949,6 +2955,10 @@ blockquote {
 }
 .secondary-services {
   margin-top: 80px;
+}
+.secondary-services p {
+  max-width: 700px;
+  margin: 0 auto;
 }
 #services-additional p {
   max-width: 700px;
@@ -2985,7 +2995,11 @@ blockquote {
 }
 #service-images img {
   padding: 10px;
+  padding-top: 5px;
   max-width: 380px;
+}
+#service-cta h3 {
+  margin: 10px 0 25px 0;
 }
 @media only screen and (max-width: 767px) and (min-width: 320px) {
   .subscribe .ui.primary.button {
@@ -3218,6 +3232,15 @@ blockquote {
     max-width: 270px;
     margin-left: -15px;
   }
+  #service-details {
+    margin-top: -20px;
+  }
+  .projects.page p {
+    font-size: 12px;
+  }
+  #projects-details {
+    font-size: 20px;
+  }
 }
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
@@ -3373,6 +3396,18 @@ blockquote {
   #services-cta .button {
     width: 280px !important;
     margin: 0 auto;
+  }
+  #service-image {
+    float: left;
+  }
+  #service-details {
+    margin-top: 0;
+  }
+  #service-details h2 {
+    font-size: 36px;
+  }
+  #service-details h2:before {
+    margin: 20px 0 25px 0;
   }
 }
 i.icon {
