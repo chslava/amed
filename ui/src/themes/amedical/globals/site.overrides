@@ -185,7 +185,7 @@ main.page {
 
     ~ .benefits.very.padded {
       margin-bottom: 36px;
-      margin-top: 0;
+      margin-top: 50px;
     }
 
     ~ .coo-respose {
@@ -221,6 +221,10 @@ main.page {
   .service .benefits-icon {
     margin-top:60px;
     font-size:60px;
+  }
+
+  .secondary-services .ui.container {
+    width: 1200px;
   }
 }
 
@@ -419,8 +423,8 @@ blockquote {
   margin-left: 0 !important;
 }
 
-.contacts {
-  //margin-top: 15px;
+.bx-wrapper img {
+  height: auto;
 }
 
 .circles-list.small li:before {
@@ -534,7 +538,7 @@ blockquote {
   img {
     padding: 10px;
     padding-top: 5px;
-    max-width: 380px;
+    max-width: 400px;
   }
 }
 
@@ -958,6 +962,10 @@ blockquote {
     &:before {
       margin: 20px 0 25px 0;
     }
+  }
+
+  .secondary-services p {
+    max-width: 600px;
   }
 
 }

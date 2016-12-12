@@ -1661,10 +1661,6 @@ input::selection {
     margin: 0;
   }
 
-  .represent .bx-wrapper .bx-controls-direction {
-    display: none;
-  }
-
   .represent .ui.primary.button {
     display: block;
     padding-left: 46px;
@@ -1981,7 +1977,7 @@ main.page > .grid {
 
 .projects img.ui.shadowed.image,
 .service img.ui.shadowed.image {
-  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -20px 0 #e6e6e6;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -17px 0 #e6e6e6;
   width: 100%;
 }
 
@@ -3618,7 +3614,7 @@ main.page > .grid {
 
   .about-us ~ .benefits.very.padded {
     margin-bottom: 36px;
-    margin-top: 0;
+    margin-top: 50px;
   }
 
   .about-us ~ .coo-respose {
@@ -3656,6 +3652,10 @@ main.page > .grid {
   .service .benefits-icon {
     margin-top: 60px;
     font-size: 60px;
+  }
+
+  .secondary-services .ui.container {
+    width: 1200px;
   }
 }
 
@@ -3878,6 +3878,10 @@ blockquote {
   margin-left: 0 !important;
 }
 
+.bx-wrapper img {
+  height: auto;
+}
+
 .circles-list.small li:before {
   margin-top: -5px;
 }
@@ -3990,7 +3994,7 @@ blockquote {
 #service-images img {
   padding: 10px;
   padding-top: 5px;
-  max-width: 380px;
+  max-width: 400px;
 }
 
 #service-cta h3 {
@@ -4507,6 +4511,10 @@ blockquote {
 
   #service-details h2:before {
     margin: 20px 0 25px 0;
+  }
+
+  .secondary-services p {
+    max-width: 600px;
   }
 }
 
