@@ -12,7 +12,9 @@ get_header();
                 <div class="ui row">
                     <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
                         <h1 class="ui left header decored"><?php the_title(); ?></h1>
-                        <?Php the_content(); ?>
+                        <?Php $content = apply_filters('the_content', get_the_content()); ?>
+                        <?php $content = str_replace("<p>",'<p class="service-text">',$content);?>
+                        <?= $content; ?>
                     </div>
                     <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
                         <?php the_post_thumbnail("service-side-content-image",array("class"=>"ui shadowed centered image")); ?>
