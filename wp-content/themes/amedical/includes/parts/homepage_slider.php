@@ -1,8 +1,7 @@
 <?php if (have_rows("slider_items")): ?>
 
     <section class="slider">
-        <div class="ui container grid">
-            <div class="column">
+
                 <ul class="main-slider">
                     <?php $counter=0; ?>
                     <?php while (have_rows('slider_items')): ?>
@@ -28,8 +27,6 @@
 
                     <?php endwhile; ?>
                 </ul>
-            </div>
-        </div>
     </section>
 
 <?php endif; ?>
