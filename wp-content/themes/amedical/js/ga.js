@@ -26,7 +26,7 @@ jQuery(function($) {
 
 
         //2.. Search bar - add event for using the search bar
-        $('#search-mobile-form, #search-form').submit(function( event ) {
+        $('#mobile-search, #desktop-search, #tablet-search').submit(function( event ) {
             var self = $(this);
             var searchterm = self.find('input[name=search]').first().val();
             ga('send', 'event', 'Search bar used', searchterm.trim());
