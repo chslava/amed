@@ -6,9 +6,10 @@ get_header();
 
 ?>
 
-<main class="ui container about-us page content-page">
+<main class="ui container about-us page">
+
   <?php include_once('includes/parts/breadcrumbs.php');?>
-  <div class="ui grid">
+  <div class="ui grid" id="about-us-text">
     <div class="ui row">
       <div class="sixteen wide mobile sixteen wide tablet six wide computer column">
         <h1 class="ui header left decored"><?php the_title(); ?>
@@ -25,7 +26,7 @@ get_header();
 
 <?php if (have_rows("service_items")):?>
   <section class="secondary-services">
-    <div class="ui container">
+    <div class="ui container" id="service-directions">
       <h2 class="centered ui header">
         <?php the_field("service_block_title"); ?>
       </h2>
@@ -74,7 +75,7 @@ get_header();
         <div class="ui center aligned grid">
           <?php while(have_rows("key_point_items")): the_row(); ?>
 
-            <div class="sixteen wide mobile five wide tablet five wide computer center aligned column">
+            <div class="sixteen wide mobile sixteen wide tablet five wide computer center aligned column">
                 <div class="icon-title">
                   <div class="service-icon <?php the_sub_field("key_point_icon"); ?>"></div>
                 </div>
@@ -93,7 +94,7 @@ get_header();
 <section class="coo-respose">
   <div class="ui container grid">
     <div class="ui row">
-      <div class="sixteen wide mobile eight wide tablet eight wide computer column right floated column">
+      <div class="sixteen wide mobile ten wide tablet eight wide computer column right floated column">
         <h2 class="ui left header decored">
           <?php the_field("corp_resp_title"); ?>
         </h2>

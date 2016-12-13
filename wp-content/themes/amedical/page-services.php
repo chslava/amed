@@ -10,22 +10,22 @@ get_header();
         <?php include_once('includes/parts/breadcrumbs.php');?>
             <div class="ui grid">
                 <div class="ui row">
-                    <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+                    <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
                         <h1 class="ui left header decored"><?php the_title(); ?></h1>
                         <?Php the_content(); ?>
                     </div>
-                    <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+                    <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
                         <?php the_post_thumbnail("service-side-content-image",array("class"=>"ui shadowed centered image")); ?>
                     </div>
                 </div>
-                <div class="stretched very padded row">
+                <div class="stretched very padded row" id="service-details">
 
-                    <div class="sixteen wide mobile eight wide tablet eleven wide computer column">
+                    <div class="sixteen wide mobile sixteen wide tablet eleven wide computer column">
 
                         <h2 class="ui left header decored"><?php the_field("service_title"); ?></h2>
                         <?php the_field("service_content"); ?>
 
-                        <div class="ui basic compact segment">
+                        <div class="ui basic compact segment" id="service-cta">
                             <h3 class="large"><?php the_field("service_cta_text"); ?></h3>
                             <p>
                                 <a class="ui basic fluid button" id="service-btn" href="<?php the_field("service_cta_button_link"); ?>">

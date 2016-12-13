@@ -10,11 +10,10 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
     <div class="ui container">
         <div class="ui grid">
             <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
-
                 <?php include_once('includes/parts/breadcrumbs.php'); ?>
             </div>
             <div class="ui grid">
-                <div class="eight wide tablet sixteen wide desktop column">
+                <div class="eight wide tablet sixteen wide desktop column contact-address">
 
                     <h1 class="ui header"><?php echo get_the_title(); ?></h1>
                     <p><?php echo the_field('address_title', 'option'); ?>
@@ -33,9 +32,9 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
                     </p>
                     <p><?php echo the_field('opening_hours_title', 'option'); ?>
                         : <?php echo the_field('opening_hours', 'option'); ?></p>
-                    <div class="ui divider hide-for-tablet"></div>
+                    <div class="ui divider hide-for-tablet"  id="contacts-divider"></div>
                 </div>
-                <div class="eight wide tablet sixteen wide desktop column">
+                <div class="eight wide tablet sixteen wide desktop column contact-details">
                     <h2 class="ui header"><?php echo the_field('title_registration', 'option'); ?></h2>
                     <p><?php echo the_field('registration_name', 'option'); ?></p>
                     <p><?php echo the_field('registration_no', 'option'); ?></p>
@@ -128,15 +127,17 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
 <section class="contact-form">
     <div class="ui container">
         <div class="ui grid">
-            <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+            <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_content(); ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
+
+
             <div
-                class="sixteen wide mobile eight wide tablet eight wide computer column"><?php echo the_post_thumbnail('contact-side-content-image', array('class' => 'ui shadowed image')); ?></div>
+                class="sixteen wide mobile sixteen wide tablet eight wide computer column"><?php echo the_post_thumbnail('contact-side-content-image', array('class' => 'ui shadowed image', 'id'=>'contact-image')); ?></div>
         </div>
     </div>
 </section>
