@@ -4016,7 +4016,27 @@ blockquote {
   margin: 10px 0 25px 0;
 }
 
+.gform_button.button {
+  width: 150px;
+}
+
+#hidden-info {
+  display: none;
+}
+
+.gform_body {
+  margin-top: 30px;
+}
+
+body .gform_wrapper .top_label div.ginput_container {
+  margin-top: 0 !important;
+}
+
 @media only screen and (max-width: 767px) and (min-width: 320px) {
+  .contact-form {
+    margin-top: 40px;
+  }
+
   .subscribe .ui.primary.button {
     margin-top: 0;
   }
@@ -4544,6 +4564,10 @@ blockquote {
 
   .secondary-services p {
     max-width: 600px;
+  }
+
+  .contact-form {
+    margin-top: 40px;
   }
 }
 
