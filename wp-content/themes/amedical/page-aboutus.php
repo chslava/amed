@@ -92,8 +92,8 @@ get_header();
 
 
 <section class="coo-respose">
-  <div class="ui container grid">
-    <div class="ui row">
+  <div class="ui container">
+    <div class="ui grid">
       <div class="sixteen wide mobile ten wide tablet eight wide computer column right floated column">
         <h2 class="ui left header decored">
           <?php the_field("corp_resp_title"); ?>
