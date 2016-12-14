@@ -42,8 +42,9 @@ get_header();
                         </div>
 
                     </div>
-                    <div class="sixteen wide mobile eight wide tablet five wide computer column">
-                        <div class="ui raised center aligned padded segment">
+
+                    <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+                        <div class="ui raised center aligned padded segment" id="service-phone">
                             <div class="benefits-icon icon-service-phone-icon"></div>
                             <div class="large title"><?php the_field("service_phone_title"); ?></div>
                             <div class="large title"><?php the_field("service_phone"); ?></div>
