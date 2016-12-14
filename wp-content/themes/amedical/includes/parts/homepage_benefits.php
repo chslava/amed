@@ -2,7 +2,7 @@
 <?php $benefit_text = get_field("benefit_text"); ?>
 
 <?php if (have_rows("benefit_items")): ?>
-    <section class="benefits ui container">
+    <section class="benefits ui container" id="home-benefits">
         <div class="ui grid">
             <div class="sixteen wide column">
                 <h2 class="ui header centered decored"><?php print($benefit_title); ?></h2>

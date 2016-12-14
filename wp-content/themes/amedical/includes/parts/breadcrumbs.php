@@ -1,4 +1,4 @@
-<div class="ui breadcrumb">
+<div class="ui breadcrumb hide-for-tablet hide-for-mobile">
   <?php if ( function_exists('yoast_breadcrumb') ){
           $breadcrumbs = yoast_breadcrumb('','',false);
       $breadcrumbs = strip_tags($breadcrumbs,"<a>");

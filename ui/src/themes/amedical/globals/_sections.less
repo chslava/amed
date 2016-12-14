@@ -256,15 +256,17 @@
 }
 // -----------------------------------------
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") repeat top center;
+  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
   // background-size: contain;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  // padding-top: 90px;
+  // padding-bottom: 90px;
+  background-size: cover;
+  height: 230px;
 
   div.title {
     color: white;
     margin-top:0;
-    margin-bottom:28px;
+    margin-bottom:0;
     font-size: 22px;
     font-weight: 700;
     line-height: 27px;
@@ -299,6 +301,10 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
+  }
+  .ui.centered.grid{
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
 }
 // -----------------------------------------
@@ -354,15 +360,16 @@
 }
 // -----------------------------------------
 main.about-us~.coo-respose{
-  background-repeat: no-repeat;
-background-size: cover;
+//   background-repeat: no-repeat;
+// background-size: cover;
 }
 // -----------------------------------------
 //Mobile Only
 @media (max-width: @largestMobileScreen){
   .coo-respose {
     .ui.header.left.decored:before {
-      margin: 0 0 20px 0;
+      //margin: 0 0 20px 0;
+      margin: 40px auto 20px !important;
     }
   }
   .services .column:last-child .services-item:after {
@@ -392,6 +399,37 @@ background-size: cover;
     //   padding-right: 0 !important;
     //
     // }
+  }
+
+
+}
+@media (max-width: 767px){
+  .subscribe{
+    // padding-top: 40px;
+    // padding-bottom: 40px;
+      height: 240px;
+    background-image: url('../img/subscribe-bg-mob.png');
+    div.title, .ui.input, .ui.primary.button{
+      flex: 1 1 100%;
+    }
+    .ui.centered.grid {
+      //max-width: 270px;
+      margin: 0 auto;
+    }
+    div.title {
+      margin-bottom: 30px;
+    }
+    .ui.input {
+      margin-bottom: 20px;
+    }
+    .ui.primary.button{
+      margin-top:  20px;
+      max-width: 140px;
+    }
+    .ui.centered.grid{
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
   }
 }
 @media (min-width: @tabletBreakpoint) {
@@ -428,16 +466,16 @@ background-size: cover;
       font-weight: 700;
       line-height: 24px;
       height: 50px;
-      // padding-left: 38px;
-      // padding-right: 35px;
+      padding-left: 20px;
+      padding-right: 20px;
       // add width to button
-          // width: 190px;
+          min-width: 190px;
     }
 
   }
 
   .benefits, .represent, .home-news {
-    text-align: left;
+    //text-align: left;
     margin-top:75px;
     .ui.header {
       padding-left:0;
@@ -471,9 +509,9 @@ background-size: cover;
       font-weight: 700;
       line-height: 44px;
       &.centered {
-        text-align: left;
+        //text-align: left;
         &.decored:before {
-          margin-left:0;
+          //margin-left:0;
           width: 99px;
         }
       }
@@ -621,8 +659,7 @@ background-size: cover;
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
-    padding-top: 86px;
-    padding-bottom: 100px;
+
     background-size: cover;
     background-repeat: no-repeat;
     .ui.form {
@@ -635,10 +672,11 @@ background-size: cover;
       width: 100%;
       text-align: center;
       margin-top:0;
-      margin-bottom:38px;
+      margin-bottom:22px;
       font-size: 25px;
       font-weight: 700;
-      line-height: 30px;
+      line-height: 50px;
+
     }
 
     .ui.button, .input.subscribe {
@@ -654,15 +692,13 @@ background-size: cover;
       margin-left: 15px;
       margin-top: 0;
     }
-  }
-}
-@media (max-width: 1200px){
-  .subscribe{
-    div.title, .ui.input, .subscribe-btn {
-      flex: 1 1 100%;
+    .ui.centered.grid{
+      padding-top: 55px;
+      padding-bottom: 55px;
     }
   }
 }
+
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.container.description {
     width: 100%;
@@ -755,6 +791,14 @@ background-size: cover;
       }
     }
   }
+  // .subscribe {
+  //   .ui.centered.grid{
+  //
+  //     padding-top: 90px;
+  //     padding-bottom: 90px;
+  //   }
+  //
+  // }
 }
 
 @media (min-width: @largeMonitorBreakpoint) {
@@ -919,7 +963,7 @@ background-size: cover;
 
       }
       .bx-controls-direction {
-        display: none;
+        //display: none;
       }
 
     }
@@ -1009,13 +1053,14 @@ background-size: cover;
   }
 
   .subscribe {
-    padding-top: 118px;
-    padding-bottom: 105px;
+    // padding-top: 118px;
+    // padding-bottom: 105px;
     div.title {
       display: inline-block;
       width: auto;
-      text-align: left;
-      margin:12px 32px 38px -115px;
+      padding-right: 40px;
+      // text-align: left;
+      // margin:12px 32px 38px -115px;
     }
     .ui.primary.button{
       margin-top: 0;
@@ -1029,7 +1074,7 @@ background-size: cover;
     padding-top: 75px;
     padding-bottom: 90px;
     .ui.header {
-      margin-bottom: 37px;
+      margin-bottom: 0;
     }
     // .circle-check {
     //   margin-right: 0;
@@ -1043,8 +1088,8 @@ background-size: cover;
     //   padding-left: 80px;
     // }
     + section {
-      padding-top:100px;
-      padding-bottom:87px;
+      //padding-top:100px;
+      padding-bottom:40px;
       .segment {
         float:right;
         max-width: 380px;
@@ -1069,6 +1114,22 @@ background-size: cover;
       }
     }
   }
+  .subscribe {
+    .ui.centered.grid{
+
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+  }
+  main.about-us~.services {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    .column p {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
 }
 
 
@@ -1077,3 +1138,8 @@ background-size: cover;
     padding-right: 2rem;
   }
 }
+
+
+// .ui.form .field>label{
+//   margin-bottom: 0;
+// }

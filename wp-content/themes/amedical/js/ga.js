@@ -26,7 +26,7 @@ jQuery(function($) {
 
 
         //2.. Search bar - add event for using the search bar
-        $('#search-mobile-form, #search-form').submit(function( event ) {
+        $('#mobile-search, #desktop-search, #tablet-search').submit(function( event ) {
             var self = $(this);
             var searchterm = self.find('input[name=search]').first().val();
             ga('send', 'event', 'Search bar used', searchterm.trim());
@@ -143,7 +143,7 @@ jQuery(function($) {
         });
 
         //9.. Remote support button - add event for clicking the “Remote support” button (for all lang.)
-        $('#service-btn').parent().click(function(){
+        $('#service-cta-button').parent().click(function(){
             var self  = $(this);
             var button_text  = self.text();
           ga('send', 'event', 'Remote support button clicked', button_text.trim()+' button clicked');
