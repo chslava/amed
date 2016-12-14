@@ -47,17 +47,15 @@ $the_query = new WP_Query( $args ); ?>
 
 
         </div>
-        <!--
-        <div class="aligned center view-all">
-          <?php
-            $news_page_id = get_option('page_for_posts');
-            ?>
+
+        <div class="aligned center view-all visibility-hidden">
+            <?php $news_page_id = get_option('page_for_posts'); ?>
             <a id="all-news" class="ui primary button" href="<?php the_permalink($news_page_id); ?>">
                 <?php _e("View all articles",'amedical'); ?>
                 <i class="long right arrow icon"></i>
             </a>
         </div>
-        -->
+
     </div>
 </section>
 
