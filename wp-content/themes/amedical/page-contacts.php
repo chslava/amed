@@ -7,42 +7,43 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
 ?>
 
 <main class="contacts">
-    <div class="ui container">
-        <div class="ui grid">
-            <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
-                <?php include_once('includes/parts/breadcrumbs.php'); ?>
-            </div>
-            <div class="ui grid">
-                <div class="eight wide tablet sixteen wide desktop column contact-address">
 
-                    <h1 class="ui header"><?php echo get_the_title(); ?></h1>
-                    <p><?php echo the_field('address_title', 'option'); ?>
-                        : <?php echo the_field('address', 'option'); ?></p>
-                    <p><?php echo the_field('phone_title', 'option'); ?>:
-                        <a href="tel:<?php echo the_field('phone', 'option'); ?>">
-                            <?php echo the_field('phone', 'option'); ?>
-                        </a>,
-                        <a href="tel:<?php echo the_field('phone-2', 'option'); ?>">
-                            <?php echo the_field('phone-2', 'option'); ?>
-                        </a>
-                    </p>
-                    <p><?php echo the_field('fax_title', 'option'); ?>: <?php echo the_field('fax', 'option'); ?></p>
-                    <p><?php echo the_field('email_title', 'option'); ?>: <a
-                            href="mailto:<?php echo the_field('email', 'option'); ?>"><?php echo the_field('email', 'option'); ?></a>
-                    </p>
-                    <p><?php echo the_field('opening_hours_title', 'option'); ?>
-                        : <?php echo the_field('opening_hours', 'option'); ?></p>
-                    <div class="ui divider hide-for-tablet"  id="contacts-divider"></div>
-                </div>
-                <div class="eight wide tablet sixteen wide desktop column contact-details">
-                    <h2 class="ui header"><?php echo the_field('title_registration', 'option'); ?></h2>
-                    <p><?php echo the_field('registration_name', 'option'); ?></p>
-                    <p><?php echo the_field('registration_no', 'option'); ?></p>
-                    <p><?php echo the_field('registration_address', 'option'); ?></p><br>
-                    <p><?php echo the_field('bank_name', 'option'); ?></p>
-                    <p><?php echo the_field('bank_account', 'option'); ?></p>
-                    <p><?php echo the_field('bank_code', 'option'); ?></p>
-                </div>
+    <div class="ui container">
+
+        <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+            <?php include_once('includes/parts/breadcrumbs.php'); ?>
+        </div>
+
+        <div class="ui grid">
+            <div class="eight wide tablet sixteen wide desktop column contact-address">
+
+                <h1 class="ui header"><?php echo get_the_title(); ?></h1>
+                <p><?php echo the_field('address_title', 'option'); ?>
+                    : <?php echo the_field('address', 'option'); ?></p>
+                <p><?php echo the_field('phone_title', 'option'); ?>:
+                    <a href="tel:<?php echo the_field('phone', 'option'); ?>">
+                        <?php echo the_field('phone', 'option'); ?>
+                    </a>,
+                    <a href="tel:<?php echo the_field('phone-2', 'option'); ?>">
+                        <?php echo the_field('phone-2', 'option'); ?>
+                    </a>
+                </p>
+                <p><?php echo the_field('fax_title', 'option'); ?>: <?php echo the_field('fax', 'option'); ?></p>
+                <p><?php echo the_field('email_title', 'option'); ?>: <a
+                        href="mailto:<?php echo the_field('email', 'option'); ?>"><?php echo the_field('email', 'option'); ?></a>
+                </p>
+                <p><?php echo the_field('opening_hours_title', 'option'); ?>
+                    : <?php echo the_field('opening_hours', 'option'); ?></p>
+                <div class="ui divider hide-for-tablet"  id="contacts-divider"></div>
+            </div>
+            <div class="eight wide tablet sixteen wide desktop column contact-details">
+                <h2 class="ui header"><?php echo the_field('title_registration', 'option'); ?></h2>
+                <p><?php echo the_field('registration_name', 'option'); ?></p>
+                <p><?php echo the_field('registration_no', 'option'); ?></p>
+                <p><?php echo the_field('registration_address', 'option'); ?></p><br>
+                <p><?php echo the_field('bank_name', 'option'); ?></p>
+                <p><?php echo the_field('bank_account', 'option'); ?></p>
+                <p><?php echo the_field('bank_code', 'option'); ?></p>
             </div>
         </div>
     </div>
