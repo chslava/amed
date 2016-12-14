@@ -73,7 +73,7 @@ get_header();
 
 
 <?php if (have_rows("key_point_items")):?>
-    <section class="services">
+    <section class="services" id="about-services">
       <div class="ui container">
         <div class="ui center aligned grid">
           <?php while(have_rows("key_point_items")): the_row(); ?>
