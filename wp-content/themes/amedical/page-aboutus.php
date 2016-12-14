@@ -26,8 +26,8 @@ get_header();
 
 <?php if (have_rows("service_items")):?>
   <section class="secondary-services">
-    <div class="ui container" id="service-directions">
-      <h2 class="centered ui header">
+    <div class="ui container" >
+      <h2 class="centered ui header" id="service-directions">
         <?php the_field("service_block_title"); ?>
       </h2>
       <div class="ui relaxed grid">
