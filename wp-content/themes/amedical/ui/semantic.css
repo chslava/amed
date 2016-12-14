@@ -1112,7 +1112,6 @@ input::selection {
   }
 
   .subscribe .ui.centered.grid {
-    max-width: 270px;
     margin: 0 auto;
   }
 
@@ -3891,6 +3890,18 @@ blockquote {
     margin-bottom: 65px;
   }
 
+  #home-benefits {
+    text-align: left;
+  }
+
+  #home-benefits .ui.header.centered {
+    text-align: left;
+  }
+
+  #home-benefits .ui.header.centered:before {
+    margin-left: 0;
+  }
+
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
   }
@@ -4310,9 +4321,18 @@ blockquote {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .services .column {
+  #home-services .column {
+    border-bottom: 1px solid #e7e7e7;
     margin-bottom: 20px;
-    max-width: 370px;
+  }
+
+  #about-services {
+    margin: auto;
+    max-width: 640px;
+  }
+
+  #about-services .ui.container {
+    width: 370px;
   }
 
   #header .logo {

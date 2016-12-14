@@ -436,6 +436,19 @@ blockquote {
   .secondary-services {
     margin-bottom: 65px;
   }
+
+  #home-benefits {
+    text-align: left;
+
+    .ui.header.centered {
+      text-align: left;
+      &:before {
+        margin-left: 0;
+      }
+    }
+
+  }
+
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
   }
@@ -802,11 +815,21 @@ blockquote {
 
 // Tablet 768 - 1024
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
-  .services .column {
-    //border-bottom: 1px solid #e7e7e7;
+  #home-services .column {
+    border-bottom: 1px solid #e7e7e7;
     margin-bottom: 20px;
-    max-width: 370px;
   }
+
+  #about-services {
+    margin: auto;
+    max-width: 640px;
+
+    .ui.container {
+      width: 370px;
+    }
+
+  }
+
   #header .logo {
     width: 74px;
   }
