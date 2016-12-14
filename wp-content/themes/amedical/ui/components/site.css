@@ -3015,7 +3015,22 @@ blockquote {
 #service-cta h3 {
   margin: 10px 0 25px 0;
 }
+.gform_button.button {
+  width: 150px;
+}
+#hidden-info {
+  display: none;
+}
+.gform_body {
+  margin-top: 30px;
+}
+body .gform_wrapper .top_label div.ginput_container {
+  margin-top: 0 !important;
+}
 @media only screen and (max-width: 767px) and (min-width: 320px) {
+  .contact-form {
+    margin-top: 40px;
+  }
   .subscribe .ui.primary.button {
     margin-top: 0;
   }
@@ -3244,7 +3259,6 @@ blockquote {
   #service-images img {
     padding: 5px;
     max-width: 270px;
-    margin-left: -15px;
   }
   #service-details {
     margin-top: -20px;
@@ -3259,6 +3273,11 @@ blockquote {
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
     margin-top: 15px;
+  }
+}
+@media (max-width: 320px) {
+  #service-images {
+    margin-left: -15px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -3432,6 +3451,9 @@ blockquote {
   }
   .secondary-services p {
     max-width: 600px;
+  }
+  .contact-form {
+    margin-top: 40px;
   }
 }
 i.icon {
