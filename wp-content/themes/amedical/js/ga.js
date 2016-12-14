@@ -143,7 +143,7 @@ jQuery(function($) {
         });
 
         //9.. Remote support button - add event for clicking the “Remote support” button (for all lang.)
-        $('#service-btn').parent().click(function(){
+        $('#service-cta-button').parent().click(function(){
             var self  = $(this);
             var button_text  = self.text();
           ga('send', 'event', 'Remote support button clicked', button_text.trim()+' button clicked');
