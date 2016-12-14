@@ -6,7 +6,7 @@ get_header();
 
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
-    <main class="ui container projects page content-page">
+    <main class="ui container projects page">
         <?php include_once('includes/parts/breadcrumbs.php');?>
         <div class="ui grid">
             <div class="ui row">
@@ -16,7 +16,7 @@ get_header();
                     <?php the_content(); ?>
                 </div>
                 <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
-                    <?php the_post_thumbnail("service-side-content-image",array("class"=>"ui shadowed centered image")); ?>
+                    <?php the_post_thumbnail("service-side-content-image",array("class"=>"ui shadowed centered image", 'id'=>"projects-image")); ?>
                 </div>
             </div>
         </div>
@@ -56,35 +56,34 @@ get_header();
 
     <?php endwhile; ?>
 
-
-
-
-        <section class="ui container" id="services-additional">
-            <div class="ui grid">
-                <div class="ui stretched very padded row">
-                    <div class="sixteen wide mobile sixteen wide tablet ten wide computer column">
+    <section class="ui container" id="services-additional">
+        <div class="ui grid">
+            <!-- added classes .stretched very padded row-->
+            <div class="ui stretched very padded row">
+                <div class="sixteen wide mobile sixteen wide tablet ten wide computer column">
                     <?php if (get_field("cta_block_title")): ?>
-                            <h2 class="ui left header decored">
-                                <?php the_field("cta_block_title"); ?>
-                            </h2>
+                        <h2 class="ui left header decored">
+                            <?php the_field("cta_block_title"); ?>
+                        </h2>
                         <?php the_field("cta_block_text"); ?>
-                        <?php endif; ?>
-                    </div>
-                    <div class="sixteen wide mobile sixteen wide tablet six wide computer column">
-                        <div class="ui raised center aligned padded segment" id="services-cta">
-                            <h3 class="title padded large">
-                                <?php the_field("cta_block_tagline"); ?>
-                            </h3>
-                            <p>
-                                <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>?<?php print(sanitize_title($page_title)); ?>">
-                                    <?php the_field("cta_block_button"); ?>
-                                </a>
-                            </p>
-                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="sixteen wide mobile sixteen wide tablet six wide computer column">
+                    <div class="ui raised center aligned padded segment" id="services-cta">
+                        <h3 class="title padded large">
+                            <?php the_field("cta_block_tagline"); ?>
+                        </h3>
+                        <p>
+                            <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>?<?php print(sanitize_title($page_title)); ?>">
+                                <?php the_field("cta_block_button"); ?>
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
 
