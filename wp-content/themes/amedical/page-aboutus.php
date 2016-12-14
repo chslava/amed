@@ -9,16 +9,19 @@ get_header();
 <main class="ui container about-us page">
 
   <?php include_once('includes/parts/breadcrumbs.php');?>
+
   <div class="ui grid" id="about-us-text">
     <div class="ui row">
       <div class="sixteen wide mobile sixteen wide tablet six wide computer column">
-        <h1 class="ui header left decored"><?php the_title(); ?>
-          <div class="ui large sub header"><?php the_field("tagline"); ?></div>
+
+        <h1 class="ui header left decored">
+            <?php the_title(); ?>
+            <div class="ui large sub header"><?php the_field("tagline"); ?></div>
         </h1>
         <?php the_content(); ?>
       </div>
       <div class="sixteen wide mobile sixteen wide tablet ten wide computer column">
-        <?php the_post_thumbnail("side-content-image",array("class"=>'ui shadowed image')) ?>
+        <?php the_post_thumbnail("side-content-image",array("class"=>'ui shadowed image','id' => "about-image")) ?>
       </div>
     </div>
   </div>
