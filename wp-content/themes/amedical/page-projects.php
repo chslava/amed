@@ -23,36 +23,21 @@ get_header();
     </main>
     <?php $counter=0; ?>
     <?php while(have_rows("designing_content")): the_row(); ?>
+
         <section class="secondary-services">
             <div class="ui container">
-
-                <h2 class="ui header centered decored">
-                  <?php the_sub_field("title"); ?>
-                </h2>
-
-                <div class="ui stackable grid"  id="service-image-container">
-                    <div class="center aligned sixteen wide tablet ten  wide desktop centered column">
-                       <p><?php the_sub_field("content"); ?></p>
+                <h2 class="ui header centered decored"><?php the_sub_field("title"); ?></h2>
+                <div class="ui stackable grid" id="service-image-container">
+                    <div class="center aligned sixteen wide tablet ten wide desktop centered column">
+                        <p><?php the_sub_field("content"); ?></p>
                     </div>
-                    <?php $counter=0; ?>
-
-
-                    <div class="ui two wide tablet three wide desktop row" id="service-images">
-                    <?php while(have_rows("images")): the_row(); ?>
-
-
-                        <?php $image = get_sub_field("image"); ?>
-
-                        <img src="<?php print($image['sizes']['services-images']); ?>" />
-
-                        <?php $counter++; ?>
-                    <?php endwhile; ?>
-                    </div>
-
-
-            </div>
+                </div>
+                <div class="ui two wide tablet three wide desktop row" id="service-images">
+                    <?php while(have_rows("images")): the_row(); ?><?php $image = get_sub_field("image"); ?><img src="<?php print($image['sizes']['services-images']); ?>" /><?php endwhile; ?>
+                </div>
             </div>
         </section>
+
 
     <?php endwhile; ?>
 
