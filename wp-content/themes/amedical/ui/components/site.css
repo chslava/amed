@@ -501,7 +501,7 @@ input::selection {
   }*/
 }
 .represent .bx-viewport {
-  height: 78px!important;
+  height: 88px!important;
 }
 .represent .represent-slider li {
   width: 150px!important;
@@ -3016,13 +3016,13 @@ blockquote {
   margin: 10px 0 25px 0;
 }
 .gform_button.button {
-  width: 150px;
+  width: 150px !important;
 }
 #hidden-info {
   display: none;
 }
 .gform_body {
-  margin-top: 30px;
+  margin-top: 30px !important;
 }
 body .gform_wrapper .top_label div.ginput_container {
   margin-top: 0 !important;
