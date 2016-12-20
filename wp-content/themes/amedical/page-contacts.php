@@ -61,7 +61,7 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: uluru,
                 zoom: 13,
-                scrollwheel: false,
+                scrollwheel: true,
                 disableDefaultUI: true,
                 navigationControl: true,
                 mapTypeControl: false,
