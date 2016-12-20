@@ -804,12 +804,6 @@ h4.ui.header {
   border-bottom: 2px solid #e5702a;
   border-top: none;
 }
-@media (max-width: 767px) {
-  .ui.header.left.decored:before {
-    position: relative;
-    top: -10px;
-  }
-}
 h1.ui.header .sub.header {
   color: #d8d8d8;
   font-size: 25px;
@@ -818,9 +812,4 @@ h1.ui.header .sub.header {
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 30px;
-}
-@media (max-width: 767px) {
-  .coo-respose .ui.header.left.decored:before {
-    margin: 0 0 10px;
-  }
 }

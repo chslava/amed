@@ -49,7 +49,7 @@ for($i = 0; $i < count($all); $i++)
 {
 	$row = explode("\t",$all[$i]);
 	
-		if(isset($row[0])){ $name = mysqli_real_escape_string($result_db, str_replace($ch_from,$ch_to,$row[0])); }	else{ $name = "";}
+		if(isset($row[0])){ $name = mysqli_real_escape_string($result_db,str_replace($ch_from,$ch_to,$row[0])); }	else{ $name = "";}
 		/*				
 		$write = mysqli_query($result_db,"insert into keywords values (
 		'',
