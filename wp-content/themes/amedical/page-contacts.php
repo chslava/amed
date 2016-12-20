@@ -118,11 +118,11 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
                 map: map
             });
 
-            map.addListener('center_changed', function() {
-                //pan to marker
-                map.panTo(marker.getPosition());
-
-            });
+//            map.addListener('zoom_changed', function() {
+//                //pan to marker
+//                map.panTo(marker.getPosition());
+//
+//            });
 
 
             marker.addListener('click', function () {
