@@ -97,6 +97,8 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
             });
 
 
+
+
             var infowindow = new google.maps.InfoWindow({
                 content: document.getElementById("hidden-info").innerHTML
             });
@@ -115,6 +117,13 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
                 icon: image,
                 map: map
             });
+
+            map.addListener('center_changed', function() {
+                //pan to marker
+                map.panTo(marker.getPosition());
+
+            });
+
 
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
