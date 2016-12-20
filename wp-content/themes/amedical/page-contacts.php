@@ -67,7 +67,7 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
                 mapTypeControl: false,
                 scaleControl: true,
                 zoomControl: true,
-                draggable: false,
+                draggable: true,
                 styles: [
                     {
                         stylers: [
