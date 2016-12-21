@@ -29,7 +29,8 @@ header {
 
       // added grid for header between 768px and 1023px
       .ui.grid.container{
-        width: ~"calc(723px + 2rem)";
+        //width: 728px;
+        width: 600px;
         margin: 0 auto;
         .right.aligned.column {
         display: flex;
@@ -92,7 +93,8 @@ header {
                         width: 1px;
                         height: 30px;
                         margin-right: 23px;
-                        border-left: 1px solid @borderColor;
+                        // border-left: 1px solid @borderColor;
+                        //border-left: 1px solid #d8d8d8;
                         display: flex;
                         align-self: center;
                     }
@@ -102,17 +104,20 @@ header {
                 }
                 &.top-menu {
                     width: 100%;
-                    margin: -1rem 0;
-                    padding-bottom: 1rem;
+                    // margin: -1rem 0;
+                    // padding-bottom: 1rem;
+                    margin: 0;
+                    padding-bottom: 0;
                     .item {
                         color: @borderColor;
                         font-size: 14px;
                         font-weight: 400;
                         line-height: 17px;
-                        padding: 7px 10px 4px 20px;
+                        padding: 4px 10px 4px 20px;
                         &:first-child {
-                            padding-left: 0;
-                            padding-right: 0;
+                            // padding-left: 0;
+                            // padding-right: 0;
+                            padding: 0;
                         }
                         &:active,
                         &:hover {
@@ -123,6 +128,7 @@ header {
                 .computer-search {
                   padding: 0;
                     i.search.icon {
+                        //cursor: pointer;
                         width: 55px;
                         //adjust  for WP generator
                         position: absolute;
@@ -136,7 +142,8 @@ header {
                     margin: -1rem 0;
                     padding-top: 1.2rem;
                     padding-bottom: 0;
-                    border-top: 1px solid @borderColor;
+                    // border-top: 1px solid @borderColor;
+                    border-top:1px solid rgba(216, 216, 216, 0.66);
                     // submenu
                     .ui.dropdown.item {
                         padding-bottom: 0;
@@ -492,7 +499,8 @@ header {
             padding-top: 1rem;
             padding-bottom: 18px;
             padding-left: 0.5rem;
-            padding-right: 0.5rem;
+            // padding-right: 0.5rem;
+            padding-right: 0;
         }
         // margin for mob menu
         .mob-menu .ui.vertically.reversed.grid{
@@ -509,6 +517,7 @@ header {
             flex: 1 0 30%;
             text-align: end;
             display: block;
+
         }
         .ui.menu.lang::after {
             content: ' ';
@@ -550,8 +559,9 @@ header {
             margin-right: 0.8em;
         }
         .right.menu.basket {
-            padding: 15px 0;
+            padding: 4px 0;
             position: relative;
+
             .item {
                 margin: 0;
             }

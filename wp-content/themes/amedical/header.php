@@ -4,7 +4,7 @@
 		<?php include('includes/parts/head_common.php'); ?>
 	</head>
 	<body <?php body_class(); ?>>
-        <header>
+        <header id="header">
 
             <div class="ui container grid mobile only">
                 <?php include("includes/parts/mobile_header.php"); ?>

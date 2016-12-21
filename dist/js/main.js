@@ -73,4 +73,20 @@ jQuery(function($) {
         $(this).children('i').toggleClass('icon-mob-toogle-close', 'icon-mob-toogle-open');
         $(this).children('i').toggleClass('icon-mob-toogle-open');
     })
+
+    $('#desktop-search .search.icon').on('click', function(e) {
+        e.preventDefault();
+        $('#desktop-search').submit();
+     })
+
+    $('#tablet-search .search.icon').on('click', function(e) {
+        e.preventDefault();
+        $('#tablet-search').submit();
+    })
+
+    $('#mobile-search .search.icon').on('click', function(e) {
+        e.preventDefault();
+        $('#mobile-search').submit();
+    })
+
 })

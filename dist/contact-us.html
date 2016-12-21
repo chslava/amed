@@ -9,7 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="ui container grid mobile only">
         <div class="two column row">
           <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
@@ -17,9 +17,9 @@
         </div>
         <div class="one column row search-row" style="display:none">
           <div class="column">
-            <form class="ui large form">
+            <form class="ui large form" id="mobile-search">
               <div class="field">
-                <input placeholder="Meklēt...">
+                <input placeholder="Meklēt..."><i class="search icon"></i>
               </div>
             </form>
           </div>
@@ -30,16 +30,17 @@
           <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
           <div class="right aligned column">
             <div class="item computer-search">
-              <div class="ui icon input search">
+              <form class="ui icon input search" id="tablet-search">
                 <input placeholder="Meklēt"><i class="search icon"></i>
-              </div>
+              </form>
             </div><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a>
           </div>
         </div>
       </div>
       <div class="ui container desktop">
         <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
-        <div class="ui container fluid main-column">
+        <!-- removed .fluid class  below-->
+        <div class="ui container main-column">
           <div class="mob-menu" style="display:none">
             <div class="ui computer vertically reversed grid">
               <div class="ui text menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a>
@@ -52,17 +53,23 @@
                   </div>
                   <div class="ui dropdown item">Medicīnas preces
                     <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
-                  </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a>
-                  <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs <!--<b>22</b>--></span></a></div>
+                  </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a><a class="item" href="about-us.html">Par mums</a>
+                  <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs
+                        <!-- <b>22</b>--></span></a></div>
                 </nav>
               </div>
               <div class="row">
                 <div class="ui secondary text stackable menu top-menu">
                   <div class="item computer-search">
-                    <div class="ui icon input search">
+                    <form class="ui icon input search" id="desktop-search">
                       <input placeholder="Meklēt"><i class="search icon"></i>
-                    </div>
-                  </div><a class="item" href="content.html">Jaunumi</a><a class="item" href="#">Blogs</a><a class="item" href="#">Biežāk uzdotie jautājumi</a><a class="item" href="about-us.html">Par mums</a><a class="item" href="contact-us.html">Kontakti</a>
+                    </form>
+                  </div>
+                  <!--a.item(href='content.html') Jaunumi-->
+                  <!--a.item(href='#') Blogs-->
+                  <!--a.item(href='#') Biežāk uzdotie jautājumi-->
+                  <!--a.item(href='about-us.html') Par mums-->
+                  <!--a.item(href='contact-us.html') Kontakti-->
                 </div>
               </div>
             </div>
@@ -72,19 +79,23 @@
     </header>
     <main class="contacts">
       <div class="ui container">
+        <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+          <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
+            <div class="divider">//</div>
+            <div class="active section">Kontakti</div>
+          </div>
+        </div>
         <div class="ui grid">
-          <div class="sixteen wide mobile eight wide tablet five wide computer column">
-            <div class="ui breadcrumb"><a class="section" href="index.html">Sākums</a>
-              <div class="divider">//</div>
-              <div class="active section">Kontakti</div>
-            </div>
+          <div class="eight wide tablet sixteen wide desktop column contact-address">
             <h1 class="ui header">Kontakti</h1>
-            <p>Adrese: Varkaļu iela 13A, Rīga, Latvija, LV-1067</p>
-            <p>Tālrunis: 66103003, 20277153</p>
+            <p>Adrese: Varkaļu iela 13A, <br />Rīga, Latvija, LV-1067</p>
+            <p>Tālrunis:&nbsp;<a href="callto:">66103003,&nbsp;</a><a href="callto:">20277153</a></p>
             <p>Fakss: 66103010</p>
-            <p>E-pasts: <a href="mailto:info@amedical.eu">info@amedical.eu</a></p>
+            <p>E-pasts:&nbsp;<a href="mailto:info@amedical.eu">info@amedical.eu</a></p>
             <p>Darba laiks: 8:30 - 17:30</p>
-            <div class="ui divider"></div>
+            <div class="ui divider hide-for-tablet" id="contacts-divider"></div>
+          </div>
+          <div class="eight wide tablet sixteen wide desktop column contact-details">
             <h2 class="ui header">Rekvizīti</h2>
             <p>SIA "A.Medical"</p>
             <p>PVN reģ. Nr. LV 40103599415</p>
@@ -101,8 +112,8 @@
     <section class="contact-form">
       <div class="ui container">
         <div class="ui grid">
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-            <h2 class="left ui header decored">Sazinies ar mums</h2>
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+            <h2 class="left ui header decored mobile-centered">Sazinies ar mums</h2>
             <form class="ui form">
               <div class="sixteen wide mobile field eight wide computer field">
                 <label>Vārds un uzvārds</label>
@@ -127,12 +138,12 @@
               <button class="ui huge primary button" type="submit">Nosūtīt</button>
             </form>
           </div>
-          <div class="sixteen wide mobile eight wide tablet eight wide computer column"><img class="ui shadowed image" src="img/contact-us.jpg"></div>
+          <div class="sixteen wide mobile sixteen wide tablet eight wide computer column"><img class="ui shadowed image" id="contact-image" src="img/contact-us.jpg"></div>
         </div>
       </div>
     </section>
     <section class="subscribe">
-      <div class="ui container grid">
+      <div class="ui container">
         <form class="ui form">
           <div class="ui centered grid">
             <div class="title">Pieteikties Jaunumiem</div>
@@ -149,8 +160,8 @@
             <div><a class="item" href="#"> Medicīnas iekārtas<a class="item" href="#2">Medicīnas preces</a><a class="item" href="#3">Industriālie un drošības risinājumi</a><a class="item" href="#4">Projektēšana</a><a class="item" href="#5">Serviss</a><a class="item" href="#6">Piegāde</a><a class="item" href="#7">Atgriešana un apmaiņa</a><a class="item" href="#8">Privātuma politika</a><a class="item" href="#9">Par mums</a><a class="item" href="contact-us.html">Kontakti</a></a></div>
           </nav>
           <div class="sub-column">
-            <div class="footer-contacts">
-              <div class="title">Kontakti</div>
+            <div class="footer-contacts"><a href="#">
+                <div class="title">Kontakti</div></a>
               <div class="item"><i class="c-icon icon-place-icon"></i>Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067</div>
               <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: <a href="tel:66103002">66103002, </a> <a href="tel:20277153">20277153 </a></div>
               <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="mailto:info@amedical.eu">info@amedical.eu</a></div>

@@ -1,3 +1,4 @@
+*.DS_Store
 .idea/*
 /*.log
 *.komodoproject
@@ -10,6 +11,12 @@ node_modules/
 /wp-content/uploads/*
 /wp-content/themes/amedical/bower_components
 /wp-content/themes/amedical/node_modules
+
+/wp-content/db.php
+/wp-content/object-cache.php
+/wp-content/w3tc-config/master-admin.php
+/wp-content/w3tc-config/master.php
+
 
 wp-content/themes/amedical/.idea/
 dist/ui/components/*

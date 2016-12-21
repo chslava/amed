@@ -50,7 +50,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 60%;
+        width: 62%;
         float: left;
         background: lightgoldenrodyellow;
         // min-height:700px;
@@ -74,6 +74,9 @@
     .ui.form textarea:not([rows]) {
         resize: none;
     }
+    .ui.form .field>label{
+      margin-bottom: 0;
+    }
 }
 .gform_wrapper textarea.medium:not([rows]), .gform_wrapper textarea.medium{
   resize:none;
@@ -88,7 +91,7 @@
 .service {
     .circles-list.small li:before,
     .content-page .circles-list.small li:before {
-        margin-bottom: 50px;
+        margin-bottom: 35px;
     }
 
     .very.padded {
@@ -115,10 +118,10 @@
     }
 }
 // -----------------------------------------
-
+//should be cheked
 .about-us {
-    .ui.grid > .row > [class*="six wide computer"].column {
-        // padding-left: 0;
+  h1.ui.header  .sub.header {
+      color: #FF6B01;
     }
 }
 // -----------------------------------------
@@ -151,6 +154,7 @@ main.page>.grid {
     .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
         // padding: 0 1rem 0 0;
         padding-right: 2rem;
+        // padding-right: 35px;
     }
 
     .ui.row .sixteen.computer.column > p {
@@ -162,6 +166,11 @@ main.page>.grid {
         width: 100%;
     }
 }
+.about-us{
+  .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
+      padding-right: 35px;
+  }
+}
 // -----------------------------------------
 
 .projects,
@@ -171,7 +180,7 @@ main.page>.grid {
     }
 
     img.ui.shadowed.image {
-        box-shadow: 0 6px 10px rgba(27,47,78,.14),15px -20px 0 #e6e6e6;
+        box-shadow: 0 6px 10px rgba(27,47,78,.14),15px -17px 0 #e6e6e6;
         width: 100%;
     }
 }
@@ -196,7 +205,7 @@ main.page>.grid {
             width: 100%;
             float: none;
             background: lightgoldenrodyellow;
-            min-height: 400px;
+            min-height: 300px;
             z-index: 10;
             margin-top: 2rem;
         }
@@ -245,7 +254,7 @@ main.page>.grid {
 @media (min-width: @tabletBreakpoint) {
     .contacts {
         > .ui.container {
-            min-height: 700px;
+            min-height: 300px;
         }
 
         .info {
@@ -279,8 +288,8 @@ main.page>.grid {
     }
 
     .contact-form {
-        margin-top: 64px;
-        padding: 2rem 0 5rem;
+        margin-top: 100px;
+        padding: 2rem 0 6.5rem;
 
         .ui.header.left.decored:before {
             margin: -52px 0 15px;
@@ -404,6 +413,13 @@ main.page>.grid {
             margin-top: 30px;
         }
     }
+    .service {
+      .padded.row {
+        .ui.left.header.decored{
+          padding-top: 0;
+        }
+      }
+    }
 }
 @media (min-width: @largeMonitorBreakpoint ) {
     .about-us {
@@ -411,15 +427,25 @@ main.page>.grid {
             margin-top: 50px;
         }
     }
+    .service{
+      .service-text {
+        max-width: 620px;
+      }
+    }
 }
 @media (min-width: @widescreenMonitorBreakpoint) {
     .contacts {
         .info {
-            width: 40%;
+            width: 38%;
         }
 
         .map {
-            width: 60%;
+            width: 62%;
         }
     }
+}
+
+
+main .ui.breadcrumb .section {
+  margin-right: 0;
 }

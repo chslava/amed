@@ -3,7 +3,7 @@
         <img src="<?php echo get_stylesheet_directory_uri() ;?>/img/logo.png" alt="<?php print(get_bloginfo( 'name' )); ?>" title="<?php print(get_bloginfo( 'name' )); ?>">
     </a>
 </div>
-<div class="ui container fluid main-column">
+<div class="ui container main-column">
     <div class="mob-menu" style="display:none">
         <div class="ui computer vertically reversed grid">
             <div class="ui text menu lang">
@@ -47,21 +47,27 @@
                     </div>
                 </nav>
             </div>
+
             <div class="row">
 
                 <div class="ui secondary text stackable menu top-menu">
                     <div class="item computer-search">
-                            <div class="ui icon input search">
-                                <form id="search-form" method="get" action="<?php the_field("search_url","option"); ?>">
-                                    <input name="search" placeholder="<?php _e("Search","amedical"); ?>">
-                                    <i class="search icon"></i>
-                                </form>
-                            </div>
+                        <div class="ui icon input search">
+                            <form
+                                id="desktop-search"
+                                method="get" action="<?php the_field("search_url","option"); ?>">
+                                <input name="search" placeholder="<?php _e("Search","amedical"); ?>">
+                                <i class="search icon"></i>
+                            </form>
+                        </div>
                     </div>
-                    <?php print_menu("top-m","",1,0,"","SimpleLinks"); ?>
+
                 </div>
 
             </div>
+        </div>
+
+
         </div>
     </div>
 </div>

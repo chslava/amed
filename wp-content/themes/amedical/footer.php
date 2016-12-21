@@ -16,11 +16,11 @@
 
             <div class="footer-contacts">
 
-              <div class="title">
                 <a href="<?php echo get_page_link(69); ?>">
-                <?php the_field('contacts_title','option'); ?>
+                    <div class="title">
+                        <?php the_field('contacts_title','option'); ?>
+                    </div>
                 </a>
-              </div>
 
               <div class="item">
                 <i class="c-icon icon-place-icon"></i>
