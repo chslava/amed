@@ -1574,7 +1574,7 @@ input::selection {
     margin: 0 auto;
     max-width: 730px;
     color: #636463;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 25px;
     padding-bottom: 27px;
@@ -2897,7 +2897,7 @@ footer .footer-contacts .item a:hover {
 
 footer .footer-contacts .c-icon {
   color: #8f8f8f;
-  font-size: 18px;
+  font-size: 16px;
   float: left;
   display: block;
   margin-right: 0;
@@ -3273,7 +3273,7 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 0;
+  padding-top: 1rem;
 }
 
 section.slider .ui.container.grid {
@@ -3308,7 +3308,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3349,7 +3348,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -3587,19 +3585,18 @@ main.page > .grid {
   }
 
   .about-us ~ .services .icon-title {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 1rem;
   }
 
   .about-us ~ .services .column p {
     margin-top: 20px!important;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .about-us ~ .services .icon-first-icon {
     font-size: 50px;
     margin-top: 7px;
+    margin-left: 10px;
   }
 
   .about-us ~ .services .icon-second-icon {
@@ -3818,7 +3815,7 @@ blockquote {
   border-radius: 50px;
   background: #FFF;
   float: left;
-  margin-right: 14px;
+  margin-right: 20px;
   color: #e5702a;
   text-align: center;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
@@ -10107,13 +10104,6 @@ h4.ui.header {
   border-top: none;
 }
 
-@media (max-width: 767px) {
-  .ui.header.left.decored:before {
-    position: relative;
-    top: -10px;
-  }
-}
-
 h1.ui.header .sub.header {
   color: #d8d8d8;
   font-size: 25px;
@@ -10122,12 +10112,6 @@ h1.ui.header .sub.header {
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 30px;
-}
-
-@media (max-width: 767px) {
-  .coo-respose .ui.header.left.decored:before {
-    margin: 0 0 10px;
-  }
 }
 /*!
  * # Semantic UI 2.2.4 - Icon
@@ -16233,8 +16217,8 @@ img.ui.shadowed.image {
          Theme Overrides
 *******************************/
 
-.ui.breadcrumb:first-child {
-  margin-top: 15px;
+.ui.breadcrumb {
+  margin-top: 33px !important;
 }
 
 .ui.breadcrumb a {
@@ -16255,7 +16239,7 @@ img.ui.shadowed.image {
 }
 
 .contacts .ui.breadcrumb {
-  margin-top: 30px !important;
+  margin-top: 20px !important;
 }
 
 .contacts .ui.breadcrumb .divider {
@@ -17322,6 +17306,7 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18841,7 +18826,6 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
-  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -18902,7 +18886,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18915,7 +18898,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18934,7 +18916,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -20581,7 +20562,6 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -20861,7 +20841,6 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;
