@@ -11,18 +11,36 @@ function remove_params_from_url(oldURL) {
     return newURL;
 }
 
+
+function get_social_profile_links()
+{
+    var social_links = [];
+    social_links.push({"url":"facebook.com","title":"Facebook"});
+    social_links.push({"url":"twitter.com","title":"Twitter"});
+    social_links.push({"url":"linkedin.com","title":"LinkedIn"});
+    social_links.push({"url":"youtube.com","title":"Youtube"});
+
+    return social_links;
+
+}
+
+function get_link_text(jquery_obj){
+    console.log(jquery_obj);
+    var text=jquery_obj.text();
+    if (text.trim().length==0){
+        if (jquery_obj.attr("title")){
+            text = jquery_obj.attr("title");
+        }
+    }
+    return text.trim();
+}
+
 jQuery(function($) {
         //lang variable defined in head part of the output html
         //contact_page_link variable defined in head part of the output html
 
 
-        //1.. Social buttons - add events for clicking the social buttons
-        $('#facebook-share').parent().click(function(){
-            ga('send', 'event', 'Social button clicked', 'Facebook');
-        });
-        $('#linkedin-share').parent().click(function(){
-            ga('send', 'event', 'Social button clicked', 'LinkedIn');
-        });
+
 
 
         //2.. Search bar - add event for using the search bar
@@ -124,18 +142,44 @@ jQuery(function($) {
         //8.1.. Contact us buttons - add event for clicking the “Contact us” button (for all languages)
         $('a').each(function(){
             var self = $(this);
-            if(self.hasClass("button")){
+            var url="";
+            url = self.attr("href");
 
-                var url="";
-                url = self.attr("href");
+            if(self.hasClass("button")){
                 if (url.length>0){
-                    text = self.text();
                     if (remove_params_from_url(url) == contact_page_link){
                         self.click(function(){
+                            var text = get_link_text(self);
                             ga('send', 'event', 'Contact us button clicked', text.trim()+' button clicked');
                         });
 
                     }
+
+                }
+            }
+            var social_links = get_social_profile_links();
+
+            for (x in social_links){
+                if (url.indexOf(social_links[x].url)!=-1){
+                    //1.. Social buttons - add events for clicking the social buttons
+                    self.click(function(){
+                        var self = $(this);
+                        var url="";
+                        url = self.attr("href");
+                        var text = get_link_text(self);
+                        if (text.length==0){
+                            var social_links = get_social_profile_links();
+                            for (x in social_links) {
+                                if (url.indexOf(social_links[x].url)!=-1) {
+                                    text = social_links[x].title;
+                                    break;
+                                }
+                            }
+                        }
+                        ga('send', 'event', 'Social button clicked', text);
+
+                    });
+
 
                 }
             }
