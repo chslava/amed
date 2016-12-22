@@ -1059,3 +1059,8 @@ i.icon {
   top: 15px;
 }
 
+.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
+  margin-top: 35px;
+}
+
+
