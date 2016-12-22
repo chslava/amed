@@ -417,7 +417,7 @@ blockquote {
 }
 
 .contacts {
-  margin-top: 15px;
+  //margin-top: 15px;
 }
 
 .circles-list.small li:before {

@@ -3273,7 +3273,6 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 1rem;
 }
 
 section.slider .ui.container.grid {
@@ -3872,10 +3871,6 @@ blockquote {
 .home-news .column p a {
   display: block;
   margin-left: 0 !important;
-}
-
-.contacts {
-  margin-top: 15px;
 }
 
 .circles-list.small li:before {
