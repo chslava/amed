@@ -4674,6 +4674,10 @@ i.icon {
     margin-top: 15px;
   }
 }
+
+.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
+  margin-top: 35px;
+}
 /*!
  * # Semantic UI 2.2.4 - Button
  * http://github.com/semantic-org/semantic-ui/
