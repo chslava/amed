@@ -414,14 +414,14 @@ input::selection {
   padding-bottom: 11px;
 }
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
-  background-size: cover;
-  height: 230px;
+  background: #636463 url("../img/subscribe-background.png") repeat top center;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 .subscribe div.title {
   color: white;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 28px;
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
@@ -474,10 +474,6 @@ input::selection {
   font-weight: 700;
   line-height: 15px;
 }
-.subscribe .ui.centered.grid {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
 .secondary-services {
   background: #f7f7f7;
   padding-top: 3rem;
@@ -501,7 +497,7 @@ input::selection {
   }*/
 }
 .represent .bx-viewport {
-  height: 88px!important;
+  height: 78px!important;
 }
 .represent .represent-slider li {
   width: 150px!important;
@@ -516,9 +512,13 @@ input::selection {
 .description h2.ui.header.left {
   padding-top: 0;
 }
+main.about-us ~ .coo-respose {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media (max-width: 767px) {
   .coo-respose .ui.header.left.decored:before {
-    margin: 40px auto 20px !important;
+    margin: 0 0 20px 0;
   }
   .services .column:last-child .services-item:after {
     display: none;
@@ -542,36 +542,6 @@ input::selection {
 /* border: 1px solid #e6e6e6; */
     
 /* margin: 0 auto; */
-  }
-}
-@media (max-width: 767px) {
-  .subscribe {
-    height: 240px;
-    background-image: url('../img/subscribe-bg-mob.png');
-  }
-  .subscribe div.title,
-  .subscribe .ui.input,
-  .subscribe .ui.primary.button {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
-  }
-  .subscribe .ui.centered.grid {
-    margin: 0 auto;
-  }
-  .subscribe div.title {
-    margin-bottom: 30px;
-  }
-  .subscribe .ui.input {
-    margin-bottom: 20px;
-  }
-  .subscribe .ui.primary.button {
-    margin-top: 20px;
-    max-width: 140px;
-  }
-  .subscribe .ui.centered.grid {
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 }
 @media (min-width: 768px) {
@@ -599,13 +569,11 @@ input::selection {
     font-weight: 700;
     line-height: 24px;
     height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    min-width: 190px;
   }
   .benefits,
   .represent,
   .home-news {
+    text-align: left;
     margin-top: 75px;
   }
   .benefits .ui.header,
@@ -638,7 +606,11 @@ input::selection {
     font-weight: 700;
     line-height: 44px;
   }
+  .benefits .ui.header.centered {
+    text-align: left;
+  }
   .benefits .ui.header.centered.decored:before {
+    margin-left: 0;
     width: 99px;
   }
   .benefits .content {
@@ -772,6 +744,8 @@ input::selection {
   }
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
+    padding-top: 86px;
+    padding-bottom: 100px;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -784,10 +758,10 @@ input::selection {
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 22px;
+    margin-bottom: 38px;
     font-size: 25px;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 30px;
   }
   .subscribe .ui.button,
   .subscribe .input.subscribe {
@@ -803,9 +777,14 @@ input::selection {
     margin-left: 15px;
     margin-top: 0;
   }
-  .subscribe .ui.centered.grid {
-    padding-top: 55px;
-    padding-bottom: 55px;
+}
+@media (max-width: 1200px) {
+  .subscribe div.title,
+  .subscribe .ui.input,
+  .subscribe .subscribe-btn {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -951,7 +930,7 @@ input::selection {
     margin: 0 auto;
     max-width: 730px;
     color: #636463;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 25px;
     padding-bottom: 27px;
@@ -1023,6 +1002,9 @@ input::selection {
   }
   .represent .bx-wrapper li {
     margin: 0;
+  }
+  .represent .bx-wrapper .bx-controls-direction {
+    display: none;
   }
   .represent .ui.primary.button {
     display: block;
@@ -1100,10 +1082,15 @@ input::selection {
     line-height: 22px;
     padding: 14px 52px 11px 53px;
   }
+  .subscribe {
+    padding-top: 118px;
+    padding-bottom: 105px;
+  }
   .subscribe div.title {
     display: inline-block;
     width: auto;
-    padding-right: 40px;
+    text-align: left;
+    margin: 12px 32px 38px -115px;
   }
   .subscribe .ui.primary.button {
     margin-top: 0;
@@ -1114,10 +1101,11 @@ input::selection {
     padding-bottom: 90px;
   }
   .secondary-services .ui.header {
-    margin-bottom: 0;
+    margin-bottom: 37px;
   }
   .secondary-services + section {
-    padding-bottom: 40px;
+    padding-top: 100px;
+    padding-bottom: 87px;
   }
   .secondary-services + section .segment {
     float: right;
@@ -1138,18 +1126,6 @@ input::selection {
   }
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
-  }
-  .subscribe .ui.centered.grid {
-    padding-top: 90px;
-    padding-bottom: 90px;
-  }
-  main.about-us ~ .services {
-    padding-top: 65px;
-    padding-bottom: 65px;
-  }
-  main.about-us ~ .services .column p {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 }
 @media (min-width: 1200px) {
@@ -1195,7 +1171,7 @@ input::selection {
   position: absolute;
   right: 0;
   top: 0;
-  width: 62%;
+  width: 60%;
   float: left;
   background: lightgoldenrodyellow;
   z-index: 10;
@@ -1206,9 +1182,6 @@ input::selection {
 }
 .contact-form .ui.form textarea:not([rows]) {
   resize: none;
-}
-.contact-form .ui.form .field > label {
-  margin-bottom: 0;
 }
 .gform_wrapper textarea.medium:not([rows]),
 .gform_wrapper textarea.medium {
@@ -1222,7 +1195,7 @@ input::selection {
 }
 .service .circles-list.small li:before,
 .service .content-page .circles-list.small li:before {
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 }
 .service .very.padded {
   margin-top: 0;
@@ -1248,9 +1221,6 @@ input::selection {
 }
 .projects img.ui.shadowed.image {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
-}
-.about-us h1.ui.header .sub.header {
-  color: #FF6B01;
 }
 main.page.about-us,
 main.page.projects {
@@ -1280,12 +1250,9 @@ main.page > .grid {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
   width: 100%;
 }
-.about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
-  padding-right: 35px;
-}
 .projects img.ui.shadowed.image,
 .service img.ui.shadowed.image {
-  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -17px 0 #e6e6e6;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -20px 0 #e6e6e6;
   width: 100%;
 }
 @media (max-width: 767px) {
@@ -1304,7 +1271,7 @@ main.page > .grid {
     width: 100%;
     float: none;
     background: lightgoldenrodyellow;
-    min-height: 300px;
+    min-height: 400px;
     z-index: 10;
     margin-top: 2rem;
   }
@@ -1335,7 +1302,7 @@ main.page > .grid {
 }
 @media (min-width: 768px) {
   .contacts > .ui.container {
-    min-height: 300px;
+    min-height: 700px;
   }
   .contacts .info {
     background: #636463;
@@ -1363,8 +1330,8 @@ main.page > .grid {
     color: #ff6b01;
   }
   .contact-form {
-    margin-top: 100px;
-    padding: 2rem 0 6.5rem;
+    margin-top: 64px;
+    padding: 2rem 0 5rem;
   }
   .contact-form .ui.header.left.decored:before {
     margin: -52px 0 15px;
@@ -1460,28 +1427,19 @@ main.page > .grid {
   .contact-form .shadowed.image {
     margin-top: 30px;
   }
-  .service .padded.row .ui.left.header.decored {
-    padding-top: 0;
-  }
 }
 @media (min-width: 1200px) {
   .about-us .ten.wide.computer.column img.shadowed {
     margin-top: 50px;
   }
-  .service .service-text {
-    max-width: 620px;
-  }
 }
 @media (min-width: 1440px) {
   .contacts .info {
-    width: 38%;
+    width: 40%;
   }
   .contacts .map {
-    width: 62%;
+    width: 60%;
   }
-}
-main .ui.breadcrumb .section {
-  margin-right: 0;
 }
 
 /* Views */
@@ -1506,7 +1464,7 @@ header .main-logo {
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header .ui.grid.container {
-    width: 600px;
+    width: calc(723px + 2rem);
     margin: 0 auto;
   }
   header .ui.grid.container .right.aligned.column {
@@ -1575,6 +1533,7 @@ header .main-logo {
     width: 1px;
     height: 30px;
     margin-right: 23px;
+    border-left: 1px solid #8f8f8f;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1586,18 +1545,19 @@ header .main-logo {
   }
   header .desktop .ui.top-menu {
     width: 100%;
-    margin: 0;
-    padding-bottom: 0;
+    margin: -1rem 0;
+    padding-bottom: 1rem;
   }
   header .desktop .ui.top-menu .item {
     color: #8f8f8f;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
-    padding: 4px 10px 4px 20px;
+    padding: 7px 10px 4px 20px;
   }
   header .desktop .ui.top-menu .item:first-child {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
   header .desktop .ui.top-menu .item:active,
   header .desktop .ui.top-menu .item:hover {
@@ -1619,7 +1579,7 @@ header .main-logo {
     margin: -1rem 0;
     padding-top: 1.2rem;
     padding-bottom: 0;
-    border-top: 1px solid rgba(216, 216, 216, 0.66);
+    border-top: 1px solid #8f8f8f;
   }
   header .desktop .ui.main-menu .ui.dropdown.item {
     padding-bottom: 0;
@@ -1866,7 +1826,7 @@ header .search-row .ui.form input {
     padding-top: 1rem;
     padding-bottom: 18px;
     padding-left: 0.5rem;
-    padding-right: 0;
+    padding-right: 0.5rem;
   }
   header .mob-menu .ui.vertically.reversed.grid {
     margin-left: -0.5em;
@@ -1929,7 +1889,7 @@ header .search-row .ui.form input {
     margin-right: 0.8em;
   }
   header .right.menu.basket {
-    padding: 4px 0;
+    padding: 15px 0;
     position: relative;
   }
   header .right.menu.basket .item {
@@ -2007,12 +1967,6 @@ footer nav {
   margin-bottom: 0!important;
   border-bottom: 1px solid #8f8f8f !important;
   height: 100%;
-}
-footer .footer-contacts a .title {
-  color: #FFF;
-}
-footer .footer-contacts a .title:hover {
-  color: #ff6b01;
 }
 footer .ui.text.menu .item,
 footer .ui.text.menu a {
@@ -2494,7 +2448,6 @@ section.slider .ui.container.grid > .column {
     min-height: 650px;
   }
   .main-slider li .content {
-    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -2673,7 +2626,7 @@ main.page > .grid {
   }
   .about-us ~ .benefits.very.padded {
     margin-bottom: 36px;
-    margin-top: 50px;
+    margin-top: 0;
   }
   .about-us ~ .coo-respose {
     padding-top: 100px;
@@ -2704,9 +2657,6 @@ main.page > .grid {
   .service .benefits-icon {
     margin-top: 60px;
     font-size: 60px;
-  }
-  .secondary-services .ui.container {
-    width: 1200px;
   }
 }
 .ui.segment h4,
@@ -2860,11 +2810,10 @@ blockquote {
 .content-page .circles-list.small li,
 .circles-list.small li {
   min-height: 55px;
-  line-height: 33px;
+  line-height: 40px;
 }
 .content-page .circles-list.small li:before,
 .circles-list.small li:before {
-  line-height: 40px;
   width: 40px;
   height: 40px;
   font-size: 13px;
@@ -2895,6 +2844,9 @@ blockquote {
   margin-top: 100px;
   margin-bottom: 107px;
 }
+.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
+  margin-left: 2px !important;
+}
 .ui.raised.segment,
 .ui.raised.segments {
   border-top: 1px solid rgba(27, 47, 78, 0.03);
@@ -2903,161 +2855,36 @@ blockquote {
   display: block;
   margin-left: 0 !important;
 }
-.bx-wrapper img {
-  height: auto;
+.contacts {
+  margin-top: 15px;
 }
 .circles-list.small li:before {
-  margin-top: -5px;
+  margin-top: -2px;
 }
 @media only screen and (max-width: 1200px) and (min-width: 768px) {
   .secondary-services {
     margin-bottom: 65px;
   }
-  #home-benefits {
-    text-align: left;
-  }
-  #home-benefits .ui.header.centered {
-    text-align: left;
-  }
-  #home-benefits .ui.header.centered:before {
-    margin-left: 0;
-  }
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
   }
-  .contacts .info {
-    background: #636463;
-    min-height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  .contacts .map {
-    position: relative;
-    right: 0;
-    top: 0;
-    width: 100%;
-    float: none;
-    background: lightgoldenrodyellow;
-    min-height: 400px;
-    z-index: 10;
-    margin-top: 2rem;
-  }
-}
-.contact-address br {
-  display: none;
-}
-#service-image,
-#projects-image {
-  margin-top: 40px;
-}
-.service.page .ui.header.left.decored:before,
-.projects.page .ui.header.left.decored:before {
-  margin-top: 32px;
-}
-#projects-image,
-#service-image {
-  width: 460px;
-}
-#projects-details {
-  margin-top: -60px;
-}
-.secondary-services {
-  margin-top: 80px;
-}
-.secondary-services p {
-  max-width: 700px;
-  margin: 0 auto;
-}
-#services-additional p {
-  max-width: 700px;
-}
-#services-cta {
-  position: relative;
-  top: 15px;
-  height: 280px;
-}
-#services-cta h3 {
-  margin: 20px 0;
-}
-#services-cta .button {
-  height: 50px;
-  line-height: 25px;
-}
-#service-phone {
-  margin-top: 30px;
-}
-#service-cta {
-  margin-top: -15px;
-  margin-left: -5px;
-}
-#service-cta-button {
-  line-height: 24px;
-  height: 50px;
-}
-#service-details {
-  margin-top: 20px;
-}
-#service-images {
-  text-align: center;
-  margin-top: 40px;
-}
-#service-images img {
-  padding: 10px;
-  padding-top: 5px;
-  max-width: 400px;
-}
-#service-directions {
-  margin: -30px 0 40px 0;
-}
-#service-cta h3 {
-  margin: 10px 0 25px 0;
-}
-.gform_button.button {
-  width: 150px !important;
-}
-#hidden-info {
-  display: none;
-}
-.gform_body {
-  margin-top: 30px !important;
-}
-body .gform_wrapper .top_label div.ginput_container {
-  margin-top: 0 !important;
 }
 @media only screen and (max-width: 767px) and (min-width: 320px) {
-  .contact-form {
-    margin-top: 40px;
-  }
   .subscribe .ui.primary.button {
     margin-top: 0;
   }
-  .secondary-services {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
   .secondary-services .content {
+    max-width: 400px;
     margin-top: 12px;
-    max-width: 190px;
-    vertical-align: middle;
-    display: table-cell;
   }
   .coo-respose {
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
-    background-size: cover !important;
-    padding-bottom: 4rem !important;
-    margin-bottom: -22px;
-    border-top: 1px solid #e6e6e6;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 25px;
   }
   .coo-respose > .grid {
     margin: 0;
   }
   .contacts {
-    margin-top: -15px;
+    margin-top: 30px;
   }
   .secondary-services {
     margin-bottom: 65px;
@@ -3068,416 +2895,12 @@ body .gform_wrapper .top_label div.ginput_container {
   .service.page .ui.basic.compact.segment {
     margin: 30px auto;
   }
-  .image-icon {
-    margin-right: 15px;
-    top: 6px;
-  }
-  .image-icon.icon-shield {
-    top: 15px;
-  }
-  .contacts .ui.grid {
-    margin-top: 15px;
-  }
-  .hide-for-mobile {
-    display: none !important;
-  }
-  #about-us-text {
-    margin: 0 auto;
-    text-align: center;
-  }
-  #about-us-text .ui.header.left {
-    text-align: center;
-  }
-  #about-us-text .ui.header.left:before {
-    margin: 30px auto 20px;
-  }
-  .benefits {
-    margin-top: 60px !important;
-  }
-  .about-us ~ .services {
-    border-top: none;
-    position: relative;
-  }
-  .about-us ~ .services:before {
-    background: #e6e6e6;
-    width: 240px;
-    height: 1px;
-    margin: 0 auto;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  .contact-address,
-  .contact-details {
-    padding-left: 30px !important;
-    padding-right: 30px !important;
-  }
-  .contact-address p,
-  .contact-details p {
-    font-size: 12px !important;
-    line-height: 20px !important;
-  }
-  #contacts-divider {
-    top: 8px !important;
-  }
-  .contact-address h1,
-  .contact-details h2 {
-    font-size: 26px !important;
-  }
-  .contact-form {
-    margin-top: 45px;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-  .contact-form textarea {
-    max-height: 140px !important;
-  }
-  .contact-form .button {
-    margin-top: 15px !important;
-    position: relative;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    width: 180px !important;
-  }
-  .mobile-centered {
-    text-align: center !important;
-  }
-  .mobile-centered:before {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .contact-address a {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  .contact-address a:hover {
-    color: #ff6b01;
-  }
-  .service.page,
-  .projects.page {
-    text-align: center;
-    margin-left: 25px !important;
-    margin-right: 25px !important;
-    margin-bottom: 50px;
-  }
-  .service.page .ui.header.left.decored,
-  .projects.page .ui.header.left.decored {
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-  .service.page .ui.header.left.decored:before,
-  .projects.page .ui.header.left.decored:before {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .service.page .circles-list.small li,
-  .projects.page .circles-list.small li {
-    line-height: 20px;
-    text-align: left;
-    font-size: 12px;
-  }
-  .service.page .circles-list.small li:before,
-  .projects.page .circles-list.small li:before {
-    line-height: 40px;
-  }
-  .projects.page .circles-list {
-    margin: 0 50px;
-  }
-  .projects.page .circles-list li {
-    line-height: 35px !important;
-  }
-  #projects-details {
-    margin-top: -15px;
-  }
-  .secondary-services {
-    margin-top: 0;
-    padding-top: 65px;
-    margin-bottom: 0;
-  }
-  #services-additional {
-    margin-top: -30px;
-    margin-left: 25px;
-    margin-right: 25px;
-    text-align: center;
-  }
-  #services-additional h2 {
-    text-align: center;
-    font-size: 26px !important;
-  }
-  #services-additional h2:before {
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  #services-cta {
-    height: 175px;
-    top: 30px;
-  }
-  #services-cta h3 {
-    font-size: 20px;
-    margin: 15px 0;
-  }
-  #services-cta .button {
-    max-width: 200px;
-    margin: 0 auto;
-  }
-  #services-additional {
-    margin-bottom: -50px;
-  }
-  #service-image {
-    margin-top: 0 !important;
-    margin-bottom: 50px;
-  }
-  #projects-image {
-    margin-top: 40px !important;
-    margin-bottom: 25px;
-  }
-  #service-cta {
-    margin-top: 5px;
-    margin-left: auto;
-  }
-  #service-cta h3 {
-    font-size: 20px !important;
-  }
-  #service-cta-button {
-    max-width: 200px;
-  }
-  #service-phone {
-    margin-top: 0;
-    min-height: 225px;
-    margin-right: -1em;
-  }
-  #service-images {
-    margin-top: 20px;
-  }
-  #service-images img {
-    padding: 5px;
-    max-width: 270px;
-  }
-  #service-details {
-    margin-top: -20px;
-  }
-  .projects.page p {
-    font-size: 12px;
-  }
-  #projects-details {
-    font-size: 20px;
-  }
 }
 @media (max-width: 410px) {
   .subscribe .ui.primary.button {
     margin-top: 15px;
   }
 }
-@media (max-width: 320px) {
-  #service-images {
-    margin-left: -15px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  #home-services .column {
-    border-bottom: 1px solid #e7e7e7;
-    margin-bottom: 20px;
-  }
-  #about-services {
-    margin: auto;
-    max-width: 640px;
-  }
-  #about-services .ui.container {
-    width: 370px;
-  }
-  #header .logo {
-    width: 74px;
-  }
-  #header .ui.input.search input {
-    height: 50px;
-  }
-  #header .ui.grid.container .right.aligned.column .mob-toogle-menu {
-    font-size: 26px;
-  }
-  .image-icon {
-    margin-right: 30px;
-  }
-  .tablet-centered {
-    float: none !important;
-    margin: 0 auto;
-  }
-  .hide-for-tablet {
-    display: none !important;
-  }
-  .contacts .ui.grid {
-    margin-top: 15px;
-  }
-  .about-us,
-  .projects.page {
-    max-width: 600px !important;
-  }
-  #service-directions {
-    font-size: 36px;
-    margin: 20px 0 60px 0;
-  }
-  .coo-respose {
-    margin-top: -34px;
-    padding-bottom: 55px !important;
-    background-size: cover !important;
-    margin-bottom: -24px;
-    border-top: 1px solid #e6e6e6;
-  }
-  .coo-respose h2.ui.header {
-    font-size: 36px;
-    line-height: 1;
-  }
-  .secondary-services .column {
-    margin-bottom: 30px;
-  }
-  .contact-address {
-    margin-top: 40px !important;
-  }
-  .contact-details {
-    margin-top: 47px;
-  }
-  .contact-address h1,
-  .contact-details h2 {
-    font-size: 36px !important;
-  }
-  .contact-address br {
-    display: block;
-  }
-  .contacts .ui.container {
-    max-width: 600px;
-  }
-  .contacts {
-    margin-top: -15px;
-  }
-  .contact-form {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-form input {
-    max-width: 300px;
-  }
-  .contact-form textarea {
-    max-width: 460px;
-  }
-  #contact-image {
-    float: left;
-    margin-top: 30px;
-  }
-  .contact-details h2 {
-    margin-bottom: 24px !important;
-  }
-  .contact-details br {
-    content: '';
-    display: block;
-    margin: 30px 0;
-  }
-  .service.page {
-    max-width: 600px !important;
-    margin-bottom: 115px;
-  }
-  #service-cta {
-    margin-top: 5px;
-  }
-  #service-cta-button {
-    margin-top: 20px;
-  }
-  #service-phone {
-    min-height: 225px;
-  }
-  #projects-details {
-    margin-top: -10px;
-  }
-  #projects-image {
-    float: left;
-    margin-top: 60px !important;
-  }
-  .secondary-services {
-    padding-top: 80px;
-  }
-  .secondary-services h2 {
-    font-size: 36px !important;
-  }
-  #service-image-container .sixteen.wide.tablet {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  #service-images {
-    margin-top: 0;
-  }
-  #service-images img {
-    max-width: 290px;
-  }
-  #services-additional {
-    margin-bottom: 0 !important;
-  }
-  #services-additional .very.padded {
-    margin-top: 10px !important;
-  }
-  #services-additional h2 {
-    font-size: 36px !important;
-    margin-bottom: 10px;
-    line-height: 60px;
-  }
-  #services-cta {
-    margin-top: 30px;
-    height: 205px;
-  }
-  #services-cta h3 {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  #services-cta .button {
-    width: 280px !important;
-    margin: 0 auto;
-  }
-  #service-image {
-    float: left;
-  }
-  #service-details {
-    margin-top: 0;
-  }
-  #service-details h2 {
-    font-size: 36px;
-  }
-  #service-details h2:before {
-    margin: 20px 0 25px 0;
-  }
-  .secondary-services p {
-    max-width: 600px;
-  }
-  .contact-form {
-    margin-top: 40px;
-  }
-}
-i.icon {
-  font-size: 19px;
-}
-#mobile-search i.search.icon {
-  float: right;
-  margin-top: -34px;
-  margin-right: 15px;
-}
-.visibility-hidden {
-  visibility: hidden !important;
-}
-.image-icon {
-  float: left;
-  position: relative;
-  top: 3px;
-}
-#about-image {
-  margin-top: 50px !important;
-}
-.contact-address {
-  margin-top: 30px;
-}
-#contacts-divider {
-  position: relative;
-  top: 15px;
+.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
+  margin-top: 35px;
 }

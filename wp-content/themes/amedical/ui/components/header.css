@@ -780,7 +780,7 @@ h4.ui.header {
 .ui.header.centered.decored:before {
   display: block;
   content: "\00a0";
-  width: 98px;
+  width: 78px;
   height: 2px;
   margin-left: auto;
   margin-right: auto;
