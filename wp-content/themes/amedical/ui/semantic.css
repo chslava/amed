@@ -3307,7 +3307,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3348,7 +3347,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -16637,6 +16635,7 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18156,7 +18155,6 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
-  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -18217,7 +18215,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18230,7 +18227,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18249,7 +18245,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19896,7 +19891,6 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -20176,7 +20170,6 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;
