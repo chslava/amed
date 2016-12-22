@@ -1557,8 +1557,10 @@ i.icon.long.arrow.right:before {
 /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.65em;
+  font-size: 10px;
   content: "\e91a" !important;
+  position: relative;
+  top: -1px;
 }
 i.icon.arrow.circle.outline.right:before {
   content: "\f18e";
