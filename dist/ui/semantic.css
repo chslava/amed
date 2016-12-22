@@ -945,15 +945,15 @@ input::selection {
 }
 
 .subscribe {
-  background: #636463 url("../img/subscribe-background.png") repeat top center;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  background: #636463 url("../img/subscribe-background.png") no-repeat top center;
+  background-size: cover;
+  height: 230px;
 }
 
 .subscribe div.title {
   color: white;
   margin-top: 0;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   font-size: 22px;
   font-weight: 700;
   line-height: 27px;
@@ -1014,6 +1014,11 @@ input::selection {
   line-height: 15px;
 }
 
+.subscribe .ui.centered.grid {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
 .secondary-services {
   background: #f7f7f7;
   padding-top: 3rem;
@@ -1042,7 +1047,7 @@ input::selection {
 }
 
 .represent .bx-viewport {
-  height: 78px!important;
+  height: 88px!important;
 }
 
 .represent .represent-slider li {
@@ -1062,14 +1067,9 @@ input::selection {
   padding-top: 0;
 }
 
-main.about-us ~ .coo-respose {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 @media (max-width: 767px) {
   .coo-respose .ui.header.left.decored:before {
-    margin: 0 0 20px 0;
+    margin: 40px auto 20px !important;
   }
 
   .services .column:last-child .services-item:after {
@@ -1094,6 +1094,43 @@ main.about-us ~ .coo-respose {
     background: #e6e6e6;
     /* border: 1px solid #e6e6e6; */
     /* margin: 0 auto; */
+  }
+}
+
+@media (max-width: 767px) {
+  .subscribe {
+    height: 240px;
+    background-image: url('../img/subscribe-bg-mob.png');
+  }
+
+  .subscribe div.title,
+  .subscribe .ui.input,
+  .subscribe .ui.primary.button {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+
+  .subscribe .ui.centered.grid {
+    margin: 0 auto;
+  }
+
+  .subscribe div.title {
+    margin-bottom: 30px;
+  }
+
+  .subscribe .ui.input {
+    margin-bottom: 20px;
+  }
+
+  .subscribe .ui.primary.button {
+    margin-top: 20px;
+    max-width: 140px;
+  }
+
+  .subscribe .ui.centered.grid {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -1125,12 +1162,14 @@ main.about-us ~ .coo-respose {
     font-weight: 700;
     line-height: 24px;
     height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 190px;
   }
 
   .benefits,
   .represent,
   .home-news {
-    text-align: left;
     margin-top: 75px;
   }
 
@@ -1168,12 +1207,7 @@ main.about-us ~ .coo-respose {
     line-height: 44px;
   }
 
-  .benefits .ui.header.centered {
-    text-align: left;
-  }
-
   .benefits .ui.header.centered.decored:before {
-    margin-left: 0;
     width: 99px;
   }
 
@@ -1330,8 +1364,6 @@ main.about-us ~ .coo-respose {
 
   .subscribe {
     background: #636463 url("../img/subscribe-background.png") repeat top center;
-    padding-top: 86px;
-    padding-bottom: 100px;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -1346,10 +1378,10 @@ main.about-us ~ .coo-respose {
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 38px;
+    margin-bottom: 22px;
     font-size: 25px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 50px;
   }
 
   .subscribe .ui.button,
@@ -1368,15 +1400,10 @@ main.about-us ~ .coo-respose {
     margin-left: 15px;
     margin-top: 0;
   }
-}
 
-@media (max-width: 1200px) {
-  .subscribe div.title,
-  .subscribe .ui.input,
-  .subscribe .subscribe-btn {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 100%;
-    flex: 1 1 100%;
+  .subscribe .ui.centered.grid {
+    padding-top: 55px;
+    padding-bottom: 55px;
   }
 }
 
@@ -1547,7 +1574,7 @@ main.about-us ~ .coo-respose {
     margin: 0 auto;
     max-width: 730px;
     color: #636463;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 25px;
     padding-bottom: 27px;
@@ -1631,10 +1658,6 @@ main.about-us ~ .coo-respose {
 
   .represent .bx-wrapper li {
     margin: 0;
-  }
-
-  .represent .bx-wrapper .bx-controls-direction {
-    display: none;
   }
 
   .represent .ui.primary.button {
@@ -1727,16 +1750,10 @@ main.about-us ~ .coo-respose {
     padding: 14px 52px 11px 53px;
   }
 
-  .subscribe {
-    padding-top: 118px;
-    padding-bottom: 105px;
-  }
-
   .subscribe div.title {
     display: inline-block;
     width: auto;
-    text-align: left;
-    margin: 12px 32px 38px -115px;
+    padding-right: 40px;
   }
 
   .subscribe .ui.primary.button {
@@ -1750,12 +1767,11 @@ main.about-us ~ .coo-respose {
   }
 
   .secondary-services .ui.header {
-    margin-bottom: 37px;
+    margin-bottom: 0;
   }
 
   .secondary-services + section {
-    padding-top: 100px;
-    padding-bottom: 87px;
+    padding-bottom: 40px;
   }
 
   .secondary-services + section .segment {
@@ -1781,6 +1797,21 @@ main.about-us ~ .coo-respose {
 
   .secondary-services .ui.relaxed.grid .column:last-child .content {
     padding-right: 0;
+  }
+
+  .subscribe .ui.centered.grid {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  main.about-us ~ .services {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  main.about-us ~ .services .column p {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
@@ -1836,7 +1867,7 @@ main.about-us ~ .coo-respose {
   position: absolute;
   right: 0;
   top: 0;
-  width: 60%;
+  width: 62%;
   float: left;
   background: lightgoldenrodyellow;
   z-index: 10;
@@ -1849,6 +1880,10 @@ main.about-us ~ .coo-respose {
 
 .contact-form .ui.form textarea:not([rows]) {
   resize: none;
+}
+
+.contact-form .ui.form .field > label {
+  margin-bottom: 0;
 }
 
 .gform_wrapper textarea.medium:not([rows]),
@@ -1865,7 +1900,7 @@ main.about-us ~ .coo-respose {
 
 .service .circles-list.small li:before,
 .service .content-page .circles-list.small li:before {
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 .service .very.padded {
@@ -1895,6 +1930,10 @@ main.about-us ~ .coo-respose {
 
 .projects img.ui.shadowed.image {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 16px -20px 0 #e6e6e6;
+}
+
+.about-us h1.ui.header .sub.header {
+  color: #FF6B01;
 }
 
 main.page.about-us,
@@ -1931,9 +1970,13 @@ main.page > .grid {
   width: 100%;
 }
 
+.about-us .ui.grid > .row > [class*="sixteen wide mobile"].column:nth-child(2) {
+  padding-right: 35px;
+}
+
 .projects img.ui.shadowed.image,
 .service img.ui.shadowed.image {
-  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -20px 0 #e6e6e6;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14), 15px -17px 0 #e6e6e6;
   width: 100%;
 }
 
@@ -1954,7 +1997,7 @@ main.page > .grid {
     width: 100%;
     float: none;
     background: lightgoldenrodyellow;
-    min-height: 400px;
+    min-height: 300px;
     z-index: 10;
     margin-top: 2rem;
   }
@@ -1993,7 +2036,7 @@ main.page > .grid {
 
 @media (min-width: 768px) {
   .contacts > .ui.container {
-    min-height: 700px;
+    min-height: 300px;
   }
 
   .contacts .info {
@@ -2026,8 +2069,8 @@ main.page > .grid {
   }
 
   .contact-form {
-    margin-top: 64px;
-    padding: 2rem 0 5rem;
+    margin-top: 100px;
+    padding: 2rem 0 6.5rem;
   }
 
   .contact-form .ui.header.left.decored:before {
@@ -2143,22 +2186,34 @@ main.page > .grid {
   .contact-form .shadowed.image {
     margin-top: 30px;
   }
+
+  .service .padded.row .ui.left.header.decored {
+    padding-top: 0;
+  }
 }
 
 @media (min-width: 1200px) {
   .about-us .ten.wide.computer.column img.shadowed {
     margin-top: 50px;
   }
+
+  .service .service-text {
+    max-width: 620px;
+  }
 }
 
 @media (min-width: 1440px) {
   .contacts .info {
-    width: 40%;
+    width: 38%;
   }
 
   .contacts .map {
-    width: 60%;
+    width: 62%;
   }
+}
+
+main .ui.breadcrumb .section {
+  margin-right: 0;
 }
 
 /* Views */
@@ -2190,7 +2245,7 @@ header .main-logo {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header .ui.grid.container {
-    width: calc(723px + 2rem);
+    width: 600px;
     margin: 0 auto;
   }
 
@@ -2269,7 +2324,6 @@ header .main-logo {
     width: 1px;
     height: 30px;
     margin-right: 23px;
-    border-left: 1px solid #8f8f8f;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2283,8 +2337,8 @@ header .main-logo {
 
   header .desktop .ui.top-menu {
     width: 100%;
-    margin: -1rem 0;
-    padding-bottom: 1rem;
+    margin: 0;
+    padding-bottom: 0;
   }
 
   header .desktop .ui.top-menu .item {
@@ -2292,12 +2346,11 @@ header .main-logo {
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
-    padding: 7px 10px 4px 20px;
+    padding: 4px 10px 4px 20px;
   }
 
   header .desktop .ui.top-menu .item:first-child {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
   }
 
   header .desktop .ui.top-menu .item:active,
@@ -2323,7 +2376,7 @@ header .main-logo {
     margin: -1rem 0;
     padding-top: 1.2rem;
     padding-bottom: 0;
-    border-top: 1px solid #8f8f8f;
+    border-top: 1px solid rgba(216, 216, 216, 0.66);
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item {
@@ -2619,7 +2672,7 @@ header .search-row .ui.form input {
     padding-top: 1rem;
     padding-bottom: 18px;
     padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-right: 0;
   }
 
   header .mob-menu .ui.vertically.reversed.grid {
@@ -2692,7 +2745,7 @@ header .search-row .ui.form input {
   }
 
   header .right.menu.basket {
-    padding: 15px 0;
+    padding: 4px 0;
     position: relative;
   }
 
@@ -2778,6 +2831,14 @@ footer nav {
   margin-bottom: 0!important;
   border-bottom: 1px solid #8f8f8f !important;
   height: 100%;
+}
+
+footer .footer-contacts a .title {
+  color: #FFF;
+}
+
+footer .footer-contacts a .title:hover {
+  color: #ff6b01;
 }
 
 footer .ui.text.menu .item,
@@ -3340,6 +3401,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider li .content {
+    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -9352,7 +9414,7 @@ h4.ui.header {
 .ui.header.centered.decored:before {
   display: block;
   content: "\00a0";
-  width: 78px;
+  width: 98px;
   height: 2px;
   margin-left: auto;
   margin-right: auto;
@@ -11344,8 +11406,10 @@ i.icon.long.arrow.right:before {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 0.65em;
+  font-size: 10px;
   content: "\e91a" !important;
+  position: relative;
+  top: -1px;
 }
 
 i.icon.arrow.circle.outline.right:before {
@@ -14479,6 +14543,14 @@ img.ui.shadowed.image {
     color:#FFF;
     opacity: 1;
   }*/
+}
+
+.search i.search.icon {
+  cursor: pointer !important;
+}
+
+.ui.icon.input.search > i.icon:not(.link) {
+  pointer-events: auto !important;
 }
 /*!
  * # Semantic UI 2.2.4 - Segment
