@@ -3308,7 +3308,6 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3349,7 +3348,6 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -3401,6 +3399,7 @@ section.slider .ui.container.grid > .column {
   }
 
   .main-slider li .content {
+    width: 1200px;
     margin: 0 auto;
     padding: 0 85px;
   }
@@ -4600,83 +4599,6 @@ i.icon {
 #contacts-divider {
   position: relative;
   top: 15px;
-}
-
-.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
-}
-
-.ui.raised.segment,
-.ui.raised.segments {
-  border-top: 1px solid rgba(27, 47, 78, 0.03);
-}
-
-.home-news .column p a {
-  display: block;
-  margin-left: 0 !important;
-}
-
-.contacts {
-  margin-top: 15px;
-}
-
-.circles-list.small li:before {
-  margin-top: -2px;
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 768px) {
-  .secondary-services {
-    margin-bottom: 65px;
-  }
-
-  .secondary-services ~ .ui.container {
-    margin-bottom: 50px;
-  }
-}
-
-@media only screen and (max-width: 767px) and (min-width: 320px) {
-  .subscribe .ui.primary.button {
-    margin-top: 0;
-  }
-
-  .secondary-services .content {
-    max-width: 400px;
-    margin-top: 12px;
-  }
-
-  .coo-respose {
-    padding: 25px;
-  }
-
-  .coo-respose > .grid {
-    margin: 0;
-  }
-
-  .contacts {
-    margin-top: 30px;
-  }
-
-  .secondary-services {
-    margin-bottom: 65px;
-  }
-
-  .secondary-services ~ .ui.container {
-    margin-bottom: 50px;
-  }
-
-  .service.page .ui.basic.compact.segment {
-    margin: 30px auto;
-  }
-}
-
-@media (max-width: 410px) {
-  .subscribe .ui.primary.button {
-    margin-top: 15px;
-  }
-}
-
-.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
-  margin-top: 35px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
@@ -17384,6 +17306,7 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18903,7 +18826,6 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
-  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -18964,7 +18886,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18977,7 +18898,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -18996,7 +18916,6 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
-  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -20643,7 +20562,6 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -20923,7 +20841,6 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;

@@ -2015,7 +2015,7 @@ footer .footer-contacts .item a:hover {
 }
 footer .footer-contacts .c-icon {
   color: #8f8f8f;
-  font-size: 18px;
+  font-size: 16px;
   float: left;
   display: block;
   margin-right: 0;
@@ -2335,7 +2335,7 @@ footer .copyright {
 /* Modules */
 section.slider {
   background: #686C78;
-  padding-top: 0;
+  padding-top: 1rem;
 }
 section.slider .ui.container.grid {
   margin-left: auto !important;
@@ -2606,17 +2606,16 @@ main.page > .grid {
     border-top: 1px solid #e6e6e6;
   }
   .about-us ~ .services .icon-title {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-bottom: 1rem;
   }
   .about-us ~ .services .column p {
     margin-top: 20px!important;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
   .about-us ~ .services .icon-first-icon {
     font-size: 50px;
     margin-top: 7px;
+    margin-left: 10px;
   }
   .about-us ~ .services .icon-second-icon {
     font-size: 58px;
@@ -2803,7 +2802,7 @@ blockquote {
   border-radius: 50px;
   background: #FFF;
   float: left;
-  margin-right: 14px;
+  margin-right: 20px;
   color: #e5702a;
   text-align: center;
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
