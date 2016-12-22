@@ -146,15 +146,15 @@ jQuery(function($) {
             url = self.attr("href");
 
             if(self.hasClass("button")){
-                if (url.length>0){
-                    if (remove_params_from_url(url) == contact_page_link){
-                        self.click(function(){
-                            var text = get_link_text(self);
-                            ga('send', 'event', 'Contact us button clicked', text.trim()+' button clicked');
-                        });
-
+                if (url && url.length>0){
+                    if (typeof contact_page_link != 'undefined'){
+                        if (remove_params_from_url(url) == contact_page_link){
+                            self.click(function(){
+                                var text = get_link_text(self);
+                                ga('send', 'event', 'Contact us button clicked', text.trim()+' button clicked');
+                            });
+                        }
                     }
-
                 }
             }
             var social_links = get_social_profile_links();
