@@ -108,6 +108,7 @@ main.page {
   ~ .coo-respose {
     //background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 100%);
     background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+    background-size: cover;
     padding-bottom:2rem;
     .eight.wide.computer.column {
       // width: 54%!important;
@@ -193,6 +194,7 @@ main.page {
       margin: 0 auto;
       padding-bottom: 94px;
       background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+      background-size: cover;
       .eight.wide.computer.column {
         width: 54% !important;
         p {
