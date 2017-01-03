@@ -157,33 +157,34 @@ jQuery(function($) {
                     }
                 }
             }
-            var social_links = get_social_profile_links();
 
-            for (x in social_links){
-                if (url.indexOf(social_links[x].url)!=-1){
-                    //1.. Social buttons - add events for clicking the social buttons
-                    self.click(function(){
-                        var self = $(this);
-                        var url="";
-                        url = self.attr("href");
-                        var text = get_link_text(self);
-                        if (text.length==0){
-                            var social_links = get_social_profile_links();
-                            for (x in social_links) {
-                                if (url.indexOf(social_links[x].url)!=-1) {
-                                    text = social_links[x].title;
-                                    break;
+            if (typeof url !='undefined'){
+                var social_links = get_social_profile_links();
+                for (x in social_links){
+                    if (url.indexOf(social_links[x].url)!=-1){
+                        //1.. Social buttons - add events for clicking the social buttons
+                        self.click(function(){
+                            var self = $(this);
+                            var url="";
+                            url = self.attr("href");
+                            var text = get_link_text(self);
+                            if (text.length==0){
+                                var social_links = get_social_profile_links();
+                                for (x in social_links) {
+                                    if (url.indexOf(social_links[x].url)!=-1) {
+                                        text = social_links[x].title;
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        ga('send', 'event', 'Social button clicked', text);
+                            ga('send', 'event', 'Social button clicked', text);
 
-                    });
+                        });
 
 
+                    }
                 }
             }
-
         });
 
         //9.. Remote support button - add event for clicking the “Remote support” button (for all lang.)
