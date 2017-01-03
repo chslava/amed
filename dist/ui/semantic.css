@@ -2292,7 +2292,7 @@ header .main-logo {
   }
 
   header .desktop .main-column {
-    height: 135px;
+    height: 136px;
     margin-top: -0.4rem;
     padding-left: 1.6rem;
     position: relative;
@@ -3273,7 +3273,6 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 1rem;
 }
 
 section.slider .ui.container.grid {
@@ -3537,6 +3536,7 @@ main.page > .grid {
 .about-us ~ .coo-respose {
   background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png") no-repeat;
+  background-size: cover;
   padding-bottom: 2rem;
 }
 
@@ -3612,7 +3612,7 @@ main.page > .grid {
 
   .about-us ~ .benefits.very.padded {
     margin-bottom: 36px;
-    margin-top: 0;
+    margin-top: 50px;
   }
 
   .about-us ~ .coo-respose {
@@ -3622,6 +3622,7 @@ main.page > .grid {
     padding-bottom: 94px;
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
     background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, white 46%), url("../img/light-bg.png");
+    background-size: cover;
   }
 
   .about-us ~ .coo-respose .eight.wide.computer.column {
@@ -3650,6 +3651,10 @@ main.page > .grid {
   .service .benefits-icon {
     margin-top: 60px;
     font-size: 60px;
+  }
+
+  .secondary-services .ui.container {
+    width: 1200px;
   }
 }
 
@@ -3822,11 +3827,12 @@ blockquote {
 .content-page .circles-list.small li,
 .circles-list.small li {
   min-height: 55px;
-  line-height: 40px;
+  line-height: 33px;
 }
 
 .content-page .circles-list.small li:before,
 .circles-list.small li:before {
+  line-height: 40px;
   width: 40px;
   height: 40px;
   font-size: 13px;
@@ -3861,10 +3867,6 @@ blockquote {
   margin-bottom: 107px;
 }
 
-.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
-  margin-left: 2px !important;
-}
-
 .ui.raised.segment,
 .ui.raised.segments {
   border-top: 1px solid rgba(27, 47, 78, 0.03);
@@ -3875,12 +3877,12 @@ blockquote {
   margin-left: 0 !important;
 }
 
-.contacts {
-  margin-top: 15px;
+.bx-wrapper img {
+  height: auto;
 }
 
 .circles-list.small li:before {
-  margin-top: -2px;
+  margin-top: -5px;
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 768px) {
@@ -3888,23 +3890,178 @@ blockquote {
     margin-bottom: 65px;
   }
 
+  #home-benefits {
+    text-align: left;
+  }
+
+  #home-benefits .ui.header.centered {
+    text-align: left;
+  }
+
+  #home-benefits .ui.header.centered:before {
+    margin-left: 0;
+  }
+
   .secondary-services ~ .ui.container {
     margin-bottom: 50px;
   }
+
+  .contacts .info {
+    background: #636463;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .contacts .map {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    float: none;
+    background: lightgoldenrodyellow;
+    min-height: 400px;
+    z-index: 10;
+    margin-top: 2rem;
+  }
+}
+
+.contact-address br {
+  display: none;
+}
+
+#service-image,
+#projects-image {
+  margin-top: 40px;
+}
+
+.service.page .ui.header.left.decored:before,
+.projects.page .ui.header.left.decored:before {
+  margin-top: 32px;
+}
+
+#projects-image,
+#service-image {
+  width: 460px;
+}
+
+#projects-details {
+  margin-top: -60px;
+}
+
+.secondary-services {
+  margin-top: 80px;
+}
+
+.secondary-services p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#services-additional p {
+  max-width: 700px;
+}
+
+#services-cta {
+  position: relative;
+  top: 15px;
+  height: 280px;
+}
+
+#services-cta h3 {
+  margin: 20px 0;
+}
+
+#services-cta .button {
+  height: 50px;
+  line-height: 25px;
+}
+
+#service-phone {
+  margin-top: 30px;
+}
+
+#service-cta {
+  margin-top: -15px;
+  margin-left: -5px;
+}
+
+#service-cta-button {
+  line-height: 24px;
+  height: 50px;
+}
+
+#service-details {
+  margin-top: 20px;
+}
+
+#service-images {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#service-images img {
+  padding: 10px;
+  padding-top: 5px;
+  max-width: 400px;
+}
+
+#service-directions {
+  margin: -30px 0 40px 0;
+}
+
+#service-cta h3 {
+  margin: 10px 0 25px 0;
+}
+
+.gform_button.button {
+  width: 150px !important;
+}
+
+#hidden-info {
+  display: none;
+}
+
+.gform_body {
+  margin-top: 30px !important;
+}
+
+body .gform_wrapper .top_label div.ginput_container {
+  margin-top: 0 !important;
 }
 
 @media only screen and (max-width: 767px) and (min-width: 320px) {
+  .contact-form {
+    margin-top: 40px;
+  }
+
   .subscribe .ui.primary.button {
     margin-top: 0;
   }
 
+  .secondary-services {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
   .secondary-services .content {
-    max-width: 400px;
     margin-top: 12px;
+    max-width: 190px;
+    vertical-align: middle;
+    display: table-cell;
   }
 
   .coo-respose {
-    padding: 25px;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0, #fff 46%), url(../img/light-bg.png) no-repeat !important;
+    background-size: cover !important;
+    padding-bottom: 4rem !important;
+    margin-bottom: -22px;
+    border-top: 1px solid #e6e6e6;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .coo-respose > .grid {
@@ -3912,7 +4069,7 @@ blockquote {
   }
 
   .contacts {
-    margin-top: 30px;
+    margin-top: -15px;
   }
 
   .secondary-services {
@@ -3926,6 +4083,254 @@ blockquote {
   .service.page .ui.basic.compact.segment {
     margin: 30px auto;
   }
+
+  .image-icon {
+    margin-right: 15px;
+    top: 6px;
+  }
+
+  .image-icon.icon-shield {
+    top: 15px;
+  }
+
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
+
+  .hide-for-mobile {
+    display: none !important;
+  }
+
+  #about-us-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #about-us-text .ui.header.left {
+    text-align: center;
+  }
+
+  #about-us-text .ui.header.left:before {
+    margin: 30px auto 20px;
+  }
+
+  .benefits {
+    margin-top: 60px !important;
+  }
+
+  .about-us ~ .services {
+    border-top: none;
+    position: relative;
+  }
+
+  .about-us ~ .services:before {
+    background: #e6e6e6;
+    width: 240px;
+    height: 1px;
+    margin: 0 auto;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .contact-address,
+  .contact-details {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  .contact-address p,
+  .contact-details p {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+
+  #contacts-divider {
+    top: 8px !important;
+  }
+
+  .contact-address h1,
+  .contact-details h2 {
+    font-size: 26px !important;
+  }
+
+  .contact-form {
+    margin-top: 45px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .contact-form textarea {
+    max-height: 140px !important;
+  }
+
+  .contact-form .button {
+    margin-top: 15px !important;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 180px !important;
+  }
+
+  .mobile-centered {
+    text-align: center !important;
+  }
+
+  .mobile-centered:before {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-address a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .contact-address a:hover {
+    color: #ff6b01;
+  }
+
+  .service.page,
+  .projects.page {
+    text-align: center;
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    margin-bottom: 50px;
+  }
+
+  .service.page .ui.header.left.decored,
+  .projects.page .ui.header.left.decored {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .service.page .ui.header.left.decored:before,
+  .projects.page .ui.header.left.decored:before {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .service.page .circles-list.small li,
+  .projects.page .circles-list.small li {
+    line-height: 20px;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .service.page .circles-list.small li:before,
+  .projects.page .circles-list.small li:before {
+    line-height: 40px;
+  }
+
+  .projects.page .circles-list {
+    margin: 0 50px;
+  }
+
+  .projects.page .circles-list li {
+    line-height: 35px !important;
+  }
+
+  #projects-details {
+    margin-top: -15px;
+  }
+
+  .secondary-services {
+    margin-top: 0;
+    padding-top: 65px;
+    margin-bottom: 0;
+  }
+
+  #services-additional {
+    margin-top: -30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+  }
+
+  #services-additional h2 {
+    text-align: center;
+    font-size: 26px !important;
+  }
+
+  #services-additional h2:before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  #services-cta {
+    height: 175px;
+    top: 30px;
+  }
+
+  #services-cta h3 {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+
+  #services-cta .button {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  #services-additional {
+    margin-bottom: -50px;
+  }
+
+  #service-image {
+    margin-top: 0 !important;
+    margin-bottom: 50px;
+  }
+
+  #projects-image {
+    margin-top: 40px !important;
+    margin-bottom: 25px;
+  }
+
+  #service-cta {
+    margin-top: 5px;
+    margin-left: auto;
+  }
+
+  #service-cta h3 {
+    font-size: 20px !important;
+  }
+
+  #service-cta-button {
+    max-width: 200px;
+  }
+
+  #service-phone {
+    margin-top: 0;
+    min-height: 225px;
+    margin-right: -1em;
+  }
+
+  #service-images {
+    margin-top: 20px;
+  }
+
+  #service-images img {
+    padding: 5px;
+    max-width: 270px;
+  }
+
+  #service-details {
+    margin-top: -20px;
+  }
+
+  .projects.page p {
+    font-size: 12px;
+  }
+
+  #projects-details {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 410px) {
@@ -3934,8 +4339,269 @@ blockquote {
   }
 }
 
-.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
-  margin-top: 35px;
+@media (max-width: 320px) {
+  #service-images {
+    margin-left: -15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #home-services .column {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+  }
+
+  #about-services {
+    margin: auto;
+    max-width: 640px;
+  }
+
+  #about-services .ui.container {
+    width: 370px;
+  }
+
+  #header .logo {
+    width: 74px;
+  }
+
+  #header .ui.input.search input {
+    height: 50px;
+  }
+
+  #header .ui.grid.container .right.aligned.column .mob-toogle-menu {
+    font-size: 26px;
+  }
+
+  .image-icon {
+    margin-right: 30px;
+  }
+
+  .tablet-centered {
+    float: none !important;
+    margin: 0 auto;
+  }
+
+  .hide-for-tablet {
+    display: none !important;
+  }
+
+  .contacts .ui.grid {
+    margin-top: 15px;
+  }
+
+  .about-us,
+  .projects.page {
+    max-width: 600px !important;
+  }
+
+  #service-directions {
+    font-size: 36px;
+    margin: 20px 0 60px 0;
+  }
+
+  .coo-respose {
+    margin-top: -34px;
+    padding-bottom: 55px !important;
+    background-size: cover !important;
+    margin-bottom: -24px;
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .coo-respose h2.ui.header {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .secondary-services .column {
+    margin-bottom: 30px;
+  }
+
+  .contact-address {
+    margin-top: 40px !important;
+  }
+
+  .contact-details {
+    margin-top: 47px;
+  }
+
+  .contact-address h1,
+  .contact-details h2 {
+    font-size: 36px !important;
+  }
+
+  .contact-address br {
+    display: block;
+  }
+
+  .contacts .ui.container {
+    max-width: 600px;
+  }
+
+  .contacts {
+    margin-top: -15px;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-form input {
+    max-width: 300px;
+  }
+
+  .contact-form textarea {
+    max-width: 460px;
+  }
+
+  #contact-image {
+    float: left;
+    margin-top: 30px;
+  }
+
+  .contact-details h2 {
+    margin-bottom: 24px !important;
+  }
+
+  .contact-details br {
+    content: '';
+    display: block;
+    margin: 30px 0;
+  }
+
+  .service.page {
+    max-width: 600px !important;
+    margin-bottom: 115px;
+  }
+
+  #service-cta {
+    margin-top: 5px;
+  }
+
+  #service-cta-button {
+    margin-top: 20px;
+  }
+
+  #service-phone {
+    min-height: 225px;
+  }
+
+  #projects-details {
+    margin-top: -10px;
+  }
+
+  #projects-image {
+    float: left;
+    margin-top: 60px !important;
+  }
+
+  .secondary-services {
+    padding-top: 80px;
+  }
+
+  .secondary-services h2 {
+    font-size: 36px !important;
+  }
+
+  #service-image-container .sixteen.wide.tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #service-images {
+    margin-top: 0;
+  }
+
+  #service-images img {
+    max-width: 290px;
+  }
+
+  #services-additional {
+    margin-bottom: 0 !important;
+  }
+
+  #services-additional .very.padded {
+    margin-top: 10px !important;
+  }
+
+  #services-additional h2 {
+    font-size: 36px !important;
+    margin-bottom: 10px;
+    line-height: 60px;
+  }
+
+  #services-cta {
+    margin-top: 30px;
+    height: 205px;
+  }
+
+  #services-cta h3 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  #services-cta .button {
+    width: 280px !important;
+    margin: 0 auto;
+  }
+
+  #service-image {
+    float: left;
+  }
+
+  #service-details {
+    margin-top: 0;
+  }
+
+  #service-details h2 {
+    font-size: 36px;
+  }
+
+  #service-details h2:before {
+    margin: 20px 0 25px 0;
+  }
+
+  .secondary-services p {
+    max-width: 600px;
+  }
+
+  .contact-form {
+    margin-top: 40px;
+  }
+}
+
+i.icon {
+  font-size: 19px;
+}
+
+#mobile-search i.search.icon {
+  float: right;
+  margin-top: -34px;
+  margin-right: 15px;
+}
+
+.visibility-hidden {
+  visibility: hidden !important;
+}
+
+.image-icon {
+  float: left;
+  position: relative;
+  top: 3px;
+}
+
+#about-image {
+  margin-top: 50px !important;
+}
+
+.contact-address {
+  margin-top: 30px;
+}
+
+#contacts-divider {
+  position: relative;
+  top: 15px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
@@ -15555,7 +16221,7 @@ img.ui.shadowed.image {
 *******************************/
 
 .ui.breadcrumb {
-  margin-top: 33px !important;
+  margin-top: 15px !important;
 }
 
 .ui.breadcrumb a {
@@ -15576,7 +16242,7 @@ img.ui.shadowed.image {
 }
 
 .contacts .ui.breadcrumb {
-  margin-top: 20px !important;
+  margin-top: 30px !important;
 }
 
 .contacts .ui.breadcrumb .divider {
