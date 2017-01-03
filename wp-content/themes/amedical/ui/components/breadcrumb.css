@@ -121,9 +121,6 @@
          Theme Overrides
 *******************************/
 
-.ui.breadcrumb {
-  margin-top: 33px !important;
-}
 .ui.breadcrumb a {
   color: #8f8f8f;
   text-decoration: none;
