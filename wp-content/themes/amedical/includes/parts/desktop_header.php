@@ -24,7 +24,7 @@
             <div class="row">
                 <nav class="ui secondary stackable menu main-menu">
 
-                    <a class="item home" href="<?php echo home_url('/'); ?>"><span><?php print(get_bloginfo( 'name' )); ?></span><i class="icon-home-icon"></i></a>
+                    <a class="item home" href="<?php echo home_url('/'); ?>"><span><?php _e("Home","dswp"); ?></span><i class="icon-home-icon"></i></a>
                     <?php $menu_items = get_menu_items("main-m"); ?>
                     <?php foreach($menu_items as $item):?>
                         <?php if (isset($item["children"]) && count($item["children"])>0):?>
