@@ -149,6 +149,8 @@ function my_mce_before_init_insert_formats( $init_array ) {
  return $init_array;
 
 }
+
+// YOAST REMOVE LINKS
 // Attach callback to 'tiny_mce_before_init'
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
