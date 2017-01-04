@@ -154,7 +154,10 @@ add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 function timersys_remove_links($link_output, $link ){
   //print_r($link);
-    if( $link['text'] == 'Par mums' || $link['text'] == 'About us' || $link['text'] == 'Jaunumi') {
+    if( $link['text'] == 'Par mums' ||
+        $link['text'] == 'About us' ||
+        $link['text'] == 'Jaunumi' ||
+        $link['text'] == 'Об A.Medical' ) {
         $link_output = '';
     }
     return $link_output;
