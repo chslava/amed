@@ -1061,3 +1061,12 @@ i.icon {
   top: 15px;
 }
 
+.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img,
+img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
+  margin-top: 35px;
+}
+
+header .desktop .ui.main-menu .basket .item,
+header .desktop .ui.main-menu > .item {
+  padding: 10px;
+}
