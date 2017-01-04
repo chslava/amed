@@ -2520,7 +2520,7 @@ header .main-logo {
 
   header .desktop .ui.main-menu .basket .item,
   header .desktop .ui.main-menu > .item {
-    padding: 7px 18px;
+    padding: 10px;
   }
 
   header .desktop .computer-search input {
@@ -3212,7 +3212,6 @@ footer .copyright {
 
 section.slider {
   background: #686C78;
-  padding-top: 1rem;
 }
 
 section.slider .ui.container.grid {
@@ -3872,8 +3871,14 @@ blockquote {
   }
 }
 
-.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img {
+.single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img,
+img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
   margin-top: 35px;
+}
+
+header .desktop .ui.main-menu .basket .item,
+header .desktop .ui.main-menu > .item {
+  padding: 10px;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
