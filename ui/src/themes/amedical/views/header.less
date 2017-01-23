@@ -3,7 +3,7 @@ header {
     .desktop {
         .ui {
             &.menu {
-                min-height: 42px;
+                min-height: 36px;
                 .item:hover {
                     background: transparent!important;
                 }
@@ -61,9 +61,15 @@ header {
                 display: inline-block;
             }
             .main-logo {
-                height: 112px;
-                padding-top: 1rem;
+                height: 100px;
+                padding-top: 5px;
             }
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                .main-logo {
+                    padding-top: 0;
+                }
+            }
+
             .main-column {
                 height: 136px;
                 // margin-top
@@ -118,6 +124,7 @@ header {
                             // padding-left: 0;
                             // padding-right: 0;
                             padding: 0;
+                            //margin-top: -15px;
                         }
                         &:active,
                         &:hover {
@@ -140,7 +147,7 @@ header {
                 &.main-menu {
                     width: 100%;
                     margin: -1rem 0;
-                    padding-top: 1.2rem;
+                    padding-top: 12px;
                     padding-bottom: 0;
                     // border-top: 1px solid @borderColor;
                     border-top:1px solid rgba(216, 216, 216, 0.66);
