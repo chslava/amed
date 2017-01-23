@@ -1489,7 +1489,7 @@ header {
   box-shadow: 0 1px 5px rgba(27, 47, 78, 0.1);
 }
 header .desktop .ui.menu {
-  min-height: 42px;
+  min-height: 36px;
 }
 header .desktop .ui.menu .item:hover {
   background: transparent!important;
@@ -1543,8 +1543,8 @@ header .main-logo {
     display: inline-block;
   }
   header .desktop .main-logo {
-    height: 112px;
-    padding-top: 1rem;
+    height: 100px;
+    padding-top: 5px;
   }
   header .desktop .main-column {
     height: 136px;
@@ -1617,7 +1617,7 @@ header .main-logo {
   header .desktop .ui.main-menu {
     width: 100%;
     margin: -1rem 0;
-    padding-top: 1.2rem;
+    padding-top: 12px;
     padding-bottom: 0;
     border-top: 1px solid rgba(216, 216, 216, 0.66);
   }
@@ -1729,6 +1729,11 @@ header .main-logo {
   header .desktop .ui.main-menu .basket .item:hover::after,
   header .desktop .ui.main-menu > .item:hover::after {
     border-color: #ff6b01;
+  }
+}
+@media only screen and (min-width: 1024px) and screen and (-ms-high-contrast: active), only screen and (min-width: 1024px) and (-ms-high-contrast: none) {
+  header .desktop .main-logo {
+    padding-top: 0;
   }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
@@ -3275,7 +3280,6 @@ body .gform_wrapper .top_label div.ginput_container {
     margin-top: 15px;
   }
 }
-<<<<<<< HEAD
 @media (max-width: 320px) {
   #service-images {
     margin-left: -15px;
@@ -3482,11 +3486,10 @@ i.icon {
 #contacts-divider {
   position: relative;
   top: 15px;
-=======
+}
 .single-post .sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column img,
 img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
   margin-top: 35px;
->>>>>>> hotfix/Breadcrumbs_fix
 }
 header .desktop .ui.main-menu .basket .item,
 header .desktop .ui.main-menu > .item {
