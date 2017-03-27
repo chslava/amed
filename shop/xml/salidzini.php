@@ -33,12 +33,12 @@ function izvelnes($parent_id,$category,$_xml)
 			$_xml .="
 			<item>
 				<name>$pf1[name_lv]</name>
-				<link>http://www.amedical.eu/lv/$pf1[url_lv]</link>
+				<link>http://www.amedical.eu/shop/lv/$pf1[url_lv]</link>
 				<price>$price</price>
-				<image>http://www.amedical.eu/pictures/items/big/$pf1[picture]</image>
+				<image>http://www.amedical.eu/shop/pictures/items/big/$pf1[picture]</image>
 				<category>$f1[name_lv]</category>
 				<category_full>$category1</category_full>
-				<category_link>http://www.amedical.eu/lv/$f1[url_lv]</category_link>
+				<category_link>http://www.amedical.eu/shop/lv/$f1[url_lv]</category_link>
 			</item>";
 		}
 		mysqli_free_result($pr1);
@@ -67,12 +67,12 @@ while($f=mysqli_fetch_array($r))
 		$_xml .="
 		<item>
 			<name>$pf[name_lv]</name>
-			<link>http://www.amedical.eu/lv/$pf[url]</link>
+			<link>http://www.amedical.eu/shop/lv/$pf[url]</link>
 			<price>$price</price>
-			<image>http://www.amedical.eu/pictures/items/big/$pf[picture]</image>
+			<image>http://www.amedical.eu/shop/pictures/items/big/$pf[picture]</image>
 			<category>$f[name_lv]</category>
 			<category_full>$f[name_lv]</category_full>
-			<category_link>http://www.amedical.eu/lv/$f[url_lv]</category_link>
+			<category_link>http://www.amedical.eu/shop/lv/$f[url_lv]</category_link>
 		</item>";
 
 	}
