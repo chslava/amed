@@ -705,4 +705,51 @@ main .ui.breadcrumb .section {
             margin-bottom: 0;
         }
     }
+
+    .partner {
+        .ui.button {
+            min-width: initial !important;
+        }
+    }
+}
+
+// Partners page
+.partners-about {
+    margin-top: 50px;
+}
+#partners-list {
+    margin-top: 100px;
+    padding: 0 30px;
+}
+
+@media only screen and (min-width: 319px) and (max-width: @tabletBreakpoint) {
+    #partners-list {
+        margin-top: 30px;
+    }
+}
+.partner-container {
+    padding: 0 20px 30px 0 !important;
+}
+.partner {
+    box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+    padding: 30px;
+
+    img {
+        max-width: 100%;
+    }
+    .ui.button {
+        margin-top: 15px;
+    }
+}
+
+.read-more-link {
+    margin-top: 20px;
+    display: block;
+    color: #3faec5;
+    i.icon {
+        font-size: 12px;
+        margin-left: 5px;
+        position: relative;
+        top: 1px;
+    }
 }

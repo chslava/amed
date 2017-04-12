@@ -1092,3 +1092,8 @@ header .desktop .ui.main-menu .basket .item,
 header .desktop .ui.main-menu > .item {
   padding: 10px;
 }
+
+
+.uppercase {
+  text-transform: uppercase !important;
+}
