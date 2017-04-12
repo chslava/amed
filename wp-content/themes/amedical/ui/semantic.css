@@ -2216,6 +2216,309 @@ main .ui.breadcrumb .section {
   margin-right: 0;
 }
 
+.news-page .news-item {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.news-page .news-item .ui.shadowed.image {
+  float: none;
+}
+
+.news-page .news-item h2 {
+  margin-top: 60px;
+}
+
+.news-page .news-item .image-container {
+  position: relative;
+}
+
+.news-page .news-item time {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.08);
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  color: #636463;
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 11px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.news-page .news-item time span {
+  color: #414141;
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 5px;
+}
+
+.news-page .news-item .button {
+  min-width: 220px;
+  margin-top: 30px;
+}
+
+.pagination-menu {
+  text-align: center;
+}
+
+.pagination-menu .pagination-left,
+.pagination-menu .pagination-right {
+  display: inline-block;
+  margin: 0;
+  color: #909090;
+  font-size: 34px;
+  position: relative;
+  top: 6px;
+}
+
+.pagination-menu .pagination-left:hover,
+.pagination-menu .pagination-right:hover {
+  color: #ff6b01;
+}
+
+.pagination-menu .pagination-items {
+  display: inline-block;
+}
+
+.pagination-menu .pagination-item {
+  background: #c7c7c7;
+  color: white;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 25px;
+  outline: 0;
+  font-family: Lato;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  float: left;
+}
+
+.pagination-menu .pagination-item.current,
+.pagination-menu .pagination-item:hover {
+  background-color: #ff6b01;
+  opacity: 1;
+}
+
+.pagination-menu .pagination-item:after {
+  content: "\00a0";
+  border-top: 1px solid  #c7c7c7;
+  opacity: 0.5;
+  width: 32px;
+  display: inline-block;
+  height: 1px;
+  margin-top: -12px;
+  margin-left: 28px;
+  float: left;
+}
+
+.pagination-menu .pagination-items .pagination-item:last-child:after {
+  width: 0px;
+}
+
+.news-sidebar {
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+  padding: 40px 35px;
+  float: right;
+  margin-top: 30px;
+}
+
+.news-sidebar .popular-product {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 20px 0;
+  color: #636463;
+  display: inline-block;
+}
+
+.news-sidebar .popular-product img {
+  width: 100%;
+}
+
+.news-sidebar .popular-product:hover {
+  color: #ff6b01;
+}
+
+.news-img-footer {
+  font-style: italic;
+  margin-top: 15px;
+  display: block;
+}
+
+.news-img-footer span {
+  margin-right: 45px;
+  display: inline-block;
+}
+
+.news-content {
+  margin-top: 30px;
+}
+
+.news-item-open hr {
+  border-top: 1px solid #f2f2f2;
+  border-bottom: none;
+  height: 1px;
+}
+
+.news-item-open blockquote {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 34px;
+  border: none;
+  padding-left: 0;
+}
+
+.photo-gallery img {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.related-articles-container {
+  margin-top: 100px;
+}
+
+.related-articles .column {
+  margin-bottom: -15px;
+  padding-bottom: 20px;
+}
+
+.related-articles .header a {
+  color: #414141;
+}
+
+.related-articles .header a:hover {
+  color: #e5702a;
+}
+
+.related-articles a {
+  color: #3faec5;
+}
+
+.related-articles a:hover {
+  color: #e5702a;
+}
+
+.related-articles .image-container {
+  position: relative;
+}
+
+.related-articles .image-container img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.related-articles .image-container time {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.08);
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  color: #636463;
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 11px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.related-articles .image-container time span {
+  color: #414141;
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 27px;
+  margin-bottom: 5px;
+}
+
+.related-articles h3.ui.header {
+  color: #414141;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 0;
+  margin-top: 14px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.related-articles .button {
+  min-width: 220px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+  .photo-gallery img {
+    margin-right: 5px;
+    margin-bottom: 0;
+  }
+
+  .partner .ui.button {
+    min-width: initial !important;
+  }
+}
+
+.partners-about {
+  margin-top: 50px;
+}
+
+#partners-list {
+  margin-top: 100px;
+  padding: 0 30px;
+}
+
+@media only screen and (min-width: 319px) and (max-width: 768px) {
+  #partners-list {
+    margin-top: 30px;
+  }
+}
+
+.partner-container {
+  padding: 0 20px 30px 0 !important;
+}
+
+.partner {
+  box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
+  padding: 30px;
+}
+
+.partner img {
+  max-width: 100%;
+}
+
+.partner .ui.button {
+  margin-top: 15px;
+}
+
+.read-more-link {
+  margin-top: 20px;
+  display: block;
+  color: #3faec5;
+}
+
+.read-more-link i.icon {
+  font-size: 12px;
+  margin-left: 5px;
+  position: relative;
+  top: 1px;
+}
+
 /* Views */
 
 header {
@@ -3771,6 +4074,28 @@ ol.list li:before {
   list-style-position: inside;
 }
 
+.simple-list {
+  margin-left: 7px;
+  margin-bottom: 40px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.simple-list li {
+  margin-bottom: 10px;
+}
+
+.simple-list li a {
+  font-size: 15px;
+  font-weight: 700;
+  color: #636463;
+}
+
+.simple-list li.current a,
+.simple-list li a:hover {
+  color: #ff6b01;
+}
+
 blockquote {
   border-left: 2px solid #e5702a;
   padding-left: 17px;
@@ -4618,6 +4943,10 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
 header .desktop .ui.main-menu .basket .item,
 header .desktop .ui.main-menu > .item {
   padding: 10px;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
 }
 /*!
  * # Semantic UI 2.2.4 - Button
@@ -8612,6 +8941,10 @@ header .desktop .ui.main-menu > .item {
   font-size: 15px;
   font-weight: 700;
   line-height: 18px;
+}
+
+.button.wider {
+  min-width: 220px;
 }
 
 .gform_wrapper .gform_footer input.button,

@@ -3478,6 +3478,9 @@
   font-weight: 700;
   line-height: 18px;
 }
+.button.wider {
+  min-width: 220px;
+}
 .gform_wrapper .gform_footer input.button,
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper .gform_page_footer input.button,
