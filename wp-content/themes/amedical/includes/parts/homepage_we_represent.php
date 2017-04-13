@@ -8,21 +8,20 @@
 
                 <?php
                 $represent_params = array(
-                    'post_type' => 'partner'
+                    'post_type' => 'partner',
+                    'posts_per_page' => -1
                 );
                 $represent_q= new WP_Query( $represent_params );
                 if ( $represent_q->have_posts() ) {
-                    // The 2nd Loop
                     while ( $represent_q->have_posts() ) :
 
                         $represent_q->the_post();
-                        if (has_post_thumbnail()):
+                            $partner_logo = get_field('partner_logo');
                             ?>
                             <li>
-                                <?php the_post_thumbnail("brand-logo") ?>
+                                <img src="<?php echo $partner_logo['sizes']['brand-logo']; ?>">
                             </li>
                             <?php
-                        endif;
 
                     endwhile;
 
