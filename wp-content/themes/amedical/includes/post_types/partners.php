@@ -12,16 +12,17 @@ function create_partners() {
     'labels' => $labels,
     'public' => false,
     'publicly_queryable' => true,
+    'exclude_from_search' => true,
     'show_ui' => true,
     'show_in_menu' => true,
     'query_var' => true,
-    'capability_type' => 'post',
     'hierarchical' => false,
     'rewrite' => array('slug' => $slug),
     'has_archive' => false,
     'menu_position' => 7,
-    'menu_icon' => get_template_directory_uri().'/assets/img/admin-icons/'.$id.'-white.png',
-    'supports' => array('author','title','editor','custom-fields' , 'thumbnail', 'page-attributes','revisions'),
+    'menu_icon' => 'dashicons-businessman',
+    //'menu_icon' => get_template_directory_uri().'/assets/img/admin-icons/'.$id.'-white.png',
+    'supports' => array('title'),
   );
   register_post_type($id,$award_args);
 
