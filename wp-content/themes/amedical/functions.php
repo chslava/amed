@@ -164,3 +164,40 @@ function timersys_remove_links($link_output, $link ){
     }
     return $link_output;
 }
+
+/**
+* @author: Eugene Kudriashov
+*/
+// Custom pagination for Amedical theme.
+if ( !function_exists( 'dswp_amedical_pagination' ) ) :
+function dswp_amedical_pagination() {
+    global $paged;
+    if(empty($paged)) $paged = 1;
+    if($pages == '') {
+        global $wp_query; 
+        $pages = $wp_query->max_num_pages;
+        if(!$pages) {
+            $pages = 1;
+        }
+    }
+    if(1 != $pages) :
+        $prev_link = ($paged <= 1) ? '#' : get_pagenum_link($paged - 1);
+        $next_link = ($paged == $pages) ? '#' : get_pagenum_link($paged + 1); ?>
+        <div class="pagination-menu">
+            <a href="<?php echo $prev_link; ?>" class="pagination-left">
+                <div class="icon-left-arrow-icon"></div>
+            </a>
+            <div class="pagination-items">
+            <?php 
+                for ($i=1; $i <= $pages; $i++) {
+                    echo ($paged == $i) ? '<a class="pagination-item current" href="#">'.$i.'</a>' : '<a class="pagination-item" href="'.get_pagenum_link($i).'">'.$i.'</a>';
+                }
+            ?>
+            </div>  
+            <a href="<?php echo $next_link; ?>" class="pagination-right">
+                <div class="icon-right-arrow-icon"></div>
+            </a>   
+        </div>
+    <?php endif;
+}
+endif;
