@@ -39,7 +39,8 @@
     "rating",
     "transition",
     "form",
-    "visibility"
+    "visibility",
+    "accordion"
   ],
   "version": "2.2.4"
 }

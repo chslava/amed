@@ -1,0 +1,73 @@
+extends layouts/home.pug
+
+block content
+    main.ui.container.faq-page.page
+          .ui.breadcrumb.hide-for-tablet.hide-for-mobile
+            a.section(href='index.html') Sākums
+            .divider //
+            .active.section Biežāk uzdotie jautājumi
+          .ui.grid
+            .ui.row
+              .sixteen.wide.mobile.ten.wide.tablet.eleven.wide.computer.column#faq-block
+                h2.left.ui.header.decored.mobile-centered Biežāk uzdotie jautājumi
+
+                .ui.fluid.accordion.faq-accordion
+                  .title.active Lorem ipsum dolor sit amet, scelerisque adipiscing et vivamus?
+                   i.chevron.down.icon
+                  .content.active
+                    p Lorem ipsum dolor sit amet, dolor et nulla euismod rutrum at. Nonummy euismod, amet purus dignissim sem. Risus aliquam suspendisse wisi interdum justo egestas. Platea integer lacus, pharetra mattis nam faucibus, venenatis a vel quam nulla fermentum pretium, eu tellus. Nec molestie mauris ultricies habitant velit, lacus sed earum, proident sed vehicula condimentum dictum lorem quisque, nec eveniet eu lectus non duis, ut in dui. Non platea, dictumst lacus nunc leo, id maecenas, a at. Vel integer arcu sociosqu varius sem aliquam, suspendisse maecenas hymenaeos dignissim, in porta, et urna cum arcu elit consequat neque.
+                  .title Another title
+                    i.chevron.down.icon
+                  .content
+                    p Another content
+                  .title Another title
+                    i.chevron.down.icon
+                  .content
+                    p Another content
+                  .title Another title
+                    i.chevron.down.icon
+                  .content
+                    p Another content
+
+
+              .sixteen.wide.mobile.six.wide.tablet.five.wide.computer.column#faq-sidebar
+                .faq-sidebar
+                  h3.ui.header Kategorijas
+                  ul.simple-list
+                    li.current
+                      a(href="") Par piegādi
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+
+                  h3.ui.header Nevari atrast atbildi?
+                    a(href="").ui.primary.button Sazinies ar mums
+
+
+
+
+    //- section.secondary-services
+    //-     div.ui.container
+    //-         h2.ui.header.centered.decored Plašs aprīkojums
+    //-         div.ui.stackable.grid
+    //-             div.center.aligned.ten.wide.centered.column
+    //-                 p Māsu izsaukuma sistēmām, medicīnas gāzes sistēmām, sterilizācijas iekārtām, gaisa attīrīšanas risinājumiem,
+    //-                     | vizuālo diagnostiku (US, RTG, CR, DR, CT, MRI), iekārtām onkoloģijai, dezinfekcijai, dermatoloģijai,
+    //-                     | funkcionālai diagnostikai, LOR, stomatoloģijai, uroloģijai,  u.c.
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+
+
+
+    include sections/subscribe
