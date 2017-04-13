@@ -1,0 +1,38 @@
+extends layouts/home.pug
+
+block content
+
+    main
+      .ui.container
+          .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column
+            .ui.breadcrumb.hide-for-tablet.hide-for-mobile
+              a.section(href='index.html') Sākums
+              .divider //
+              .active.section Pieteikt konsultāciju
+
+    section.consultation-form
+     .ui.container
+       .ui.grid
+         .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column
+           h2.left.ui.header.decored.mobile-centered Pieteikt konsultāciju
+           p Piesaki konsultāciju un mūsu aģenti sazināsies ar Jums 1 darba dienas laikā
+           form.ui.form
+             .sixteen.wide.mobile.field.eight.wide.computer.field
+               label Vārds un uzvārds (obligāti jāaizpilda)
+               input(type='text' required)
+             .sixteen.wide.mobile.field.eight.wide.computer.field
+               label Uzņēmuma / iestādes nosaukums
+               input(type='text')
+             .sixteen.wide.mobile.field.eight.wide.computer.field
+               label E-pasts (obligāti jāaizpilda)
+               input(type='text')
+             .sixteen.wide.mobile.field.eight.wide.computer.field
+               label Tālrunis (obligāti jāaizpilda)
+               input(type='text')
+             button.ui.huge.primary.button(type='submit') Pieteikties
+
+
+    include sections/subscribe
+
+block footer-content
+

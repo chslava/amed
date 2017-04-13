@@ -2519,6 +2519,11 @@ main .ui.breadcrumb .section {
   top: 1px;
 }
 
+.consultation-form {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
 /* Views */
 
 header {
