@@ -25,6 +25,7 @@ atlassian*
 /.grunt
 
 /pub/media/*.*
+/pub/media/logo/*
 !/pub/media/.htaccess
 /pub/media/catalog/*
 !/pub/media/catalog/.htaccess
@@ -49,3 +50,4 @@ atlassian*
 !/var/.htaccess
 /vendor/*
 !/vendor/.htaccess
+cache_clean.bash

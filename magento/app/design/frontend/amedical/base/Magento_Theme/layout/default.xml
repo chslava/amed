@@ -1,12 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="logo">
             <arguments>
-                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
                 <argument name="logo_img_width" xsi:type="number">133</argument>
                 <argument name="logo_img_height" xsi:type="number">128</argument>
             </arguments>
         </referenceBlock>
-        <move element="logo" destination="header.panel"/>
+        <referenceBlock name="header.links" >
+            <block class="Magento\Framework\View\Element\Html\Link" name="jaunumi.link" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Jaunumi</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="blogs.link" after="jaunumi.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Blogs</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="third.link" after="blogs.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Third Link</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="parmums.link" after="third.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Par mums</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="kontakti.link" after="parmums.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Kontakti</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="header.panel">
+            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" />
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="switch/stores.phtml"/>
+        </referenceContainer>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <move element="copyright" destination="before.body.end"/>
+        <referenceBlock name="header" remove="true"/>
+        <move element="top.search" destination="header.panel" before="-" />
+        <move element="header.panel" destination="header-wrapper" after="logo" />
+        <move element="store_language" destination="header.panel.right" before="-" />
+        <move element="authorization-link-login" destination="header.panel.right" before="register-link"/>
+        <move element="register-link" destination="header.panel.right" after="-"/>
+        <move element="customer" destination="header.panel.right" before="-" />
+
     </body>
 </page>
