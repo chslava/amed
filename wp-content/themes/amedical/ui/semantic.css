@@ -2347,7 +2347,7 @@ main .ui.breadcrumb .section {
 
 .news-sidebar .popular-product img,
 .faq-sidebar .popular-product img {
-  max-width: 270px;
+  max-width: 240px;
 }
 
 .news-sidebar .popular-product img,
@@ -2517,6 +2517,7 @@ main .ui.breadcrumb .section {
 .partner {
   box-shadow: 0 6px 10px rgba(27, 47, 78, 0.14);
   padding: 30px;
+  height: 100%;
 }
 
 .partner img {
