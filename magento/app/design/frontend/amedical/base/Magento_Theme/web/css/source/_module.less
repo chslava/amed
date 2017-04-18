@@ -26,7 +26,7 @@
 
 @header__background-color: false;
 @header-panel__background-color: false;
-@header-panel__text-color: @text-color-theme;
+@header-panel__text-color: @amedical-top-link-text_color;
 @header-icons-color: @color-gray56;
 @header-icons-color-hover: @color-gray20;
 @customer-welcome__z-index: @dropdown-list__z-index + 1;
@@ -92,9 +92,8 @@
 
     .header.panel {
         float: none;
-        height: 72px;
+        height: @header-panel_height;
         margin: 0;
-        border-bottom: 1px solid #f2f2f2;
         > .header.links {
             .lib-list-inline();
             float: left;
@@ -111,7 +110,7 @@
                     @_link-text-decoration: none,
                     @_link-color-visited: @header-panel__text-color,
                     @_link-text-decoration-visited: none,
-                    @_link-color-hover: @header-panel__text-color,
+                    @_link-color-hover: @amedical-brand-color,
                     @_link-text-decoration-hover: none,
                     @_link-color-active: @header-panel__text-color,
                     @_link-text-decoration-active: none
@@ -123,19 +122,21 @@
 
     .header {
         &.content:extend(.abs-add-clearfix all) {
-            padding-top: @indent__s;
+            padding: 0;
             position: relative;
         }
     }
 
     .logo {
         float: left;
-        margin: 0 0 @indent__s @indent__xl;
+        margin: 0;
         max-width: 50%;
         position: relative;
         z-index: 5;
 
         img {
+            max-height: 100px;
+            width: auto;
             display: block;
         }
 
@@ -169,6 +170,15 @@
             width: 100%;
             z-index: 15;
         }
+    }
+
+    .minicart-wrapper {
+
+        display: none;
+    }
+
+    .btn-authorize {
+        display: none;
     }
 
     //
@@ -211,17 +221,29 @@
 
     .page-footer {
         margin-top: @indent__m;
+        background-color: #636463;
+
+        .after-footer-start {
+            background: url("@{baseDir}images/footer-mobile.png") no-repeat center center;
+            background-size: cover;
+            height:240px;
+            overflow: hidden;
+        }
     }
 
     .footer {
         &.content {
-            border-top: 1px solid @footer-links-separator-border-color;
-            padding-top: @indent__base;
+            border-top: 0;
+            padding-top: 40px;
+            padding-left: 25px;
+            padding-right: 25px;
 
             ul:extend(.abs-reset-list all) {
             }
 
             .links {
+                margin-bottom: 40px;
+
                 > li {
                     .lib-css(background, @footer__background-color);
                     .lib-font-size(16);
@@ -251,6 +273,40 @@
                     @_link-text-decoration-hover: underline,
                     @_link-color-active: @footer-links-color-hover,
                     @_link-text-decoration-active: underline
+                    );
+
+                    font-size: 12px;
+                }
+            }
+
+            .footer-contacts {
+                .title {
+                    color: @color-white;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-bottom: @footer-contacts-item_margin_bottom;
+                    text-align: left;
+                    text-transform: uppercase;
+                }
+
+                .item {
+                    color: @color-white;
+                    font-size: 12px;
+                    padding-left: 20px;
+                    text-align: left;
+                    margin-bottom: @footer-contacts-item_margin_bottom;
+                }
+
+                .item >a {
+                    .lib-link(
+                        @_link-color: @color-white,
+                        @_link-text-decoration: none,
+                        @_link-color-visited: @color-white,
+                        @_link-text-decoration-visited: none,
+                        @_link-color-hover: @footer-links-color-hover,
+                        @_link-text-decoration-hover: underline,
+                        @_link-color-active: @footer-links-color-hover,
+                        @_link-text-decoration-active: underline
                     );
                 }
             }
@@ -361,6 +417,19 @@
         display: none;
     }
 
+    .nav-toggle {
+        top: 25px;
+        right: 25px;
+        left: auto;
+
+
+        &::before {
+            content: '\e90f';
+            font-family: 'icomoon';
+            font-size: 21px;
+        }
+    }
+
     .nav-sections .switcher-trigger strong:after {
         .lib-font-size(16);
         right: -25px;
@@ -415,9 +484,28 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
     .logo {
-        margin-bottom: 13px;
-        margin-top: 4px;
+        margin: 0;
+
+        img {
+            max-height: @header-panel_height;
+        }
+    }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .header.panel {
+        height: @header-panel-tablet_height;
+    }
+
+    .nav-toggle {
+        top: 30px;
+        right: 15px;
     }
 }
 
@@ -454,15 +542,15 @@
             padding-bottom: @indent__s;
             padding-top: @indent__s;
             float: none;
-            height: 72px;
+            height: @header-panel_height;
             margin: 0;
             border-bottom: 1px solid #f2f2f2;
         }
 
         .switcher {
-            float: right;
-            margin-left: 15px;
-            margin-right: -6px;
+            float: left;
+            //margin-left: 15px;
+            margin-right: 60px;
             .lib-vendor-prefix-order(1);
         }
     }
@@ -558,7 +646,7 @@
 
                 > li {
                     margin: 0 20px 0 0;
-                    height: 42px;
+                    height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
                     display: inline-flex;
                     flex-direction: column;
                     justify-content: center;
@@ -597,6 +685,42 @@
 
         .header-right{
             float: right;
+
+            .switcher-list {
+                position: relative;
+                list-style: none none;
+                float: left;
+                padding-left: 30px;
+                margin-bottom: 0;
+
+                &::before {
+                    content: " ";
+                    display: block;
+                    position: absolute;
+                    top: 6px;
+                    bottom: 6px;
+                    left: 0;
+                    width: 0;
+                    border-left: 1px solid @header-panel_border-color;
+                }
+
+                li {
+                    display: inline-flex;
+                    height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-right: 14px;
+                    margin-bottom: 0;
+                }
+
+                li > a {
+                    color: @amedical-text_color;
+                    &:hover {
+                        color: @amedical-brand-color;
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
 
@@ -605,6 +729,58 @@
 
         img {
             max-height: inherit;
+        }
+    }
+
+    .minicart-wrapper {
+
+        margin-left: 35px;
+
+        &:hover {
+
+            &:before, &.active:before {
+                font-size: 20px;
+                font-family: 'icomoon';
+
+            }
+
+            .action.showcart {
+                &:before, .text{
+                    color: @amedical-brand-color;
+                }
+            }
+        }
+
+        .action.showcart {
+
+            .text {
+                clip: auto;
+                width: auto;
+                height: auto;
+                font-size: 16px;
+                line-height: 28px;
+                padding-left: 10px;
+                color: @amedical-text_color;
+                position: relative;
+            }
+        }
+
+        &:hover {
+            .action.showcart {
+
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -6px;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    width: 52px;
+                    height: 2px;
+                    background-color: @amedical-brand-color;
+                }
+            }
         }
     }
 
@@ -699,5 +875,11 @@
                 }
             }
         }
+    }
+
+    .btn-authorize {
+        display: block;
+        height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
+        width: 144px;
     }
 }

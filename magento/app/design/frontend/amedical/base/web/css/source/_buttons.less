@@ -13,6 +13,7 @@
     button,
     a.action.primary {
         .lib-css(border-radius, @button__border-radius);
+
     }
 
     button {
@@ -22,6 +23,10 @@
             &:active {
                 .lib-css(box-shadow, @button__shadow-active);
             }
+        }
+
+        &:focus, &:hover {
+            box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14);
         }
     }
 

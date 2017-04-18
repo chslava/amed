@@ -46,21 +46,32 @@
             </block>
         </referenceBlock>
         <referenceContainer name="header.panel">
-            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" />
+            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" >
+                <block class="Magento\Framework\View\Element\Template" name="login.button" as="login.button" template="Magento_Customer::login_button.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <container name="after_footer_start" label="After Footer Start" htmlTag="div" htmlClass="after-footer-start" before="-" />
         </referenceContainer>
         <referenceContainer name="footer">
-            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="switch/stores.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="footer.contacts" as="footer.contacts" after="footer_links" template="Magento_Theme::html/footer_contacts.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="footer.follow.us" as="footer.follow.us" after="footer.contacts" template="Magento_Theme::html/footer_follow_us.phtml"/>
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer.contacts" template="switch/stores.phtml"/>
         </referenceContainer>
 
         <referenceBlock name="report.bugs" remove="true"/>
-        <move element="copyright" destination="before.body.end"/>
         <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="skip_to_content" remove="true"/>
+
+
+        <move element="copyright" destination="before.body.end"/>
         <move element="top.search" destination="header.panel" before="-" />
         <move element="header.panel" destination="header-wrapper" after="logo" />
         <move element="store_language" destination="header.panel.right" before="-" />
-        <move element="authorization-link-login" destination="header.panel.right" before="register-link"/>
-        <move element="register-link" destination="header.panel.right" after="-"/>
+        <move element="authorization-link-login" destination="login.button" before="register-link"/>
+        <move element="register-link" destination="login.button" after="-"/>
         <move element="customer" destination="header.panel.right" before="-" />
+        <move element="form.subscribe" destination="after_footer_start" before="-" />
 
     </body>
 </page>

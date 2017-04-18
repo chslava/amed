@@ -4,7 +4,7 @@
 //  */
 
 //
-//  Luma theme variables
+//  Amedical Base theme variables
 //  _____________________________________________
 
 //
@@ -16,10 +16,11 @@
 @font-family__base: @font-family-name__base, @font-family__sans-serif;
 
 //  Colors nesting
-@brand-color-theme: #ff6328;
-@text-color-theme: #838483;
-@text-color-theme-light: lighten(@text-color-theme, 20%);;
-@input-bg-theme: #f7f7f7;
+@amedical-brand-color: #ff6b01;
+@amedical-text_color: #636463;
+@amedical-top-link-text_color: #8f8f8f;
+
+@header-panel_border-color: #d8d8d8;
 
 @page__background-color: @color-white;
 @copyright__background-color: @color-gray56;
@@ -35,13 +36,23 @@
 @icon-star-empty: '\e625';
 @icon-download: '\e626';
 @icon-private: '\e629';
-@icon-present: '\e62a';
-@icon-gift-registry: '\e62b';
 
 @icon-calendar__font-size: 23px;
+@icon-font-color: @amedical-text_color;
 
 //
 //  Sidebar
 //  ---------------------------------------------
 
 @sidebar__background-color: @color-white-smoke; // Used in cart sidebar, Checkout sidebar, Tier Prices, My account navigation, Rating block background
+
+//
+//  Header
+//  ---------------------------------------------
+
+@header-panel_height: 72px;
+@header-panel-tablet_height: 100px;
+@header-panel_padding-bottom: 15px;
+@header-panel_padding-top: 15px;
+
+@footer-contacts-item_margin_bottom: 15px;
