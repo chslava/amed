@@ -576,7 +576,10 @@ main .ui.breadcrumb .section {
         font-weight: 400;
         margin: 20px 0;
         color: #636463;
-        display: inline-block;
+        display: block;
+        img {
+            max-width: 240px;
+        }
 
         img {
             width: 100%;
@@ -591,6 +594,13 @@ main .ui.breadcrumb .section {
         margin-top: 30px;
     }
 }
+
+@media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestTabletScreen) {
+.news-sidebar, .faq-sidebar {
+    max-width: initial;
+}
+}
+
 
 .news-img-footer {
     font-style: italic;
