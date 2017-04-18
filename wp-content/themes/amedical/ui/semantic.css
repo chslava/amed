@@ -17809,7 +17809,8 @@ img.ui.shadowed.image {
          Theme Overrides
 *******************************/
 
-.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]) {
+.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+.gform_wrapper textarea {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d8d8d8;
   border-radius: 0;
