@@ -74,6 +74,18 @@ module.exports = function (grunt) {
         },
 
         /**
+         * Refresh single theme.
+         */
+        refresh_one: function (name) {
+            var tasks = [
+                'clean:' + name,
+                'exec:' + name
+            ];
+            tasks.push('less:' + name);
+            grunt.task.run(tasks);
+        },
+
+        /**
          * Documentation
          */
         documentation: [

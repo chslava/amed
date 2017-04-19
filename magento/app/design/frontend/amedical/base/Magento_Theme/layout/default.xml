@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_img_width" xsi:type="number">133</argument>
+                <argument name="logo_img_height" xsi:type="number">128</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="header.links" >
+            <block class="Magento\Framework\View\Element\Html\Link" name="jaunumi.link" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Jaunumi</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="blogs.link" after="jaunumi.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Blogs</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="third.link" after="blogs.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Third Link</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="parmums.link" after="third.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Par mums</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="kontakti.link" after="parmums.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Kontakti</argument>
+                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="header.panel">
+            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" >
+                <block class="Magento\Framework\View\Element\Template" name="login.button" as="login.button" template="Magento_Customer::login_button.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <container name="after_footer_start" label="After Footer Start" htmlTag="div" htmlClass="after-footer-start" before="-" />
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="footer.contacts" as="footer.contacts" after="footer_links" template="Magento_Theme::html/footer_contacts.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="footer.follow.us" as="footer.follow.us" after="footer.contacts" template="Magento_Theme::html/footer_follow_us.phtml"/>
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer.contacts" template="switch/stores.phtml"/>
+        </referenceContainer>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="skip_to_content" remove="true"/>
+
+
+        <move element="copyright" destination="before.body.end"/>
+        <move element="top.search" destination="header.panel" before="-" />
+        <move element="header.panel" destination="header-wrapper" after="logo" />
+        <move element="store_language" destination="header.panel.right" before="-" />
+        <move element="authorization-link-login" destination="login.button" before="register-link"/>
+        <move element="register-link" destination="login.button" after="-"/>
+        <move element="customer" destination="header.panel.right" before="-" />
+        <move element="form.subscribe" destination="after_footer_start" before="-" />
+
+    </body>
+</page>
