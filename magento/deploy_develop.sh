@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PHP_PATH="/usr/bin/php -d memory_limit=256M"
+PHP_PATH="/usr/bin/php -d memory_limit=512M"
 MAGENTO_PATH=$DIR"/bin/magento"
 
 MODE="developer"
