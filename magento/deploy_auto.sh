@@ -24,15 +24,15 @@ echo "";
 if [ "$current_branch" != "* master" ]; then
   echo "Its not a master branch...";
   echo "Checking if the commit have been changed ... ";
-  /usr/bin/git log -1 2>&1 > ""$COMMIT_LOG_FILE"";
+  /usr/bin/git log -1 > "$COMMIT_LOG_FILE";
   #echo "$COMMIT_LOG_FILE";
-  latest_commit = $(< "$COMMIT_LOG_FILE");
-  if ["$current_commit" != "$latest_commit"]; then
+  latest_commit=$(< "$COMMIT_LOG_FILE");
+  if [ "$current_commit" != "$latest_commit" ]; then
       echo "";
       echo "Have to deploy...";
       echo "";
       
-      #./deploy_develop.sh;
+      ./deploy_develop.sh;
       
       echo "";
       echo "Done!";
