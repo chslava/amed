@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PHP_PATH="/usr/bin/php"
+PHP_PATH="/usr/bin/php -d memory_limit=256M"
 MAGENTO_PATH=$DIR"/bin/magento"
 
 MODE="developer"
@@ -28,7 +28,6 @@ echo "Upgrade"
 echo "======================================"
 $PHP_PATH $MAGENTO_PATH setup:upgrade
 echo ""
-
 
 echo "Compile"
 echo "======================================"

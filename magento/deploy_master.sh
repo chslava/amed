@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PHP_PATH="/usr/bin/php"
+PHP_PATH="/usr/bin/php -d memory_limit=256M"
 MAGENTO_PATH=$DIR"/bin/magento"
 
 MODE="production"
@@ -11,7 +11,7 @@ echo $MAGENTO_PATH
 
 echo "Removes cache folders"
 echo "======================================"
-rm -R $DIR"/var/di" $DIR"/var/generation" $DIR"/pub/static/frontend" $DIR"/pub/static/adminhtml"
+rm -R $DIR"/var/di" $DIR"/var/generation" $DIR"/pub/static/frontend/DS/multipack"
 echo ""
 
 echo "Cache clean"
@@ -28,7 +28,6 @@ echo "Upgrade"
 echo "======================================"
 $PHP_PATH $MAGENTO_PATH setup:upgrade
 echo ""
-
 
 echo "Compile"
 echo "======================================"
