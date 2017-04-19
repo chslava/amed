@@ -36,7 +36,7 @@ get_header(); ?>
 			if ( $partners_q->have_posts() ) : ?>
 				<div class="ui row">
 					<div class="sixteen wide mobile column" id="partners-list">
-						<div class="ui stackable grid">
+						<div class="ui stackable equal height grid">
 							<div class="three column row">
 							<?php
 								while ( $partners_q->have_posts() ) :
