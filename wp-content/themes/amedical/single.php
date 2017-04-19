@@ -11,7 +11,7 @@ get_header();
     <div class="ui grid">
         <div class="ui row">
             <?php while ( have_posts() ) : the_post(); ?>
-                <div class="sixteen wide mobile ten wide tablet eleven wide computer column" id="news-block-<?php the_ID(); ?>">
+                <div class="sixteen wide mobile sixteen wide tablet eleven wide computer column" id="news-block-<?php the_ID(); ?>">
                     <div class="news-item news-item-open">
                         <?php the_title( '<h2 class="ui left header decored">', '</h2>' ); ?>
                         <?php 

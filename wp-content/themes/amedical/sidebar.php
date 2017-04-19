@@ -5,7 +5,7 @@
  * @author Eugene Kudriashov
  */
 ?>
-<div class="sixteen wide mobile six wide tablet five wide computer column" id="news-sidebar">
+<div class="sixteen wide mobile sixteen wide tablet five wide computer column" id="news-sidebar">
 	<div class="news-sidebar">
 		<?php dynamic_sidebar('main-sidebar'); ?>
 		<?php if(is_page_template('page-faq.php') && (get_field('not_found_link')) ) : ?>
