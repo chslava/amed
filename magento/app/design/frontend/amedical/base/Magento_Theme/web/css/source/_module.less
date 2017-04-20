@@ -222,6 +222,8 @@
     .page-footer {
         margin-top: @indent__m;
         background-color: #636463;
+        line-height: normal;
+        overflow: hidden;
 
         .after-footer-start {
             background: url("@{baseDir}images/footer-mobile.png") no-repeat center center;
@@ -243,13 +245,13 @@
 
             .links {
                 margin-bottom: 40px;
+                box-sizing: border-box;
 
                 > li {
                     .lib-css(background, @footer__background-color);
                     .lib-font-size(16);
                     border-top: 1px solid @footer-links-separator-border-color;
-                    margin: 0 -@layout__width-xs-indent;
-                    padding: 0 @layout__width-xs-indent;
+                    box-sizing: border-box;
                 }
 
                 a,
@@ -280,6 +282,8 @@
             }
 
             .footer-contacts {
+                margin-bottom: 40px;
+
                 .title {
                     color: @color-white;
                     font-size: 14px;
@@ -292,15 +296,22 @@
                 .item {
                     color: @color-white;
                     font-size: 12px;
-                    padding-left: 20px;
                     text-align: left;
                     margin-bottom: @footer-contacts-item_margin_bottom;
+                    padding-left: 22px;
+                    position: relative;
+
+                    &:before {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
                 }
 
                 .item >a {
                     .lib-link(
                         @_link-color: @color-white,
-                        @_link-text-decoration: none,
+                        @_link-text-decoration: underline,
                         @_link-color-visited: @color-white,
                         @_link-text-decoration-visited: none,
                         @_link-color-hover: @footer-links-color-hover,
@@ -310,14 +321,45 @@
                     );
                 }
             }
+
+            .footer-social {
+                margin-bottom: 40px;
+
+                .item:extend(.footer.content .footer-contacts .item all) {
+                    padding-left: 36px;
+                    line-height: 26px;
+                }
+
+                .item >a {
+                    .lib-link(
+                    @_link-color: @color-white,
+                    @_link-text-decoration: none,
+                    @_link-color-visited: @color-white,
+                    @_link-text-decoration-visited: none,
+                    @_link-color-hover: @footer-links-color-hover,
+                    @_link-text-decoration-hover: none,
+                    @_link-color-active: @footer-links-color-hover,
+                    @_link-text-decoration-active: none
+                    );
+                }
+
+                .title:extend(.footer.content .footer-contacts .title all) {
+                }
+
+                .item.icon-facebook {
+                    margin-right: 15px;
+                }
+            }
         }
     }
 
     .copyright {
         .lib-css(background-color, @copyright__background-color);
         .lib-css(color, @color-white);
-        display: block;
-        padding: @indent__s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 50px;
         text-align: center;
     }
 
@@ -425,7 +467,7 @@
 
         &::before {
             content: '\e90f';
-            font-family: 'icomoon';
+            font-family: @icon-font-second;
             font-size: 21px;
         }
     }
@@ -506,6 +548,49 @@
     .nav-toggle {
         top: 30px;
         right: 15px;
+    }
+
+    //
+    // Footer
+    // _________________________________________
+
+    .footer {
+        &.content {
+            margin: 0 auto;
+            width: 70%;
+
+            .links {
+                //overflow: hidden;
+
+                li {
+                    display: inline-block;
+                    float: left;
+                    width: 50%;
+                    padding-right: 12%;
+                }
+
+                a {
+                    font-size: 15px;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+
+            .footer-contacts {
+                width: 50%;
+                float: left;
+                padding-right: 12%;
+                box-sizing: border-box;
+            }
+
+            .footer-social:extend(.footer.content .footer-contacts all) {
+
+            }
+        }
     }
 }
 
@@ -733,15 +818,12 @@
     }
 
     .minicart-wrapper {
-
+        display: block;
         margin-left: 35px;
 
         &:hover {
-
             &:before, &.active:before {
                 font-size: 20px;
-                font-family: 'icomoon';
-
             }
 
             .action.showcart {
@@ -762,6 +844,10 @@
                 padding-left: 10px;
                 color: @amedical-text_color;
                 position: relative;
+            }
+
+            &:before {
+                font-family: @icon-font-second;
             }
         }
 
@@ -806,10 +892,21 @@
     }
 
     .page-footer {
-        .lib-css(background, @footer__background-color);
         margin-top: auto;
-        padding-bottom: @indent__m;
+        position: relative;
 
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 90%;
+            height: 1px;
+            background-color: #909090;
+            margin: 0 auto;
+        }
         .switcher {
             .options {
                 ul.dropdown {
@@ -858,8 +955,10 @@
 
             .links {
                 display: inline-block;
-                padding-right: 50px;
+                float: left;
+                padding: 0 5%;
                 vertical-align: top;
+                width: 40%;
 
                 li {
                     background: transparent;
@@ -874,7 +973,38 @@
                     display: inline;
                 }
             }
+
+            .footer-contacts {
+                padding: 0 5%;
+                width: 30%;
+                border-left: 1px solid #909090;
+                border-right: 1px solid #909090;
+
+                .item {
+                    font-size: 15px;
+                    &:before {
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            .footer-social {
+                padding: 0 5%;
+                width: 30%;
+
+                .item {
+                    font-size: 15px;
+                    width: 100%;
+                }
+            }
         }
+    }
+
+    .copyright {
+        background-color: #636463;
+        font-size: 15px;
+        height: 85px;
+
     }
 
     .btn-authorize {
