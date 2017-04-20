@@ -94,6 +94,7 @@
         float: none;
         height: @header-panel_height;
         margin: 0;
+
         > .header.links {
             .lib-list-inline();
             float: left;
@@ -132,7 +133,7 @@
         margin: 0;
         max-width: 50%;
         position: relative;
-        z-index: 5;
+        z-index: 999;
 
         img {
             max-height: 100px;
@@ -470,7 +471,14 @@
             font-family: @icon-font-second;
             font-size: 21px;
         }
+
+        .nav-open & {
+            &::before {
+                content: '\e90e';
+            }
+        }
     }
+
 
     .nav-sections .switcher-trigger strong:after {
         .lib-font-size(16);
