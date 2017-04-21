@@ -1,1 +1,11 @@
-<a href="#cart">Shopping Cart</a>
+<div class="mobile-cart">
+    <a class="action showcart" href="http://mg.amedical.loc/checkout/cart/" data-bind="scope: 'minicart_content'">
+        <span class="text">My Cart</span>
+        <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+            <span class="counter-number"><!-- ko text: getCartParam('summary_count') -->0<!-- /ko --></span>
+            <span class="counter-label">
+            <!-- ko if: getCartParam('summary_count') --><!-- /ko -->
+            </span>
+        </span>
+    </a>
+</div>

@@ -81,7 +81,7 @@
 
     .page-header {
         .lib-css(background-color, @header__background-color);
-        border-bottom: 1px solid @border-color__base;
+        box-shadow: @header-panel-mobile_shadow;
         margin-bottom: @indent__base;
 
         .panel.wrapper {
@@ -625,6 +625,8 @@
     .page-header {
         border: 0;
         margin-bottom: 0;
+        border-bottom: 1px solid @border-color__base;
+        box-shadow: none;
 
         .panel.wrapper {
             border-bottom: 1px solid @secondary__color;

@@ -24,6 +24,7 @@
 
     .nav-sections {
         .lib-css(background, @navigation__background);
+        padding: 0 24px;
     }
 
     .nav-toggle {
@@ -51,6 +52,7 @@
         padding: 0 20px;
         height: 80px;
         box-sizing: border-box;
+        border-bottom: @navigation-level0-item__border-bottom;
 
         .switcher-list {
             list-style: none;
@@ -121,9 +123,16 @@
                 }
             }
         }
+
+        .level0 {
+            &.last >a {
+                padding-bottom: 20px;
+            }
+        }
     }
 
     .nav-sections {
+        box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         .lib-css(transition, left .3s, 1);
         height: 100%;
@@ -183,20 +192,30 @@
 
         .header.links {
             .lib-list-reset-styles();
-            border-bottom: 1px solid @color-gray82;
 
             li {
-                font-size: 1.6rem;
+                font-size: @navigation-level0-item__font-size;
                 margin: 0;
 
                 &.greet.welcome {
-                    border-top: 1px solid @color-gray82;
-                    font-weight: 700;
-                    padding: .8rem @indent__base;
+                    //border-top: 1px solid @color-gray82;
+                    font-weight: @navigation-level0-item__font-weight;
+                    padding: @navigation-level0-item__padding;
                 }
 
                 > a {
-                    border-top: 1px solid @color-gray82;
+                    .lib-link(
+                        @_link-color: @amedical-top-link-text_color,
+                        @_link-text-decoration: none,
+                        @_link-color-visited: @footer-links-color,
+                        @_link-text-decoration-visited: none,
+                        @_link-color-hover: @footer-links-color-hover,
+                        @_link-text-decoration-hover: none,
+                        @_link-color-active: @footer-links-color-hover,
+                        @_link-text-decoration-active: none
+                    );
+
+                    font-size: 12px;
                 }
             }
 
@@ -205,8 +224,8 @@
                 .lib-css(color, @navigation-level0-item__color);
                 .lib-css(text-decoration, @navigation-level0-item__text-decoration);
                 display: block;
-                font-weight: 700;
-                padding: .8rem @indent__base;
+                font-weight: @navigation-level0-item__font-weight;
+                padding: @navigation-level0-item__padding;
             }
 
             .header.links {
@@ -243,9 +262,9 @@
         }
 
         .nav-sections {
-            //@_shadow: 0 0 5px 0 rgba(50, 50, 50, .75);
+            @_shadow: inset @header-panel-mobile_shadow;
             
-            //.lib-css(box-shadow, @_shadow, 1);
+            .lib-css(box-shadow, @_shadow, 1);
             left: 0;
             z-index: 99;
         }
@@ -310,6 +329,59 @@
     }
 
     .lib-main-navigation();
+
+    .mobile-cart {
+        border-top: @navigation-level0-item__border-bottom;
+        border-bottom: @navigation-level0-item__border-bottom;
+        height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+
+        .lib-icon-font(
+            @_icon-font: @icon-font-second,
+            @_icon-font-content: @icon-chevron-right,
+            @_icon-font-color: #a2a2a2,
+            @_icon-font-size: 16px,
+            @_icon-font-position: after
+        );
+
+        &::after {
+            position: absolute;
+            right: 0;
+            top: 0;
+            line-height: 50px;
+            font-weight: bold;
+        }
+
+        >a {
+            .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @footer-links-color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @footer-links-color-hover,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @footer-links-color-hover,
+                @_link-text-decoration-active: none
+            );
+
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-cart,
+                @_icon-font-color: @amedical-text_color,
+                @_icon-font-size: 16px,
+                @_icon-font-position: before
+            );
+
+            line-height: 50px;
+            width: 100%;
+
+            &:hover::before {
+                color: @footer-links-color-hover;
+            }
+        }
+    }
 }
 
 //
