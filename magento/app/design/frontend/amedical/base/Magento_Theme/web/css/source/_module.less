@@ -81,19 +81,31 @@
 
     .page-header {
         .lib-css(background-color, @header__background-color);
-        box-shadow: @header-panel-mobile_shadow;
+
         margin-bottom: @indent__base;
 
         .panel.wrapper {
             .lib-css(background-color, @header-panel__background-color);
             .lib-css(color, @header-panel__text-color);
         }
+
+        .header {
+            &.content:extend(.abs-add-clearfix all) {
+                padding: 0;
+                position: relative;
+            }
+        }
     }
 
     .header.panel {
         float: none;
-        height: @header-panel_height;
+        padding-top: @header-panel_height;
         margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: @header-panel-mobile_shadow;
+        z-index: 100;
+        position: relative;
 
         > .header.links {
             .lib-list-inline();
@@ -121,19 +133,13 @@
         }
     }
 
-    .header {
-        &.content:extend(.abs-add-clearfix all) {
-            padding: 0;
-            position: relative;
-        }
-    }
-
     .logo {
-        float: left;
+        //float: left;
         margin: 0;
         max-width: 50%;
-        position: relative;
-        z-index: 999;
+        position: absolute;
+        left: 0;
+        top: 0;
 
         img {
             max-height: 100px;
@@ -625,7 +631,7 @@
     .page-header {
         border: 0;
         margin-bottom: 0;
-        border-bottom: 1px solid @border-color__base;
+        border-bottom: 1px solid @header-panel_border-color;
         box-shadow: none;
 
         .panel.wrapper {
@@ -639,12 +645,22 @@
             float: none;
             height: @header-panel_height;
             margin: 0;
-            border-bottom: 1px solid #f2f2f2;
+            box-shadow: none;
+            margin-bottom: 10px;
+        }
+
+        .header.panel::after {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 128px;
+            right: 0;
+            height: 1px;
+            background-color: @header-panel_border-color;
         }
 
         .switcher {
             float: left;
-            //margin-left: 15px;
             margin-right: 60px;
             .lib-vendor-prefix-order(1);
         }
@@ -819,8 +835,17 @@
         }
     }
 
+    .block-search {
+        .action {
+            &.search::before {
+                font-size: 16px;
+            }
+        }
+    }
+
     .logo {
-        margin: -8px auto @indent__m 0;
+        position: relative;
+        float: left;
 
         img {
             max-height: inherit;

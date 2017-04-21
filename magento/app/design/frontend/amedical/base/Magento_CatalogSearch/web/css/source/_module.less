@@ -51,11 +51,9 @@
             &.active {
                 + .control {
                     input {
-                        //position: static;
-                        left: 0;
-                        right: 0;
-                        margin: auto;
-                        top: 20px;
+                        position: relative;
+                        opacity: 1;
+                        .lib-css(transition, all .3s, 1);
                     }
                 }
             }
@@ -70,17 +68,16 @@
         }
 
         .control {
-            border-top: 1px solid @border-color__base;
             clear: both;
             margin: 0 -@layout__width-xs-indent -1px;
             padding: 0 @layout__width-xs-indent;
         }
 
         input {
-            left: -300%;
+            opacity: 0;
             margin: 15px 0;
             position: absolute;
-            width: 60%;
+            .lib-css(transition, all .3s, 1);
         }
 
         .nested {
@@ -245,7 +242,6 @@
         }
 
         .control {
-            border-top: 0;
             margin: 0;
             padding: 0;
         }
@@ -254,7 +250,7 @@
             display: inline-block;
             .lib-button-icon(
                 @_icon-font-content: @icon-search,
-                @_icon-font-size: 16px,
+                @_icon-font-size: 26px,
                 @_icon-font-text-hide: true,
                 @_icon-font-color: @header-icons-color,
                 @_icon-font-color-hover: @header-icons-color-hover,
@@ -286,12 +282,16 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .block-search {
         float: left;
-        padding-left: 15px;
         position: relative;
         right: auto;
         top: auto;
         width: 220px;
         margin-right: 20px;
+
+        .control {
+            border: 1px solid @border-color__base;
+            background-color: #f7f7f7;
+        }
 
         input {
             padding-right: 35px;
