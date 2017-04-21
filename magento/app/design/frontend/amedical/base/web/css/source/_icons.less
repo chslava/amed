@@ -1,0 +1,91 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+
+
+& when (@media-common = true) {
+    .lib-font-face(
+        @family-name: @icons__font-name,
+        @font-path: @icons__font-path,
+        @font-weight: normal,
+        @font-style: normal
+    );
+
+    .icon-place {
+        .lib-icon-font(
+        @_icon-font: @icon-font-second,
+        @_icon-font-content: @icon-place,
+        @_icon-font-color: @footer-icon-font_color,
+        @_icon-font-size: 16px,
+        @_icon-font-position: before
+        );
+
+        &:before {
+            overflow: visible;
+            margin-right: 10px;
+            width: 12px
+        }
+    }
+
+    .icon-phone {
+        .lib-icon-font(
+        @_icon-font: @icon-font-second,
+        @_icon-font-content: @icon-phone,
+        @_icon-font-color: @footer-icon-font_color,
+        @_icon-font-size: 16px,
+        @_icon-font-position: before
+        );
+
+        &:before {
+            overflow: visible;
+            margin-right: 10px;
+            width: 12px
+        }
+    }
+
+    .icon-envelope {
+        .lib-icon-font(
+        @_icon-font: @icon-font-second,
+        @_icon-font-content: @icon-envelope,
+        @_icon-font-color: @footer-icon-font_color,
+        @_icon-font-size: 12px,
+        @_icon-font-position: before
+        );
+
+        &:before {
+            overflow: visible;
+            margin-right: 10px;
+            width: 12px
+        }
+    }
+
+    .icon-facebook{
+        .lib-icon-image(
+        '@{baseDir}images/facebook-icon.png',
+        @_icon-image-width: @social-icon_width,
+        @_icon-image-height: @social-icon_height,
+        @_icon-image-margin: 0 8px 0 0,
+        @_icon-image-vertical-align: @icon__vertical-align,
+        @_icon-image-position-x: @icon-image__position-x,
+        @_icon-image-position-y: @icon-image__position-y,
+        @_icon-image-position: before,
+        @_icon-image-text-hide: @icon__text-hide
+        )
+    }
+
+    .icon-linkedin{
+        .lib-icon-image(
+        '@{baseDir}images/linkedin-icon.png',
+        @_icon-image-width: @social-icon_width,
+        @_icon-image-height: @social-icon_height,
+        @_icon-image-margin: 0 8px 0 0,
+        @_icon-image-vertical-align: @icon__vertical-align,
+        @_icon-image-position-x: @icon-image__position-x,
+        @_icon-image-position-y: @icon-image__position-y,
+        @_icon-image-position: before,
+        @_icon-image-text-hide: @icon__text-hide
+        )
+    }
+}
