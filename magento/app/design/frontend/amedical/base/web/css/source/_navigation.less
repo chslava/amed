@@ -425,21 +425,6 @@
         box-sizing: border-box;
         position: relative;
 
-        .lib-icon-font(
-            @_icon-font: @icon-font-second,
-            @_icon-font-content: @icon-chevron-right,
-            @_icon-font-color: #a2a2a2,
-            @_icon-font-size: 16px,
-            @_icon-font-position: after
-        );
-
-        &::after {
-            position: absolute;
-            right: 0;
-            top: 0;
-            line-height: 50px;
-            font-weight: bold;
-        }
 
         >a {
             .lib-link(
@@ -464,8 +449,55 @@
             line-height: 50px;
             width: 100%;
 
-            &:hover::before {
+            &:hover::before, &:hover::after {
                 color: @footer-links-color-hover;
+            }
+
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-chevron-right,
+                @_icon-font-color: #a2a2a2,
+                @_icon-font-size: 16px,
+                @_icon-font-position: after
+            );
+
+            &::after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                line-height: 50px;
+                font-weight: bold;
+            }
+        }
+
+        .action {
+            &.showcart {
+                .counter.qty {
+                    .lib-css(background, @active__color);
+                    .lib-css(color, @page__background-color);
+                    .lib-css(height, @minicart-qty__height);
+                    .lib-css(line-height, @minicart-qty__height);
+                    border-radius: 2px;
+                    display: inline-block;
+                    min-width: 18px;
+                    overflow: hidden;
+                    padding: 0 3px;
+                    text-align: center;
+                    white-space: normal;
+                    position: absolute;
+                    right: 20px;
+                    top: 12px;
+
+                    &.empty {
+                        display: none;
+                    }
+
+                    .loader {
+                        > img {
+                            .lib-css(max-width, @minicart-qty__height);
+                        }
+                    }
+                }
             }
         }
     }
@@ -611,6 +643,10 @@
                 &:hover, &.ui-state-focus {
                     &::after {
                         bottom: 13px;
+                    }
+
+                    &::before {
+                        color: @amedical-brand-color;
                     }
                 }
 

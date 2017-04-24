@@ -715,7 +715,7 @@
                 font-size: 20px;
             }
 
-            .action.showcart {
+            & .action.showcart {
                 &:before, .text{
                     color: @amedical-brand-color;
                 }
@@ -735,8 +735,15 @@
                 position: relative;
             }
 
-            &:before {
+            &:before, &.active:before {
                 font-family: @icon-font-second;
+                vertical-align: bottom;
+            }
+
+            &.active {
+                &:hover:before {
+                    color: @amedical-brand-color;
+                }
             }
         }
 
