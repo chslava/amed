@@ -16,8 +16,8 @@
 //  ---------------------------------------------
 
 //  Fonts
-@icons__font-path: '@{baseDir}fonts/icons';
-@icons__font-name: 'Icons';
+@icons__font-path: '@{baseDir}fonts/Luma-Icons';
+@icons__font-name: 'luma-icons';
 
 //  Color nesting
 
@@ -60,8 +60,9 @@
 //  Navigation
 //  ---------------------------------------------
 
-@navigation__background: @color-gray94;
-@navigation-level0-item__active__color: @primary__color;
+//  Mobile
+@navigation__background: #f7f7f7;
+@navigation-level0-item__active__color: @amedical-brand-color;
 @submenu-item__active__color: @navigation-level0-item__active__color;
 @navigation-level0-item__border: 0;
 @navigation-level0-item__border-bottom: 1px solid #e6e6e6;
@@ -73,8 +74,13 @@
 @navigation-level0-item__padding: 20px 0 0 0;
 
 //  Desktop navigation
-@navigation-desktop-level0-item__line-height: 47px;
+@navigation-desktop__background: @color-white;
+@navigation-desktop__font-size: 16px;
+@navigation-desktop__font-weight: @font-weight__regular;
 @submenu-desktop__font-weight: @font-weight__regular;
+@navigation-desktop-level0-item__color: @amedical-text_color;
+@navigation-desktop-level0-item__hover__color: @amedical-brand-color;
+@navigation-desktop-level0-item__line-height: 47px;
 @submenu-desktop-item__active__color: @navigation-level0-item__active__color;
 
 //  Tabs

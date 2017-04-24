@@ -81,7 +81,7 @@ class Topmenu
 
     protected function _prependNode(\Magento\Framework\Data\Tree\Node $node, \Magento\Framework\Data\Tree\Node $tree)
     {
-        $nodes = $tree->getAllChildNodes();
+        $nodes = unserialize(serialize($tree->getChildren()));
 
         foreach ($nodes as $_node) {
             $tree->removeChild($_node);

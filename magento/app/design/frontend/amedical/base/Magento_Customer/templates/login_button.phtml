@@ -1,1 +1,12 @@
-<button class="btn-authorize">Login</button>
+<div class="actions dropdown authorize">
+    <button class="action toggle btn-authorize"
+            data-mage-init='{"dropdown":{}}'
+            data-toggle="dropdown"
+            aria-haspopup="true">
+        <span><?php echo __('Authorize')?></span>
+    </button>
+    <ul class="dropdown">
+        <?php echo $block->getChildHtml('register-link'); ?>
+        <?php echo $block->getChildHtml('authorization-link-login'); ?>
+    </ul>
+</div>

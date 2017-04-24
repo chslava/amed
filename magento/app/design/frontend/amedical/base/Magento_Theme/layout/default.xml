@@ -7,7 +7,6 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-
         <referenceContainer name="page.top">
             <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
                 <arguments>
@@ -28,9 +27,6 @@
                     </arguments>
                     <container name="mobile.nav.top" htmlClass="nav-top" htmlTag="div" before="-">
                         <block class="Magento\Store\Block\Switcher" name="store_language_mobile" as="store_language_mobile" template="switch/languages.phtml" before="-"/>
-                        <block class="Magento\Framework\View\Element\Template" name="login.button.mobile" as="login.button.mobile" template="Magento_Customer::login_button.phtml">
-                            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link-login-mobile" template="account/link/authorization.phtml"/>
-                        </block>
                     </container>
                     <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600"/>
                     <block class="Magento\Framework\View\Element\Template" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" />
@@ -46,7 +42,6 @@
             <container name="top.container" as="topContainer" label="After Page Header Top" htmlTag="div" htmlClass="top-container"/>
             <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
         </referenceContainer>
-
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_img_width" xsi:type="number">133</argument>
@@ -59,9 +54,6 @@
                     <argument name="block_id" xsi:type="string">header_top_links</argument>
                 </arguments>
             </block>
-            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" >
-                <block class="Magento\Framework\View\Element\Template" name="login.button" as="login.button" template="Magento_Customer::login_button.phtml"/>
-            </container>
         </referenceContainer>
         <referenceContainer name="footer-container">
             <container name="after_footer_start" label="After Footer Start" htmlTag="div" htmlClass="after-footer-start" before="-" />
@@ -74,19 +66,13 @@
 
         <referenceBlock name="report.bugs" remove="true"/>
         <referenceBlock name="header" remove="true"/>
-        <referenceBlock name="header.links" remove="true"/>
         <referenceBlock name="skip_to_content" remove="true"/>
-
 
         <move element="copyright" destination="before.body.end"/>
         <move element="top.search" destination="header.panel" before="-" />
         <move element="header.panel" destination="header-wrapper" after="logo" />
         <move element="navigation.sections" destination="header-wrapper" after="header.panel" />
         <move element="store_language" destination="header.panel.right" before="-" />
-        <move element="authorization-link-login" destination="login.button" before="register-link"/>
-        <move element="register-link" destination="login.button" after="-"/>
-        <move element="customer" destination="header.panel.right" before="-" />
         <move element="form.subscribe" destination="after_footer_start" before="-" />
-
     </body>
 </page>

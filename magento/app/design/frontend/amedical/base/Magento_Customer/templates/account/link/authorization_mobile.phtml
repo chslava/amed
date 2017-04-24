@@ -12,8 +12,10 @@ if ($block->isLoggedIn()) {
     $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
 }
 ?>
-<li class="authorization-link">
-    <a <?php /* @escapeNotVerified */ echo $block->getLinkAttributes(); ?><?php /* @escapeNotVerified */ echo $dataPostParam; ?>>
-        <?php echo $block->escapeHtml($block->getLabel()); ?>
-    </a>
-</li>
+<div class="customer-welcome authorize">
+    <button class="action btn-authorize" >
+        <a <?php /* @escapeNotVerified */ echo $block->getLinkAttributes(); ?><?php /* @escapeNotVerified */ echo $dataPostParam; ?>>
+            <?php echo $block->escapeHtml($block->getLabel()); ?>
+        </a>
+    </button>
+</div>

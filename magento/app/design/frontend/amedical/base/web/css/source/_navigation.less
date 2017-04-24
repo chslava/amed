@@ -27,6 +27,15 @@
         padding: 0 24px;
     }
 
+    .customer-name,
+    .customer-welcome + .authorization-link {
+        display: none;
+
+        .nav-top & {
+            display: inline-block;
+        }
+    }
+
     .nav-toggle {
         .lib-icon-font(
         @icon-menu,
@@ -50,7 +59,6 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 20px;
-        height: 80px;
         box-sizing: border-box;
         border-bottom: @navigation-level0-item__border-bottom;
 
@@ -83,10 +91,108 @@
             }
         }
 
+        .customer-welcome {
+            &.authorize {
+                display: inline-block;
+                padding: 20px 0;
+            }
+        }
+
         .btn-authorize {
-            display: block;
             width: 100px;
             height: 42px;
+        }
+
+        .btn-authorize >a {
+            .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @amedical-text_color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @color-white,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @amedical-text_color,
+                @_link-text-decoration-active: none
+            );
+        }
+    }
+
+    .customer-welcome {
+        .lib-dropdown(
+        @_toggle-selector: ~'.action.switch',
+        @_options-selector: ~'ul',
+        @_dropdown-actions-padding: 0,
+        @_dropdown-list-item-padding: 0,
+        @_dropdown-toggle-icon-content: @icon-down,
+        @_dropdown-toggle-active-icon-content: @icon-up,
+        @_icon-font-text-hide: true,
+        @_icon-font-size: 10px,
+        @_icon-font-line-height: 22px,
+        @_dropdown-list-pointer-position: right,
+        @_dropdown-list-position-right: auto,
+        @_dropdown-list-z-index: @customer-welcome__z-index,
+
+        @_dropdown-list-background: transparent,
+        @_dropdown-list-border: 0,
+        @_dropdown-list-pointer: none,
+        @_dropdown-list-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14)
+
+        );
+
+        li:extend(.switcher li all) {
+            a {
+                .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @amedical-text_color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @amedical-brand-color,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @amedical-text_color,
+                @_link-text-decoration-active: none
+                );
+                display: block;
+                line-height: 1.4;
+                padding: 8px;
+            }
+        }
+
+        .customer-name {
+            cursor: pointer;
+        }
+
+        .customer-menu {
+            display: none;
+        }
+
+        .action.switch {
+            .lib-button-reset();
+            .lib-css(color, @color-white);
+        }
+
+        .header.links {
+            min-width: 175px;
+        }
+
+        &.active {
+            .action.switch {
+                .lib-icon-font-symbol(
+                @_icon-font-content: @icon-up,
+                @_icon-font-position: after
+                );
+            }
+
+            .customer-menu {
+                display: block;
+            }
+        }
+
+        .greet {
+            display: none;
+        }
+
+        &.authorize {
+            display: none;
         }
     }
 }
@@ -128,6 +234,10 @@
             &.last >a {
                 padding-bottom: 20px;
             }
+
+            > .level1 >a {
+                .lib-css(font-weight, @font-weight__regular);
+            }
         }
     }
 
@@ -146,7 +256,7 @@
             font-size: 1.6rem;
             font-weight: 700;
             margin: 0;
-            padding: 0;
+            padding: 30px 0;
 
             .label {
                 display: block;
@@ -359,6 +469,78 @@
             }
         }
     }
+
+    .nav-toggle {
+        top: 25px;
+        right: 25px;
+        left: auto;
+
+
+        &::before {
+            content: '\e90f';
+            font-family: @icon-font-second;
+            font-size: 21px;
+        }
+
+        .nav-open & {
+            &::before {
+                content: '\e90e';
+            }
+        }
+    }
+
+
+    .nav-sections .switcher-trigger strong:after {
+        .lib-font-size(16);
+        right: -25px;
+        top: -2px;
+    }
+
+    .navigation .parent .level-top:after {
+        .lib-font-size(16);
+        right: 10px;
+        top: 7px;
+    }
+
+    .page-footer .footer.content {
+        .switcher-store {
+            .lib-css(background, @footer__background-color);
+            .lib-font-size(16);
+            margin: 0 -@layout__width-xs-indent;
+
+            .switcher-options {
+                display: block;
+
+                ul.dropdown {
+                    background: none;
+                    border: 0;
+                    box-shadow: none;
+                    margin: 0;
+                    position: relative;
+
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                .switcher-trigger,
+                .switcher-option {
+                    border-top: 1px solid @footer-links-separator-border-color;
+                    display: block;
+                    padding: @indent__s @layout-indent__width;
+                }
+
+                .switcher-trigger strong {
+                    padding: @indent__s 0;
+                }
+
+                .switcher-option a {
+                    padding: 0;
+                }
+            }
+        }
+    }
 }
 
 //
@@ -374,7 +556,6 @@
         .lib-vendor-prefix-flex-shrink(0);
         .lib-vendor-prefix-flex-basis(auto);
         padding-left: 0;
-        background-color: transparent;
         float: left;
     }
 
@@ -399,10 +580,100 @@
 
     .lib-main-navigation-desktop();
 
+    .navigation {
+        .level0 {
+            > .level-top {
+                &:hover, &.ui-state-focus {
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        bottom: -6px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 50%;
+                        height: 2px;
+                        background-color: @amedical-brand-color;
+                    }
+                }
+            }
+
+            &.first > .level-top {
+                .lib-icon-font(
+                    @_icon-font: @icon-font-second,
+                    @_icon-font-content: @icon-home,
+                    @_icon-font-color: @amedical-text_color,
+                    @_icon-font-size: 20px,
+                    @_icon-font-position: before
+                );
+
+                &:hover, &.ui-state-focus {
+                    &::after {
+                        bottom: 13px;
+                    }
+                }
+
+                > span {
+                    font-size: 0;
+                }
+            }
+        }
+    }
+
     .panel.header {
         .links,
         .switcher {
             display: inline-block;
         }
+    }
+
+    .customer-name,
+    .customer-welcome + .authorization-link {
+        display: inline-block;
+
+        .nav-top & {
+            display: none;
+        }
+    }
+
+    .customer-welcome {
+        .lib-dropdown(
+        @_toggle-selector: ~'.action.switch',
+        @_options-selector: ~'ul',
+        @_dropdown-actions-padding: 0,
+        @_dropdown-list-item-padding: 0,
+        @_dropdown-toggle-icon-content: @icon-down,
+        @_dropdown-toggle-active-icon-content: @icon-up,
+        @_icon-font-text-hide: true,
+        @_icon-font-size: 10px,
+        @_icon-font-line-height: 22px,
+        @_dropdown-list-pointer-position: right,
+        @_dropdown-list-position-right: 0,
+        @_dropdown-list-z-index: @customer-welcome__z-index
+        );
+
+        li:extend(.switcher li all) {
+            a {
+                .lib-link(
+                @_link-color: @color-gray20,
+                @_link-text-decoration: none,
+                @_link-color-visited: @color-gray20,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @color-gray20,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @color-gray20,
+                @_link-text-decoration-active: none
+                );
+                display: block;
+                line-height: 1.4;
+                padding: 8px;
+            }
+        }
+    }
+
+    .customer-welcome.authorize {
+        display: inline-block;
+        float: right;
     }
 }
