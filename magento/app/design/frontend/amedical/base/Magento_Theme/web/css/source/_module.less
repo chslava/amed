@@ -88,12 +88,12 @@
             .lib-css(background-color, @header-panel__background-color);
             .lib-css(color, @header-panel__text-color);
         }
+    }
 
-        .header {
-            &.content:extend(.abs-add-clearfix all) {
-                padding: 0;
-                position: relative;
-            }
+    .header {
+        &.content:extend(.abs-add-clearfix all) {
+            padding: 0;
+            position: relative;
         }
     }
 
@@ -650,7 +650,7 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: @indent__l @indent__base 0;
+            padding: 0 0 10px 0;
         }
 
         .header-right{
@@ -723,6 +723,7 @@
         }
 
         .action.showcart {
+            line-height: @navigation-desktop-level0-item__line-height;
 
             .text {
                 clip: auto;
@@ -737,7 +738,7 @@
 
             &:before, &.active:before {
                 font-family: @icon-font-second;
-                vertical-align: bottom;
+                line-height: inherit;
             }
 
             &.active {
@@ -754,7 +755,7 @@
                     content: "";
                     display: block;
                     position: absolute;
-                    bottom: -6px;
+                    bottom: 6px;
                     left: 0;
                     right: 0;
                     margin: 0 auto;
