@@ -14,15 +14,17 @@
 //
 //  Typography
 //  ---------------------------------------------
-
+@indent__base: 20px;
+@layout__width-xs-indent: 0;
 //  Fonts
 @icons__font-path: '@{baseDir}fonts/Luma-Icons';
 @icons__font-name: 'luma-icons';
 
 //  Color nesting
 
+@heading__color__base: #414141;
 @panel__background-color: @color-gray-light0;
-@border-color__base: @color-gray80;
+@border-color__base: #d8d8d8;
 @footer__background-color: transparent;
 @footer-links-separator-border-color: false;
 @footer-links-color: @color-white;
@@ -30,7 +32,12 @@
 @copyright__background-color: #404040;
 
 
+//
 //  Headings
+//  ---------------------------------------------
+@heading__font-weight__base: @font-weight__bold;
+@heading__margin-bottom__base: 20px;
+
 @h3__font-weight: @font-weight__semibold;
 @h3__margin-top: @indent__base;
 

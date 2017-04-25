@@ -83,7 +83,7 @@
     .page-header {
         .lib-css(background-color, @header__background-color);
 
-        margin-bottom: @indent__base;
+        margin-bottom: 30px;
 
         .panel.wrapper {
             .lib-css(background-color, @header-panel__background-color);
@@ -154,14 +154,6 @@
         }
     }
 
-    .page-main {
-        > .page-title-wrapper {
-            .page-title + .action {
-                margin-top: @indent__l;
-            }
-        }
-    }
-
     .action.skip {
         &:not(:focus) {
             &:extend(.abs-visually-hidden all);
@@ -184,11 +176,6 @@
 
         display: none;
     }
-
-    //.btn-authorize {
-    //    display: none;
-    //}
-
 
     //
     //  Global notice
@@ -456,15 +443,35 @@
         border: @tooltip__border-width solid @tooltip__border-color;
         padding: 10px;
     }
+
+    //
+    //  Content
+    //  ---------------------------------------------
+
+    .page-main {
+        > .page-title-wrapper {
+            padding: 20px @indent__m 0 @indent__m;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: @indent__m;
+                width: 72px;
+                height: 2px;
+                .lib-css(background-color, @amedical-brand-color);
+            }
+        }
+
+        .page-title + .action {
+            margin-top: @indent__l;
+        }
+    }
 }
 
 //
-//  Navigation
+//  Mobile
 //  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-
-}
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
