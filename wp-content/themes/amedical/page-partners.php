@@ -37,20 +37,20 @@ get_header(); ?>
 				<div class="ui row">
 					<div class="sixteen wide mobile column" id="partners-list">
 						<div class="ui stackable equal height grid">
-							<div class="three column row">
+							<div class="four column row">
 							<?php
 								while ( $partners_q->have_posts() ) :
 									$partners_q->the_post();
 									$logo = get_field('partner_logo');
 							?>
-								<div class="partner-container ui column">
+								<div class="partner-container ui eight wide tablet four wide computer column">
 									<div class="partner">
 										<?php if($logo) : ?>
 											<img src="<?php echo $logo['sizes']['brand-logo']; ?>">
 										<?php
 											endif;
-											the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
-											the_field('partner_description_text');
+											// the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
+											// the_field('partner_description_text');
 											if( get_field('link_to_partner_shop_category') ) :
 										?>
 											<a class="ui basic button wider" href="<?php the_field('link_to_partner_shop_category'); ?>">
@@ -68,8 +68,8 @@ get_header(); ?>
 								</div>
 							<?php
 								$partners_counter++;
-								if ($partners_counter % 3 == 0) {
-									echo '</div><div class="three column row">';
+								if ($partners_counter % 4 == 0) {
+									echo '</div><div class="four column row">';
 								}
 							?>
 							<?php endwhile; ?>

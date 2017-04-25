@@ -1746,6 +1746,14 @@ main .ui.breadcrumb .section {
 .partner .ui.button {
   margin-top: 15px;
 }
+@media only screen and (min-width: 319px) and (max-width: 768px) {
+  .partner {
+    padding: 20px;
+  }
+  .partner img {
+    display: block;
+  }
+}
 .read-more-link {
   margin-top: 20px;
   display: block;
