@@ -34,6 +34,7 @@
         .label {
             .lib-icon-font(
             @_icon-font-content: @icon-search,
+            @_icon-font: @icon-font-main,
             @_icon-font-size: 22px,
             @_icon-font-line-height: 22px,
             @_icon-font-margin: 0,
@@ -51,7 +52,10 @@
             &.active {
                 + .control {
                     input {
-                        position: static;
+                        position: relative;
+                        top: 0;
+                        opacity: 1;
+                        .lib-css(transition, opacity .3s, 1);
                     }
                 }
             }
@@ -66,16 +70,17 @@
         }
 
         .control {
-            border-top: 1px solid @border-color__base;
             clear: both;
             margin: 0 -@layout__width-xs-indent -1px;
             padding: 0 @layout__width-xs-indent;
         }
 
         input {
-            left: -300%;
+            opacity: 0;
             margin: 15px 0;
             position: absolute;
+            top: -100%;
+            .lib-css(transition, opacity .3s, 1);
         }
 
         .nested {
@@ -221,7 +226,6 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
     .block-search {
 
-        float: left;
         position: absolute;
         right: 147px;
         top: 25px;
@@ -240,7 +244,6 @@
         }
 
         .control {
-            border-top: 0;
             margin: 0;
             padding: 0;
         }
@@ -249,7 +252,8 @@
             display: inline-block;
             .lib-button-icon(
                 @_icon-font-content: @icon-search,
-                @_icon-font-size: 16px,
+                @_icon-font: @icon-font-main,
+                @_icon-font-size: 26px,
                 @_icon-font-text-hide: true,
                 @_icon-font-color: @header-icons-color,
                 @_icon-font-color-hover: @header-icons-color-hover,
@@ -278,22 +282,54 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+@media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
+    .block-search {
+        right: auto;
+        left: -125px;
+        top: 20px;
+
+        .label {
+            &.active {
+                + .control {
+                    input {
+                        top: 33px;
+                        left: 254px;
+                        height: 42px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .block-search {
         float: left;
-        padding-left: 15px;
         position: relative;
         right: auto;
+        left: auto;
         top: auto;
-        width: 220px;
-        margin-right: 20px;
+        max-width: 220px;
+        width: 17%;
+
+        .control {
+            border: 1px solid @border-color__base;
+            background-color: #f7f7f7;
+        }
 
         input {
             padding-right: 35px;
             position: static;
             height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
+            width: 100%;
+        }
+
+        .action {
+            &.search::before {
+                font-size: 16px;
+            }
         }
 
     }
-
 }

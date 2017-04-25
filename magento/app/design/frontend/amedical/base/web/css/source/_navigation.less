@@ -1,0 +1,727 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@active-nav-indent: 54px;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .panel.header {
+        .links,
+        .switcher {
+            display: none;
+        }
+    }
+
+    .nav-sections {
+        .lib-css(background, @navigation__background);
+        padding: 0 24px;
+    }
+
+    .customer-name,
+    .customer-welcome + .authorization-link {
+        display: none;
+
+        .nav-top & {
+            display: inline-block;
+        }
+    }
+
+    .nav-toggle {
+        .lib-icon-font(
+        @icon-menu,
+        @_icon-font-size: 28px,
+        @_icon-font-color: @header-icons-color,
+        @_icon-font-color-hover: @header-icons-color-hover
+        );
+        .lib-icon-text-hide();
+        cursor: pointer;
+        display: block;
+        font-size: 0;
+        left: 15px;
+        position: absolute;
+        top: 15px;
+        z-index: 999;
+    }
+
+    .nav-top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        border-bottom: @navigation-level0-item__border-bottom;
+
+        .switcher-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .switcher-option {
+                float: left;
+                margin-right: 42px;
+                margin-bottom: 0;
+            }
+
+            .switcher-option > a {
+                color: @amedical-text_color;
+                font-weight: normal;
+                font-size: 14px;
+
+                &:hover {
+                    color: @amedical-brand-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .customer-welcome {
+            &.authorize {
+                display: inline-block;
+                padding: 20px 0;
+            }
+        }
+
+        .btn-authorize {
+            width: 100px;
+            height: 42px;
+        }
+
+        .btn-authorize >a {
+            .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @amedical-text_color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @color-white,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @amedical-text_color,
+                @_link-text-decoration-active: none
+            );
+        }
+    }
+
+    .customer-welcome {
+        .lib-dropdown(
+        @_toggle-selector: ~'.action.switch',
+        @_options-selector: ~'ul',
+        @_dropdown-actions-padding: 0,
+        @_dropdown-list-item-padding: 0,
+        @_dropdown-toggle-icon-content: @icon-down,
+        @_dropdown-toggle-active-icon-content: @icon-up,
+        @_icon-font-text-hide: true,
+        @_icon-font-size: 10px,
+        @_icon-font-line-height: 22px,
+        @_dropdown-list-pointer-position: right,
+        @_dropdown-list-position-right: auto,
+        @_dropdown-list-z-index: @customer-welcome__z-index,
+
+        @_dropdown-list-background: transparent,
+        @_dropdown-list-border: 0,
+        @_dropdown-list-pointer: none,
+        @_dropdown-list-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14)
+
+        );
+
+        li:extend(.switcher li all) {
+            a {
+                .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @amedical-text_color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @amedical-brand-color,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @amedical-text_color,
+                @_link-text-decoration-active: none
+                );
+                display: block;
+                line-height: 1.4;
+                padding: 8px;
+            }
+        }
+
+        .customer-name {
+            cursor: pointer;
+        }
+
+        .customer-menu {
+            display: none;
+        }
+
+        .action.switch {
+            .lib-button-reset();
+            .lib-css(color, @color-white);
+        }
+
+        .header.links {
+            min-width: 175px;
+        }
+
+        &.active {
+            .action.switch {
+                .lib-icon-font-symbol(
+                @_icon-font-content: @icon-up,
+                @_icon-font-position: after
+                );
+            }
+
+            .customer-menu {
+                display: block;
+            }
+        }
+
+        .greet {
+            display: none;
+        }
+
+        &.authorize {
+            display: none;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .navigation {
+        padding: 0;
+
+        .parent {
+            .level-top {
+                position: relative;
+                .lib-icon-font(
+                @_icon-font-content: @icon-down,
+                @_icon-font-size: 42px,
+                @_icon-font-position: after,
+                @_icon-font-display: block
+                );
+
+                &:after {
+                    position: absolute;
+                    right: 7px;
+                    top: -8px;
+                }
+
+                &.ui-state-active {
+                    .lib-icon-font-symbol(
+                    @_icon-font-content: @icon-up,
+                    @_icon-font-position: after
+                    );
+                }
+            }
+        }
+
+        .level0 {
+            &.last >a {
+                padding-bottom: 20px;
+            }
+
+            > .level1 >a {
+                .lib-css(font-weight, @font-weight__regular);
+            }
+        }
+    }
+
+    .nav-sections {
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        .lib-css(transition, all .3s, 1);
+        height: 100%;
+        opacity: 0;
+        overflow: auto;
+        position: absolute;
+        width: 100%;
+        padding-bottom: 20px;
+
+        .switcher {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0;
+            padding: 30px 0;
+
+            .label {
+                display: block;
+                margin-bottom: @indent__xs;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid @color-gray82;
+            }
+        }
+
+        .switcher-trigger {
+            strong {
+                position: relative;
+                .lib-icon-font(
+                @_icon-font-content: @icon-down,
+                @_icon-font-size: 42px,
+                @_icon-font-position: after,
+                @_icon-font-display: block
+                );
+
+                &:after {
+                    position: absolute;
+                    right: -40px;
+                    top: -16px;
+                }
+            }
+
+            &.active strong {
+                .lib-icon-font-symbol(
+                @_icon-font-content: @icon-up,
+                @_icon-font-position: after
+                );
+            }
+        }
+
+        .switcher-dropdown {
+            .lib-list-reset-styles();
+            padding: @indent__s 0;
+        }
+
+        .header.links {
+            .lib-list-reset-styles();
+
+            li {
+                font-size: @navigation-level0-item__font-size;
+                margin: 0;
+
+                &.greet.welcome {
+                    font-weight: @navigation-level0-item__font-weight;
+                    padding: @navigation-level0-item__padding;
+                }
+
+                > a {
+                    .lib-link(
+                        @_link-color: @amedical-top-link-text_color,
+                        @_link-text-decoration: none,
+                        @_link-color-visited: @footer-links-color,
+                        @_link-text-decoration-visited: none,
+                        @_link-color-hover: @footer-links-color-hover,
+                        @_link-text-decoration-hover: none,
+                        @_link-color-active: @footer-links-color-hover,
+                        @_link-text-decoration-active: none
+                    );
+
+                    font-size: 12px;
+                }
+            }
+
+            a,
+            a:hover {
+                .lib-css(color, @navigation-level0-item__color);
+                .lib-css(text-decoration, @navigation-level0-item__text-decoration);
+                display: block;
+                font-weight: @navigation-level0-item__font-weight;
+                padding: @navigation-level0-item__padding;
+            }
+
+            .header.links {
+                border: 0;
+            }
+        }
+    }
+
+    .nav-before-open {
+        height: 100%;
+        overflow-x: hidden;
+        width: 100%;
+
+        .page-wrapper {
+            .lib-css(transition, left .3s, 1);
+            height: 100%;
+            left: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .nav-open {
+        .nav-sections {
+            @_shadow: @header-panel-mobile_shadow;
+            
+            .lib-css(box-shadow, @_shadow, 1);
+            opacity: 1;
+            position: relative;
+            z-index: 99;
+            .lib-css(transition, all .3s, 1);
+        }
+    }
+
+    .nav-sections-items {
+        .lib-clearfix();
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-sections-item-title {
+        //background: darken(@navigation__background, 5%);
+        border: solid darken(@navigation__background, 10%);
+        border-width: 0 0 1px 1px;
+        box-sizing: border-box;
+        float: left;
+        height: 71px;
+        padding-top: 24px;
+        text-align: center;
+        width: 33.33%;
+
+        &.active {
+            background: transparent;
+            border-bottom: 0;
+        }
+
+        .nav-sections-item-switch {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .nav-sections-item-content {
+        .lib-clearfix();
+        box-sizing: border-box;
+        float: right;
+        margin-left: -100%;
+        width: 100%;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .lib-main-navigation();
+
+    .mobile-cart {
+        border-top: @navigation-level0-item__border-bottom;
+        border-bottom: @navigation-level0-item__border-bottom;
+        height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+
+
+        >a {
+            .lib-link(
+                @_link-color: @amedical-text_color,
+                @_link-text-decoration: none,
+                @_link-color-visited: @footer-links-color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @footer-links-color-hover,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @footer-links-color-hover,
+                @_link-text-decoration-active: none
+            );
+
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-cart,
+                @_icon-font-color: @amedical-text_color,
+                @_icon-font-size: 16px,
+                @_icon-font-position: before
+            );
+
+            line-height: 50px;
+            width: 100%;
+
+            &:hover::before, &:hover::after {
+                color: @footer-links-color-hover;
+            }
+
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-chevron-right,
+                @_icon-font-color: #a2a2a2,
+                @_icon-font-size: 16px,
+                @_icon-font-position: after
+            );
+
+            &::after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                line-height: 50px;
+                font-weight: bold;
+            }
+        }
+
+        .action {
+            &.showcart {
+                .counter.qty {
+                    .lib-css(background, @active__color);
+                    .lib-css(color, @page__background-color);
+                    .lib-css(height, @minicart-qty__height);
+                    .lib-css(line-height, @minicart-qty__height);
+                    border-radius: 2px;
+                    display: inline-block;
+                    min-width: 18px;
+                    overflow: hidden;
+                    padding: 0 3px;
+                    text-align: center;
+                    white-space: normal;
+                    position: absolute;
+                    right: 20px;
+                    top: 12px;
+
+                    &.empty {
+                        display: none;
+                    }
+
+                    .loader {
+                        > img {
+                            .lib-css(max-width, @minicart-qty__height);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-toggle {
+        top: 25px;
+        right: 25px;
+        left: auto;
+
+
+        &::before {
+            content: '\e90f';
+            font-family: @icon-font-second;
+            font-size: 21px;
+        }
+
+        .nav-open & {
+            &::before {
+                content: '\e90e';
+            }
+        }
+    }
+
+
+    .nav-sections .switcher-trigger strong:after {
+        .lib-font-size(16);
+        right: -25px;
+        top: -2px;
+    }
+
+    .navigation .parent .level-top:after {
+        .lib-font-size(16);
+        right: 10px;
+        top: 7px;
+    }
+
+    .page-footer .footer.content {
+        .switcher-store {
+            .lib-css(background, @footer__background-color);
+            .lib-font-size(16);
+            margin: 0 -@layout__width-xs-indent;
+
+            .switcher-options {
+                display: block;
+
+                ul.dropdown {
+                    background: none;
+                    border: 0;
+                    box-shadow: none;
+                    margin: 0;
+                    position: relative;
+
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                .switcher-trigger,
+                .switcher-option {
+                    border-top: 1px solid @footer-links-separator-border-color;
+                    display: block;
+                    padding: @indent__s @layout-indent__width;
+                }
+
+                .switcher-trigger strong {
+                    padding: @indent__s 0;
+                }
+
+                .switcher-option a {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-sections {
+        .lib-css(background, @navigation-desktop__background);
+        .lib-vendor-prefix-flex-shrink(0);
+        .lib-vendor-prefix-flex-basis(auto);
+        padding-left: 0;
+        float: left;
+        z-index: 110;
+        position: relative;
+    }
+
+    .nav-sections-item-title {
+        display: none;
+    }
+
+    .nav-sections-item-content {
+        display: block !important;
+    }
+
+    .nav-sections-item-content > * {
+        display: none;
+    }
+
+    .nav-sections-item-content {
+        > .navigation {
+            display: block;
+            background-color: transparent;
+        }
+    }
+
+    .lib-main-navigation-desktop();
+    .navigation {
+        .level0 {
+            > .level-top {
+                display: inline-block;
+
+                &:hover, &.ui-state-focus {
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        bottom: 6px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 50%;
+                        height: 2px;
+                        background-color: @amedical-brand-color;
+                    }
+                }
+            }
+
+            &.first > .level-top {
+                .lib-icon-font(
+                    @_icon-font: @icon-font-second,
+                    @_icon-font-content: @icon-home,
+                    @_icon-font-color: @amedical-text_color,
+                    @_icon-font-size: 20px,
+                    @_icon-font-position: before
+                );
+
+                &:hover, &.ui-state-focus {
+                    &::before {
+                        color: @amedical-brand-color;
+                    }
+                }
+
+                > span {
+                    display: none;
+                }
+            }
+
+            .level0.submenu {
+                .level1 {
+                    margin:0;
+                    padding: 0 10px;
+
+                    > a {
+                        border-bottom: @submenu-desktop-item__border-bottom;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .panel.header {
+        .links,
+        .switcher {
+            display: inline-block;
+        }
+    }
+
+    .customer-name,
+    .customer-welcome + .authorization-link {
+        display: inline-block;
+
+        .nav-top & {
+            display: none;
+        }
+    }
+
+    .customer-welcome {
+        .lib-dropdown(
+        @_toggle-selector: ~'.action.switch',
+        @_options-selector: ~'ul',
+        @_dropdown-actions-padding: 0,
+        @_dropdown-list-item-padding: 0,
+        @_dropdown-toggle-icon-content: @icon-down,
+        @_dropdown-toggle-active-icon-content: @icon-up,
+        @_icon-font-text-hide: true,
+        @_icon-font-size: 10px,
+        @_icon-font-line-height: 22px,
+        @_dropdown-list-pointer-position: right,
+        @_dropdown-list-position-right: 0,
+        @_dropdown-list-z-index: @customer-welcome__z-index
+        );
+
+        li:extend(.switcher li all) {
+            a {
+                .lib-link(
+                @_link-color: @color-gray20,
+                @_link-text-decoration: none,
+                @_link-color-visited: @color-gray20,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: @color-gray20,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @color-gray20,
+                @_link-text-decoration-active: none
+                );
+                display: block;
+                line-height: 1.4;
+                padding: 8px;
+            }
+        }
+    }
+
+    .customer-welcome.authorize {
+        display: inline-block;
+        float: right;
+    }
+}

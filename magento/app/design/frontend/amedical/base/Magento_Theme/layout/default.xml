@@ -7,48 +7,68 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="page.top">
+            <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+                <arguments>
+                    <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                    <argument name="group_css" xsi:type="string">nav-sections</argument>
+                </arguments>
+                <container name="mobile.menu.header" htmlClass="header" htmlTag="div" >
+                    <block class="Magento\Theme\Block\Html\Header\Logo" name="mobile.menu.header.logo">
+                        <arguments>
+                            <argument name="logo_img_width" xsi:type="number">699</argument>
+                            <argument name="logo_img_height" xsi:type="number">72</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Menu</argument>
+                    </arguments>
+                    <container name="mobile.nav.top" htmlClass="nav-top" htmlTag="div" before="-">
+                        <block class="Magento\Store\Block\Switcher" name="store_language_mobile" as="store_language_mobile" template="switch/languages.phtml" before="-"/>
+                    </container>
+                    <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600"/>
+                    <!--<block class="Magento\Framework\View\Element\Template" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" />-->
+                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" >
+                        <!--<arguments>-->
+                            <!--<argument name="jsLayout" xsi:type="array">-->
+                                <!--<item name="types" xsi:type="array"/>-->
+                                <!--<item name="components" xsi:type="array">-->
+                                    <!--<item name="minicart_content" xsi:type="array">-->
+                                        <!--<item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>-->
+                                        <!--<item name="config" xsi:type="array">-->
+                                            <!--<item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>-->
+                                        <!--</item>-->
+                                    <!--</item>-->
+                                <!--</item>-->
+                            <!--</argument>-->
+                        <!--</arguments>-->
+                    </block>
+                    <container name="mobile.links.wrapper" htmlClass="mobile-links wrapper" htmlTag="div" after="cart.link.mobile">
+                        <block class="Magento\Cms\Block\Block" name="mobile.links">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">header_top_links</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </block>
+            </block>
+            <container name="top.container" as="topContainer" label="After Page Header Top" htmlTag="div" htmlClass="top-container"/>
+            <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+        </referenceContainer>
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_img_width" xsi:type="number">133</argument>
                 <argument name="logo_img_height" xsi:type="number">128</argument>
             </arguments>
         </referenceBlock>
-        <referenceBlock name="header.links" >
-            <block class="Magento\Framework\View\Element\Html\Link" name="jaunumi.link" before="-">
-                <arguments>
-                    <argument name="label" xsi:type="string" translate="false">Jaunumi</argument>
-                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
-                </arguments>
-            </block>
-            <block class="Magento\Framework\View\Element\Html\Link" name="blogs.link" after="jaunumi.link">
-                <arguments>
-                    <argument name="label" xsi:type="string" translate="false">Blogs</argument>
-                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
-                </arguments>
-            </block>
-            <block class="Magento\Framework\View\Element\Html\Link" name="third.link" after="blogs.link">
-                <arguments>
-                    <argument name="label" xsi:type="string" translate="false">Third Link</argument>
-                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
-                </arguments>
-            </block>
-            <block class="Magento\Framework\View\Element\Html\Link" name="parmums.link" after="third.link">
-                <arguments>
-                    <argument name="label" xsi:type="string" translate="false">Par mums</argument>
-                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
-                </arguments>
-            </block>
-            <block class="Magento\Framework\View\Element\Html\Link" name="kontakti.link" after="parmums.link">
-                <arguments>
-                    <argument name="label" xsi:type="string" translate="false">Kontakti</argument>
-                    <argument name="path" xsi:type="string" translate="false">contact-us</argument>
-                </arguments>
-            </block>
-        </referenceBlock>
         <referenceContainer name="header.panel">
-            <container name="header.panel.right" label="Page Header Panel Right" htmlTag="div" htmlClass="header-right" after="-" >
-                <block class="Magento\Framework\View\Element\Template" name="login.button" as="login.button" template="Magento_Customer::login_button.phtml"/>
-            </container>
+            <block class="Magento\Cms\Block\Block" name="header.top.links" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_top_links</argument>
+                </arguments>
+            </block>
         </referenceContainer>
         <referenceContainer name="footer-container">
             <container name="after_footer_start" label="After Footer Start" htmlTag="div" htmlClass="after-footer-start" before="-" />
@@ -63,15 +83,11 @@
         <referenceBlock name="header" remove="true"/>
         <referenceBlock name="skip_to_content" remove="true"/>
 
-
         <move element="copyright" destination="before.body.end"/>
         <move element="top.search" destination="header.panel" before="-" />
         <move element="header.panel" destination="header-wrapper" after="logo" />
+        <move element="navigation.sections" destination="header-wrapper" after="header.panel" />
         <move element="store_language" destination="header.panel.right" before="-" />
-        <move element="authorization-link-login" destination="login.button" before="register-link"/>
-        <move element="register-link" destination="login.button" after="-"/>
-        <move element="customer" destination="header.panel.right" before="-" />
         <move element="form.subscribe" destination="after_footer_start" before="-" />
-
     </body>
 </page>
