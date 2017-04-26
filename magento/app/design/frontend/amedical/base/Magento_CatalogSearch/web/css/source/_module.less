@@ -38,7 +38,7 @@
             @_icon-font-size: 22px,
             @_icon-font-line-height: 22px,
             @_icon-font-margin: 0,
-            @_icon-font-color: @minicart-icons-color,
+            @_icon-font-color: @icon-search__color,
             @_icon-font-color-hover: @minicart-icons-color-hover,
             @_icon-font-color-active: @minicart-icons-color-hover,
             @_icon-font-text-hide: true
@@ -76,6 +76,7 @@
         }
 
         input {
+            .lib-input-placeholder(@form-element-input-placeholder__color);
             opacity: 0;
             margin: 15px 0;
             position: absolute;
@@ -225,9 +226,8 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
     .block-search {
-
         position: absolute;
-        right: 147px;
+        right: 148px;
         top: 25px;
         width: 290px;
         z-index: 4;
@@ -237,10 +237,10 @@
         }
 
         input {
-            .lib-input-placeholder(@form-element-input-placeholder__color);
             margin: 0;
             position: static;
             height: 50px;
+            opacity: 1;
         }
 
         .control {
@@ -253,11 +253,11 @@
             .lib-button-icon(
                 @_icon-font-content: @icon-search,
                 @_icon-font: @icon-font-main,
-                @_icon-font-size: 26px,
+                @_icon-font-size: 16px,
                 @_icon-font-text-hide: true,
-                @_icon-font-color: @header-icons-color,
+                @_icon-font-color: @icon-search__color,
                 @_icon-font-color-hover: @header-icons-color-hover,
-                @_icon-font-line-height: 32px
+                @_icon-font-line-height: 42px
             );
             .lib-button-reset();
             position: absolute;
@@ -299,6 +299,16 @@
                 }
             }
         }
+
+        input {
+            opacity: 0;
+        }
+
+        .action {
+            &.search::before {
+                line-height: 30px;
+            }
+        }
     }
 }
 
@@ -313,12 +323,8 @@
         max-width: 220px;
         width: 17%;
 
-        .control {
-            border: 1px solid @border-color__base;
-            background-color: #f7f7f7;
-        }
-
         input {
+            opacity: 1;
             padding-right: 35px;
             position: static;
             height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
@@ -327,7 +333,7 @@
 
         .action {
             &.search::before {
-                font-size: 16px;
+                line-height: 30px;
             }
         }
 

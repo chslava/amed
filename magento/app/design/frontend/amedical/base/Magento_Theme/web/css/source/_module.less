@@ -83,7 +83,7 @@
     .page-header {
         .lib-css(background-color, @header__background-color);
 
-        margin-bottom: @indent__base;
+        margin-bottom: 30px;
 
         .panel.wrapper {
             .lib-css(background-color, @header-panel__background-color);
@@ -138,7 +138,7 @@
         margin: 0;
         max-width: 50%;
         position: absolute;
-        left: 0;
+        left: 18px;
         top: 0;
         z-index: 101;
 
@@ -151,14 +151,6 @@
         .page-print & {
             display: inline-block;
             float: none;
-        }
-    }
-
-    .page-main {
-        > .page-title-wrapper {
-            .page-title + .action {
-                margin-top: @indent__l;
-            }
         }
     }
 
@@ -184,11 +176,6 @@
 
         display: none;
     }
-
-    //.btn-authorize {
-    //    display: none;
-    //}
-
 
     //
     //  Global notice
@@ -456,15 +443,35 @@
         border: @tooltip__border-width solid @tooltip__border-color;
         padding: 10px;
     }
+
+    //
+    //  Content
+    //  ---------------------------------------------
+
+    .page-main {
+        > .page-title-wrapper {
+            padding: 20px @indent__m 0 @indent__m;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: @indent__m;
+                width: 72px;
+                height: 2px;
+                .lib-css(background-color, @amedical-brand-color);
+            }
+        }
+
+        .page-title + .action {
+            margin-top: @indent__l;
+        }
+    }
 }
 
 //
-//  Navigation
+//  Mobile
 //  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-
-}
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
@@ -486,9 +493,13 @@
         height: @header-panel-tablet_height;
     }
 
+    .logo {
+        left: 75px;
+    }
+
     .nav-toggle {
-        top: 30px;
-        right: 15px;
+        top: 36px;
+        right: 87px;
     }
 
     //
@@ -583,7 +594,7 @@
             bottom: 0;
             left: 128px;
             right: 0;
-            height: 1px;
+            height: 2px;
             background-color: @header-panel_border-color;
         }
 
@@ -700,6 +711,7 @@
     .logo {
         position: relative;
         float: left;
+        left: auto;
 
         img {
             max-height: inherit;
@@ -710,6 +722,17 @@
         display: block;
         margin-left: 35px;
         padding-right: 15px;
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: -35px;
+            width: 0;
+            border-left: 1px solid @border-color__base;
+        }
 
         &:hover {
             &:before, &.active:before {

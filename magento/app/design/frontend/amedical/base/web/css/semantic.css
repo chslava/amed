@@ -1950,21 +1950,21 @@ section.slider .bx-viewport, section.slider .bx-wrapper {
     min-height: 30px
 }
 
-.content-page ul, ol.list, ul.list {
+.content-page ul {
     list-style: none;
     padding: 1em 0
 }
 
-.content-page ul li, ol.list li, ul.list li {
+.content-page ul li {
     margin-bottom: 15px
 }
 
-.content-page ul li:before, ol.list li:before, ul.list li:before {
+.content-page ul li:before {
     content: "\00a0";
     float: left
 }
 
-.content-page ul li:before, ul.list li:before {
+.content-page ul li:before {
     display: block;
     width: 13px;
     height: 13px;
@@ -1973,16 +1973,16 @@ section.slider .bx-viewport, section.slider .bx-wrapper {
     margin-right: 9px
 }
 
-.content-page ol, ol.list {
+.content-page ol {
     counter-reset: li
 }
 
-.content-page ol li, ol.list li {
+.content-page ol li {
     counter-increment: li;
     list-style: none
 }
 
-.content-page ol li:before, ol.list li:before {
+.content-page ol li:before {
     display: block;
     content: counter(li) '';
     background: #FFF;
@@ -6223,23 +6223,23 @@ header .desktop .ui.main-menu .basket .item, header .desktop .ui.main-menu > .it
     margin-top: 0
 }
 
-h1, h1.ui.header {
+h1.ui.header {
     font-size: 2rem
 }
 
-h2, h2.ui.header {
+h2.ui.header {
     font-size: 1.714rem
 }
 
-h3, h3.ui.header {
+h3.ui.header {
     font-size: 1.28rem
 }
 
-h4, h4.ui.header {
+h4.ui.header {
     font-size: 1.071rem
 }
 
-h5, h5.ui.header {
+h5.ui.header {
     font-size: 1rem
 }
 

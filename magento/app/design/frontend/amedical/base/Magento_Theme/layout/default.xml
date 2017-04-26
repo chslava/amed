@@ -29,22 +29,7 @@
                         <block class="Magento\Store\Block\Switcher" name="store_language_mobile" as="store_language_mobile" template="switch/languages.phtml" before="-"/>
                     </container>
                     <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600"/>
-                    <!--<block class="Magento\Framework\View\Element\Template" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" />-->
-                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" >
-                        <!--<arguments>-->
-                            <!--<argument name="jsLayout" xsi:type="array">-->
-                                <!--<item name="types" xsi:type="array"/>-->
-                                <!--<item name="components" xsi:type="array">-->
-                                    <!--<item name="minicart_content" xsi:type="array">-->
-                                        <!--<item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>-->
-                                        <!--<item name="config" xsi:type="array">-->
-                                            <!--<item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>-->
-                                        <!--</item>-->
-                                    <!--</item>-->
-                                <!--</item>-->
-                            <!--</argument>-->
-                        <!--</arguments>-->
-                    </block>
+                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="cart.link.mobile" as="cart.link.mobile" template="Magento_Theme::cart/cart_link_mobile.phtml" />
                     <container name="mobile.links.wrapper" htmlClass="mobile-links wrapper" htmlTag="div" after="cart.link.mobile">
                         <block class="Magento\Cms\Block\Block" name="mobile.links">
                             <arguments>
