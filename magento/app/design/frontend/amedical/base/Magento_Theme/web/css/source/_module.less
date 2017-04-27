@@ -94,7 +94,6 @@
     .header {
         &.content:extend(.abs-add-clearfix all) {
             padding: 0;
-            position: relative;
         }
     }
 
@@ -227,14 +226,17 @@
             height:240px;
             overflow: hidden;
         }
+
+        .footer.content {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
     }
 
     .footer {
         &.content {
             border-top: 0;
             padding-top: 40px;
-            padding-left: 25px;
-            padding-right: 25px;
 
             ul:extend(.abs-reset-list all) {
             }
@@ -475,6 +477,26 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+    }
+
+    .nav-open & {
+        .page-header {
+            bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .page-main {
+        padding-top: @header-panel_height;
+    }
+
     .logo {
         margin: 0;
 
@@ -489,17 +511,32 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+    }
+
     .header.panel {
         height: @header-panel-tablet_height;
     }
 
-    .logo {
-        left: 75px;
-    }
-
     .nav-toggle {
         top: 36px;
-        right: 87px;
+    }
+
+    .nav-open & {
+        .page-header {
+            bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .page-main {
+        padding-top: @header-panel-tablet_height;
     }
 
     //
@@ -662,7 +699,7 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: 0 0 10px 0;
+            padding: 0 @layout-indent__width 10px @layout-indent__width;
         }
 
         .header-right{
@@ -810,6 +847,10 @@
         .ie11 & {
             height: 100%;
         }
+    }
+
+    .page-main {
+        padding-top: 0;
     }
 
     .page-footer {

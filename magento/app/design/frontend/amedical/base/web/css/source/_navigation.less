@@ -366,16 +366,17 @@
 
     .nav-open {
         .nav-sections {
-            @_shadow: @header-panel-mobile_shadow;
-            
-            .lib-css(box-shadow, @_shadow, 1);
             opacity: 1;
             display: block;
-            position: relative;
+            position: absolute;
+            top: @header-panel_height;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: auto;
             z-index: 99;
             .lib-css(transition, all .3s, 1);
             overflow: scroll;
-            height: 568px;
         }
     }
 
@@ -568,6 +569,18 @@
                     padding: 0;
                 }
             }
+        }
+    }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .nav-open {
+        .nav-sections {
+            top: @header-panel-tablet_height;
         }
     }
 }
