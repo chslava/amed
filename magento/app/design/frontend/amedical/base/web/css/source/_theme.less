@@ -4,17 +4,21 @@
 //  */
 
 //
-//  Luma theme overrides
+//  Amedical Base theme overrides
 //  _____________________________________________
 
 //  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
 //  Otherwise this theme won't be available for parent nesting
 //  All new variables should be placed in local theme lib or local theme files
 
+//  Widths
+@layout__max-width: 1180px;
+
 //
 //  Typography
 //  ---------------------------------------------
 @indent__base: 20px;
+@layout-indent__width: 0;
 @layout__width-xs-indent: 0;
 //  Fonts
 @icons__font-path: '@{baseDir}fonts/Luma-Icons';
@@ -24,7 +28,7 @@
 
 @heading__color__base: #414141;
 @panel__background-color: @color-gray-light0;
-@border-color__base: #d8d8d8;
+@border-color__base: rgba(216, 216, 216, 0.658824);
 @footer__background-color: transparent;
 @footer-links-separator-border-color: false;
 @footer-links-color: @color-white;
@@ -96,6 +100,7 @@
 @submenu-desktop-item__padding: 10px 0;
 @submenu-desktop-item__border-bottom: 1px solid #e6e6e6;
 @submenu-desktop-item__hover__background: @color-white;
+@submenu-desktop__box-shadow: none;
 
 //  Tabs
 @tab-control__font-weight: @font-weight__regular;

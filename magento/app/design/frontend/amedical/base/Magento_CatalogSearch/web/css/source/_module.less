@@ -53,7 +53,7 @@
                 + .control {
                     input {
                         position: relative;
-                        top: 0;
+                        top: 10px;
                         opacity: 1;
                         .lib-css(transition, opacity .3s, 1);
                     }
@@ -230,8 +230,8 @@
     .block-search {
         position: absolute;
         right: 85px;
-        top: 25px;
-        width: 290px;
+        top: 40px;
+        width: 220px;
         z-index: 4;
 
         .label {
@@ -255,7 +255,7 @@
             .lib-button-icon(
                 @_icon-font-content: @icon-search,
                 @_icon-font: @icon-font-main,
-                @_icon-font-size: 16px,
+                @_icon-font-size: 14px,
                 @_icon-font-text-hide: true,
                 @_icon-font-color: @icon-search__color,
                 @_icon-font-color-hover: @header-icons-color-hover,
@@ -263,13 +263,14 @@
             );
             .lib-button-reset();
             position: absolute;
-            right: @indent__s;
+            right: 0;
             top: 5px;
             z-index: 1;
+            width: 30px;
 
             &:focus {
                 &:before {
-                    .lib-css(color, @color-gray20);
+                    .lib-css(color, @amedical-text_color);
                 }
             }
         }
@@ -285,17 +286,18 @@
 //  _____________________________________________
 
 @media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
+
     .block-search {
         right: auto;
-        left: -125px;
-        top: 20px;
+        left: -70px;
+        top: 0;
 
         .label {
             &.active {
                 + .control {
                     input {
                         top: 33px;
-                        left: 254px;
+                        left: 200px;
                         height: 42px;
                     }
                 }
@@ -307,8 +309,13 @@
         }
 
         .action {
-            &.search::before {
-                line-height: 30px;
+            &.search {
+                cursor: pointer !important;
+
+                &::before {
+                    line-height: 30px;
+                    width: 30px;
+                }
             }
         }
     }
@@ -324,7 +331,7 @@
         top: auto;
         max-width: 220px;
         width: 17%;
-        margin-left: 5px;
+        margin-left: 24px;
 
         input {
             opacity: 1;

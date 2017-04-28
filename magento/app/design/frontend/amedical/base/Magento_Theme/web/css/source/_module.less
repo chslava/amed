@@ -139,7 +139,7 @@
         max-width: 50%;
         position: absolute;
         left: 18px;
-        top: 0;
+        top: 10px;
         z-index: 101;
 
         img {
@@ -455,15 +455,15 @@
         > .page-title-wrapper {
             padding: 20px @indent__m 0 @indent__m;
             position: relative;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: @indent__m;
-                width: 72px;
-                height: 2px;
-                .lib-css(background-color, @amedical-brand-color);
-            }
+            //&::before {
+            //    content: "";
+            //    position: absolute;
+            //    top: 0;
+            //    left: @indent__m;
+            //    width: 72px;
+            //    height: 2px;
+            //    .lib-css(background-color, @amedical-brand-color);
+            //}
         }
 
         .page-title + .action {
@@ -502,7 +502,7 @@
         margin: 0;
 
         img {
-            max-height: @header-panel_height;
+            max-width: 50px;
         }
     }
 }
@@ -525,8 +525,12 @@
         height: @header-panel-tablet_height;
     }
 
+    .logo {
+        top: 15px;
+    }
+
     .nav-toggle {
-        top: 36px;
+        top: 51px;
     }
 
     .nav-open & {
@@ -610,8 +614,7 @@
         right: auto;
         border: 0;
         margin-bottom: 0;
-        border-bottom: 1px solid @header-panel_border-color ;
-        box-shadow: none;
+        box-shadow: @header-panel-mobile_shadow;
 
         .panel.wrapper {
             border-bottom: 1px solid @secondary__color;
@@ -620,10 +623,9 @@
 
         .header.panel:extend(.abs-add-clearfix-desktop all) {
             padding-bottom: @indent__s;
-            padding-top: 15px;
-            padding-right: 15px;
+            padding-top: 0;
             float: none;
-            height: @header-panel_height;
+            height: 56px;
             margin: 0;
             box-shadow: none;
             margin-bottom: 10px;
@@ -633,9 +635,9 @@
             display: block;
             position: absolute;
             bottom: 0;
-            left: 128px;
+            left: 124px;
             right: 0;
-            height: 2px;
+            height: 1px;
             background-color: @header-panel_border-color;
         }
 
@@ -664,7 +666,7 @@
             > .header.links {
                 .lib-list-inline();
                 float: left;
-                margin-left: 42px;
+                margin-left: 50px;
 
                 > li {
                     margin: 0 10px 0 0;
@@ -703,7 +705,7 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: 0 @layout-indent__width 10px @layout-indent__width;
+            padding: 15px @layout-indent__width 10px @layout-indent__width;
         }
 
         .header-right{
@@ -736,6 +738,10 @@
                     justify-content: center;
                     margin-right: 14px;
                     margin-bottom: 0;
+
+                    &.active > a {
+                        color: @amedical-brand-color;
+                    }
                 }
 
                 li > a {
@@ -751,6 +757,7 @@
 
     .logo {
         position: relative;
+        top: auto;
         float: left;
         left: auto;
 
@@ -803,6 +810,7 @@
 
             &:before, &.active:before {
                 font-family: @icon-font-second;
+                font-size: 20px;
                 line-height: inherit;
             }
 
@@ -977,6 +985,18 @@
         display: block;
         height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
         width: 144px;
+    }
+}
+
+@media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
+    .btn-authorize {
+        width: 110px !important;
+    }
+
+    .header {
+        .header-right {
+            min-width: 215px !important;
+        }
     }
 }
 
