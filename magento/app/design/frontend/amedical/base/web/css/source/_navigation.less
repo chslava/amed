@@ -40,8 +40,8 @@
         .lib-icon-font(
         @icon-menu,
         @_icon-font-size: 28px,
-        @_icon-font-color: @header-icons-color,
-        @_icon-font-color-hover: @header-icons-color-hover
+        @_icon-font-color: @amedical-text_color,
+        @_icon-font-color-hover: @amedical-text_color
         );
         .lib-icon-text-hide();
         cursor: pointer;
@@ -58,7 +58,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 0;
         box-sizing: border-box;
         border-bottom: @navigation-level0-item__border-bottom;
 
@@ -75,7 +75,7 @@
 
             .switcher-option {
                 float: left;
-                margin-right: 42px;
+                margin-right: 35px;
                 margin-bottom: 0;
             }
 
@@ -216,9 +216,10 @@
                 );
 
                 &:after {
+                    .lib-font-size(16);
                     position: absolute;
                     right: 7px;
-                    top: -8px;
+                    top: 18px;
                 }
 
                 &.ui-state-active {
@@ -365,14 +366,17 @@
 
     .nav-open {
         .nav-sections {
-            @_shadow: @header-panel-mobile_shadow;
-            
-            .lib-css(box-shadow, @_shadow, 1);
             opacity: 1;
             display: block;
-            position: relative;
+            position: absolute;
+            top: @header-panel_height;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: auto;
             z-index: 99;
             .lib-css(transition, all .3s, 1);
+            overflow: scroll;
         }
     }
 
@@ -383,7 +387,6 @@
     }
 
     .nav-sections-item-title {
-        //background: darken(@navigation__background, 5%);
         border: solid darken(@navigation__background, 10%);
         border-width: 0 0 1px 1px;
         box-sizing: border-box;
@@ -509,11 +512,10 @@
         right: 25px;
         left: auto;
 
-
         &::before {
             content: '\e90f';
             font-family: @icon-font-second;
-            font-size: 21px;
+            font-size: 18px;
         }
 
         .nav-open & {
@@ -528,12 +530,6 @@
         .lib-font-size(16);
         right: -25px;
         top: -2px;
-    }
-
-    .navigation .parent .level-top:after {
-        .lib-font-size(16);
-        right: 10px;
-        top: 7px;
     }
 
     .page-footer .footer.content {
@@ -578,6 +574,18 @@
 }
 
 //
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .nav-open {
+        .nav-sections {
+            top: @header-panel-tablet_height;
+        }
+    }
+}
+
+//
 //  Desktop
 //  _____________________________________________
 
@@ -592,7 +600,7 @@
         .lib-vendor-prefix-flex-basis(auto);
         padding-left: 0;
         float: left;
-        z-index: 110;
+        z-index: 99;
         position: relative;
     }
 
@@ -665,6 +673,10 @@
                     > a {
                         border-bottom: @submenu-desktop-item__border-bottom;
                         text-align: center;
+                    }
+
+                    &.last > a {
+                        border-bottom: none;
                     }
                 }
             }

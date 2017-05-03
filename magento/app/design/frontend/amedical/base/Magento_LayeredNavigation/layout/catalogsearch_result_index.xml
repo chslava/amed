@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\LayeredNavigation\Block\Navigation\Search" name="catalogsearch.leftnav" before="-" template="layer/view.phtml">
+                <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalogsearch.navigation.state" as="state" />
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalogsearch.navigation.renderer" as="renderer" template="layer/filter.phtml"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <container name="catalog.nav.mobile.wrapper" htmlClass="catalog-nav-mobile" htmlTag="div" before="category.products">
+                <block class="Magento\LayeredNavigation\Block\Navigation\Category" name="catalog.leftnav.mobile" as="catalog.nav.mobile" before="-" template="layer/view_mobile.phtml">
+                    <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalog.nav.mobile.state" as="state.mobile" template="layer/state_mobile.phtml" />
+                    <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer.mobile" as="renderer.mobile" template="layer/filter.phtml"/>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

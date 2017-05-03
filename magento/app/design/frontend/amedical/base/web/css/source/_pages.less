@@ -12,17 +12,37 @@
         .lib-pager();
 
         .action {
-            @_shadow: inset 0 1px 0 0 @color-white, inset 0 -1px 0 0 fade(@border-color__base, 30);
-
-            .lib-css(box-shadow, @_shadow);
-            border-radius: 3px;
             padding: 0 8px;
 
             &.previous {
+                .lib-icon-image(
+                    '@{baseDir}images/chevron_left.svg',
+                    @_icon-image-width: 18px,
+                    @_icon-image-height: 34px,
+                    @_icon-image-margin: 0 8px 0 0,
+                    @_icon-image-vertical-align: @icon__vertical-align,
+                    @_icon-image-position-x: @icon-image__position-x,
+                    @_icon-image-position-y: @icon-image__position-y,
+                    @_icon-image-position: before,
+                    @_icon-image-text-hide: @icon__text-hide
+                );
+
                 margin-right: 8px;
             }
 
             &.next {
+                .lib-icon-image(
+                    '@{baseDir}images/chevron_right.svg',
+                    @_icon-image-width: 18px,
+                    @_icon-image-height: 34px,
+                    @_icon-image-margin: 0 8px 0 0,
+                    @_icon-image-vertical-align: @icon__vertical-align,
+                    @_icon-image-position-x: @icon-image__position-x,
+                    @_icon-image-position-y: @icon-image__position-y,
+                    @_icon-image-position: before,
+                    @_icon-image-text-hide: @icon__text-hide
+                );
+
                 margin-left: 8px;
             }
         }

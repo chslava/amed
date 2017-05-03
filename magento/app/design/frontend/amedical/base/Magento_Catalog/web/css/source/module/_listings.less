@@ -29,6 +29,10 @@
 
     .products {
         margin: @indent__l 0;
+
+        &.wrapper {
+            padding: 0 @indent-side__xs;
+        }
     }
 
     .product {
@@ -42,9 +46,14 @@
             .products-grid & {
                 display: inline-block;
                 width: 100%;
+                margin-bottom: 30px;
             }
             
             &:extend(.abs-add-box-sizing all);
+
+            &-details {
+                position: relative;
+            }
 
             &-name {
                 &:extend(.abs-product-link all);
@@ -60,14 +69,26 @@
             &-info {
                 max-width: 100%;
                 width: 152px;
-                
+                .product.name > a {
+                    color: @amedical-text_color;
+                    font-weight: @font-weight__bold;
+                    font-size: 15px;
+                }
+
                 .page-products & {
                     width: 240px;
+                    margin: 0 auto;
                 }
             }
 
+            &-inner {
+                position: absolute;
+                top: 28px;
+                left: 0;
+            }
+
             &-actions {
-                display: none;
+                //display: none;
                 
                 .actions-secondary {
                     > .action {
@@ -101,9 +122,12 @@
 
             .price-box {
                 margin: @indent__s 0 @indent__m;
+                text-align: right;
                 
                 .price {
-                    font-weight: @font-weight__bold;
+                    color: @amedical-text_color;
+                    font-weight: @font-weight__regular;
+                    font-size: 18px;
                     white-space: nowrap;
                 }
                 
@@ -156,11 +180,11 @@
     .column.main {
         .product {
             &-items {
-                margin-left: -@indent__base;
+                margin-left: 0;
             }
             
             &-item {
-                padding-left: @indent__base;
+                padding-left: 0;
             }
         }
     }

@@ -94,7 +94,6 @@
     .header {
         &.content:extend(.abs-add-clearfix all) {
             padding: 0;
-            position: relative;
         }
     }
 
@@ -105,6 +104,7 @@
         width: 100%;
         box-sizing: border-box;
         box-shadow: @header-panel-mobile_shadow;
+        background-color: @color-white;
         z-index: 100;
         position: relative;
 
@@ -138,8 +138,8 @@
         margin: 0;
         max-width: 50%;
         position: absolute;
-        left: 0;
-        top: 0;
+        left: 18px;
+        top: 10px;
         z-index: 101;
 
         img {
@@ -227,14 +227,17 @@
             height:240px;
             overflow: hidden;
         }
+
+        .footer.content {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
     }
 
     .footer {
         &.content {
             border-top: 0;
             padding-top: 40px;
-            padding-left: 25px;
-            padding-right: 25px;
 
             ul:extend(.abs-reset-list all) {
             }
@@ -253,7 +256,7 @@
                 a,
                 strong {
                     display: block;
-                    padding: @indent__s 0;
+                    padding: @indent__s @indent__s @indent__s 0;
                 }
 
                 strong {
@@ -296,6 +299,7 @@
                     margin-bottom: @footer-contacts-item_margin_bottom;
                     padding-left: 22px;
                     position: relative;
+                    width: 100%;
 
                     &:before {
                         position: absolute;
@@ -452,15 +456,15 @@
         > .page-title-wrapper {
             padding: 20px @indent__m 0 @indent__m;
             position: relative;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: @indent__m;
-                width: 72px;
-                height: 2px;
-                .lib-css(background-color, @amedical-brand-color);
-            }
+            //&::before {
+            //    content: "";
+            //    position: absolute;
+            //    top: 0;
+            //    left: @indent__m;
+            //    width: 72px;
+            //    height: 2px;
+            //    .lib-css(background-color, @amedical-brand-color);
+            //}
         }
 
         .page-title + .action {
@@ -475,11 +479,31 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+    }
+
+    .nav-open & {
+        .page-header {
+            bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .page-main {
+        padding-top: @header-panel_height;
+    }
+
     .logo {
         margin: 0;
 
         img {
-            max-height: @header-panel_height;
+            max-width: 50px;
         }
     }
 }
@@ -489,13 +513,36 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+    }
+
     .header.panel {
         height: @header-panel-tablet_height;
     }
 
+    .logo {
+        top: 15px;
+    }
+
     .nav-toggle {
-        top: 30px;
-        right: 15px;
+        top: 51px;
+    }
+
+    .nav-open & {
+        .page-header {
+            bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .page-main {
+        padding-top: @header-panel-tablet_height;
     }
 
     //
@@ -505,7 +552,6 @@
     .footer {
         &.content {
             margin: 0 auto;
-            width: 70%;
 
             .links {
                 //overflow: hidden;
@@ -515,10 +561,6 @@
                     float: left;
                     width: 50%;
                     padding-right: 12%;
-                }
-
-                a {
-                    font-size: 15px;
                 }
 
                 &:after {
@@ -561,12 +603,14 @@
     .navigation ul {
         padding: 0 8px;
     }
-
     .page-header {
+        position: relative;
+        top:auto;
+        left: auto;
+        right: auto;
         border: 0;
         margin-bottom: 0;
-        border-bottom: 1px solid @header-panel_border-color ;
-        box-shadow: none;
+        box-shadow: @header-panel-mobile_shadow;
 
         .panel.wrapper {
             border-bottom: 1px solid @secondary__color;
@@ -575,10 +619,9 @@
 
         .header.panel:extend(.abs-add-clearfix-desktop all) {
             padding-bottom: @indent__s;
-            padding-top: 15px;
-            padding-right: 15px;
+            padding-top: 0;
             float: none;
-            height: @header-panel_height;
+            height: 56px;
             margin: 0;
             box-shadow: none;
             margin-bottom: 10px;
@@ -588,7 +631,7 @@
             display: block;
             position: absolute;
             bottom: 0;
-            left: 128px;
+            left: 124px;
             right: 0;
             height: 1px;
             background-color: @header-panel_border-color;
@@ -619,7 +662,7 @@
             > .header.links {
                 .lib-list-inline();
                 float: left;
-                margin-left: 42px;
+                margin-left: 50px;
 
                 > li {
                     margin: 0 10px 0 0;
@@ -658,12 +701,12 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: 0 0 10px 0;
+            padding: 15px @layout-indent__width 10px @layout-indent__width;
         }
 
         .header-right{
             float: right;
-            width: 25%;
+            width: 30%;
             min-width: 260px;
 
             .switcher-list {
@@ -691,6 +734,10 @@
                     justify-content: center;
                     margin-right: 14px;
                     margin-bottom: 0;
+
+                    &.active > a {
+                        color: @amedical-brand-color;
+                    }
                 }
 
                 li > a {
@@ -706,7 +753,9 @@
 
     .logo {
         position: relative;
+        top: auto;
         float: left;
+        left: auto;
 
         img {
             max-height: inherit;
@@ -717,6 +766,17 @@
         display: block;
         margin-left: 35px;
         padding-right: 15px;
+
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: -35px;
+            width: 0;
+            border-left: 1px solid @border-color__base;
+        }
 
         &:hover {
             &:before, &.active:before {
@@ -746,6 +806,7 @@
 
             &:before, &.active:before {
                 font-family: @icon-font-second;
+                font-size: 20px;
                 line-height: inherit;
             }
 
@@ -794,6 +855,10 @@
         .ie11 & {
             height: 100%;
         }
+    }
+
+    .page-main {
+        padding-top: 0;
     }
 
     .page-footer {
@@ -861,7 +926,7 @@
             .links {
                 display: inline-block;
                 float: left;
-                padding: 0 5%;
+                padding-right: 5%;
                 vertical-align: top;
                 width: 40%;
 
@@ -876,6 +941,7 @@
                 a,
                 strong {
                     display: inline;
+                    font-size: 15px;
                 }
             }
 
@@ -894,7 +960,7 @@
             }
 
             .footer-social {
-                padding: 0 5%;
+                padding-left: 5%;
                 width: 30%;
 
                 .item {
@@ -917,6 +983,13 @@
         height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
         width: 144px;
     }
+}
+
+@media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
+    .btn-authorize {
+        width: 110px !important;
+    }
+
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {

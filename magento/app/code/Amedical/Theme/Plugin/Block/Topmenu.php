@@ -44,7 +44,7 @@ class Topmenu
             ]
         );
 
-        $menu->addChild($node);
+//        $menu->addChild($node);
 
         $hpRefNode = $this->nodeFactory->create(
             [
