@@ -39,7 +39,7 @@
     .nav-toggle {
         .lib-icon-font(
         @icon-menu,
-        @_icon-font-size: 28px,
+        @_icon-font-size: 18px,
         @_icon-font-color: @amedical-text_color,
         @_icon-font-color-hover: @amedical-text_color
         );
@@ -47,10 +47,21 @@
         cursor: pointer;
         display: block;
         font-size: 0;
-        left: 15px;
         position: absolute;
-        top: 15px;
+        top: 25px;
+        right: 25px;
+        left: auto;
         z-index: 999;
+
+        &::before {
+            font-family: @icon-font-second;
+        }
+
+        .nav-open & {
+            &::before {
+                content: '\e90e';
+            }
+        }
     }
 
     .nav-top {
@@ -201,7 +212,7 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+@media only screen and (max-width: (@screen__l - 1)) {
     .navigation {
         padding: 0;
 
@@ -368,7 +379,7 @@
         .nav-sections {
             opacity: 1;
             display: block;
-            position: absolute;
+            position: fixed;
             top: @header-panel_height;
             bottom: 0;
             left: 0;
@@ -377,6 +388,11 @@
             z-index: 99;
             .lib-css(transition, all .3s, 1);
             overflow: scroll;
+        }
+
+        .page-header {
+            bottom: 0;
+            margin-bottom: 0;
         }
     }
 
@@ -411,9 +427,11 @@
     .nav-sections-item-content {
         .lib-clearfix();
         box-sizing: border-box;
-        float: right;
-        margin-left: -100%;
+        //float: right;
+        //margin-left: -100%;
+        margin: 0 auto;
         width: 100%;
+        max-width: @layout__max-width__m;
 
         &.active {
             display: block;
@@ -507,25 +525,6 @@
         }
     }
 
-    .nav-toggle {
-        top: 25px;
-        right: 25px;
-        left: auto;
-
-        &::before {
-            content: '\e90f';
-            font-family: @icon-font-second;
-            font-size: 18px;
-        }
-
-        .nav-open & {
-            &::before {
-                content: '\e90e';
-            }
-        }
-    }
-
-
     .nav-sections .switcher-trigger strong:after {
         .lib-font-size(16);
         right: -25px;
@@ -577,10 +576,23 @@
 //  Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+
+
+
     .nav-open {
         .nav-sections {
             top: @header-panel-tablet_height;
+        }
+    }
+
+    .nav-toggle {
+        top: 46px;
+        right: 11px;
+
+        &:before {
+            font-size: 26px;
         }
     }
 }
@@ -589,7 +601,7 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .nav-toggle {
         display: none;
     }
@@ -738,4 +750,8 @@
         display: inline-block;
         float: right;
     }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = 1200px) {
+
 }
