@@ -100,6 +100,14 @@
         }
     }
 
+    .switcher-list {
+        .switcher-option {
+            &.active > a {
+                color: @amedical-brand-color;
+            }
+        }
+    }
+
     .header.panel {
         float: none;
         padding-top: @header-panel_height;
@@ -455,15 +463,6 @@
         > .page-title-wrapper {
             padding: 20px @indent__m 0 @indent__m;
             position: relative;
-            //&::before {
-            //    content: "";
-            //    position: absolute;
-            //    top: 0;
-            //    left: @indent__m;
-            //    width: 72px;
-            //    height: 2px;
-            //    .lib-css(background-color, @amedical-brand-color);
-            //}
         }
 
         .page-title + .action {
@@ -735,45 +734,41 @@
             float: right;
             width: 30%;
             min-width: 260px;
+        }
+    }
 
-            .switcher-list {
-                position: relative;
-                list-style: none none;
-                float: left;
-                padding-left: 10px;
-                margin-bottom: 0;
+    .switcher-list {
+        position: relative;
+        list-style: none none;
+        float: left;
+        padding-left: 10px;
+        margin-bottom: 0;
 
-                &::before {
-                    content: " ";
-                    display: block;
-                    position: absolute;
-                    top: 6px;
-                    bottom: 6px;
-                    left: 0;
-                    width: 0;
-                    border-left: 1px solid @header-panel_border-color;
-                }
+        &::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 0;
+            width: 0;
+            border-left: 1px solid @header-panel_border-color;
+        }
 
-                li {
-                    display: inline-flex;
-                    height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
-                    flex-direction: column;
-                    justify-content: center;
-                    margin-right: 14px;
-                    margin-bottom: 0;
+        li {
+            display: inline-flex;
+            height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 14px;
+            margin-bottom: 0;
+        }
 
-                    &.active > a {
-                        color: @amedical-brand-color;
-                    }
-                }
-
-                li > a {
-                    color: @amedical-text_color;
-                    &:hover {
-                        color: @amedical-brand-color;
-                        text-decoration: none;
-                    }
-                }
+        li > a {
+            color: @amedical-text_color;
+            &:hover {
+                color: @amedical-brand-color;
+                text-decoration: none;
             }
         }
     }

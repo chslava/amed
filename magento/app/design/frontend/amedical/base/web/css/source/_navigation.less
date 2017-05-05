@@ -60,6 +60,7 @@
         .nav-open & {
             &::before {
                 content: '\e90e';
+                font-size: 21px;
             }
         }
     }
@@ -86,7 +87,7 @@
 
             .switcher-option {
                 float: left;
-                margin-right: 35px;
+                margin-right: 33px;
                 margin-bottom: 0;
             }
 
@@ -105,7 +106,7 @@
         .customer-welcome {
             &.authorize {
                 display: inline-block;
-                padding: 20px 0;
+                padding: 17px 0;
             }
         }
 
@@ -231,6 +232,7 @@
                     position: absolute;
                     right: 7px;
                     top: 18px;
+                    color: #a2a2a2;
                 }
 
                 &.ui-state-active {
@@ -243,6 +245,11 @@
         }
 
         .level0 {
+
+            &.first > a {
+                padding-top: 32px;
+            }
+
             &.last >a {
                 padding-bottom: 20px;
             }
@@ -269,7 +276,6 @@
             font-size: 1.6rem;
             font-weight: 700;
             margin: 0;
-            padding: 30px 0;
 
             .label {
                 display: block;
