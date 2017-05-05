@@ -17,33 +17,43 @@
             &.previous {
                 .lib-icon-image(
                     '@{baseDir}images/chevron_left.svg',
-                    @_icon-image-width: 18px,
-                    @_icon-image-height: 34px,
-                    @_icon-image-margin: 0 8px 0 0,
+                    @_icon-image-width: 20px,
+                    @_icon-image-height: 44px,
+                    @_icon-image-margin: -10px 0 0 0,
                     @_icon-image-vertical-align: @icon__vertical-align,
-                    @_icon-image-position-x: @icon-image__position-x,
-                    @_icon-image-position-y: @icon-image__position-y,
+                    @_icon-image-position-x: center,
+                    @_icon-image-position-y: center,
                     @_icon-image-position: before,
                     @_icon-image-text-hide: @icon__text-hide
                 );
 
+                &:before {
+                    background-size: cover;
+                }
+
                 margin-right: 8px;
+                margin-left: @indent-side__xs;
             }
 
             &.next {
                 .lib-icon-image(
                     '@{baseDir}images/chevron_right.svg',
-                    @_icon-image-width: 18px,
-                    @_icon-image-height: 34px,
-                    @_icon-image-margin: 0 8px 0 0,
+                    @_icon-image-width: 20px,
+                    @_icon-image-height: 44px,
+                    @_icon-image-margin: -10px 0 0 0,
                     @_icon-image-vertical-align: @icon__vertical-align,
-                    @_icon-image-position-x: @icon-image__position-x,
-                    @_icon-image-position-y: @icon-image__position-y,
+                    @_icon-image-position-x: center,
+                    @_icon-image-position-y: center,
                     @_icon-image-position: before,
                     @_icon-image-text-hide: @icon__text-hide
                 );
 
+                &:before {
+                    background-size: cover;
+                }
+
                 margin-left: 8px;
+                margin-right: @indent-side__xs;
             }
         }
     }
@@ -61,6 +71,15 @@
             position: relative;
             white-space: normal;
             z-index: 1;
+
+            .item:first-child,
+            & .pages-item-next,
+            & .pages-item-previous + .item,
+            & .pages-item-previous {
+                .page:before {
+                    border-top: none;
+                }
+            }
         }
 
         &-item-previous {
@@ -76,5 +95,24 @@
             top: 0;
             z-index: 1;
         }
+
+        & &-item-previous, & &-item-next {
+            margin: 0;
+        }
+
+        .page {
+            position: relative;
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -41px;
+                top: 50%;
+                width: 30px;
+                border-top: 1px solid @pager-dash__color;
+            }
+        }
+
     }
 }

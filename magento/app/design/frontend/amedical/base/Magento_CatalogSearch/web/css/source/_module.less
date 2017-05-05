@@ -19,7 +19,7 @@
 
 & when (@media-common = true) {
     .block-search {
-        margin-bottom: 0;
+        margin: 0 15px;
 
         .block {
             &-title {
@@ -53,7 +53,6 @@
                 + .control {
                     input {
                         position: relative;
-                        top: 10px;
                         opacity: 1;
                         .lib-css(transition, opacity .3s, 1);
                     }
@@ -217,8 +216,6 @@
         .control {
             border: 0;
         }
-
-        margin: 0 25px;
     }
 }
 
@@ -226,7 +223,7 @@
 //  Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .block-search {
         position: absolute;
         right: 85px;
@@ -285,43 +282,6 @@
 //  Desktop
 //  _____________________________________________
 
-@media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
-
-    .block-search {
-        right: auto;
-        left: -70px;
-        top: 0;
-
-        .label {
-            &.active {
-                + .control {
-                    input {
-                        top: 33px;
-                        left: 200px;
-                        height: 42px;
-                    }
-                }
-            }
-        }
-
-        input {
-            opacity: 0;
-        }
-
-        .action {
-            &.search {
-                cursor: pointer !important;
-
-                &::before {
-                    line-height: 30px;
-                    width: 30px;
-                }
-            }
-        }
-    }
-}
-
-
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .block-search {
         float: left;
@@ -346,6 +306,5 @@
                 line-height: 30px;
             }
         }
-
     }
 }

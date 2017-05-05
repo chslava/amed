@@ -84,6 +84,7 @@
         .lib-css(background-color, @header__background-color);
 
         margin-bottom: 30px;
+        box-shadow: @header-panel-mobile_shadow, @header-panel-mobile_shadow;
 
         .panel.wrapper {
             .lib-css(background-color, @header-panel__background-color);
@@ -92,8 +93,18 @@
     }
 
     .header {
+
         &.content:extend(.abs-add-clearfix all) {
             padding: 0;
+            position: relative;
+        }
+    }
+
+    .switcher-list {
+        .switcher-option {
+            &.active > a {
+                color: @amedical-brand-color;
+            }
         }
     }
 
@@ -103,7 +114,6 @@
         margin: 0;
         width: 100%;
         box-sizing: border-box;
-        box-shadow: @header-panel-mobile_shadow;
         background-color: @color-white;
         z-index: 100;
         position: relative;
@@ -138,7 +148,7 @@
         margin: 0;
         max-width: 50%;
         position: absolute;
-        left: 18px;
+        left: 26px;
         top: 10px;
         z-index: 101;
 
@@ -224,7 +234,6 @@
         .after-footer-start {
             background: url("@{baseDir}images/footer-mobile.png") no-repeat center center;
             background-size: cover;
-            height:240px;
             overflow: hidden;
         }
 
@@ -243,7 +252,7 @@
             }
 
             .links {
-                margin-bottom: 40px;
+                margin-bottom: 36px;
                 box-sizing: border-box;
 
                 > li {
@@ -256,7 +265,7 @@
                 a,
                 strong {
                     display: block;
-                    padding: @indent__s @indent__s @indent__s 0;
+                    padding: 8px 8px 8px 0;
                 }
 
                 strong {
@@ -280,17 +289,17 @@
                 }
             }
 
-            .footer-contacts {
-                margin-bottom: 40px;
+            .title {
+                color: @color-white;
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: @footer-contacts-item_margin_bottom;
+                text-align: left;
+                text-transform: uppercase;
+            }
 
-                .title {
-                    color: @color-white;
-                    font-size: 14px;
-                    font-weight: 600;
-                    margin-bottom: @footer-contacts-item_margin_bottom;
-                    text-align: left;
-                    text-transform: uppercase;
-                }
+            .footer-contacts {
+                margin-bottom: 32px;
 
                 .item {
                     color: @color-white;
@@ -323,11 +332,12 @@
             }
 
             .footer-social {
-                margin-bottom: 40px;
+                margin-bottom: 25px;
 
                 .item:extend(.footer.content .footer-contacts .item all) {
                     padding-left: 36px;
                     line-height: 26px;
+                    width: auto;
                 }
 
                 .item >a {
@@ -341,9 +351,6 @@
                     @_link-color-active: @footer-links-color-hover,
                     @_link-text-decoration-active: none
                     );
-                }
-
-                .title:extend(.footer.content .footer-contacts .title all) {
                 }
 
                 .item.icon-facebook {
@@ -455,16 +462,8 @@
     .page-main {
         > .page-title-wrapper {
             padding: 20px @indent__m 0 @indent__m;
+            margin-top: 32px;
             position: relative;
-            //&::before {
-            //    content: "";
-            //    position: absolute;
-            //    top: 0;
-            //    left: @indent__m;
-            //    width: 72px;
-            //    height: 2px;
-            //    .lib-css(background-color, @amedical-brand-color);
-            //}
         }
 
         .page-title + .action {
@@ -477,7 +476,7 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
     .page-header {
         position: fixed;
@@ -486,13 +485,6 @@
         right: 0;
         z-index: 999;
         background-color: @color-white;
-    }
-
-    .nav-open & {
-        .page-header {
-            bottom: 0;
-            margin-bottom: 0;
-        }
     }
 
     .page-main {
@@ -512,7 +504,7 @@
 //  Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-header {
         position: fixed;
         top: 0;
@@ -527,23 +519,16 @@
     }
 
     .logo {
-        top: 15px;
-    }
-
-    .nav-toggle {
-        top: 51px;
-    }
-
-    .nav-open & {
-        .page-header {
-            bottom: 0;
-            margin-bottom: 0;
-        }
+        top: 23px;
+        left:11px;
+        max-width: 74px;
     }
 
     .page-main {
         padding-top: @header-panel-tablet_height;
     }
+    .compare.wrapper {
+        display: none;}
 
     //
     // Footer
@@ -552,15 +537,24 @@
     .footer {
         &.content {
             margin: 0 auto;
+            padding-top: 50px;
+
+            .page-footer & {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
 
             .links {
-                //overflow: hidden;
+                margin-bottom: 56px;
 
                 li {
                     display: inline-block;
                     float: left;
                     width: 50%;
-                    padding-right: 12%;
+
+                    &:nth-child(even) {
+                        padding-left: 13%;
+                    }
                 }
 
                 &:after {
@@ -568,19 +562,53 @@
                     display: block;
                     clear: both;
                 }
+
+                a {
+                    font-size: 15px;
+                    padding: 10px 8px 10px 0;
+                }
+            }
+
+            .title {
+                margin-bottom: 23px;
             }
 
             .footer-contacts {
                 width: 50%;
                 float: left;
-                padding-right: 12%;
                 box-sizing: border-box;
+
+                .item {
+                    font-size: 15px;
+                    line-height: 25px;
+                    padding-left: 36px;
+
+                    &:before {
+                        font-size: 18px;
+                    }
+
+                    &.icon-envelope:before {
+                        font-size: 14px;
+                    }
+                }
             }
 
             .footer-social:extend(.footer.content .footer-contacts all) {
+                padding-left: 14%;
 
+                .item {
+                    margin-bottom: 30px;
+
+                    &:before {
+                        background-size: contain;
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
             }
         }
+
+
     }
 }
 
@@ -588,7 +616,7 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     html,
     body {
         height: 100%; // Stretch screen area for sticky footer
@@ -610,7 +638,6 @@
         right: auto;
         border: 0;
         margin-bottom: 0;
-        box-shadow: @header-panel-mobile_shadow;
 
         .panel.wrapper {
             border-bottom: 1px solid @secondary__color;
@@ -628,6 +655,7 @@
         }
 
         .header.panel::after {
+            content: '';
             display: block;
             position: absolute;
             bottom: 0;
@@ -639,7 +667,6 @@
 
         .switcher {
             float: left;
-            //margin-right: 60px;
             .lib-vendor-prefix-order(1);
         }
     }
@@ -701,52 +728,48 @@
         }
 
         &.content:extend(.abs-add-clearfix-desktop all) {
-            padding: 15px @layout-indent__width 10px @layout-indent__width;
+            padding: 20px @layout-indent__width 10px @layout-indent__width;
         }
 
         .header-right{
             float: right;
             width: 30%;
             min-width: 260px;
+        }
+    }
 
-            .switcher-list {
-                position: relative;
-                list-style: none none;
-                float: left;
-                padding-left: 10px;
-                margin-bottom: 0;
+    .switcher-list {
+        position: relative;
+        list-style: none none;
+        float: left;
+        padding-left: 10px;
+        margin-bottom: 0;
 
-                &::before {
-                    content: " ";
-                    display: block;
-                    position: absolute;
-                    top: 6px;
-                    bottom: 6px;
-                    left: 0;
-                    width: 0;
-                    border-left: 1px solid @header-panel_border-color;
-                }
+        &::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 0;
+            width: 0;
+            border-left: 1px solid @header-panel_border-color;
+        }
 
-                li {
-                    display: inline-flex;
-                    height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
-                    flex-direction: column;
-                    justify-content: center;
-                    margin-right: 14px;
-                    margin-bottom: 0;
+        li {
+            display: inline-flex;
+            height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 14px;
+            margin-bottom: 0;
+        }
 
-                    &.active > a {
-                        color: @amedical-brand-color;
-                    }
-                }
-
-                li > a {
-                    color: @amedical-text_color;
-                    &:hover {
-                        color: @amedical-brand-color;
-                        text-decoration: none;
-                    }
-                }
+        li > a {
+            color: @amedical-text_color;
+            &:hover {
+                color: @amedical-brand-color;
+                text-decoration: none;
             }
         }
     }
@@ -756,6 +779,7 @@
         top: auto;
         float: left;
         left: auto;
+        max-width: none;
 
         img {
             max-height: inherit;
@@ -865,18 +889,6 @@
         margin-top: auto;
         position: relative;
 
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 90%;
-            height: 1px;
-            background-color: #909090;
-            margin: 0 auto;
-        }
         .switcher {
             .options {
                 ul.dropdown {
@@ -909,6 +921,13 @@
     .footer {
         &.content {
             border-top: none;
+            overflow: hidden;
+            border-bottom: 1px solid #909090;
+
+            .page-footer & {
+                padding-left: 0;
+                padding-right: 0;
+            }
 
             .block {
                 float: right;
@@ -928,13 +947,13 @@
                 float: left;
                 padding-right: 5%;
                 vertical-align: top;
-                width: 40%;
+                width: 48%;
 
                 li {
                     background: transparent;
                     border: none;
                     font-size: 14px;
-                    margin: 0 0 8px;
+                    margin: 0 0 22px;
                     padding: 0;
                 }
 
@@ -947,7 +966,7 @@
 
             .footer-contacts {
                 padding: 0 5%;
-                width: 30%;
+                width: 34%;
                 border-left: 1px solid #909090;
                 border-right: 1px solid #909090;
 
@@ -960,8 +979,8 @@
             }
 
             .footer-social {
-                padding-left: 5%;
-                width: 30%;
+                padding-left: 7%;
+                width: 18%;
 
                 .item {
                     font-size: 15px;
@@ -990,27 +1009,4 @@
         width: 110px !important;
     }
 
-}
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-    .header {
-        &.panel {
-            > .header.links {
-                margin-left: 20px;
-
-                > li {
-                    margin-right: 20px;
-                    font-size: @font-size__base;
-                }
-            }
-        }
-
-        .header-right {
-            min-width: 276px;
-
-            .switcher-list {
-                padding-left: 30px;
-            }
-        }
-    }
 }

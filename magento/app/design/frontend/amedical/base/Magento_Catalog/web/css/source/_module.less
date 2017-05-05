@@ -75,7 +75,19 @@
         &-cms,
         &-image,
         &-description {
-            margin-bottom: @indent__base;
+            margin-bottom: 15px;
+        }
+
+        &-view {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: (@header-panel_height + 28);
+                left: 25px;
+                width: 78px;
+                border-top: 2px solid @amedical-brand-color;
+            }
         }
 
         &-description {
