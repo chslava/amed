@@ -19,11 +19,11 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
     <div class="block filter">
         <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
         <div class="block-content filter-content">
-            <?php echo $block->getChildHtml('state.mobile') ?>
+            <?php echo $block->getChildHtml('state') ?>
 
             <?php if ($block->getLayer()->getState()->getFilters()): ?>
                 <div class="block-actions filter-actions">
-                    <a href="<?php /* @escapeNotVerified */ echo $block->getChildBlock('state.mobile')->getClearUrl(); ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getChildBlock('state')->getClearUrl(); ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
                 </div>
             <?php endif; ?>
             <?php
@@ -43,7 +43,7 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                         <div data-role="content" class="filter-options-content" id="categories-list-filter">
                             <label for="categories-tree-search"><?php echo __('Type category name to filter list') ?></label>
                             <input type="text" id="categories-tree-search" class="categories-tree-search input-text" placeholder="Category name" />
-                            <?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer.mobile')->render($filter); ?>
+                            <?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?>
                         </div>
                             <?php  $wrapOuter = true; ?>
                     <?php else:?>
@@ -57,7 +57,7 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                             <div data-role="collapsible" class="filter-options-item">
                                 <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
                             </div>
-                                <div class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer.mobile')->render($filter); ?></div>
+                                <div class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></div>
 
                     <?php endif; ?>
                 <?php endif; ?>

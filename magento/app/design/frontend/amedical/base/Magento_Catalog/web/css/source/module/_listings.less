@@ -46,7 +46,7 @@
             .products-grid & {
                 display: inline-block;
                 width: 100%;
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
             
             &:extend(.abs-add-box-sizing all);
@@ -72,13 +72,13 @@
                 }
 
                 .page-products & {
-                    width: 240px;
+                    width: 230px;
                     margin: 0 auto;
                 }
             }
 
             &-actions {
-                margin-top: 10px;
+                display: none;
 
                 .actions-secondary {
                     > .action {
@@ -164,6 +164,29 @@
                 padding-top: @indent__s;
                 white-space: nowrap;
             }
+
+            &-view {
+                margin-top: 10px;
+
+                .action {
+                    width: 90px;
+                    height: 35px;
+                    background-color: @amedical-brand-color;
+
+                    > a {
+                        .lib-link(
+                            @_link-color: @color-white,
+                            @_link-text-decoration: none,
+                            @_link-color-visited: @color-white,
+                            @_link-text-decoration-visited: none,
+                            @_link-color-hover: @color-white,
+                            @_link-text-decoration-hover: none,
+                            @_link-color-active: @color-white,
+                            @_link-text-decoration-active: none
+                        );
+                    }
+                }
+            }
         }
     }
 
@@ -223,6 +246,18 @@
 
                 &-info {
                     display: table-row;
+
+                    .product.name {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        line-height: 12px;
+                        margin: 0;
+
+                        > a {
+                            font-size: 12px;
+                        }
+                    }
                 }
 
                 &-photo {
@@ -234,7 +269,42 @@
 
                 &-details {
                     display: table-cell;
-                    vertical-align: top;
+                    vertical-align: bottom;
+                    position: relative;
+                }
+
+
+                &-description {
+                    display: none;
+                }
+
+                &-view {
+                    float: right;
+                    margin-bottom: 40px;
+
+                    .action {
+                        width: 50px;
+                        font-size: 0;
+                        background-image: url("@{baseDir}images/eye.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 34px;
+                    }
+                }
+            }
+
+            .price-box {
+                margin: 28px 0 0 0;
+                float: left;
+
+                .price {
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+
+                .price-label {
+                    .lib-css(color, @text__color__muted);
+                    font-size: 12px;
                 }
             }
         }
@@ -255,14 +325,28 @@
             table-layout: fixed;
 
             &-photo {
-                padding: 0 @indent__s @indent__s 0;
+                padding: 0 @indent__s 35px 0;
                 width: 30%;
+            }
+
+            &-info {
+                .product-image-container {
+                    min-height: 71px;
+                }
             }
         }
     }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .column.main {
+        .product {
+            &-item {
+                padding-left: 15px;
+            }
+        }
+    }
+
     .product-item-info {
         .products-grid & {
             &:hover,
@@ -298,7 +382,6 @@
     }
 
     .product-item-actions {
-        display: block;
 
         .products-grid & {
             margin: -@indent__s 0 @indent__s;
@@ -388,6 +471,10 @@
                 width: 100%/3;
             }
         }
+    }
+
+    .product-item-actions {
+        display: block;
     }
 
     .page-products.page-layout-1column {
