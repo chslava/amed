@@ -21,7 +21,7 @@
 & when (@media-common = true) {
     .page-products {
         .columns {
-            padding-top: 60px;
+            padding-top: 50px;
             position: relative;
             z-index: 1;
         }
@@ -104,9 +104,8 @@
         float: right;
 
         .page-products & {
-            position: absolute;
-            right: 0;
-            top: 0;
+            width: 126px;
+            margin-right: @indent__m;
             z-index: 1;
         }
 
@@ -200,10 +199,17 @@
 
     .limiter {
         .page-products & {
-            position: absolute;
-            left: 25px;
-            top: 0;
+            display: inline-block;
+            width: 110px;
             z-index: 1;
+            margin-left: @indent__m;
+            margin-bottom: 25px;
+
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
         }
 
         &-options {

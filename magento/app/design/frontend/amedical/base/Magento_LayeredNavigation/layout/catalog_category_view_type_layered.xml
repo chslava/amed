@@ -17,7 +17,7 @@
 
         <referenceContainer name="content">
             <container name="catalog.nav.mobile.wrapper" htmlClass="catalog-nav-mobile" htmlTag="div" before="category.products">
-                <block class="Magento\Framework\View\Element\Template" name="catalog.leftnav.mobile" as="catalog.leftnav.mobile" before="-" template="Magento_LayeredNavigation::layer/view_mobile_wrap.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="catalog.leftnav.mobile" as="catalog.leftnav.mobile" template="Magento_LayeredNavigation::layer/view_mobile_wrap.phtml"/>
             </container>
         </referenceContainer>
     </body>
