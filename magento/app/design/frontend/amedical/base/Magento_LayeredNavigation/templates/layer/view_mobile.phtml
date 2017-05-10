@@ -21,11 +21,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
         <div class="block-content filter-content">
             <?php echo $block->getChildHtml('state') ?>
 
-            <?php if ($block->getLayer()->getState()->getFilters()): ?>
-                <div class="block-actions filter-actions">
-                    <a href="<?php /* @escapeNotVerified */ echo $block->getChildBlock('state')->getClearUrl(); ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
-                </div>
-            <?php endif; ?>
             <?php
                 $wrapOptions = false;
                 $wrapOuter = false;
@@ -49,7 +44,13 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                     <?php else:?>
                         <?php if (!$wrapOptions): ?>
                             <div data-role="collapsible" class="filter-item attributes">
-                                <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __('Filter') ?></div>
+                                <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __('Filter') ?>
+                                    <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                                        <div class="block-actions filter-actions">
+                                            <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span>- <?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                             <div data-role="content" class="filter-options-content filter-accordion" >
                             <?php  $wrapOptions = true; $wrapOuter = true; ?>

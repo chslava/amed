@@ -89,8 +89,23 @@
         }
 
         &-actions {
-            margin-bottom: @indent__m;
-            padding: 0 @indent__s;
+            margin: 0 0 0 auto;
+            font-size: @font-size__s;
+            font-weight: normal;
+            padding: 0;
+
+            a {
+                .lib-link(
+                    @_link-color: @amedical-brand-color,
+                    @_link-text-decoration: none,
+                    @_link-color-visited: @amedical-brand-color,
+                    @_link-text-decoration-visited: none,
+                    @_link-color-hover: @amedical-brand-color,
+                    @_link-text-decoration-hover: none,
+                    @_link-color-active: @amedical-brand-color,
+                    @_link-text-decoration-active: none
+                );
+            }
         }
 
         &-label {
@@ -141,10 +156,6 @@
                     position: absolute;
                     right: 25px;
                     top: 20px;
-                }
-
-                &:hover {
-                    .lib-css(color, @filter-link-hover);
                 }
 
                 .active > & {
@@ -316,7 +327,7 @@
         }
 
         &-actions {
-            margin: -35px -@indent__s @indent__m;
+            margin-right: 25px;
         }
 
         &-options-content {
@@ -448,6 +459,12 @@
                 }
 
             }
+
+            .filter-options-title {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: baseline;
+            }
         }
 
         .categories {
@@ -468,9 +485,22 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 
+    .lib-filter-title() {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 10px 0 0 0;
+        padding-bottom: 20px;
+        border-bottom: @border-width__base solid @border-color__base;
+
+        &:after {
+            content: none;
+        }
+    }
+
     .filter {
         &.block {
             margin-bottom: @indent__xl;
+            padding-left: 20px;
         }
 
         &-title {
@@ -483,10 +513,6 @@
             }
         }
 
-        &-actions {
-            margin-bottom: @indent__l;
-        }
-
         &.active &-options,
         &-options {
             background: transparent;
@@ -494,11 +520,63 @@
             display: block;
             overflow: initial;
             position: static;
+
+            &-title {
+                font-size: @font-size__s;
+                font-weight: @font-weight__regular;
+                text-transform: none;
+            }
+
+            &-content {
+                padding-left: 55px;
+            }
+        }
+
+        &-options {
+            &-title {
+                .categories & {
+                    .lib-filter-title();
+                }
+
+                &.attributes-title {
+                    .lib-filter-title();
+
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: baseline;
+
+                }
+            }
+
+            &-content {
+                .item a {
+                    font-size: @font-size__s;
+                    color: @amedical-text_color;
+                }
+            }
         }
 
         &-subtitle {
             display: block;
             position: static;
+        }
+    }
+
+
+
+    .categories {
+        border-bottom: none;
+
+        .filter-options {
+            &-content {
+                padding: 0 0 0 25px;
+
+                .item {
+                    margin: 0;
+                    padding: 20px 0;
+                    border-bottom: @border-width__base solid @border-color__base;
+                }
+            }
         }
     }
 
