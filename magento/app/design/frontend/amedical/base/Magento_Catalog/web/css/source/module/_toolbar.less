@@ -165,7 +165,7 @@
         text-align: center;
 
         &:hover {
-            .lib-css(color, @_color);
+            .lib-css(color, @amedical-brand-color);
         }
 
         &.active:before {
@@ -177,13 +177,13 @@
             @_icon-font-size: @toolbar-mode-icon-font-size,
             @_icon-font-text-hide: true,
             @_icon-font-color: @_color,
-            @_icon-font-color-hover: @_color
+            @_icon-font-color-hover: @amedical-brand-color
         );
     }
 
     .mode-list {
         .lib-icon-image(
-                '@{baseDir}images/list.svg',
+                '@{baseDir}images/list_off.svg',
             @_icon-image-width: 22px,
             @_icon-image-height: 22px,
             @_icon-image-margin: 0,
@@ -195,9 +195,16 @@
         );
 
         margin-left: 18px;
+
+        &:hover:before,
+        &.active:before {
+            background-image: url('@{baseDir}images/list.svg');
+        }
     }
 
     .limiter {
+        .toolbar-select();
+
         .page-products & {
             display: inline-block;
             width: 110px;
@@ -230,7 +237,6 @@
         }
 
         .control {
-            .toolbar-select();
             display: inline-block;
             float: left;
         }
@@ -264,8 +270,14 @@
 
     .toolbar {
         .products.wrapper ~ & .pages {
-            float: left;
-            margin-bottom: 0;
+            margin: auto;
+        }
+
+        &-products {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-flow: row nowrap;
         }
     }
 
@@ -273,6 +285,7 @@
         display: inline-block;
         float: left;
         margin-right: @indent__base;
+        margin-left: 0;
 
         .products.wrapper ~ .toolbar & {
             display: none;
@@ -283,16 +296,42 @@
         &:extend(.abs-visually-hidden-desktop all);
     }
 
+    .toolbar-select-label() {
+        font-size: 14px;
+        width: auto;
+        line-height: 34px;
+        margin-right: 10px;
+    }
+
     .sorter {
+        select {
+            font-size: 14px;
+        }
+
         .page-products & {
             position: static;
+            width: auto;
+            margin-right: 0;
+        }
+
+        &-label {
+            .toolbar-select-label();
         }
     }
 
     .limiter {
-        float: right;
-        .products.wrapper ~ .toolbar & {
-            display: block;
+        select {
+            font-size: 14px;
+        }
+
+        .page-products & {
+            width: auto;
+            margin-left: auto;
+            margin-right: 25px;
+        }
+
+        .label {
+            .toolbar-select-label();
         }
     }
 }

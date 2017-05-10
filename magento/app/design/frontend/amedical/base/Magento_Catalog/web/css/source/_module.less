@@ -74,24 +74,25 @@
 
         &-cms,
         &-image,
-
-        &-view {
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 30px;
-                left: 25px;
-                width: 78px;
-                border-top: 2px solid @amedical-brand-color;
-            }
-        }
-
         &-description {
             font-size: 12px;
             line-height: @indent__base;
             padding: 8px @indent__m 18px @indent__m;
             border-bottom: 1px solid @border-color__base;
+        }
+    }
+
+    .catalog-category-view {
+        .page-title {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: -20px;
+                left: 0;
+                width: 78px;
+                border-top: 2px solid @amedical-brand-color;
+            }
         }
     }
 
@@ -636,6 +637,31 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .catalog-nav-mobile {
         display: none;
+    }
+
+    .catalog-category-view {
+        .column.main {
+            padding-left: 30px;
+        }
+
+        .page-title {
+            margin-top: 33px;
+            margin-bottom: 26px;
+            margin-left: 0;
+
+            &:before {
+                width: 104px;
+            }
+        }
+    }
+
+    .category {
+        &-description {
+            font-size: 15px;
+            line-height: 24px;
+            padding-left: 0;
+            padding-bottom: 10px;
+        }
     }
 
     .product-info-main {

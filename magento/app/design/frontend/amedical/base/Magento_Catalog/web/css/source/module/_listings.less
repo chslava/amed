@@ -18,7 +18,7 @@
 @product-name-link__text-decoration__visited: @link__hover__text-decoration;
 
 @product-item__hover__background-color: @color-white;
-@product-item__hover__box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, .3);
+@product-item__hover__box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.1);
 
 //
 //  Common
@@ -283,7 +283,6 @@
                     margin-bottom: 40px;
 
                     .action {
-                        width: 50px;
                         font-size: 0;
                         background-image: url("@{baseDir}images/eye.svg");
                         background-repeat: no-repeat;
@@ -334,6 +333,10 @@
                     min-height: 71px;
                 }
             }
+
+            &-view .action {
+                width: 50px;
+            }
         }
     }
 }
@@ -346,24 +349,56 @@
             }
         }
     }
+    .products-grid {
+        .product-item {
+            .price-box {
+                position: absolute;
+                bottom: 5px;
+                right: 0;
+                margin: 0;
+            }
 
-    .product-item-info {
-        .products-grid & {
-            &:hover,
-            &.active {
-                .lib-css(background, @product-item__hover__background-color);
-                .lib-css(box-shadow, @product-item__hover__box-shadow);
-                border: 1px solid @color-gray-light2;
-                margin: -10px;
-                padding: 9px;
+            &-name {
+                min-height: 42px;
+            }
+
+            &-view {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+            }
+
+            &-info {
                 position: relative;
-                z-index: 2;
+                padding-bottom: 45px;
 
-                .product-item-inner {
-                    display: block;
+                &:hover,
+                &.active {
+                    .lib-css(background, @product-item__hover__background-color);
+                    .lib-css(box-shadow, @product-item__hover__box-shadow);
+                    margin: -10px;
+                    padding: 9px 9px 45px 9px;
+                    position: relative;
+                    z-index: 2;
+
+                    .product-item-inner {
+                        display: none;
+                    }
+
+                    .price-box {
+                        bottom: 14px;
+                        right: 9px;
+                    }
+
+                    .product-item-view {
+                        bottom: 9px;
+                        left: 9px;
+                    }
                 }
             }
         }
+
     }
 
     .product-item-inner {
@@ -442,7 +477,7 @@
 
     .products-grid {
         .product-item {
-            margin-bottom: @indent__base;
+            margin-bottom: 55px;
             width: 100%/3;
         }
     }
@@ -458,6 +493,92 @@
             }
         }
     }
+
+    .products-list {
+        & .product {
+            &-item {
+                margin-bottom: 15px;
+
+                .column.main & {
+                    padding-left: 0;
+                    padding-right: 15px;
+                }
+
+                &-info {
+                    .product.name {
+                        position: static;
+                        float: left;
+
+                        > a {
+                            font-size: 15px;
+                        }
+                    }
+
+                    &:hover,
+                    &.active {
+                        .lib-css(background, @product-item__hover__background-color);
+                        .lib-css(box-shadow, @product-item__hover__box-shadow);
+                        margin-bottom: 6px;
+                        transform: translateY(-10px);
+                        z-index: 2;
+
+                        .product-item-details {
+                            padding-top: 9px;
+                            padding-right: 9px;
+                        }
+
+                        .product-item-photo {
+                            padding-top: 9px;
+                            padding-left: 9px;
+                            padding-bottom: 21px;
+                        }
+
+                        .price-box {
+                            top: 9px;
+                        }
+                    }
+                }
+
+                &-details {
+                    vertical-align: top;
+                }
+
+
+                &-description {
+                    color: @amedical-text_color;
+                    font-size: 15px;
+                    display: block;
+                    margin: 35px 215px 0 0;
+                }
+
+                &-view {
+                    float: right;
+                    margin: 0;
+
+                    .action {
+                        font-size: 15px;
+                        background-image: none;
+                    }
+                }
+            }
+
+            .price-box {
+                position: absolute;
+                right: 135px;
+                top: 0;
+                margin: 0;
+
+                .price {
+                    font-size: 18px;
+                }
+
+                .price-label {
+                    .lib-css(color, @text__color__muted);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }
 
 //
@@ -465,6 +586,13 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .products {
+        &.wrapper {
+            padding: 0;
+            margin-top: 0;
+        }
+    }
+
     .page-products {
         .products-grid {
             .product-item {
@@ -525,11 +653,13 @@
             }
             
             .product-item {
-                margin-left: calc(~'(100% - 4 * 24.439%) / 3');
-                padding: 0;
-                width: 24.439%;
+                margin-left: calc(~'(100% - 3 * 30%) / 2');
+                padding-top: 0;
+                padding-left: 0;
+                padding-right: 0;
+                width: 30%;
 
-                &:nth-child(4n + 1) {
+                &:nth-child(3n + 1) {
                     margin-left: 0;
                 }
             }
