@@ -47,7 +47,7 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                                 <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __('Filter') ?>
                                     <?php if ($block->getLayer()->getState()->getFilters()): ?>
                                         <div class="block-actions filter-actions">
-                                            <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span>- <?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                                            <a id="filter-clear-all" href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span>- <?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -77,7 +77,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
             </div>
         </div>
     </div>
-
     <script>
         require([
             'jquery',
@@ -91,6 +90,12 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                     listClass: 'items'
                 };
                 var categoriesList = new List('categories-list-filter', options);
+
+                $("#filter-clear-all").on("click", function(event) {
+                    var href = $(this).attr("href");
+                    $(window).attr('location', href)
+                    event.stopPropagation();
+                });
             });
         });
     </script>
