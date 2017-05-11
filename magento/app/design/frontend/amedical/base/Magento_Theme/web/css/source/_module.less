@@ -363,8 +363,8 @@
     .copyright {
         .lib-css(background-color, @copyright__background-color);
         .lib-css(color, @color-white);
-        display: flex;
-        flex-direction: column;
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-direction(column);
         justify-content: center;
         height: 50px;
         text-align: center;

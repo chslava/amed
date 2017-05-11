@@ -19,14 +19,6 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
-    .page-products {
-        .columns {
-            padding-top: 50px;
-            position: relative;
-            z-index: 1;
-        }
-    }
-
     .toolbar {
         &:extend(.abs-add-clearfix all);
         margin-bottom: @indent__l;
@@ -276,8 +268,9 @@
         &-products {
             margin-top: 15px;
             margin-bottom: 10px;
-            display: flex;
-            flex-flow: row nowrap;
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(row);
+            .lib-vendor-prefix-flex-wrap(nowrap);
         }
     }
 
