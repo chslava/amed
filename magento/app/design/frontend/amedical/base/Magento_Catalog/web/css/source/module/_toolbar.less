@@ -1,0 +1,337 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@toolbar-mode-icon-font-size: 22px;
+@toolbar-background: transparent;
+@toolbar-element-background: @color-gray94;
+@pager-action__background: @toolbar-element-background;
+@pager-action__hover__background: darken(@toolbar-element-background, 7%);
+@pager__font-weight: @font-weight__bold;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .page-products {
+        .columns {
+            padding-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        &:extend(.abs-add-clearfix all);
+        margin-bottom: @indent__l;
+        text-align: center;
+
+        select {
+            .lib-css(background-color, @toolbar-element-background);
+            .lib-css(box-shadow, @button__shadow);
+            border-radius: 0;
+        }
+
+        &-amount {
+            color: @amedical-text_color;
+            left: 0;
+            line-height: @toolbar-mode-icon-font-size + 2;
+            margin: 0;
+            padding: 7px 0;
+            position: absolute;
+            text-align: left;
+            top: 0;
+            vertical-align: middle;
+
+            .products.wrapper ~ .toolbar & {
+                display: none;
+            }
+        }
+
+        .page-with-filter & {
+            &-amount {
+                position: static;
+            }
+        }
+
+        &-products {
+            .lib-css(background-color, @toolbar-background);
+
+            .pages {
+                display: none;
+
+                .products.wrapper ~ & {
+                    display: block;
+                }
+            }
+        }
+
+        .pages {
+            margin-bottom: @indent__m;
+        }
+    }
+
+    .toolbar-select-label() {
+        color: @footer-icon-font_color;
+        float: left;
+        font-weight: 400;
+        font-size: 12px;
+        text-align: left;
+        padding-bottom: 5px;
+        width: 100%;
+    }
+
+    .toolbar-select() {
+        select {
+            color: @footer-icon-font_color;
+            height: 34px;
+            width: 110px;
+            float: left;
+            font-size: 12px;
+            margin: 0;
+        }
+
+    }
+    .sorter {
+        .toolbar-select();
+
+        float: right;
+
+        .page-products & {
+            width: 126px;
+            margin-right: @indent__m;
+            z-index: 1;
+        }
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+
+        &-label {
+            .toolbar-select-label();
+        }
+
+        &-options {
+            margin: 0 @indent__xs 0 7px;
+            width: auto;
+        }
+
+        &-action {
+            .lib-icon-font(
+            @icon-arrow-up,
+            @_icon-font-size: 16px,
+                @_icon-font-line-height: 34px,
+                @_icon-font-color: @header-icons-color,
+            @_icon-font-color-hover: @header-icons-color-hover
+            );
+            .lib-icon-text-hide();
+
+            &.sort-desc:before {
+                content: @icon-arrow-down;
+            }
+        }
+    }
+
+    .modes {
+        display: inline-block;
+        float: left;
+        margin-right: @indent__base;
+        margin-left: 25px;
+        padding: 7px 0;
+
+        .products.wrapper ~ .toolbar-products & {
+            display: none;
+        }
+    }
+
+    .modes-label {
+        display: none;
+    }
+
+    .modes-mode {
+        @_color: #e7e7e7;
+        .lib-css(background-color, @color-white);
+        .lib-css(color, @_color);
+        float: left;
+        font-weight: @font-weight__regular;
+        line-height: 1;
+        padding: 0;
+        text-align: center;
+
+        &:hover {
+            .lib-css(color, @amedical-brand-color);
+        }
+
+        &.active:before {
+            color: @amedical-brand-color;
+        }
+
+        .lib-icon-font(
+            @icon-grid,
+            @_icon-font-size: @toolbar-mode-icon-font-size,
+            @_icon-font-text-hide: true,
+            @_icon-font-color: @_color,
+            @_icon-font-color-hover: @amedical-brand-color
+        );
+    }
+
+    .mode-list {
+        .lib-icon-image(
+                '@{baseDir}images/list_off.svg',
+            @_icon-image-width: 22px,
+            @_icon-image-height: 22px,
+            @_icon-image-margin: 0,
+            @_icon-image-vertical-align: @icon__vertical-align,
+            @_icon-image-position-x: @icon-image__position-x,
+            @_icon-image-position-y: @icon-image__position-y,
+            @_icon-image-position: before,
+            @_icon-image-text-hide: true
+        );
+
+        margin-left: 18px;
+
+        &:hover:before,
+        &.active:before {
+            background-image: url('@{baseDir}images/list.svg');
+        }
+    }
+
+    .limiter {
+        .toolbar-select();
+
+        .page-products & {
+            display: inline-block;
+            width: 110px;
+            z-index: 1;
+            margin-left: @indent__m;
+            margin-bottom: 25px;
+
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+
+        &-options {
+            margin: 0;
+            width: 100%;
+        }
+
+        .label {
+            .toolbar-select-label();
+        }
+
+        &-text {
+            display: none;
+        }
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+
+        .control {
+            display: inline-block;
+            float: left;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .toolbar-products {
+        margin-bottom: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-products {
+        .columns {
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar-amount {
+        display: block;
+        float: left;
+        position: static;
+    }
+
+    .toolbar {
+        .products.wrapper ~ & .pages {
+            margin: auto;
+        }
+
+        &-products {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+    }
+
+    .modes {
+        display: inline-block;
+        float: left;
+        margin-right: @indent__base;
+        margin-left: 0;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .modes-label {
+        &:extend(.abs-visually-hidden-desktop all);
+    }
+
+    .toolbar-select-label() {
+        font-size: 14px;
+        width: auto;
+        line-height: 34px;
+        margin-right: 10px;
+    }
+
+    .sorter {
+        select {
+            font-size: 14px;
+        }
+
+        .page-products & {
+            position: static;
+            width: auto;
+            margin-right: 0;
+        }
+
+        &-label {
+            .toolbar-select-label();
+        }
+    }
+
+    .limiter {
+        select {
+            font-size: 14px;
+        }
+
+        .page-products & {
+            width: auto;
+            margin-left: auto;
+            margin-right: 25px;
+        }
+
+        .label {
+            .toolbar-select-label();
+        }
+    }
+}

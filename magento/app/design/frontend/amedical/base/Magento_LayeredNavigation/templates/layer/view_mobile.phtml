@@ -1,0 +1,102 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+use \Magento\CatalogSearch\Model\Layer\Filter\Category;
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter">
+        <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php
+                $wrapOptions = false;
+                $wrapOuter = false;
+            ?>
+            <?php foreach ($block->getFilters() as $filter): ?>
+                <?php if ($filter->getItemsCount()): ?>
+
+                    <?php if (!$wrapOuter): ?>
+                    <div class="filter-wrapper filter-accordion" >
+                    <?php endif; ?>
+                        <?php if ($filter instanceof Category):?>
+                        <div  data-role="collapsible" class="filter-item categories">
+                            <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
+                        </div>
+                        <div data-role="content" class="filter-options-content" id="categories-list-filter">
+                            <label for="categories-tree-search"><?php echo __('Type category name to filter list') ?></label>
+                            <input type="text" id="categories-tree-search" class="categories-tree-search input-text" placeholder="Category name" />
+                            <?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?>
+                        </div>
+                            <?php  $wrapOuter = true; ?>
+                    <?php else:?>
+                        <?php if (!$wrapOptions): ?>
+                            <div data-role="collapsible" class="filter-item attributes">
+                                <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __('Filter') ?>
+                                    <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                                        <div class="block-actions filter-actions">
+                                            <a id="filter-clear-all" href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span>- <?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div data-role="content" class="filter-options-content filter-accordion" >
+                            <?php  $wrapOptions = true; $wrapOuter = true; ?>
+                        <?php endif; ?>
+                            <div data-role="collapsible" class="filter-options-item">
+                                <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
+                            </div>
+                                <div class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></div>
+
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                    </div>
+            <?php else: ?>
+                <script>
+                    require([
+                        'jquery'
+                    ], function ($) {
+                        $('#layered-filter-block-mobile').addClass('filter-no-options');
+                    });
+                </script>
+            <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <script>
+        require([
+            'jquery',
+            'tabs'
+        ], function ($) {
+            $('.filter-accordion').accordion({"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false, "heightStyle":"content"});
+            $( document ).ready(function() {
+                var options = {
+                    valueNames: [ 'attribute-name' ],
+                    searchClass: 'categories-tree-search',
+                    listClass: 'items'
+                };
+                var categoriesList = new List('categories-list-filter', options);
+
+                $("#filter-clear-all").on("click", function(event) {
+                    var href = $(this).attr("href");
+                    $(window).attr('location', href)
+                    event.stopPropagation();
+                });
+            });
+        });
+    </script>
+<?php endif; ?>

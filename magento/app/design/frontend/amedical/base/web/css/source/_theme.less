@@ -22,6 +22,7 @@
 @indent__base: 20px;
 @layout-indent__width: 0;
 @layout__width-xs-indent: 0;
+@font-size__s: 15px;
 //  Fonts
 @icons__font-path: '@{baseDir}fonts/Luma-Icons';
 @icons__font-name: 'luma-icons';
@@ -66,7 +67,7 @@
 @total-columns: 24;
 
 //  Variables for layout columns
-@layout-column__sidebar-width: 5;
+@layout-column__sidebar-width: 7;
 
 //  Checkout columns width
 @layout-column-checkout__width-left: 6;
@@ -101,6 +102,7 @@
 @submenu-desktop-item__active__color: @navigation-level0-item__active__color;
 @submenu-desktop-item__padding: 10px 0;
 @submenu-desktop-item__border-bottom: 1px solid #e6e6e6;
+@submenu-desktop-item__active__border-style: none;
 @submenu-desktop-item__hover__background: @color-white;
 @submenu-desktop__box-shadow: none;
 
@@ -264,17 +266,29 @@
 //  Pager
 //  ---------------------------------------------
 
-@pager__font-weight: @font-weight__regular;
-@pager__line-height: @indent__l;
-@pager-item__margin: 0 8px 0 0;
-@pager-item__padding: 0 @indent__xs;
+@pager__color: @color-white;
+@pager__font-size: 15px;
+@pager__font-weight: @font-weight__bold;
+@pager__line-height: 20px;
+@pager-item__margin: 0 26px 0 26px;
+@pager-item__padding: 0 6px;
+@pager__background: #c7c7c7;
+
+@pager__visited__color: @color-white;
+@pager__hover__color: @color-white;
+@pager__active__color: @color-white;
 
 //  Pager current page
-@pager-current__background: @color-gray90;
+@pager-current__background: @amedical-brand-color;
+@pager-current__color: @color-white;
 
 //  Pager link.action
 @pager-icon__font-margin: 0;
 @pager-icon__font-size: 16px;
+@pager-action__color: @amedical-text_color;
+@pager-action__background: none;
+@pager-action__hover__background: none;
+@pager-action__border: none;
 
 //  Pager link.action visited
 @pager-action__visited__color: @text__color__muted;
@@ -313,9 +327,18 @@
 //  Breadcrumbs
 //  ---------------------------------------------
 
-@breadcrumbs__container-margin: 0 0 15px;
-@breadcrumbs-icon__font-size: 10px;
+@breadcrumbs__font-size: 15px;
+@breadcrumbs-icon__font-content: "//";
+@breadcrumbs__container-margin: 33px 0 15px;
+@breadcrumbs-icon__font-size: 17px;
+@breadcrumbs-icon__font-line-height: 21px;
+@breadcrumbs-icon__font-color: @amedical-top-link-text_color;
 @breadcrumbs-icon__font-margin: 0 @indent__s;
+
+@breadcrumbs-link__color: @amedical-top-link-text_color;
+@breadcrumbs-current__color: @amedical-brand-color;
+@breadcrumbs-link__visited__color: @amedical-top-link-text_color;
+@breadcrumbs-link__hover__color: @amedical-brand-color;
 
 //
 //  Popups
