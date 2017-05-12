@@ -202,33 +202,38 @@
     .product.info.detailed {
         clear: both;
         margin-bottom: 30px;
-
-        .additional-attributes {
-            width: auto;
-            .lib-table-bordered(
-                @_table_type: clear
-            );
-            .lib-table-resize(
-                @_th-padding-left: 0,
-                @_th-padding-right: @indent__l,
-                @_th-padding-bottom: @indent__s,
-                @_td-padding-bottom: @indent__s
-            );
-        }
     }
 
     .product-info-main {
+        .fieldset {
+            .label {
+                font-weight: @font-weight__regular;
+                color: inherit;
+
+            }
+
+            .control {
+                select,
+                input {
+                    color: inherit;
+                }
+            }
+        }
+
         .product-info-price {
             .lib-css(color, @product-info-price);
-            border-bottom: 1px solid @color-gray-light5;
             display: table;
             margin-bottom: @indent__s + @indent__xs;
             width: 100%;
 
+            .label {
+                display: inline-block;
+                width: 100%;
+                padding: 0;
+            }
+
             .price-box {
-                display: table-cell;
-                vertical-align: top;
-                width: 1px;
+                display: inline-block;
 
                 .price-container {
                     > span {
@@ -282,7 +287,7 @@
         .product {
             &-add-form {
                 clear: both;
-                padding-top: @indent__s + @indent__xs;
+                padding-top: 30px;
             }
 
 
@@ -296,8 +301,37 @@
         }
 
         .product-options-bottom {
+            color: @amedical-text_color;
+
             .box-tocart {
                 margin-top: @form-field__vertical-indent;
+            }
+        }
+
+        .additional-attributes {
+            .lib-table-bordered(
+                @_table_type: clear
+            );
+            .lib-table-resize(
+                @_th-padding-left: 20px,
+                @_th-padding-right: 55px,
+                @_th-padding-top: 10px,
+                @_th-padding-bottom: 10px,
+                @_td-padding-top: 10px,
+                @_td-padding-bottom: 10px
+            );
+
+            tbody {
+                color: @amedical-text_color;
+                font-size: 12px;
+
+                > tr:nth-child(even) {
+                    background-color: rgba(208, 208, 208, 0.22);
+                }
+
+                th {
+                    font-weight: @font-weight__regular;
+                }
             }
         }
     }
@@ -347,30 +381,34 @@
     }
 
     .product-options-wrapper {
-        .fieldset-product-options-inner {
-            .legend {
-                .lib-css(font-weight, @font-weight__semibold);
-                .lib-font-size(14px);
-                border: none;
-                display: inline-block;
-                float: none;
-                margin: 0 0 8px;
-                padding: 0;
-            }
+        color: @amedical-text_color;
 
-            &.required,
-            &._required {
+        .fieldset {
+            &-product-options-inner {
                 .legend {
-                    &:after {
-                        content: '*';
-                        .lib-typography(
-                        @_font-size: @form-field-label-asterisk__font-size,
-                        @_color: @form-field-label-asterisk__color,
-                        @_font-family: @form-field-label-asterisk__font-family,
-                        @_font-weight: @form-field-label-asterisk__font-weight,
-                        @_line-height: @form-field-label-asterisk__line-height,
-                        @_font-style: @form-field-label-asterisk__font-style
-                        );
+                    .lib-css(font-weight, @font-weight__semibold);
+                    .lib-font-size(14px);
+                    border: none;
+                    display: inline-block;
+                    float: none;
+                    margin: 0 0 8px;
+                    padding: 0;
+                }
+
+                &.required,
+                &._required {
+                    .legend {
+                        &:after {
+                            content: '*';
+                            .lib-typography(
+                                @_font-size: @form-field-label-asterisk__font-size,
+                                @_color: @form-field-label-asterisk__color,
+                                @_font-family: @form-field-label-asterisk__font-family,
+                                @_font-weight: @form-field-label-asterisk__font-weight,
+                                @_line-height: @form-field-label-asterisk__line-height,
+                                @_font-style: @form-field-label-asterisk__font-style
+                            );
+                        }
                     }
                 }
             }
@@ -411,9 +449,9 @@
             }
 
             .price {
-                font-size: 22px;
-                font-weight: @font-weight__semibold;
-                line-height: 22px;
+                font-size: 26px;
+                font-weight: @font-weight__regular;
+                line-height: 30px;
             }
 
             .price-including-tax + .price-excluding-tax,
@@ -433,6 +471,8 @@
     .box-tocart {
         &:extend(.abs-box-tocart all);
         .field.qty {
+            width: 50%;
+            float: left;
         }
 
         .input-text.qty {
@@ -636,6 +676,10 @@
             .lib-vendor-prefix-order(-2);
         }
     }
+
+    .product-info-price {
+        width: 50%;
+    }
 }
 
 //
@@ -650,8 +694,8 @@
     }
 
     .product-info-price {
-        margin: 0 -@indent__s 0;
-        width: ~'calc(100% + 2*@{indent__s})' !important;
+        //margin: 0 -@indent__s 0;
+        //width: ~'calc(100% + 2*@{indent__s})' !important;
 
         > *:first-child {
             padding-left: @indent__s;

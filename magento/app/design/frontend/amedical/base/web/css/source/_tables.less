@@ -52,7 +52,7 @@
         .lib-table-overflow();
         position: relative; // To hide unnecessary horizontal scrollbar in Safari
 
-        .table:not(.totals):not(.cart):not(.table-comparison) {
+        .table:not(.totals):not(.cart):not(.table-comparison):not(.additional-attributes) {
             .lib-table-responsive();
 
             tbody {
@@ -79,9 +79,10 @@
                     }
 
                     td {
+                        padding: 8px 0;
+
                         &:last-child {
                             border: none;
-                            padding: 0 0 @indent__xs;
                         }
                     }
                 }
