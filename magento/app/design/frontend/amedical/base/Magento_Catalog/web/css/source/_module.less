@@ -476,7 +476,31 @@
         }
 
         .input-text.qty {
-            &:extend(.abs-input-qty all);
+            text-align: center;
+            width: 45px;
+            height: 40px;
+            padding: 0;
+            float: left;
+            background-color: @color-white;
+        }
+
+        .btn-increment {
+            float: left;
+            width: 40px;
+            height: 40px;
+            border-top: 1px solid @border-color__base;
+            border-bottom: 1px solid @border-color__base;
+            background-color: @form-element-input__background;
+
+            &.up {
+                border-right: 1px solid @border-color__base;
+                border-left: none;
+            }
+
+            &.down {
+                border-left: 1px solid @border-color__base;
+                border-right: none;
+            }
         }
 
         .actions {
@@ -677,8 +701,10 @@
         }
     }
 
-    .product-info-price {
-        width: 50%;
+    .product-info-main {
+        .product-info-price {
+            width: 50%;
+        }
     }
 }
 
