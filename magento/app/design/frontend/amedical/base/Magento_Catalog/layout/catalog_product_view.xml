@@ -17,6 +17,16 @@
                 </block>
             </container>
         </referenceContainer>
+        <referenceContainer name="product.info.main">
+            <container name="product.info.enquiry.container" htmlTag="div" htmlClass="product-info-enquiry" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="product.info.enquiry" template="Magento_Catalog::product/view/enquiry.phtml" />
+                <block class="Magento\Cms\Block\Block" name="header.top.links" after="product.info.enquiry">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">product_view_info_bottom</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
 
         <move element="page.main.title" destination="product.info.top" before="-"/>
         <move element="product.info.stock.sku" destination="product.info.top" after="page.main.title"/>
@@ -26,5 +36,7 @@
         <move element="product.attributes" destination="product.info.form.options" before="-" />
 
         <referenceBlock name="product.info.simple" remove="true"/>
+        <referenceBlock name="product.info.addto" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
     </body>
 </page>

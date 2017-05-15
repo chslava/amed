@@ -174,23 +174,11 @@
     }
 
     .mode-list {
-        .lib-icon-image(
-                '@{baseDir}images/list_off.svg',
-            @_icon-image-width: 22px,
-            @_icon-image-height: 22px,
-            @_icon-image-margin: 0,
-            @_icon-image-vertical-align: @icon__vertical-align,
-            @_icon-image-position-x: @icon-image__position-x,
-            @_icon-image-position-y: @icon-image__position-y,
-            @_icon-image-position: before,
-            @_icon-image-text-hide: true
-        );
-
         margin-left: 18px;
 
-        &:hover:before,
-        &.active:before {
-            background-image: url('@{baseDir}images/list.svg');
+        &:before {
+            content: @icon-list;
+            font-family: @icon-font-second;
         }
     }
 

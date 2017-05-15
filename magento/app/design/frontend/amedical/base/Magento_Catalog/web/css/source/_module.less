@@ -223,7 +223,6 @@
         .product-info-price {
             .lib-css(color, @product-info-price);
             display: table;
-            margin-bottom: @indent__s + @indent__xs;
             width: 100%;
 
             .label {
@@ -305,6 +304,10 @@
 
             .box-tocart {
                 margin-top: @form-field__vertical-indent;
+
+                .actions {
+                    margin-top: 35px;
+                }
             }
         }
 
@@ -426,7 +429,7 @@
     .product-info-price .price-box {
         .lib-css(color, @product-info-price);
         display: table-cell;
-        padding-bottom: @indent__s;
+        padding-top: @indent__s;
         vertical-align: top;
 
         .old-price {
@@ -469,28 +472,46 @@
     }
 
     .box-tocart {
-        &:extend(.abs-box-tocart all);
         .field.qty {
             width: 50%;
             float: left;
         }
 
         .input-text.qty {
+            font-size: @font-size__s;
             text-align: center;
             width: 45px;
             height: 40px;
             padding: 0;
             float: left;
             background-color: @color-white;
+
+            &:focus {
+                box-shadow: none;
+            }
         }
 
         .btn-increment {
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-plus,
+                @_icon-font-size: 12px,
+                @_icon-font-line-height: @icon-font__line-height,
+                @_icon-font-color: #383838,
+                @_icon-font-color-hover: #383838,
+                @_icon-font-color-active: #383838,
+                @_icon-font-position: before,
+                @_icon-font-display: block
+            );
+
             float: left;
             width: 40px;
             height: 40px;
             border-top: 1px solid @border-color__base;
             border-bottom: 1px solid @border-color__base;
             background-color: @form-element-input__background;
+            box-shadow: none;
+            padding: 0;
 
             &.up {
                 border-right: 1px solid @border-color__base;
@@ -500,6 +521,11 @@
             &.down {
                 border-left: 1px solid @border-color__base;
                 border-right: none;
+
+                &:before {
+                    content: @icon-minus;
+                    font-size: 2px;
+                }
             }
         }
 
@@ -515,6 +541,45 @@
             }
 
             vertical-align: top;
+        }
+    }
+
+    .product-info-enquiry {
+        margin-top: 15px;
+
+        .enquiry {
+            color: @amedical-brand-color;
+            width: 100%;
+            line-height: 2.2rem;
+            padding: 14px 17px;
+            font-size: 1.8rem;
+
+            &:hover {
+                color: @color-white;
+            }
+
+            > a {
+                .lib-link(
+                    @_link-color: inherit,
+                    @_link-text-decoration: none,
+                    @_link-color-visited: @amedical-brand-color,
+                    @_link-text-decoration-visited: none,
+                    @_link-color-hover: inherit,
+                    @_link-text-decoration-hover: none,
+                    @_link-color-active: @amedical-brand-color,
+                    @_link-text-decoration-active: none
+                );
+            }
+        }
+
+        .info-block {
+            color: @amedical-text_color;
+            font-size: @font-size__s;
+            padding: 13px 18px;
+            margin-top: 30px;
+            min-height: 50px;
+            border: 1px solid @border-color__base;
+            vertical-align: middle;
         }
     }
 
@@ -722,13 +787,17 @@
     .product-info-price {
         //margin: 0 -@indent__s 0;
         //width: ~'calc(100% + 2*@{indent__s})' !important;
+        .price-box {
+            width: 100%;
+            text-align: center;
+        }
 
         > *:first-child {
             padding-left: @indent__s;
         }
 
         > *:last-child {
-            padding-right: @indent__s;
+            padding-right: 0;
         }
     }
 
