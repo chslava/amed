@@ -172,7 +172,7 @@
 
                 .item {
                     line-height: 1.5em;
-                    margin: @indent__s 0;
+                    margin: 25px 0;
                 }
 
                 a {
@@ -183,12 +183,7 @@
                     padding-right: 7px;
 
                     &:hover {
-                        background-color: @color-gray91;
                         text-decoration: none;
-
-                        & + .count {
-                            background-color: @color-gray91;
-                        }
                     }
                 }
 
@@ -544,6 +539,19 @@
                     display: flex;
                     flex-flow: row nowrap;
                     align-items: baseline;
+
+                    & ~ .filter-options-item {
+                        padding: 0;
+
+                        .filter-options-title {
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+
+                            &:after {
+                                top:23px;
+                            }
+                        }
+                    }
 
                 }
             }
