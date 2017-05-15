@@ -1,0 +1,60 @@
+{
+  "backend": {
+    "src"    : "app/design/adminhtml/Magento/backend",
+    "dest"   : "pub/static/adminhtml/Magento/backend",
+    "locale" : ["en_US"],
+    "lang"   : "less",
+    "default": true,
+    "area"   : "adminhtml",
+    "vendor" : "Magento",
+    "name"   : "backend",
+    "files"  : [
+      "css/styles-old",
+      "css/styles"
+    ]
+  },
+  "blank": {
+    "src"    : "app/design/frontend/Magento/blank",
+    "dest"   : "pub/static/frontend/Magento/blank",
+    "locale" : ["en_US"],
+    "lang"   : "less",
+    "default": true,
+    "area"   : "frontend",
+    "vendor" : "Magento",
+    "name"   : "blank",
+    "files"  : [
+      "css/styles-m",
+      "css/styles-l",
+      "css/email",
+      "css/email-inline"
+    ]
+  },
+  "luma": {
+    "src"    : "app/design/frontend/Magento/luma",
+    "dest"   : "pub/static/frontend/Magento/luma",
+    "locale" : ["en_US"],
+    "lang"   : "less",
+    "default": true,
+    "area"   : "frontend",
+    "vendor" : "Magento",
+    "name"   : "luma",
+    "files"  : [
+      "css/styles-m",
+      "css/styles-l"
+    ]
+  },
+  "amedical_base": {
+    "src"    : "app/design/frontend/amedical/base",
+    "dest"   : "pub/static/frontend/amedical/base",
+    "locale" : ["en_US"],
+    "lang"   : "less",
+    "default": true,
+    "area"   : "frontend",
+    "vendor" : "amedical",
+    "name"   : "base",
+    "files"  : [
+      "css/styles-m",
+      "css/styles-l"
+    ]
+  }
+}

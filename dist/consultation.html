@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ui/semantic.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="ui container grid mobile only">
+        <div class="two column row">
+          <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
+          <div class="right aligned column"><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a><a class="mob-search" href="#"><i class="search icon"></i></a></div>
+        </div>
+        <div class="one column row search-row" style="display:none">
+          <div class="column">
+            <form class="ui large form" id="mobile-search">
+              <div class="field">
+                <input placeholder="Meklēt..."><i class="search icon"></i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="ui container grid tablet only">
+        <div class="two column row">
+          <div class="left aligned column"><a class="logo" href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
+          <div class="right aligned column">
+            <div class="item computer-search">
+              <form class="ui icon input search" id="tablet-search">
+                <input placeholder="Meklēt"><i class="search icon"></i>
+              </form>
+            </div><a class="mob-toogle-menu" href="#"><i class="icon-mob-toogle-open"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="ui container desktop">
+        <div class="main-logo"><a href="index.html"><img src="img/logo.png" alt="amedical" title="Amedical logo"></a></div>
+        <!-- removed .fluid class  below-->
+        <div class="ui container main-column">
+          <div class="mob-menu" style="display:none">
+            <div class="ui computer vertically reversed grid">
+              <div class="ui text menu lang"><a class="item active" href="#">LV</a><a class="item" href="#">EN</a><a class="item" href="#">RU</a>
+                <div class="right menu"><a class="ui basic small button" href="#">Autorizācija</a></div>
+              </div>
+              <div class="row">
+                <nav class="ui secondary stackable menu main-menu"><a class="item home" href="index.html"><span>Galvenā</span><i class="icon-home-icon"></i></a>
+                  <div class="ui dropdown item">Medicīnas iekārtas
+                    <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
+                  </div>
+                  <div class="ui dropdown item">Medicīnas preces
+                    <div class="menu"><a class="item" href="#">Medicīnas preces</a><a class="item" href="#">Instrumenti un aprīkojums</a></div>
+                  </div><a class="item" href="#">Apģērbi un aizsarglīdzekļi</a><a class="item" href="projects.html">Projektēšana</a><a class="item" href="services.html">Iekārtu serviss</a><a class="item" href="about-us.html">Par mums</a>
+                  <div class="right menu basket"><a class="item" href="#"><i class="icon-basket-icon"></i><span>Grozs
+                        <!-- <b>22</b>--></span></a></div>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="ui secondary text stackable menu top-menu">
+                  <div class="item computer-search">
+                    <form class="ui icon input search" id="desktop-search">
+                      <input placeholder="Meklēt"><i class="search icon"></i>
+                    </form>
+                  </div>
+                  <!--a.item(href='content.html') Jaunumi-->
+                  <!--a.item(href='#') Blogs-->
+                  <!--a.item(href='#') Biežāk uzdotie jautājumi-->
+                  <!--a.item(href='about-us.html') Par mums-->
+                  <!--a.item(href='contact-us.html') Kontakti-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="ui container">
+        <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+          <div class="ui breadcrumb hide-for-tablet hide-for-mobile"><a class="section" href="index.html">Sākums</a>
+            <div class="divider">//</div>
+            <div class="active section">Pieteikt konsultāciju</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="consultation-form">
+      <div class="ui container">
+        <div class="ui grid">
+          <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+            <h2 class="left ui header decored mobile-centered">Pieteikt konsultāciju</h2>
+            <p>Piesaki konsultāciju un mūsu aģenti sazināsies ar Jums 1 darba dienas laikā</p>
+            <form class="ui form">
+              <div class="sixteen wide mobile field eight wide computer field">
+                <label>Vārds un uzvārds (obligāti jāaizpilda)</label>
+                <input type="text" required>
+              </div>
+              <div class="sixteen wide mobile field eight wide computer field">
+                <label>Uzņēmuma / iestādes nosaukums</label>
+                <input type="text">
+              </div>
+              <div class="sixteen wide mobile field eight wide computer field">
+                <label>E-pasts (obligāti jāaizpilda)</label>
+                <input type="text">
+              </div>
+              <div class="sixteen wide mobile field eight wide computer field">
+                <label>Tālrunis (obligāti jāaizpilda)</label>
+                <input type="text">
+              </div>
+              <button class="ui huge primary button" type="submit">Pieteikties</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe">
+      <div class="ui container grid">
+        <form class="ui form">
+          <div class="ui centered grid">
+            <div class="title">Pieteikties Jaunumiem</div>
+            <input class="subscribe ui input" placeholder="Ievadi savu e-pastu">
+            <button class="ui primary button">Pieteikties</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="ui container grid">
+        <div class="column">
+          <nav class="ui text menu">
+            <div><a class="item" href="#"> Medicīnas iekārtas<a class="item" href="#2">Medicīnas preces</a><a class="item" href="#3">Industriālie un drošības risinājumi</a><a class="item" href="#4">Projektēšana</a><a class="item" href="#5">Serviss</a><a class="item" href="#6">Piegāde</a><a class="item" href="#7">Atgriešana un apmaiņa</a><a class="item" href="#8">Privātuma politika</a><a class="item" href="#9">Par mums</a><a class="item" href="contact-us.html">Kontakti</a></a></div>
+          </nav>
+          <div class="sub-column">
+            <div class="footer-contacts"><a href="#">
+                <div class="title">Kontakti</div></a>
+              <div class="item"><i class="c-icon icon-place-icon"></i>Adrese: Varkaļu iela 13A, RĪga, Latvija, LV-1067</div>
+              <div class="item"><i class="c-icon icon-phone-icon"></i>Tālrunis: <a href="tel:66103002">66103002, </a> <a href="tel:20277153">20277153 </a></div>
+              <div class="item"><i class="c-icon icon-mail-icon"></i>E-pasts: <a href="mailto:info@amedical.eu">info@amedical.eu</a></div>
+            </div>
+            <div class="follow-us">
+              <div class="title">Seko mums</div>
+              <div class="soc-menu"><a class="item" href="#"><i class="soc-icon icon-facebook-icon"></i>Facebook</a><a class="item" href="#"><i class="soc-icon icon-linkedin-icon"></i>LinkedIn</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Visas tiesības aizsargātas &copy 2016 A.MEDICAL</div>
+    </footer>
+    <script src="ui/semantic.min.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

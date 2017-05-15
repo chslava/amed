@@ -30,6 +30,8 @@ jQuery(function($) {
 
     $('.ui.checkbox').checkbox();
 
+    $('.ui.accordion').accordion();
+
     $('.main-slider').bxSlider({
         adaptiveHeight: true,
         infiniteLoop: true,

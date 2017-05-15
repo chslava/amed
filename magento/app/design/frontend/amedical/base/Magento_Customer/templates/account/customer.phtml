@@ -1,0 +1,62 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if($block->customerLoggedIn()): ?>
+    <div class="customer-welcome">
+        <span class="customer-name"
+              role="link"
+              tabindex="0"
+              data-mage-init='{"dropdown":{}}'
+              data-toggle="dropdown"
+              data-trigger-keypress-button="true"
+              >
+
+            <button type="button"
+                    class="action btn-authorize"
+                    tabindex="-1"
+                    data-bind="scope: 'customer'"
+                    data-action="customer-menu-toggle">
+                <span data-bind="text: customer().fullname"></span>
+            </button>
+        </span>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+        <?php if($block->getChildHtml('top.links')):?>
+        <div class="customer-menu" data-target="dropdown">
+            <?php echo $block->getChildHtml('top.links');?>
+        </div>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+    <div class="customer-welcome authorize">
+        <button class="action toggle btn-authorize"
+                data-mage-init='{"dropdown":{}}'
+                data-toggle="dropdown"
+                aria-haspopup="true">
+            <span><?php echo __('Authorize')?></span>
+        </button>
+        <ul class="dropdown">
+            <?php
+                echo $block->getChildHtml('authorization-link-login');
+                echo $block->getChildHtml('register-link');
+            ?>
+        </ul>
+    </div>
+<?php endif; ?>

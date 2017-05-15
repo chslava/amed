@@ -322,6 +322,28 @@ main.page {
   }
 }
 
+.simple-list {
+  margin-left: 7px;
+  margin-bottom: 40px;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  li a {
+    font-size: 15px;
+    font-weight: 700;
+    color: #636463;
+  }
+
+  li.current a,
+  li a:hover {
+    color: #ff6b01;
+  }
+
+}
 blockquote {
   border-left: 2px solid #e5702a;
   padding-left: 17px;
@@ -1069,4 +1091,9 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
 header .desktop .ui.main-menu .basket .item,
 header .desktop .ui.main-menu > .item {
   padding: 10px;
+}
+
+
+.uppercase {
+  text-transform: uppercase !important;
 }

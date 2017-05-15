@@ -6,10 +6,10 @@ function dswp_sidebar_widgets()
 	  'id' => 'main-sidebar',
 	  'name' => __( 'Sidebar widgets', 'dswp' ),
 	  'description' => __( 'Drag widgets to this sidebar container.', 'dswp' ),
-	  'before_widget' => '<article id="%1$s" class="widget %2$s">',
-	  'after_widget' => '</article>',
-	  'before_title' => '<h6>',
-	  'after_title' => '</h6>',
+	  'before_widget' => '',
+	  'after_widget' => '',
+	  'before_title' => '<h3 class="ui header">',
+	  'after_title' => '</h3>',
 	));
 }
 add_action( 'widgets_init', 'dswp_sidebar_widgets' );
@@ -132,3 +132,76 @@ function CustomWidget_register_widgets() {
 }
 
 add_action( 'widgets_init', 'CustomWidget_register_widgets' );
+
+/**
+* Custom Subcategories Sidebar Widget for AMedical Theme
+* @author: Eugene Kudriashov
+*/
+class amedical_sub_categories_widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct('amedical_sub_categories_widget', __('Amedical sub-categories', 'dswp'), array('classname' => 'widget_sub_categories', 'description' => __('Output list of sub-categories for a selected category.', 'dswp')));
+	}
+
+	function widget($args, $instance) {
+
+		extract($args, EXTR_SKIP);
+
+		$category_id = empty($instance['category_id']) ? 1 : $instance['category_id'];
+		$title = apply_filters('widget_title', empty($instance['title'] ) ? __('Sub Categories', 'dswp') : $instance['title'], $instance, $this->id_base);
+		$no_sub_text = '<p>'.__('No sub-categories', 'dswp').'</p>';
+		$subs = get_categories(array('child_of' => $category_id));
+
+		echo $before_widget;
+		echo $before_title.$title.$after_title;
+		
+		if (!empty($subs)) {
+			echo '<ul class="simple-list">';
+			$highlight_first = true;
+			foreach( $subs as $sub ) {
+				echo '<li'.(($highlight_first)?' class="current"':" ").'><a href="' . get_category_link( $sub->term_id ) . '">' . $sub->name.'</a><li>';
+				$highlight_first = false;
+			}
+			echo '</ul>';
+		} else {
+			echo $no_sub_text;
+		}
+
+		echo $after_widget;
+	}
+
+	function update($new_instance, $old_instance) {
+
+		$instance = $old_instance;
+
+		$instance['title'] = sanitize_text_field($new_instance['title']);
+		$instance['category_id'] = (int) $new_instance['category_id'];
+
+		return $instance;
+	}
+
+	function form($instance) {
+
+		$instance = wp_parse_args((array) $instance, array('title' => __('Sub Categories', 'sub-categories-widget'), 'category_id' => 1));
+
+		?>
+			<p>
+				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'sub-categories-widget'); ?></label>
+				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance['title']) ?>" />
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('category_id'); ?>"><?php _e('Parent category:', 'sub-categories-widget'); ?></label>
+				<select class="widefat" id="<?php echo $this->get_field_id('category_id'); ?>" name="<?php echo $this->get_field_name('category_id'); ?>">
+					<?php
+						$categories = get_categories(array('hide_empty' => 0));
+						foreach ($categories as $cat) {
+							$selected = $cat->cat_ID == $instance['category_id'] ? ' selected="selected"' : '';
+							echo '<option'.$selected.' value="'.$cat->cat_ID.'">'.$cat->cat_name.'</option>';
+						}
+					?>
+				</select>
+			</p>
+		<?php
+	}
+}
+add_action('widgets_init', create_function('', 'return register_widget("amedical_sub_categories_widget");'));

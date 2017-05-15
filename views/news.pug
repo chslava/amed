@@ -1,0 +1,140 @@
+extends layouts/home.pug
+
+block content
+    //- main.ui.container.projects.page
+    //-     div.ui.breadcrumb
+    //-         a(href="index.html").section Sākums
+    //-         div.divider //
+    //-         div.active.section Projektēšana
+    //-     div.ui.grid
+    //-         div.ui.row
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 h1.ui.left.header.decored Projektēšana
+    //-                 p A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu
+    //-                     | projektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
+    //-                 ul.small.circles-list
+    //-                     li 10 gadu pieredze
+    //-                     li Plašākā iekārtu izvēle
+    //-                     li Cits ieguvums
+    //-
+    //-                 h2.ui.left.header.decored Visa veida projektēšana
+    //-                 p Operāciju zālēm, intensīvās terapijas un reanimācijas nodaļām, neonatoloģijas nodaļām, morgu un patanatomijas nodaļām,
+    //-                     | centrālās sterilizācijas nodaļām u.c.
+    //-
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 img(src="img/projects-img.jpg").ui.shadowed.centered.image
+
+    main.ui.container.news-page.page
+          .ui.breadcrumb.hide-for-tablet.hide-for-mobile
+            a.section(href='index.html') Sākums
+            .divider //
+            .active.section Jaunumi
+          .ui.grid
+            .ui.row
+              .sixteen.wide.mobile.ten.wide.tablet.eleven.wide.computer.column#news-block
+                .news-item
+                  .image-container
+                    img(src="http://placehold.it/760x315").ui.shadowed.image
+                    time
+                      span 24
+                      |  Okt
+                  h2.ui.left.header.decored A.Medical kļūst par oficiālo “Toshiba Systems Corporation” pārstāvi Latvijā.
+                  p
+                    | A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai, neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai, zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu servisam, IT risinājumu pārvaldībai u.c.
+                  a.ui.basic.button Lasīt vairāk
+                .news-item
+                  .image-container
+                    img(src="http://placehold.it/760x315").ui.shadowed.image
+                    time
+                      span 24
+                      |  Okt
+                  h2.ui.left.header.decored A.Medical kļūst par oficiālo “Toshiba Systems Corporation” pārstāvi Latvijā.
+                  p
+                    | A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai, neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai, zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu servisam, IT risinājumu pārvaldībai u.c.
+                  a.ui.basic.button Lasīt vairāk
+                .news-item
+                  .image-container
+                    img(src="http://placehold.it/760x315").ui.shadowed.image
+                    time
+                      span 24
+                      |  Okt
+                  h2.ui.left.header.decored A.Medical kļūst par oficiālo “Toshiba Systems Corporation” pārstāvi Latvijā.
+                  p
+                    | A.MEDICAL SERVISS nodrošina sertificētu inženieru zināšanas, kompetenci un atbalstu  darbā ar iekārtām neatliekamai palīdzībai, operāciju zālēm, sterilizācijai, radioloģijai, kardioloģijai, onkoloģijai, uroloģijai, ginekoloģijai, neonatoloģijai, dzemdniecībai, LOR, dermatoloģijai, fizioterapijai, intensīvai terapijai, plastiskai ķirurģijai, zobārstniecībai, artroskopijai, laparoskopijai un citai minimāli invazīvai operāciju, optikas un instrumentu servisam, IT risinājumu pārvaldībai u.c.
+                  a.ui.basic.button Lasīt vairāk
+
+                .pagination-menu
+                  a(href="").pagination-left
+                    .icon-left-arrow-icon
+
+                  .pagination-items
+                    a(href="").pagination-item.current 1
+                    a(href="").pagination-item 2
+                    a(href="").pagination-item 3
+
+                  a(href="").pagination-right
+                    .icon-right-arrow-icon
+
+              .sixteen.wide.mobile.six.wide.tablet.five.wide.computer.column#news-sidebar
+                .news-sidebar
+                  h3.ui.header Jaunumu kategorijas
+                  ul.simple-list
+                    li.current
+                      a(href="") Produktu jaunumi
+                    li
+                      a(href="") Uzņēmuma ziņas
+                    li
+                      a(href="") Partneru jaunumi
+
+
+                  h3.ui.header Bloga kategorijas
+                  ul.simple-list
+                    li.current
+                      a(href="") Produktu apskati
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+
+                  h3.ui.header Populāri produkti
+                    a(href="").popular-product
+                      img(src="http://placehold.it/240x160")
+                      p Ultrasonogrāfijas iekārta <br> Siemens ACUSON X300
+                    a(href="").popular-product
+                      img(src="http://placehold.it/240x160")
+                      p Ultrasonogrāfijas iekārta <br> Siemens ACUSON X300
+
+
+
+    //- section.secondary-services
+    //-     div.ui.container
+    //-         h2.ui.header.centered.decored Plašs aprīkojums
+    //-         div.ui.stackable.grid
+    //-             div.center.aligned.ten.wide.centered.column
+    //-                 p Māsu izsaukuma sistēmām, medicīnas gāzes sistēmām, sterilizācijas iekārtām, gaisa attīrīšanas risinājumiem,
+    //-                     | vizuālo diagnostiku (US, RTG, CR, DR, CT, MRI), iekārtām onkoloģijai, dezinfekcijai, dermatoloģijai,
+    //-                     | funkcionālai diagnostikai, LOR, stomatoloģijai, uroloģijai,  u.c.
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+
+
+
+    include sections/subscribe

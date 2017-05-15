@@ -1,0 +1,155 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: 0;
+        background-color: transparent;
+        padding: 40px 25px;
+        box-sizing: border-box;
+
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0 0 20px 0;
+
+            .control {
+                .lib-icon-font(
+                @icon-envelope,
+                @_icon-font-size: 16px,
+                @_icon-font-line-height: 32px,
+                @_icon-font-color: @form-element-input-placeholder__color,
+                @_icon-font-margin: 0 0 0 8px
+                );
+
+                &:before {
+                    position: absolute;
+                    font-family: 'icomoon';
+                    content: "";
+                }
+
+                display: block;
+            }
+        }
+
+        input {
+            color: @color-white;
+            padding-left: 35px;
+            height: 42px;
+            border: 0;
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+
+            strong {
+                font-size: 22px;
+                color: @color-white;
+            }
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .action.subscribe {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            width: 140px;
+            height: 42px;
+            font-size: 12px;
+        }
+    }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block.newsletter {
+        padding-top: 60px;
+        padding-bottom: 33px;
+
+        .form.subscribe {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .field {
+            .control {
+                width: 285px;
+            }
+        }
+
+        .title {
+            margin-bottom: 43px;
+        }
+
+        input {
+            height: 50px;
+        }
+
+        .actions {
+            width: auto;
+            margin-left: 15px;
+
+            .subscribe {
+                height: 50px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .block.newsletter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 240px;
+
+        .title {
+            margin-bottom: 0;
+            margin-right: 42px;
+            line-height: 50px;
+        }
+
+        .field {
+            margin: 0;
+        }
+    }
+}

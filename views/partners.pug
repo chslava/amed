@@ -1,0 +1,113 @@
+extends layouts/home.pug
+
+block content
+    //- main.ui.container.projects.page
+    //-     div.ui.breadcrumb
+    //-         a(href="index.html").section Sākums
+    //-         div.divider //
+    //-         div.active.section Projektēšana
+    //-     div.ui.grid
+    //-         div.ui.row
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 h1.ui.left.header.decored Projektēšana
+    //-                 p A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu
+    //-                     | projektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
+    //-                 ul.small.circles-list
+    //-                     li 10 gadu pieredze
+    //-                     li Plašākā iekārtu izvēle
+    //-                     li Cits ieguvums
+    //-
+    //-                 h2.ui.left.header.decored Visa veida projektēšana
+    //-                 p Operāciju zālēm, intensīvās terapijas un reanimācijas nodaļām, neonatoloģijas nodaļām, morgu un patanatomijas nodaļām,
+    //-                     | centrālās sterilizācijas nodaļām u.c.
+    //-
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 img(src="img/projects-img.jpg").ui.shadowed.centered.image
+
+    main.ui.container.partners-page.page
+          .ui.breadcrumb.hide-for-tablet.hide-for-mobile
+            a.section(href='index.html') Sākums
+            .divider //
+            a.section(href='index.html') Par A.Medical
+              .divider //
+            .active.section Mēs pārstāvam
+          .ui.grid
+            .ui.row
+              .sixteen.wide.mobile.eleven.wide.computer.column
+                .partners-about
+                  h1.ui.header.decored.left Mēs pārstāvam
+                  p A.Medical komanda sastāv no nozares profesionāļiem, kuriem ir daudzu gadu pieredze medicīnas iekārtu tirdzniecības un servisa nozarēs. Pēdējo 20 gadu laikā mūsu komanda kopā ar Latvijas vadošajām medicīnas iestādēm realizējusi projektus vairāku miljonu eiro apjomā. Paplašinot savu darbības sfēru, esam veiksmīgi uzsākuši sadarbību ar vadošiem drošības un industriālo risinājumu ražotājiem, piedāvājot mūsu klientiem profesionālos risinājumus šajā jomā.
+            .ui.row
+              .sixteen.wide.mobile.column#partners-list
+                .ui.stackable.equal.height.grid
+                  .four.column.row
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                  .four.column.row
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+                    .partner-container.ui.eight.wide.tablet.four.wide.computer.column
+                      .partner
+                        img(src="http://placehold.it/270x80")
+                        //h2.ui.header.decored.left.uppercase Alvo
+                        //p A.MEDICAL SERVISS komandu veido sertificēti un pieredzes bagāti servisa inženieri, kas nodrošina medicīnas iekārtu, kā arī industriālo un drošības risinājumu servisa centra funkcijas.
+                        a(href="").ui.basic.button.wider Apskatīt produktus
+                        a(href="").read-more-link Apskatīt ražotāja mājaslapu
+                          i.long.right.arrow.icon
+
+
+    include sections/subscribe

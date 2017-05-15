@@ -1,0 +1,150 @@
+extends layouts/home.pug
+
+block content
+    //- main.ui.container.projects.page
+    //-     div.ui.breadcrumb
+    //-         a(href="index.html").section Sākums
+    //-         div.divider //
+    //-         div.active.section Projektēšana
+    //-     div.ui.grid
+    //-         div.ui.row
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 h1.ui.left.header.decored Projektēšana
+    //-                 p A.Medical kopā ar pieredzējušu arhitektu birojiem un celtniecības kompānijām attīsta darbību medicīnas iestāžu telpu
+    //-                     | projektēšanas, funkcionālās plānošanas un rekonstrukcijas nozarēs, piedāvājot mūsdienu prasībām atbilstošus tehnoloģiskos risinājumus.
+    //-                 ul.small.circles-list
+    //-                     li 10 gadu pieredze
+    //-                     li Plašākā iekārtu izvēle
+    //-                     li Cits ieguvums
+    //-
+    //-                 h2.ui.left.header.decored Visa veida projektēšana
+    //-                 p Operāciju zālēm, intensīvās terapijas un reanimācijas nodaļām, neonatoloģijas nodaļām, morgu un patanatomijas nodaļām,
+    //-                     | centrālās sterilizācijas nodaļām u.c.
+    //-
+    //-             div.sixteen.wide.mobile.eight.wide.tablet.eight.wide.computer.column
+    //-                 img(src="img/projects-img.jpg").ui.shadowed.centered.image
+
+    main.ui.container.news-page.page
+          .ui.breadcrumb.hide-for-tablet.hide-for-mobile
+            a.section(href='index.html') Sākums
+            .divider //
+            .active.section Jaunumi
+          .ui.grid
+            .ui.row
+              .sixteen.wide.mobile.sixteen.wide.tablet.eleven.wide.computer.column#news-block
+                .news-item.news-item-open
+                  h2.ui.left.header.decored A.Medical kļūst par oficiālo “Toshiba Systems Corporation” pārstāvi Latvijā.
+                  img(src="http://placehold.it/760x315").ui.shadowed.image
+                  .news-img-footer
+                    span Datums: 24. Oktobris, 2016
+                    span Autors: Jānis Bērziņš
+                    span Kategorija: Uzņēmuma ziņas
+                  hr
+                  .news-content
+                    p Insomnia is a very common complaint among older adults. The condition affects more than 70 million Americans. Some symptoms include difficulty falling asleep, difficulty staying asleep, difficulty with early morning awakening, or not feeling rested by a “good night’s sleep.” Occasionally, insomnia lasts for a short time and can be easily managed. Other times it is a chronic condition, lasting more than six months. This chronic insomnia is more troublesome and can affect work, social relationships, and health. Many people with insomnia are also diagnosed with other conditions such as depression, anxiety, allergies, or pain. Insomnia treatment begins with what is known as “sleep hygiene.” This includes regular sleep and wake times. You should avoid eating, drinking, or exercising before bedtime. The room should be cool, comfortable, and dark.
+                    blockquote “The best medication should act quickly and for a short period of time. This eliminates the “hangover effect” some people experience.”
+                    p There are many other products that might be used for insomnia. Melatonin has been shown to be helpful in treating insomnia due to melatonin deficiency in elderly patients. It may also improve sleep quality but probably will not increase the length of sleep time. Kava kava and valerian root are also commonly used for the treatment of insomnia. Kava kava has not been shown to be effective in the treatment of chronic insomnia. It is also known to be potentially dangerous to the liver. Valerian root may be helpful in helping one get to sleep as well as improving the quality of sleep. There are a number of treatment options available for the treatment and management of insomnia. It is important to diagnose and attempt to treat the root or underlying cause first. After that, the practice known as “sleep hygiene” should be practiced. If “sleep hygiene” is not effective, then the use of prescription medication may be warranted.
+                    p The cheapest treatment is, of course, “sleep hygiene.” If you try this approach and are unsuccessful, I would recommend over-the-counter diphenhydramine, while still practicing “sleep hygiene.” There are many different types available. The next step would be to visit your doctor for a prescription. As is my usual recommendation, begin with the lowest priced medication.
+                    p For insomnia treatment, I would recommend trazodone first. Trazodone represents approximately 40% of all insomnia prescriptions. It is very cheap at less than $10 a month. If that is ineffective, go with temazepam. It is also very popular and cheap. It is, however, a controlled substance which means there is a possibility of addiction.
+
+
+                .photo-gallery-container
+                  h2 Foto galerija
+                  .photo-gallery
+                    img(src="http://placehold.it/220x150")
+                    img(src="http://placehold.it/220x150")
+                    img(src="http://placehold.it/220x150")
+                    img(src="http://placehold.it/220x150")
+                    img(src="http://placehold.it/220x150")
+                    img(src="http://placehold.it/220x150")
+
+                .related-articles-container
+                  h2.ui.header.left.decored Tevi varētu interesēt
+                  .ui.grid.related-articles
+                    .sixteen.wide.mobile.eight.wide.computer.column
+                      .image-container
+                        img(src="http://placehold.it/380x260")
+                        time
+                          span 12
+                          |  Okt
+                      h3.ui.header
+                        a(href="#") A.Medical kļūst par oficiālo “Toshiba Medical systems corporation” pārstāvi Latvijā.
+                      p Kļūstot par oficiālo pārstāvi Latvijā, “A.Medical” nodrošinās slimnīcas un veselības aprūpes iestādes ar augstas kvalitātes medicīnas
+                        | iekārtām radioloģijas jomā. Esam patiesi lepni par sadarbību, kas mums sniedz iespēju…
+                      a.ui.basic.button Lasīt vairāk
+                    .sixteen.wide.mobile.eight.wide.computer.column
+                      .image-container
+                        img(src="http://placehold.it/380x260")
+                        time
+                          span 08
+                          |  Okt
+                      h3.ui.header
+                        a(href="#") A.Medical piedalījusies Mobilā diagnostikas kompleksa izveidē
+                      p Kļūstot par oficiālo pārstāvi Latvijā, “A.Medical” nodrošinās slimnīcas un veselības aprūpes iestādes ar augstas kvalitātes medicīnas iekārtām
+                        | radioloģijas jomā. Esam patiesi lepni par sadarbību, kas mums sniedz iespēju…
+                      a.ui.basic.button Lasīt vairāk
+
+
+              .sixteen.wide.mobile.sixteen.wide.tablet.five.wide.computer.column#news-sidebar
+                .news-sidebar
+                  h3.ui.header Jaunumu kategorijas
+                  ul.simple-list
+                    li.current
+                      a(href="") Produktu jaunumi
+                    li
+                      a(href="") Uzņēmuma ziņas
+                    li
+                      a(href="") Partneru jaunumi
+
+
+                  h3.ui.header Bloga kategorijas
+                  ul.simple-list
+                    li.current
+                      a(href="") Produktu apskati
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+                    li
+                      a(href="") Kategorija
+
+                  h3.ui.header Populāri produkti
+                    a(href="").popular-product
+                      img(src="http://placehold.it/240x160")
+                      p Ultrasonogrāfijas iekārta <br> Siemens ACUSON X300
+                    a(href="").popular-product
+                      img(src="http://placehold.it/240x160")
+                      p Ultrasonogrāfijas iekārta <br> Siemens ACUSON X300
+
+
+
+    //- section.secondary-services
+    //-     div.ui.container
+    //-         h2.ui.header.centered.decored Plašs aprīkojums
+    //-         div.ui.stackable.grid
+    //-             div.center.aligned.ten.wide.centered.column
+    //-                 p Māsu izsaukuma sistēmām, medicīnas gāzes sistēmām, sterilizācijas iekārtām, gaisa attīrīšanas risinājumiem,
+    //-                     | vizuālo diagnostiku (US, RTG, CR, DR, CT, MRI), iekārtām onkoloģijai, dezinfekcijai, dermatoloģijai,
+    //-                     | funkcionālai diagnostikai, LOR, stomatoloģijai, uroloģijai,  u.c.
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+    //-             div.three.column.row
+    //-                 img(src="img/projects/1.jpg").ui.image.column
+    //-                 img(src="img/projects/2.jpg").ui.image.column
+    //-                 img(src="img/projects/3.jpg").ui.image.column
+
+
+
+    include sections/subscribe
