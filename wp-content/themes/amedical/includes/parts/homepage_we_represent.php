@@ -24,7 +24,7 @@
                 }
                 ?>
         </ul>
-        <?php if(get_field('we_represent_link')) : ?>
+        <?php if(get_field('we_represent_link') && get_field('we_represent_cta')): ?>
             <div class="center aligned row">
                 <a id="we-represent-button" class="ui primary button" href="<?php the_field('we_represent_link'); ?>">
                     <?php the_field('we_represent_cta'); ?>
