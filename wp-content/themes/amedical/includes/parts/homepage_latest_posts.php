@@ -33,13 +33,15 @@ if ( $the_query->have_posts() ) : ?>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-        <div class="aligned center view-all">
-            <?php $news_page_id = get_option('page_for_posts'); ?>
-            <a id="all-news" class="ui primary button" href="<?php the_permalink($news_page_id); ?>">
-                <?php the_field('articles_btn_text'); ?>
-                <i class="long right arrow icon"></i>
-            </a>
-        </div>
+        <?php $news_page_id = get_option('page_for_posts'); ?>
+        <?php if ($news_page_id && get_field('articles_btn_text')): ?>
+            <div class="aligned center view-all">
+                <a id="all-news" class="ui primary button" href="<?php the_permalink($news_page_id); ?>">
+                    <?php the_field('articles_btn_text'); ?>
+                    <i class="long right arrow icon"></i>
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 <?php endif; ?>
