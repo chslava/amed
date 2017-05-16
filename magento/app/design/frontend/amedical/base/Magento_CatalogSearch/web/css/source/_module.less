@@ -226,7 +226,7 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .block-search {
         position: absolute;
-        right: 85px;
+        right: 77px;
         top: 40px;
         width: 220px;
         z-index: 4;
@@ -236,10 +236,20 @@
         }
 
         input {
+            font-size: @font-size__s;
             margin: 0;
             position: static;
             height: 50px;
             opacity: 1;
+            padding-right: 38px;
+            padding-left: 15px;
+
+            &:focus {
+                .lib-input-placeholder(
+                @_input-placeholder-color: #e8e8e8,
+                @_input-placeholder-font-weight: @form-element-input__font-weight
+                );
+            }
         }
 
         .control {
@@ -252,18 +262,26 @@
             .lib-button-icon(
                 @_icon-font-content: @icon-search,
                 @_icon-font: @icon-font-main,
-                @_icon-font-size: 14px,
+                @_icon-font-size: 15px,
                 @_icon-font-text-hide: true,
                 @_icon-font-color: @icon-search__color,
-                @_icon-font-color-hover: @header-icons-color-hover,
-                @_icon-font-line-height: 42px
+                @_icon-font-color-hover: @icon-search__color,
+                @_icon-font-color-active: @icon-search__color,
+                @_icon-font-line-height: 50px
             );
+
             .lib-button-reset();
+
             position: absolute;
             right: 0;
-            top: 5px;
+            top: 0;
             z-index: 1;
-            width: 30px;
+            height: 50px;
+            width: 38px;
+
+            &:before {
+                width: 100%;
+            }
 
             &:focus {
                 &:before {
@@ -295,15 +313,16 @@
 
         input {
             opacity: 1;
-            padding-right: 35px;
             position: static;
             height: (@header-panel_height - @header-panel_padding-bottom - @header-panel_padding-top);
             width: 100%;
         }
 
-        .action {
-            &.search::before {
-                line-height: 30px;
+        .action.search {
+            height: 43px;
+
+            &::before {
+                line-height: 43px;
             }
         }
     }
