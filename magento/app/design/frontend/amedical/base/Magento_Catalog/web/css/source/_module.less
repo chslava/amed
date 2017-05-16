@@ -201,7 +201,29 @@
 
     .product.info.detailed {
         clear: both;
+        position: relative;
+        margin-top: 46px;
         margin-bottom: 30px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 78px;
+            border-top: 2px solid #ff6b01;
+        }
+
+        .data.item {
+            &.title {
+                h2 {
+                    font-size: 20px;
+                    font-weight: @font-weight__bold;
+                    margin-bottom: 12px;
+                }
+            }
+        }
     }
 
     .product-info-main {
@@ -570,16 +592,6 @@
                     @_link-text-decoration-active: none
                 );
             }
-        }
-
-        .info-block {
-            color: @amedical-text_color;
-            font-size: @font-size__s;
-            padding: 13px 18px;
-            margin-top: 30px;
-            min-height: 50px;
-            border: 1px solid @border-color__base;
-            vertical-align: middle;
         }
     }
 

@@ -27,6 +27,17 @@
                 </block>
             </container>
         </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.usability" template="product/view/attribute.phtml" group="detailed_info" after="product.info.description">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getUsability</argument>
+                    <argument name="at_code" xsi:type="string">usability</argument>
+                    <argument name="css_class" xsi:type="string">description</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Usability</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
 
         <move element="page.main.title" destination="product.info.top" before="-"/>
         <move element="product.info.stock.sku" destination="product.info.top" after="page.main.title"/>

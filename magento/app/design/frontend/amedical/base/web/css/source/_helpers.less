@@ -1,0 +1,57 @@
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.info-block {
+  color: @amedical-text_color;
+  font-size: @font-size__s;
+  padding: 10px;
+  vertical-align: middle;
+  overflow: hidden;
+
+  * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.bordered {
+  border: 1px solid @border-color__base;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.list-style-square {
+  list-style-type: none;
+
+  > li {
+    position: relative;
+    margin-bottom: 20px;
+
+    &:before {
+      content: "";
+      display: block;
+      line-height: inherit;
+      height: 13px;
+      width: 13px;
+      background-color: @amedical-brand-color;
+      position: absolute;
+      left: -20px;
+      top: 4px;
+    }
+  }
+}
