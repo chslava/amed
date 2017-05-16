@@ -47,15 +47,22 @@
                 }
 
                 display: block;
+                text-align: center;
             }
         }
 
         input {
             color: @color-white;
-            padding-left: 35px;
+            //padding-left: 35px;
             height: 42px;
+            max-width: 270px;
             border: 0;
             background-color: rgba(255,255,255,0.3);
+
+            .lib-input-placeholder(
+            @_input-placeholder-color: @color-white,
+            @_input-placeholder-font-weight: @form-element-input__font-weight
+            );
         }
 
         .title {

@@ -62,30 +62,32 @@
     }
 
     .icon-facebook{
-        .lib-icon-image(
-        '@{baseDir}images/facebook-icon.png',
-        @_icon-image-width: @social-icon_width,
-        @_icon-image-height: @social-icon_height,
-        @_icon-image-margin: 0 8px 0 0,
-        @_icon-image-vertical-align: @icon__vertical-align,
-        @_icon-image-position-x: @icon-image__position-x,
-        @_icon-image-position-y: @icon-image__position-y,
-        @_icon-image-position: before,
-        @_icon-image-text-hide: @icon__text-hide
-        )
+        .lib-icon-font(
+            @_icon-font: @icon-font-second,
+            @_icon-font-content: @icon-facebook,
+            @_icon-font-color: @footer-icon-font-social_color,
+            @_icon-font-color-hover: @amedical-brand-color,
+            @_icon-font-size: 30px,
+            @_icon-font-position: before
+        );
+
+        &:before {
+            overflow: visible;
+        }
     }
 
     .icon-linkedin{
-        .lib-icon-image(
-        '@{baseDir}images/linkedin-icon.png',
-        @_icon-image-width: @social-icon_width,
-        @_icon-image-height: @social-icon_height,
-        @_icon-image-margin: 0 8px 0 0,
-        @_icon-image-vertical-align: @icon__vertical-align,
-        @_icon-image-position-x: @icon-image__position-x,
-        @_icon-image-position-y: @icon-image__position-y,
-        @_icon-image-position: before,
-        @_icon-image-text-hide: @icon__text-hide
-        )
+        .lib-icon-font(
+            @_icon-font: @icon-font-second,
+            @_icon-font-content: @icon-linkedin,
+            @_icon-font-color: @footer-icon-font-social_color,
+            @_icon-font-color-hover: @amedical-brand-color,
+            @_icon-font-size: 30px,
+            @_icon-font-position: before
+        );
+
+        &:before {
+            overflow: visible;
+        }
     }
 }
