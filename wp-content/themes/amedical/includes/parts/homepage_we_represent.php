@@ -13,11 +13,20 @@
                 if ( $represent_q->have_posts() ) {
                     while ( $represent_q->have_posts() ) :
                         $represent_q->the_post();
-                            $partner_logo = get_field('partner_logo');
-                            ?>
-                            <li>
-                                <img src="<?php echo $partner_logo['sizes']['brand-logo']; ?>">
-                            </li>
+                            $partner_logo = get_field('partner_logo'); ?>
+                            
+                            <?php if ($partner_logo): ?>
+                                <li>
+                                    <img src="<?php echo $partner_logo['sizes']['brand-logo']; ?>">
+                                </li>
+                            <?php else: ?>
+                                <?php if (has_post_thumbnail()): ?>
+                                    <li>
+                                        <?php the_post_thumbnail("brand-logo") ?>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            
                             <?php
                     endwhile;
                     wp_reset_postdata();
