@@ -2566,6 +2566,49 @@ main .ui.breadcrumb .section {
   }
 }
 
+#searchform input[type="text"] {
+  font-size: 1em;
+  padding: 10px;
+  height: 35px;
+  width: 100%;
+  background: #f7f7f7;
+  border: 1px solid #d8d8d8;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+#searchsubmit {
+  border: 2px solid #ff6b01;
+  color: #636463;
+  font-weight: 700;
+  box-shadow: none;
+  height: 35px;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 10px;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: transparent;
+  padding: 5px 15px;
+  outline: none;
+}
+
+#searchsubmit:hover,
+#searchsubmit:focus,
+#searchsubmit:active {
+  background: #ff6b01 !important;
+  color: #FFF !important;
+  box-shadow: 0 6px 10px rgba(64, 64, 64, 0.15);
+}
+
+.news-sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.news-sidebar ul li {
+  margin-bottom: 5px;
+}
+
 /* Views */
 
 header {
@@ -3663,6 +3706,7 @@ section.slider .ui.container.grid > .column {
   margin-top: -33px;
   text-align: center;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
 }
 
@@ -3703,6 +3747,7 @@ section.slider .ui.container.grid > .column {
     margin-top: 0;
     text-align: left;
     -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
   }
 
@@ -17703,7 +17748,6 @@ img.ui.shadowed.image {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -19224,6 +19268,7 @@ img.ui.shadowed.image {
   flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 
@@ -19284,6 +19329,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19296,6 +19342,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -19314,6 +19361,7 @@ img.ui.shadowed.image {
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+  -ms-grid-row-align: inherit;
   align-self: inherit;
 }
 
@@ -20960,6 +21008,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .item {
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   box-shadow: none;
   border: none;
@@ -21239,6 +21288,7 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   margin: 0em 0em;
   padding: 0.33333333em 0.46666667em;
