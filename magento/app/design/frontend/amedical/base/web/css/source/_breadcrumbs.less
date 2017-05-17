@@ -10,15 +10,16 @@
 & when (@media-common = true) {
     .breadcrumbs {
         .lib-breadcrumbs();
+        display: none;
     }
 }
 
 //
-//  Mobile
+//  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .breadcrumbs {
-        display: none;
+        display: block;
     }
 }

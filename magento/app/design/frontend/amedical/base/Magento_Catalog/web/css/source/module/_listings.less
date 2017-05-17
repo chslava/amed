@@ -284,10 +284,12 @@
 
                     .action {
                         font-size: 0;
-                        background-image: url("@{baseDir}images/eye.svg");
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: 34px;
+
+                        > a {
+                            display: inline-block;
+                            height: 100%;
+                            width: 100%;
+                        }
                     }
                 }
             }
@@ -347,6 +349,28 @@
             }
 
             &-view .action {
+                .lib-icon-font(
+                    @_icon-font: @icon-font-second,
+                    @_icon-font-content: @icon-eye,
+                    @_icon-font-color: @color-white,
+                    @_icon-font-color-hover: @color-white,
+                    @_icon-font-color-active: @color-white,
+                    @_icon-font-size: 25px,
+                    @_icon-font-line-height: 31px,
+                    @_icon-font-position: before
+                );
+
+                &:before {
+                    position: absolute;
+                    pointer-events: none;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+
+                position: relative;
+                padding: 0;
                 width: 50px;
             }
         }

@@ -63,28 +63,51 @@
 
         &-current {
             margin: 0;
+            border-right: 1px solid @border-color__base;
+            border-left: 1px solid @border-color__base;
 
             .items {
                 padding: @indent__xs @indent__s;
             }
 
             .item {
-                padding-left: 17px;
+                padding-left: 37px;
+                padding-top: 5px;
                 position: relative;
                 z-index: 1;
             }
 
             .filter &-subtitle {
+                color: @amedical-text_color;
                 border: none;
                 display: block;
                 padding-bottom: @indent__s;
+                padding-left: 0;
             }
 
             .action.remove {
-                &:extend(.abs-remove-button-for-blocks all);
+                .lib-icon-font(
+                @icon-check-thin,
+                @_icon-font: @icon-font-second,
+                @_icon-font-size: 10px,
+                @_icon-font-line-height: 19px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @amedical-text_color,
+                @_icon-font-color-hover: @color-gray-darken4,
+                @_icon-font-color-active: @amedical-text_color
+                );
+
+                &:before {
+                    border: 1px solid @border-color__base;
+                    background-color: @form-element-input__background;
+                    font-weight: @font-weight__bold;
+                    height: 22px;
+                    width: 22px;
+                }
+
                 left: -2px;
                 position: absolute;
-                top: -1px;
+                top: 4px;
             }
         }
 
@@ -127,6 +150,14 @@
             &-item {
                 border-bottom: @border-width__base solid @border-color__base;
                 padding-bottom: @indent__s;
+
+                &.ui-state-active {
+                    border-bottom: none;
+
+                    & + .filter-options-content {
+                        border-bottom: @border-width__base solid @border-color__base;
+                    }
+                }
 
                 .filter-options-title:after {
                     top: 10px;
@@ -219,10 +250,10 @@
 }
 
 //
-//  Mobile
+//  Mobile Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+@media only screen and  (max-width: (@screen__l - 1)) {
     body {
         &.filter-active {
             .page-header {
@@ -416,8 +447,15 @@
 
     .catalog-nav-mobile {
         border-bottom: 1px solid @border-color__base;
-        margin-top: 13px;
+        border-top: 1px solid @border-color__base;
+        padding-top: 13px;
         margin-bottom: 13px;
+
+        .filter {
+            &.block {
+                margin-bottom: 0;
+            }
+        }
 
         .filter-options-content {
             padding-right: 0;
@@ -445,14 +483,16 @@
 
         .attributes {
             & + .filter-options-content {
-                &, > .filter-options-content {
-                    padding-left: 25px;
-                }
+                text-indent: 25px;
+                padding-left: 0;
 
                 > div.filter-options-item:nth-last-child(2) {
                     border-bottom: 0;
                 }
 
+                .filter-options-content {
+                    padding-left: 50px;
+                }
             }
 
             .filter-options-title {
@@ -478,7 +518,24 @@
     }
 }
 
+//
+//  Tablet
+//  _____________________________________________
+
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .catalog-nav-mobile {
+        .filter-wrapper {
+            border-left: 1px solid @border-color__base;
+            border-right: 1px solid @border-color__base;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
 
     .lib-filter-title() {
         font-size: 22px;
@@ -512,7 +569,6 @@
         &-options {
             background: transparent;
             clear: both;
-            display: block;
             overflow: initial;
             position: static;
 
@@ -577,11 +633,11 @@
 
         .filter-options {
             &-content {
-                padding: 0 0 0 25px;
+                padding: 0;
 
                 .item {
                     margin: 0;
-                    padding: 20px 0;
+                    padding: 20px 0 20px @indent__m;
                     border-bottom: @border-width__base solid @border-color__base;
                 }
             }
@@ -732,6 +788,22 @@
                     margin-top: @indent__m;
                 }
             }
+        }
+    }
+}
+
+//
+//  Desktop large
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .filter {
+        &-options {
+            display: block;
+        }
+
+        &-current {
+            border: none;
         }
     }
 }
