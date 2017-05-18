@@ -217,7 +217,9 @@
                     &:hover {
                         text-decoration: none;
                     }
+                }
 
+                .attribute-name {
                     &:before {
                         content: "";
                         position: absolute;
@@ -521,7 +523,7 @@
             & + .filter-options-content {
                 padding-left: 35px;
 
-                a {
+                .attribute-name {
                     &:before {
                         content: none;
                     }
@@ -639,6 +641,12 @@
                     font-size: @font-size__s;
                     color: @amedical-text_color;
                 }
+
+                .attribute-name {
+                    &:before {
+                        left: -37px;
+                    }
+                }
             }
         }
 
@@ -656,6 +664,12 @@
         .filter-options {
             &-content {
                 padding: 0;
+
+                .attribute-name {
+                    &:before {
+                        content: none;
+                    }
+                }
 
                 .item {
                     margin: 0;
