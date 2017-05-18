@@ -40,15 +40,14 @@ get_header(); ?>
 							<div class="four column row">
 							<?php
 								while ( $partners_q->have_posts() ) :
-									$partners_q->the_post();
-									$logo = get_field('partner_logo');
-							?>
+									$partners_q->the_post(); ?>
 								<div class="partner-container ui eight wide tablet four wide computer column">
 									<div class="partner">
-										<?php if($logo) : ?>
-											<img src="<?php echo $logo['sizes']['brand-logo']; ?>">
+									
+										<?php if (has_post_thumbnail()): ?>
+											<?php the_post_thumbnail("brand-logo") ?>
+										<?php endif; ?>
 										<?php
-											endif;
 											// the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
 											// the_field('partner_description_text');
 											if( get_field('link_to_partner_shop_category') ) :
