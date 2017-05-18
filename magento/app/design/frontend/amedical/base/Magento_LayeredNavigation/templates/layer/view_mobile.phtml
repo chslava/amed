@@ -73,7 +73,9 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                 </script>
             <?php endif; ?>
             </div>
-        </div>
+        <?php if ($wrapOuter): ?>
+            </div>
+        <?php endif; ?>
     </div>
     <script>
         require([
