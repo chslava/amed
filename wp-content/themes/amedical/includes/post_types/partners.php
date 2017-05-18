@@ -22,7 +22,7 @@ function create_partners() {
     'menu_position' => 7,
     'menu_icon' => 'dashicons-businessman',
     //'menu_icon' => get_template_directory_uri().'/assets/img/admin-icons/'.$id.'-white.png',
-    'supports' => array('title'),
+    'supports' => array('title','thumbnail'),
   );
   register_post_type($id,$award_args);
 
