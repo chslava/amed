@@ -718,8 +718,6 @@
     }
 
     .product-info-price {
-        //margin: 0 -@indent__s 0;
-        //width: ~'calc(100% + 2*@{indent__s})' !important;
 
         > *:first-child {
             padding-left: @indent__s;
@@ -743,7 +741,11 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 
-
+    .catalog-category-view {
+        .page-title {
+            margin-left: 0;
+        }
+    }
 
     .category {
         &-description {
@@ -872,6 +874,16 @@
                 &-actions {
                     clear: left;
                 }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .catalog-category-view {
+        .page-main {
+            .columns {
+                padding-top: 0;
             }
         }
     }
