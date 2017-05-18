@@ -204,6 +204,7 @@
                 .item {
                     line-height: 1.5em;
                     margin: 25px 0;
+                    position: relative;
                 }
 
                 a {
@@ -215,6 +216,18 @@
 
                     &:hover {
                         text-decoration: none;
+                    }
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        border: 1px solid @border-color__base;
+                        background-color: @form-element-input__background;
+                        font-weight: @font-weight__bold;
+                        height: 22px;
+                        width: 22px;
+                        left: -15px;
+                        top: 0;
                     }
                 }
 
@@ -357,7 +370,7 @@
         }
 
         &-options-content {
-            padding: @indent__xs @indent__s;
+            padding: 0 @indent__s;
         }
     }
 
@@ -497,15 +510,22 @@
             }
 
             .filter-options-title {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: baseline;
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-direction(row);
+                .lib-vendor-prefix-flex-wrap(nowrap);
+                .lib-vendor-box-align(baseline);
             }
         }
 
         .categories {
             & + .filter-options-content {
                 padding-left: 35px;
+
+                a {
+                    &:before {
+                        content: none;
+                    }
+                }
             }
         }
 
@@ -593,9 +613,10 @@
                 &.attributes-title {
                     .lib-filter-title();
 
-                    display: flex;
-                    flex-flow: row nowrap;
-                    align-items: baseline;
+                    .lib-vendor-prefix-display(flex);
+                    .lib-vendor-prefix-flex-direction(row);
+                    .lib-vendor-prefix-flex-wrap(nowrap);
+                    .lib-vendor-box-align(baseline);
 
                     & ~ .filter-options-item {
                         padding: 0;
