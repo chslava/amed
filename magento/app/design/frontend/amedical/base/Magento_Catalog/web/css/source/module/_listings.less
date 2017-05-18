@@ -333,6 +333,16 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .products-grid {
+        .product-image-container {
+            width: 100% !important;
+        }
+
+        .product-image-photo {
+            width: 100%;
+        }
+    }
+
     .products-list .product {
         &-item {
             table-layout: fixed;
@@ -378,8 +388,6 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
-    .column.main {
-    }
     .products-grid {
         .product-items {
             display: flex;
