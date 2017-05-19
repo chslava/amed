@@ -144,8 +144,12 @@
         margin-right: @indent__base;
         margin-left: 25px;
         padding: 7px 0;
+    }
 
-        .products.wrapper ~ .toolbar-products & {
+    .products.wrapper ~ .toolbar-products {
+        border-top: none;
+
+        .modes {
             display: none;
         }
     }
@@ -279,10 +283,6 @@
         float: left;
         margin-right: @indent__base;
         margin-left: 0;
-
-        .products.wrapper ~ .toolbar & {
-            display: none;
-        }
     }
 
     .modes-label {
