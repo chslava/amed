@@ -10,24 +10,17 @@
                     'posts_per_page' => -1
                 );
                 $represent_q= new WP_Query( $represent_params );
-                if ( $represent_q->have_posts() ) {
+                if ( $represent_q->have_posts() ) :
                     while ( $represent_q->have_posts() ) :
                         $represent_q->the_post();
-                         ?>
-                            
-                          
-                                <?php if (has_post_thumbnail()): ?>
-                                    <li>
-                                        <?php the_post_thumbnail("brand-logo") ?>
-                                    </li>
-                                <?php endif; ?>
-                        
-                            
-                            <?php
+                            if ( has_post_thumbnail() && get_field('show_on_homepage') ): ?>
+                                <li>
+                                    <?php the_post_thumbnail(); ?>
+                                </li>
+                            <?php endif; 
                     endwhile;
                     wp_reset_postdata();
-                }
-                ?>
+                endif; ?>
         </ul>
         <?php if(get_field('we_represent_link') && get_field('we_represent_cta')): ?>
             <div class="center aligned row">
