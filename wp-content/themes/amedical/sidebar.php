@@ -4,6 +4,10 @@
  * @package amedical
  * @author Eugene Kudriashov
  */
+
+if ( !is_active_sidebar( 'main-sidebar' ) && !is_page_template('page-faq.php') ) {
+	return;
+}
 ?>
 <div class="sixteen wide mobile sixteen wide tablet five wide computer column" id="news-sidebar">
 	<div class="news-sidebar">
