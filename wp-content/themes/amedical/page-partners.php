@@ -41,30 +41,34 @@ get_header(); ?>
 							<?php
 								while ( $partners_q->have_posts() ) :
 									$partners_q->the_post(); ?>
-								<div class="partner-container ui eight wide tablet four wide computer column">
-									<div class="partner">
-									
-										<?php if (has_post_thumbnail()): ?>
-											<?php the_post_thumbnail("brand-logo") ?>
-										<?php endif; ?>
-										<?php
-											// the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
-											// the_field('partner_description_text');
-											if( get_field('link_to_partner_shop_category') ) :
-										?>
-											<a class="ui basic button wider" href="<?php the_field('link_to_partner_shop_category'); ?>">
-												<?php esc_html_e( 'View products', 'dswp' ); ?>
-											</a>
-										<?php
-											endif;
-											if( get_field('link_to_partner_site') ) :
-										?>
-											<a class="read-more-link" href="<?php the_field('link_to_partner_site'); ?>" target="_blank">
-												<?php esc_html_e( 'View partner website', 'dswp' ); ?><i class="long right arrow icon"></i>
-											</a>
-										<?php endif; ?>
+								
+								<?php if( get_field('show_on_partners_page') ): ?>
+									<div class="partner-container ui eight wide tablet four wide computer column">
+										<div class="partner">
+										
+											<?php if (has_post_thumbnail()): ?>
+												<?php the_post_thumbnail(); ?>
+											<?php endif; ?>
+											<?php
+												// the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
+												// the_field('partner_description_text');
+												if( get_field('link_to_partner_shop_category') ) :
+											?>
+												<a class="ui basic button wider" href="<?php the_field('link_to_partner_shop_category'); ?>">
+													<?php esc_html_e( 'View products', 'dswp' ); ?>
+												</a>
+											<?php
+												endif;
+												if( get_field('link_to_partner_site') ) :
+											?>
+												<a class="read-more-link" href="<?php the_field('link_to_partner_site'); ?>" target="_blank">
+													<?php esc_html_e( 'View partner website', 'dswp' ); ?><i class="long right arrow icon"></i>
+												</a>
+											<?php endif; ?>
+										</div>
 									</div>
-								</div>
+								<?php endif; ?>
+								
 							<?php
 								$partners_counter++;
 								if ($partners_counter % 4 == 0) {
