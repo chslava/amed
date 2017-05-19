@@ -37,6 +37,7 @@
 
 .list-style-square {
   list-style-type: none;
+  padding-left: 10px;
 
   > li {
     position: relative;
@@ -53,5 +54,35 @@
       left: -20px;
       top: 4px;
     }
+  }
+}
+
+@media only screen and (min-width: @screen__l) {
+  .hide-desktop {
+    display: none !important;
+  }
+
+  .show-desktop {
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (min-width: @screen__m) and (max-width: @screen__l) {
+  .hide-tablet {
+    display: none !important;
+  }
+
+  .show-tablet {
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (max-width: @screen__m) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: inline-block !important;
   }
 }

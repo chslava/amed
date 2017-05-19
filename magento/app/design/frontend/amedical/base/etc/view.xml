@@ -21,11 +21,11 @@
                 <height>165</height>
             </image>
             <image id="category_page_grid" type="small_image">
-                <width>230</width>
+                <width>210</width>
                 <height>250</height>
             </image>
             <image id="category_page_grid-1" type="small_image">
-                <width>230</width>
+                <width>210</width>
                 <height>250</height>
             </image>
             <image id="category_page_list" type="small_image">
@@ -237,7 +237,7 @@
         <var name="breakpoints">
             <var name="mobile">
                 <var name="conditions">
-                    <var name="max-width">767px</var>
+                    <var name="max-width">1024px</var>
                 </var>
                 <var name="options">
                     <var name="options">

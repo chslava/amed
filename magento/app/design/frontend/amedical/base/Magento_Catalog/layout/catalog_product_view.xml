@@ -19,7 +19,7 @@
         </referenceContainer>
         <referenceContainer name="product.info.main">
             <container name="product.info.enquiry.container" htmlTag="div" htmlClass="product-info-enquiry" after="-">
-                <block class="Magento\Framework\View\Element\Template" name="product.info.enquiry" template="Magento_Catalog::product/view/enquiry.phtml" />
+                <!--<block class="Magento\Framework\View\Element\Template" name="product.info.enquiry" template="Magento_Catalog::product/view/enquiry.phtml" />-->
                 <block class="Magento\Cms\Block\Block" name="header.top.links" after="product.info.enquiry">
                     <arguments>
                         <argument name="block_id" xsi:type="string">product_view_info_bottom</argument>

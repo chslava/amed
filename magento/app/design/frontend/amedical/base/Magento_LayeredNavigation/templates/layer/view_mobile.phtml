@@ -36,8 +36,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                             <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
                         </div>
                         <div data-role="content" class="filter-options-content" id="categories-list-filter">
-                            <label for="categories-tree-search"><?php echo __('Type category name to filter list') ?></label>
-                            <input type="text" id="categories-tree-search" class="categories-tree-search input-text" placeholder="Category name" />
                             <?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?>
                         </div>
                             <?php  $wrapOuter = true; ?>
@@ -75,7 +73,9 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                 </script>
             <?php endif; ?>
             </div>
-        </div>
+        <?php if ($wrapOuter): ?>
+            </div>
+        <?php endif; ?>
     </div>
     <script>
         require([
@@ -84,13 +84,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
         ], function ($) {
             $('.filter-accordion').accordion({"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false, "heightStyle":"content"});
             $( document ).ready(function() {
-                var options = {
-                    valueNames: [ 'attribute-name' ],
-                    searchClass: 'categories-tree-search',
-                    listClass: 'items'
-                };
-                var categoriesList = new List('categories-list-filter', options);
-
                 $("#filter-clear-all").on("click", function(event) {
                     var href = $(this).attr("href");
                     $(window).attr('location', href)

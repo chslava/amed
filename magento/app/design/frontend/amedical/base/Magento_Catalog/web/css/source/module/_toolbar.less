@@ -9,7 +9,7 @@
 
 @toolbar-mode-icon-font-size: 22px;
 @toolbar-background: transparent;
-@toolbar-element-background: @color-gray94;
+@toolbar-element-background: @form-element-input__background;
 @pager-action__background: @toolbar-element-background;
 @pager-action__hover__background: darken(@toolbar-element-background, 7%);
 @pager__font-weight: @font-weight__bold;
@@ -131,13 +131,17 @@
     }
 
     .modes {
-        display: inline-block;
+        display: none;
         float: left;
         margin-right: @indent__base;
         margin-left: 25px;
         padding: 7px 0;
+    }
 
-        .products.wrapper ~ .toolbar-products & {
+    .products.wrapper ~ .toolbar-products {
+        border-top: none;
+
+        .modes {
             display: none;
         }
     }
@@ -174,7 +178,7 @@
     }
 
     .mode-list {
-        margin-left: 18px;
+        margin-left: 30px;
 
         &:before {
             content: @icon-list;
@@ -190,7 +194,7 @@
             width: 110px;
             z-index: 1;
             margin-left: @indent__m;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
 
             &:after {
                 content: "";
@@ -227,16 +231,21 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-    .toolbar-products {
-        margin-bottom: 0;
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .toolbar {
+        &-products {
+            margin-bottom: 0;
+        }
+
+        &-amount {
+            padding-left: @indent__m;
+        }
     }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-products {
         .columns {
-            padding-top: 0;
             position: relative;
             z-index: 1;
         }
@@ -267,10 +276,6 @@
         float: left;
         margin-right: @indent__base;
         margin-left: 0;
-
-        .products.wrapper ~ .toolbar & {
-            display: none;
-        }
     }
 
     .modes-label {
@@ -313,6 +318,16 @@
 
         .label {
             .toolbar-select-label();
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .toolbar {
+        &-products {
+            margin-top: 0;
+            padding-top: 15px;
+            border-top: 1px solid @border-color__base;
         }
     }
 }
