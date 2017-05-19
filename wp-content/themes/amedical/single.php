@@ -23,13 +23,7 @@ get_header();
                             <span>
                                 <?php
                                     esc_html_e( 'Date: ', 'dswp' );
-                                    echo get_the_date( 'd. F, Y' );
-                                ?>
-                            </span>
-                            <span>
-                                <?php
-                                    esc_html_e( 'Author: ', 'dswp' );
-                                    echo get_the_author();
+                                    echo get_the_date( 'd.m.Y' );
                                 ?>
                             </span>
                             <?php
