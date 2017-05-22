@@ -52,6 +52,11 @@
                     id="product-addtocart-button">
                 <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
             </button>
+            <button class="action enquiry">
+                <a href="<?php echo $block->getBaseUrl() . 'contactus' ?>" >
+                    <?php echo __('Contact Us') ?>
+                </a>
+            </button>
             <?php echo $block->getChildHtml('', true) ?>
         </div>
     </div>

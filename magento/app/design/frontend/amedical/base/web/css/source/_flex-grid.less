@@ -1,0 +1,60 @@
+@cols: 12;
+@container-width: 100%;
+
+.generateResponsiveCols(@counter, @breakpoint) when (@counter > 0) {
+  @width: (@counter / @cols ) * 100;
+
+  .col-@{breakpoint}-@{counter} {
+    flex-basis: ~"@{width}%";
+    max-width: ~"@{width}%";
+  }
+
+  .col-offset-@{breakpoint}-@{counter} {
+    margin-left: ~"@{width}%";
+  }
+  .generateResponsiveCols((@counter - 1), @breakpoint);
+}
+
+.flex-container {
+  width: @container-width;
+  display: block;
+  margin: auto;
+
+  .row {
+    .lib-vendor-prefix-flex-direction(row);
+
+    &.reverse {
+      .lib-vendor-prefix-flex-direction(row-reverse);
+    }
+  }
+
+  .col {
+    .lib-vendor-prefix-flex-direction(column);
+
+    &.reverse {
+      .lib-vendor-prefix-flex-direction(column-reverse);
+    }
+  }
+
+  .row,
+  .col {
+    box-sizing: border-box;
+    .lib-vendor-prefix-display(flex);
+    .lib-vendor-prefix-flex-grow(0);
+    .lib-vendor-prefix-flex-shrink(1);
+    .lib-vendor-prefix-flex-basis(auto);
+    .lib-vendor-prefix-flex-wrap(wrap);
+
+    @media only screen and (max-width: @screen__l) {
+      .generateResponsiveCols(@cols, l);
+    }
+
+    @media only screen and (max-width: @screen__m) {
+      .generateResponsiveCols(@cols, m);
+    }
+
+    @media only screen and (max-width: @screen__xs) {
+      .generateResponsiveCols(@cols, s);
+    }
+  }
+}

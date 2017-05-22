@@ -10,7 +10,7 @@
 & when (@media-common = true) {
     .product.data.items {
         .lib-data-accordion();
-        border-bottom: @tab-control__border-width solid @tab-control__border-color;
+        //border-bottom: @tab-control__border-width solid @tab-control__border-color;
         margin-bottom: @indent__base;
         margin-left: -@layout__width-xs-indent;
         margin-right: -@layout__width-xs-indent;
@@ -72,6 +72,13 @@
             &:after {
                 display: none;
             }
+        }
+
+        .item.content {
+            border: none;
+            padding: @accordion-content__padding;
+            margin-left: 0;
+            margin-top: 0;
         }
     }
 }

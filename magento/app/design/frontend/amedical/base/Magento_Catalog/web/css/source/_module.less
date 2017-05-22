@@ -81,8 +81,7 @@
         }
     }
 
-    .catalog-category-view,
-    .catalog-product-view {
+    .catalog-category-view {
         .columns {
             padding-top: 50px;
             position: relative;
@@ -90,22 +89,25 @@
         }
 
         .page-title {
+            .title-top-label();
+
             &:before {
-                content: '';
-                display: block;
-                position: absolute;
                 top: -20px;
                 left: 0;
-                width: 78px;
-                border-top: 2px solid @amedical-brand-color;
             }
         }
     }
 
     .catalog-product-view {
-        .page-title {
+        padding-top: 35px;
+        position: relative;
+        z-index: 1;
+
+        .page-title:extend(.catalog-category-view .page-title all){
+            line-height: 33px;
+            margin-bottom: 8px;
             margin-left: 0;
-        }
+        };
     }
 
     //
@@ -145,6 +147,8 @@
     //  -----------------------------------------
 
     .product.media {
+        position: relative;
+
         .product.photo .photo.image {
             &:extend(.abs-adaptive-images-centered);
         }
@@ -154,9 +158,6 @@
         }
 
         .fotorama {
-            &__stage {
-                margin-bottom: 15px;
-            }
 
             &__stage__frame,
             &__nav__frame {
@@ -196,11 +197,42 @@
                 line-height: 1;
             }
         }
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: 10px;
+            left: 10px;
+            background: url("@{baseDir}images/magnify.svg");
+            z-index: 1;
+            pointer-events: none;
+        }
     }
 
     .product.info.detailed {
+        .title-top-label();
         clear: both;
+        position: relative;
+        margin-top: 46px;
         margin-bottom: 30px;
+
+        &:before {
+            top: 3px;
+            left: 0;
+        }
+
+        .data.item {
+            &.title {
+                h2 {
+                    font-size: 20px;
+                    font-weight: @font-weight__bold;
+                    margin-bottom: 12px;
+                }
+            }
+        }
     }
 
     .product-info-main {
@@ -303,6 +335,10 @@
 
             .box-tocart {
                 margin-top: @form-field__vertical-indent;
+
+                .actions {
+                    margin-top: 35px;
+                }
             }
         }
 
@@ -321,7 +357,7 @@
 
             tbody {
                 color: @amedical-text_color;
-                font-size: 12px;
+                font-size: @font-size__s;
 
                 > tr:nth-child(even) {
                     background-color: rgba(208, 208, 208, 0.22);
@@ -342,6 +378,7 @@
             &.unavailable {
                 font-weight: @font-weight__bold;
                 text-transform: uppercase;
+                display: none;
             }
         }
 
@@ -424,7 +461,6 @@
     .product-info-price .price-box {
         .lib-css(color, @product-info-price);
         display: table-cell;
-        padding-top: @indent__s;
         vertical-align: top;
 
         .old-price {
@@ -437,15 +473,6 @@
         }
 
         .price-container {
-            > span {
-                display: block;
-                margin-bottom: @indent__xs;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-
             .price {
                 font-size: 26px;
                 font-weight: @font-weight__regular;
@@ -467,28 +494,46 @@
     }
 
     .box-tocart {
-        &:extend(.abs-box-tocart all);
         .field.qty {
             width: 50%;
             float: left;
         }
 
         .input-text.qty {
+            font-size: @font-size__s;
             text-align: center;
             width: 45px;
             height: 40px;
             padding: 0;
             float: left;
             background-color: @color-white;
+
+            &:focus {
+                box-shadow: none;
+            }
         }
 
         .btn-increment {
+            .lib-icon-font(
+                @_icon-font: @icon-font-second,
+                @_icon-font-content: @icon-plus,
+                @_icon-font-size: 12px,
+                @_icon-font-line-height: @icon-font__line-height,
+                @_icon-font-color: #383838,
+                @_icon-font-color-hover: #383838,
+                @_icon-font-color-active: #383838,
+                @_icon-font-position: before,
+                @_icon-font-display: block
+            );
+
             float: left;
             width: 40px;
             height: 40px;
             border-top: 1px solid @border-color__base;
             border-bottom: 1px solid @border-color__base;
             background-color: @form-element-input__background;
+            box-shadow: none;
+            padding: 0;
 
             &.up {
                 border-right: 1px solid @border-color__base;
@@ -498,6 +543,11 @@
             &.down {
                 border-left: 1px solid @border-color__base;
                 border-right: none;
+
+                &:before {
+                    content: @icon-minus;
+                    font-size: 2px;
+                }
             }
         }
 
@@ -513,6 +563,31 @@
             }
 
             vertical-align: top;
+        }
+    }
+
+    .enquiry {
+        color: @amedical-brand-color;
+        width: 100%;
+        line-height: 2.2rem;
+        padding: 12px 17px;
+        font-size: 1.8rem;
+
+        &:hover {
+            color: @color-white;
+        }
+
+        > a {
+            .lib-link(
+                @_link-color: inherit,
+                @_link-text-decoration: none,
+                @_link-color-visited: @amedical-brand-color,
+                @_link-text-decoration-visited: none,
+                @_link-color-hover: inherit,
+                @_link-text-decoration-hover: none,
+                @_link-color-active: @amedical-brand-color,
+                @_link-text-decoration-active: none
+            );
         }
     }
 
@@ -692,16 +767,33 @@
 
         .product.media {
             .lib-vendor-prefix-order(-1);
+            margin-top: 20px;
         }
 
         .product-info-top {
             .lib-vendor-prefix-order(-2);
+
+            .attribute.overview {
+                margin-top: 18px;
+            }
         }
     }
 
     .product-info-main {
+        .box-tocart {
+            .label {
+                margin-bottom: 5px;
+            }
+        }
         .product-info-price {
             width: 50%;
+            padding-left: 15px;
+        }
+
+        .additional-attributes {
+            tbody {
+                font-size: 12px;
+            }
         }
     }
 }
@@ -718,13 +810,17 @@
     }
 
     .product-info-price {
+        .price-box {
+            width: 100%;
+            text-align: left;
+        }
 
         > *:first-child {
             padding-left: @indent__s;
         }
 
         > *:last-child {
-            padding-right: @indent__s;
+            padding-right: 0;
         }
     }
 
@@ -736,15 +832,182 @@
 }
 
 //
-//  Desktop
+//  Tablet @screen__m
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-
     .catalog-category-view {
         .page-title {
             margin-left: 0;
         }
+    }
+
+    .catalog-product-view {
+        .column.main {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(row);
+            .lib-vendor-prefix-flex-wrap(wrap);
+        }
+
+
+
+        .page-title {
+            line-height: 45px;
+            margin-bottom: 8px;
+
+            &:before {
+                width: 98px;
+            }
+        };
+    }
+
+    .product.media {
+        .lib-vendor-prefix-order(-2);
+    }
+
+    .product-info {
+        &-top {
+            .lib-vendor-prefix-order(-1);
+            padding-top: 20px;
+            margin-left: 10px;
+
+            .product {
+                &.attribute {
+                    &.overview {
+                        margin-top: 28px;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+
+        &-main {
+            .price-box {
+                padding-top: 0;
+            }
+
+            .product-options-wrapper {
+                width: 58%;
+                padding-right: 17px;
+                float: left;
+            }
+
+            .product-options-bottom {
+                width: 58%;
+                float: left;
+                clear: both;
+
+                .box-tocart {
+                    .actions {
+                        margin-top: 24px;
+                        padding-right: 15px;
+
+                        .tocart {
+                            float: left;
+                            width: 150px;
+                        }
+
+                        .enquiry {
+                            margin-top: 0;
+                            margin-left: 30px;
+                            float: left;
+                            width: 150px;
+                        }
+                    }
+
+                    .field.qty {
+                        width: 190px;
+                    }
+                }
+
+                .label {
+                    margin-bottom: 3px;
+                }
+            }
+
+            .additional-attributes {
+                tbody {
+                    border-top: 1px solid @border-color__base;
+
+                    tr {
+                        th {
+                            padding: 7px 10px 7px 20px;
+                            width: 40%;
+                        }
+
+                        td {
+                            padding: 7px 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-main &-price {
+            width: auto;
+
+            .price-including-tax + .price-excluding-tax,
+            .weee + .price-excluding-tax,
+            .weee {
+                .lib-font-size(36);
+                .price {
+                    .lib-font-size(36);
+                    font-weight: @font-weight__regular;
+                    line-height: 36px;
+                }
+            }
+
+            .price-box {
+                text-align: center;
+                margin-top: -3px;
+
+                .price-container {
+                    > span {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &-cms {
+            position: absolute;
+            bottom: 15px;
+            right: 0;
+            width: 40%;
+        }
+    }
+
+    .page-layout-1column {
+        .product-info {
+            &-top {
+                width: 50%;
+            }
+
+            &-main {
+                width: 100%;
+                position: relative;
+            }
+        }
+
+        .product-add-form {
+            padding-top: 25px;
+        }
+
+        .product {
+            &.media {
+                width: 48%;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .catalog-nav-mobile {
+        display: none;
     }
 
     .category {
@@ -757,15 +1020,103 @@
         }
     }
 
-    .product-info-main {
-        .page-title-wrapper {
-            h1 {
-                .lib-css(margin-bottom, @product-h1-margin-bottom-desktop);
+    .catalog-product-view {
+        .column.main {
+            display: block;
+            margin-top: 12px;
+            padding-bottom: 0;
+        }
+
+        .page-title {
+            font-size: 36px;
+        }
+    }
+
+    .product-info {
+        &-main {
+            float: right;
+            padding-right: 67px;
+
+            .page-title-wrapper {
+                h1 {
+                    .lib-css(margin-bottom, @product-h1-margin-bottom-desktop);
+                }
+            }
+
+            .product-add-form {
+                padding-top: 14px;
+            }
+
+            .product-options {
+               &-wrapper {
+                   float: left;
+                   margin-right: 29px;
+                   width: 37%;
+
+                   .field {
+                       margin-bottom: 13px;
+                   }
+               }
+
+                &-bottom {
+                    .box-tocart {
+                        margin-top: 15px;
+
+                        .actions {
+                            margin-top: 28px;
+                            padding-right: 0;
+
+                            .enquiry {
+                                margin-left: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .additional-attributes-wrapper {
+                width: 59%;
+                display: inline-block;
+            }
+
+            .product-info-price .price-box {
+                margin-top: 5px;
             }
         }
 
-        .product-add-form {
-            padding-top: @indent__base;
+        &-top {
+            float: right;
+            padding-right: 67px;
+
+            .product {
+                &.attribute {
+                    &.overview {
+                        margin-top: 14px;
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+
+        &-cms {
+            right: 67px;
+            width: 235px;
+        }
+    }
+
+    .product.info.detailed {
+        .lib-clearer();
+
+        padding-top: 75px;
+        margin-top: 0;
+
+        &:before {
+            top: 75px;
+            width: 98px;
+        }
+
+        .data.item.title h2 {
+            font-size: 25px;
         }
     }
 
@@ -806,13 +1157,6 @@
     //  Category page layout
     //  -----------------------------------------
 
-    .product-info {
-        &-main,
-        &-top {
-            float: right;
-        }
-    }
-
     .product.media {
         float: none;
         margin-bottom: @indent__m;
@@ -849,7 +1193,7 @@
     .product-add-form {
         .product-options-wrapper .field:not(.date) {
             > .control {
-                width: 80%;
+                //width: 80%;
             }
         }
     }
@@ -885,6 +1229,25 @@
             .columns {
                 padding-top: 0;
             }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px ) {
+    .product-info {
+        &-main {
+            .product-options-bottom {
+                .box-tocart .actions {
+                    .action.enquiry {
+                        width: 240px;
+                    }
+                }
+
+            }
+        }
+
+        &-main &-cms {
+            width: 285px;
         }
     }
 }

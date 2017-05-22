@@ -1,0 +1,16 @@
+@__title_top_label-width: 78px;
+@__title_top_label-color: @amedical-brand-color;
+@__title_top_label-thick: 2px;
+
+.title-top-label(
+    @_label-color: @__title_top_label-color,
+    @_label-width: @__title_top_label-width
+) {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: @__title_top_label-width;
+    border-top: @__title_top_label-thick solid @__title_top_label-color;
+  }
+}

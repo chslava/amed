@@ -1,0 +1,92 @@
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.info-block {
+  color: @amedical-text_color;
+  font-size: @font-size__s;
+  padding: 10px;
+  vertical-align: middle;
+  overflow: hidden;
+
+  * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.bordered {
+  border: 1px solid @border-color__base;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.list-style-square {
+  list-style-type: none;
+  padding-left: 10px;
+
+  > li {
+    position: relative;
+    margin-bottom: 20px;
+
+    &:before {
+      content: "";
+      display: block;
+      line-height: inherit;
+      height: 13px;
+      width: 13px;
+      background-color: @amedical-brand-color;
+      position: absolute;
+      left: -20px;
+      top: 4px;
+    }
+  }
+}
+
+@media only screen and (min-width: @screen__l) {
+  .show-desktop {
+    display: inline-block !important;
+  }
+}
+@media only screen and (min-width: (@screen__l - 1)) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: (@screen__m - 1)) and (max-width: (@screen__l - 1)) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: @screen__m) and (max-width: (@screen__l - 1)) {
+  .show-tablet {
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (max-width: (@screen__m - 1)) {
+  .show-mobile {
+    display: inline-block !important;
+  }
+}
+@media only screen and (max-width: @screen__m) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
