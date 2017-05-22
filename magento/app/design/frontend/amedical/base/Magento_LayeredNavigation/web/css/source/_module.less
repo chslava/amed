@@ -63,28 +63,51 @@
 
         &-current {
             margin: 0;
+            border-right: 1px solid @border-color__base;
+            border-left: 1px solid @border-color__base;
 
             .items {
                 padding: @indent__xs @indent__s;
             }
 
             .item {
-                padding-left: 17px;
+                padding-left: 63px;
+                padding-top: 5px;
                 position: relative;
                 z-index: 1;
             }
 
             .filter &-subtitle {
+                color: @amedical-text_color;
                 border: none;
                 display: block;
                 padding-bottom: @indent__s;
+                padding-left: 20px;
             }
 
             .action.remove {
-                &:extend(.abs-remove-button-for-blocks all);
-                left: -2px;
+                .lib-icon-font(
+                @icon-check-thin,
+                @_icon-font: @icon-font-second,
+                @_icon-font-size: 10px,
+                @_icon-font-line-height: 19px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @amedical-text_color,
+                @_icon-font-color-hover: @color-gray-darken4,
+                @_icon-font-color-active: @amedical-text_color
+                );
+
+                &:before {
+                    border: 1px solid @border-color__base;
+                    background-color: @form-element-input__background;
+                    font-weight: @font-weight__bold;
+                    height: 22px;
+                    width: 22px;
+                }
+
+                left: 10px;
                 position: absolute;
-                top: -1px;
+                top: 4px;
             }
         }
 
@@ -128,8 +151,20 @@
                 border-bottom: @border-width__base solid @border-color__base;
                 padding-bottom: @indent__s;
 
-                .filter-options-title:after {
-                    top: 10px;
+                &.ui-state-active {
+                    border-bottom: none;
+
+                    & + .filter-options-content {
+                        border-bottom: @border-width__base solid @border-color__base;
+                    }
+                }
+
+                .filter-options-title {
+                    &:after {
+                        top: 10px;
+                    }
+
+                    padding-left: 20px;
                 }
             }
 
@@ -142,17 +177,19 @@
                 padding: @indent__s @indent__s + 30px 0 25px;
                 position: relative;
                 text-transform: uppercase;
+                text-indent: 0;
                 word-break: break-all;
                 z-index: 1;
 
                 .lib-icon-font(
                 @_icon-font-content: @icon-down,
-                @_icon-font-size: 13px,
+                @_icon-font-size: 16px,
                 @_icon-font-position: after,
                 @_icon-font-display: block
                 );
 
                 &:after {
+                    font-weight: @font-weight__bold;
                     position: absolute;
                     right: 25px;
                     top: 20px;
@@ -173,6 +210,7 @@
                 .item {
                     line-height: 1.5em;
                     margin: 25px 0;
+                    position: relative;
                 }
 
                 a {
@@ -184,6 +222,20 @@
 
                     &:hover {
                         text-decoration: none;
+                    }
+                }
+
+                .attribute-name {
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        border: 1px solid @border-color__base;
+                        background-color: @form-element-input__background;
+                        font-weight: @font-weight__bold;
+                        height: 22px;
+                        width: 22px;
+                        left: -15px;
+                        top: 0;
                     }
                 }
 
@@ -215,14 +267,19 @@
                 }
             }
         }
+
+        .swatch-option.text {
+            padding: 0 8px;
+            text-indent: 0;
+        }
     }
 }
 
 //
-//  Mobile
+//  Mobile Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+@media only screen and  (max-width: (@screen__l - 1)) {
     body {
         &.filter-active {
             .page-header {
@@ -313,9 +370,7 @@
                 z-index: 10;
             }
         }
-    }
 
-    .filter {
         & &-subtitle {
             font-size: 20px;
             font-weight: @font-weight__light;
@@ -325,8 +380,18 @@
             margin-right: 25px;
         }
 
-        &-options-content {
-            padding: @indent__xs @indent__s;
+        &-options {
+            &-content {
+                padding: 0 @indent__s;
+            }
+
+            &-item {
+                .filter-options-title {
+                    font-weight: @font-weight__regular;
+                    padding-left: 33px;
+                    text-transform: none;
+                }
+            }
         }
     }
 
@@ -335,12 +400,18 @@
 
         .items {
             display: none;
+            padding-left: 22px;
+        }
+
+        .item {
+            padding-left: 50px;
         }
 
         &-subtitle {
             position: relative;
             text-transform: uppercase;
             z-index: 1;
+            padding-left: @indent__m;
 
             .lib-icon-font(
                 @_icon-font-content: @icon-down,
@@ -416,8 +487,15 @@
 
     .catalog-nav-mobile {
         border-bottom: 1px solid @border-color__base;
-        margin-top: 13px;
+        border-top: 1px solid @border-color__base;
+        padding-top: 13px;
         margin-bottom: 13px;
+
+        .filter {
+            &.block {
+                margin-bottom: 0;
+            }
+        }
 
         .filter-options-content {
             padding-right: 0;
@@ -445,26 +523,35 @@
 
         .attributes {
             & + .filter-options-content {
-                &, > .filter-options-content {
-                    padding-left: 25px;
-                }
+                text-indent: 25px;
+                padding-left: 0;
 
                 > div.filter-options-item:nth-last-child(2) {
                     border-bottom: 0;
                 }
 
+                .filter-options-content {
+                    padding-left: 48px;
+                }
             }
 
             .filter-options-title {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: baseline;
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-direction(row);
+                .lib-vendor-prefix-flex-wrap(nowrap);
+                .lib-vendor-box-align(baseline);
             }
         }
 
         .categories {
             & + .filter-options-content {
-                padding-left: 35px;
+                padding-left: 33px;
+
+                .attribute-name {
+                    &:before {
+                        content: none;
+                    }
+                }
             }
         }
 
@@ -478,12 +565,29 @@
     }
 }
 
+//
+//  Tablet
+//  _____________________________________________
+
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .catalog-nav-mobile {
+        .filter-wrapper {
+            border-left: 1px solid @border-color__base;
+            border-right: 1px solid @border-color__base;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
 
     .lib-filter-title() {
         font-size: 22px;
         font-weight: bold;
-        padding: 10px 0 0 0;
+        padding: 10px 0 0 20px;
         padding-bottom: 20px;
         border-bottom: @border-width__base solid @border-color__base;
 
@@ -495,7 +599,6 @@
     .filter {
         &.block {
             margin-bottom: @indent__xl;
-            padding-left: 20px;
         }
 
         &-title {
@@ -504,7 +607,11 @@
 
         &-content {
             .item {
-                margin: @indent__s 0;
+                margin: 27px 0;
+
+                &:first-child {
+                    margin-top: 3px;
+                }
             }
         }
 
@@ -512,7 +619,6 @@
         &-options {
             background: transparent;
             clear: both;
-            display: block;
             overflow: initial;
             position: static;
 
@@ -523,7 +629,7 @@
             }
 
             &-content {
-                padding-left: 55px;
+                padding-left: 57px;
             }
         }
 
@@ -536,9 +642,10 @@
                 &.attributes-title {
                     .lib-filter-title();
 
-                    display: flex;
-                    flex-flow: row nowrap;
-                    align-items: baseline;
+                    .lib-vendor-prefix-display(flex);
+                    .lib-vendor-prefix-flex-direction(row);
+                    .lib-vendor-prefix-flex-wrap(nowrap);
+                    .lib-vendor-box-align(baseline);
 
                     & ~ .filter-options-item {
                         padding: 0;
@@ -561,6 +668,18 @@
                     font-size: @font-size__s;
                     color: @amedical-text_color;
                 }
+
+                .attribute-name {
+                    &:before {
+                        left: -37px;
+                    }
+                }
+            }
+        }
+
+        &-current {
+            .item {
+                padding-left: 47px;
             }
         }
 
@@ -577,11 +696,17 @@
 
         .filter-options {
             &-content {
-                padding: 0 0 0 25px;
+                padding: 0;
+
+                .attribute-name {
+                    &:before {
+                        content: none;
+                    }
+                }
 
                 .item {
                     margin: 0;
-                    padding: 20px 0;
+                    padding: 20px 0 20px 20px;
                     border-bottom: @border-width__base solid @border-color__base;
                 }
             }
@@ -732,6 +857,22 @@
                     margin-top: @indent__m;
                 }
             }
+        }
+    }
+}
+
+//
+//  Desktop large
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .filter {
+        &-options {
+            display: block;
+        }
+
+        &-current {
+            border: none;
         }
     }
 }

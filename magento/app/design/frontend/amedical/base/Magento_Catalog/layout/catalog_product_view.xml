@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="product.info.top" htmlTag="div" htmlClass="product-info-top" before="-"/>
+            <container name="final.price.label" htmlTag="div" htmlClass="label">
+                <block class="Magento\Framework\View\Element\Text" name="final_price_label">
+                    <arguments>
+                        <argument translate="true" name="text" xsi:type="string">Price:</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <move element="page.main.title" destination="product.info.top" before="-"/>
+        <move element="product.info.stock.sku" destination="product.info.top" after="page.main.title"/>
+        <move element="product.info.overview" destination="product.info.top" after="product.info.stock.sku"/>
+        <move element="product.info.price" destination="product.info.addtocart.additional" />
+        <move element="final.price.label" destination="product.info.price" before="-" />
+        <move element="product.attributes" destination="product.info.form.options" before="-" />
+
+        <referenceBlock name="product.info.simple" remove="true"/>
+        <referenceBlock name="product.info.addto" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+    </body>
+</page>
