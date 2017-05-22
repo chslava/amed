@@ -73,9 +73,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                         <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
                         <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
                         <div class="product-item-view">
-                            <button class="action">
-                                <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>"><?php echo __('View') ?></a>
-                            </button>
+                            <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>"><button class="action"><?php echo __('View') ?></button></a>
                         </div>
                         <?php echo $block->getProductDetailsHtml($_product); ?>
 

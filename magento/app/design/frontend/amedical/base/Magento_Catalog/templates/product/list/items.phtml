@@ -199,9 +199,7 @@ switch ($type = $block->getType()) {
 
                                 <div class="product actions product-item-actions">
                                     <div class="product-item-view">
-                                        <button class="action">
-                                            <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"><?php echo __('View') ?></a>
-                                        </button>
+                                        <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>"><button class="action"><?php echo __('View') ?></button></a>
                                     </div>
                                     <?php if ($showCart): ?>
                                         <div class="actions-primary">
