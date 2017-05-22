@@ -15,7 +15,7 @@
                         $represent_q->the_post();
                             if ( has_post_thumbnail() && get_field('show_on_homepage') ): ?>
                                 <li>
-                                    <?php the_post_thumbnail(); ?>
+                                    <?php the_post_thumbnail("brand-logo"); ?>
                                 </li>
                             <?php endif; 
                     endwhile;
