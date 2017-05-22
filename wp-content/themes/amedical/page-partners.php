@@ -47,7 +47,7 @@ get_header(); ?>
 										<div class="partner">
 										
 											<?php if (has_post_thumbnail()): ?>
-												<?php the_post_thumbnail(); ?>
+												<?php the_post_thumbnail('partner-logo'); ?>
 											<?php endif; ?>
 											<?php
 												// the_title( '<h2 class="ui header decored left uppercase">', '</h2>' );
