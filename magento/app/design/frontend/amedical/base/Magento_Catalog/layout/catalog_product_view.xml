@@ -26,6 +26,24 @@
                 </block>
             </container>
         </referenceContainer>
+        <referenceContainer name="product.info.form.content">
+            <container name="product.info.price.no-options" label="Price auxiliary container" htmlTag="div" htmlClass="product-info-price" after="-">
+                <container name="final.price.label.no-options" htmlTag="div" htmlClass="label">
+                    <block class="Magento\Framework\View\Element\Text" name="final_price_label_no-options">
+                        <arguments>
+                            <argument translate="true" name="text" xsi:type="string">Price:</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Catalog\Pricing\Render" name="product.price.final.no-options">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">final_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
         <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.usability" template="product/view/attribute.phtml" group="detailed_info" after="product.info.description">
                 <arguments>
