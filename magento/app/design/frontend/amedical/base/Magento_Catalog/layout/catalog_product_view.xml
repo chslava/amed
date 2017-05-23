@@ -26,7 +26,7 @@
                 </block>
             </container>
         </referenceContainer>
-        <referenceContainer name="product.info.form.content">
+        <referenceContainer name="product.info.form.content" htmlTag="div" htmlClass="product-options-bottom">
             <container name="product.info.price.no-options" label="Price auxiliary container" htmlTag="div" htmlClass="product-info-price" after="-">
                 <container name="final.price.label.no-options" htmlTag="div" htmlClass="label">
                     <block class="Magento\Framework\View\Element\Text" name="final_price_label_no-options">
