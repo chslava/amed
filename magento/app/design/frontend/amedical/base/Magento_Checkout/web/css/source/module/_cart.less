@@ -21,11 +21,18 @@
         .page-main {
             padding-left: 0;
             padding-right: 0;
+
+            .page-title-wrapper {
+                padding-left: @layout__width-xs-indent;
+                padding-right: @layout__width-xs-indent;
+
+
+            }
         }
 
-        .page-title-wrapper {
-            padding-left: @layout__width-xs-indent;
-            padding-right: @layout__width-xs-indent;
+        .page-title {
+            .title-top-label();
+            margin-left: 0;
         }
     }
 
@@ -40,13 +47,15 @@
     .cart-summary {
         &:extend(.abs-add-box-sizing all);
         .lib-css(background, @sidebar__background-color);
+        color: @amedical-text_color;
         margin-bottom: @indent__m;
         padding: 1px 0 @indent__m;
 
         > .title {
             .lib-font-size(24);
+            color: @amedical-text_color;
             display: none;
-            font-weight: @font-weight__light;
+            font-weight: @font-weight__bold;
             margin: 12px 0;
         }
 
@@ -90,6 +99,7 @@
             &:extend(.abs-cart-block all);
             .title {
                 strong {
+                    color: @amedical-text_color;
                     .lib-font-size(14);
                     font-weight: @font-weight__semibold;
                 }
@@ -169,14 +179,16 @@
                 thead {
                     tr th.col {
                         border-bottom: @border-width__base solid @border-color__base;
-                        padding-bottom: 15px;
-                        padding-top: 24px;
+                        padding-bottom: 14px;
+                        padding-top: 7px;
+                        font-weight: @font-weight__regular;
                     }
                 }
 
                 tbody {
                     td {
                         border: 0;
+                        vertical-align: middle;
                     }
                 }
 
@@ -188,6 +200,7 @@
 
             .col {
                 padding-top: 15px;
+                color: @amedical-text_color;
 
                 &.price,
                 &.subtotal,
@@ -294,7 +307,7 @@
                 }
 
                 &-item-name {
-                    .lib-font-size(18);
+                    .lib-font-size(15);
                     display: block;
                     margin: -3px 0 @indent__xs;
                 }
@@ -311,10 +324,6 @@
                 margin-bottom: 0;
                 &:extend(.abs-product-options-list all);
                 &:extend(.abs-add-clearfix all);
-            }
-
-            .product-item-name + .item-options {
-                margin-top: @indent__base;
             }
 
             .cart-tax-total {
@@ -343,7 +352,7 @@
     .cart-discount {
         .block {
             .title {
-                padding: 15px 0;
+                padding: 15px 0 0 0;
                 border: none;
 
                 &:after {
@@ -355,6 +364,10 @@
                 }
             }
 
+            .content {
+                padding: 15px 0 0 0;
+            }
+
             &.active > .title:after {
                 content: none;
             }
@@ -362,10 +375,11 @@
             .fieldset.coupon {
                 .field {
                     margin-bottom: 0;
-                }
 
-                .label {
-                    color: @amedical-text_color;
+                    > .label {
+                        color: @amedical-text_color;
+                        margin-bottom: 5px;
+                    }
                 }
 
                 .control {
@@ -374,20 +388,27 @@
                 }
 
                 .actions-toolbar {
-                    width: 35%;
+                    width: 39%;
                     float: right;
 
                     .primary {
                         width: 100%;
-                    }
 
-                    .apply {
-                        margin: 0;
-                        color: @amedical-brand-color;
-                        height: @form-element-input__height;
-                        font-size: @font-size__s;
-                        font-weight: @font-weight__bold;
-                        width: inherit;
+                        &.action {
+                            margin: 0;
+                            color: @amedical-brand-color;
+                            height: @form-element-input__height;
+                            font-size: @font-size__s;
+                            font-weight: @font-weight__bold;
+                            width: inherit;
+                            padding: 5px;
+
+                            &:hover,
+                            &:active,
+                            &:focus{
+                                color: @color-white;
+                            }
+                        }
                     }
                 }
             }
@@ -446,7 +467,7 @@
     }
 }
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
     //  Cart container
     .cart-container {
         .form-cart {
@@ -543,21 +564,29 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .checkout-cart-index {
         .page-main {
             padding-left: @layout__width-xs-indent;
             padding-right: @layout__width-xs-indent;
+
+            .page-title-wrapper {
+                &:extend(.abs-revert-side-paddings all);
+                margin-top: 38px;
+            }
         }
 
-        .page-title-wrapper {
-            &:extend(.abs-revert-side-paddings all);
+        .page-title {
+            &:before {
+                width: @title_top_label-width__l;
+                top: -25px;
+            }
         }
     }
 
     //  Cart container
     .cart-container {
-        &:extend(.abs-add-clearfix-desktop all);
+        .lib-clearfix();
         .form-cart {
             &:extend(.abs-shopping-cart-items-desktop all);
             .actions.main {
@@ -574,11 +603,13 @@
     .cart-summary {
         .lib-css(box-shadow, @product-item__hover__box-shadow);
         .lib-layout-column(2, 2, @layout-column-checkout__width-left);
-        padding: 1px @indent__base @indent__m;
+        padding: 9px 27px 40px;
         position: relative;
 
         > .title {
+            margin-top: 28px;
             display: block;
+            font-size: 25px;
         }
 
         .fieldset {
@@ -614,6 +645,26 @@
 
         .checkout-methods-items {
             padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        .table.totals {
+            .grand {
+                & > th,
+                & > td {
+                    padding-top: 26px;
+                    padding-bottom: 10px;
+                    font-size: 25px;
+                    font-weight: @font-weight__regular;
+                }
+            }
+
+            tr:nth-last-child(2) {
+                & > th,
+                & > td {
+                    padding-bottom: 30px;
+                }
+            }
         }
     }
 
@@ -625,13 +676,21 @@
                 width: auto;
             }
 
+            .cart {
+                thead {
+                    tr th.col {
+                        font-size: 20px;
+                    }
+                }
+            }
+
             tbody td {
                 padding-top: @cart-item-cell-padding-top;
             }
 
             .item {
                 .col.item {
-                    padding: @cart-item-cell-padding-top 8px @indent__base 0;
+                    padding: 15px 8px 9px 0;
                 }
             }
 
@@ -643,19 +702,15 @@
                 &-item-photo {
                     display: table-cell;
                     max-width: 100%;
-                    padding-right: @indent__base;
+                    padding-right: 15px;
                     position: static;
                     vertical-align: top;
                     width: 1%;
                 }
 
                 &-item-details {
-                    padding-bottom: 35px;
-                }
-
-                &-item-details {
                     display: table-cell;
-                    vertical-align: top;
+                    vertical-align: middle;
                     white-space: normal;
                     width: 99%;
                 }
@@ -672,7 +727,7 @@
                 > .control {
                     .cart-summary & {
                         float: left;
-                        width: 60%;
+                        width: 57%;
                     }
                 }
             }
