@@ -72,8 +72,8 @@
 
             .item {
                 padding-left: 63px;
-                padding-top: 5px;
                 position: relative;
+                margin: 25px 0;
                 z-index: 1;
             }
 
@@ -434,8 +434,6 @@
         }
 
         &.active {
-            padding-bottom: 30px;
-
             .block-subtitle {
                 .lib-icon-font-symbol(
                     @_icon-font-content: @icon-up,
@@ -678,7 +676,21 @@
         }
 
         &-current {
+            border-left: none;
+            border-right: none;
+            border-bottom: @border-width__base solid @border-color__base;
+            margin-bottom: 25px;
+
+            .filter-current-subtitle {
+                .lib-filter-title();
+            }
+
+            .items {
+                padding-top: 15px;
+            }
+
             .item {
+                padding-top: 0;
                 padding-left: 47px;
             }
         }
@@ -693,6 +705,7 @@
 
     .categories {
         border-bottom: none;
+        padding-bottom: 35px;
 
         .filter-options {
             &-content {
@@ -869,10 +882,6 @@
     .filter {
         &-options {
             display: block;
-        }
-
-        &-current {
-            border: none;
         }
     }
 }
