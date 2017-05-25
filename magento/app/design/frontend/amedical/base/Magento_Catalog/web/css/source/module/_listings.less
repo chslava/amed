@@ -593,7 +593,7 @@
             margin-bottom: 30px;
             width: 100%/3;
 
-            &:last-child:not(:nth-child(3n)):not(:first-child) {
+            &:last-child:not(:nth-child(3n)):not(:nth-child(3n+1)):not(:first-child) {
                 margin-right: auto;
                 margin-left: 3%;
             }
@@ -817,7 +817,7 @@
                 padding-right: 0;
                 width: 30%;
 
-                &:last-child:not(:nth-child(3n)):not(:first-child) {
+                &:last-child:not(:nth-child(3n)):not(:nth-child(3n+1)):not(:first-child) {
                     margin-left: 7%;
                 }
             }
