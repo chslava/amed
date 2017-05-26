@@ -31,6 +31,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
 
     public function update_product($product_id, $data){
+        
         //adds or updates existing product
         //@product_id = product id that must be updated (magento product id)
         // could be null if there is no product, then product will be created
@@ -66,7 +67,9 @@ class Index extends \Magento\Framework\App\Action\Action
                 )
             );
         } else {
+            
             $product = $this->_objectManager->get('Magento\Catalog\Model\Product')->load($product_id);
+        
             $product->setData('_edit_mode', true);
 
             $product->setStockData(array(
@@ -80,11 +83,7 @@ class Index extends \Magento\Framework\App\Action\Action
             );
         
         }
-        print(__FILE__);
-        print(__FUNCTION__);
-        die();
         
-
         // saving all attributes
         // some attributes are skipped cause they are for debugging or saved elsware
         foreach($data  as $key => $value){
@@ -93,13 +92,13 @@ class Index extends \Magento\Framework\App\Action\Action
             switch($key){
                 
                 case "original_data":
-                    print("<pre>");
-                    print_r($data);
-                    print("</pre>");
+                    //print("<pre>");
+                    //print_r($data);
+                    //print("</pre>");
                     break;
                 
                 case "image":
-                    $data[$key] = $this->helper->get_absolute_image_path().$value;
+                    $data[$key] = $this->helper->get_absolute_image_path()."/".$value;
                     break;
                 case "url":
                     //todo
@@ -175,7 +174,6 @@ class Index extends \Magento\Framework\App\Action\Action
         try {        
             $product->save();
 
-
             //TODO other languages
             
             //$this->add_language($product->getId(), $data,"default",$data["sku"]);
@@ -184,21 +182,21 @@ class Index extends \Magento\Framework\App\Action\Action
             //}
 
             if (!$product_id){
-                return ["status"=>true,"message"=>"Product added."];
+                return ["status"=>true,"message"=>"Product added.", 'data'=>$data];
             } else {
-                return ["status"=>true,"message"=>"Product updated."];
+                return ["status"=>true,"message"=>"Product updated.", 'data'=>$data];
             }
 
         } catch (\Exception $e) {
             if (!$product_id){
-                return ["status"=>false,"message"=>"Could not add product! ".__LINE__.__FUNCTION__." ".$e->getMessage()];
+                return ["status"=>false,"message"=>"Could not add product! ".__LINE__.__FUNCTION__." ".$e->getMessage(), 'data'=>$data];
             } else {
-                return ["status"=>false,"message"=>"Could not update product! ".__LINE__.__FUNCTION__." ".$e->getMessage()];
+                return ["status"=>false,"message"=>"Could not update product! ".__LINE__.__FUNCTION__." ".$e->getMessage(), 'data'=>$data];
             }
 
         }
 
-        return ["status"=>false,"message"=>"Could not update product!"];
+        return ["status"=>false,"message"=>"Could not update product!", 'data'=>$data];
     }
 
 
@@ -274,7 +272,7 @@ class Index extends \Magento\Framework\App\Action\Action
     }
 
     
-    private function sync_product_img($sku, $force=true, $only_delete=true){
+    private function sync_product_img($sku, $force=true, $only_delete=true, $prod_data=null){
         
         //function that updates product images by sky
         // @$sku - product sku
@@ -287,7 +285,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $data['message']="No harm done / actually nothing done";
         
         
-        $images_to_add = $this->helper->get_image_list($sku);
+        $images_to_add = [$prod_data["image"]];
         
         
         
@@ -392,17 +390,23 @@ class Index extends \Magento\Framework\App\Action\Action
             
             $img_file_name = basename($image_to_add);
             $src = $this->helper->get_image_import_dir()."/".$img_file_name;
+            
             $src_time_stamp = filemtime($src);
             $this->helper->set_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src),$src_time_stamp);
             
+            
+            
             $counter++;
             $images_imported[] = basename($image_to_add);
+            $image_to_add = $src;
             if ($counter==1){
                 $p->addImageToMediaGallery($image_to_add, array('image', 'small_image', 'thumbnail'), false, false); // Add Image 3
             } else {
+                
                 $p->addImageToMediaGallery($image_to_add, [], false, false); // Add Image 3
             }
-
+            
+           
         }
         
         if (count($images_imported)>0){
@@ -469,9 +473,8 @@ class Index extends \Magento\Framework\App\Action\Action
             if (!$id){
                 //there is no product so we have to add the product
                 $result = $this->add_product($prod_data);
-                $this->sync_product_img($prod_data['sku'],$force, false);
                 if ($result["status"]){
-                    $image_import_result = $this->sync_product_img($sku,$force, false);
+                    $image_import_result = $this->sync_product_img($sku,$force, false, $prod_data);
                     $result["message"].=" ".$image_import_result["message"];
                 }
                 return $result;
@@ -481,7 +484,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 if (!$result['status']){
                     $this->disable_product($id);
                 } else {
-                    $image_import_result = $this->sync_product_img($sku,$force, false);
+                    $image_import_result = $this->sync_product_img($sku,$force, false,$prod_data);
                     $result["message"].=" ".$image_import_result["message"];
                 }
                 return $result;

@@ -43,7 +43,7 @@ class Data extends AbstractHelper
     
     
     public function get_absolute_image_path() {
-        return $this->get_absolute_media_path()."../../../amedical/shop/pictures/items/big/";
+        return $this->get_absolute_media_path()."old_shop_data/pictures/items/big";
     }
 
 
@@ -57,12 +57,13 @@ class Data extends AbstractHelper
 
 
     private function get_import_dir(){
+
         return $this->get_absolute_media_path()."old_shop_data";
     }
 
 
     public function get_image_import_dir(){
-        return "/home/dig_hanza/dig_hanza/Bildes";
+        return $this->get_absolute_image_path();
     }
 
     
