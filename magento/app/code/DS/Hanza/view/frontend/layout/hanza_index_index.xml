@@ -1,0 +1,10 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" layout="1column">
+    <head>
+        <script src="js/hanza.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="DS\Hanza\Block\Hanza" name="hanza" template="hanza.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,306 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<h1><?php echo $this->getTitle(); ?></h1>
+<div id="status">
+    <div id="progress">
+        <div id="progress-good" title="Evrything went as planned">
+
+        </div>
+        <div id="progress-bad" title="Operation failed!">
+
+        </div>
+        <div id="progress-warning" title="No changes done to the products">
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .alert{
+        font-weight: bold;
+    }
+    .error{
+        color:red;
+    }
+    #progress-bad{
+        background-color:red;
+    }
+
+    .warning{
+        color:darkgoldenrod;
+    }
+    #progress-warning{
+        background-color:yellowgreen;
+    }
+
+    .success{
+        color:darkgreen;
+    }
+    #progress-good{
+        background-color:darkgreen;
+    }
+
+    #status, #progress,#progress-good,#progress-bad,#progress-warning{
+        width:100%;
+        height:30px;
+        overflow:hidden;
+        border-width:2px;
+        border-style:solid;
+        border-color:black;
+        margin:10px;
+    }
+    #progress div a {
+        text-align:center;
+        line-height:30px;
+    }
+    #progress, #progress-good,#progress-bad,#progress-warning{
+        width:0px;
+        border-width:0px;
+        margin:0px;
+        float:left;
+    }
+    #progress, #progress-good {
+        background-color:limegreen;
+    }
+    .csv-product-inprocess,
+    tr.csv-product-inprocess,
+    .csv-product-inprocess td
+    {
+        background-color:pink;
+    }
+    .csv-product-skipped{
+        display:none;
+    }
+    td.description p{
+        width:200px;
+        height:50px;
+        overflow:hidden;
+    }
+</style>
+
+<a href="#products-with-no-images" data-action="products-no-images" id="products-no-images" class="button button-small magento-action">List products with no images</a>
+<a href="#products-with-no-images" data-action="get_product_list" id="get_product_list" class="button button-small magento-action">List products that needs update</a>
+<!--<a href="#update-volume" id="update-volume" class="button button-small">Volume</a>
+<a href="#update-prices" id="update-prices" class="button button-small">Prices</a>
+<a href="#update-cats" id="update-cats" class="button button-small">Categories</a>
+<a href="#update-images" id="update-images" class="button button-small">images</a>
+-->
+
+<div id="result-div">
+    
+</div>
+<div id="processing-div">
+    
+</div>
+
+
+<script>    
+    jQuery(document).ready(function(){
+        
+        var $ = jQuery;
+        var counter=0;
+        var time_spent=0;
+        var counter_bad=0;
+        var counter_good=0;
+        var counter_warning=0;
+        var TOTAL_ITEM_COUNT=1;
+        var start_id = null;
+        
+        
+        function reset_counters(){
+            counter=0;
+            time_spent=0;
+            counter_bad=0;
+            counter_good=0;
+            counter_warning=0;
+        }
+        
+        
+        function update_status(id, seconds, data,time_left){
+        
+            jQuery("#"+id+" > td.status").html(data+" done in "+seconds+" sec.");
+            var percents = counter/TOTAL_ITEM_COUNT*100;
+            var percents_good = counter_good/counter*100;
+            var percents_bad = counter_bad/counter*100;
+            var percents_warning = counter_warning/counter*100;
+        
+            jQuery('#progress').css("width",percents+"%");
+            jQuery('#progress-good').css("width",percents_good+"%");
+            jQuery('#progress-bad').css("width",percents_bad+"%");
+            jQuery('#progress-warning').css("width",percents_warning+"%");
+            if (counter>20 && TOTAL_ITEM_COUNT>20){
+                jQuery('#time-left').html(" about "+Math.floor(time_left)+" sek (" + Math.floor(time_left/60)+" min ) ");
+            } else {
+                jQuery('#time-left').html("...calculating...");
+            }
+        
+        }
+        
+        
+        function do_action(id,url,callback){
+        
+            
+            if (id===null){
+                $("#processing-div").load(url,function(data){
+                    var self = $(this);
+                    end_time = ""+Date.now();
+                    seconds = Math.floor((parseInt(end_time) - parseInt(start_time))/1000);
+                    time_spent+=seconds;
+                    time_left= (time_spent/counter) * (TOTAL_ITEM_COUNT-counter);
+                    
+                    update_status(self.attr("id"), seconds, data, time_left);
+                    console.log("--- we got data callback---");
+                    callback(data);
+                });
+            } else {
+                if (id=="undefined") {
+                    return;
+                }
+                
+                var start_time = ""+Date.now();
+                var end_time = start_time;
+                
+                if (start_id){
+                    id = start_id;
+                    var skipped_already = false;
+                    jQuery(".csv-product").each(function(){
+                        if (skipped_already){
+                            return;
+                        }
+                        var self = jQuery(this);
+                        var id = self.attr("id");
+            
+                        if (self.attr("id")==start_id){
+                            skipped_already=true;
+                            return;
+                        }
+                        if (id.length>0) {
+                            self.removeClass("csv-product");
+                            self.addClass("csv-product-done csv-product-skipped");
+                            jQuery("#"+id+" > td.status").html("skipped");
+                            counter_warning++;
+                            counter++;
+                        }
+            
+                    });
+                }
+                
+                var self=jQuery("#"+id);
+                self.removeClass("csv-product");
+                self.addClass("csv-product-inprocess");
+                var prod_id = self.attr('data-prod-id');
+                //console.log(url+prod_id);
+                
+                $("#processing-div").load(url+prod_id,function(data){
+                    if(jQuery(".csv-product").length){
+                        self.removeClass("csv-product-inprocess");
+                        self.addClass("csv-product-done");
+                        counter++;
+                
+                        if (data.indexOf("alert success")!=-1){
+                            self.addClass("product-success");
+                            counter_good++;
+                        }
+                        if (data.indexOf("alert error")!=-1){
+                            self.addClass("product-error");
+                            counter_bad++;
+                        }
+                        if (data.indexOf("alert warning")!=-1){
+                            self.addClass("product-warning");
+                            counter_warning++;
+                        }
+                        end_time = ""+Date.now();
+                        seconds = Math.floor((parseInt(end_time) - parseInt(start_time))/1000);
+                        time_spent+=seconds;
+                        time_left= (time_spent/counter) * (TOTAL_ITEM_COUNT-counter);
+                        update_status(self.attr("id"), seconds, data, time_left);
+                        var id=jQuery(".csv-product").first().attr("id");
+                        do_action(id,url);
+                    }
+                
+                });    
+            }
+            
+            
+        }
+
+        
+        jQuery('.magento-action').click(function(e){
+            
+            e.preventDefault();
+            reset_counters();
+            var self = jQuery(this);
+            var action = self.data("action");
+            var id = null;
+            if (self.data("id")) {
+                id = self.data("id");
+            }
+            console.log("---- do action ---");
+            do_action(id,"/shop/hanza/json/?action="+action+"&id=",display_result);
+            
+            
+        });
+        
+        
+        function display_result(input_data) {
+            console.log(input_data);
+            var data = jQuery.parseJSON(input_data);
+            if (data.status){
+                if (typeof(data.data) !="undefined"){
+                    jQuery("#result-div").append(table_head());
+                    var row_counter=0;
+                    for(var x in data.data){
+                        row_counter++;
+                        if (row_counter==1){
+                            jQuery("#result-div").append(table_header(data.data[x]));        
+                        }
+                        jQuery("#result-div").append(table_row(data.data[x]));    
+                    }
+                    jQuery("#result-div").append(table_foot());
+                }
+            }
+        }
+        
+        
+        function table_header(data){
+            var values = Object.keys(data);
+            var html_to_return ="<thead>";
+            for(var x in values){
+                html_to_return+="<th>"+values[x]+'</th>';
+            }
+            html_to_return+="</thead><tbody>";
+            return html_to_return;
+        }
+        
+        
+        function table_row(data){
+            var values = Object.values(data);
+            var keys = Object.keys(data);
+            var html_to_return ="<tr>";
+            for(var x in values){
+                if (keys[x]=="url"){
+                    html_to_return+='<td><a target="_blank" href="'+values[x]+'">'+values[x]+'</a></td>';                    
+                } else {
+                    html_to_return+="<td>"+values[x]+'</td>'; 
+                }
+                
+            }
+            html_to_return+="</tr>";
+            return html_to_return;
+        }
+        
+        
+        function table_head(){
+            return '<table width="100%">';
+        }
+        
+        
+        function table_foot(){
+            return "</tbody></table>";
+        }
+            
+           
+    });
+        
+</script>
