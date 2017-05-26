@@ -26,10 +26,26 @@
             </action>
         </referenceBlock>
         <referenceContainer name="cart.summary">
-            <container name="cart.discount" label="Cart Discount Container" htmlTag="div" htmlClass="cart-discount" before="checkout.cart.methods.bottom" />
+            <container name="cart.summary.inner" htmlTag="div" htmlClass="cart-summary-inner">
+                <container name="cart.discount" label="Cart Discount Container" htmlTag="div" htmlClass="cart-discount" />
+            </container>
+            <container name="cart.sidebar.bottom" htmlTag="div" htmlClass="cart-sidebar-bottom" after="-" >
+                <block class="Magento\Cms\Block\Block" name="header.top.links" before="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">cart_sidebar_bottom</argument>
+                    </arguments>
+                </block>
+            </container>
         </referenceContainer>
         <move element="checkout.cart.crosssell" destination="checkout.cart.container" after="-" />
+        <move element="checkout.cart.summary.title" destination="cart.summary.inner" before="-" />
+        <move element="checkout.cart.shipping" destination="cart.summary.inner" after="checkout.cart.summary.title" />
+        <move element="checkout.cart.totals.container" destination="cart.summary.inner" after="checkout.cart.shipping" />
+        <move element="checkout.cart.methods.bottom" destination="cart.summary.inner" after="checkout.cart.totals.container" />
+        <move element="cart.discount" destination="cart.summary.inner" before="checkout.cart.methods.bottom" />
         <move element="checkout.cart.coupon" destination="cart.discount" />
         <move element="checkout.cart.shortcut.buttons" destination="checkout.cart.methods" after="checkout.cart.methods.onepage.bottom"/>
+
+        <referenceBlock name="crosssell.product.addto" remove="true" />
     </body>
 </page>

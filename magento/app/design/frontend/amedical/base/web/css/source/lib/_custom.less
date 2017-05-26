@@ -2,7 +2,7 @@
 @__title_top_label-color: @amedical-brand-color;
 @__title_top_label-thick: 2px;
 
-.title-top-label(
+.lib-title-top-label(
   @_label-color: @__title_top_label-color,
   @_label-width: @__title_top_label-width
 ) {
@@ -12,5 +12,54 @@
     position: absolute;
     width: @__title_top_label-width;
     border-top: @__title_top_label-thick solid @__title_top_label-color;
+  }
+}
+
+.lib-button-increment(
+  @_button_increment-height: @button_increment-height
+) {
+  .btn-increment {
+    .lib-icon-font(
+      @_icon-font: @icon-font-second,
+      @_icon-font-content: @icon-plus,
+      @_icon-font-size: 12px,
+      @_icon-font-line-height: @icon-font__line-height,
+      @_icon-font-color: #383838,
+      @_icon-font-color-hover: #383838,
+      @_icon-font-color-active: #383838,
+      @_icon-font-position: before,
+      @_icon-font-display: block
+    );
+
+    float: left;
+    width: @_button_increment-height;
+    height: @_button_increment-height;
+    border-top: 1px solid @border-color__base;
+    border-bottom: 1px solid @border-color__base;
+    background-color: @form-element-input__background;
+    box-shadow: none;
+    padding: 0;
+
+    &.up {
+      border-right: 1px solid @border-color__base;
+      border-left: none;
+    }
+
+    &.down {
+      border-left: 1px solid @border-color__base;
+      border-right: none;
+
+      &:before {
+        content: @icon-minus;
+        font-size: 2px;
+      }
+
+      & + .input-text {
+        text-align: center;
+        height: @_button_increment-height;
+        padding: 0;
+        float: left;
+      }
+    }
   }
 }

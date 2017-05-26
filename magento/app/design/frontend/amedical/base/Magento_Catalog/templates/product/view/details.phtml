@@ -20,9 +20,6 @@
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
                 ?>
-                <div class="data item title">
-                    <h2><?php /* @escapeNotVerified */ echo $label; ?></h2>
-                </div>
                 <div class="data item content" id="<?php /* @escapeNotVerified */ echo $alias; ?>" data-role="content">
                     <?php /* @escapeNotVerified */ echo $html; ?>
                 </div>

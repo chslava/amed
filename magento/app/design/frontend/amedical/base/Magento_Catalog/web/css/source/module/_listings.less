@@ -316,9 +316,10 @@
 
     .block {
         &.related,
-        &.upsell {
+        &.upsell,
+        &.crosssell{
             .title {
-                .title-top-label();
+                .lib-title-top-label();
 
                 position: relative;
 
@@ -337,6 +338,7 @@
 
         .products-grid {
             &.products-related,
+            &.products-crosssell,
             &.products-upsell {
                 padding: 0;
 
@@ -453,6 +455,7 @@
             justify-content: space-between;
         }
 
+        &:not(.products-related):not(.products-upsell):not(.products-crosssell)
         .product-item {
             &:nth-child(3n + 1) {
                 margin-left: -15px;
@@ -461,7 +464,9 @@
             &:nth-child(3n):not(:first-child) {
                 margin-right: -15px;
             }
+        }
 
+        .product-item {
             .price-box {
                 position: absolute;
                 bottom: 10px;
@@ -497,7 +502,6 @@
                 }
             }
         }
-
     }
 
     .product-item-inner {
@@ -579,9 +583,9 @@
             margin-bottom: 30px;
             width: 100%/3;
 
-            &:last-child {
+            &:last-child:not(:nth-child(3n)):not(:nth-child(3n+1)):not(:first-child) {
                 margin-right: auto;
-                margin-left: 20px;
+                margin-left: 3%;
             }
         }
     }
@@ -680,17 +684,26 @@
 
     .block {
         &.related,
+        &.crosssell,
         &.upsell {
             width: 100%;
 
             .products-grid {
                 &.products-related,
+                &.products-crosssell,
                 &.products-upsell {
                     padding: 0;
+                    margin-left: -15px;
+                    margin-right: -15px;
 
                     .product {
                         &-item {
-                            width: 26%;
+                            width: 25%;
+
+                            &:last-child {
+                                margin-left: 0;
+                                margin-right: auto;
+                            }
 
                             &-details {
                                 position: static;
@@ -761,6 +774,7 @@
 
     .block {
         &.related,
+        &.crosssell,
         &.upsell {
             .product-item-view {
                 .action {
@@ -806,6 +820,10 @@
                 padding-left: 0;
                 padding-right: 0;
                 width: 30%;
+
+                &:last-child:not(:nth-child(3n)):not(:nth-child(3n+1)):not(:first-child) {
+                    margin-left: 7%;
+                }
             }
         }
     }
@@ -840,6 +858,7 @@
 
   .block {
     &.related,
+    &.crosssell,
     &.upsell {
         margin-top: 40px;
 
@@ -862,6 +881,7 @@
 
         .products-grid {
             &.products-related,
+            &.products-crosssell,
             &.products-upsell {
                 .items {
                     justify-content: flex-start;

@@ -87,11 +87,12 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                 <label class="label" for="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty">
                     <span><?php /* @escapeNotVerified */ echo __('Qty') ?></span>
                 </label>
-                <div class="control qty">
+                <div class="control qty" data-bind="scope: 'qty_change-<?php /* @escapeNotVerified */ echo $_item->getId() ?>'">
+                    <button class="btn-increment down" data-bind="click: decreaseQty"></button>
                     <input id="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty"
+                           data-bind="value: qty()"
                            name="cart[<?php /* @escapeNotVerified */ echo $_item->getId() ?>][qty]"
                            data-cart-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>"
-                           value="<?php /* @escapeNotVerified */ echo $block->getQty() ?>"
                            type="number"
                            size="4"
                            title="<?php echo $block->escapeHtml(__('Qty')); ?>"
@@ -99,6 +100,21 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                            maxlength="12"
                            data-validate="{required:true,'validate-greater-than-zero':true}"
                            data-role="cart-item-qty"/>
+                    <button class="btn-increment up" data-bind="click: increaseQty"></button>
+                    <script type="text/x-magento-init">
+                        {
+                            "*": {
+                                "Magento_Ui/js/core/app": {
+                                    "components": {
+                                        "qty_change-<?php /* @escapeNotVerified */ echo $_item->getId() ?>": {
+                                            "component": "Magento_Theme/js/view/product/view/qty_change",
+                                            "defaultQty": <?php /* @escapeNotVerified */ echo $block->getQty() ?>
+                                        }
+                                     }
+                                }
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </td>
@@ -110,7 +126,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                 <?php echo $block->getRowTotalHtml($_item); ?>
             <?php endif; ?>
         </td>
-        <td class="item-actions" colspan="100">
+        <td class="col actions" colspan="100">
             <div class="actions-toolbar">
                 <?php /* @escapeNotVerified */ echo $block->getActions($_item) ?>
             </div>
