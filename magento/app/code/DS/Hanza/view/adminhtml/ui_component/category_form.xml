@@ -8,7 +8,7 @@
                     <item name="sortOrder" xsi:type="number">60</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="label" xsi:type="string" translate="true">Hanza category id</item>
+                    <item name="label" xsi:type="string" translate="true">Old shop category id</item>
                 </item>
             </argument>
         </field>

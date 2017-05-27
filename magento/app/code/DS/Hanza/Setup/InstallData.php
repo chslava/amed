@@ -47,7 +47,7 @@ class InstallData implements InstallDataInterface
         $categorySetup->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY, 'hanza_category', [
                 'type' => 'varchar',
-                'label' => 'Hanza category id',
+                'label' => 'Old shop category id',
                 'input' => 'text',
                 'required' => false,
                 'sort_order' => 100,
