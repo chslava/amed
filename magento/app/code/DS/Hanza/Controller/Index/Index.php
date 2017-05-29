@@ -69,11 +69,6 @@ class Index extends \Magento\Framework\App\Action\Action
         define("__SSH_PASS__",'Multip@ck');
         define("__SSH_PATH_TO_DATA__",'/srv/hansa81test/datuapmaina/');
         define("__SSH_PATH_TO_MEDIA__",'/srv/hansa81test/datuapmaina/foto/');
-
-      //  $this->ssh_connection();
-//        $this->_p_prices = $this->get_prices();
-//        $this->_p_stock = $this->get_stock();
-//        $this->_p_categories = $this->get_categoties_linked_to_hanza();
         parent::__construct($context);
     }
 
@@ -109,110 +104,6 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function get_image_import_dir(){
         return $this->getAbsoluteMediaPath()."img_from_ssh";
-    }
-
-
-
-
-    public function update_images($sku){
-
-        $file_names_renamed = $this->get_cache_data("files_renamed");
-        if (!$file_names_renamed){
-            $this->file_names_to_uppercase();
-            $this->set_cache_data("files_renamed",true);
-        }
-        $_product = $this->_objectManager->create('Magento\Catalog\Model\Product');
-        $id = $_product->getIdBySku($sku);
-
-        if (is_numeric($id)){
-
-            $img_sku = str_replace("/","-",$sku);
-            $img =$this->get_image_import_dir()."/$img_sku.jpg";
-            $img_1 = $this->get_image_import_dir()."/$img_sku"."_1".".jpg";
-
-            if ( file_exists($img) || file_exists($img_1) ) {
-                $p = $this->_objectManager->get('Magento\Catalog\Model\Product')->load($id);
-                $images = $p->getMediaGalleryImages();
-                if (count($images)>0){
-                    for($i=0; $i<10; $i++){
-                        if ($i==0){
-                            // image path setup
-                            $image_src = $this->get_image_import_dir()."/".$img_sku.".jpg";
-                            $image_dst = $this->get_image_import_dir()."/done/".$img_sku.".jpg";
-
-                        } else {
-                            // image path setup
-                            $image_src = $this->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
-                            $image_dst = $this->get_image_import_dir()."/done/".$img_sku."_".$i.".jpg";
-                        }
-                        if (file_exists($image_src)){
-                            rename($image_src, $image_dst);
-                        } else {
-                            if ($i>1){
-                                //some images has _1 image but not image without _1.jpg
-                                //till first missing immage
-                                break;
-                            }
-
-                        }
-                    }
-                    return ["status"=>true,"message"=>"<span class='alert warning'>Images already attached to product!</span>"];
-                }
-
-                $atleast_one_image_added = false;
-
-                for($i=0; $i<10; $i++){
-                    if ($i==0){
-                        // image path setup
-                        $image_src = $this->get_image_import_dir()."/".$img_sku.".jpg";
-
-                    } else {
-                        // image path setup
-                        $image_src = $this->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
-                    }
-                    if (file_exists($image_src)){
-                        $p->addImageToMediaGallery($image_src, array('image', 'small_image', 'thumbnail'), false, false); // Add Image 3
-                        $atleast_one_image_added=true;
-                    } else {
-                        if ($i>1){
-                            //some images has _1 image but not image without _1.jpg
-                            //till first missing immage
-                            break;
-                        }
-
-                    }
-                }
-                if ($atleast_one_image_added){
-                    try {
-                        $p->save();
-                        return ["status"=>false,"message"=>"<span class='alert success'>Image added! Succesfully!</span>"];
-
-                    } catch (\Exception $e) {
-                        echo 'Caught exception: ',  $e->getMessage(), "\n";
-                        return ["status"=>false,"message"=>"<span class='alert error'>Could not update product! </span>"];
-                    }
-                }
-
-            } else {
-                return ["status"=>false,"message"=>"<span class='alert error'>No image, nothing to update;</span> ".$img.", ".$img_1.""];
-            }
-        } else {
-            return ["status"=>false,"message"=>"<span class='alert error'>No product in magento, nothing to update!</span>"];
-        }
-        return ["status"=>false,"message"=>"<span class='alert error'>Update failed</span>"];
-    }
-
-
-
-
-
-
-    private function get_image_count($p_id){
-
-        $_p = $this->_objectManager->get('Magento\Catalog\Model\Product')->load($p_id);
-        $_p->load('media_gallery');
-        $images = $_p->getMediaGalleryEntries();
-        return count($images);
     }
 
     private function list_bad_products($type="") {
