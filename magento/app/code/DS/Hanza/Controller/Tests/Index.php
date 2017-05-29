@@ -70,10 +70,6 @@ class Index extends \Magento\Framework\App\Action\Action
         define("__SSH_PATH_TO_DATA__",'/srv/hansa81test/datuapmaina/');
         define("__SSH_PATH_TO_MEDIA__",'/srv/hansa81test/datuapmaina/foto/');
 
-      //  $this->ssh_connection();
-//        $this->_p_prices = $this->get_prices();
-//        $this->_p_stock = $this->get_stock();
-//        $this->_p_categories = $this->get_categoties_linked_to_hanza();
         parent::__construct($context);
     }
 
