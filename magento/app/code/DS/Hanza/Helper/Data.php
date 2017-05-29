@@ -12,7 +12,7 @@ class Data extends AbstractHelper
      * Some methods for returning constats or common settings used in several places
      *
      */
-    private function get_root_cat(){
+    public function get_root_cat(){
         //hardcoded at the moment
         //TODO make it read from settings
         return 2;
@@ -56,7 +56,7 @@ class Data extends AbstractHelper
     }
 
 
-    private function get_import_dir(){
+    public function get_import_dir(){
 
         return $this->get_absolute_media_path()."old_shop_data";
     }
@@ -142,13 +142,72 @@ class Data extends AbstractHelper
 
 
 
-    private function get_value_maping($type){
+    public function get_value_maping($type){
 
         switch($type){
-
+            
+            case "branches.csv":
+                /*
+                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
+                name_ee 	varchar(255) 	YES 		NULL	
+                name_lv 	varchar(255) 	YES 		NULL	
+                name_lt 	varchar(255) 	YES 		NULL	
+                name_ru 	varchar(255) 	YES 		NULL	
+                name_en 	varchar(255) 	YES 		NULL	
+                */
+                 return [
+                        0=>"id",
+                        2=>"name_lv",
+                        4=>"name_ru",
+                        5=>"name_en",
+                        ];
+                break;
+            
+            
+             case "branches_items.csv":
+                /*
+                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
+                branche_id 	int(11) 	YES 		NULL	
+                item_id 	int(11) 	YES 		NULL	
+                place 	int(11) 	YES 		NULL	
+                group_type 	int(11) 	YES 		NULL	
+                category_id 	int(11) 	YES 		NULL	
+                */
+                 return [
+                        0=>"id",
+                        1=>"branche_id",
+                        2=>"item_id",
+                        3=>"place",
+                        4=>"group_type",
+                        5=>"category_id",
+                        ];
+                break;
+            case "categories.csv":
+                return [
+                        0=>"id",
+                        1=>"parent_id",
+                        5=>"title_lv",
+                        7=>"title_ru",
+                        8=>"title_en",
+                        10=>"description_lv",
+                        12=>"description_ru",
+                        13=>"description_en",
+                        
+                        30=>"link_lv",
+                        32=>"link_ru",
+                        33=>"link_en",
+                        
+                        40=>"text_lv",
+                        42=>"text_ru",
+                        43=>"text_en",
+                        
+                        ];
+                break;
             case "items.csv":
                 return [
                     0=>"sku",
+                    1=>"parent_id",
+                    44=>"branch",
                     6=>"title",
                     21=>"url",
                     26=>"name",
@@ -236,9 +295,9 @@ class Data extends AbstractHelper
 
         $stores=[];
 
-        if ($stores=$this->get_cache_data(__FUNCTION__)){
-            return $stores;
-        }
+        //if ($stores=$this->get_cache_data(__FUNCTION__)){
+        //    return $stores;
+        //}
 
         $om = \Magento\Framework\App\ObjectManager::getInstance();
         $storeManager =  $om->get('Magento\Store\Model\StoreManagerInterface');
@@ -316,6 +375,101 @@ class Data extends AbstractHelper
         return $_hanza_cats;
     }
 
+    
+    public function add_category($name,$description, $parent_id=null,$csv_category){      
+        if (!isset($this->_objectManager)){
+            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
+        }
+
+        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create();
+        $category->setName($name);
+        //$category->setData("",$csv_category['id']);
+        
+        if ($parent_id){
+            $category->setParentId($parent_id); // 1: root category.    
+        } else {
+            $category->setParentId($this->get_root_cat()); // 1: root category.
+        }
+        
+        $category->setIsActive(true);
+        $category->setCustomAttributes(['description' => $description,"hanza_category"=>$csv_category['id']]);
+        $this->_objectManager->get('\Magento\Catalog\Api\CategoryRepositoryInterface')->save($category);
+    }
+    
+    
+    
+    
+    
+    public function update_category($cat_id, $name,$description, $parent_id=null,$csv_category){
+        
+        if (!isset($this->_objectManager)){
+            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
+        }
+
+        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create()->load($cat_id);
+        $category->setName($name);
+        $category->setCustomAttributes(['description' => $description,"hanza_category"=>$csv_category['id']]);
+        if ($parent_id){
+            $category->setParentId($parent_id); // 1: root category.    
+        }
+        $category->save();
+        
+        //$all_shops = $this->get_magento_stores(); 
+        //foreach($all_shops as $code => $store){            
+        //    $this->update_category_langs($store["storeId"], $csv_category["title_".$code],$csv_category["description_".$code],$cat_id);
+        //}
+    }
+    
+    
+    
+    public function update_category_langs($store_id, $title, $description, $cat_id){
+        
+        
+        if (!isset($this->_objectManager)){
+            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
+        }
+        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create()->load($cat_id);
+        $category->setStoreId($store_id);
+        $category->setName($title);
+        $category->setDescriptin($description);
+        $category->save();
+    }
+    
+    
+    public function get_all_categories()
+    {
+    
+        $cats_to_return = [];
+        //if ($cats_to_return=$this->get_cache_data(__FUNCTION__)){
+        //    return $cats_to_return;
+        //}
+        
+        if (!isset($this->_objectManager)){
+            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
+        }
+        
+        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+            $categories = $categoryFactory->create()                              
+                ->addAttributeToSelect('*');
+            
+        $cats_by_name = [];
+        $cats_by_shop_id=[];
+        
+        foreach ($categories as $category){
+            $cats_by_name[$category->getId()] = $category->getName();
+            $cats_by_shop_id[$category->getId()] = $category->getData("hanza_category");    
+        }
+        
+        $cats_to_return=[$cats_by_name, $cats_by_shop_id];
+        
+        $this->set_cache_data(__FUNCTION__,$cats_to_return);
+        
+
+        return $cats_to_return;    
+    }
+    
+    
+    
     
     private function get_categoties_linked_to_hanza(){
         /*
@@ -521,103 +675,22 @@ class Data extends AbstractHelper
         return $data;
     }
 
-
-
-    private function get_all_color_codes(){
-
-        $data_to_return = $this->get_cache_data(__FUNCTION__);
-        $lang_list = $this->get_languages();
-        if ($data_to_return){
-            return $data_to_return;
-        } else {
-            $src_file = $this->get_import_filename("colours.txt");
-
-            if (file_exists($src_file)) {
-                if (($handle = fopen($src_file, "r")) !== FALSE) {
-                    $color_data = [];
-                    $lang_data = [];
-                    $color_id="";
-                    while (($data = fgetcsv($handle, 0, "\t",chr(8))) !== FALSE) {
-                        if(strlen($data[0])==3 || in_array($data[0],$lang_list)){
-
-                            if (in_array($data[0],$lang_list)){
-                                $lang_data[$this->get_lang_code($data[0])] = $data[1];
-
-                            } else {
-                                if ($color_id!=""){
-
-                                    $color_data["language"] = $lang_data;
-                                    $data_to_return[$color_id] = $color_data;
-                                }
-                                $color_data = [];
-                                $color_data = $data;
-
-                                $color_id = $data[0];
-                            }
-
-                        } else {
-                            //skipping
-                            continue;
-                        }
-                    }
-                    $data_to_return[$color_id] = $color_data;
-
-                }
-            }
-
-        }
-
-        $this->set_cache_data(__FUNCTION__,$data_to_return);
-        return $data_to_return;
-
-    }
-
-
-
-    public function decode_color($color_code){
-
-        
-        $color_code = trim($color_code);
-        $color_code = strtoupper($color_code);
-        
-        //Fixing issue with two colors, particaly same colors
-        //K12 = "dzeltena oran\u017ea",
-        //K14 = "dzeltena, oran\u017ea",
-        if ($color_code == "K12"){
-            $color_code ="K14";
-        }
-        $codes = $this->get_all_color_codes();
-        
-
-        if (isset($codes[$color_code])){
-            return $codes[$color_code];
-        }
-        return false;
-
-    }
-
-
-
+    
     public function get_image_list($prod_id){
         $image_dir = $this->get_image_destination_dir();
-
         $img_list = [];
-
         //default
         $img_name = $image_dir."/".strtoupper(str_replace("/","_",$prod_id)).".jpg";
         if (file_exists($img_name)){
             $img_list[]=$img_name;
         }
-
         for($i=1; $i< 11; $i++){
             $img_name = $image_dir."/".strtoupper(str_replace("/","_",$prod_id))."_".$i.".jpg";
             if (file_exists($img_name)){
                 $img_list[]=$img_name;
             }
         }
-
         return $img_list;
-
     }
 
 
@@ -629,99 +702,10 @@ class Data extends AbstractHelper
      *
      */
 
-
-
-    public function validate_product($data,$test_images = false){
-
-        print(__FUNCTION__);
-        print(__LINE__);
-        die();
-        $valid = true;
-        $message=[];
-        $data["qty_in_package"] = trim($data["qty_in_package"]);
-        $data["qty_in_box"] = trim($data["qty_in_box"]);
-
-
-        if (!isset($data['name']) || !isset($data['name']['lv']) || strlen(trim(isset($data['name']['lv'])))==0){
-            $valid = false;
-            $message[]="There is no name of the product!";
-        }
-
-        if (!isset($data['description']) || !isset($data['description']['lv']) || strlen(trim(isset($data['description']['lv'])))==0 ){
-            $valid = false;
-            $message[]="There is no description of the product!";
-        }
-
-        if (empty($data["qty_in_package"]) || !is_numeric($data["qty_in_package"])){
-            $valid = false;
-            $message[]="Package qty value is empty!";
-        }
-
-        if (empty($data["qty_in_box"]) || !is_numeric($data["qty_in_box"])){
-            $valid = false;
-            $message[]="Box qty value is empty!";
-        }
-
-
-        if (empty($data["class_lvl_1"])){
-            $valid = false;
-            $message[]="Class 1 value is empty!";
-        }
-
-        if (empty($data["class_lvl_2"])){
-
-            $valid = false;
-            $message[]="Class 2 value is empty!";
-        }
-
-//        if (!isset($data["price"]) || !is_numeric($data["price"]) || strlen($data["price"])==0){
-//            $valid = false;
-//            if (!isset($data['price'])){
-//                $message[]="Price  missing";
-//            } else {
-//                $message[]="Price  missing or wrong format [".$data["price"]."]";
-//            }
-//        }
-        if ($data["material"]===false){
-            $valid = false;
-            $message[]="Could not decode material [".$data["material"]."]";
-        }
-
-        if ($data["color"]===false){
-            $valid = false;
-            $message[]="Could not decode color [".$data["color"]."]";
-        }
-
-
-
-        if ($test_images){
-            $image_list = $this->get_image_list($data["sku"]);
-            if(count($image_list)==0){
-                $valid = false;
-                $message[]="No image found.";
-            }
-        }
-
-        return ['status'=>$valid, "message"=>implode(", ",$message)];
-    }
-
-
-
-
-
     public function get_product_data($prod_id)
     {
         $file = $this->get_cache_file($prod_id,"products");
-        
         $data = json_decode(file_get_contents($file),true);
-
-        //upercase
-        $this->rename_files_names_to_uppercase();
-
-        $data["images"]= $this->get_image_list($prod_id);
-
-        $data['categories'] = $this->get_magento_categories($data);
-
         return $data;
 
     }
@@ -730,7 +714,6 @@ class Data extends AbstractHelper
 
     function get_product_ids(){
         $ids = [];
-
         if ($ids = $this->get_cache_data(__FUNCTION__)){
             return $ids;
         }
@@ -960,7 +943,7 @@ class Data extends AbstractHelper
         if (file_exists($file_to_split)) {
             if (($handle = fopen($file_to_split, "r")) !== FALSE) {
                 $product =[];
-                while (($data = fgetcsv($handle, null,';')) !== FALSE) {
+                while (($data = fgetcsv($handle, null,",")) !== FALSE) {
 
                     if (count($data)<2){
                         continue;
@@ -1005,145 +988,6 @@ class Data extends AbstractHelper
     }
 
 
-    function get_invalid_products($only_prices=false, $reverse=false){
-
-        $data_to_return= [];
-        //loop trough products
-
-
-        if (!$reverse){
-            $data_to_return["summary"]=[
-                "error"=>"Summary of the test",
-                "value"=>"",
-                "products"=>0,
-                "invalid_products"=>0
-            ];
-        }
-
-        $file_to_split = $this->get_import_filename("products");
-        if (file_exists($file_to_split)) {
-            if (($handle = fopen($file_to_split, "r")) !== FALSE) {
-                $product = [];
-                while (($data = fgetcsv($handle, 0, "\t",chr(8))) !== FALSE) {
-
-                    if (count($data) < 2) {
-                        continue;
-                    }
-
-
-
-                    if ($data[0] != "language") {
-
-                        $validation_result=false;
-                        //products counter
-                        if (!$reverse){
-                            $data_to_return["summary"]["products"]++;
-                        }
-
-
-                        $sku =$data[0];
-
-                        $prices_file = $this->get_cache_file($sku.".IV.","prices");
-                        $prices_file_package = $this->get_cache_file($sku.".IV2.","prices");
-                        $prices_file_box = $this->get_cache_file($sku.".IV3.","prices");
-                        if (!file_exists($prices_file) && !file_exists($prices_file_package) && !file_exists($prices_file_box)){
-                            if ($reverse){
-                                //we need to add only good ones in this case
-                                continue;
-                            }
-                            $data_to_return[$sku]=[
-                                "error"=>"No price file",
-                                "value"=>$prices_file." - ".$prices_file_package." - ".$prices_file_box
-                            ];
-
-
-                        } else {
-                            $data_from_file = json_decode(file_get_contents($prices_file),true);
-                            $price = $data_from_file['price'];
-                            if (!is_numeric($price)){
-                                if ($reverse){
-                                    //we need to add only good ones in this case
-                                    continue;
-                                }
-                                $data_to_return[$sku]=[
-                                    "error"=>"Price is not numeric",
-                                    "value"=>$price
-                                ];
-                            } else {
-
-                            }
-
-
-                        }
-                        $data_from_file=false;
-                        if (!$only_prices){
-                            $product_file = $this->get_cache_file($sku,"products");
-                            if(file_exists($product_file)){
-
-                                $data_from_file=json_decode(file_get_contents($product_file),true);
-                                $validation_result = $this->validate_product($data_from_file,true);
-                                if (!$validation_result['status']){
-                                    if ($reverse){
-                                        //we need to add only good ones in this case
-                                        continue;
-                                    }
-                                    $data_to_return[$sku] = [
-                                        "error"=>"Invalid product : ".$validation_result["message"],
-                                        "value"=>$validation_result["message"]
-                                    ];
-                                }
-
-                            } else {
-                                if ($reverse){
-                                    //we need to add only good ones in this case
-                                    continue;
-                                }
-                                $data_to_return[$sku] = [
-
-                                    "error"=>"No product file, pribably should run the sync script first to chache missing products!",
-                                    "value"=>$product_file
-                                ];
-                            }
-
-                        }
-
-                        if ($reverse && $data_from_file){
-                            //we need to add only good ones in this case
-                            $data_to_return[$sku]=[
-                                "error"=>"No error",
-                                "value"=>$data_from_file
-                            ];
-                        }
-
-
-
-
-
-                        if (isset($data_to_return[$sku]) && !$reverse){
-                            $data_to_return["summary"]["invalid_products"]++;
-                            //products error type counter
-                            if (isset($data_to_return["summary"][$data_to_return[$sku]["error"]])){
-                                $data_to_return["summary"][$data_to_return[$sku]["error"]]++;
-                            } else {
-                                $data_to_return["summary"][$data_to_return[$sku]["error"]]=1;
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        if (!$reverse){
-            $data_to_return["summary"]["value"] ="Error counters ";
-            foreach($data_to_return["summary"] as $key => $value){
-                $data_to_return["summary"]["value"].=" [".$key.":".$value."] ";
-            }
-        }
-
-        return $data_to_return;
-
-    }
-
     
     public function delete_cached_files($img_filename_to_delete,$directory=false){
         
@@ -1172,112 +1016,6 @@ class Data extends AbstractHelper
         }
     }
 
-
-
-    function rename_files_names_to_uppercase($force = false, $verbose=false){
-
-        $product_skus=[];
-        $bad_skus=[];
-
-        $file_names_renamed = $this->get_cache_data("files_renamed");
-        if (!$file_names_renamed || $force){
-            $this->set_cache_data("files_renamed",true);
-        } else {
-            return ["status"=>false, "message"=>"No files updated"];
-        }
-
-
-        $rename_counter = 0;
-
-        //renames all to the uppercase
-        $path = $this->get_image_import_dir();
-        $path_dst = $this->get_image_destination_dir();
-        $counter=0;
-        if ($handle = opendir($path)) {
-            while (false !== ($file = readdir($handle))) {
-                if ('.' === $file) continue;
-                if ('..' === $file) continue;
-
-                $counter++;
-
-                $file_name = basename($file);
-
-
-
-                if ($verbose){
-                    print("<br/>[$counter] source: $file $file_name <br/>");
-                }
-
-                if (substr_count($file_name,".jpg")>0){
-                    $file_name = str_replace(".jpg","",$file_name);
-                    $file_name_uc = strtoupper($file_name);
-
-                    $src = $path."/".$file_name.".jpg";
-                    $dst = $path_dst."/".$file_name_uc.".jpg";
-
-                    $id = basename($dst);
-                    $id = str_replace(".jpg","",$id);
-
-                    $prod_data=$this->get_product_data($id);
-                    if (isset($prod_data["sku"])){
-                        $product_skus[] = $id;
-                        if ($verbose){
-                            print("Product exists: $id <br/>");
-                        }
-                    } else {
-                        $problem  = $prod_data["message"];
-                        $tmp_id  =explode("_",$id);
-                        $tmp_id = end($tmp_id);
-                        $tmp_id = str_replace("_".$tmp_id,"",$id);
-                        $prod_data=$this->get_product_data($tmp_id);
-
-                        if (in_array($tmp_id,$product_skus) || isset($prod_data["sku"])){
-                         if ($verbose){
-                             print("Product exists: $tmp_id <br/>");
-                         }
-                        }else {
-                            $bad_skus[$id]=$problem." / ".$prod_data["message"];
-                            if ($verbose){
-                                print("<b style='color:red'>Product does not exist</b>: $id ($tmp_id) <br/>");
-                            }
-                        }
-
-                    }
-
-
-
-                    if ($verbose){
-                        print("destination: $dst <br/>");
-                    }
-                    
-                    $time_stamp = $this->get_cache_data(basename($this->get_image_timestamp_dir())."/".basename($src));
-                    if (!file_exists($dst) || $time_stamp!=filemtime($src)){
-                        if (copy($src,$dst)){
-
-                            if ($verbose){
-                                print("[$counter] Copied: $src -> $dst <br/>");
-                            }
-
-                        }else {
-                            if ($verbose){
-                                print("<b style=\"color:red\">[$counter] Failed</b>: $src -> $dst <br/>");
-                            }
-                        }
-                    } else {
-                        if ($verbose){
-                            print("<b>[$counter] Exists</b>: $src -> $dst <br/>");
-                        }
-                    }
-
-
-                }
-
-
-            }
-            closedir($handle);
-        }
-        return ["good"=>$product_skus,"bad"=>$bad_skus];
-    }
 
 
     public function print_line_by_line($what){
