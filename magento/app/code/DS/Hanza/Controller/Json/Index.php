@@ -579,7 +579,7 @@ class Index extends \Magento\Framework\App\Action\Action
         if (file_exists($csv_file)) {
             if (($handle = fopen($csv_file, "r")) !== FALSE) {
                 $map = $this->helper->get_value_maping(basename($csv_file));
-                while (($data = fgetcsv($handle, null, ";")) !== FALSE) {
+                while (($data = fgetcsv($handle, null, ",")) !== FALSE) {
                     $m_data = [];
                     foreach($map as $k => $v) {
                         if (isset($data[$k])){
