@@ -18,6 +18,23 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
+    .catalogsearch-result-index {
+        .columns {
+            padding-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            .lib-title-top-label();
+
+            &:before {
+                top: -20px;
+                left: 0;
+            }
+        }
+    }
+
     .block-search {
         margin: 0 15px;
 
@@ -224,6 +241,16 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .catalogsearch-result-index {
+        .page-title {
+            margin-left: 0;
+
+            &:before {
+                width: @title_top_label-width__l;
+            }
+        }
+    }
+
     .block-search {
         position: absolute;
         right: 77px;
@@ -301,6 +328,14 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .catalogsearch-result-index {
+        .page-main {
+            .columns {
+                padding-top: 0;
+            }
+        }
+    }
+
     .block-search {
         float: left;
         position: relative;
