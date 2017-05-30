@@ -45,6 +45,7 @@
         </div>
         <?php endif; ?>
         <?php echo $block->getChildHtml('product.info.price'); $block->unsetChild('product.info.price') ?>
+        <?php echo $block->getChildHtml('product.info.price.no-options'); $block->unsetChild('product.info.price.no-options') ?>
         <div class="actions">
             <button type="submit"
                     title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"

@@ -27,7 +27,7 @@
             </container>
         </referenceContainer>
         <referenceContainer name="product.info.form.content" htmlTag="div" htmlClass="product-options-bottom">
-            <container name="product.info.price.no-options" label="Price auxiliary container" htmlTag="div" htmlClass="product-info-price" after="-">
+            <container name="product.info.price.no-options" label="Price auxiliary container" htmlTag="div" htmlClass="product-info-price">
                 <container name="final.price.label.no-options" htmlTag="div" htmlClass="label">
                     <block class="Magento\Framework\View\Element\Text" name="final_price_label_no-options">
                         <arguments>
@@ -49,6 +49,7 @@
         <move element="product.info.stock.sku" destination="product.info.top" after="page.main.title"/>
         <move element="product.info.overview" destination="product.info.top" after="product.info.stock.sku"/>
         <move element="product.info.price" destination="product.info.addtocart.additional" />
+        <move element="product.info.price.no-options" destination="product.info.addtocart" />
         <move element="final.price.label" destination="product.info.price" before="-" />
         <move element="product.attributes" destination="product.info.form.options" before="-" />
 
