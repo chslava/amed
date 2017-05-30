@@ -213,7 +213,7 @@
 //  Mobile
 //  _____________________________________________
 
-@media only screen and (max-width: (@screen__l - 1)) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
     .navigation {
         padding: 0;
 
@@ -458,7 +458,7 @@
             .lib-link(
                 @_link-color: @amedical-text_color,
                 @_link-text-decoration: none,
-                @_link-color-visited: @footer-links-color,
+                @_link-color-visited: @amedical-text_color,
                 @_link-text-decoration-visited: none,
                 @_link-color-hover: @footer-links-color-hover,
                 @_link-text-decoration-hover: none,
@@ -499,7 +499,7 @@
         }
 
         .action {
-            &.showcart {
+            &.tocart {
                 .counter.qty {
                     .lib-css(background, @active__color);
                     .lib-css(color, @page__background-color);

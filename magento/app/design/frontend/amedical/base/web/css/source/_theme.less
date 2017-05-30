@@ -23,6 +23,7 @@
 @layout-indent__width: 0;
 @layout__width-xs-indent: 0;
 @font-size__s: 15px;
+@h1__font-size-desktop: 36px;
 //  Fonts
 @icons__font-path: '@{baseDir}fonts/Luma-Icons';
 @icons__font-name: 'luma-icons';
@@ -42,6 +43,7 @@
 @form-element-input-placeholder__color: #909090;
 @form-element-input__height: 43px;
 @copyright__background-color: #636463;
+@sidebar__background-color: @color-white;
 
 
 //
@@ -155,22 +157,23 @@
 @button__font-size: 14px;
 @button__font-weight: 600;
 
-@button-primary__background: @amedical-brand-color;
-@button-primary__hover__background: @amedical-brand-color;
-@button-primary__border: 0;
-@button-primary__hover__border: 0;
-
 //  Default = secondary button
 @button__background: @color-white;
 @button__border: 2px solid @amedical-brand-color;
 @button__hover__color: @color-white;
+@button__active__color: @color-white;
 @button__hover__background: @amedical-brand-color;
 @button__active__background: @amedical-brand-color;
 
 //  Primary button
+@button-primary__background: @amedical-brand-color;
+@button-primary__active__background: @amedical-brand-color;
+@button-primary__hover__background: @amedical-brand-color;
+@button-primary__border: 0;
+@button-primary__hover__border: 0;
+
 @button-primary__hover__color: @color-white;
-@button-primary__active__background: @link__hover__color;
-@button-primary__active__border: 1px solid @link__hover__color;
+@button-primary__active__border: none;
 @button-primary__active__color: @color-white;
 
 //  Button with icon
@@ -308,6 +311,15 @@
 
 //  Pager link.action active
 @pager-action__active__color: @text__color__muted;
+
+//
+//  Cart
+//  ---------------------------------------------
+
+@product-name-link__color: @amedical-text_color;
+@product-name-link__color__visited: @amedical-text_color;
+@product-name-link__color__hover: @amedical-brand-color;
+@product-name-link__color__active: @amedical-text_color;
 
 //
 //  Rating

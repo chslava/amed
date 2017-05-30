@@ -467,8 +467,8 @@
     }
 
     .page-main {
-        > .page-title-wrapper {
-            padding: 20px @indent__m 0 @indent__m;
+        .page-title-wrapper {
+            padding: 0;
             margin-top: 32px;
             position: relative;
         }
@@ -480,65 +480,10 @@
 }
 
 //
-//  Mobile
-//  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-
-    .page-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        background-color: @color-white;
-    }
-
-    .page-wrapper {
-        padding-top: @header-panel_height;
-    }
-
-    .logo {
-        margin: 0;
-
-        img {
-            max-width: 50px;
-        }
-    }
-
-    .footer.content {
-        .footer-contacts {
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid @footer-border_color;
-        }
-
-        .links {
-            border-bottom: 1px solid @footer-border_color;
-        }
-
-        .footer-social {
-            .item {
-                float: left;
-                margin-right: 25px;
-                margin-bottom: 22px;
-            }
-        }
-    }
-
-    .copyright {
-        .lib-css(background-color, #414141);
-        .lib-css(color, @color-white);
-        font-size: 12px;
-        height: 50px;
-    }
-}
-
-//
 //  Tablet
 //  _____________________________________________
 
-@media only screen and (min-width: @screen__m) and  (max-width: (@screen__l - 1)) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
     .btn-authorize {
         width: 110px !important;
     }
@@ -660,6 +605,61 @@
     }
 }
 
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+    }
+
+    .page-wrapper {
+        padding-top: @header-panel_height;
+    }
+
+    .logo {
+        margin: 0;
+
+        img {
+            max-width: 50px;
+        }
+    }
+
+    .footer.content {
+        .footer-contacts {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid @footer-border_color;
+        }
+
+        .links {
+            border-bottom: 1px solid @footer-border_color;
+        }
+
+        .footer-social {
+            .item {
+                float: left;
+                margin-right: 25px;
+                margin-bottom: 22px;
+            }
+        }
+    }
+
+    .copyright {
+        .lib-css(background-color, #414141);
+        .lib-css(color, @color-white);
+        font-size: 12px;
+        height: 50px;
+    }
+}
 
 //
 //  Desktop
