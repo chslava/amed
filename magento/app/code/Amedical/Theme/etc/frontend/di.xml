@@ -4,4 +4,7 @@
     <type name="Magento\Theme\Block\Html\Topmenu">
         <plugin name="amedical_theme-topmenu" type="Amedical\Theme\Plugin\Block\Topmenu" />
     </type>
+    <type name="Magento\Catalog\Helper\Output">
+        <plugin name="amedical_theme-weight-output" type="Amedical\Theme\Plugin\Catalog\Helper\Output" />
+    </type>
 </config>
