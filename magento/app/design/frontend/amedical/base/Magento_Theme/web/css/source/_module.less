@@ -619,18 +619,26 @@
         right: 0;
         z-index: 999;
         background-color: @color-white;
+
+        .header.panel {
+            height: 73px;
+        }
+
+        .logo {
+            margin: 0;
+            max-width: 50%;
+            position: absolute;
+            left: 26px;
+            top: 10px;
+
+            img {
+                max-width: 50px;
+            }
+        }
     }
 
     .page-wrapper {
         padding-top: @header-panel_height;
-    }
-
-    .logo {
-        margin: 0;
-
-        img {
-            max-width: 50px;
-        }
     }
 
     .footer.content {

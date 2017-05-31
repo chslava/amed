@@ -83,16 +83,17 @@
 
     .catalog-category-view {
         .columns {
-            padding-top: 50px;
+            padding-top: 20px;
             position: relative;
             z-index: 1;
         }
 
         .page-title {
             .lib-title-top-label();
+            margin-bottom: 15px;
 
             &:before {
-                top: -20px;
+                top: -23px;
                 left: 0;
             }
         }
@@ -807,6 +808,14 @@
         }
     }
 
+    .category {
+        &-cms,
+        &-image,
+        &-description {
+            padding: 8px 0 18px 0;
+        }
+    }
+
     .catalog-product-view {
         .column.main {
             .lib-vendor-prefix-display(flex);
@@ -823,6 +832,10 @@
             &:before {
                 width: @title_top_label-width__l;
             }
+
+            &-wrapper {
+                margin-top: 23px;
+            }
         };
     }
 
@@ -833,7 +846,6 @@
     .product-info {
         &-top {
             .lib-vendor-prefix-order(-1);
-            padding-top: 20px;
             margin-left: 10px;
 
             .product {
