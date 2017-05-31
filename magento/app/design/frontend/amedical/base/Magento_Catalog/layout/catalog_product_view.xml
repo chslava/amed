@@ -51,7 +51,8 @@
         <move element="product.info.price" destination="product.info.addtocart.additional" />
         <move element="product.info.price.no-options" destination="product.info.addtocart" />
         <move element="final.price.label" destination="product.info.price" before="-" />
-        <move element="product.attributes" destination="product.info.form.options" before="-" />
+        <!--<move element="product.attributes" destination="product.info.form.options" before="-" />-->
+        <move element="product.attributes" destination="product.info" before="-" />
 
         <referenceBlock name="product.info.simple" remove="true"/>
         <referenceBlock name="product.info.addto" remove="true"/>
