@@ -82,13 +82,6 @@
     }
 
     .catalog-category-view {
-
-        .columns {
-            padding-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
         .page-title {
             .lib-title-top-label();
             margin-bottom: 15px;
@@ -103,12 +96,6 @@
     .catalog-product-view {
         position: relative;
         z-index: 1;
-
-        .columns {
-            padding-top: 20px;
-            position: relative;
-            z-index: 1;
-        }
 
         .page-title:extend(.catalog-category-view .page-title all){
             line-height: 33px;
@@ -1217,9 +1204,7 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .catalog-category-view {
         .page-main {
-            .columns {
-                padding-top: 0;
-            }
+
         }
     }
 }

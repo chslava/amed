@@ -146,10 +146,7 @@
 
     .logo {
         margin: 0;
-        max-width: 50%;
         position: absolute;
-        left: 26px;
-        top: 10px;
         z-index: 101;
 
         img {
@@ -219,6 +216,12 @@
             margin-bottom: 0;
             text-align: center;
         }
+    }
+
+    .columns {
+        padding-top: 20px;
+        position: relative;
+        z-index: 1;
     }
 
     //
@@ -503,7 +506,7 @@
 
     .logo {
         top: 23px;
-        left:11px;
+        left: 11px;
         max-width: 74px;
     }
 
@@ -623,17 +626,15 @@
         .header.panel {
             height: 73px;
         }
+    }
 
-        .logo {
-            margin: 0;
-            max-width: 50%;
-            position: absolute;
-            left: 26px;
-            top: 10px;
+    .logo {
+        max-width: 50%;
+        left: 26px;
+        top: 10px;
 
-            img {
-                max-width: 50px;
-            }
+        img {
+            max-width: 50px;
         }
     }
 
@@ -726,6 +727,10 @@
             float: left;
             .lib-vendor-prefix-order(1);
         }
+    }
+
+    .columns {
+        padding-top: 0;
     }
 
     .page-main {
