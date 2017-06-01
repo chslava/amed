@@ -1,0 +1,22 @@
+<?php
+$contacts = $block->getProductCategoryContacts();
+?>
+
+<?php if (is_array($contacts)): ?>
+    <div class="flex-container">
+        <div class="row">
+            <div class="info-block category-contacts bordered col-m-12">
+                <img src="<?php echo $block->getViewFileUrl('images/phone-icon.png') ?>" />
+                <div class="content">
+                    <span><?php echo __('Contact Person') ?> <br /><?php echo $contacts['name'] ?>:
+                        <a href="tel:+<?php echo $contacts['phone'] ?>"><?php echo $contacts['phone'] ?></a>
+                    </span>
+                </div>
+            </div>
+            <div class="info-block bordered col-m-12">
+                <span><img src="<?php echo $block->getViewFileUrl('images/delivery.jpg') ?>"/></span>
+                <div class="content">Free delivery over 70&euro;</div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

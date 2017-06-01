@@ -1,0 +1,74 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .info-block {
+    padding: 2px 0 2px 25px;
+    margin-top: 30px;
+    min-height: 50px;
+    width: 100%;
+
+    &.category-contacts {
+      span {
+        line-height: 18px;
+      }
+
+      a {
+        .lib-link(
+          @_link-color: @amedical-brand-color,
+          @_link-text-decoration: none,
+          @_link-color-visited: @amedical-brand-color,
+          @_link-text-decoration-visited: none,
+          @_link-color-hover: @amedical-brand-color,
+          @_link-text-decoration-hover: none,
+          @_link-color-active: @amedical-brand-color,
+          @_link-text-decoration-active: none
+        );
+      }
+    }
+
+    img {
+      width: 36px;
+    }
+
+    .content {
+      width: 80%;
+      padding-left: 24px;
+    }
+  }
+}
+
+//
+//  Mobile @screen__m
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .info-block {
+    .content {
+      padding-left: 24px;
+    }
+
+    & + & {
+      order: 1;
+      margin-top: 30px;
+    }
+  }
+}
+
+//
+//  Mobile @screen__l
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+  .info-block {
+    .content {
+      padding-left: 10px;
+    }
+
+    & + & {
+      order: -1;
+      margin-top: 25px;
+    }
+  }
+}

@@ -17,15 +17,6 @@
                 </block>
             </container>
         </referenceContainer>
-        <referenceContainer name="product.info.main">
-            <container name="product.info.cms.container" htmlTag="div" htmlClass="product-info-cms" after="-">
-                <block class="Magento\Cms\Block\Block" name="header.top.links" after="product.info.enquiry">
-                    <arguments>
-                        <argument name="block_id" xsi:type="string">product_view_info_bottom</argument>
-                    </arguments>
-                </block>
-            </container>
-        </referenceContainer>
         <referenceContainer name="product.info.form.content" htmlTag="div" htmlClass="product-options-bottom">
             <container name="product.info.price.no-options" label="Price auxiliary container" htmlTag="div" htmlClass="product-info-price">
                 <container name="final.price.label.no-options" htmlTag="div" htmlClass="label">
@@ -51,7 +42,6 @@
         <move element="product.info.price" destination="product.info.addtocart.additional" />
         <move element="product.info.price.no-options" destination="product.info.addtocart" />
         <move element="final.price.label" destination="product.info.price" before="-" />
-        <!--<move element="product.attributes" destination="product.info.form.options" before="-" />-->
         <move element="product.attributes" destination="product.info" before="-" />
 
         <referenceBlock name="product.info.simple" remove="true"/>
