@@ -14,7 +14,9 @@ class WysiwygConfig {
     public function afterGetConfig($subject, \Magento\Framework\DataObject $config)
     {
         $styleArray = [
-            'Amedical-List-Square' => 'list-style-square'
+            'Amedical-List-Square' => 'list-style-square',
+            'Amedical-Image-Left' => 'am-image-left',
+            'Amedical-Image-Right' => 'am-image-right'
         ];
 
         $styles = array_map(function($title, $class) {

@@ -37,28 +37,6 @@
   text-align: center;
 }
 
-.list-style-square {
-  list-style-type: none;
-  padding-left: 20px;
-
-  > li {
-    position: relative;
-    margin-bottom: 20px;
-
-    &:before {
-      content: "";
-      display: block;
-      line-height: inherit;
-      height: 13px;
-      width: 13px;
-      background-color: @amedical-brand-color;
-      position: absolute;
-      left: -20px;
-      top: 4px;
-    }
-  }
-}
-
 @media only screen and (min-width: @screen__l) {
   .show-desktop {
     display: inline-block !important;
@@ -90,5 +68,43 @@
 @media only screen and (max-width: @screen__m) {
   .hide-mobile {
     display: none !important;
+  }
+}
+
+// WysiWyg editor styles
+
+.list-style-square {
+  list-style-type: none;
+  padding-left: 20px;
+
+  > li {
+    position: relative;
+    margin-bottom: 20px;
+
+    &:before {
+      content: "";
+      display: block;
+      line-height: inherit;
+      height: 13px;
+      width: 13px;
+      background-color: @amedical-brand-color;
+      position: absolute;
+      left: -20px;
+      top: 4px;
+    }
+  }
+}
+
+.am-image {
+  display: inline-block;
+
+  &-left {
+    float: left;
+    margin: 15px 15px 15px 0;
+  }
+
+  &-right {
+    float: right;
+    margin: 15px 0 15px 15px;
   }
 }

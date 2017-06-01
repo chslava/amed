@@ -56,3 +56,15 @@ abbr, html\:abbr {border-bottom:1px dashed #CCC; cursor:help}
     left: -20px;
     top: 4px;
 }
+
+.am-image-left {
+    display: inline-block;
+    float: left;
+    margin: 15px 15px 15px 0;
+}
+
+.am-image-right {
+    display: inline-block;
+    float: right;
+    margin: 15px 0 15px 15px;
+}
