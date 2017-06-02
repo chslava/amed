@@ -258,6 +258,7 @@
                 margin-bottom: 18px;
                 padding-bottom: 18px;
                 box-sizing: border-box;
+                border-bottom: 1px solid @footer-border_color;
 
                 > li {
                     .lib-css(background, @footer__background-color);
@@ -483,10 +484,67 @@
 }
 
 //
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: @color-white;
+
+        .header.panel {
+            height: 73px;
+        }
+    }
+
+    .logo {
+        max-width: 50%;
+        left: 26px;
+        top: 10px;
+
+        img {
+            max-width: 50px;
+        }
+    }
+
+    .page-wrapper {
+        padding-top: @header-panel_height;
+    }
+
+    .footer.content {
+        .footer-contacts {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid @footer-border_color;
+        }
+
+        .footer-social {
+            .item {
+                float: left;
+                margin-right: 25px;
+                margin-bottom: 22px;
+            }
+        }
+    }
+
+    .copyright {
+        .lib-css(background-color, #414141);
+        .lib-css(color, @color-white);
+        font-size: 12px;
+        height: 50px;
+    }
+}
+
+//
 //  Tablet
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .btn-authorize {
         width: 110px !important;
     }
@@ -534,6 +592,7 @@
         }
 
         .links {
+            @media only screen and (max-width: (@screen__l - 1)) {
             margin-bottom: 28px;
             margin-left: -@content_padding;
             margin-right: -@content_padding;
@@ -541,6 +600,8 @@
             padding-left: @content_padding;
             padding-right: @content_padding;
             border-bottom: 1px solid @footer-border_color;
+        }
+
 
 
             li {
@@ -608,67 +669,6 @@
     }
 }
 
-
-//
-//  Mobile
-//  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-
-    .page-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        background-color: @color-white;
-
-        .header.panel {
-            height: 73px;
-        }
-    }
-
-    .logo {
-        max-width: 50%;
-        left: 26px;
-        top: 10px;
-
-        img {
-            max-width: 50px;
-        }
-    }
-
-    .page-wrapper {
-        padding-top: @header-panel_height;
-    }
-
-    .footer.content {
-        .footer-contacts {
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid @footer-border_color;
-        }
-
-        .links {
-            border-bottom: 1px solid @footer-border_color;
-        }
-
-        .footer-social {
-            .item {
-                float: left;
-                margin-right: 25px;
-                margin-bottom: 22px;
-            }
-        }
-    }
-
-    .copyright {
-        .lib-css(background-color, #414141);
-        .lib-css(color, @color-white);
-        font-size: 12px;
-        height: 50px;
-    }
-}
 
 //
 //  Desktop
@@ -1016,6 +1016,7 @@
             padding-right: 5%;
             vertical-align: top;
             width: 48%;
+            border: none;
 
             li {
                 display: inline-block;

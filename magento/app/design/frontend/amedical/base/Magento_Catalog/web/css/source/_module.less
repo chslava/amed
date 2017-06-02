@@ -75,6 +75,7 @@
         &-cms,
         &-image,
         &-description {
+            color: @amedical-text_color;
             font-size: 12px;
             line-height: @indent__base;
             padding: 8px @indent__m 18px @indent__m;
@@ -226,6 +227,10 @@
                     margin-bottom: 12px;
                 }
             }
+
+            .value {
+                color: @amedical-text_color;
+            }
         }
     }
 
@@ -350,7 +355,7 @@
             );
 
             tbody {
-                color: @amedical-text_color;
+                color: @amedical-text_color-dark;
                 font-size: @font-size__s;
 
                 > tr:nth-child(even) {
