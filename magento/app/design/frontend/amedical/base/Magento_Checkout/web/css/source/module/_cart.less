@@ -523,6 +523,13 @@
 //  Mobile
 //  _____________________________________________
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .cart {
+        .table.items .col.actions {
+            vertical-align: bottom;
+        }
+    }
+}
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .cart-container {
         .form-cart {
@@ -541,10 +548,6 @@
 
             .col.qty {
                 text-align: center;
-            }
-
-            .col.actions {
-                vertical-align: bottom;
             }
 
             tbody > tr > td:last-child {
@@ -601,6 +604,7 @@
                     box-sizing: border-box;
                     display: block;
                     float: left;
+                    padding-top: 10px;
                     white-space: nowrap;
                     width: 33%;
 
@@ -623,6 +627,15 @@
 
             tbody > tr > td:last-child {
                 border: 0;
+            }
+
+            .product {
+                &-item-photo {
+                }
+
+                &-item-name {
+                    margin-top: 0;
+                }
             }
         }
     }
