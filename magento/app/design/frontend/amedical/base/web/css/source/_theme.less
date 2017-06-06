@@ -42,6 +42,7 @@
 @form-element-input__background: #f7f7f7;
 @form-element-input-placeholder__color: #909090;
 @form-element-input__height: 43px;
+@form-element-input__color: @amedical-text_color;
 @copyright__background-color: #636463;
 @sidebar__background-color: @color-white;
 
@@ -218,7 +219,7 @@
 @icon-comment: '\e620';
 @icon-up: '\e621';
 @icon-down: '\e622';
-@icon-help: '\e623';
+@icon-help: '\e922';
 @icon-arrow-right-thin: false;
 @icon-arrow-left-thin: false;
 @icon-arrow-down-thin: false;
@@ -385,9 +386,6 @@
 
 @gallery-thumb-border-color-active: @active__color;
 
-//  Checkout tooltip icon
-@checkout-tooltip-icon__font-size: 21px;
-
 //  Checkout Payment Option icon
 @checkout-payment-option-title-icon__font-size: 14px;
 @checkout-payment-option-title-icon__line-height: 16px;
@@ -401,3 +399,18 @@
 
 //  Checkout
 @checkout-sidebar__columns: 8;
+
+//
+//  Links
+//  ---------------------------------------------
+
+@link__color: @amedical-brand-color;
+@link__text-decoration: none;
+
+@link__visited__color: @link__color;
+
+@link__hover__color: darken(@link__color, 10%);
+@link__hover__text-decoration: none;
+
+@link__active__color: @link__color;
+@link__active__text-decoration: none;
