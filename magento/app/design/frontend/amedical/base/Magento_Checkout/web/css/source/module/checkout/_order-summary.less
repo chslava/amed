@@ -43,6 +43,21 @@
         //  Totals table
         .table-totals {
             &:extend(.abs-sidebar-totals all);
+
+            &:not(.grand) {
+                .mark,
+                .amount {
+                    font-size: @font-size__s;
+                    font-weight: @font-weight__bold;
+                }
+
+                .shipping {
+                    .value {
+                        font-size: 12px;
+                        font-weight: @font-weight__regular;
+                    }
+                }
+            }
         }
 
         .mark {
@@ -205,12 +220,17 @@
             }
         }
 
-        .modal-inner-wrap {
+        .checkout-sidebar-bottom {
             .lib-css(box-shadow, @product-item__hover__box-shadow);
+            padding: 28px 17px;
+            text-align: center;
+            margin-top: 15px;
         }
     }
 
     .opc-block-summary {
+        .lib-css(box-shadow, @product-item__hover__box-shadow);
+
         .table-totals {
             .grand {
                 .mark,
