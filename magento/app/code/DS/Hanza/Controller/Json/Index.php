@@ -738,6 +738,10 @@ class Index extends \Magento\Framework\App\Action\Action
                 print("--------------------<br/>");
             }
             
+            if (!$magento_parent_id){
+                continue;
+            }
+            
             $_c['title_lv'] = $this->clean_csv_title($_c['title_lv']);
             $_c['title_ru'] = $this->clean_csv_title($_c['title_ru']);
             $_c['title_en'] = $this->clean_csv_title($_c['title_en']);
