@@ -726,6 +726,7 @@ class Index extends \Magento\Framework\App\Action\Action
                     print("--------------------<br/>");
                     
                 } else {
+                    $magento_parent_id =null;
                     print("--------------------<br/>");
                     print("missing parent magento cat ".$_c_p['title_lv']."<br/>");
                     print("--------------------<br/>");

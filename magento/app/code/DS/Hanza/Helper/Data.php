@@ -446,7 +446,7 @@ class Data extends AbstractHelper
         
         $cats_to_return=[$cats_by_name, $cats_by_shop_id];
         
-        $this->set_cache_data(__FUNCTION__,$cats_to_return);
+        //$this->set_cache_data(__FUNCTION__,$cats_to_return);
         
 
         return $cats_to_return;    
