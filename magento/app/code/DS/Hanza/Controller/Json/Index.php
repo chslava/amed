@@ -14,6 +14,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
+        $this->_coreRegistry = $this->_objectManager->get('\Magento\Framework\Registry');
         $this->force=false;
 
         parent::__construct($context);
@@ -88,9 +89,19 @@ class Index extends \Magento\Framework\App\Action\Action
         // some attributes are skipped cause they are for debugging or saved elsware
         foreach($data  as $key => $value){
             //checking if there is need for update
-
+            
             switch($key){
                 
+                case "status":
+                    if ($value!=2){
+                        if (is_numeric($product_id)){
+                            //$this->registry->register('isSecureArea', true);
+                            $this->_coreRegistry->register('isSecureArea', true);
+                            $product->delete();
+                        }
+                        return ["status"=>false,"message"=>"Product is inactive, so delete.", 'data'=>$data];
+                    }
+                    break;
                 case "original_data":
                     //print("<pre>");
                     //print_r($this->all_m_cats);
@@ -141,7 +152,7 @@ class Index extends \Magento\Framework\App\Action\Action
                     break;
                 
                 case "name":
-                        $product->setName($this->clean_csv_title($data['title']));
+                        $product->setName($this->clean_csv_title($data['name']));
                     break;
                 
                 case "description":
@@ -186,6 +197,14 @@ class Index extends \Magento\Framework\App\Action\Action
                     //}
                     
                     //print_r($cats_to_add);
+                    if (count($cats_to_add)==0){
+                        if (is_numeric($product_id)){
+                            //$this->registry->register('isSecureArea', true);
+                            $this->_coreRegistry->register('isSecureArea', true);
+                            $product->delete();
+                        }
+                        return ["status"=>false,"message"=>"Product skipped no category, so delete.", 'data'=>$data];
+                    }
                     $product->setCategoryIds($cats_to_add);
                     break;
                 case "original_data": default:
@@ -558,17 +577,26 @@ class Index extends \Magento\Framework\App\Action\Action
     
     
     public function get_branches_items(){
+        return [];
         return $this->get_csv_into_array("branches_items.csv");
     }
     
     
     public function get_branches(){
+        return [];
         return $this->get_csv_into_array("branches.csv");
     }
     
     
     public function get_csv_categories(){
-        return $this->get_csv_into_array("categories.csv");
+        $data= $this->get_csv_into_array("categories.csv");
+        $data_to_return =[];
+        foreach($data as $item){
+            if ($item["status"]==2){
+                $data_to_return[$item["id"]]=$item;
+            }
+        }
+        return $data_to_return;
     }
     
     
@@ -624,14 +652,22 @@ class Index extends \Magento\Framework\App\Action\Action
         $branches = $this->get_branches();
         $branches_items = $this->get_branches_items();
         $categories  = $this->get_csv_categories();
+        //print_r($categories);
         
-        foreach($branches as $id => $branch){    
+        
+        foreach($categories as $id => $branch){
+            
+            
+            if ($branch['parent_id']==287) {
+                $branch['parent_id']=0;
+            }
+            
             $new_cat = [
                         'id' => $id,
-                        'parent_id'=>0,
-                        'title_lv'=>$this->clean_csv_title($branch["name_lv"]),
-                        'title_en'=>$this->clean_csv_title($branch["name_en"]),
-                        'title_ru'=>$this->clean_csv_title($branch["name_ru"]),
+                        'parent_id'=>$branch["parent_id"],
+                        'title_lv'=>$this->clean_csv_title($branch["title_lv"]),
+                        'title_en'=>$this->clean_csv_title($branch["title_en"]),
+                        'title_ru'=>$this->clean_csv_title($branch["title_ru"]),
                         'description_lv' => "",
                         'description_ru' => "",
                         'description_en' => "",
@@ -643,56 +679,20 @@ class Index extends \Magento\Framework\App\Action\Action
                         'text_en' => ""
                         ];
             
-            $cats[]=$new_cat;
+            $cats[$id]=$new_cat;
             $cat_ids[$id] = $new_cat;
         }
         
-        $already_added = [];
-        foreach($branches_items as $br_item){
-            if (isset($categories[$br_item["category_id"]])){
-                if (!in_array($br_item["category_id"]."-".$br_item["category_id"],$already_added)){
-                    $tmp_c = $categories[$br_item["category_id"]];
-                    $tmp_c['parent_id']=$br_item["branche_id"];
-                    $cats[] =$tmp_c;
-                    $cat_ids[$br_item["category_id"]] = $tmp_c;
-                    $already_added[] = $br_item["category_id"]."-".$br_item["category_id"];
-                }
-            }
-        }
 
-        ///$cat_tree =  $this->get_cat_tree($cat_tree, $cat_dep, $cats);
-        
-        //if (file_exists($csv_file)) {
-        //    if (($handle = fopen($csv_file, "r")) !== FALSE) {
-        //        $map = $this->helper->get_value_maping(basename($csv_file));
-        //        while (($data = fgetcsv($handle, null, ",")) !== FALSE) {
-        //            $m_data = [];
-        //            foreach($map as $k => $v) {
-        //                if (isset($data[$k])){
-        //                    $m_data[$v]=$data[$k];
-        //                }
-        //            }
-        //            $m_data["original_data"]=$data;
-        //            $data = $m_data;    
-        //            $cats[]=$data;
-        //            $cat_ids[$data["id"]] = $data;
-        //        }
-        //    }
-        //}
-        
-//        $cat_tree =  $this->get_cat_tree($cat_tree, $cat_dep, $cats);
         $magento_cats = $this->helper->get_all_categories();
+        
         $m_cat = $magento_cats[0];
         $m_cat_reverse = array_flip($m_cat);
-        
-        print("<pre>");
-        print_r($m_cat);
-        print("</pre>");
+    
         
         
         $counter=0;
         foreach($cats as $category){
-            
             $counter++;
     
             if($counter>60){
@@ -742,7 +742,6 @@ class Index extends \Magento\Framework\App\Action\Action
             $_c['title_ru'] = $this->clean_csv_title($_c['title_ru']);
             $_c['title_en'] = $this->clean_csv_title($_c['title_en']);
         
-            
             if (!in_array($_c['title_lv'],$m_cat)){
                 $this->helper->add_category($_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
             } else {
@@ -878,6 +877,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 
                 case 'import-categories':
                     $data = $this->import_categories();
+                    
                     break;
                 
                 

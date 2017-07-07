@@ -179,7 +179,8 @@ class Data extends AbstractHelper
                         2=>"item_id",
                         3=>"place",
                         4=>"group_type",
-                        5=>"category_id",
+                        5=>"category_id"
+                        
                         ];
                 break;
             case "categories.csv":
@@ -200,6 +201,7 @@ class Data extends AbstractHelper
                         40=>"text_lv",
                         42=>"text_ru",
                         43=>"text_en",
+                        2=>"status"
                         
                         ];
                 break;
@@ -217,29 +219,7 @@ class Data extends AbstractHelper
                     38=>"sale_price",
                     39=>"new",
                     4=>"image",
-                ];
-                break;
-            case "INVc.txt":
-                return [
-                    0=>"sku",
-                    1=>"qty_type",
-                    2=>"material",
-                    3=>"volume",
-                    4=>"width",
-                    5=>"height",
-                    6=>"thickness",
-                    7=>"length",
-                    8=>"diameter",
-                    9=>"thickness_microns",
-                    10=>"weight",
-                    11=>"qty_in_package",
-                    12=>"qty_in_box",
-                    13=>"color",
-                    14=>"bar_code",
-                    15=>"link_to_image",
-                    16=>"class_lvl_1",
-                    17=>"class_lvl_2",
-                    18=>"class_lvl_3",
+                    3=>"status"
                 ];
                 break;
             case "prices":
@@ -456,7 +436,11 @@ class Data extends AbstractHelper
         $cats_by_shop_id=[];
         
         foreach ($categories as $category){
-            $cats_by_name[$category->getId()] = $category->getName();
+            $cat_name=$category->getName();
+            if (strlen($cat_name)==0){
+                $cat_name="-root-";
+            }
+            $cats_by_name[$category->getId()] = $cat_name;
             $cats_by_shop_id[$category->getId()] = $category->getData("hanza_category");    
         }
         
