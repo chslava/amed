@@ -145,7 +145,11 @@ class Data extends AbstractHelper
     public function get_value_maping($type){
 
         switch($type){
-            
+            case "persons":
+                
+                
+                
+                break;
             case "branches.csv":
                 /*
                 id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
@@ -201,7 +205,11 @@ class Data extends AbstractHelper
                         40=>"text_lv",
                         42=>"text_ru",
                         43=>"text_en",
-                        2=>"status"
+                        2=>"status",
+                        43=>"person",
+                        25=>"name_lv",
+                        27=>"name_ru",
+                        28=>"name_en"
                         
                         ];
                 break;
@@ -440,8 +448,13 @@ class Data extends AbstractHelper
             if (strlen($cat_name)==0){
                 $cat_name="-root-";
             }
+            $cat_id = trim($category->getData("hanza_category"));
+            print($cat_name." -> ".$cat_id."<br/>");
+            if (!is_numeric($cat_id)){
+                $cat_id=0;
+            }
             $cats_by_name[$category->getId()] = $cat_name;
-            $cats_by_shop_id[$category->getId()] = $category->getData("hanza_category");    
+            $cats_by_shop_id[$category->getId()] =$cat_id;
         }
         
         $cats_to_return=[$cats_by_name, $cats_by_shop_id];
@@ -924,11 +937,16 @@ class Data extends AbstractHelper
         $language_data=[];
 
         //reading file
+        $first_row=true;
         if (file_exists($file_to_split)) {
             if (($handle = fopen($file_to_split, "r")) !== FALSE) {
                 $product =[];
                 while (($data = fgetcsv($handle, null,",")) !== FALSE) {
 
+                    if ($first_row){
+                        $first_row=false;
+                        continue;
+                    }
                     if (count($data)<2){
                         continue;
                     }
