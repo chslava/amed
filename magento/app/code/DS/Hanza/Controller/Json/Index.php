@@ -96,10 +96,10 @@ class Index extends \Magento\Framework\App\Action\Action
                     if ($value!=2){
                         if (is_numeric($product_id)){
                             //$this->registry->register('isSecureArea', true);
-                            $this->_coreRegistry->register('isSecureArea', true);
-                            $product->delete();
+                            //$this->_coreRegistry->register('isSecureArea', true);
+                            //$product->delete();
                         }
-                        return ["status"=>false,"message"=>"Product is inactive, so delete.", 'data'=>$data];
+                        return ["status"=>false,"message"=>"Product is inactive.", 'data'=>$data];
                     }
                     break;
                 case "original_data":
@@ -203,7 +203,7 @@ class Index extends \Magento\Framework\App\Action\Action
                             $this->_coreRegistry->register('isSecureArea', true);
                             $product->delete();
                         }
-                        return ["status"=>false,"message"=>"Product skipped no category, so delete.", 'data'=>$data];
+                        return ["status"=>false,"message"=>"Product skipped no category.", 'data'=>$data];
                     }
                     $product->setCategoryIds($cats_to_add);
                     break;
@@ -442,22 +442,22 @@ class Index extends \Magento\Framework\App\Action\Action
             
             $img_file_name = basename($image_to_add);
             $src = $this->helper->get_image_import_dir()."/".$img_file_name;
-            
-            $src_time_stamp = filemtime($src);
-            $this->helper->set_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src),$src_time_stamp);
-            
-
-            $counter++;
-            $images_imported[] = basename($image_to_add);
-            $image_to_add = $src;
-            if ($counter==1){
-                $p->addImageToMediaGallery($image_to_add, array('image', 'small_image', 'thumbnail'), false, false); // Add Image 3
-            } else {
+            if (file_exists($src)){
+                $src_time_stamp = filemtime($src);
+                $this->helper->set_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src),$src_time_stamp);
                 
-                $p->addImageToMediaGallery($image_to_add, [], false, false); // Add Image 3
+    
+                $counter++;
+                $images_imported[] = basename($image_to_add);
+                $image_to_add = $src;
+                if ($counter==1){
+                    $p->addImageToMediaGallery($image_to_add, array('image', 'small_image', 'thumbnail'), false, false); // Add Image 3
+                } else {
+                    
+                    $p->addImageToMediaGallery($image_to_add, [], false, false); // Add Image 3
+                }    
             }
             
-           
         }
         
         if (count($images_imported)>0){
@@ -649,8 +649,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $cats =[];
         $cat_ids=[];
         
-        $branches = $this->get_branches();
-        $branches_items = $this->get_branches_items();
+
         $categories  = $this->get_csv_categories();
         //print_r($categories);
         
@@ -676,7 +675,10 @@ class Index extends \Magento\Framework\App\Action\Action
                         'link_en' => "",
                         'text_lv' => "",
                         'text_ru' => "",
-                        'text_en' => ""
+                        'text_en' => "",
+                        'name_lv'=>$this->clean_csv_title($branch["name_lv"]),
+                        'name_en'=>$this->clean_csv_title($branch["name_en"]),
+                        'name_ru'=>$this->clean_csv_title($branch["name_ru"])
                         ];
             
             $cats[$id]=$new_cat;
@@ -686,8 +688,12 @@ class Index extends \Magento\Framework\App\Action\Action
 
         $magento_cats = $this->helper->get_all_categories();
         
-        $m_cat = $magento_cats[0];
+        $m_cat = $magento_cats[1];
+        print("<pre>");
+        print_r($m_cat);
+        print("</pre>");
         $m_cat_reverse = array_flip($m_cat);
+            
     
         
         
@@ -718,11 +724,11 @@ class Index extends \Magento\Framework\App\Action\Action
                 $_c_p['title_lv'] = $this->clean_csv_title($_c_p['title_lv']);
                 $_c_p['title_ru'] = $this->clean_csv_title($_c_p['title_ru']);
                 $_c_p['title_en'] = $this->clean_csv_title($_c_p['title_en']);
-                if (isset($m_cat_reverse[$_c_p['title_lv']])){
-                    $magento_parent_id = $m_cat_reverse[$_c_p['title_lv']];
+                if (isset($m_cat_reverse[$_c_p['id']])){
+                    $magento_parent_id = $m_cat_reverse[$_c_p['id']];
                     
                     print("--------------------<br/>");
-                    print("Magento dir found updating<br/>");
+                    print("Magento dir found<br/>");
                     print("--------------------<br/>");
                     
                 } else {
@@ -735,7 +741,7 @@ class Index extends \Magento\Framework\App\Action\Action
             } elseif ($_c['parent_id']==0) {
                 $magento_parent_id = $this->helper->get_root_cat();
                 print("--------------------<br/>");
-                print("Magento fefault cat<br/>");
+                print("Magento default cat<br/>");
                 print("--------------------<br/>");
             }
             
@@ -743,21 +749,24 @@ class Index extends \Magento\Framework\App\Action\Action
                 continue;
             }
             
-            $_c['title_lv'] = $this->clean_csv_title($_c['title_lv']);
-            $_c['title_ru'] = $this->clean_csv_title($_c['title_ru']);
-            $_c['title_en'] = $this->clean_csv_title($_c['title_en']);
+            $_c['title_lv'] = $this->clean_csv_title($_c['name_lv']);
+            $_c['title_ru'] = $this->clean_csv_title($_c['name_ru']);
+            $_c['title_en'] = $this->clean_csv_title($_c['name_en']);
         
-            if (!in_array($_c['title_lv'],$m_cat)){
+            if (!in_array($_c['id'],$m_cat)){
+                print("Not in list should be added (".$_c['id'].")<br/>");
                 $this->helper->add_category($_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
             } else {
+                
+                print("In the list should be updated <br/>");
                 if(isset($_c_p)){
                     print($_c['title_lv']." <-$magento_parent_id- ".$_c_p['title_lv']."<br/>");    
                 } else {
                     print($_c['title_lv']."<-- no parrent <br/>");
                 }
                 
-                $magento_cat_id = $m_cat_reverse[$_c['title_lv']];
-                $this->helper->update_category($magento_cat_id, $_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
+                //$magento_cat_id = $m_cat_reverse[$_c['title_lv']];
+                //$this->helper->update_category($magento_cat_id, $_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
             }    
         }
         

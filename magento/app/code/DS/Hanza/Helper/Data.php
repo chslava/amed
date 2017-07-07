@@ -449,7 +449,6 @@ class Data extends AbstractHelper
                 $cat_name="-root-";
             }
             $cat_id = trim($category->getData("hanza_category"));
-            print($cat_name." -> ".$cat_id."<br/>");
             if (!is_numeric($cat_id)){
                 $cat_id=0;
             }
