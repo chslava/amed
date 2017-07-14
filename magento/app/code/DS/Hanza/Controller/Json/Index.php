@@ -83,8 +83,8 @@ class Index extends \Magento\Framework\App\Action\Action
                     'qty' => $qty //qty
                 )
             );
-        
         }
+        $product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED);
         
         // saving all attributes
         // some attributes are skipped cause they are for debugging or saved elsware
@@ -159,7 +159,7 @@ class Index extends \Magento\Framework\App\Action\Action
                     break;
                 case "price":
                     if ($data['price']<0.01){
-                        $product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED);
+                        //$product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED);
                         $status_changed=true;
                     }
                     $product->setPrice($data['price']);
