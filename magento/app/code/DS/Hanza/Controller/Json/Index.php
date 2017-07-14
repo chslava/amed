@@ -661,6 +661,7 @@ class Index extends \Magento\Framework\App\Action\Action
     
     
     public function import_categories(){
+        $this->categories->get_all_old_categories();
         $data = ["status"=>false, "message"=>"Nothing done"];
          
         $product_related_categories = $this->get_product_cat_ids();
