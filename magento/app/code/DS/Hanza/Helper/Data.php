@@ -431,7 +431,7 @@ class Data extends AbstractHelper
 
     public function get_product_data($sku)
     {
-        $file = $this->get_cache_file($sku,"products");
+        $file = $this->get_cache_file(urlencode(trim($sku)),"products");
         $data = json_decode(file_get_contents($file),true);
         return $data;
 
