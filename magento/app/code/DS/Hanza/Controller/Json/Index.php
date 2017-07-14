@@ -798,6 +798,42 @@ class Index extends \Magento\Framework\App\Action\Action
         return $data;
     }
     
+    function update_categories_names_orders(){
+        $old_cats = $this->categories->get_all_old_categories();
+        
+        
+        
+         $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+            $categories = $categoryFactory->create()                              
+                ->addAttributeToSelect('*');
+                //->setStore($store["storeId"]); //categories from current store will be fetched
+            
+        foreach ($categories as $category){
+            foreach($old_cats as $oc){
+                if (strlen($oc["name"])>0 && is_numeric($oc["old_shop_cat_id"]) && $oc["old_shop_cat_id"]==$category->getData("hanza_category")){
+                    //print_r($oc);
+                    if ($category->getName()!=$oc["name"] || $category->getPosition()!=$oc["position"] || $category->getData("include_in_menu")!=$oc["data"]["include_in_menu"]){
+                        if (isset($oc["data"]["description"])){
+                            $category->setDescription($oc["data"]["description"]);    
+                        }
+                        print($category->getName()."--->".$oc["name"]."<br/>");
+                        print("<pre>");
+                        print_r($oc);
+                        print("</pre>");
+                        $category->setName($oc["name"]);
+                        $category->setPosition($oc["position"]);
+                        $category->setData("include_in_menu",$oc["data"]["include_in_menu"]);
+                        $category->save();
+                        //print_r($oc);
+                    }
+                    
+                }
+            }
+        }
+
+        
+    }
+    
     
     function get_cat_tree($cat_tree,$cat_dep,$cats) {
         
@@ -916,6 +952,11 @@ class Index extends \Magento\Framework\App\Action\Action
                 
                 case 'import-categories':
                     $data = $this->import_categories();
+                    
+                    break;
+                
+                case 'update_categories_names_orders':
+                    $data = $this->update_categories_names_orders();
                     
                     break;
                 
