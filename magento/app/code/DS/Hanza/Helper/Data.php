@@ -227,7 +227,8 @@ class Data extends AbstractHelper
                     38=>"sale_price",
                     39=>"new",
                     4=>"image",
-                    3=>"status"
+                    3=>"status",
+                    35=>"code"
                 ];
                 break;
             case "prices":
@@ -362,29 +363,6 @@ class Data extends AbstractHelper
         }
         return $_hanza_cats;
     }
-
-    
-    public function add_category($name,$description, $parent_id=null,$csv_category){      
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-
-        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create();
-        $category->setName($name);
-        //$category->setData("",$csv_category['id']);
-        
-        if ($parent_id){
-            $category->setParentId($parent_id); // 1: root category.    
-        } else {
-            $category->setParentId($this->get_root_cat()); // 1: root category.
-        }
-        
-        $category->setIsActive(true);
-        $category->setCustomAttributes(['description' => $description,"hanza_category"=>$csv_category['id']]);
-        $this->_objectManager->get('\Magento\Catalog\Api\CategoryRepositoryInterface')->save($category);
-    }
-    
-    
     
     
     
@@ -424,254 +402,6 @@ class Data extends AbstractHelper
     }
     
     
-    public function get_all_categories()
-    {
-    
-        $cats_to_return = [];
-        //if ($cats_to_return=$this->get_cache_data(__FUNCTION__)){
-        //    return $cats_to_return;
-        //}
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        
-        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
-            $categories = $categoryFactory->create()                              
-                ->addAttributeToSelect('*');
-            
-        $cats_by_name = [];
-        $cats_by_shop_id=[];
-        
-        foreach ($categories as $category){
-            $cat_name=$category->getName();
-            if (strlen($cat_name)==0){
-                $cat_name="-root-";
-            }
-            $cat_id = trim($category->getData("hanza_category"));
-            if (!is_numeric($cat_id)){
-                $cat_id=0;
-            }
-            $cats_by_name[$category->getId()] = $cat_name;
-            $cats_by_shop_id[$category->getId()] =$cat_id;
-        }
-        
-        $cats_to_return=[$cats_by_name, $cats_by_shop_id];
-        
-        //$this->set_cache_data(__FUNCTION__,$cats_to_return);
-        
-
-        return $cats_to_return;    
-    }
-    
-    
-    
-    
-    private function get_categoties_linked_to_hanza(){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
-        $cats_to_return = [];
-        if ($cats_to_return=$this->get_cache_data(__FUNCTION__)){
-            return $cats_to_return;
-        }
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        
-        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
-            $categories = $categoryFactory->create()                              
-                ->addAttributeToSelect('*');
-                //->setStore($store["storeId"]); //categories from current store will be fetched
-            
-        foreach ($categories as $category){
-            if (strlen($category->getData("hanza_category"))==0){
-                continue;
-            }
-            $cats_to_return[$category->getId()] = $this->get_hanza_ids_for_magento_cat($category->getId());
-        }
-
-        $this->set_cache_data(__FUNCTION__,$cats_to_return);
-
-        return $cats_to_return;
-    }
-
-
-    public function get_magento_categories($data){
-        /*
-         *
-         * This function cobines the cat ids, to create unique id, that used in magento
-         * To link categories, thats needed cause hanza can have second level categories id several times
-         * (the first level differs)
-         *
-         *
-         */
-        
-        return [$this->get_root_cat()];
-
-        //values comes in as comma seperated
-        $lvl1 = $data['class_lvl_1'];
-        $lvl1 = explode(",",$lvl1);
-        $lvl2 = $data['class_lvl_2'];
-        $lvl2 = explode(",",$lvl2);
-        $lvl3 = $data['class_lvl_3'];
-        $lvl3 = explode(",",$lvl3);
-
-        $all_ids = array();
-        //lopping tough first level
-        foreach($lvl1 as $l1){
-
-            $all_ids[] = $l1;
-            //attachig firs level to second level
-            foreach($lvl2 as $l2){
-                if (strlen(trim($l2))>0) {
-                    $all_ids[] = $l1."-".$l2;
-                }
-            }
-
-            //attachig firs level to third level
-            foreach($lvl3 as $l3){
-                if (strlen(trim($l3))>0){
-                    $all_ids[] = $l1."-".$l3;
-                }
-            }
-        }
-
-        $categories = [];
-        $magento_cats =$this->get_categoties_linked_to_hanza();
-        foreach($magento_cats as $magento_cat_id => $m_cat_arr){
-            foreach($all_ids as $hanza_cat_id){
-                if (in_array($hanza_cat_id,$m_cat_arr)){
-                    $categories[] = $magento_cat_id;
-                }
-            }
-        }
-        $categories = array_unique($categories);
-        return $categories;
-        
-    }
-
-
-
-
-
-    /*
-     *
-     *
-     * Methods related to attributes
-     *
-     *
-     */
-
-    private function get_all_material_codes(){
-
-        $data_to_return = $this->get_cache_data(__FUNCTION__);
-        $lang_list = $this->get_languages();
-        if ($data_to_return){
-            return $data_to_return;
-        } else {
-            $src_file = $this->get_import_filename("material.txt");
-
-            if (file_exists($src_file)) {
-                if (($handle = fopen($src_file, "r")) !== FALSE) {
-                    $material_data = [];
-                    $lang_data = [];
-                    $material_id="";
-                    while (($data = fgetcsv($handle, 0, "\t",chr(8))) !== FALSE) {
-                        if(strlen($data[0])==3 || in_array($data[0],$lang_list)){
-
-                            if (in_array($data[0],$lang_list)){
-                                $lang_data[$this->get_lang_code($data[0])] = $data[1];
-
-                            } else {
-                                if ($material_id!=""){
-
-                                    $material_data["language"] = $lang_data;
-                                    $data_to_return[$material_id] = $material_data;
-                                }
-                                $material_data = [];
-                                $material_data = $data;
-
-                                $material_id = $data[0];
-                            }
-
-                        } else {
-                            //skipping
-                            continue;
-                        }
-                    }
-                    $data_to_return[$material_id] = $material_data;
-
-                }
-            }
-        }
-
-        $this->set_cache_data(__FUNCTION__,$data_to_return);
-        return $data_to_return;
-
-    }
-
-
-    private function decode_material($material_code){
-
-        $codes = $this->get_all_material_codes();
-        if (isset($codes[$material_code])){
-            return $codes[$material_code];
-        }
-        return false;
-
-    }
-
-
-
-    private function get_real_item_price($data){
-
-        $data["qty_in_package"]=str_replace(" pāri","",$data["qty_in_package"]);
-        $data["qty_in_box"]=str_replace(" pāri","",$data["qty_in_box"]);
-        //default settings arr that sold all the possible ways
-        $sold_by_item=1;
-        $sold_by_package=1;
-        $sold_by_box=1;
-
-        //if one item price is less than 1 cent then its not sold by one item
-        if (
-            !is_numeric($data['price']) ||
-            $data['price']<0.01
-        ){
-            $sold_by_item=0;
-        }
-
-        //if there is no qty in package or there is no price then also not by package
-        if (
-            strlen(trim($data["qty_in_package"]))==0 ||
-            !is_numeric($data["qty_in_package"]) ||
-            !is_numeric($data['price_package']) ||
-            $data['price_package']<0.01
-        ){
-            $sold_by_package=0;
-        }
-
-        //if there is no qty in package or there is no price then also not by box
-        if (
-            strlen(trim($data["qty_in_box"]))==0 ||
-            !is_numeric($data["qty_in_box"]) ||
-            !is_numeric($data['price_box']) && $data['price_box']<0.01
-        ){
-            $sold_by_box=0;
-        }
-
-        $data['price_item']=$data['price'];
-
-        $data["sold_by_item"]=$sold_by_item;
-        $data["sold_by_package"]=$sold_by_package;
-        $data["sold_by_box"]=$sold_by_box;
-
-        return $data;
-    }
-
-    
     public function get_image_list($prod_id){
         $image_dir = $this->get_image_destination_dir();
         $img_list = [];
@@ -698,9 +428,9 @@ class Data extends AbstractHelper
      *
      */
 
-    public function get_product_data($prod_id)
+    public function get_product_data($sku)
     {
-        $file = $this->get_cache_file($prod_id,"products");
+        $file = $this->get_cache_file($sku,"products");
         $data = json_decode(file_get_contents($file),true);
         return $data;
 
@@ -941,7 +671,9 @@ class Data extends AbstractHelper
             if (($handle = fopen($file_to_split, "r")) !== FALSE) {
                 $product =[];
                 while (($data = fgetcsv($handle, null,",")) !== FALSE) {
-
+                    if (isset($data["code"]) && strlen(trim($data["code"]))>0){
+                        $data["sku"] = $data["code"];
+                    }
                     if ($first_row){
                         $first_row=false;
                         continue;
