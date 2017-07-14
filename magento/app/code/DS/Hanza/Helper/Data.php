@@ -672,9 +672,7 @@ class Data extends AbstractHelper
             if (($handle = fopen($file_to_split, "r")) !== FALSE) {
                 $product =[];
                 while (($data = fgetcsv($handle, null,",")) !== FALSE) {
-                    if (isset($data["code"]) && strlen(trim($data["code"]))>0){
-                        $data["sku"] = $data["code"];
-                    }
+                   
                     if ($first_row){
                         $first_row=false;
                         continue;
@@ -699,17 +697,21 @@ class Data extends AbstractHelper
 
                     }
 
-                    $current_sku = $data[0];
+                    
 
                     if (is_array($value_mapping)){
                         foreach($value_mapping as $key => $value){
                             $product[$value]=$data[$key];
+                        }
+                        if (isset($product["code"]) && strlen(trim($product["code"]))>0){
+                            $product["sku"] = $product["code"];
                         }
                         $product["original_data"]=$data;
                     } else {
                         $product =$data;
                         $product["original_data"]=$data;
                     }
+                    $current_sku = $product["sku"];
 
                     $language_data = [];
 
