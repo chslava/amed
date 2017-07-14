@@ -14,6 +14,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
+        $this->categories = $this->_objectManager->create('DS\Hanza\Helper\Categories');
         $this->_coreRegistry = $this->_objectManager->get('\Magento\Framework\Registry');
         $this->force=false;
 
@@ -152,11 +153,11 @@ class Index extends \Magento\Framework\App\Action\Action
                     break;
                 
                 case "name":
-                        $product->setName($this->clean_csv_title($data['name']));
+                        $product->setName($this->clean_csv_title($data['name'])." ".$data['sku']);
                     break;
                 
                 case "description":
-                        $product->setDescription($data['description']);
+                    $product->setDescription($data['description']);
                     break;
     
                 case "branch":
@@ -200,12 +201,17 @@ class Index extends \Magento\Framework\App\Action\Action
                     if (count($cats_to_add)==0){
                         if (is_numeric($product_id)){
                             //$this->registry->register('isSecureArea', true);
-                            $this->_coreRegistry->register('isSecureArea', true);
-                            $product->delete();
+                            //$this->_coreRegistry->register('isSecureArea', true);
+                            //$product->delete();
                         }
                         return ["status"=>false,"message"=>"Product skipped no category.", 'data'=>$data];
                     }
+                    //print_r($cats_to_add);
+                    if (count($cats_to_add)==0){
+                        $cats_to_add =[$this->helper->get_root_cat()];
+                    }
                     $product->setCategoryIds($cats_to_add);
+                    //$product->setCategoryIds([$this->helper->get_root_cat()]);
                     break;
                 case "original_data": default:
                     if ($key!="categories"){
@@ -368,6 +374,9 @@ class Index extends \Magento\Framework\App\Action\Action
                 foreach($images_to_add as $image) {
                     $img_file_name = basename($image);
                     $src = $this->helper->get_image_import_dir()."/".$img_file_name;
+                    if (!file_exists($src)){
+                        continue;
+                    }
                     $src_time_stamp = filemtime($src);
                     $cache_time_stamp = $this->helper->get_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src));
                                 
@@ -499,12 +508,12 @@ class Index extends \Magento\Framework\App\Action\Action
         //checming if there is product
         $prod_data= $this->helper->get_product_data($sku);
         
-        $this->all_m_cats = $this->helper->get_all_categories();
+        $this->all_m_cats = $this->categories->get_all_categories();
 
 
-        if (isset($prod_data['status']) && !$prod_data['status']){
+        if (isset($prod_data['status']) && $prod_data['status']!=2){
             if ($sku){
-                $this->disable_product($sku);
+                return $this->disable_product($sku);    
             }
             return $prod_data;
         }
@@ -686,7 +695,7 @@ class Index extends \Magento\Framework\App\Action\Action
         }
         
 
-        $magento_cats = $this->helper->get_all_categories();
+        $magento_cats = $this->categories->get_all_categories();
         
         $m_cat = $magento_cats[1];
         print("<pre>");
@@ -755,7 +764,9 @@ class Index extends \Magento\Framework\App\Action\Action
         
             if (!in_array($_c['id'],$m_cat)){
                 print("Not in list should be added (".$_c['id'].")<br/>");
-                $this->helper->add_category($_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
+                $data[] = $this->categories->add_category($_c['title_lv'],$_c['description_lv'], $magento_parent_id, $_c);
+                //print_r($data);
+                //die();
             } else {
                 
                 print("In the list should be updated <br/>");
