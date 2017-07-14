@@ -704,7 +704,7 @@ class Data extends AbstractHelper
                             $product[$value]=$data[$key];
                         }
                         if (isset($product["code"]) && strlen(trim($product["code"]))>0){
-                            $product["sku"] = $product["code"];
+                            $product["sku"] = urlencode(trim($product["code"]));
                         }
                         $product["original_data"]=$data;
                     } else {
