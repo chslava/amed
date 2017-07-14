@@ -93,6 +93,19 @@ class Index extends \Magento\Framework\App\Action\Action
             
             switch($key){
                 
+                case "rate":
+                    if ($value=="2"){
+                        //pvn 21
+                        $value=2;
+                    } elseif($value=="1") {
+                        //pvn 12
+                        $value = 4;
+                    } else {
+                        //pvn 0?
+                        $value=0;
+                    }
+                    $product->setTaxClassId($value);
+                    break;
                 case "status":
                     if ($value!=2){
                         if (is_numeric($product_id)){

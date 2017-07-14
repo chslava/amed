@@ -228,7 +228,8 @@ class Data extends AbstractHelper
                     39=>"new",
                     4=>"image",
                     3=>"status",
-                    35=>"code"
+                    35=>"code",
+                    45=>"rate"
                 ];
                 break;
             case "prices":
