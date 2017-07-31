@@ -7,4 +7,7 @@
     <type name="Magento\Catalog\Helper\Output">
         <plugin name="amedical_theme-weight-output" type="Amedical\Theme\Plugin\Catalog\Helper\Output" />
     </type>
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="amedical_theme-add-base-url" type="Amedical\Theme\Plugin\Checkout\DefaultConfigProvider" />
+    </type>
 </config>
