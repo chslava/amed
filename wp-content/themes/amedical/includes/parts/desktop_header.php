@@ -62,13 +62,13 @@
                         </div>
                     </div>
                     <?php $menu_items = get_menu_items("top-m"); ?>
-                    <?php if($menu_items[0]): ?>
+                    <?php /* if(!empty($menu_items)): ?>
                       <ul class="header links">
                         <?php foreach($menu_items as $item):?>
                                 <li><a class="item" href="<?php print($item["item"]->url); ?>"><?php print($item["item"]->title); ?></a></li>
                         <?php endforeach;?>
                       </ul>
-                    <?php endif; ?>
+                    <?php endif; */ ?>
 
                 </div>
 
