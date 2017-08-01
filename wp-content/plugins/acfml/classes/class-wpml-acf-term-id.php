@@ -12,7 +12,7 @@ class WPML_ACF_Term_Id {
 
 		$taxonomy = $this->WPML_ACF_Field->related_acf_field_value['taxonomy'];
 
-		$translated_id = apply_filters('wpml_object_id', $this->id, $taxonomy, false, $this->WPML_ACF_Field->target_lang);
+		$translated_id = apply_filters('wpml_object_id', $this->id, $taxonomy, true, $this->WPML_ACF_Field->target_lang);
 
 		return new WPML_ACF_Term_Id($translated_id, $this->WPML_ACF_Field);
 

@@ -5,12 +5,17 @@
  */
 class WPML_ACF {
 
+	private $WPML_ACF_Requirements;
+
 	/**
 	 * @return WPML_ACF_Worker
 	 */
 	public function init_worker() {
 		global $wpdb;
 		add_action( 'wpml_loaded', array( $this, 'init_acf_xliff' ) );
+		add_action( 'wpml_loaded', array( $this, 'init_acf_pro' ) );
+
+		$this->WPML_ACF_Requirements = new WPML_ACF_Requirements();
 
 		return $this->init_duplicated_post( $wpdb );
 	}
@@ -30,6 +35,12 @@ class WPML_ACF {
 					$WPML_ACF_Xliff->init_hooks();
 				}
 			}
+		}
+	}
+
+	public function init_acf_pro() {
+		if ( class_exists( 'acf' ) ) {
+			$WPML_ACF_Pro = new WPML_ACF_Pro();
 		}
 	}
 }

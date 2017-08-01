@@ -36,7 +36,11 @@ if ( $element_id ) {
 	}
 } else {
 	$trid              = isset( $_GET[ 'trid' ] ) ? intval( $_GET[ 'trid' ] ) : false;
-	$element_lang_code = isset( $_GET[ 'lang' ] ) ? strip_tags( $_GET[ 'lang' ] ) : $current_language;
+
+	$element_lang_code = $current_language;
+	if( array_key_exists( 'lang', $_GET ) ) {
+		$element_lang_code = filter_var( $_GET['lang'], FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+	}
 }
 
 $translations = false;
@@ -58,7 +62,7 @@ $dropdown->add_language_selector_to_page (
 );
 
 if ( icl_get_setting('setup_complete') ) {
-    require ICL_PLUGIN_PATH . '/menu/wpml-translation-selector.class.php';
+    require WPML_PLUGIN_PATH . '/menu/wpml-translation-selector.class.php';
     $selector = new WPML_Translation_Selector( $sitepress, $default_language, $source_language, $element_id );
     $selector->add_translation_of_selector_to_page (
         $trid,

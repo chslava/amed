@@ -17,23 +17,27 @@ var WPMLBrowserRedirect = function () {
 		return date;
 	};
 
-	self.getRedirectUrl = function (browserLanguage) {
-		var redirectUrl = false;
-		var languageUrls = wpml_browser_redirect_params.languageUrls;
-		var languageFirstPart = browserLanguage.substr(0, 2);
-		var languageLastPart = browserLanguage.substr(3, 2);
+    self.getRedirectUrl = function (browserLanguage) {
+        var redirectUrl = false;
+        var languageUrls = wpml_browser_redirect_params.languageUrls;
+        var languageFirstPart = browserLanguage.substr(0, 2);
+        var languageLastPart = browserLanguage.substr(3, 2);
 
-		if (languageUrls[browserLanguage] === undefined) {
-			if (languageUrls[languageFirstPart] !== undefined) {
-				redirectUrl = languageUrls[languageFirstPart];
-			} else if (languageUrls[languageLastPart] !== undefined) {
-				redirectUrl = languageUrls[languageLastPart];
-			}
-		} else {
-			redirectUrl = languageUrls[browserLanguage];
-		}
-		return redirectUrl;
-	};
+        if (languageUrls[browserLanguage] === undefined) {
+            if (languageUrls[languageLastPart] !== undefined) {
+                redirectUrl = languageUrls[languageLastPart];
+            } else if (languageUrls[languageFirstPart] !== undefined) {
+                redirectUrl = languageUrls[languageFirstPart];
+            }
+        } else {
+            redirectUrl = languageUrls[browserLanguage];
+        }
+        if ( window.location.href === redirectUrl ) {
+            return false;
+        } else {
+            return redirectUrl;
+        }
+    };
 
 	self.init = function () {
 
@@ -49,16 +53,10 @@ var WPMLBrowserRedirect = function () {
                 for (var i = 0; i < browserLanguagesLength; i++) {
                     browserLanguage = browserLanguages[i];
 
-					if( pageLanguage === browserLanguage.substr(0, 2) ){
+					if ( pageLanguage === browserLanguage ) {
 						self.setCookie(browserLanguage);
 						break;
-					}else if( pageLanguage === browserLanguage ){
-						self.setCookie(browserLanguage);
-						break;
-					}else if( pageLanguage === browserLanguage.substr(3, browserLanguage.length) ){
-						self.setCookie(browserLanguage);
-						break;
-					}else{
+					} else {
 						redirectUrl = self.getRedirectUrl(browserLanguage);
 						if (false !== redirectUrl) {
 							self.setCookie(browserLanguage);

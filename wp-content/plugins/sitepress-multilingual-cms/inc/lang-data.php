@@ -7,7 +7,7 @@ function icl_get_languages_names() {
 	static $__icl_lang_names_cached = null;
 
 	if ( $__icl_lang_names_cached === null ) {
-		$serialized_languages = file_get_contents(ICL_PLUGIN_PATH . '/res/languages.json');
+		$serialized_languages = file_get_contents(WPML_PLUGIN_PATH . '/res/languages.json');
 		$__icl_lang_names = json_decode($serialized_languages, true);
 
 		$__icl_lang_names_cached = $__icl_lang_names;
@@ -204,7 +204,7 @@ function icl_get_languages_codes() {
 			'Chinese (Traditional)' => 'zh-hant',
 			'Zulu'                  => 'zu',
 			'Slavic'                => 'sla',
-			'Malay'                 => 'ms'
+			'Malay'                 => 'ms',
 		);
 	}
 
@@ -217,68 +217,68 @@ function icl_get_languages_codes() {
 function icl_get_languages_locales() {
 	static $result = null;
 
-	if ( $result === null ) {
+	if ( ! $result ) {
 		$result = array(
-			'en'      => 'en_US',
-			'af'      => 'af',
+			'af'      => 'af_ZA',
 			'ar'      => 'ar',
-			'bn'      => 'bn_BD',
-			'eu'      => 'eu',
 			'be'      => 'be_BY',
 			'bg'      => 'bg_BG',
+			'bn'      => 'bn_BD',
 			'ca'      => 'ca',
-			'zh-hans' => 'zh_CN',
-			'zh-hant' => 'zh_TW',
-			'hr'      => 'hr',
 			'cs'      => 'cs_CZ',
+			'cy'      => 'cy_GB',
 			'da'      => 'da_DK',
-			'nl'      => 'nl_NL',
-			'eo'      => 'eo',
-			'et'      => 'et',
-			'fo'      => 'fo',
-			'fi'      => 'fi',
-			'fr'      => 'fr_FR',
-			'gl'      => 'gl_ES',
-			'ka'      => 'ge_GE',
 			'de'      => 'de_DE',
 			'el'      => 'el',
+			'en'      => 'en_US',
+			'eo'      => 'eo_UY',
+			'es'      => 'es_ES',
+			'et'      => 'et',
+			'eu'      => 'eu_ES',
+			'fa'      => 'fa_IR',
+			'fi'      => 'fi',
+			'fo'      => 'fo_FO',
+			'fr'      => 'fr_FR',
+			'gl'      => 'gl_ES',
 			'he'      => 'he_IL',
+			'hr'      => 'hr_HR',
 			'hu'      => 'hu_HU',
-			'is'      => 'is_IS',
 			'id'      => 'id_ID',
+			'is'      => 'is_IS',
 			'it'      => 'it_IT',
 			'ja'      => 'ja',
+			'ka'      => 'ge_GE',
 			'km'      => 'km_KH',
 			'ko'      => 'ko_KR',
 			'ku'      => 'ku',
-			'lv'      => 'lv',
-			'lt'      => 'lt',
-			'mk'      => 'mk_MK',
+			'lt'      => 'lt_LT',
+			'lv'      => 'lv_LV',
 			'mg'      => 'mg_MG',
+			'mk'      => 'mk_MK',
 			'ms'      => 'ms_MY',
-			'ni'      => 'ni_ID',
 			'nb'      => 'nb_NO',
-			'fa'      => 'fa_IR',
+			'ni'      => 'ni_ID',
+			'nl'      => 'nl_NL',
 			'pl'      => 'pl_PL',
-			'pt-pt'   => 'pt_PT',
 			'pt-br'   => 'pt_BR',
+			'pt-pt'   => 'pt_PT',
 			'ro'      => 'ro_RO',
 			'ru'      => 'ru_RU',
-			'sr'      => 'sr_RS',
 			'si'      => 'si_LK',
 			'sk'      => 'sk_SK',
 			'sl'      => 'sl_SI',
-			'es'      => 'es_ES',
+			'sr'      => 'sr_RS',
 			'su'      => 'su_ID',
 			'sv'      => 'sv_SE',
-			'tg'      => 'tg',
-			'th'      => 'th',
-			'tr'      => 'tr',
+			'tg'      => 'tg_TJ',
+			'th'      => 'th_TH',
+			'tr'      => 'tr_TR',
+			'ug'      => 'ug_CN',
 			'uk'      => 'uk_UA',
-			'ug'      => 'ug',
 			'uz'      => 'uz_UZ',
-			'vi'      => 'vi',
-			'cy'      => 'cy',
+			'vi'      => 'vi_VN',
+			'zh-hans' => 'zh_CN',
+			'zh-hant' => 'zh_TW',
 		);
 	}
 

@@ -9,6 +9,7 @@ class WPML_ACF_Worker {
 
 	public function register_hooks() {
 		add_filter('wpml_duplicate_generic_string', array($this, 'duplicate_post_meta'), 10, 3);
+		add_filter('wpml_sync_parent_for_post_type', array($this, 'sync_parent_for_post_type'), 10, 2);
 	}
 	
 	public function duplicate_post_meta($meta_value, $target_lang, $meta_data) {
@@ -20,6 +21,14 @@ class WPML_ACF_Worker {
 		$meta_value_converted = $field->convert_ids();
 		
 		return $meta_value_converted;
+	}
+
+	public function sync_parent_for_post_type($sync, $post_type) {
+		if ("acf-field" == $post_type || "acf-field-group" == $post_type) {
+			$sync = false;
+		}
+
+		return $sync;
 	}
 	
 }

@@ -29,7 +29,7 @@ class WPSEO_Sitemap_Image_Parser {
 	public function __construct() {
 
 		$this->home_url = home_url();
-		$parsed_home    = parse_url( $this->home_url );
+		$parsed_home    = wp_parse_url( $this->home_url );
 
 		if ( ! empty( $parsed_home['host'] ) ) {
 			$this->host = str_replace( 'www.', '', $parsed_home['host'] );
@@ -67,7 +67,15 @@ class WPSEO_Sitemap_Image_Parser {
 			$images[] = $this->get_image_item( $post, $src, $title, $alt );
 		}
 
-		$unfiltered_images = $this->parse_html_images( $post->post_content );
+		/**
+		 * Filter: 'wpseo_sitemap_content_before_parse_html_images' - Filters the post content
+		 * before it is parsed for images.
+		 *
+		 * @param string $content The raw/unprocessed post content.
+		 */
+		$content = apply_filters( 'wpseo_sitemap_content_before_parse_html_images', $post->post_content );
+
+		$unfiltered_images = $this->parse_html_images( $content );
 
 		foreach ( $unfiltered_images as $image ) {
 			$images[] = $this->get_image_item( $post, $image['src'], $image['title'], $image['alt'] );
@@ -151,7 +159,7 @@ class WPSEO_Sitemap_Image_Parser {
 		libxml_use_internal_errors( true );
 
 		$post_dom = new DOMDocument();
-		$post_dom->loadHTML( '<?xml encoding="'. $this->charset .'">' . $content );
+		$post_dom->loadHTML( '<?xml encoding="' . $this->charset . '">' . $content );
 
 		// Clear the errors, so they don't get kept in memory.
 		libxml_clear_errors();
@@ -423,6 +431,6 @@ class WPSEO_Sitemap_Image_Parser {
 	 */
 	public function cache_attachments() {
 
-		_deprecated_function( __FUNCTION__, '3.3' );
+		_deprecated_function( __METHOD__, '3.3' );
 	}
 }

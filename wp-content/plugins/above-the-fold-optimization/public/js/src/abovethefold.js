@@ -12,7 +12,7 @@ window['Abtf'] = (function(window) {
     if (ABTFDEBUG) {
         console.warn('Abtf', 'debug notices visible to admin only');
     }
-    
+
     var Abtf = {
 
         cnf: {},
@@ -20,7 +20,7 @@ window['Abtf'] = (function(window) {
         /**
          * Header init
          */
-        h: function(cnf,css) {
+        h: function(cnf, css) {
 
             this.cnf = cnf;
 
@@ -30,6 +30,11 @@ window['Abtf'] = (function(window) {
 
             if (cnf.proxy) {
                 window['Abtf'].proxy_setup(cnf.proxy);
+            }
+
+            // load scripts in header
+            if (this.cnf.js && !this.cnf.js[1]) {
+                this.js(this.cnf.js[0]);
             }
 
             /**
@@ -45,17 +50,17 @@ window['Abtf'] = (function(window) {
                 if (cnf.gwf[0] && !cnf.gwf[1]) {
 
                     if (cnf.gwf[0] === 'a') {
-                        this.async(cnf.gwf[2],'webfont');
+                        this.async(cnf.gwf[2], 'webfont');
 
                         if (ABTFDEBUG) {
                             console.log('Abtf.fonts()', 'async', WebFontConfig);
                         }
-                        
+
                     } else if (typeof WebFont !== 'undefined') {
 
                         // Convert WebFontConfig object string
                         if (typeof cnf.gwf[0] === 'string') {
-                            cnf.gwf[0] = eval('('+cnf.gwf[0]+')');
+                            cnf.gwf[0] = eval('(' + cnf.gwf[0] + ')');
                         }
 
                         // load WebFontConfig
@@ -84,6 +89,16 @@ window['Abtf'] = (function(window) {
                 this.css();
             }
 
+            // load scripts in footer
+            if (this.cnf.js && this.cnf.js[1]) {
+
+                if (ABTFDEBUG) {
+                    console.log('Abtf.js()', 'footer start');
+                }
+
+                this.js(this.cnf.js[0]);
+            }
+
             // Google Web Font Loader
             if (typeof this.cnf.gwf !== 'undefined') {
                 if (this.cnf.gwf[0] && this.cnf.gwf[1]) {
@@ -92,7 +107,7 @@ window['Abtf'] = (function(window) {
                      * Async
                      */
                     if (this.cnf.gwf[0] === 'a') {
-                        this.async(this.cnf.gwf[2],'webfont');
+                        this.async(this.cnf.gwf[2], 'webfont');
 
                         if (ABTFDEBUG) {
                             console.log('Abtf.fonts() [footer]', 'async', WebFontConfig);
@@ -127,17 +142,17 @@ window['Abtf'] = (function(window) {
             if (ABTFDEBUG) {
                 return;
             }
-            if (typeof window.console !== 'undefined') {
+            /*if (typeof window.console !== 'undefined') {
                 console.log(
                     "\n%c100", 
                     "font: 1em sans-serif; color: white; background-color: #079c2d;padding:2px;",
                     "Google PageSpeed Score optimized using https://goo.gl/C1gw96\n\nTest your website: https://pagespeed.pro/tests\n\n"
                 );
-            }
+            }*/
         },
 
         /**
-         * Async load script 
+         * Async load script
          */
         async: function(scriptFile, id) {
             (function(d) {
@@ -157,6 +172,20 @@ window['Abtf'] = (function(window) {
             })(document);
         }
     };
+
+    if (ABTFDEBUG) {
+
+        var SITE_URL = document.createElement('a');
+        SITE_URL.href = document.location.href;
+        var BASE_URL_REGEX = new RegExp('^(https?:)?//' + SITE_URL.host.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+
+        /**
+         * Return local url for debug notices
+         */
+        Abtf.localUrl = function(url) {
+            return url.replace(BASE_URL_REGEX, '');
+        }
+    }
 
     return Abtf;
 

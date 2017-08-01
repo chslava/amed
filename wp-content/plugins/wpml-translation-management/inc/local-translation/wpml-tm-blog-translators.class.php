@@ -1,17 +1,22 @@
 <?php
 
-class WPML_TM_Blog_Translators extends WPML_SP_User {
+class WPML_TM_Blog_Translators {
 
 	/** @var WPML_TM_Records $tm_records */
 	private $tm_records;
 
 	/**
+	 * @var SitePress;
+	 */
+	private $sitepress;
+
+	/**
 	 * @param SitePress       $sitepress
 	 * @param WPML_TM_Records $tm_records
 	 */
-	public function __construct( &$sitepress, &$tm_records ) {
-		parent::__construct( $sitepress );
-		$this->tm_records = &$tm_records;
+	public function __construct( $sitepress, $tm_records ) {
+		$this->sitepress = $sitepress;
+		$this->tm_records = $tm_records;
 	}
 
 	/**
@@ -26,6 +31,13 @@ class WPML_TM_Blog_Translators extends WPML_SP_User {
 		}
 
 		return $translators;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function get_raw_blog_translators() {
+		return TranslationManagement::get_blog_translators();
 	}
 
 	/**
@@ -52,6 +64,8 @@ class WPML_TM_Blog_Translators extends WPML_SP_User {
 						if ( array_key_exists( $lang_to, $user_lang_to ) ) {
 							$is_translator = true;
 							break;
+						} else {
+							$is_translator = false;
 						}
 					}
 				} else {

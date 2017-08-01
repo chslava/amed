@@ -1,9 +1,9 @@
 === Above The Fold Optimization ===
 Contributors: optimalisatie
 Donate link: https://pagespeed.pro/
-Tags: optimization, above the fold, critical css, css, performance, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, pagespeed, google, web font, webfont
+Tags: optimization, above the fold, pagespeed, css, performance, critical css, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, google, web font, webfont
 Requires at least: 3.0.1
-Tested up to: 4.6.1
+Tested up to: 4.8
 Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,12 +12,12 @@ Above the fold optimization toolkit that enables to achieve a Google PageSpeed 1
 
 == Description ==
 
-This plugin is a toolkit for Above The Fold Optimization that enables to achieve a [Google PageSpeed](https://developers.google.com/speed/docs/insights/about) 100 Score.
+This plugin is a toolkit for Above The Fold Optimization that enables to achieve a Google PageSpeed 100 Score.
 
-This plugin is compatible with most optimization, minification and full page cache plugins and can be made compatible with any plugin by creating a module extension.
+This plugin is compatible with most optimization, minification and full page cache plugins and can be made compatible with other plugins by creating a module extension.
 
 Some of the supported plugins include:
-[Autoptimize](https://wordpress.org/plugins/autoptimize/)
+* [Autoptimize](https://wordpress.org/plugins/autoptimize/)
 * [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/)
 * [WP Super Cache](https://wordpress.org/plugins/wp-super-cache/)
 * [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/)
@@ -28,42 +28,70 @@ Some of the supported plugins include:
 
 **Warning:** *This plugin is not a simple 'on/off' plugin. It is a tool for optimization professionals and advanced WordPress users to achieve a Google PageSpeed 100 Score.*
 
-### Critical CSS Management
+### Critical CSS Tools
 
-The plugin contains a tool to manage Critical Path CSS for inline placement in the `<head>` of the HTML document. Read more about Critical CSS in the [documentation by Google](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent). 
+The plugin contains tools to manage Critical Path CSS. 
 
-[This article](https://github.com/addyosmani/critical-path-css-tools) by a Google engineer provides information about the available methods for creating critical path CSS. 
+Some of the features:
 
-### Conditional Critical CSS
+* Conditional Critical CSS (apply tailored Critical CSS to specific pages based on WordPress conditions and filters)
+* Management via text editor and FTP (critical CSS files are stored in the theme directory)
+* Full CSS Extraction: selectively export CSS files of a page as a single file or as raw text for use in critical CSS generators.
+* Quality Test: test the quality of Critical CSS by comparing it side-by-side with the full CSS display of a page. This tool can be used to detect a flash of unstyled content ([FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content)).
 
-The plugin contains a tool to configure tailored Critical Path CSS for individual posts, pages, page types and other conditions.
+Read more about Critical CSS in the [documentation by Google](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent). 
+[This article](https://github.com/addyosmani/critical-path-css-tools) by a Google engineer provides information about the available methods for creating critical CSS. 
 
-### CSS Delivery Optimization
+### CSS Load Optimization
 
-The plugin contains several tools to optimize the delivery of CSS in the browser. The plugin offers async loading of CSS via [loadCSS](https://github.com/filamentgroup/loadCSS) and it offers an enhanced version of loadCSS that uses the `requestAnimationFrame` API following the [recommendations by Google](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery).
+The plugin contains tools to optimize the delivery of CSS in the browser.
 
-The plugin offers advanced options such as a render delay in milliseconds, the position to start CSS rendering (header or footer) and the removal of CSS files from the HTML. The plugin enables to capture and proxy external stylesheets for loading the files locally with optimized cache headers (see `External Resource Proxy`).
+Some of the features:
 
-### Above The Fold Quality Tester
+* Async loading via [loadCSS](https://github.com/filamentgroup/loadCSS) (enhanced with `requestAnimationFrame` API following the [recommendations by Google](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery))
+* Remove CSS files from the HTML source.
+* Capture and proxy (script injected) external stylesheets to load the files locally or via a CDN with optimized cache headers. This feature enables to pass the "[Leverage browser caching](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching)" rule from Google PageSpeed Insights.
 
-The plugin contains a tool to test the quality of the above the fold (critical path CSS) rendering and to detect a flash of unstyled content ([FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content)).
+**The plugin does not provide CSS code optimization, minification or concatenation.**
 
-### Full CSS Extraction
+### Javascript Load Optimization
 
-The plugin enables the extraction of full CSS for use in Critical Path CSS generators.
+The plugin contains tools to optimize the loading of javascript.
 
-### External Resource Proxy
+Some of the features:
 
-The plugin contains a tool to localize (proxy) external javascript and CSS resources such as Google Analytics and Facebook SDK to load the files locally with optimized cache headers to pass the "[Leverage browser caching](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching)" rule from Google PageSpeed Insights. The proxy is able to capture "script-injected" async scripts and stylesheets to solve the problem without further configuration.
+* Robust async script loader based on [little-loader](https://github.com/walmartlabs/little-loader) by Walmart Labs ([reference](https://formidable.com/blog/2016/01/07/the-only-correct-script-loader-ever-made/))
+* HTML5 Web Worker and Fetch API based script loader with localStorage cache and fallback to little-loader for old browsers.
+* jQuery Stub that enables async loading of jQuery.
+* Abiding of WordPress dependency configuration while loading files asynchronously.
+* Lazy Loading Javascript (e.g. Facebook or Twitter widgets) based on [jQuery Lazy Load XT](https://github.com/ressio/lazy-load-xt#widgets).
+* Capture and proxy (script injected) external javascript files to load the files locally or via a CDN with optimized cache headers. This feature enables to pass the "[Leverage browser caching](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching)" rule from Google PageSpeed Insights.
 
-### Lazy Loading Javascript
+The HTML5 script loader offers the following advantages when configured correctly:
 
-The plugin contains a tool based on [jQuery Lazy Load XT](https://github.com/ressio/lazy-load-xt#widgets) to lazy load scripts such as Facebook en Twitter social widgets.
+* 0 javascript file download during navigation
+* 0 javascript file download for returning visitors (e.g. from Google search results, leading to a reduced bounce rate)
+* faster script loading than browser cache, especially on mobile (according to a [proof of concept](https://addyosmani.com/basket.js/) by a Google engineer)
 
-### Web Font Optimization
+**The plugin does not provide Javascript code optimization, minification or concatenation.**
 
-The plugin contains a tool to optimize web fonts. The plugin automatically parses web font `@import` links in minified CSS files and `<link>` links in the HTML and loads the fonts via [Google Web Font Loader](https://github.com/typekit/webfontloader).
+### Google Web Font Optimization
 
+The plugin contains tools to optimize [Google Web Fonts](https://fonts.google.com/). 
+
+Some of the features:
+
+* Load Google Web Fonts via [Google Web Font Loader](https://github.com/typekit/webfontloader).
+* Auto-discovery of Google Web Fonts using:
+	* Parse `<link rel="stylesheet">` in HTML source.
+	* Parse `@import` links in minified CSS from minification plugins (e.g. Autoptimize).
+	* Parse existing `WebFontConfig` javascript configuration.
+* Remove fonts to enable local font loading.
+* Upload Google Web Font Packages from [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/) to the theme directory.
+
+### Gulp.js Critical CSS Creator
+
+The plugin contains a tool to create Critical CSS based on [Gulp.js](https://gulpjs.com/) tasks. The tool is based on [critical](https://github.com/addyosmani/critical) (by a Google engineer).
 
 == Installation ==
 
@@ -79,12 +107,139 @@ The plugin contains a tool to optimize web fonts. The plugin automatically parse
 1. Critical CSS management
 2. CSS delivery optimization
 3. Google Web Font optimization
-4. Above The Fold Quality Test
-5. Critical CSS Quality Test
-6. Full CSS Extraction
-7. Gulp.js Critical CSS Generator Task Manager
+4. Javascript Optimization
+5. Above The Fold Quality Test
+6. Critical CSS Quality Test
+7. Full CSS Extraction
+8. Gulp.js Critical CSS Generator Task Manager
 
 == Changelog ==
+
+= 2.7.12 =
+* Updated: Default permissions for cache directory changed to 755/644. ([@azirer](https://github.com/optimalisatie/above-the-fold-optimization/pull/54))
+* Added: Option to remove plugin reference (`data-abtf="https://goo.gl/C1gw96"`) from HTML source code using `ABTF_NOREF` in wp-config.php.
+
+= 2.7.11 =
+* Added: Google Webfont auto-detect option.
+* Added: Google Webfont optimization ignore list.
+* Added: Link to Google PageSpeed scores from plugin index.
+* Updated: webfont.js upgraded to `v1.6.28`.
+* Updated: [CodeMirror](http://codemirror.net/) upgraded to `v5.27.4`.
+* Updated: URL for Google's new full spectrum mobile speed test for SMB ([Think With Google](https://testmysite.thinkwithgoogle.com/)).
+* Removed: Console reference to plugin.
+
+= 2.7.10 =
+* Update: updated support policy.
+
+= 2.7.9 =
+* Bugfix: PHP 7 does not support methods with a double underscore prefix.
+
+= 2.7.8 =
+* Added: module for [LiteSpeed Cache](https://wordpress.org/plugins-wp/litespeed-cache/). ([pending evaluation by requesting user](https://wordpress.org/support/topic/please-add-support-for-litespeed-cache/))
+
+= 2.7.7 =
+* Updated: cache directory moved to /wp-content/cache/abtf/
+* Updated: default file permissions set to 666 (public read & write) to allow FTP access.
+* Added: proxy cache cleanup cron.
+* Added: proxy cache stats on proxy configuration page.
+* Added: file and expire meta header added to proxy cache files.
+* Improved: wp_remote_get implementation optimized by disabling keep-alive. (@aamir2007)
+
+= 2.7.6 =
+* Bugfix: notice error on theme switch. (@samkatakouzinos)
+* Improved: global.css Critical Path CSS file automatically created on theme switch.
+
+= 2.7.5 =
+* Bugfix: Full CSS export is missing quotes in url translation.
+
+= 2.7.4 =
+* Added: warning in admin panel when Critical Path CSS is empty.
+
+= 2.7.3 =
+* Bugfix: notice error with WP_DEBUG enabled. (@samkatakouzinos)
+
+= 2.7.2 =
+* Updated: minor improvements.
+
+= 2.7.1 =
+* Added: Google Webfont zip-file upload and extract.
+
+= 2.7.0 =
+* Updated: Critical CSS file storage location moved to theme directory.
+* Added: file based critical CSS configuration to allow editing via FTP.
+* Added: Critical CSS filter function condition.
+* Added: append/prepend CSS file(s) to critical CSS.
+* Added: enhanced Critical CSS debug comment.
+
+= 2.6.17 =
+* Updated: new [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
+
+= 2.6.16 =
+* Bugfix: stray script end tags not removed. (@ferares)
+* Added: support for AMP Supremacy. (@cwfaraday)
+* Added: website monitor resource.
+
+= 2.6.15 =
+* Bugfix: Critical Path CSS Build Tool Task Manager permissions not set correctly when automatically updating WordPress critical CSS.
+
+= 2.6.14 =
+* Bugfix: external resource proxy async injected script capture not applying ignore list.
+
+= 2.6.13 =
+* Bugfix: external resource proxy displays error when using Better WordPress Minify. (@razifkamal)
+
+= 2.6.12 =
+* Bugfix: external resource proxy CDN option rejects http:// urls in admin panel. (@bluemad)
+* Improved: hide results in [securityheaders.io](https://securityheaders.io/) test from PageSpeed admin bar menu.
+* Improved: external resource proxy mime type security loosened to allow `text/html` for files with matching file extension.
+* Improved: external resource proxy captures script injected local and CDN scripts when HTML5 script loader is enabled for localStorage cache.
+* Improved: external resource proxy CDN resources are processed as local files.
+* Improved: external resource proxy prints debug notices on failure.
+* Added: Critical CSS conditions for category pages.
+
+= 2.6.11 =
+* Improved: HTML5 script loader uses ES6 promises for async script loading.
+* Improved: HTML5 script loader preloads scripts from localStorage while waiting for WordPress dependencies.
+
+= 2.6.10 =
+* Improved: HTML5 script loader handling of localStorage quota.
+
+= 2.6.9 =
+* Improved: HTML5 script loader uses [requestIdleCallback](https://developers.google.com/web/updates/2015/08/using-requestidlecallback) to shedule tasks for CPU idle time to improve render performance.
+
+= 2.6.8 =
+* Bugfix: external resource proxy fails on invalid linked local urls with or without www. (301-redirect).
+* Bugfix: external resource proxy fails on local urls with query string.
+
+= 2.6.7 =
+* Bugfix: HTML5 script loader localStorage cache not clearing chunks.
+* Bugfix: HTML5 script loader localStorage cache not handling quota exceeded correctly.
+* Modified: HTML5 script loader localStorage cache chunk size lowered to 100kb ([test](https://jsperf.com/localstorage-10x100kb-vs-2x-500kb-vs-1x-1mb)).
+
+= 2.6.6 =
+* Added: option to disable the plugin using the query string `?noabtf`.
+* Bugfix: HTML entity encoded javascript urls not handled correctly by proxy.
+
+= 2.6.5 =
+* Bugfix: external resource proxy returns PHP notices in WordPress debug modus.
+* Bugfix: external resource proxy gzip compression removed (gzip now handled by server).
+* Improved: HTML5 script loader localStorage cache chunks large scripts in parts of 500kb.
+
+= 2.6.4 =
+* Bugfix: async loading in javascript load optimization blocks while waiting for WordPress dependencies to be loaded.
+* Bugfix: external javascript proxy should ignore blob: uri's.
+* Added: HTML5 Web Worker and Fetch API based script loader with localStorage cache, inspired by [basket.js](https://addyosmani.com/basket.js/) (a script loading concept used by Google).
+* Improved: external javascript proxy will load captured scripts from localStorage cache when using the HTML5 Web Worker script loader.
+
+= 2.6.3 =
+* Improved: javascript loading continues when WordPress dependencies are not met (with admin debug notice).
+
+= 2.6.2 =
+* Added: option to abide WordPress dependencies in javascript async load optimization.
+
+= 2.6.1 =
+* Added: javascript async load optimization.
+* Added: jQuery stub for async loading jQuery.
 
 = 2.6.0 =
 * Bugfix: Critical CSS Quality Test not accessible without CSS delivery optimization enabled.

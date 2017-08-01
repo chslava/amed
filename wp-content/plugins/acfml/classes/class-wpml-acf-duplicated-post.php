@@ -21,18 +21,24 @@ class WPML_ACF_Duplicated_Post {
 			if (is_string($related_acf_field_name) && strpos($related_acf_field_name, "field_") === 0) {
 
 				if ($key_parts = $this->check_repeater_field($processed_data->meta_data['key'])) {
-					$WPML_ACF_Repeater_Field = new WPML_ACF_Repeater_Field($this);
+					$WPML_ACF_Repeater_Field = new WPML_ACF_Repeater_Field($this, $this->wpdb);
 					$field = $WPML_ACF_Repeater_Field->resolve_repeater_subfield($processed_data, $key_parts, $field);
 				} else {
 					$related_acf_field_value = $this->get_related_acf_field_value($related_acf_field_name);
 
-					if (isset($related_acf_field_value['key']) && $related_acf_field_value['key'] == $related_acf_field_name) {
+					if (isset($related_acf_field_value['key']) && $related_acf_field_value['key'] == $related_acf_field_name) { // acf free
 
 						if (isset($related_acf_field_value['type'])) {
 							$processed_data->related_acf_field_value = $related_acf_field_value;
 							$field = $this->get_field_object($processed_data, $field);
 						}
 
+					} else { // acf pro
+						$related_acf_pro_field_value = $this->get_related_acf_pro_field_value($related_acf_field_name);
+						if (isset($related_acf_pro_field_value['type'])) {
+							$processed_data->related_acf_field_value = $related_acf_pro_field_value;
+							$field = $this->get_field_object($processed_data, $field);
+						}
 					}
 				}
 
@@ -49,8 +55,13 @@ class WPML_ACF_Duplicated_Post {
 		return $value = maybe_unserialize($this->wpdb->get_var( $this->wpdb->prepare("SELECT meta_value FROM {$this->wpdb->postmeta} WHERE meta_key = %s LIMIT 1" , $field_name) ));
 	}
 
+	public function get_related_acf_pro_field_value($field_name) {
+		return $value = maybe_unserialize($this->wpdb->get_var( $this->wpdb->prepare("SELECT post_content FROM {$this->wpdb->posts} WHERE post_name = %s AND post_type = 'acf-field' LIMIT 1", $field_name) ));
+
+	}
+
 	private function check_repeater_field($key) {
-		$re = "/(\\S+)_(\\d)_(\\S+)/";
+		$re = "/([a-z_]+)_(\\d)_(\\S+)/";
 
 		$matches = false;
 
@@ -74,6 +85,9 @@ class WPML_ACF_Duplicated_Post {
 		} else if ('taxonomy' == $processed_data->related_acf_field_value['type']) {
 			$ids_object = new WPML_ACF_Term_Ids();
 			$field = new WPML_ACF_Taxonomy_Field($processed_data, $ids_object);
+		} else if ('gallery' == $processed_data->related_acf_field_value['type']) {
+			$ids_object = new WPML_ACF_Post_Ids();
+			$field = new WPML_ACF_Post_Object_Field($processed_data, $ids_object);
 		}
 
 		return $field;

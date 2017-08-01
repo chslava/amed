@@ -98,7 +98,7 @@ class MC4WP_Usage_Tracking {
 		$data = $this->get_tracking_data();
 
 		// send non-blocking request and be done with it
-		$response = wp_remote_post( $this->tracking_url, array(
+		wp_remote_post( $this->tracking_url, array(
 				'body' => json_encode( $data ),
 				'headers' => array(
 					'Content-Type' => 'application/json',
@@ -155,8 +155,8 @@ class MC4WP_Usage_Tracking {
 	 */
 	protected function get_mailchimp_lists_count() {
 		$mailchimp = new MC4WP_MailChimp();
-		$lists = $mailchimp->get_lists( true );
-		return count( $lists );
+		$list_ids = $mailchimp->get_list_ids( false );
+		return count( $list_ids );
 	}
 
 

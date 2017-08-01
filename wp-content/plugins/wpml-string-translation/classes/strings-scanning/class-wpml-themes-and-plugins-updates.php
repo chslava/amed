@@ -5,6 +5,8 @@
  */
 class WPML_ST_Themes_And_Plugins_Updates {
 
+	const WPML_WP_UPDATED_MO_FILES = 'wpml_wp_updated_mo_files';
+
 	/** @var WPML_Notices */
 	private $admin_notices;
 	/** @var WPML_ST_Themes_And_Plugins_Settings */
@@ -27,6 +29,7 @@ class WPML_ST_Themes_And_Plugins_Updates {
 			add_action( 'updated_option', array( $this, 'updated_option' ), 10, 3 );
 			$this->settings->init_hooks();
 		}
+		add_action( 'upgrader_process_complete', array( $this, 'store_mo_file_update' ), 10, 2 );
 	}
 
 	public function data_is_valid( $thing ) {
@@ -148,12 +151,12 @@ class WPML_ST_Themes_And_Plugins_Updates {
 
 			$themes_and_plugins_settings = new WPML_ST_Themes_And_Plugins_Settings();
 
-			$notice = new WPML_Notice( $plugin_or_theme, '<strong>' . $plugin_or_theme . '</strong>&nbsp;&mdash;&nbsp;' . $message, $themes_and_plugins_settings->get_notices_group() );
+			$notice = $this->admin_notices->get_new_notice( $plugin_or_theme, '<strong>' . $plugin_or_theme . '</strong>&nbsp;&mdash;&nbsp;' . $message, $themes_and_plugins_settings->get_notices_group() );
 			$notice->set_css_class_types( 'info' );
 			$notice->set_exclude_from_pages( array( $string_scan_page ) );
-			$notice->add_action( new WPML_Notice_Action( __( 'Scan now', 'wpml-string-translation' ), $url, false, false, true ) );
-			$notice->add_action( new WPML_Notice_Action( __( 'Skip', 'wpml-string-translation' ), '#', false, true ) );
-			$dismiss_all_action = new WPML_Notice_Action( __( 'Dismiss all these notices', 'wpml-string-translation' ), '#', false, false, false );
+			$notice->add_action( $this->admin_notices->get_new_notice_action( __( 'Scan now', 'wpml-string-translation' ), $url, false, false, true ) );
+			$notice->add_action( $this->admin_notices->get_new_notice_action( __( 'Skip', 'wpml-string-translation' ), '#', false, true ) );
+			$dismiss_all_action = $this->admin_notices->get_new_notice_action( __( 'Dismiss all these notices', 'wpml-string-translation' ), '#', false, false, false );
 			$dismiss_all_action->set_group_to_dismiss( $this->settings->get_notices_group() );
 			$dismiss_all_action->set_js_callback( 'wpml_st_hide_strings_scan_notices' );
 			$notice->add_action( $dismiss_all_action );
@@ -167,5 +170,29 @@ class WPML_ST_Themes_And_Plugins_Updates {
 
 	public function remove_notice( $id ) {
 		$this->admin_notices->remove_notice( $this->settings->get_notices_group(), $id );
+	}
+
+	/**
+	 * @param WP_Upgrader $upgrader
+	 * @param $language_translations
+	 *
+	 * @return bool
+	 */
+	public function store_mo_file_update( WP_Upgrader $upgrader, $language_translations ) {
+		if ( is_wp_error( $upgrader->result ) ) {
+			return false;
+		}
+
+		$action = $language_translations['action'];
+		if ( in_array( $action, array( 'update', 'install' ), true ) ) {
+			if ( 'translation' === $language_translations['type'] ) {
+				$last_update = get_option( self::WPML_WP_UPDATED_MO_FILES, array() );
+				$translations = $language_translations['translations'];
+				foreach ( $translations as $translation ) {
+					$last_update[ $translation['type'] ][ $translation['slug'] ] = time();
+				}
+				update_option( self::WPML_WP_UPDATED_MO_FILES, $last_update, false );
+			}
+		}
 	}
 }
