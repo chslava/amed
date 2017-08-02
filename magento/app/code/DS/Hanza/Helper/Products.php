@@ -152,7 +152,7 @@ class Products extends AbstractHelper
     
     
     
-    public function disable_product($sku,$id=null){
+    public function disable($sku,$id=null){
         // function disables product either by sku or id
         $data=[];
         $data["status"]=false;
@@ -176,7 +176,7 @@ class Products extends AbstractHelper
 
         } else {
             $data["status"]=false;
-            $data["message"]="No product nothing to dissable";
+            $data["message"]="No product.";
         }
         return $data;
     }

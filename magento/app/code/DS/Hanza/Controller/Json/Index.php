@@ -15,6 +15,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         $this->categories = $this->_objectManager->create('DS\Hanza\Helper\Categories');
+        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
         $this->_coreRegistry = $this->_objectManager->get('\Magento\Framework\Registry');
         $this->force=false;
 
@@ -316,32 +317,6 @@ class Index extends \Magento\Framework\App\Action\Action
         }
     }
 
-
-    private function disable_product($sku){
-
-        $data=[];
-        $data["status"]=false;
-        $data["message"]="Disabling failed";
-
-        $_product = $this->_objectManager->create('Magento\Catalog\Model\Product');
-        $id = $_product->getIdBySku($sku);
-
-        if ($id){
-            $_product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED);
-            try {
-                $_product->save();
-                return ["status"=>true,"message"=>"Product disabled."];
-            } catch (\Exception $e) {
-                return ["status"=>false,"message"=>"Product disbalation failed ".$e->getMessage()." "];
-            }
-
-        } else {
-            $data["status"]=false;
-            $data["message"]="No product nothing to dissable";
-        }
-        return $data;
-    }
-
     
     private function sync_product_img($sku, $force=true, $only_delete=true, $prod_data=null){
         
@@ -526,7 +501,13 @@ class Index extends \Magento\Framework\App\Action\Action
 
         if (isset($prod_data['status']) && $prod_data['status']!=2){
             if ($sku){
-                return $this->disable_product($sku);    
+                 $status = $this->products->disable($sku);
+                 if ($status["status"]){
+                    return  ["status"=>false,"message"=>"Product disabled, because status is disabled"];
+                 } else {
+                    return  ["status"=>false,"message"=>"Product skipped, status is disabled"];
+                 }
+                 
             }
             return $prod_data;
         }
