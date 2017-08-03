@@ -7,12 +7,30 @@ use \Magento\Framework\App\Helper\AbstractHelper;
 class Data extends AbstractHelper
 {
     
+    public $force = false;
+    private $image_files = null;
+    private $product_data_from_gapi = null;
+    private $_objectManager = null;
+    private $_storeManager = null;
+    
+    public function __construct(\Magento\Framework\App\Helper\Context $context)
+    {
+        $this->class = explode('\\',__CLASS__);
+        $this->class = end($this->class);
+        
+        $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
+        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
+        $this->_storeManager = $this->_objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+        
+    }
+    
+    
     /*
      *
      * Some methods for returning constats or common settings used in several places
      *
      */
-    public function get_root_cat(){
+    private function get_root_cat(){
         //hardcoded at the moment
         //TODO make it read from settings
         return 2;
@@ -93,7 +111,7 @@ class Data extends AbstractHelper
     }
 
 
-    private function get_cache_file($sku, $prefix){
+    public function get_cache_file($sku, $prefix){
         //setting and checking the directory
         $sku = str_replace("/","_",$sku);
         $dir = $this->get_cache_dir()."/".$prefix."";
@@ -106,28 +124,16 @@ class Data extends AbstractHelper
 
 
 
-    private function get_languages(){
-        return [
-            "ILAT",
-            "ILIT",
-            "IRUS",
-            "IENG",
-            "IALAT",
-            "IALIT",
-            "IARUS",
-            "IAENG",
-        ];
-    }
+    
+    
+    
+   
 
 
-    private function get_import_filename($file){
+    public function get_import_filename($file){
 
         switch($file) {
-            case 'prices':
-                print("prices called");
-                die();
-                return $this->get_import_dir()."/prices.txt";
-                break;
+            
 
             case 'products':
                 return $this->get_import_dir()."/items.csv";
@@ -142,7 +148,7 @@ class Data extends AbstractHelper
 
 
 
-    public function get_value_maping($type){
+     public function get_value_maping($type){
 
         switch($type){
             case "persons":
@@ -251,7 +257,7 @@ class Data extends AbstractHelper
     }
 
 
-    private function get_lang_code($csv_langcode){
+    public function get_lang_code($csv_langcode){
         if (substr($csv_langcode,0,2)=="IA"){
             $csv_langcode = str_replace("IA","",$csv_langcode);
         } else {
@@ -544,7 +550,7 @@ class Data extends AbstractHelper
         } else {
             //if there was no data then saving existing situation
             $product_id = $this->get_product_id_by_sku($sku);
-            $images = $this->get_images($product_id);
+            $images = $this->get_magento_images_list($product_id);
             $this->set_imported_images($sku,$images);
             return $images;
         }
@@ -819,32 +825,6 @@ class Data extends AbstractHelper
     }
     
     
-    public function get_images($prod_id){
-
-        //return array of filenames of the product by product id
-        // used mostly for comparing the exisitng images  and already imported images
-        // to see if there is new files
-        // comparing only count not the files
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        
-        $files =[];
-        $p = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($prod_id);
-        // could be that there is no such product.
-        if ($p){
-            $existingMediaGalleryEntries = $p->getMediaGalleryEntries();
-            //could be that there is no images
-            if ($existingMediaGalleryEntries){
-                foreach($existingMediaGalleryEntries as $entry){
-                    $files[] = $entry['file'];
-                }        
-            }
-        }   
-        return $files;
-    }
-    
-    
     public function get_product_id_by_sku($sku) {
         //getting product by sku
         //returns product id
@@ -861,5 +841,108 @@ class Data extends AbstractHelper
         }else{
             return false;
         }
+    }
+    
+    
+    public function get_current_store_data(){
+        $_storeManager = $this->_objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+        $store_id = $_storeManager->getStore()->getId();
+        $website_id = $_storeManager->getStore()->getWebsiteId();
+        $store_code = $_storeManager->getStore()->getCode();
+        $store_name = $_storeManager->getStore()->getName();
+        return [
+                "website_id"=>$website_id,
+                "store_code"=>$store_code,
+                "store_name"=>$store_name
+                ];
+    }
+    
+    public function get_current_store_code(){
+        $store_data = $this->get_current_store_data();
+        return $store_data["store_code"];
+    }
+    
+    
+    public function get_base_url(){
+        return $this->_storeManager->getStore()->getBaseUrl();
+    }
+    
+    
+    
+    public function clear_cache(){
+        
+        try {
+            $this->_cacheTypeList = $this->_objectManager->create('\Magento\Framework\App\Cache\TypeListInterface');
+            $this->_cacheFrontendPool = $this->_objectManager->create('\Magento\Framework\App\Cache\Frontend\Pool');
+            
+            $types = array('config','layout','block_html','collections','reflection','db_ddl','eav','config_integration','config_integration_api','full_page','translate','config_webservice');
+            
+            foreach ($types as $type) {
+                $this->_cacheTypeList->cleanType($type);
+            }
+            foreach ($this->_cacheFrontendPool as $cacheFrontend) {
+                $cacheFrontend->getBackend()->clean();
+            }
+            
+            
+            $this->_indexerFactory = $this->_objectManager->create('\Magento\Indexer\Model\IndexerFactory');
+            $this->_indexerCollectionFactory = $this->_objectManager->create('\Magento\Indexer\Model\Indexer\CollectionFactory');
+        
+            $indexerCollection = $this->_indexerCollectionFactory->create();
+            $ids = $indexerCollection->getAllIds();
+            foreach ($ids as $id) {
+                $idx = $this->_indexerFactory->create()->load($id);
+                $idx->reindexAll($id); // this reindexes all
+                //$idx->reindexRow($id); // or you can use reindexRow according to your need
+            }        
+        } catch (\Exception $e) {
+                
+        }    
+    }
+    
+    
+    public function get_store_phone(){
+        
+        $scopeConfig = $this->_objectManager->create('\Magento\Framework\App\Config\ScopeConfigInterface');
+        $storeManager = $this->_objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+        
+        $phone = $scopeConfig->getValue('general/store_information/phone', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeManager->getStore()->getStoreId());
+        return " ".$phone;
+    }
+    
+    public function get_files_from_dir($dir,$path){
+        $files_to_return=[];
+        $files = scandir($dir);
+        foreach($files as $file){
+            if ($file=="." || $file==".."){
+                continue;
+            }
+
+            if (is_dir($path."/".$file)){
+                $files_to_return=array_merge($files_to_return,$this->get_files_from_dir($path."/".$file,$path."/".$file));
+            } else {
+                $files_to_return[$file] = $path."/".$file;
+            }
+        }
+        return $files_to_return;
+    }
+    
+    
+    public function get_store_id($code){
+        $all_stores = $this->get_magento_stores();
+        $first_store_id;
+        $i=0;
+        foreach($all_stores as $c => $store){
+            $i++;
+            if ($i==1){
+                $first_store_id=$store['storeId'];
+            }
+            if ($c ==$code){
+                return $store['storeId'];
+            }
+        }
+
+        return $first_store_id;
+
     }
 }
