@@ -1,5 +1,5 @@
 <?php
-namespace DS\Importer\Helper;
+namespace DS\Hanza\Helper;
 
 class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
 {
@@ -60,7 +60,7 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
         $this->optionFactory = $optionFactory;
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         
     }
 
