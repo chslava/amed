@@ -43,6 +43,11 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\Eav\Api\Data\AttributeOptionLabelInterfaceFactory $optionLabelFactory
      * @param \Magento\Eav\Api\Data\AttributeOptionInterfaceFactory $optionFactory
      */
+    private $class = null;
+    private $helper = null;
+    private $cache = null;
+    private $ttl_hour = 3600;
+    
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Catalog\Api\ProductAttributeRepositoryInterface $attributeRepository,
@@ -51,7 +56,10 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Eav\Api\Data\AttributeOptionLabelInterfaceFactory $optionLabelFactory,
         \Magento\Eav\Api\Data\AttributeOptionInterfaceFactory $optionFactory
     ) {
-        parent::__construct($context);
+        
+        
+        $this->class = explode('\\',__CLASS__);
+        $this->class = end($this->class);
 
         $this->attributeRepository = $attributeRepository;
         $this->tableFactory = $tableFactory;
@@ -61,6 +69,8 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
+        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
+        parent::__construct($context);
         
     }
 
@@ -163,4 +173,26 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
             }
         }
     }
+    
+    
+    public function get_attribute_options($attribute_code){
+    
+        $data_to_return = $this->cache->get_cache_data($attribute_code, $this->class, $this->ttl_hour);
+        if ($data_to_return){
+            return $data_to_return;
+        }
+        $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
+        $attribute = $this->_objectManager->create('\Magento\Catalog\Model\Product\Attribute\Repository');    
+        $attribute = $attribute->get($attribute_code);
+        $data_to_return= [];
+        foreach ($attribute->getOptions() as $option) {
+            $db_id = $option->getId();
+            $db_value = $option->getValue();
+            $db_label = $option->getLabel();
+            $data_to_return[$db_value] = ['label'=>$db_label];    
+        }
+        $this->cache->set_cache_data($attribute_code,$data_to_return, $this->class);
+        return $data_to_return;
+    }
+    
 }
