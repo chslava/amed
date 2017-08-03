@@ -23,5 +23,6 @@ echo ""
 
 echo "Reindex"
 echo "======================================"
+$PHP_PATH $MAGENTO_PATH indexer:reset
 $PHP_PATH $MAGENTO_PATH indexer:reindex
 echo ""
