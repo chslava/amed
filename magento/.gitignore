@@ -53,3 +53,4 @@ atlassian*
 cache_clean.bash
 
 *.log
+/pub/media/import_cache/*
