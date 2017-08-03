@@ -169,9 +169,8 @@ class Csv extends AbstractHelper
                     } else {
                         $sku_sufix="-".count($skus[$product["sku"]]);
                     }
-                    $product["sku"] = $product["sku"].$sku_sufix;
                     $skus[$product["sku"]][] = $product;
-                    
+                    $product["sku"] = $product["sku"].$sku_sufix;
                     
                     $data_to_return[$product["sku"]] = $product;            
                 }
