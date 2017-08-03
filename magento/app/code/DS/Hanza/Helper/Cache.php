@@ -9,19 +9,20 @@ class Cache extends AbstractHelper
 
 
 
-    public function get_absolute_media_path() {
-        /*    /** @var \Magento\Framework\App\ObjectManager $om */
-        $om = \Magento\Framework\App\ObjectManager::getInstance();
-        /** @var \Magento\Framework\Filesystem $filesystem */
-        $filesystem = $om->get('Magento\Framework\Filesystem');
-        /** @var \Magento\Framework\Filesystem\Directory\ReadInterface|\Magento\Framework\Filesystem\Directory\Read $reader */
-        $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
-        return $reader->getAbsolutePath();
+   
+    public function __construct(\Magento\Framework\App\Helper\Context $context)
+    {
+    
+        $this->class = explode('\\',__CLASS__);
+        $this->class = end($this->class);
+        
+        $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();    
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+
     }
 
-
     public function get_cache_dir(){
-        $cache_dir = $this->get_absolute_media_path()."import_cache";
+        $cache_dir = $this->store->get_absolute_media_path()."import_cache";
         if (!file_exists($cache_dir)){
             mkdir($cache_dir,0755,true);
         }

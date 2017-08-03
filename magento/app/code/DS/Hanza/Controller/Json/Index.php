@@ -16,6 +16,9 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         $this->categories = $this->_objectManager->create('DS\Hanza\Helper\Categories');
         $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
+        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
         $this->_coreRegistry = $this->_objectManager->get('\Magento\Framework\Registry');
         $this->force=false;
 
@@ -45,12 +48,12 @@ class Index extends \Magento\Framework\App\Action\Action
         //TODO : link this with warehouse
         $qty = 20000;
 
-        $stores = $this->helper->get_magento_stores();
+        $stores = $this->store->get_magento_stores();
         if (!$product_id){
             $product = $this->_objectManager->create('Magento\Catalog\Model\Product');
 
             $product->setTypeId('simple');
-            $product->setAttributeSetId($this->helper->get_attribute_set());
+            $product->setAttributeSetId($this->store->get_attribute_set());
             $product->setSku($data["sku"]);
             if (isset($stores["lv"]["websiteId"])){
                 $website_id = $stores["lv"]["websiteId"];
@@ -128,7 +131,7 @@ class Index extends \Magento\Framework\App\Action\Action
                     break;
                 
                 case "image":
-                    $data[$key] = $this->helper->get_absolute_image_path()."/".$value;
+                    $data[$key] = $this->helper->store->get_absolute_image_path()."/".$value;
                     break;
                 case "url":
                     //todo
@@ -204,12 +207,6 @@ class Index extends \Magento\Framework\App\Action\Action
                         $cats_to_add[] = $csv_to_m[$parent_id];    
                     }
                     
-                    //$existing_cat_ids = $product->getCategoryIds();
-                    //$home_page_cat = $this->helper->get_homepage_cat();
-                    //
-                    //if (count($existing_cat_ids)>0 && in_array($home_page_cat,$existing_cat_ids)) {   
-                    //    $value[] = $home_page_cat;
-                    //}
                     
                     //print_r($cats_to_add);
                     if (count($cats_to_add)==0){
@@ -222,10 +219,10 @@ class Index extends \Magento\Framework\App\Action\Action
                     }
                     //print_r($cats_to_add);
                     if (count($cats_to_add)==0){
-                        $cats_to_add =[$this->helper->get_root_cat()];
+                        $cats_to_add =[$this->store->get_root_cat()];
                     }
                     $product->setCategoryIds($cats_to_add);
-                    //$product->setCategoryIds([$this->helper->get_root_cat()]);
+                    
                     break;
                 case "original_data": default:
                     if ($key!="categories"){
@@ -361,12 +358,12 @@ class Index extends \Magento\Framework\App\Action\Action
                 $changed=false;
                 foreach($images_to_add as $image) {
                     $img_file_name = basename($image);
-                    $src = $this->helper->get_image_import_dir()."/".$img_file_name;
+                    $src = $this->store->get_image_import_dir()."/".$img_file_name;
                     if (!file_exists($src)){
                         continue;
                     }
                     $src_time_stamp = filemtime($src);
-                    $cache_time_stamp = $this->helper->get_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src));
+                    $cache_time_stamp = $this->cache->get_cache_data(basename($src),"image_timestamp");
                                 
                     if ($src_time_stamp!=$cache_time_stamp){
                         //file has been chage
@@ -404,7 +401,7 @@ class Index extends \Magento\Framework\App\Action\Action
         if ($existingMediaGalleryEntries){
             foreach ($existingMediaGalleryEntries as $key => $entry) {
                 //We can add your condition here
-                $media_dir = $this->helper->get_absolute_media_path();
+                $media_dir = $this->store->get_absolute_media_path();
                 $file = $media_dir."catalog/product".$entry->getFile();
                 if (file_exists($file)){
                     unlink ($file);
@@ -438,10 +435,10 @@ class Index extends \Magento\Framework\App\Action\Action
         foreach($images_to_add as $image_to_add){
             
             $img_file_name = basename($image_to_add);
-            $src = $this->helper->get_image_import_dir()."/".$img_file_name;
+            $src = $this->store->get_image_import_dir()."/".$img_file_name;
             if (file_exists($src)){
                 $src_time_stamp = filemtime($src);
-                $this->helper->set_cache_data(basename($this->helper->get_image_timestamp_dir())."/".basename($src),$src_time_stamp);
+                $this->cache->set_cache_data(basename($src),$src_time_stamp,"image_timestamp");
                 
     
                 $counter++;
@@ -494,7 +491,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $data["message"]="Update failed";
 
         //checming if there is product
-        $prod_data= $this->helper->get_product_data($sku);
+        $prod_data= $this->csv->get_product($sku);
         
         $this->all_m_cats = $this->categories->get_all_categories();
 
@@ -556,7 +553,7 @@ class Index extends \Magento\Framework\App\Action\Action
     
     
     public function get_csv_into_array($file){
-        $csv_file = $this->helper->get_import_dir()."/".$file;
+        $csv_file = $this->store->get_import_dir()."/".$file;
         $_data = [];
         if (file_exists($csv_file)) {
             if (($handle = fopen($csv_file, "r")) !== FALSE) {
@@ -605,7 +602,7 @@ class Index extends \Magento\Framework\App\Action\Action
     
     public function get_product_cat_ids(){
         
-        $csv_file = $this->helper->get_import_dir()."/items.csv";
+        $csv_file = $this->store->get_import_dir()."/items.csv";
         $product_cat_ids = [];
         if (file_exists($csv_file)) {
             if (($handle = fopen($csv_file, "r")) !== FALSE) {
@@ -649,7 +646,7 @@ class Index extends \Magento\Framework\App\Action\Action
         
         //get all cattegories
         $cat_tree=[];
-        $csv_file = $this->helper->get_import_dir()."/categories.csv";
+        $csv_file = $this->store->get_import_dir()."/categories.csv";
         $cats =[];
         $cat_ids=[];
         
@@ -743,7 +740,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 }
                 
             } elseif ($_c['parent_id']==0) {
-                $magento_parent_id = $this->helper->get_root_cat();
+                $magento_parent_id = $this->store->get_root_cat();
                 print("--------------------<br/>");
                 print("Magento default cat<br/>");
                 print("--------------------<br/>");
@@ -897,8 +894,6 @@ class Index extends \Magento\Framework\App\Action\Action
                 case 'get_product_list':
                     //products that has been changed (attributes)
                     $data=$this->helper->get_ids_for_update(isset($_GET['force']));
-
-                   
                     break;
                 
                 case 'update_image':

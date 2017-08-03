@@ -20,73 +20,16 @@ class Data extends AbstractHelper
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
+        $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
         $this->_storeManager = $this->_objectManager->create('\Magento\Store\Model\StoreManagerInterface');
         
     }
-    
-    
-    /*
-     *
-     * Some methods for returning constats or common settings used in several places
-     *
-     */
-    private function get_root_cat(){
-        //hardcoded at the moment
-        //TODO make it read from settings
-        return 2;
-    }
-    
-    
-    public function get_homepage_cat(){
-        //TODO make it read from settings
-        return 157;
-    }
 
-
-    public function get_attribute_set(){
-        //TODO make it read from settings
-        return 4;
-    }
-
-
-    public function get_absolute_media_path() {
-        /*    /** @var \Magento\Framework\App\ObjectManager $om */
-        $om = \Magento\Framework\App\ObjectManager::getInstance();
-        /** @var \Magento\Framework\Filesystem $filesystem */
-        $filesystem = $om->get('Magento\Framework\Filesystem');
-        /** @var \Magento\Framework\Filesystem\Directory\ReadInterface|\Magento\Framework\Filesystem\Directory\Read $reader */
-        $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
-        return $reader->getAbsolutePath();
-    }
-    
-    
-    public function get_absolute_image_path() {
-        return $this->get_absolute_media_path()."old_shop_data/pictures/items/big";
-    }
-
-
-    public function get_cache_dir(){
-        $cache_dir = $this->get_absolute_media_path()."hanza_cache";
-        if (!file_exists($cache_dir)){
-            mkdir($cache_dir,0755,true);
-        }
-        return $cache_dir;
-    }
-
-
-    public function get_import_dir(){
-
-        return $this->get_absolute_media_path()."old_shop_data";
-    }
-
-
-    public function get_image_import_dir(){
-        return $this->get_absolute_image_path();
-    }
 
     
     function get_magento_product_img_cache_dir(){
-        $cache_dir = $this->get_absolute_media_path()."catalog/product/cache";
+        $cache_dir = $this->store->get_absolute_media_path()."catalog/product/cache";
         if (!file_exists($cache_dir)){
             mkdir($cache_dir,0755,true);
         }
@@ -94,40 +37,13 @@ class Data extends AbstractHelper
     }
 
     public function get_image_destination_dir(){
-        $img_dst_dir= $this->get_cache_dir()."/images";
-        if (!file_exists($img_dst_dir)){
-            mkdir($img_dst_dir,0777,true);
-        }
-        return $img_dst_dir;
-    }
-    
-    
-    public function get_image_timestamp_dir(){
-        $img_dst_dir= $this->get_cache_dir()."/images_timestamps";
+        $img_dst_dir= $this->store->get_cache_dir()."/images";
         if (!file_exists($img_dst_dir)){
             mkdir($img_dst_dir,0777,true);
         }
         return $img_dst_dir;
     }
 
-
-    public function get_cache_file($sku, $prefix){
-        //setting and checking the directory
-        $sku = str_replace("/","_",$sku);
-        $dir = $this->get_cache_dir()."/".$prefix."";
-        if (!file_exists($dir)){
-            mkdir($dir,0777);
-        }
-        return $dir."/$sku-$prefix.php";
-
-    }
-
-
-
-    
-    
-    
-   
 
 
     public function get_import_filename($file){
@@ -136,124 +52,14 @@ class Data extends AbstractHelper
             
 
             case 'products':
-                return $this->get_import_dir()."/items.csv";
+                return $this->store->get_import_dir()."/items.csv";
                 break;
 
             default:
-                return $this->get_import_dir()."/$file";
+                return $this->store->get_import_dir()."/$file";
                 break;
         }
 
-    }
-
-
-
-     public function get_value_maping($type){
-
-        switch($type){
-            case "persons":
-                
-                
-                
-                break;
-            case "branches.csv":
-                /*
-                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
-                name_ee 	varchar(255) 	YES 		NULL	
-                name_lv 	varchar(255) 	YES 		NULL	
-                name_lt 	varchar(255) 	YES 		NULL	
-                name_ru 	varchar(255) 	YES 		NULL	
-                name_en 	varchar(255) 	YES 		NULL	
-                */
-                 return [
-                        0=>"id",
-                        2=>"name_lv",
-                        4=>"name_ru",
-                        5=>"name_en",
-                        ];
-                break;
-            
-            
-             case "branches_items.csv":
-                /*
-                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
-                branche_id 	int(11) 	YES 		NULL	
-                item_id 	int(11) 	YES 		NULL	
-                place 	int(11) 	YES 		NULL	
-                group_type 	int(11) 	YES 		NULL	
-                category_id 	int(11) 	YES 		NULL	
-                */
-                 return [
-                        0=>"id",
-                        1=>"branche_id",
-                        2=>"item_id",
-                        3=>"place",
-                        4=>"group_type",
-                        5=>"category_id"
-                        
-                        ];
-                break;
-            case "categories.csv":
-                return [
-                        0=>"id",
-                        1=>"parent_id",
-                        5=>"title_lv",
-                        7=>"title_ru",
-                        8=>"title_en",
-                        10=>"description_lv",
-                        12=>"description_ru",
-                        13=>"description_en",
-                        
-                        30=>"link_lv",
-                        32=>"link_ru",
-                        33=>"link_en",
-                        
-                        40=>"text_lv",
-                        42=>"text_ru",
-                        43=>"text_en",
-                        2=>"status",
-                        43=>"person",
-                        25=>"name_lv",
-                        27=>"name_ru",
-                        28=>"name_en"
-                        
-                        ];
-                break;
-            case "items.csv":
-                return [
-                    0=>"sku",
-                    1=>"parent_id",
-                    44=>"branch",
-                    6=>"title",
-                    21=>"url",
-                    26=>"name",
-                    31=>"description",
-                    36=>"price",
-                    37=>"sale",
-                    38=>"sale_price",
-                    39=>"new",
-                    4=>"image",
-                    3=>"status",
-                    35=>"code",
-                    45=>"rate"
-                ];
-                break;
-            case "prices":
-                return [
-                    0=>"hvz",
-                    1=>"sku",
-                    2=>"price_group_id",
-                    4=>"price",
-                ];
-                break;
-            default:
-                print(__FUNCTiON__);
-                print("-".__FILE__);
-                print($type);
-                die();
-                return null;
-                break;
-        }
     }
 
 
@@ -284,35 +90,6 @@ class Data extends AbstractHelper
     }
 
 
-   
-
-
-    function get_magento_stores(){
-
-        $stores=[];
-
-        //if ($stores=$this->get_cache_data(__FUNCTION__)){
-        //    return $stores;
-        //}
-
-        $om = \Magento\Framework\App\ObjectManager::getInstance();
-        $storeManager =  $om->get('Magento\Store\Model\StoreManagerInterface');
-        $websites = $storeManager->getWebsites();
-        foreach($websites as $website) {
-            foreach($website->getStores() as $store){
-                $wedsiteId = $website->getId();
-                $storeObj = $storeManager->getStore($store);
-                $storeId = $storeObj->getId();
-                $storeCode= $storeObj->getCode();
-                $url = $storeObj->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
-                $stores[$storeCode]["websiteId"] =$wedsiteId;
-                $stores[$storeCode]["storeId"] =$storeId;
-            }
-        }
-
-        $this->set_cache_data(__FUNCTION__,$stores);
-        return $stores;
-    }
 
 
     /*
@@ -335,13 +112,7 @@ class Data extends AbstractHelper
         return false;
     }
 
-    //setting data
-    public function set_cache_data($id, $data){
-        $cache_file = $this->get_cache_dir()."/".$id.".json.php";
-        file_put_contents($cache_file,json_encode($data));
-    }
-
-
+    
 
 
     /*
@@ -387,10 +158,7 @@ class Data extends AbstractHelper
         }
         $category->save();
         
-        //$all_shops = $this->get_magento_stores(); 
-        //foreach($all_shops as $code => $store){            
-        //    $this->update_category_langs($store["storeId"], $csv_category["title_".$code],$csv_category["description_".$code],$cat_id);
-        //}
+        
     }
     
     
@@ -437,8 +205,7 @@ class Data extends AbstractHelper
 
     public function get_product_data($sku)
     {
-        $file = $this->get_cache_file(urlencode(trim($sku)),"products");
-        $data = json_decode(file_get_contents($file),true);
+        $data = $this->cache->get_cache_data($sku,"products");
         return $data;
 
     }
@@ -544,23 +311,23 @@ class Data extends AbstractHelper
 
     public function get_imported_images($sku)
     {
-        $prod_cache_image_cache = $this->get_cache_file(str_replace("/","_",$sku),"products_images");
-        if (file_exists($prod_cache_image_cache)){
-            return json_decode(file_get_contents($prod_cache_image_cache),true);
-        } else {
-            //if there was no data then saving existing situation
-            $product_id = $this->get_product_id_by_sku($sku);
-            $images = $this->get_magento_images_list($product_id);
-            $this->set_imported_images($sku,$images);
-            return $images;
+        $c_img = $this->cache->get_cache_data($sku,"imported_images",24*3600);
+        if ($c_img){
+            return $c_img;
         }
+        //if there was no data then saving existing situation
+        $product_id = $this->get_product_id_by_sku($sku);
+        $images = $this->get_magento_images_list($product_id);
+        if (count($images)>0){
+            $this->set_imported_images($sku,$images);    
+        }
+        return $images;
     }
 
 
     public function set_imported_images($sku,$data)
     {
-        $prod_cache_image_cache = $this->get_cache_file(str_replace("/","_",$sku),"products_images");
-        return file_put_contents($prod_cache_image_cache,json_encode($data));
+        return $this->cache->set_cache_data($sku,$data,"imported_images");
     }
 
 
@@ -586,7 +353,7 @@ class Data extends AbstractHelper
                     $changed=false;    
                     foreach($images_existing as $image){
                         $img_file_name = basename($image);
-                        $src = $this->get_image_import_dir()."/".$img_file_name;
+                        $src = $this->store->get_image_import_dir()."/".$img_file_name;
                         $src_time_stamp = filemtime($src);
                         $cache_time_stamp = $this->get_cache_data(basename($this->get_image_timestamp_dir())."/".basename($src));
                         if ($src_time_stamp!=$cache_time_stamp){
@@ -626,111 +393,19 @@ class Data extends AbstractHelper
 
     }
 
-
-
     
-
-
-
-    public function get_ids_for_update($force=false){
+    public function get_ids_for_update() {
         
-        //detele some chace files
-        $this->set_cache_data("files_renamed",false);
-        //$this->delete_dir_content($this->get_cache_dir()."/products_images"); 
-        $this->delete_dir_content($this->get_image_destination_dir());
- 
-        $value_mapping=null;
-        $return_field="sku";
-        $file_to_split = $this->get_import_filename("products");
-        $file_prefix="products";
-        $field_number=0;
-
-        $return_field_original = $field_number;
-
-        $cache_dir= $this->get_cache_dir()."/".$file_prefix;
-
-        if (!$value_mapping){
-            $value_mapping = $this->get_value_maping(basename($file_to_split));
-        }
-
-        if ($value_mapping){
-            $field_number = $value_mapping[$field_number];
-        }
-
-        if (!file_exists($cache_dir)){
-            mkdir($cache_dir,0777,true);
-        }
-        
-        if (!file_exists($file_to_split)){
-            print("file does not exist: ".$file_to_split);
-            return false;
-        }
-
-        $line = null;
-        $data_to_return =[];
-
-        $current_sku="";
-        $language_data=[];
-
-        //reading file
-        $first_row=true;
-        if (file_exists($file_to_split)) {
-            if (($handle = fopen($file_to_split, "r")) !== FALSE) {
-                $product =[];
-                while (($data = fgetcsv($handle, null,",")) !== FALSE) {
-                   
-                    if ($first_row){
-                        $first_row=false;
-                        continue;
-                    }
-                    if (count($data)<2){
-                        continue;
-                    }
-
-                    if ($current_sku!="" && !empty($product)){
-
-                        $changed = $this->product_is_changed($product,$field_number,$file_prefix);
-
-                        if ($changed){
-                            $data_to_return[] = $changed;
-                        } else if ($force){
-                            $data_to_return[] = $data[0];
-                        }
-
-                        //no field mapping
-                        $current_sku="";
-                        $product =[];
-
-                    }
-
-                    
-
-                    if (is_array($value_mapping)){
-                        foreach($value_mapping as $key => $value){
-                            $product[$value]=$data[$key];
-                        }
-                        if (isset($product["code"]) && strlen(trim($product["code"]))>0){
-                            $product["sku"] = urlencode(trim($product["code"]));
-                        }
-                        $product["original_data"]=$data;
-                    } else {
-                        $product =$data;
-                        $product["original_data"]=$data;
-                    }
-                    $current_sku = $product["sku"];
-
-                    $language_data = [];
-
-                   
-                }
-            }
+        $all_products = $this->csv->get_all_products();
+        $data_to_return=[];
+        foreach($all_products as $product){
+            $data_to_return[] = $product["sku"];    
         }
         return $data_to_return;
 
     }
 
-
-    
+ 
     public function delete_cached_files($img_filename_to_delete,$directory=false){
         
         if (!$directory){
@@ -791,7 +466,7 @@ class Data extends AbstractHelper
             $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
         }
         
-        $stores = $this->get_magento_stores();
+        $stores = $this->store->get_magento_stores();
         $data = [];
         $data['status']=true;
         $data['message'] = [];
@@ -929,7 +604,7 @@ class Data extends AbstractHelper
     
     
     public function get_store_id($code){
-        $all_stores = $this->get_magento_stores();
+        $all_stores = $this->store->get_magento_stores();
         $first_store_id;
         $i=0;
         foreach($all_stores as $c => $store){

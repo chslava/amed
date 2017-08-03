@@ -36,15 +36,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
-        //$this= $this->_objectManager->get('\DS\Hanza\Helper\Data');
-    //    $this = $helper_factory->get('DS\Hanza\Helper\Data');
-        //print("<pre>");
-
-        //print_r(get_object_vars($this));
-        //print("</pre>");
-        //$this->_coreHelper->getAbsolutepath();
-
-
+        
         $this->_stores=false;
         $this->_p_prices = false;
         $this->_p_stock = false;
@@ -62,13 +54,6 @@ class Index extends \Magento\Framework\App\Action\Action
         }
         $this->_attribute_sets = $options;
 
-
-        define("__SSH_HOST__",'87.110.182.26');
-        define("__SSH_PORT__",'12119');
-        define("__SSH_USER__",'hansa');
-        define("__SSH_PASS__",'Multip@ck');
-        define("__SSH_PATH_TO_DATA__",'/srv/hansa81test/datuapmaina/');
-        define("__SSH_PATH_TO_MEDIA__",'/srv/hansa81test/datuapmaina/foto/');
 
         parent::__construct($context);
     }
@@ -103,13 +88,6 @@ class Index extends \Magento\Framework\App\Action\Action
 
 
 
-    public function get_image_import_dir(){
-        return $this->getAbsoluteMediaPath()."img_from_ssh";
-    }
-
-
-
-
     public function update_images($sku){
 
         $file_names_renamed = $this->get_cache_data("files_renamed");
@@ -123,8 +101,8 @@ class Index extends \Magento\Framework\App\Action\Action
         if (is_numeric($id)){
 
             $img_sku = str_replace("/","-",$sku);
-            $img =$this->get_image_import_dir()."/$img_sku.jpg";
-            $img_1 = $this->get_image_import_dir()."/$img_sku"."_1".".jpg";
+            $img =$this->->store->get_image_import_dir()."/$img_sku.jpg";
+            $img_1 = $this->store->get_image_import_dir()."/$img_sku"."_1".".jpg";
 
             if ( file_exists($img) || file_exists($img_1) ) {
                 $p = $this->_objectManager->get('Magento\Catalog\Model\Product')->load($id);
@@ -133,13 +111,13 @@ class Index extends \Magento\Framework\App\Action\Action
                     for($i=0; $i<10; $i++){
                         if ($i==0){
                             // image path setup
-                            $image_src = $this->get_image_import_dir()."/".$img_sku.".jpg";
-                            $image_dst = $this->get_image_import_dir()."/done/".$img_sku.".jpg";
+                            $image_src = $this->store->get_image_import_dir()."/".$img_sku.".jpg";
+                            $image_dst = $this->store->get_image_import_dir()."/done/".$img_sku.".jpg";
 
                         } else {
                             // image path setup
-                            $image_src = $this->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
-                            $image_dst = $this->get_image_import_dir()."/done/".$img_sku."_".$i.".jpg";
+                            $image_src = $this->store->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
+                            $image_dst = $this->store->get_image_import_dir()."/done/".$img_sku."_".$i.".jpg";
                         }
                         if (file_exists($image_src)){
                             rename($image_src, $image_dst);
@@ -160,11 +138,11 @@ class Index extends \Magento\Framework\App\Action\Action
                 for($i=0; $i<10; $i++){
                     if ($i==0){
                         // image path setup
-                        $image_src = $this->get_image_import_dir()."/".$img_sku.".jpg";
+                        $image_src = $this->store->get_image_import_dir()."/".$img_sku.".jpg";
 
                     } else {
                         // image path setup
-                        $image_src = $this->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
+                        $image_src = $this->store->get_image_import_dir()."/".$img_sku."_".$i.".jpg";
                     }
                     if (file_exists($image_src)){
                         $p->addImageToMediaGallery($image_src, array('image', 'small_image', 'thumbnail'), false, false); // Add Image 3

@@ -22,6 +22,7 @@ class Products extends AbstractHelper
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
         $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
+    
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         $this->registry = $this->_objectManager->create('Magento\Framework\Registry');;
         
@@ -279,7 +280,7 @@ class Products extends AbstractHelper
         if(count($existingMediaGalleryEntries)>0) {
             $fi=array_shift($existingMediaGalleryEntries);
             $fir=$fi;
-            $fi = $this->helper->get_absolute_media_path()."catalog/product".$fi;
+            $fi = $this->store->get_absolute_media_path()."catalog/product".$fi;
             if (file_exists($fi)) {
                 $magento_sores=$this->helper->get_magento_stores();
                 foreach($magento_sores as $store) {

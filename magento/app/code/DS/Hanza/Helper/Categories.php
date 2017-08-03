@@ -20,62 +20,7 @@ class Categories extends AbstractHelper
         
     }
     
-    /*
-     *
-     * Some methods for returning constats or common settings used in several places
-     *
-     */
-    public function get_root_cat(){
-        //hardcoded at the moment
-        //TODO make it read from settings
-        return 2;
-    }
     
-    
-    public function get_homepage_cat(){
-        //TODO make it read from settings
-        return 157;
-    }
-
-
-  
-
-
-    public function get_import_dir(){
-
-        return $this->get_absolute_media_path()."old_shop_data";
-    }
-
-
-    public function get_image_import_dir(){
-        return $this->get_absolute_image_path();
-    }
-
-    
-    public function get_magento_product_img_cache_dir(){
-        $cache_dir = $this->get_absolute_media_path()."catalog/product/cache";
-        if (!file_exists($cache_dir)){
-            mkdir($cache_dir,0755,true);
-        }
-        return $cache_dir;
-    }
-
-    public function get_image_destination_dir(){
-        $img_dst_dir= $this->helper->get_cache_dir()."/images";
-        if (!file_exists($img_dst_dir)){
-            mkdir($img_dst_dir,0777,true);
-        }
-        return $img_dst_dir;
-    }
-    
-    
-    public function get_image_timestamp_dir(){
-        $img_dst_dir= $this->helper->get_cache_dir()."/images_timestamps";
-        if (!file_exists($img_dst_dir)){
-            mkdir($img_dst_dir,0777,true);
-        }
-        return $img_dst_dir;
-    }
 
 
     private function get_hanza_ids_for_magento_cat($subcat_id){
@@ -110,7 +55,7 @@ class Categories extends AbstractHelper
         if ($parent_id){
             $category->setParentId($parent_id); // 1: root category.    
         } else {
-            $category->setParentId($this->get_root_cat()); // 1: root category.
+            $category->setParentId($this->store->get_root_cat()); // 1: root category.
         }
         
         $category->setIsActive(true);
@@ -279,7 +224,7 @@ class Categories extends AbstractHelper
          *
          */
         
-        return [$this->get_root_cat()];
+        return [$this->store->get_root_cat()];
 
         //values comes in as comma seperated
         $lvl1 = $data['class_lvl_1'];

@@ -6,9 +6,10 @@ use \Magento\Framework\App\Helper\AbstractHelper;
 
 class Csv extends AbstractHelper
 {
-    private $helper = null;
+    private $store = null;
     private $cache = null;
     private $ttl_hour = 3600;
+    private $class = null;
     
     public function __construct(\Magento\Framework\App\Helper\Context $context)
     {
@@ -17,7 +18,7 @@ class Csv extends AbstractHelper
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
         $this->_storeManager = $this->_objectManager->create('\Magento\Store\Model\StoreManagerInterface');
         
     }
@@ -30,9 +31,7 @@ class Csv extends AbstractHelper
         } else {
             return false;
         }
-        
     }
-    
     
     
     public function get_all_prices(){
@@ -45,8 +44,8 @@ class Csv extends AbstractHelper
         $file_prefix="prices";
         $file_to_split = $this->helper->get_import_filename($file_prefix);
 
-        $cache_dir= $this->helper->get_cache_dir()."/".$file_prefix;
-        $value_mapping = $this->helper->get_value_maping($file_prefix);
+        $cache_dir= $this->store->get_cache_dir()."/".$file_prefix;
+        $value_mapping = $this->store->get_value_maping($file_prefix);
 
         if (!file_exists($cache_dir)){
             mkdir($cache_dir,0777,true);
@@ -81,6 +80,106 @@ class Csv extends AbstractHelper
             $this->cache->set_cache_data(__FUNCTION__, $data_to_return, $this->class);    
         }
         return $data_to_return;
+    }
+    
+    
+    function get_product($sku){
+        $c_data=$this->cache->get_cache_data($sku,"products");
+        if ($c_data){
+            return $c_data;
+        }
+        $products = $this->get_all_products();
+        if (!empty($products[$sku])){
+            $this->cache->set_cache_data($sku, $products[$sku],"products");
+            return $products[$sku];
+        } else {
+            return false;
+        }
+    }
+    
+    
+    function get_all_products(){
+ 
+        $c_data=$this->cache->get_cache_data(__FUNCTION__,$this->class);
+        if ($c_data){
+            return $c_data;
+        }
+ 
+ 
+        $data_to_return = [];
+        $value_mapping=null;
+        $return_field="sku";
+        $file_to_split = $this->store->get_import_filename("products");
+        $file_prefix="products";
+        $field_number=0;
+
+        $return_field_original = $field_number;
+
+        $cache_dir= $this->store->get_cache_dir()."/".$file_prefix;
+
+        
+        $value_mapping = $this->store->get_value_maping(basename($file_to_split));
+        
+
+        $line = null;
+        $data_to_return =[];
+
+        $current_sku="";
+        $language_data=[];
+
+        //reading file
+        $first_row=true;
+        $skus = [];
+        if (file_exists($file_to_split)) {
+            if (($handle = fopen($file_to_split, "r")) !== FALSE) {
+                $product =[];
+                while (($data = fgetcsv($handle, null,",")) !== FALSE) {
+                   
+                    if ($first_row){
+                        $first_row=false;
+                        continue;
+                    }
+                    if (count($data)<2){
+                        continue;
+                    }
+                    
+                    $product = [];
+                    $product["original_data"]= $data;
+                    foreach($value_mapping as $k => $v){
+                        $product[$v]=$data[$k];
+                    }
+                    
+                    $product["code"] = trim($product["code"]);
+                    if (!empty($product["code"])){
+                        $product["sku"] = $product["code"]; 
+                    }
+                    
+                    $product["sku"] = trim($product["sku"]);
+                    $product["sku"] = str_replace(["\\u00a0"," ","+"],"-",$product["sku"]);
+                    $product["sku"] = urlencode($product["sku"]);
+//                    $product["sku"] = str_replace(["%28","%C2%A0"," ","+"],"-",$product["sku"]);
+                    $product["sku"] = str_replace(["%C2%A0"," ","+"],"-",$product["sku"]);
+                    $product["sku"] = urldecode($product["sku"]);
+                    
+                    
+                    
+                    if (!isset($skus[$product["sku"]])){
+                        $sku_sufix="";
+                        $skus[$product["sku"]] = [];
+                    } else {
+                        $sku_sufix="-".count($skus[$product["sku"]]);
+                    }
+                    $product["sku"] = $product["sku"].$sku_sufix;
+                    $skus[$product["sku"]][] = $product;
+                    
+                    
+                    $data_to_return[$product["sku"]] = $product;            
+                }
+            }
+        }
+        if (count($data_to_return)>0){
+            $this->cache->set_cache_data(__FUNCTION__,$data_to_return,$this->class);
+        }
     }
     
 }

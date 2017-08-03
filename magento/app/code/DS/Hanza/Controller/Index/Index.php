@@ -101,11 +101,6 @@ class Index extends \Magento\Framework\App\Action\Action
     }
 
 
-
-    public function get_image_import_dir(){
-        return $this->getAbsoluteMediaPath()."img_from_ssh";
-    }
-
     private function list_bad_products($type="") {
 
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
