@@ -39,9 +39,11 @@ class Names extends \Magento\Framework\App\Action\Action
         foreach ($collection as $product){
             $sku = $product->getSku();
             $id = $product->getId();
+            $counter++;
             
             $prod_data= $this->helper->get_product_data($sku);
             if(!$prod_data){
+                print("$counter : Skipped product (there is no product data $sku) name :".$product->getName()." (".$product->getId()."/".$product->getSku().") <br/>");
                 $this->products->disable($sku,$id);
                 continue;
             }
@@ -49,9 +51,8 @@ class Names extends \Magento\Framework\App\Action\Action
             //TODO Update code
           
             
-            print("Updating prduct name for:".$product->getName()." (".$product->getId()."/".$product->getSku().") <br/>");
-            
-                
+            print("$counter : Updating prduct name for:".$product->getName()." (".$product->getId()."/".$product->getSku().") <br/>");
+    
             $languages = ["lv","en","ru"];
             foreach($languages as $lang){
                 
