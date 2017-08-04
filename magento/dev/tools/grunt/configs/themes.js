@@ -41,16 +41,6 @@ module.exports = {
         ],
         dsl: 'less'
     },
-    amedical_base: {
-        area: 'frontend',
-        name: 'amedical/base',
-        locale: 'en_US',
-        files: [
-            'css/styles-m',
-            'css/styles-l'
-        ],
-        dsl: 'less'
-    },
     backend: {
         area: 'adminhtml',
         name: 'Magento/backend',
