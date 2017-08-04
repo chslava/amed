@@ -22,24 +22,13 @@ class Products extends AbstractHelper
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
         $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
     
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         $this->registry = $this->_objectManager->create('Magento\Framework\Registry');;
         
     }
-    
-    //get al nems related to type id of the product
-    public function get_product_names(){
-        $product_names =$this->cache->get_cache_data('product_names',"Gapi");
-        $return_product_names = [];
-        foreach($product_names as $item){         
-            $return_product_names[$item["type_id"]] = $item;
-            $return_product_names[$item["type_id"]]["ee_en"]=$return_product_names[$item["type_id"]]["en"];
-            $return_product_names[$item["type_id"]]["ee_ru"]=$return_product_names[$item["type_id"]]["ru"];
-                
-        }
-        return $return_product_names;
-    }
+ 
     
     
     // FUNCTIONS RELATED TO PRODUCT UPDATE / SAVE
@@ -47,7 +36,7 @@ class Products extends AbstractHelper
     
     public function add_language($_product_id, $data, $lang, $sku)
     {
-        $stores = $this->helper->get_magento_stores();
+        $stores = $this->store->get_magento_stores();
         if (!isset($stores[$lang])){
             $lang="default";
         }
