@@ -101,7 +101,7 @@ class Index extends \Magento\Framework\App\Action\Action
         if (is_numeric($id)){
 
             $img_sku = str_replace("/","-",$sku);
-            $img =$this->->store->get_image_import_dir()."/$img_sku.jpg";
+            $img = $this->store->get_image_import_dir()."/$img_sku.jpg";
             $img_1 = $this->store->get_image_import_dir()."/$img_sku"."_1".".jpg";
 
             if ( file_exists($img) || file_exists($img_1) ) {
