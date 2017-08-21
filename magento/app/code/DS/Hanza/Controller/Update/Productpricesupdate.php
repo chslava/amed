@@ -63,8 +63,9 @@ class Productpricesupdate extends \Magento\Framework\App\Action\Action
                         break;
                 }
 
-                $vat =$price_with_vat * $tax_rate;
-                $price_without_vat = $price_with_vat - $vat;
+
+                $price_without_vat = $price_with_vat/(1+$tax_rate);
+                $vat = $price_with_vat - $price_without_vat;
                 print("sku: $sku    tax: $tax_rate    price: $price_with_vat     price without vat: $price_without_vat vat: $vat<br/>");
                 $product->setPrice($price_without_vat);
 
@@ -87,7 +88,7 @@ class Productpricesupdate extends \Magento\Framework\App\Action\Action
 
         $already_executed=$this->cache->set_cache_data("executed_price_update",true,"Update");
 
-        
+
         die();
     }
 
