@@ -65,8 +65,8 @@ class Productpricesupdate extends \Magento\Framework\App\Action\Action
 
                 $vat =$price_with_vat * $tax_rate;
                 $price_without_vat = $price_with_vat - $vat;
-                print("sku: $sku    tax: $tax_rate    price: $price_with_vat     price without vat: $price_without_vat <br/>");
-                $product->setPrice($price_with_vat);
+                print("sku: $sku    tax: $tax_rate    price: $price_with_vat     price without vat: $price_without_vat vat: $vat<br/>");
+                $product->setPrice($price_without_vat);
 
                 try {
 
