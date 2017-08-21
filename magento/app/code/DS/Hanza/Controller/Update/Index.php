@@ -40,6 +40,10 @@ class Index extends \Magento\Framework\App\Action\Action
         <?php $url = $this->helper->get_base_url()."hanza/update/disableremovedproducts"; ?>
         <a href="<?= $url ?>">Disable products that ar not in hanza anymore</a><br/>
         -->
+
+        <?php $url = $this->helper->get_base_url()."hanza/update/productpricesupdate"; ?>
+        <a href="<?= $url ?>">Product prices update</a><br/>
+
         
         
         <?php
