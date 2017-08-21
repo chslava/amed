@@ -87,19 +87,7 @@ class Productpricesupdate extends \Magento\Framework\App\Action\Action
 
         $already_executed=$this->cache->set_cache_data("executed_price_update",true,"Update");
 
-        $counter_skipped=0;
-        $counter=0;
-        $counter_cached=0;
-        $updated=0;
-
-
-
-        // returning list of products that does not have images
-        $data = ["status"=>true, "message"=>"We got the list"];
-        $data["data"]=[];
-
-
-        print(json_encode(["status"=>true, "message"=>"Media attributes updated Skipped: $counter_skipped   Updated: $updated   Total: $counter"]));
+        
         die();
     }
 
