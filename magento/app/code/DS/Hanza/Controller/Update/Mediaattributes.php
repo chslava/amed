@@ -26,14 +26,20 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $verbose=false;
-        if (isset($_GET["clear_cache"])){
-            $this->cache->clear_cache_data("image_stores_set");
-            $url = $this->helper->get_base_url()."hanza/update/mediaattributes";
-            header("Location: $url");
-        }     
         if (isset($_GET["verbose"])){
             $verbose = true;
         }
+        if (isset($_GET["clear_cache"])){
+            $this->cache->clear_cache_data("image_stores_set");
+            if ($verbose){
+                $url = $this->helper->get_base_url()."hanza/update/mediaattributes?verbose";
+            } else {
+                $url = $this->helper->get_base_url()."hanza/update/mediaattributes";
+            }
+
+            header("Location: $url");
+        }     
+
         $counter_skipped=0;
         $counter=0;
         $counter_cached=0;
@@ -53,6 +59,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
             ->addAttributeToSelect('*')
             ->load();
             $counter=0;
+            $failed=0;
             
         foreach ($collection as $product){
             
@@ -63,7 +70,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                 
                 $fi=array_shift($existingMediaGalleryEntries);
                 $fir=$fi;
-                $fi = $this->helper->get_absolute_media_path()."catalog/product".$fi;
+                $fi = $this->helper->store->get_absolute_media_path()."catalog/product".$fi;
                 if (file_exists($fi)){
                     
                     if (!$this->cache->get_cache_data($product->getSku(),"image_stores_set")){
@@ -73,7 +80,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                             print($fi."<br/>");    
                         }
                         $all_websites_ids=null;
-                        $magento_sores=$this->helper->stores->get_magento_stores();
+                        $magento_sores=$this->helper->store->get_magento_stores();
 
 
                         $magento_sores['default']=[
@@ -98,6 +105,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                                 $updated++;
                             } catch (\Exception $e) {
                                 $this->cache->set_cache_data($product->getSku(),false,"image_stores_set");
+                                $failed++;
                                 if ($verbose){
                                     print($counter." : ".$_product->getId()." could not save. <br/>");    
                                 }
@@ -135,7 +143,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
             <?php
 
         }
-        print(json_encode(["status"=>true, "message"=>"Media attributes updated Skipped: $counter_skipped   Updated: $updated   Total: $counter"]));
+        print(json_encode(["status"=>true, "message"=>"Media attributes updated Skipped: $counter_skipped   Updated: $updated   Total: $counter   Failed: $failed"]));
         die();
     }
 
