@@ -12,6 +12,7 @@ class Data extends AbstractHelper
     private $product_data_from_gapi = null;
     private $_objectManager = null;
     private $_storeManager = null;
+    private $ttl_hour = 3600;
     
     public function __construct(\Magento\Framework\App\Helper\Context $context)
     {
@@ -90,6 +91,10 @@ class Data extends AbstractHelper
     }
 
 
+   
+
+
+    
 
 
     /*
@@ -112,104 +117,15 @@ class Data extends AbstractHelper
         return false;
     }
 
-    
 
 
-    /*
-     *
-     *
-     * Methods related to categories
-     *
-     *
-     */
 
-    private function get_hanza_ids_for_magento_cat($subcat_id){
 
-        /*
-         *
-         * Function returns category
-         *
-         */
-
-        $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $_subcat = $this->_objectManager->create('Magento\Catalog\Model\Category')->load($subcat_id);
-        $_hanza_cats = $_subcat->getData("hanza_category");
-        if (substr_count($_hanza_cats,",")){
-            $_hanza_cats = explode(",",$_hanza_cats);
-        } else {
-            $_hanza_cats = [$_hanza_cats];
-        }
-        return $_hanza_cats;
-    }
     
     
+
+
     
-    public function update_category($cat_id, $name,$description, $parent_id=null,$csv_category){
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-
-        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create()->load($cat_id);
-        $category->setName($name);
-        $category->setCustomAttributes(['description' => $description,"hanza_category"=>$csv_category['id']]);
-        if ($parent_id){
-            $category->setParentId($parent_id); // 1: root category.    
-        }
-        $category->save();
-        
-        
-    }
-    
-    
-    
-    public function update_category_langs($store_id, $title, $description, $cat_id){
-        
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        $category = $this->_objectManager->get('\Magento\Catalog\Model\CategoryFactory')->create()->load($cat_id);
-        $category->setStoreId($store_id);
-        $category->setName($title);
-        $category->setDescriptin($description);
-        $category->save();
-    }
-    
-    
-    public function get_image_list($prod_id){
-        $image_dir = $this->get_image_destination_dir();
-        $img_list = [];
-        //default
-        $img_name = $image_dir."/".strtoupper(str_replace("/","_",$prod_id)).".jpg";
-        if (file_exists($img_name)){
-            $img_list[]=$img_name;
-        }
-        for($i=1; $i< 11; $i++){
-            $img_name = $image_dir."/".strtoupper(str_replace("/","_",$prod_id))."_".$i.".jpg";
-            if (file_exists($img_name)){
-                $img_list[]=$img_name;
-            }
-        }
-        return $img_list;
-    }
-
-
-
-    /*
-     *
-     * methods related to product
-     *
-     *
-     */
-
-    public function get_product_data($sku)
-    {
-        $data = $this->cache->get_cache_data($sku,"products");
-        return $data;
-
-    }
-
 
 
     function get_product_ids(){
@@ -224,91 +140,7 @@ class Data extends AbstractHelper
         return $ids;
     }
 
-
-
-    private function split_file_into_rows($field_number, $file_to_split, $file_prefix, $value_mapping="", $return_field="", $force=false){
-
-        $return_field_original = $field_number;
-
-        $cache_dir= $this->get_cache_dir()."/".$file_prefix;
-
-        if (!$value_mapping){
-            $value_mapping = $this->get_value_maping(basename($file_to_split));
-        }
-
-        if ($value_mapping){
-            $field_number = $value_mapping[$field_number];
-        }
-
-        if (!file_exists($cache_dir)){
-            mkdir($cache_dir,0777,true);
-        }
-        if (!file_exists($file_to_split)){
-            print("file does not exist: ".$file_to_split);
-            return false;
-        }
-        $file_time_stamp = filemtime($file_to_split);
-        $prev_time_stamp_file = $cache_dir. "/".basename($file_to_split).".timestamp";
-
-
-        if (!file_exists($prev_time_stamp_file) || $force){
-            if ($force && file_exists($prev_time_stamp_file)){
-                unlink($prev_time_stamp_file);
-            }
-            file_put_contents($prev_time_stamp_file,$file_time_stamp);
-        } else {
-            $prev_time_stamp = file_get_contents($prev_time_stamp_file);
-            if ($file_time_stamp == $prev_time_stamp and ((time() - $prev_time_stamp) > 60*60*24*7)){
-                return false;
-            }
-        }
-
-        $line = null;
-        $data_to_return =[];
-        // reading import file
-        $current_sku="";
-        $language_data=[];
-        if (file_exists($file_to_split)) {
-            if (($handle = fopen($file_to_split, "r")) !== FALSE) {
-                while (($data = fgetcsv($handle,  0, "\t",chr(8))) !== FALSE) {
-
-                    $product =[];
-                    if ($data[0]!="language"){
-
-                        if ($current_sku!="" && !empty($product)){
-                            $prod_cache_file = $this->get_cache_file($product[$field_number],$file_prefix);
-                            //no field mapping
-
-                            file_put_contents($prod_cache_file,json_encode($product));
-                        }
-                        $current_sku = $data[$return_field_original];
-
-                        if (is_array($value_mapping)){
-                            foreach($value_mapping as $key => $value){
-                                $product[$value]=$data[$key];
-                            }
-                            $product["original_data"]=$data;
-                        } else {
-                            $product =$data;
-                            $product["original_data"]=$data;
-                        }
-                        $product["language"]=$language_data;
-                        $language_data = [];
-
-                    } else {
-
-                        //language
-                        $language_data[] = $data;
-                    }
-                }
-
-            }
-        }
-        return $data_to_return;
-
-    }
-
-
+    
     public function get_imported_images($sku)
     {
         $c_img = $this->cache->get_cache_data($sku,"imported_images",24*3600);
@@ -332,80 +164,6 @@ class Data extends AbstractHelper
 
 
 
-    private function product_is_changed($product,$field_number,$file_prefix){
-
-        $prod_cache_file = $this->get_cache_file(str_replace("/","_",$product[$field_number]),$file_prefix);
-        $changed=true;
-
-        //checking if there is cache file
-        if (file_exists($prod_cache_file)) {
-            $changed=false;
-
-            $product_from_file = json_decode(file_get_contents($prod_cache_file),true);
-            $images_imported = $this->get_imported_images($product["sku"]);
-            
-            $images_existing = $this->get_image_list($product["sku"]);
-            
-            if (count($images_imported)==count($images_existing)) {
-                // as the item count is the same
-                // we have to test if the time tamp of images has not been changed
-                if (count($images_existing)>0){
-                    $changed=false;    
-                    foreach($images_existing as $image){
-                        $img_file_name = basename($image);
-                        $src = $this->store->get_image_import_dir()."/".$img_file_name;
-                        $src_time_stamp = filemtime($src);
-                        $cache_time_stamp = $this->get_cache_data(basename($this->get_image_timestamp_dir())."/".basename($src));
-                        if ($src_time_stamp!=$cache_time_stamp){
-                            $changed=true;
-                        }
-                    }
-                } else {
-                    $changed=false;        
-                }
-            } else {
-                $changed=true;
-            }
-                        
-            if($changed){
-                return $product[$field_number];
-            }
-
-            //if there is data we have to check the values
-            foreach($product_from_file as $key => $item){
-                switch($key){
-                    default:
-                        if ((!isset($product[$key])) || $product[$key]!=$item ){
-                            $changed = true;
-                        }
-                        break;
-                }
-            }
-        }
-
-
-        if ($changed){
-            file_put_contents($prod_cache_file,json_encode($product));
-            return $product[$field_number];
-        } else {
-            return false;
-        }
-
-    }
-
-    
-    public function get_ids_for_update() {
-        
-        $all_products = $this->csv->get_all_products();
-        $data_to_return=[];
-        foreach($all_products as $product){
-            $data_to_return[] = $product["sku"];    
-        }
-        return $data_to_return;
-
-    }
-
- 
     public function delete_cached_files($img_filename_to_delete,$directory=false){
         
         if (!$directory){
@@ -433,6 +191,9 @@ class Data extends AbstractHelper
         }
     }
 
+
+
+    
 
 
     public function print_line_by_line($what){
@@ -605,8 +366,8 @@ class Data extends AbstractHelper
     
     public function get_store_id($code){
         $all_stores = $this->store->get_magento_stores();
-        $first_store_id;
         $i=0;
+        $first_store_id=0;
         foreach($all_stores as $c => $store){
             $i++;
             if ($i==1){
@@ -619,5 +380,19 @@ class Data extends AbstractHelper
 
         return $first_store_id;
 
+    }
+
+
+    public function mb_ucfirst($str, $encoding = "UTF-8", $lower_str_end = false) {
+        //source: https://www.if-not-true-then-false.com/2010/php-mb_ucfirst-make-a-strings-first-character-uppercase-multibyte-function/
+        $first_letter = mb_strtoupper(mb_substr($str, 0, 1, $encoding), $encoding);
+        if ($lower_str_end) {
+            $str_end = mb_strtolower(mb_substr($str, 1, mb_strlen($str, $encoding), $encoding), $encoding);
+        }
+        else {
+            $str_end = mb_substr($str, 1, mb_strlen($str, $encoding), $encoding);
+        }
+        $str = $first_letter . $str_end;
+        return $str;
     }
 }
