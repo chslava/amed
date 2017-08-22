@@ -71,12 +71,23 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                             print($product->getSku()."<br/>");
                             print($fi."<br/>");    
                         }
-                        
-                        $magento_sores=$this->helper->get_magento_stores();            
+                        $all_websites_ids=null;
+                        $magento_sores=$this->helper->get_magento_stores();
+//                        foreach($magento_sores as $ms){
+//                            $all_websites_ids[] = $ms['storeId'];
+//                        }
+//                        $all_websites_ids = array_unique($all_websites_ids);
+//                        print("<pre>");
+//                        print_r($all_websites_ids);
+//                        print("</pre>");
+
+                        $magento_sores['default']=[
+                                'storeId'=>0,
+                                'websiteId'=>$all_websites_ids
+                        ];
                         foreach($magento_sores as $store){
                             
-                            
-                             
+
                             $_product=null;
                             $im_absolute_path="";
                             $sid = $store["storeId"];
@@ -98,6 +109,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                                 }
                                 
                             }
+
                         }    
                     } else {
                         $counter_skipped++;
@@ -122,12 +134,12 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
             
         }
         if (($counter==$counter_skipped || ($counter_cached/$counter)>0.7) && $verbose){
-        
+
             $url = $this->helper->get_base_url()."hanza/update/mediaattributes?clear_cache";
             ?>
             <a href="<?= $url ?>">Looks, like script already had done its job. Click on this link to redo.</a><br/>
             <?php
-            
+
         }
         print(json_encode(["status"=>true, "message"=>"Media attributes updated Skipped: $counter_skipped   Updated: $updated   Total: $counter"]));
         die();
