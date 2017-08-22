@@ -17,7 +17,8 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
 
         $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
         $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products'); 
+        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
+        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
         parent::__construct($context);
     }
     
@@ -72,14 +73,8 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                             print($fi."<br/>");    
                         }
                         $all_websites_ids=null;
-                        $magento_sores=$this->helper->get_magento_stores();
-//                        foreach($magento_sores as $ms){
-//                            $all_websites_ids[] = $ms['storeId'];
-//                        }
-//                        $all_websites_ids = array_unique($all_websites_ids);
-//                        print("<pre>");
-//                        print_r($all_websites_ids);
-//                        print("</pre>");
+                        $magento_sores=$this->helper->stores->get_magento_stores();
+
 
                         $magento_sores['default']=[
                                 'storeId'=>0,
@@ -89,7 +84,6 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                             
 
                             $_product=null;
-                            $im_absolute_path="";
                             $sid = $store["storeId"];
                             $_product = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($product->getId());
                             $_product->setStoreId($sid)
