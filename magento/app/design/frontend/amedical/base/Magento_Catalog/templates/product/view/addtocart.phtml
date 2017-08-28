@@ -10,10 +10,24 @@
 ?>
 <?php $_product = $block->getProduct(); ?>
 <?php $buttonTitle = __('Add to Cart'); ?>
+<?php
+$_themeHelper = $this->helper('Amedical\Theme\Helper\Data');
+$contactUrl = $_themeHelper->get_contact_url();
+$productUrl = $_themeHelper->get_current_url();
+$productName = $_product->getName();
+$productSku= $_product->getSku();
+$productId= $_product->getId();
+$contactUrl = $contactUrl."?pid=".$productId."&sku=".$productSku."&pname=".$productName."&url=".urlencode($productUrl)."#gform_fields_1";
+$price = $_product->getPrice();
+if ($price<0.01){
+    $price = 0;
+}
+?>
 <?php if ($_product->isSaleable()): ?>
 <div class="box-tocart">
-    <div class="fieldset">
-        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity() && $price!=0): ?>
+
         <div class="field qty" data-bind="scope: 'qty_change'">
             <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
             <div class="control">
@@ -43,43 +57,55 @@
                 </script>
             </div>
         </div>
+
         <?php endif; ?>
-        <?php echo $block->getChildHtml('product.info.price'); $block->unsetChild('product.info.price') ?>
-        <?php echo $block->getChildHtml('product.info.price.no-options'); $block->unsetChild('product.info.price.no-options') ?>
-        <div class="actions">
-            <button type="submit"
-                    title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
-                    class="action primary tocart"
-                    id="product-addtocart-button">
-                <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
-            </button>
-            <button class="action enquiry">
-                <a href="http://amedical.digitalscore.lv/par-mums/kontakti/" >
-                    <?php echo __('Contact Us') ?>
+        <?php if ($price!=0): ?>
+            <?php echo $block->getChildHtml('product.info.price'); $block->unsetChild('product.info.price') ?>
+            <?php echo $block->getChildHtml('product.info.price.no-options'); $block->unsetChild('product.info.price.no-options') ?>
+            <div class="actions">
+
+                <button type="submit"
+                            title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button">
+                        <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+                </button>
+
+                <a class="button action secondary action enquiry" href="<?= $contactUrl; ?>" >
+                    <?php echo __('Call for price') ?>
                 </a>
-            </button>
-            <?php echo $block->getChildHtml('', true) ?>
-        </div>
+
+                <?php echo $block->getChildHtml('', true) ?>
+            </div>
+        <?php else: ?>
+                <a class="button action primary" href="<?= $contactUrl; ?>">
+                    <?php echo __('Call for price') ?>
+                </a>
+
+        <?php endif; ?>
     </div>
 </div>
 <?php endif; ?>
-<script type="text/x-magento-init">
-    {
-        "#product_addtocart_form": {
-            "Magento_Catalog/product/view/validation": {
-                "radioCheckboxClosest": ".nested"
+
+<?php if ($price!=0): ?>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "Magento_Catalog/product/view/validation": {
+                    "radioCheckboxClosest": ".nested"
+                }
             }
         }
-    }
-</script>
-<?php if (!$block->isRedirectToCartEnabled()) : ?>
-<script type="text/x-magento-init">
-    {
-        "#product_addtocart_form": {
-            "catalogAddToCart": {
-                "bindSubmit": false
+    </script>
+    <?php if (!$block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "catalogAddToCart": {
+                    "bindSubmit": false
+                }
             }
         }
-    }
-</script>
+    </script>
+    <?php endif; ?>
 <?php endif; ?>
