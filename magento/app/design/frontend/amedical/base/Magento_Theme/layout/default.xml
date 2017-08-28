@@ -73,6 +73,9 @@
         <referenceBlock name="header" remove="true"/>
         <referenceBlock name="skip_to_content" remove="true"/>
         <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.review.form" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
 
         <move element="copyright" destination="before.body.end"/>
         <move element="top.search" destination="header.panel" before="-" />
