@@ -45,13 +45,14 @@ class Names extends \Magento\Framework\App\Action\Action
             
             $prod_data= $this->helper->get_product_data($sku);
 
-            if(!$prod_data){
-                print("$counter : Skipped product (there is no product data $sku) name :".$product->getName()." (".$product->getId()."/".$product->getSku().") <br/>");
-                $this->products->disable($sku,$id);
-                continue;
-            }else {
-                $this->products->enable($sku,$id);
+            if ($prod_data){
+                $original_name = $prod_data["name"];
             }
+
+
+
+            $this->products->enable($sku,$id);
+
             
             //TODO Update code
 
@@ -65,7 +66,6 @@ class Names extends \Magento\Framework\App\Action\Action
                 'websiteId'=>$all_websites_ids
             ];
             $failed=0;
-            $update=0;
 
             foreach($magento_sores as $store){
 
@@ -74,15 +74,48 @@ class Names extends \Magento\Framework\App\Action\Action
                 $sid = $store["storeId"];
                 $_product = $this->_objectManager->create('Magento\Catalog\Model\Product')->setStoreId($sid)->load($product->getId());
                 $sku = $_product->getSku();
+                $sku_remove = [$sku];
+
+                $sku_split = explode("-",$sku);
+                $sku_remove = array_merge($sku_remove,$sku_split);
+                $sku_split = explode(" ",$sku);
+                $sku_remove = array_merge($sku_remove,$sku_split);
+                $sku_remove = array_unique($sku_remove);
+
                 $prod_store_id = $_product->getStoreId();
                 $product_name = $_product->getName();
-                $new_product_name = trim(str_replace($sku,"",$product_name));
+                $new_product_name = trim(str_replace($sku_remove,"",$product_name));
+
                 if ($new_product_name==$product_name){
+                    print($new_product_name." == ".$product_name);
+                    if ($sid!=0){
+                        $_product->setName(null);
+                        $_product->setStatus(null);
+                        $_product->setVisibility(null);
+                        $_product->setTaxClassId(null);
+                        $_product->setDiscription(null);
+                        $_product->setShortDiscription(null);
+
+                        try {
+                            print("<strong>updated</strong><br/>");
+                            $_product->save();
+                            $this->cache->set_cache_data($product->getSku(),true,"names_updated");
+                            $updated++;
+                        } catch (\Exception $e) {
+                            $this->cache->set_cache_data($product->getSku(),false,"names_updated");
+                            $failed++;
+                            print("<strong style='color:yellow'>".$counter." : ".$_product->getId()." could not save (".$e->getMessage()."). </strong><br/>");
+
+                        }
+                    }
+
                     print("skipped no need to update<br/>");
                     continue;
                 }
 
+                print(" Have to update".$new_product_name." == ".$product_name."<br/>");
                 $_product->setName($new_product_name);
+
                 $_product->setStoreId($sid);
 
                 try {
@@ -93,7 +126,7 @@ class Names extends \Magento\Framework\App\Action\Action
                 } catch (\Exception $e) {
                     $this->cache->set_cache_data($product->getSku(),false,"names_updated");
                     $failed++;
-                    print("<strong style='color:red'>".$counter." : ".$_product->getId()." could not save. </strong><br/>");
+                    print("<strong style='color:yellow'>".$counter." : ".$_product->getId()." could not save (".$e->getMessage()."). </strong><br/>");
 
                 }
 
