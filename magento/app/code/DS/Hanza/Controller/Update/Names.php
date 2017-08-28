@@ -109,13 +109,13 @@ class Names extends \Magento\Framework\App\Action\Action
                         }
                     }
 
-                    print("skipped no need to update<br/>");
+                    print("<br/>skipped no need to update<br/>");
                     continue;
                 }
 
-                print(" Have to update".$new_product_name." == ".$product_name."<br/>");
-                $_product->setName($new_product_name);
+                print(" Have to update ".$new_product_name."(new) == ".$product_name."<br/>");
 
+                $_product->setName($new_product_name);
                 $_product->setStoreId($sid);
 
                 try {
