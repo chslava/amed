@@ -201,3 +201,26 @@ function dswp_amedical_pagination() {
     <?php endif;
 }
 endif;
+
+//contact forms update the content if comes from product
+add_filter( 'gform_field_content', 'update_form_content', 10, 5 );
+function update_form_content($content, $field, $value, $lead_id, $form_id){
+
+
+
+    //check if form is contact form
+    if ($form_id==1){
+        //contact form comment field
+        if ($field->id==5){
+            $generated_text="";
+            if (!empty($_GET["pid"]) && !empty($_GET["pname"]) && !empty($_GET["sku"]) && !empty($_GET["url"])){
+                $generated_text.=sanitize_text_field($_GET["pname"])." (".sanitize_text_field($_GET["sku"]).")\n";
+                $generated_text.=esc_url($_GET["url"])."\n";
+            }
+            $content = str_replace("></textarea>",">".$generated_text."</textarea>",$content);
+        }
+
+
+    }
+    return $content;
+}
