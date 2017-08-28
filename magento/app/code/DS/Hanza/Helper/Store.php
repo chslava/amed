@@ -100,15 +100,6 @@ class Store extends AbstractHelper
         }
         return $img_dst_dir;
     }
-    
-    
-    
-
-
-    
-    
-    
-   
 
 
     public function get_import_filename($file){
