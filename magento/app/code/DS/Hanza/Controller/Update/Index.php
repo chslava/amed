@@ -44,6 +44,9 @@ class Index extends \Magento\Framework\App\Action\Action
         <?php $url = $this->helper->get_base_url()."hanza/update/productpricesupdate"; ?>
         <a href="<?= $url ?>">Product prices update</a><br/>
 
+        <?php $url = $this->helper->get_base_url()."hanza/update/names"; ?>
+        <a href="<?= $url ?>">Product names update</a><br/>
+
         
         
         <?php
