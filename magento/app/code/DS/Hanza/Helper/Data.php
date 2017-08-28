@@ -118,14 +118,12 @@ class Data extends AbstractHelper
     }
 
 
+    public function get_product_data($sku)
+    {
+        $data = $this->cache->get_cache_data($sku,"products");
+        return $data;
 
-
-
-    
-    
-
-
-    
+    }
 
 
     function get_product_ids(){
@@ -335,7 +333,8 @@ class Data extends AbstractHelper
                 
         }    
     }
-    
+
+
     
     public function get_store_phone(){
         
