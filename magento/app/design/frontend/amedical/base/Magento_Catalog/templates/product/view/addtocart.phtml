@@ -70,18 +70,15 @@ if ($price<0.01){
                             id="product-addtocart-button">
                         <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
                 </button>
-
-                <a class="button action secondary action enquiry" href="<?= $contactUrl; ?>" >
-                    <?php echo __('Call for price') ?>
+                <a class="button action secondary enquiry" href="<?= $contactUrl; ?>" >
+                    <?php echo __('Contact us') ?>
                 </a>
-
                 <?php echo $block->getChildHtml('', true) ?>
             </div>
         <?php else: ?>
-                <a class="button action primary" href="<?= $contactUrl; ?>">
-                    <?php echo __('Call for price') ?>
+                <a class="button action secondary enquiry" href="<?= $contactUrl; ?>">
+                    <?php echo __('Contact for price') ?>
                 </a>
-
         <?php endif; ?>
     </div>
 </div>
