@@ -11,12 +11,15 @@
 
     //  Using buttons mixins
     button,
-    a.action.primary {
+    a.button,
+    a.action.primary,
+    a.action.secondary{
         .lib-css(border-radius, @button__border-radius);
 
     }
 
-    button {
+    button,
+    a.action.secondary{
         &:not(.primary) {
             .lib-css(box-shadow, @button__shadow);
 
@@ -44,6 +47,29 @@
         .lib-link-as-button();
     }
 
+    a.action.secondary {
+        .lib-button();
+        color: @amedical-brand-color;
+        line-height: 2.2rem;
+        padding: 12px 17px;
+        font-size: @font-size__s;
+        text-align: center;
+        .lib-link(
+            @_link-color: inherit,
+            @_link-text-decoration: none,
+            @_link-color-visited: @amedical-brand-color,
+            @_link-text-decoration-visited: none,
+            @_link-color-hover: inherit,
+            @_link-text-decoration-hover: none,
+            @_link-color-active: @amedical-brand-color,
+            @_link-text-decoration-active: none
+        );
+        
+        &:hover {
+            color: @color-white;
+        }
+    }
+    
     .action.primary {
         .lib-button-primary();
     }
