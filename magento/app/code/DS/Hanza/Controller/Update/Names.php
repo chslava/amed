@@ -40,7 +40,7 @@ class Names extends \Magento\Framework\App\Action\Action
         $counter=0;
         foreach ($collection as $product){
             $sku = $product->getSku();
-            if($this->cache->set_cache_data($product->getSku(),"pnames_updated")){
+            if($this->cache->get_cache_data($product->getSku(),"pnames_updated")){
                 continue;
             }
             $id = $product->getId();
