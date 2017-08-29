@@ -97,6 +97,14 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
                             ->setImage($fir)
                             ->setSmallImage($fir)
                             ->setThumbnail($fir);
+                            if ($sid!=0){
+                                $_product->setName(null);
+                                $_product->setStatus(null);
+                                $_product->setVisibility(null);
+                                $_product->setTaxClassId(null);
+                                $_product->setDiscription(null);
+                                $_product->setShortDiscription(null);
+                            }
                             
                             try {
                                 
