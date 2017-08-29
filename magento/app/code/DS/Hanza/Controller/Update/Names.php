@@ -40,6 +40,9 @@ class Names extends \Magento\Framework\App\Action\Action
         $counter=0;
         foreach ($collection as $product){
             $sku = $product->getSku();
+            if($this->cache->set_cache_data($product->getSku(),"pnames_updated")){
+                continue;
+            }
             $id = $product->getId();
             $counter++;
             
@@ -48,8 +51,6 @@ class Names extends \Magento\Framework\App\Action\Action
             if ($prod_data){
                 $original_name = $prod_data["name"];
             }
-
-
 
             $this->products->enable($sku,$id);
 
@@ -67,6 +68,7 @@ class Names extends \Magento\Framework\App\Action\Action
             ];
             $failed=0;
 
+            $has_been_updated = true;
             foreach($magento_sores as $store){
 
 
@@ -99,10 +101,9 @@ class Names extends \Magento\Framework\App\Action\Action
                         try {
                             print("<strong>updated</strong><br/>");
                             $_product->save();
-                            $this->cache->set_cache_data($product->getSku(),true,"names_updated");
                             $updated++;
                         } catch (\Exception $e) {
-                            $this->cache->set_cache_data($product->getSku(),false,"names_updated");
+
                             $failed++;
                             print("<strong style='color:yellow'>".$counter." : ".$_product->getId()." could not save (".$e->getMessage()."). </strong><br/>");
 
@@ -110,6 +111,7 @@ class Names extends \Magento\Framework\App\Action\Action
                     }
 
                     print("<br/>skipped no need to update<br/>");
+                    $this->cache->set_cache_data($product->getSku(),true,"pnames_updated");
                     continue;
                 }
 
@@ -118,19 +120,21 @@ class Names extends \Magento\Framework\App\Action\Action
                 $_product->setName($new_product_name);
                 $_product->setStoreId($sid);
 
+
                 try {
                     print("<strong>updated</strong><br/>");
                     $_product->save();
-                    $this->cache->set_cache_data($product->getSku(),true,"names_updated");
+                    $has_been_updated = $has_been_updated && true;
                     $updated++;
                 } catch (\Exception $e) {
-                    $this->cache->set_cache_data($product->getSku(),false,"names_updated");
-                    $failed++;
-                    print("<strong style='color:yellow'>".$counter." : ".$_product->getId()." could not save (".$e->getMessage()."). </strong><br/>");
 
+                    $failed++;
+                    $has_been_updated = $has_been_updated && false;
+                    print("<strong style='color:yellow'>".$counter." : ".$_product->getId()." could not save (".$e->getMessage()."). </strong><br/>");
                 }
 
             }
+            $this->cache->set_cache_data($product->getSku(),$has_been_updated,"pnames_updated");
 
 
         }
