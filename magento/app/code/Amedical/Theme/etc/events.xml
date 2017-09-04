@@ -4,4 +4,7 @@
     <event name="currency_display_options_forming">
         <observer name="amedical_theme_currency_display_options" instance="Amedical\Theme\Observer\CurrencyDisplayOptions" />
     </event>
+    <event name="customer_register_success">
+        <observer name="amedical_theme_customer_set_group" instance="Amedical\Theme\Observer\Customer\CustomerSetGroup" />
+    </event>
 </config>

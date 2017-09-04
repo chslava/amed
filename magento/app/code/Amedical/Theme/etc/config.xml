@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amedical_theme>
+            <configuration>
+                <customer_legal_group_id>4</customer_legal_group_id>
+            </configuration>
+        </amedical_theme>
+    </default>
+</config>

@@ -21,40 +21,7 @@
     <fieldset class="fieldset create info">
         <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
         <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
-        <div class="group-switcher" data-bind="scope: 'group_switcher'">
-            <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
-            <span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i>Legal person</span>
-            <span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
-            <script type="text/x-magento-init">
-                    {
-                        "*": {
-                            "Magento_Ui/js/core/app": {
-                                "components": {
-                                    "group_switcher": {
-                                        "component": "Magento_Theme/js/view/customer/group_switcher",
-                                        "defaultGroup": 1,
-                                        "toggleSelector": ".group-switcher .group",
-                                        "slideUpSelector": ".field.company-name, .field.company-registration-number",
-                                        "slideUpValue": "1"
-                                    }
-                                 }
-                            }
-                        }
-                    }
-            </script>
-        </div>
-        <div class="field company-name">
-            <label for="company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
-            <div class="control">
-                <input type="text" name="company_name" id="company_name" value="<?php echo $block->escapeHtml($block->getFormData()->getCompanyName()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
-            </div>
-        </div>
-        <div class="field company-registration-number">
-            <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Registration number') ?></span></label>
-            <div class="control">
-                <input type="text" name="company_registration_number" id="company_registration_number" value="<?php echo $block->escapeHtml($block->getFormData()->getCompanyRegistrationNumber()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
-            </div>
-        </div>
+        <?php echo $block->getChildHtml('customer.group.switcher')?>
         <?php echo $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
         <?php if ($block->isNewsletterEnabled()): ?>
             <div class="field choice newsletter">

@@ -1,0 +1,37 @@
+<?php
+$legal_group_id = $block->getLegalGroupId();
+?>
+<div class="group-switcher" data-bind="scope: 'group_switcher'">
+    <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
+    <span class="group active" data-bind="attr:{'group': '<?php echo $legal_group_id ?>'}, click: switchGroup"><i class="radio"></i>Legal person</span>
+    <span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
+    <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                            "group_switcher": {
+                                "component": "Amedical_Theme/js/view/customer/group_switcher",
+                                "defaultGroup": <?php echo $legal_group_id ?>,
+                                "toggleSelector": ".group-switcher .group",
+                                "slideUpSelector": ".field.company-name, .field.company-registration-number",
+                                "slideUpValue": "1"
+                            }
+                         }
+                    }
+                }
+            }
+    </script>
+</div>
+<div class="field company-name">
+    <label for="company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
+    <div class="control">
+        <input type="text" name="company_name" id="company_name" value="" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
+    </div>
+</div>
+<div class="field company-registration-number">
+    <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Registration number') ?></span></label>
+    <div class="control">
+        <input type="text" name="company_registration_number" id="company_registration_number" value="" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
+    </div>
+</div>

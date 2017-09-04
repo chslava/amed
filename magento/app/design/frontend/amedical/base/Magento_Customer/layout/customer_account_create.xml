@@ -31,6 +31,7 @@
             <block class="Magento\Customer\Block\Form\Register" name="customer_form_register" template="form/register.phtml">
                 <container name="form.additional.info" as="form_additional_info"/>
                 <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
+                <block class="Amedical\Theme\Block\Customer\Widget\GroupSwitcher" name="customer.group.switcher" as="customer.group.switcher" template="customer/widget/group_switcher.phtml"/>
             </block>
             <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
                 <arguments>

@@ -118,7 +118,7 @@ class UpgradeData implements UpgradeDataInterface
                 $attribute->addData([
                     'attribute_set_id' => $attributeSetId,
                     'attribute_group_id' => $attributeGroupId,
-                    'used_in_forms' => ['adminhtml_customer', 'customer_account_edit', 'customer_account_create'],
+                    'used_in_forms' => ['adminhtml_customer', 'adminhtml_checkout', 'customer_account_edit', 'customer_account_create', 'checkout_register'],
                 ]);
                 $attribute->save();
             }

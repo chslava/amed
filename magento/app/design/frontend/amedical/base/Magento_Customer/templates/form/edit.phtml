@@ -9,12 +9,13 @@
 /** @var \Magento\Customer\Block\Form\Edit $block */
 
 $customer = $block->getCustomer();
+$legal_group_id = $this->helper('Amedical\Theme\Helper\Data')->getConfig('amedical_theme/configuration/customer_legal_group_id');
 ?>
 <form class="form form-edit-account" action="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" autocomplete="off">
     <fieldset class="fieldset info">
         <?php echo $block->getBlockHtml('formkey')?>
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Account Information') ?></span></legend><br>
-        <?php if($customer->getGroupId() === '4'): ?>
+        <?php if($customer->getGroupId() === $legal_group_id): ?>
             <div class="field company-name">
                 <label for="company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
                 <div class="control">
