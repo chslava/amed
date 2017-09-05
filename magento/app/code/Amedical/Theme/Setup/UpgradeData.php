@@ -92,10 +92,9 @@ class UpgradeData implements UpgradeDataInterface
                     'required' => false,
                     'system' => 0,
                     'user_defined' => true,
-                    'position' => 1000,
                 ],
-                'company_registration_number' => [
-                    'label' => 'Company Registration Number',
+                'position_occupation' => [
+                    'label' => 'Position Occupation',
                     'type' => 'varchar',
                     'input' => 'text',
                     'position' => 1050,
@@ -103,7 +102,6 @@ class UpgradeData implements UpgradeDataInterface
                     'required' => false,
                     'system' => 0,
                     'user_defined' => true,
-                    'position' => 1050,
                 ]
             ];
             $customerEntity = $customerSetup->getEavConfig()->getEntityType('customer');
@@ -119,6 +117,51 @@ class UpgradeData implements UpgradeDataInterface
                     'attribute_set_id' => $attributeSetId,
                     'attribute_group_id' => $attributeGroupId,
                     'used_in_forms' => ['adminhtml_customer', 'adminhtml_checkout', 'customer_account_edit', 'customer_account_create', 'checkout_register'],
+                ]);
+                $attribute->save();
+            }
+        }
+
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.3') < 0) {
+
+            /** @var CustomerSetup $customerSetup */
+            $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
+
+            $attributesInfo = [
+                'bank_name' => [
+                    'label' => 'Bank Name',
+                    'type' => 'varchar',
+                    'input' => 'text',
+                    'position' => 65,
+                    'visible' => true,
+                    'required' => false,
+                    'system' => 0,
+                    'user_defined' => false,
+                ],
+                'bank_account' => [
+                    'label' => 'Bank Account',
+                    'type' => 'varchar',
+                    'input' => 'text',
+                    'position' => 66,
+                    'visible' => true,
+                    'required' => false,
+                    'system' => 0,
+                    'user_defined' => false,
+                ]
+            ];
+            $customerEntity = $customerSetup->getEavConfig()->getEntityType('customer_address');
+            $attributeSetId = $customerEntity->getDefaultAttributeSetId();
+            /** @var $attributeSet AttributeSet */
+            $attributeSet = $this->attributeSetFactory->create();
+            $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
+            foreach ($attributesInfo as $attributeCode => $attributeParams) {
+                $customerSetup->addAttribute('customer_address', $attributeCode, $attributeParams);
+
+                $attribute = $customerSetup->getEavConfig()->getAttribute('customer_address', $attributeCode);
+                $attribute->addData([
+                    'attribute_set_id' => $attributeSetId,
+                    'attribute_group_id' => $attributeGroupId,
+                    'used_in_forms' => ['adminhtml_customer_address', 'customer_address_edit', 'customer_register_address'],
                 ]);
                 $attribute->save();
             }

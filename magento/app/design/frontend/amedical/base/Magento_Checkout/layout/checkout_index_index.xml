@@ -27,22 +27,6 @@
                                                         <item name="customer-email" xsi:type="array">
                                                             <item name="placeholder" xsi:type="string" translate="true">Enter email</item>
                                                         </item>
-                                                        <item name="before-fields" xsi:type="array">
-                                                            <item name="children" xsi:type="array">
-                                                                <item name="customerGroup" xsi:type="array">
-                                                                    <item name="sortOrder" xsi:type="string">1</item>
-                                                                    <item name="component" xsi:type="string">Amedical_Theme/js/view/customer/group_switcher</item>
-                                                                    <item name="displayArea" xsi:type="string">customer-group</item>
-                                                                    <item name="config" xsi:type="array">
-                                                                        <!--<item name="template" xsi:type="string">Amedical_Theme/customer/group_switcher</item>-->
-                                                                        <!--<item name="defaultGroup" xsi:type="string">4</item>-->
-                                                                        <item name="slideUpSelector" xsi:type="string">.field.company-name, .field.company-registration-number</item>
-                                                                        <item name="slideUpValue" xsi:type="string">1</item>
-                                                                        <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
-                                                                    </item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
                                                         <item name="shipping-address-fieldset" xsi:type="array">
                                                             <item name="children" xsi:type="array">
                                                                 <item name="vat_id" xsi:type="array">
