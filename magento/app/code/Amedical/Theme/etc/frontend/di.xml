@@ -10,4 +10,17 @@
     <type name="Magento\Checkout\Model\DefaultConfigProvider">
         <plugin name="amedical_theme-add-base-url" type="Amedical\Theme\Plugin\Checkout\DefaultConfigProvider" />
     </type>
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <plugin disabled="false" name="amedical_theme_plugin_quote_BillingAddressManagement" sortOrder="10" type="Amedical\Theme\Plugin\Quote\BillingAddressManagement"/>
+    </type>
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <plugin disabled="false" name="amedical_theme_plugin_quote_ShippingAddressManagement" sortOrder="10" type="Amedical\Theme\Plugin\Quote\ShippingAddressManagement"/>
+    </type>
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="amedical_theme_checkout_address_add_fields" xsi:type="object">Amedical\Theme\Block\Checkout\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
