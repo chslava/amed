@@ -10,6 +10,7 @@ use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Customer\Model\Customer;
 use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
+use Magento\Framework\DB\Ddl\Table;
 
 class UpgradeData implements UpgradeDataInterface
 {
@@ -164,6 +165,39 @@ class UpgradeData implements UpgradeDataInterface
                     'used_in_forms' => ['adminhtml_customer_address', 'customer_address_edit', 'customer_register_address'],
                 ]);
                 $attribute->save();
+            }
+        }
+
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.4') < 0) {
+
+            $tableNames = [
+                'customer_address_entity',
+                'quote_address',
+                'sales_order_address'
+            ];
+
+            $columns = [
+                'bank_name' => [
+                    'type' => Table::TYPE_TEXT,
+                    'nullable' => true,
+                    'default' => null,
+                    'length' => 255,
+                    'comment' => 'Bank Name',
+                ],
+                'bank_account' => [
+                    'type' => Table::TYPE_TEXT,
+                    'nullable' => true,
+                    'default' => null,
+                    'length' => 255,
+                    'comment' => 'Bank Account',
+                ]
+            ];
+
+            $connection = $setup->getConnection();
+            foreach ($tableNames as $tableName) {
+                foreach ($columns as $name => $definition) {
+                    $connection->addColumn($tableName, $name, $definition);
+                }
             }
         }
 
