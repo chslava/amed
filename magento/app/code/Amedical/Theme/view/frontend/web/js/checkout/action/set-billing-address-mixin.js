@@ -9,7 +9,7 @@ define([
         return wrapper.wrap(setBillingAddressAction, function (originalAction, messageContainer) {
 
             var billingAddress = quote.billingAddress();
-
+console.log(quote);
             if(billingAddress != undefined) {
 
                 if (billingAddress['extension_attributes'] === undefined) {

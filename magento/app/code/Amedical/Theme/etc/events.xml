@@ -7,4 +7,7 @@
     <event name="customer_register_success">
         <observer name="amedical_theme_customer_set_group" instance="Amedical\Theme\Observer\Customer\CustomerSetGroup" />
     </event>
+    <event name="checkout_submit_all_after">
+        <observer name="amedical_theme_save_additional_fields" instance="Amedical\Theme\Observer\Checkout\SaveAdditionalFields" />
+    </event>
 </config>

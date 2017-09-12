@@ -5,10 +5,17 @@ namespace Amedical\Theme\Plugin\Checkout;
 
 class LayoutProcessor
 {
+    protected $checkoutDataHelper;
+
+    public function __construct(\Magento\Checkout\Helper\Data $checkoutDataHelper)
+    {
+        $this->checkoutDataHelper = $checkoutDataHelper;
+    }
+
     public function afterProcess(\Magento\Checkout\Block\Checkout\LayoutProcessor $subject, $jsLayout)
     {
-        $jsLayout = $this->getBillingFormFields($jsLayout);
         $jsLayout = $this->getShippingFormFields($jsLayout);
+        $jsLayout = $this->getBillingFormFields($jsLayout);
         return $jsLayout;
     }
 
@@ -41,33 +48,38 @@ class LayoutProcessor
     }
 
     public function getBillingFormFields($jsLayout){
-        if(isset($jsLayout['components']['checkout']['children']['steps']['children']
-            ['billing-step']['children']['payment']['children']
-            ['payments-list'])) {
 
-            $paymentForms = $jsLayout['components']['checkout']['children']['steps']['children']
-            ['billing-step']['children']['payment']['children']
-            ['payments-list']['children'];
+        $paymentLayout = $jsLayout['components']['checkout']['children']['steps']['children']
+                                    ['billing-step']['children']['payment']['children'];
+
+        // if billing address should be displayed on Payment method or page
+        if ($this->checkoutDataHelper->isDisplayBillingOnPaymentMethodAvailable()) {
+            $componentNode = 'payments-list';
+        } else {
+            $componentNode = 'afterMethods';
+        }
+
+        if(isset($paymentLayout[$componentNode])) {
+
+            $paymentForms = $paymentLayout[$componentNode]['children'];
 
             foreach ($paymentForms as $paymentMethodForm => $paymentMethodValue) {
 
                 $paymentMethodCode = str_replace('-form', '', $paymentMethodForm);
 
-                if (!isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$paymentMethodCode . '-form'])) {
+                if (!isset($paymentLayout[$componentNode]['children'][$paymentMethodCode . '-form'])) {
                     continue;
                 }
 
-                $billingFields = $jsLayout['components']['checkout']['children']['steps']['children']
-                ['billing-step']['children']['payment']['children']
-                ['payments-list']['children'][$paymentMethodCode . '-form']['children']['form-fields']['children'];
+                $billingFields = $paymentLayout[$componentNode]['children'][$paymentMethodCode . '-form']['children']['form-fields']['children'];
 
-                $billingPostcodeFields = $this->getFields('billingAddress' . $paymentMethodCode . '.custom_attributes', 'billing');
+                $billingPostcodeFields = $this->getFields('billingAddressshared' . '.custom_attributes', 'billing');
 
                 $billingFields = array_replace_recursive($billingFields, $billingPostcodeFields);
 
                 $jsLayout['components']['checkout']['children']['steps']['children']
                 ['billing-step']['children']['payment']['children']
-                ['payments-list']['children'][$paymentMethodCode . '-form']['children']['form-fields']['children'] = $billingFields;
+                [$componentNode]['children'][$paymentMethodCode . '-form']['children']['form-fields']['children'] = $billingFields;
             }
         }
 
