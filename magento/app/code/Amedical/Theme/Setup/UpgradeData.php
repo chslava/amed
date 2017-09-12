@@ -84,16 +84,6 @@ class UpgradeData implements UpgradeDataInterface
             $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
 
             $attributesInfo = [
-                'company_name' => [
-                    'label' => 'Company Name',
-                    'type' => 'varchar',
-                    'input' => 'text',
-                    'position' => 1000,
-                    'visible' => true,
-                    'required' => false,
-                    'system' => 0,
-                    'user_defined' => true,
-                ],
                 'position_occupation' => [
                     'label' => 'Position Occupation',
                     'type' => 'varchar',
@@ -137,7 +127,7 @@ class UpgradeData implements UpgradeDataInterface
                     'visible' => true,
                     'required' => false,
                     'system' => 0,
-                    'user_defined' => false,
+                    'user_defined' => true,
                 ],
                 'bank_account' => [
                     'label' => 'Bank Account',
@@ -147,7 +137,7 @@ class UpgradeData implements UpgradeDataInterface
                     'visible' => true,
                     'required' => false,
                     'system' => 0,
-                    'user_defined' => false,
+                    'user_defined' => true,
                 ]
             ];
             $customerEntity = $customerSetup->getEavConfig()->getEntityType('customer_address');

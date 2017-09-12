@@ -9,11 +9,7 @@
     <type name="Magento\Checkout\Model\DefaultConfigProvider">
         <plugin name="amedical_theme-add-base-url" type="Amedical\Theme\Plugin\Checkout\DefaultConfigProvider" />
     </type>
-    <type name="Magento\Checkout\Block\Onepage">
-        <arguments>
-            <argument name="layoutProcessors" xsi:type="array">
-                <item name="amedical_theme_checkout_address_add_fields" xsi:type="object">Amedical\Theme\Block\Checkout\LayoutProcessor</item>
-            </argument>
-        </arguments>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="amedical_theme-billing-address-add_fields" type="Amedical\Theme\Plugin\Checkout\LayoutProcessor" />
     </type>
 </config>

@@ -6,18 +6,30 @@ define([
     'use strict';
 
     return function (setBillingAddressAction) {
-        return wrapper.wrap(setBillingAddressAction, function (originalAction) {
+        return wrapper.wrap(setBillingAddressAction, function (originalAction, messageContainer) {
 
             var billingAddress = quote.billingAddress();
 
-            if (billingAddress['extension_attributes'] === undefined) {
-                billingAddress['extension_attributes'] = {};
+            if(billingAddress != undefined) {
+
+                if (billingAddress['extension_attributes'] === undefined) {
+                    billingAddress['extension_attributes'] = {};
+                }
+
+                if (billingAddress.customAttributes != undefined) {
+                    $.each(billingAddress.customAttributes, function (key, value) {
+
+                        if($.isPlainObject(value)){
+                            value = value['value'];
+                        }
+
+                        billingAddress['extension_attributes'][key] = value;
+                    });
+                }
+
             }
 
-            billingAddress['extension_attributes']['bank_name'] = billingAddress.customAttributes['bank_name'];
-            billingAddress['extension_attributes']['bank_account'] = billingAddress.customAttributes['bank_account'];
-
-            return originalAction();
+            return originalAction(messageContainer);
         });
     };
 });
