@@ -6,4 +6,8 @@
     <type name="Magento\Quote\Model\ShippingAddressManagement">
         <plugin disabled="false" name="amedical_theme_plugin_quote_ShippingAddressManagement" sortOrder="1" type="Amedical\Theme\Plugin\Quote\ShippingAddressManagement"/>
     </type>
+    <type name="Magento\Customer\Model\Address">
+        <plugin disabled="false" name="amedical_theme_plugin_quote_customer_address_update" sortOrder="1" type="Amedical\Theme\Plugin\Quote\AddressUpdate"/>
+    </type>
+    <preference for="Magento\Customer\Model\Data\Address" type="Amedical\Theme\Model\Customer\Data\Address"/>
 </config>

@@ -44,9 +44,11 @@
         <fieldset id="order_address">
             <field name="bank_name">
                 <aspect name="to_customer_address" />
+                <aspect name="to_customer" />
             </field>
             <field name="bank_account">
                 <aspect name="to_customer_address" />
+                <aspect name="to_customer" />
             </field>
         </fieldset>
     </scope>

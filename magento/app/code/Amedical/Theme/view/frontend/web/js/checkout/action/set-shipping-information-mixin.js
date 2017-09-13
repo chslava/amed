@@ -1,24 +1,33 @@
-/*jshint browser:true jquery:true*/
-/*global alert*/
 define([
     'jquery',
     'mage/utils/wrapper',
     'Magento_Checkout/js/model/quote'
-], function ($, wrapper, quote) {
+], function ($, wrapper,quote) {
     'use strict';
 
     return function (setShippingInformationAction) {
+        return wrapper.wrap(setShippingInformationAction, function (originalAction, messageContainer) {
 
-        return wrapper.wrap(setShippingInformationAction, function (originalAction) {
             var shippingAddress = quote.shippingAddress();
+
             if (shippingAddress['extension_attributes'] === undefined) {
                 shippingAddress['extension_attributes'] = {};
             }
 
-            shippingAddress['extension_attributes']['bank_name'] = shippingAddress.customAttributes['bank_name'];
-            shippingAddress['extension_attributes']['bank_account'] = shippingAddress.customAttributes['bank_account'];
-            // pass execution to original action ('Magento_Checkout/js/action/set-shipping-information')
-            return originalAction();
+            if (shippingAddress.customAttributes != undefined) {
+                $.each(shippingAddress.customAttributes , function( key, value ) {
+
+                    if($.isPlainObject(value)){
+                        value = value['value'];
+                    }
+
+                    shippingAddress['customAttributes'][key] = value;
+                    shippingAddress['extension_attributes'][key] = value;
+
+                });
+            }
+
+            return originalAction(messageContainer);
         });
     };
 });
