@@ -7,8 +7,15 @@ use Amedical\Theme\Helper\Data;
 
 class GroupSwitcher extends \Magento\Framework\View\Element\Template
 {
+    /**
+     * @var array
+     */
+    protected $jsLayout;
 
-    private $_helper;
+    /**
+     * @var array|\Magento\Checkout\Block\Checkout\LayoutProcessorInterface[]
+     */
+    protected $layoutProcessors;
 
     /**
      * Constructor
@@ -17,15 +24,24 @@ class GroupSwitcher extends \Magento\Framework\View\Element\Template
      * @param array $data
      */
     public function __construct(
-        \Amedical\Theme\Helper\Data $helper,
-        \Magento\Framework\View\Element\Template\Context $context, array $data = [])
+        \Magento\Framework\View\Element\Template\Context $context,
+        array $layoutProcessors = [],
+        array $data = [])
     {
-        $this->_helper = $helper;
         parent::__construct($context, $data);
+        $this->layoutProcessors = $layoutProcessors;
     }
 
-    public function getLegalGroupId()
+    /**
+
+     * @return string
+
+     */
+    public function getJsLayout()
     {
-        return $this->_helper->getConfig('amedical_theme/configuration/customer_legal_group_id');
+        foreach ($this->layoutProcessors as $processor) {
+            $this->jsLayout = $processor->process($this->jsLayout);
+        }
+        return \Zend_Json::encode($this->jsLayout);
     }
 }

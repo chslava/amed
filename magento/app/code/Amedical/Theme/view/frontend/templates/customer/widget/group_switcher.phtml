@@ -1,37 +1,13 @@
 <?php
 $legal_group_id = $block->getLegalGroupId();
 ?>
-<div class="group-switcher" data-bind="scope: 'group_switcher'">
-    <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
-    <span class="group active" data-bind="attr:{'group': '<?php echo $legal_group_id ?>'}, click: switchGroup"><i class="radio"></i>Legal person</span>
-    <span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
-    <script type="text/x-magento-init">
+<div id="group-switcher" class="group-switcher" data-bind="scope: 'group-switcher'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
             {
-                "*": {
-                    "Magento_Ui/js/core/app": {
-                        "components": {
-                            "group_switcher": {
-                                "component": "Amedical_Theme/js/view/customer/group_switcher",
-                                "defaultGroup": <?php echo $legal_group_id ?>,
-                                "toggleSelector": ".group-switcher .group",
-                                "slideUpSelector": ".field.company-name, .field.company-registration-number",
-                                "slideUpValue": "1"
-                            }
-                         }
-                    }
-                }
+                "#group-switcher": {
+                  "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+              }
             }
-    </script>
-</div>
-<div class="field company-name">
-    <label for="company-name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
-    <div class="control">
-        <input type="text" name="company_name" id="company-name" value="" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
-    </div>
-</div>
-<div class="field company-registration-number">
-    <label for="position-occupation" class="label"><span><?php /* @escapeNotVerified */ echo __('Position Occupation') ?></span></label>
-    <div class="control">
-        <input type="text" name="position_occupation" id="position-occupation" value="" title="<?php /* @escapeNotVerified */ echo __('Position Occupation') ?>" class="input-text">
-    </div>
-</div>
+</script>

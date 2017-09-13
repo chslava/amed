@@ -1,17 +1,9 @@
-<div class="group-switcher" data-bind="scope: 'group_switcher'">
-    <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
-    <span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i>Legal person</span>
-    <span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
-</div>
-<div class="field company-name">
-    <label for="company_name" class="label"><span data-bind="i18n: 'Company'"></span></label>
+<input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
+<span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i>Legal person</span>
+<span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
+<div class="field position-occupation">
+    <label for="position_occupation" class="label"><span data-bind="i18n: 'Position Occupation'" ></span></label>
     <div class="control">
-        <input type="text" name="company_name" id="company_name" value=""  data-bind="i18n: 'Company'" data-role="title" class="input-text">
-    </div>
-</div>
-<div class="field company-registration-number">
-    <label for="company_registration_number" class="label"><span data-bind="i18n: 'Registration number'" ></span></label>
-    <div class="control">
-        <input type="text" name="company_registration_number" id="company_registration_number" data-bind="i18n: 'Registration number'" data-role="title" value="" class="input-text">
+        <input type="text" name="position_occupation" id="position_occupation" data-bind="i18n: 'Position Occupation'" data-role="title" value="" class="input-text">
     </div>
 </div>

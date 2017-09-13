@@ -31,7 +31,24 @@
             <block class="Magento\Customer\Block\Form\Register" name="customer_form_register" template="form/register.phtml">
                 <container name="form.additional.info" as="form_additional_info"/>
                 <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
-                <block class="Amedical\Theme\Block\Customer\Widget\GroupSwitcher" name="customer.group.switcher" as="customer.group.switcher" template="customer/widget/group_switcher.phtml"/>
+                <block class="Amedical\Theme\Block\Customer\Widget\GroupSwitcher" cacheable="false" name="customer.group.switcher" as="customer.group.switcher" template="customer/widget/group_switcher.phtml">
+                    <arguments>
+                        <argument name="jsLayout" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="group-switcher" xsi:type="array">
+                                    <item name="component" xsi:type="string">Amedical_Theme/js/view/customer/group_switcher</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">Amedical_Theme/customer/group_switcher</item>
+                                        <item name="defaultGroup" xsi:type="string">4</item>
+                                        <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
+                                        <item name="slideUpSelector" xsi:type="string">.field.position-occupation</item>
+                                        <item name="slideUpValue" xsi:type="string">1</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
             </block>
             <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
                 <arguments>
