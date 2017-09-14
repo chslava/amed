@@ -100,6 +100,7 @@ class LayoutProcessor
                             'customEntry' => null,
                             'template' => 'ui/form/field',
                             'elementTmpl' => 'ui/form/element/input',
+                            'additionalClasses' => 'bank-name-field'
                         ],
                         'dataScope' => $scope . '.bank_name',
                         'label' => 'Bank Name',
@@ -120,6 +121,7 @@ class LayoutProcessor
                             'customEntry' => null,
                             'template' => 'ui/form/field',
                             'elementTmpl' => 'ui/form/element/input',
+                            'additionalClasses' => 'bank-account-field'
                         ],
                         'dataScope' => $scope . '.bank_account',
                         'label' => 'Bank Account',

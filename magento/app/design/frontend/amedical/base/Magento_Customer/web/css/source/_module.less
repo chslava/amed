@@ -352,33 +352,12 @@
         margin-bottom: 35px;
 
         .group {
+            .lib-radio-square();
             color: @amedical-text_color;
             display: inline-block;
             font-size: 1.5rem;
             min-width: 200px;
             cursor: pointer;
-
-            .radio {
-                display: inline-block;
-                position: relative;
-                height: 20px;
-                width: 20px;
-                border: 1px solid @amedical-brand-color;
-                vertical-align: middle;
-                margin-right: 10px;
-                pointer-events: none;
-            }
-
-            &.active .radio:before {
-                content: '';
-                position: absolute;
-                height: 10px;
-                width: 10px;
-                top: 4px;
-                left: 4px;
-                background-color: @amedical-brand-color;
-
-            }
         }
     }
 }

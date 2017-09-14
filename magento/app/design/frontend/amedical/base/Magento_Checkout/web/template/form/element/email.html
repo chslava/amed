@@ -33,6 +33,11 @@
                 <span class="note" data-bind="fadeVisible: isPasswordVisible() == false"><!-- ko i18n: 'You can create an account after checkout.'--><!-- /ko --></span>
             </div>
         </div>
+        <div class="additional-register-fields" data-bind="fadeVisible: isPasswordVisible() == false">
+            <!-- ko foreach: getRegion('additional-register-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
 
         <!--Hidden fields -->
         <fieldset class="fieldset hidden-fields" data-bind="fadeVisible: isPasswordVisible">

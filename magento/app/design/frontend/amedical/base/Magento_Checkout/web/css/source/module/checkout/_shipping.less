@@ -148,6 +148,24 @@
             float: left;
             margin: 26px 5px 0 0;
         }
+
+        .group-switcher {
+            margin-bottom: 0;
+
+            .position-occupation {
+                margin-top: 20px;
+                max-width: 336px;
+
+                input {
+                    width: calc(~'100% - 35px');
+                }
+
+                label {
+                    display: inline-block;
+                    margin-bottom: 8px;
+                }
+            }
+        }
     }
 
     //
@@ -156,7 +174,7 @@
 
     .checkout-shipping-method {
         .step-title {
-            margin-bottom: 0;
+            margin-bottom: 16px;
         }
 
         .no-quotes-block {
@@ -176,44 +194,78 @@
     }
 
     .table-checkout-shipping-method {
-        thead {
-            th {
-                display: none;
+        .item {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            float: left;
+
+            .carrier-title,
+            .price {
+                font-weight: 700;
+            }
+
+            .method-title {
+                margin-top: 4px;
+            }
+
+            .error {
+                max-width: 210px;
             }
         }
 
-        tbody {
-            td {
-                .lib-css(border-top, @checkout-shipping-method__border);
-                .lib-css(padding-bottom, @checkout-shipping-method__padding);
-                .lib-css(padding-top, @checkout-shipping-method__padding);
+        .method {
+            position: relative;
+            width: 210px;
+            height: 210px;
+            padding: 30px 15px 25px;
+            text-align: center;
 
-                &:first-child {
-                    padding-left: 0;
-                    padding-right: 0;
-                    width: 20px;
+            .lib-css(border, 1px solid @checkout-shipping-item-before__border-color);
+
+            input.radio {
+                .lib-visually-hidden();
+            }
+            label {
+                .lib-radio-square();
+                position: absolute;
+                bottom: 25px;
+                left: 50%;
+                margin-left: -10px;
+
+                .radio {
+                    margin-right: 0;
                 }
             }
 
-            tr {
-                &:first-child {
-                    td {
-                        border-top: none;
-                    }
-                }
+            & > .price {
+                position: absolute;
+                text-align: center;
+                left: 0;
+                right: 0;
+                bottom: 65px;
             }
+        }
 
-            .col-price {
-                font-weight: @font-weight__semibold;
-            }
+    }
 
-            .row-error {
-                td {
-                    border-top: none;
-                    padding-bottom: @indent__s;
-                    padding-top: 0;
-                }
-            }
+    .method-icon {
+        display: inline-block;
+        height: 34px;
+        width: 54px;
+        background-position: center bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        .freeshipping-freeshipping & {
+            background-image: url("@{baseDir}images/courier_freeshipping.svg");
+        }
+
+        .flatrate-flatrate & {
+            background-image: url("@{baseDir}images/courier_office.svg");
+        }
+
+        .tablerate-bestway & {
+            background-image: url("@{baseDir}images/courier_delivery.svg");
         }
     }
 }
@@ -295,12 +347,15 @@
     .checkout-shipping-method {
         .actions-toolbar {
             > .primary {
-                float: right;
+                width: 100%;
+                margin-top: 90px;
             }
 
             .action {
                 &.primary {
                     margin: 0;
+                    width: 210px;
+                    height: 50px;
                 }
             }
         }

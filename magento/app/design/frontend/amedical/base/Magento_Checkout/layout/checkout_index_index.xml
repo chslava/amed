@@ -26,6 +26,27 @@
                                                     <item name="children" xsi:type="array">
                                                         <item name="customer-email" xsi:type="array">
                                                             <item name="placeholder" xsi:type="string" translate="true">Enter email</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="additional-register-form-fields" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                                    <item name="displayArea" xsi:type="string">additional-register-form-fields</item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <!-- additional register form fields -->
+                                                                        <item name="group-switcher" xsi:type="array">
+                                                                            <item name="sortOrder" xsi:type="string">2</item>
+                                                                            <item name="component" xsi:type="string">Amedical_Theme/js/view/customer/group_switcher</item>
+                                                                            <item name="displayArea" xsi:type="string">additional-register-form-fields</item>
+                                                                            <item name="config" xsi:type="array">
+                                                                                <item name="template" xsi:type="string">Amedical_Theme/checkout/group_switcher</item>
+                                                                                <item name="defaultGroup" xsi:type="string">4</item>
+                                                                                <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
+                                                                                <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .bank-name-field, .bank-account-field</item>
+                                                                                <item name="slideUpValue" xsi:type="string">1</item>
+                                                                            </item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
                                                         </item>
                                                         <item name="shipping-address-fieldset" xsi:type="array">
                                                             <item name="children" xsi:type="array">
@@ -36,24 +57,6 @@
                                                                         </item>
                                                                     </item>
                                                                 </item>
-                                                                <!--<item name="bank_acc" xsi:type="array">-->
-                                                                    <!--<item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>-->
-                                                                    <!--<item name="config" xsi:type="array">-->
-                                                                        <!--<item name="customScope" xsi:type="string">shippingAddress.custom_attributes</item>-->
-                                                                        <!--<item name="deps" xsi:type="array">-->
-                                                                            <!--<item name="0" xsi:type="string">checkoutProvider</item>-->
-                                                                        <!--</item>-->
-                                                                        <!--<item name="template" xsi:type="string">ui/form/field</item>-->
-                                                                        <!--<item name="elementTmpl" xsi:type="string">ui/form/element/input</item>-->
-                                                                    <!--</item>-->
-                                                                    <!--<item name="provider" xsi:type="string">checkoutProvider</item>-->
-                                                                    <!--<item name="dataScope" xsi:type="string">shippingAddress.custom_attributes.bank_acc</item>-->
-                                                                    <!--<item name="sortOrder" xsi:type="string">67</item>-->
-                                                                    <!--<item name="label" xsi:type="string" translate="true">Bank Account</item>-->
-                                                                    <!--<item name="validation" xsi:type="array">-->
-                                                                        <!--<item name="required-entry" xsi:type="boolean">false</item>-->
-                                                                    <!--</item>-->
-                                                                <!--</item>-->
                                                             </item>
                                                         </item>
                                                     </item>

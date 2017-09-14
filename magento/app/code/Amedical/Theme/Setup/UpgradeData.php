@@ -160,6 +160,7 @@ class UpgradeData implements UpgradeDataInterface
 
         if ($context->getVersion() && version_compare($context->getVersion(), '1.0.4') < 0) {
 
+//            Add address fields
             $tableNames = [
                 'customer_address_entity',
                 'quote_address',
@@ -183,14 +184,42 @@ class UpgradeData implements UpgradeDataInterface
                 ]
             ];
 
-            $connection = $setup->getConnection();
-            foreach ($tableNames as $tableName) {
-                foreach ($columns as $name => $definition) {
-                    $connection->addColumn($tableName, $name, $definition);
-                }
-            }
+            $this->addColumnsMass($tableNames, $columns, $setup->getConnection());
+
+            //        Add customer fields
+            $tableNames = [
+                'sales_order',
+                'quote'
+            ];
+
+            $columns = [
+                'position_occupation' => [
+                    'type' => Table::TYPE_TEXT,
+                    'nullable' => true,
+                    'default' => null,
+                    'length' => 255,
+                    'comment' => 'Customer Position Occupation',
+                ],
+                'customer_group' => [
+                    'type' => Table::TYPE_INTEGER,
+                    'nullable' => true,
+                    'default' => null,
+                    'comment' => 'Customer Group',
+                ]
+            ];
+
+            $this->addColumnsMass($tableNames, $columns, $setup->getConnection());
         }
 
         $setup->endSetup();
+    }
+
+    private function addColumnsMass($tableNames, $columns, $connection)
+    {
+        foreach ($tableNames as $tableName) {
+            foreach ($columns as $name => $definition) {
+                $connection->addColumn($tableName, $name, $definition);
+            }
+        }
     }
 }

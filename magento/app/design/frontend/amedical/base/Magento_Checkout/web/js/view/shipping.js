@@ -217,7 +217,8 @@ define(
             selectShippingMethod: function (shippingMethod) {
                 selectShippingMethodAction(shippingMethod);
                 checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
-
+                $('.method label').removeClass('active');
+                $('.item.' + shippingMethod.carrier_code + '-' + shippingMethod.method_code + ' label').addClass('active');
                 return true;
             },
 
