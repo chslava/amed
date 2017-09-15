@@ -49,7 +49,6 @@
         //
         //  Shipping Address
         //  ---------------------------------------------
-
         .form-login,
         .form-shipping-address {
             .lib-css(margin-top, 2px);
@@ -74,6 +73,10 @@
                     margin-top: @indent__s;
                 }
             }
+        }
+
+        .form-login {
+            padding-bottom: 38px;
         }
 
         .shipping-address-items {
@@ -180,6 +183,23 @@
         .no-quotes-block {
             margin: @indent__base 0;
         }
+
+        .actions-toolbar {
+            clear: both;
+
+            > .primary {
+                width: 100%;
+                margin-top: 90px;
+            }
+
+            .action {
+                &.primary {
+                    margin: 0;
+                    width: 210px;
+                    height: 50px;
+                }
+            }
+        }
     }
 
     .methods-shipping {
@@ -194,6 +214,11 @@
     }
 
     .table-checkout-shipping-method {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-direction(row);
+        .lib-vendor-prefix-flex-wrap(wrap);
+        justify-content: left;
+
         .item {
             margin-right: 15px;
             font-size: 1.5rem;
@@ -214,6 +239,7 @@
         }
 
         .method {
+            display: inline-block;
             position: relative;
             width: 210px;
             height: 210px;
@@ -274,7 +300,17 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .table-checkout-shipping-method {
+        .item {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     .opc-wrapper {
         .form-login,
         .form-shipping-address,
@@ -337,37 +373,21 @@
             top: 5px;
         }
     }
+
+    .table-checkout-shipping-method {
+        justify-content: center;
+    }
 }
 
 //
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .checkout-shipping-method {
-        .actions-toolbar {
-            > .primary {
-                width: 100%;
-                margin-top: 90px;
-            }
-
-            .action {
-                &.primary {
-                    margin: 0;
-                    width: 210px;
-                    height: 50px;
-                }
-            }
-        }
-    }
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .opc-wrapper {
         .form-login,
         .form-shipping-address {
             .lib-css(max-width, @checkout-shipping-address__max-width);
-        }
-
-        .form-login {
-            padding-bottom: 38px;
         }
     }
     .table-checkout-shipping-method {
