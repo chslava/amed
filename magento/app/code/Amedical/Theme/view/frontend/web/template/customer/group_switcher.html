@@ -1,0 +1,9 @@
+<input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
+<span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i>Legal person</span>
+<span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
+<div class="field position-occupation">
+    <label for="position_occupation" class="label"><span data-bind="i18n: 'Position Occupation'" ></span></label>
+    <div class="control">
+        <input type="text" name="position_occupation" id="position_occupation" data-bind="i18n: 'Position Occupation'" data-role="title" value="" class="input-text">
+    </div>
+</div>

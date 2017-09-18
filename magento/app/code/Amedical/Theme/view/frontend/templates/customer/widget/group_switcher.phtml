@@ -1,0 +1,10 @@
+<div id="group-switcher" class="group-switcher" data-bind="scope: 'group-switcher'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+            {
+                "#group-switcher": {
+                  "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+              }
+            }
+</script>

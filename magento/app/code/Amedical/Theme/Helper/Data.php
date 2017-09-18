@@ -90,5 +90,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function get_current_url(){
         return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     }
-    
+
+    public function getConfig($config_path)
+    {
+        return $this->scopeConfig->getValue(
+            $config_path,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+    }
 }

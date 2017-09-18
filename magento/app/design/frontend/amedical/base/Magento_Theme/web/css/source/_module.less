@@ -180,8 +180,38 @@
     }
 
     .minicart-wrapper {
-
         display: none;
+
+        .action.showcart {
+            line-height: @navigation-desktop-level0-item__line-height;
+
+            .text {
+                clip: auto;
+                width: auto;
+                height: auto;
+                font-size: 16px;
+                line-height: 28px;
+                padding-left: 10px;
+                color: @amedical-text_color;
+                position: relative;
+            }
+
+            &:before, &.active:before {
+                font-family: @icon-font-second;
+                font-size: 20px;
+                line-height: inherit;
+            }
+
+            &.active {
+                &:hover:before {
+                    color: @amedical-brand-color;
+                }
+            }
+        }
+
+        .action.close:hover:before {
+            color: @amedical-text_color;
+        }
     }
 
     //
@@ -871,33 +901,6 @@
 
             & .action.showcart {
                 &:before, .text{
-                    color: @amedical-brand-color;
-                }
-            }
-        }
-
-        .action.showcart {
-            line-height: @navigation-desktop-level0-item__line-height;
-
-            .text {
-                clip: auto;
-                width: auto;
-                height: auto;
-                font-size: 16px;
-                line-height: 28px;
-                padding-left: 10px;
-                color: @amedical-text_color;
-                position: relative;
-            }
-
-            &:before, &.active:before {
-                font-family: @icon-font-second;
-                font-size: 20px;
-                line-height: inherit;
-            }
-
-            &.active {
-                &:hover:before {
                     color: @amedical-brand-color;
                 }
             }
