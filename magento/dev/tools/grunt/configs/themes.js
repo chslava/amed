@@ -1,5 +1,5 @@
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -50,29 +50,5 @@ module.exports = {
             'css/styles'
         ],
         dsl: 'less'
-    },
-    amedical: {
-        area: 'frontend',
-        name: 'amedical/base',
-        locale: 'en_US',
-        files: [
-            'css/styles-m',
-            'css/styles-l',
-            'css/email',
-            'css/email-inline'
-        ],
-        dsl: 'less'
-    },
-    amedical_lv: {
-        area: 'frontend',
-        name: 'amedical/base',
-        locale: 'lv_LV',
-        files: [
-            'css/styles-m',
-            'css/styles-l',
-            'css/email',
-            'css/email-inline'
-        ],
-        dsl: 'less'
-    },
+    }
 };
