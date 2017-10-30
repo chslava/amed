@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DS\Hanza\Controller\Update;
+namespace DS\Importer\Controller\Update;
 
 use Magento\Framework\App\Action\Context;
 
@@ -20,10 +20,10 @@ class Names extends \Magento\Framework\App\Action\Action
 
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->products = $this->_objectManager->create('DS\Importer\Helper\Products');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
         
 
         parent::__construct($context);

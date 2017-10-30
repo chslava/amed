@@ -1,6 +1,6 @@
 <?php
 
-namespace DS\Hanza\Controller\Update;
+namespace DS\Importer\Controller\Update;
 
 use Magento\Framework\App\Action\Context;
 
@@ -18,8 +18,8 @@ class Resavecategories extends \Magento\Framework\App\Action\Action
 
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products'); 
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->products = $this->_objectManager->create('DS\Importer\Helper\Products');
 
         parent::__construct($context);
     }

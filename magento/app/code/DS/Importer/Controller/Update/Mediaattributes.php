@@ -1,5 +1,5 @@
 <?php
-namespace DS\Hanza\Controller\Update;
+namespace DS\Importer\Controller\Update;
 
 use Magento\Framework\App\Action\Context;
 
@@ -15,10 +15,10 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
     {
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
+        $this->products = $this->_objectManager->create('DS\Importer\Helper\Products');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
         parent::__construct($context);
     }
     
@@ -32,9 +32,9 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
         if (isset($_GET["clear_cache"])){
             $this->cache->clear_cache_data("image_stores_set");
             if ($verbose){
-                $url = $this->helper->get_base_url()."hanza/update/mediaattributes?verbose";
+                $url = $this->helper->get_base_url()."hanza/importer/mediaattributes?verbose";
             } else {
-                $url = $this->helper->get_base_url()."hanza/update/mediaattributes";
+                $url = $this->helper->get_base_url()."hanza/importer/mediaattributes";
             }
 
             header("Location: $url");
@@ -145,7 +145,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
         }
         if (($counter==$counter_skipped || ($counter_cached/$counter)>0.7) && $verbose){
 
-            $url = $this->helper->get_base_url()."hanza/update/mediaattributes?clear_cache";
+            $url = $this->helper->get_base_url()."hanza/importer/mediaattributes?clear_cache";
             ?>
             <a href="<?= $url ?>">Looks, like script already had done its job. Click on this link to redo.</a><br/>
             <?php

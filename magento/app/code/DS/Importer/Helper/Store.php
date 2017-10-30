@@ -1,6 +1,6 @@
 <?php
 
-namespace DS\Hanza\Helper;
+namespace DS\Importer\Helper;
 
 use \Magento\Framework\App\Helper\AbstractHelper;
 

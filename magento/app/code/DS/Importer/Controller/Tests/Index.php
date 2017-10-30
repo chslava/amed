@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DS\Hanza\Controller\Tests;
+namespace DS\Importer\Controller\Tests;
 
 use Magento\Framework\App\Action\Context;
 

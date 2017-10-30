@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DS\Hanza\Controller\Index;
+namespace DS\Importer\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
 
@@ -35,14 +35,6 @@ class Index extends \Magento\Framework\App\Action\Action
 
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-
-        //$this= $this->_objectManager->get('\DS\Hanza\Helper\Data');
-    //    $this = $helper_factory->get('DS\Hanza\Helper\Data');
-        //print("<pre>");
-
-        //print_r(get_object_vars($this));
-        //print("</pre>");
-        //$this->_coreHelper->getAbsolutepath();
 
 
         $this->_stores=false;

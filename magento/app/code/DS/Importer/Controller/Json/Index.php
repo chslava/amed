@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DS\Hanza\Controller\Json;
+namespace DS\Importer\Controller\Json;
 use Magento\Framework\App\Action\Context;
 
 class Index extends \Magento\Framework\App\Action\Action
@@ -13,12 +13,12 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
-        $this->categories = $this->_objectManager->create('DS\Hanza\Helper\Categories');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products');
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
-        $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->categories = $this->_objectManager->create('DS\Importer\Helper\Categories');
+        $this->products = $this->_objectManager->create('DS\Importer\Helper\Products');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
+        $this->csv = $this->_objectManager->create('DS\Importer\Helper\Csv');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
         $this->_coreRegistry = $this->_objectManager->get('\Magento\Framework\Registry');
         $this->force=false;
 

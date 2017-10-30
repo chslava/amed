@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DS\Hanza\Controller\Update;
+namespace DS\Importer\Controller\Update;
 
 use Magento\Framework\App\Action\Context;
 
@@ -19,32 +19,32 @@ class Index extends \Magento\Framework\App\Action\Action
     {
         $this->_storeManager = $storeManager;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->products = $this->_objectManager->create('DS\Hanza\Helper\Products'); 
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
+        $this->products = $this->_objectManager->create('DS\Importer\Helper\Products');
         parent::__construct($context);
     }
     
     
     public function execute()
     {
-        $url = $this->helper->get_base_url()."hanza/update/names"; ?>
+        $url = $this->helper->get_base_url()."hanza/importer/names"; ?>
         <a href="<?= $url ?>">Update product names</a><br/>
         
-        <?php $url = $this->helper->get_base_url()."hanza/update/mediaattributes"; ?>
+        <?php $url = $this->helper->get_base_url()."hanza/importer/mediaattributes"; ?>
         <a href="<?= $url ?>">Update Media attributes</a><br/>
         <!--
-        <?php $url = $this->helper->get_base_url()."hanza/update/removenoimagesproducts"; ?>
+        <?php $url = $this->helper->get_base_url()."hanza/importer/removenoimagesproducts"; ?>
         <a href="<?= $url ?>">Remove products that has no images</a><br/>
         
-        <?php $url = $this->helper->get_base_url()."hanza/update/disableremovedproducts"; ?>
+        <?php $url = $this->helper->get_base_url()."hanza/importer/disableremovedproducts"; ?>
         <a href="<?= $url ?>">Disable products that ar not in hanza anymore</a><br/>
         -->
 
-        <?php $url = $this->helper->get_base_url()."hanza/update/productpricesupdate"; ?>
+        <?php $url = $this->helper->get_base_url()."hanza/importer/productpricesupdate"; ?>
         <a href="<?= $url ?>">Product prices update</a><br/>
 
-        <?php $url = $this->helper->get_base_url()."hanza/update/names"; ?>
+        <?php $url = $this->helper->get_base_url()."hanza/importer/names"; ?>
         <a href="<?= $url ?>">Product names update</a><br/>
 
         

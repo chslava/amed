@@ -1,6 +1,6 @@
 <?php
 
-namespace DS\Hanza\Helper;
+namespace DS\Importer\Helper;
 
 use \Magento\Framework\App\Helper\AbstractHelper;
 use \Magento\Framework\Registry;
@@ -20,11 +20,11 @@ class Products extends AbstractHelper
         $this->class = end($this->class);
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
+        $this->csv = $this->_objectManager->create('DS\Importer\Helper\Csv');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
     
-        $this->helper = $this->_objectManager->create('DS\Hanza\Helper\Data');
+        $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
         $this->registry = $this->_objectManager->create('Magento\Framework\Registry');;
         
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DS\Hanza\Helper;
+namespace DS\Importer\Helper;
 
 use \Magento\Framework\App\Helper\AbstractHelper;
 
@@ -17,7 +17,7 @@ class Cache extends AbstractHelper
         $this->class = end($this->class);
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();    
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
 
     }
 

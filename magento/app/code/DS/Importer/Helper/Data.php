@@ -1,6 +1,6 @@
 <?php
 
-namespace DS\Hanza\Helper;
+namespace DS\Importer\Helper;
 
 use \Magento\Framework\App\Helper\AbstractHelper;
 
@@ -20,9 +20,9 @@ class Data extends AbstractHelper
         $this->class = end($this->class);
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-        $this->cache = $this->_objectManager->create('DS\Hanza\Helper\Cache');
-        $this->csv = $this->_objectManager->create('DS\Hanza\Helper\Csv');
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
+        $this->csv = $this->_objectManager->create('DS\Importer\Helper\Csv');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
         $this->_storeManager = $this->_objectManager->create('\Magento\Store\Model\StoreManagerInterface');
         
     }
@@ -216,10 +216,7 @@ class Data extends AbstractHelper
     
     
     public function resave_categories($disable=false){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
+
         
         if (!isset($this->_objectManager)){
             $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
