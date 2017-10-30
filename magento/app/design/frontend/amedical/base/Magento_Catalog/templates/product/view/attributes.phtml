@@ -25,7 +25,7 @@
                 <?php if (!empty($weight) && $weight>0.0): ?>
                     <tr>
                         <th class="col label" scope="row"><?php echo __('Weight') ?></th>
-                        <td class="col data" data-th="<?php echo __('Weight') ?>"><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getWeight(), 'weight') ?></td>
+                        <td class="col data" data-th="<?php echo __('Weight') ?>"><?= number_format($_product->getWeight(),2) ?> <?= __("kg"); ?></td>
                     </tr>
                 <?php endif; ?>
                 <?php foreach ($_additional as $_data): ?>
