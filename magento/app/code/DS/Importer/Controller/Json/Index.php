@@ -485,6 +485,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     private function sync_product($sku, $skip_if_no_price=false, $skip_if_no_image=false){
 
+        return false;
         $force = $this->force;
         $data=[];
         $data["status"]=false;
@@ -525,6 +526,7 @@ class Index extends \Magento\Framework\App\Action\Action
             $id = $this->helper->get_product_id_by_sku($sku);
             if (!$id){
                 //there is no product so we have to add the product
+
                 $result = $this->add_product($prod_data);
                 if ($result["status"]){
                     $image_import_result = $this->sync_product_img($sku,$force, false, $prod_data);
