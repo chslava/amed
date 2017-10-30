@@ -17,7 +17,7 @@ echo ""
 
 echo "Removes cache folders"
 echo "======================================"
-rm -R $DIR"/var/di" $DIR"/var/generation" $DIR"/pub/static/frontend"
+rm -R $DIR"/var/di" $DIR"/var/generation" $DIR"/pub/static/frontend" $DIR"/generated"
 echo ""
 
 echo "Cache clean"
