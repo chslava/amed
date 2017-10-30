@@ -24,13 +24,8 @@ class Store extends AbstractHelper
         
     }
     
-    
-    /*
-     *
-     * Some methods for returning constats or common settings used in several places
-     *
-     */
-    private function get_root_cat(){
+
+    public function get_root_cat(){
         //hardcoded at the moment
         //TODO make it read from settings
         return 2;
@@ -49,6 +44,12 @@ class Store extends AbstractHelper
     }
 
 
+    public function get_path_xml_import(){
+        //TODO make it read from settings
+        return $this->get_absolute_base_path()."WEB_EXCHANGE/pamata/import.xml";
+    }
+
+
     public function get_absolute_media_path() {
         /*    /** @var \Magento\Framework\App\ObjectManager $om */
         $om = \Magento\Framework\App\ObjectManager::getInstance();
@@ -58,26 +59,44 @@ class Store extends AbstractHelper
         $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
         return $reader->getAbsolutePath();
     }
+
+
+    public function get_absolute_base_path(){
+        /*    /** @var \Magento\Framework\App\ObjectManager $om */
+        $om = \Magento\Framework\App\ObjectManager::getInstance();
+        /** @var \Magento\Framework\Filesystem $filesystem */
+        $filesystem = $om->get('Magento\Framework\Filesystem');
+        /** @var \Magento\Framework\Filesystem\Directory\ReadInterface|\Magento\Framework\Filesystem\Directory\Read $reader */
+        $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::ROOT);
+        return $reader->getAbsolutePath();
+    }
+
+
+    public function get_absolute_var_path() {
+        /*    /** @var \Magento\Framework\App\ObjectManager $om */
+        $om = \Magento\Framework\App\ObjectManager::getInstance();
+        /** @var \Magento\Framework\Filesystem $filesystem */
+        $filesystem = $om->get('Magento\Framework\Filesystem');
+        /** @var \Magento\Framework\Filesystem\Directory\ReadInterface|\Magento\Framework\Filesystem\Directory\Read $reader */
+        $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::VAR);
+        return $reader->getAbsolutePath();
+    }
     
     
     public function get_absolute_image_path() {
-        return $this->get_absolute_media_path()."old_shop_data/pictures/items/big";
+        $image_path = $this->get_absolute_media_path()."import/image/source";
+        return $image_path;
     }
 
 
     public function get_cache_dir(){
-        $cache_dir = $this->get_absolute_media_path()."hanza_cache";
+        $cache_dir = $this->get_absolute_var_path()."import_cache";
         if (!file_exists($cache_dir)){
             mkdir($cache_dir,0755,true);
         }
         return $cache_dir;
     }
 
-
-    public function get_import_dir(){
-
-        return $this->get_absolute_media_path()."old_shop_data";
-    }
 
 
     public function get_image_import_dir(){
@@ -94,7 +113,7 @@ class Store extends AbstractHelper
     }
 
     public function get_image_destination_dir(){
-        $img_dst_dir= $this->get_cache_dir()."/images";
+        $img_dst_dir= $this->get_absolute_media_path()."import/image/source";
         if (!file_exists($img_dst_dir)){
             mkdir($img_dst_dir,0777,true);
         }
@@ -102,122 +121,10 @@ class Store extends AbstractHelper
     }
 
 
-    public function get_import_filename($file){
-
-        switch($file) {
-            
-
-            case 'products':
-                return $this->get_import_dir()."/items.csv";
-                break;
-
-            default:
-                return $this->get_import_dir()."/$file";
-                break;
-        }
-
-    }
-
-
-
      public function get_value_maping($type){
 
         switch($type){
-            case "persons":
-                
-                
-                
-                break;
-            case "branches.csv":
-                /*
-                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
-                name_ee 	varchar(255) 	YES 		NULL	
-                name_lv 	varchar(255) 	YES 		NULL	
-                name_lt 	varchar(255) 	YES 		NULL	
-                name_ru 	varchar(255) 	YES 		NULL	
-                name_en 	varchar(255) 	YES 		NULL	
-                */
-                 return [
-                        0=>"id",
-                        2=>"name_lv",
-                        4=>"name_ru",
-                        5=>"name_en",
-                        ];
-                break;
-            
-            
-             case "branches_items.csv":
-                /*
-                id 	int(10) unsigned 	NO 	PRI 	NULL	auto_increment
-                branche_id 	int(11) 	YES 		NULL	
-                item_id 	int(11) 	YES 		NULL	
-                place 	int(11) 	YES 		NULL	
-                group_type 	int(11) 	YES 		NULL	
-                category_id 	int(11) 	YES 		NULL	
-                */
-                 return [
-                        0=>"id",
-                        1=>"branche_id",
-                        2=>"item_id",
-                        3=>"place",
-                        4=>"group_type",
-                        5=>"category_id"
-                        
-                        ];
-                break;
-            case "categories.csv":
-                return [
-                        0=>"id",
-                        1=>"parent_id",
-                        5=>"title_lv",
-                        7=>"title_ru",
-                        8=>"title_en",
-                        10=>"description_lv",
-                        12=>"description_ru",
-                        13=>"description_en",
-                        
-                        30=>"link_lv",
-                        32=>"link_ru",
-                        33=>"link_en",
-                        
-                        40=>"text_lv",
-                        42=>"text_ru",
-                        43=>"text_en",
-                        2=>"status",
-                        43=>"person",
-                        25=>"name_lv",
-                        27=>"name_ru",
-                        28=>"name_en"
-                        
-                        ];
-                break;
-            case "items.csv":
-                return [
-                    0=>"sku",
-                    1=>"parent_id",
-                    44=>"branch",
-                    6=>"title",
-                    21=>"url",
-                    26=>"name",
-                    31=>"description",
-                    36=>"price",
-                    37=>"sale",
-                    38=>"sale_price",
-                    39=>"new",
-                    4=>"image",
-                    3=>"status",
-                    35=>"code",
-                    45=>"rate"
-                ];
-                break;
-            case "prices":
-                return [
-                    0=>"hvz",
-                    1=>"sku",
-                    2=>"price_group_id",
-                    4=>"price",
-                ];
-                break;
+
             default:
                 print(__FUNCTiON__);
                 print("-".__FILE__);
@@ -227,7 +134,6 @@ class Store extends AbstractHelper
                 break;
         }
     }
-
 
 
     function get_magento_stores(){
@@ -255,16 +161,6 @@ class Store extends AbstractHelper
         //$this->cache->set_cache_data(__FUNCTION__,$stores,$this->class);
         return $stores;
     }
-
-
-    /*
-     *
-     *  File caching functionality, that some some static data, should not be retrieved several times form
-     * magento database
-     *
-     *
-     */
-
         
     
     public function get_current_store_data(){
@@ -279,6 +175,7 @@ class Store extends AbstractHelper
                 "store_name"=>$store_name
                 ];
     }
+
     
     public function get_current_store_code(){
         $store_data = $this->get_current_store_data();
@@ -289,9 +186,8 @@ class Store extends AbstractHelper
     public function get_base_url(){
         return $this->_storeManager->getStore()->getBaseUrl();
     }
-    
-    
-    
+
+
     public function clear_cache(){
         
         try {
@@ -332,6 +228,7 @@ class Store extends AbstractHelper
         $phone = $scopeConfig->getValue('general/store_information/phone', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeManager->getStore()->getStoreId());
         return " ".$phone;
     }
+
     
     public function get_files_from_dir($dir,$path){
         $files_to_return=[];
@@ -353,7 +250,6 @@ class Store extends AbstractHelper
     
     public function get_store_id($code){
         $all_stores = $this->get_magento_stores();
-        $first_store_id;
         $i=0;
         foreach($all_stores as $c => $store){
             $i++;
@@ -364,8 +260,28 @@ class Store extends AbstractHelper
                 return $store['storeId'];
             }
         }
-
-        return $first_store_id;
-
     }
+
+
+    public function map_values($p,$type="product"){
+
+        $map = $this->get_value_maping($type);
+        $data_to_return = [];
+        $data_to_return['original_data'] = $p;
+        foreach($map as $k => $v){
+            if (isset($p[$k])){
+                $data_to_return[$v] = $p[$k];
+            } else {
+                $data_to_return[$v] = false;
+                error_log("bad key :(".__LINE__.")");
+            }
+        }
+        return $data_to_return;
+    }
+
+
+    public function get_default_language_code(){
+        return "lv";
+    }
+
 }

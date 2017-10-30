@@ -136,13 +136,13 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
                 $this->getAttribute($attributeCode)->getAttributeId(),
                 $option
             );
+            $this->cache->set_cache_data($attributeCode,false,$this->class);
 
             // Get the inserted ID. Should be returned from the installer, but it isn't.
             $optionId = $this->getOptionId($attributeCode, $label);
             
             return $optionId;
         } else {
-            //print("just return:");
             return $optionId;    
         }
     }
@@ -158,9 +158,7 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
     public function getOptionId($attributeCode, $label, $force = false)
     {
         /** @var \Magento\Catalog\Model\ResourceModel\Eav\Attribute $attribute */
-        
-        
-        
+
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $attribute = $this->_objectManager->create('\Magento\Catalog\Model\Product\Attribute\Repository');    
         $attribute = $attribute->get($attributeCode);
@@ -173,25 +171,41 @@ class Attributes extends \Magento\Framework\App\Helper\AbstractHelper
             }
         }
     }
-    
-    
-    public function get_attribute_options($attribute_code){
-    
-        $data_to_return = $this->cache->get_cache_data($attribute_code, $this->class, $this->ttl_hour);
+
+
+    public function get_attribute_option_id($attr_code,$admin_value){
+
+        $data_to_return = $this->cache->get_cache_data($attr_code."_".$admin_value, $this->class);
+
         if ($data_to_return){
             return $data_to_return;
         }
+
+        $all_options= $this->get_attribute_options($attr_code);
+
+        foreach($all_options as $option_id => $data){
+
+            if($admin_value==$data["label"]){
+                $this->cache->set_cache_data($attr_code."_".$admin_value,$option_id, $this->class);
+                return $option_id;
+            }
+        }
+        return false;
+    }
+    
+    
+    public function get_attribute_options($attribute_code){
+
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
+
         $attribute = $this->_objectManager->create('\Magento\Catalog\Model\Product\Attribute\Repository');    
-        $attribute = $attribute->get($attribute_code);
+        $attribute = $attribute->get($attribute_code)->setStoreId(0);
         $data_to_return= [];
         foreach ($attribute->getOptions() as $option) {
-            $db_id = $option->getId();
             $db_value = $option->getValue();
             $db_label = $option->getLabel();
-            $data_to_return[$db_value] = ['label'=>$db_label];    
+            $data_to_return[$db_value] = ['label'=>$db_label];
         }
-        $this->cache->set_cache_data($attribute_code,$data_to_return, $this->class);
         return $data_to_return;
     }
     

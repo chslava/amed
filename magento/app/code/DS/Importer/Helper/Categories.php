@@ -17,6 +17,7 @@ class Categories extends AbstractHelper
         
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
         
     }
     
@@ -43,7 +44,7 @@ class Categories extends AbstractHelper
     }
 
     
-    public function add_category($name,$description, $parent_id=null,$csv_category){      
+    public function add($name, $parent_id=null,$attributes){
         if (!isset($this->_objectManager)){
             $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
         }
@@ -59,7 +60,10 @@ class Categories extends AbstractHelper
         }
         
         $category->setIsActive(true);
-        $category->setCustomAttributes(['description' => $description,"hanza_category"=>$csv_category['id']]);
+        if (is_array($attributes)){
+            $category->setCustomAttributes($attributes);
+        }
+
         
         try {
             $this->_objectManager->get('\Magento\Catalog\Api\CategoryRepositoryInterface')->save($category);
@@ -146,129 +150,6 @@ class Categories extends AbstractHelper
     }
     
     
-    public function get_all_old_categories(){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
-        $cats_to_return = [];
-        if ($cats_to_return=$this->helper->get_cache_data(__FUNCTION__)){
-            return $cats_to_return;
-        }
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        
-        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
-            $categories = $categoryFactory->create()                              
-                ->addAttributeToSelect('*');
-                //->setStore($store["storeId"]); //categories from current store will be fetched
-            
-        foreach ($categories as $category){
-            $data=[
-                    "id"=>$category->getId(),
-                    "name"=>$category->getName(),
-                    "old_shop_cat_id"=>$category->getData("hanza_category"),
-                    "parent_id"=>$category->getParentId(),
-                    "position"=>$category->getPosition(),
-                    "data"=>$category->getData()
-                    ];
-            $cats_to_return[$category->getId()] = $data;
-        }
-
-        $this->helper->set_cache_data(__FUNCTION__,$cats_to_return);
-
-        return $cats_to_return;
-    }
-    
-    private function get_categoties_linked_to_hanza(){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
-        $cats_to_return = [];
-        if ($cats_to_return=$this->helper->get_cache_data(__FUNCTION__)){
-            return $cats_to_return;
-        }
-        
-        if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
-        }
-        
-        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
-            $categories = $categoryFactory->create()                              
-                ->addAttributeToSelect('*');
-                //->setStore($store["storeId"]); //categories from current store will be fetched
-            
-        foreach ($categories as $category){
-            if (strlen($category->getData("hanza_category"))==0){
-                continue;
-            }
-            $cats_to_return[$category->getId()] = $this->get_hanza_ids_for_magento_cat($category->getId());
-        }
-
-        $this->helper->set_cache_data(__FUNCTION__,$cats_to_return);
-
-        return $cats_to_return;
-    }
-
-
-    public function get_magento_categories($data){
-        /*
-         *
-         * This function cobines the cat ids, to create unique id, that used in magento
-         * To link categories, thats needed cause hanza can have second level categories id several times
-         * (the first level differs)
-         *
-         *
-         */
-        
-        return [$this->store->get_root_cat()];
-
-        //values comes in as comma seperated
-        $lvl1 = $data['class_lvl_1'];
-        $lvl1 = explode(",",$lvl1);
-        $lvl2 = $data['class_lvl_2'];
-        $lvl2 = explode(",",$lvl2);
-        $lvl3 = $data['class_lvl_3'];
-        $lvl3 = explode(",",$lvl3);
-
-        $all_ids = array();
-        //lopping tough first level
-        foreach($lvl1 as $l1){
-
-            $all_ids[] = $l1;
-            //attachig firs level to second level
-            foreach($lvl2 as $l2){
-                if (strlen(trim($l2))>0) {
-                    $all_ids[] = $l1."-".$l2;
-                }
-            }
-
-            //attachig firs level to third level
-            foreach($lvl3 as $l3){
-                if (strlen(trim($l3))>0){
-                    $all_ids[] = $l1."-".$l3;
-                }
-            }
-        }
-
-        $categories = [];
-        $magento_cats =$this->get_categoties_linked_to_hanza();
-        foreach($magento_cats as $magento_cat_id => $m_cat_arr){
-            foreach($all_ids as $hanza_cat_id){
-                if (in_array($hanza_cat_id,$m_cat_arr)){
-                    $categories[] = $magento_cat_id;
-                }
-            }
-        }
-        $categories = array_unique($categories);
-        return $categories;
-        
-    }
-    
-    
     public function resave_categories($disable=false){
         /*
          * function gets all categories from root category and rerranges them by the hanza id
@@ -311,30 +192,51 @@ class Categories extends AbstractHelper
         }          
         return $data;
     }
-    
-    
-    public function get_images($prod_id){
 
-        //return array of filenames of the product by product id
-        // used mostly for comparing the exisitng images  and already imported images
-        // to see if there is new files
-        // comparing only count not the files
+
+    public function get_all_magento_categories(){
+        /*
+         * function gets all categories from root category and rerranges them by the hanza id
+         * one hanza cat can be linked to several categories
+         */
+        $cats_to_return = [];
+        //if ($cats_to_return=$this->cache->get_cache_data(__FUNCTION__)){
+        //    return $cats_to_return;
+        //}
+
         if (!isset($this->_objectManager)){
-            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();    
+            $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         }
-        
-        $files =[];
-        $p = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($prod_id);
-        // could be that there is no such product.
-        if ($p){
-            $existingMediaGalleryEntries = $p->getMediaGalleryEntries();
-            //could be that there is no images
-            if ($existingMediaGalleryEntries){
-                foreach($existingMediaGalleryEntries as $entry){
-                    $files[] = $entry['file'];
-                }        
+
+        $categoryFactory = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+        $categories = $categoryFactory->create()
+            ->addAttributeToSelect('*');
+        //->setStore($store["storeId"]); //categories from current store will be fetched
+
+        $cats_to_return = [];
+        $cats_to_return["magento_cats"] = [];
+        $cats_to_return["cats"] = [];
+        foreach ($categories as $category){
+            $cats_to_return["magento_cats"][$category->getId()] = [];
+            foreach($g_sex as $sid){
+                foreach($g_type as $tid){
+                    $cats_to_return["magento_cats"][$category->getId()][]=[
+                        'sex'=>$sid,
+                        'type_id'=>$tid
+                    ];
+
+                    if (!isset($cats_to_return["cats"][$tid] )){
+                        $cats_to_return["cats"][$tid] = [];
+                    }
+                    $cats_to_return["cats"][$tid][$sid] = $category->getId();
+                }
             }
-        }   
-        return $files;
+
+        }
+
+        $this->cache->set_cache_data(__FUNCTION__,$cats_to_return);
+
+        return $cats_to_return;
     }
+
 }
