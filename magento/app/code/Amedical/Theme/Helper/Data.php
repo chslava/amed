@@ -61,7 +61,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->class = end($this->class);
 
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
-        $this->store = $this->_objectManager->create('DS\Hanza\Helper\Store');
+        $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
 
         parent::__construct($context);
         
