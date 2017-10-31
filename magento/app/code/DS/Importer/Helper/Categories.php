@@ -6,7 +6,8 @@ class Categories extends AbstractHelper
     
     
     private $class ="";
-    private $_objectManager;
+    private $_objectManager = null;
+    private $_h_cache = null;
 
     
     public function __construct(\Magento\Framework\App\Helper\Context $context)
@@ -18,6 +19,7 @@ class Categories extends AbstractHelper
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
         $this->store = $this->_objectManager->create('DS\Importer\Helper\Store');
+
         
     }
     
@@ -128,25 +130,93 @@ class Categories extends AbstractHelper
         $cats_by_name = [];
         $cats_by_shop_id=[];
         
-        foreach ($categories as $category){
-            $cat_name=$category->getName();
+        foreach ($categories as $c){
+            $cat_name=$c->getName();
             if (strlen($cat_name)==0){
                 $cat_name="-root-";
             }
-            $cat_id = trim($category->getData("hanza_category"));
+            $cat_id = trim($c->getData("hanza_category"));
             if (!is_numeric($cat_id)){
                 $cat_id=0;
             }
-            $cats_by_name[$category->getId()] = $cat_name;
-            $cats_by_shop_id[$category->getId()] =$cat_id;
+            $cats_by_name[$c->getId()] = $cat_name;
+            $cats_by_shop_id[$c->getId()] =$cat_id;
+            $cats_tree[$c->getId()] = ["name"=>$c->getName(),"parent_id"=>$c->getparentId()];
         }
         
-        $cats_to_return=[$cats_by_name, $cats_by_shop_id];
+        $cats_to_return=[$cats_by_name, $cats_by_shop_id,$cats_tree];
         
         //$this->set_cache_data(__FUNCTION__,$cats_to_return);
         
 
         return $cats_to_return;    
+    }
+
+
+    public function get_parent_cats($cat_id, $categories){
+        $parent_id = $categories[$cat_id]["parent_id"];
+        if ($parent_id==0){
+            return ["id"=>$cat_id,"name"=>$categories[$cat_id]["name"]];
+        } else {
+            return ["id"=>$cat_id,"name"=>$categories[$cat_id]["name"],'parents'=>$this->get_parent_cats($parent_id,$categories)];
+        }
+    }
+
+
+    public function get_category_tree_names($cat_ids){
+
+        $tree = $this->get_category_tree($cat_ids);
+
+        $name_tree=[];
+        $ids_tree=[];
+        foreach($tree as $branch){
+            $cat_name_tree = [];
+            $cat_ids_tree = [];
+            while(is_array($branch)){
+                if ($branch["id"]!=$this->store->get_root_cat()){
+                    $cat_name_tree[] =$branch["name"];
+                    $cat_ids_tree[] = $branch["id"];
+                }
+                if($branch["id"]!=$this->store->get_root_cat() && isset($branch["parents"]) && is_array($branch["parents"])){
+                    $branch = $branch["parents"];
+                } else {
+                    $branch = null;
+                }
+            }
+            $name_tree[] = array_reverse($cat_name_tree);
+            $ids_tree[] = array_reverse($cat_ids_tree);
+        }
+
+        $return_longest =[];
+        $last_item_count=0;
+        foreach($name_tree as $key => $item) {
+            if ($last_item_count<count($item)) {
+                $last_item_count = count($item);
+                $return_longest = ["names"=>$item,"ids"=>$ids_tree[$key]];
+            }
+        }
+        return $return_longest;
+    }
+
+
+    public function get_category_tree($cat_ids){
+        $all_cats = $this->get_all_categories();
+        $all_cats = $all_cats[2];
+
+        $cat_tree = [];
+
+        foreach($cat_ids as $in_cat){
+
+            $cat_tree[] = $this->get_parent_cats($in_cat,$all_cats);
+
+            if (count($cat_tree)>1){
+                print("<pre>");
+                print_r($cat_tree);
+                print("<pre>");
+                die();
+            }
+        }
+        return $cat_tree;
     }
     
     
@@ -237,6 +307,16 @@ class Categories extends AbstractHelper
         $this->cache->set_cache_data(__FUNCTION__,$cats_to_return);
 
         return $cats_to_return;
+    }
+
+
+    public function get_url($cat_id,$store_code="lv"){
+
+        $this->_h_cat = $this->_objectManager->create('\Magento\Catalog\Helper\Category');
+        $this->_cat_model = $this->_objectManager->create('\Magento\Catalog\Model\CategoryRepository');
+        $c= $this->_cat_model->get($cat_id);
+        return $this->_h_cat->getCategoryUrl($c);
+
     }
 
 }
