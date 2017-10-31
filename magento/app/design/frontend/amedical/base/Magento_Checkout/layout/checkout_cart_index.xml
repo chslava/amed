@@ -18,10 +18,10 @@
                 </argument>
             </action>
             <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Shoppint Cart</argument>
+                <argument name="crumbName" xsi:type="string">Shopping Cart</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Shoppint Cart</item>
-                    <item name="label" xsi:type="string">Shoppint Cart</item>
+                    <item name="title" xsi:type="string">Shopping Cart</item>
+                    <item name="label" xsi:type="string">Shopping Cart</item>
                 </argument>
             </action>
         </referenceBlock>
