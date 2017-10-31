@@ -14,16 +14,16 @@
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">home</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Home</item>
-                    <item name="label" xsi:type="string">Home</item>
+                    <item name="title" xsi:type="string">Sākums</item>
+                    <item name="label" xsi:type="string">Sākums</item>
                     <item name="link" xsi:type="string">/</item>
                 </argument>
             </action>
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">create-new-account</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Create New Customer Account</item>
-                    <item name="label" xsi:type="string">Create New Customer Account</item>
+                    <item name="title" xsi:type="string">Reģistrēties</item>
+                    <item name="label" xsi:type="string">Reģistrēties</item>
                 </argument>
             </action>
         </referenceBlock>
