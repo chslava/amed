@@ -53,9 +53,9 @@ echo ""
 
 echo "Deploy"
 echo "======================================"
-$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base ru_RU
-$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base lv_LV
-$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base en_US
+$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base ru_RU -f
+$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base lv_LV -f
+$PHP_PATH $MAGENTO_PATH setup:static-content:deploy --theme=amedical/base en_US -f
 echo ""
 
 echo "Disable maintenance mode"
