@@ -28,23 +28,23 @@ class Index extends \Magento\Framework\App\Action\Action
     
     public function execute()
     {
-        $url = $this->helper->get_base_url()."hanza/importer/names"; ?>
+        $url = $this->helper->get_base_url()."importer/update/names"; ?>
         <a href="<?= $url ?>">Update product names</a><br/>
         
-        <?php $url = $this->helper->get_base_url()."hanza/importer/mediaattributes"; ?>
+        <?php $url = $this->helper->get_base_url()."importer/update/mediaattributes"; ?>
         <a href="<?= $url ?>">Update Media attributes</a><br/>
         <!--
-        <?php $url = $this->helper->get_base_url()."hanza/importer/removenoimagesproducts"; ?>
+        <?php $url = $this->helper->get_base_url()."importer/update/removenoimagesproducts"; ?>
         <a href="<?= $url ?>">Remove products that has no images</a><br/>
         
-        <?php $url = $this->helper->get_base_url()."hanza/importer/disableremovedproducts"; ?>
+        <?php $url = $this->helper->get_base_url()."importer/update/disableremovedproducts"; ?>
         <a href="<?= $url ?>">Disable products that ar not in hanza anymore</a><br/>
         -->
 
-        <?php $url = $this->helper->get_base_url()."hanza/importer/productpricesupdate"; ?>
+        <?php $url = $this->helper->get_base_url()."importer/update/productpricesupdate"; ?>
         <a href="<?= $url ?>">Product prices update</a><br/>
 
-        <?php $url = $this->helper->get_base_url()."hanza/importer/names"; ?>
+        <?php $url = $this->helper->get_base_url()."importer/update/names"; ?>
         <a href="<?= $url ?>">Product names update</a><br/>
 
         

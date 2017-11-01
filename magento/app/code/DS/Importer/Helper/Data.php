@@ -319,10 +319,6 @@ class Data extends AbstractHelper
 
 
      public function list_categories($disable=false){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
 
         if (!isset($this->_objectManager)){
             $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -365,10 +361,6 @@ class Data extends AbstractHelper
 
 
     public function resave_categories($disable=false){
-        /*
-         * function gets all categories from root category and rerranges them by the hanza id
-         * one hanza cat can be linked to several categories
-         */
 
         if (!isset($this->_objectManager)){
             $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();

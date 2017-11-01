@@ -32,9 +32,9 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
         if (isset($_GET["clear_cache"])){
             $this->cache->clear_cache_data("image_stores_set");
             if ($verbose){
-                $url = $this->helper->get_base_url()."hanza/importer/mediaattributes?verbose";
+                $url = $this->helper->get_base_url()."importer/update/mediaattributes?verbose";
             } else {
-                $url = $this->helper->get_base_url()."hanza/importer/mediaattributes";
+                $url = $this->helper->get_base_url()."importer/update/mediaattributes";
             }
 
             header("Location: $url");
@@ -145,7 +145,7 @@ class Mediaattributes extends \Magento\Framework\App\Action\Action
         }
         if (($counter==$counter_skipped || ($counter_cached/$counter)>0.7) && $verbose){
 
-            $url = $this->helper->get_base_url()."hanza/importer/mediaattributes?clear_cache";
+            $url = $this->helper->get_base_url()."importer/update/mediaattributes?clear_cache";
             ?>
             <a href="<?= $url ?>">Looks, like script already had done its job. Click on this link to redo.</a><br/>
             <?php
