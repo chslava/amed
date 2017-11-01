@@ -1155,7 +1155,7 @@ Sales,Pārdošana,module,Magento_CheckoutAgreements
 "Invalid method: %1","Neatļauta metode: %1",module,Magento_Checkout
 City,Pilsēta,module,Magento_Checkout
 Country,Valsts,module,Magento_Checkout
-State/Province,Štats/Province,module,Magento_Checkout
+State/Province,Novads,module,Magento_Checkout
 "Zip/Postal Code","Pasta indekss",module,Magento_Checkout
 "My Cart (1 item)","Mans grozs (1 prece)",module,Magento_Checkout
 "My Cart (%1 items)","Mans grozs (%1 preces)",module,Magento_Checkout
@@ -1477,7 +1477,7 @@ Address,Adrese,module,Magento_Customer
 "Street Address",Adrese,module,Magento_Customer
 "VAT Number","PVN numurs",module,Magento_Customer
 City,Pilsēta,module,Magento_Customer
-State/Province,Štats/Province,module,Magento_Customer
+State/Province,Novads,module,Magento_Customer
 "Please select a region, state or province.","Izvēlieties reģionu, štatu vai novadu.",module,Magento_Customer
 "Zip/Postal Code","Pasta indekss",module,Magento_Customer
 Country,Valsts,module,Magento_Customer
@@ -1503,7 +1503,7 @@ Name,Vārds,module,Magento_Customer
 Height,Augstums,module,Magento_Dhl
 Width,Platums,module,Magento_Dhl
 None,Neviens,module,Magento_Dhl
-State/Province,Štats/Province,module,Magento_Directory
+State/Province,Novads,module,Magento_Directory
 "--Please Select--","--Lūdzu izvēlieties--",module,Magento_Directory
 lbs,mārciņas,module,Magento_Directory
 kgs,kilogrami,module,Magento_Directory
@@ -2107,7 +2107,7 @@ Country,Valsts,module,Magento_Sales
 Email,E-pasts,module,Magento_Sales
 "First Name",Vārds,module,Magento_Sales
 "Last Name",Uzvārds,module,Magento_Sales
-State/Province,Štats/Province,module,Magento_Sales
+State/Province,Novads,module,Magento_Sales
 "Street Address",Adrese,module,Magento_Sales
 "New Orders","Jauni pasūtījumi",module,Magento_Sales
 Processing,Darbojas,module,Magento_Sales
