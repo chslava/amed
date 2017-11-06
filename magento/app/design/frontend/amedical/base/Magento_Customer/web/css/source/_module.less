@@ -177,6 +177,18 @@
         .legend {
             &:extend(.abs-account-title all);
         }
+
+        .block-collapsible-nav {
+            .item {
+                border-top: 1px solid @account-title-border-color;
+
+                &.current > strong {
+                    color: @amedical-brand-color;
+                    border-left-color: transparent;
+
+                }
+            }
+        }
     }
 
     .account,
