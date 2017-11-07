@@ -24,6 +24,7 @@
 & when (@media-common = true) {
     .customer-account-index,
     .customer-account-login,
+    .customer-address-form,
     .customer-account-forgotpassword,
     .customer-account-create {
         .page-title {
@@ -185,6 +186,12 @@
 
         .sidebar-additional {
             margin-top: @indent__xl;
+
+            .block-compare {
+                .block-title > strong {
+                    font-weight: @font-weight__bold;
+                }
+            }
         }
 
         .table-wrapper {
@@ -200,7 +207,8 @@
             &:extend(.abs-account-title all);
         }
 
-        .block-collapsible-nav {
+        .block-collapsible-nav,
+        .account-nav {
             &.content {
                 padding-top: 0;
             }
@@ -209,10 +217,12 @@
                 border-top: 1px solid @account-title-border-color;
                 padding: 13px 0;
 
-                &.current > strong {
-                    color: @amedical-brand-color;
-                    border-left-color: transparent;
-
+                &.current{
+                    > strong,
+                    > a {
+                        color: @amedical-brand-color;
+                        border-left-color: transparent;
+                    }
                 }
 
                 a {
@@ -409,6 +419,7 @@
     .customer-account-index,
     .customer-account-login,
     .customer-account-forgotpassword,
+    .customer-address-form,
     .customer-account-create {
 
         .page-main {
@@ -426,6 +437,7 @@
     .customer-account-index,
     .customer-account-login,
     .customer-account-forgotpassword,
+    .customer-address-form,
     .customer-account-create {
         .page-title {
             &:before {
