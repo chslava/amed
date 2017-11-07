@@ -22,6 +22,7 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
+    .customer-account-index,
     .customer-account-login,
     .customer-account-forgotpassword,
     .customer-account-create {
@@ -158,6 +159,27 @@
 
             .block:not(.widget) {
                 &:extend(.abs-account-blocks all);
+
+                .block-title {
+                    border-top: 1px solid @account-title-border-color;
+                    border-bottom: none;
+                    padding-bottom: 0;
+                    padding-top: @indent__s;
+
+                    > strong{
+                        font-weight: @font-weight__bold;
+                    }
+                }
+
+                &.block-dashboard-info {
+                    .block-title {
+                        margin-bottom: 0;
+                    }
+
+                    .box-title > span {
+                        .lib-font-size(22);
+                    }
+                }
             }
         }
 
@@ -179,13 +201,22 @@
         }
 
         .block-collapsible-nav {
+            &.content {
+                padding-top: 0;
+            }
+
             .item {
                 border-top: 1px solid @account-title-border-color;
+                padding: 13px 0;
 
                 &.current > strong {
                     color: @amedical-brand-color;
                     border-left-color: transparent;
 
+                }
+
+                a {
+                    .lib-font-size(15);
                 }
             }
         }
@@ -254,7 +285,7 @@
         }
 
         .box-actions {
-            margin-top: @indent__xs;
+            margin-top: 20px;
 
             .action {
                 &:extend(.abs-account-actions all);
@@ -374,11 +405,25 @@
     }
 }
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .customer-account-index,
+    .customer-account-login,
+    .customer-account-forgotpassword,
+    .customer-account-create {
+
+        .page-main {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+    }
+}
+
 //
 //  Desktop
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .customer-account-index,
     .customer-account-login,
     .customer-account-forgotpassword,
     .customer-account-create {
@@ -461,11 +506,11 @@
     .account.page-layout-2columns-left {
         .sidebar-main,
         .sidebar-additional {
-            width: 22.3%;
+            width: 24.5%;
         }
 
         .column.main {
-            width: 77.7%;
+            width: 69.5%;
         }
     }
 
@@ -478,9 +523,12 @@
             .block:not(.widget) {
                 .block-content {
                     &:extend(.abs-add-clearfix-desktop all);
+                    overflow: hidden;
 
                     .box {
                         &:extend(.abs-blocks-2columns all);
+                        width: 50%;
+                        float: left;
                     }
                 }
             }
