@@ -1,3 +1,4 @@
+<?php if (!$block->customerLoggedIn()): ?>
 <div class="authentication-top" >
     <span data-bind="i18n: 'Have an account?'"></span>
     <button
@@ -7,3 +8,4 @@
         <span data-bind="i18n: 'Sign In'"></span>
     </button>
 </div>
+<?php endif;?>

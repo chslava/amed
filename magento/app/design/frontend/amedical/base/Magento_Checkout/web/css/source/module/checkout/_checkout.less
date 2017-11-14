@@ -27,8 +27,7 @@
 
 & when (@media-common = true) {
 
-    .checkout-index-index,
-    .checkout-onepage-success {
+    .checkout-index-index {
         .page-title-wrapper {
             &:extend(.abs-visually-hidden all);
         }
@@ -70,6 +69,47 @@
         .modal-header {
             .action-close {
                 display: none;
+            }
+        }
+    }
+
+    .checkout-onepage-success {
+        &,
+        .page-title-wrapper,
+        .actions-toolbar {
+            text-align: center;
+        }
+
+        .page-title {
+            .lib-title-top-label();
+            margin-left: 0;
+            margin-top: 32px;
+
+            &:before {
+                top: -20px;
+                left: 50%;
+                margin-left: -@title_top_label-width / 2;
+            }
+        }
+
+        .main {
+            .checkout-success {
+                .order-number {
+                    font-size: 1.5em;
+                }
+            }
+
+            .primary,
+            .checkout-success .primary {
+                float: none;
+
+                &.action {
+                    width: 240px;
+                    height: 50px;
+                    line-height: 35px;
+                    margin-right: 0;
+                    margin-top: 25px;
+                }
             }
         }
     }

@@ -40,7 +40,7 @@
                                                                                 <item name="template" xsi:type="string">Amedical_Theme/checkout/group_switcher</item>
                                                                                 <item name="defaultGroup" xsi:type="string">4</item>
                                                                                 <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
-                                                                                <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .bank-name-field, .bank-account-field</item>
+                                                                                <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .bank-name-field, .bank-account-field, div[name='shippingAddress.company']</item>
                                                                                 <item name="slideUpValue" xsi:type="string">1</item>
                                                                             </item>
                                                                         </item>
@@ -111,7 +111,7 @@
             </arguments>
         </referenceBlock>
         <referenceContainer name="checkout.header.wrapper">
-            <block class="Magento\Framework\View\Element\Template" name="authentication.top" after="-" template="Magento_Checkout::onepage/authentication_toplink.phtml"/>
+            <block class="Magento\Customer\Block\Account\Customer" name="authentication.top" after="-" template="Magento_Checkout::onepage/authentication_toplink.phtml"/>
         </referenceContainer>
     </body>
 </page>
