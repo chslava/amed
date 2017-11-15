@@ -42,5 +42,6 @@
             </block>
         </referenceContainer>
         <move element="page.main.title" destination="content.top" before="-"/>
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
     </body>
 </page>

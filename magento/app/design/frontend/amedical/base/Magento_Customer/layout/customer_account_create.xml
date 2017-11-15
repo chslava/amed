@@ -40,7 +40,7 @@
                                     <item name="config" xsi:type="array">
                                         <item name="template" xsi:type="string">Amedical_Theme/customer/group_switcher</item>
                                         <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
-                                        <item name="slideUpSelector" xsi:type="string">.field.position-occupation</item>
+                                        <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .field.taxvat</item>
                                         <item name="slideUpValue" xsi:type="string">1</item>
                                     </item>
                                 </item>

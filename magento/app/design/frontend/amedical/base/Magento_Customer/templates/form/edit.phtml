@@ -19,13 +19,13 @@ $legal_group_id = $this->helper('Amedical\Theme\Helper\Data')->getConfig('amedic
             <div class="field company-name">
                 <label for="company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
                 <div class="control">
-                    <input type="text" name="company_name" id="company_name" value="<?php echo $block->escapeHtml($customer->getCustomAttribute('company_name')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
+                    <input type="text" name="company_name" id="company_name" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company_name')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
                 </div>
             </div>
             <div class="field company-registration-number">
                 <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Registration number') ?></span></label>
                 <div class="control">
-                    <input type="text" name="company_registration_number" id="company_registration_number" value="<?php echo $block->escapeHtml($customer->getCustomAttribute('company_registration_number')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
+                    <input type="text" name="company_registration_number" id="company_registration_number" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company_registration_number')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
                 </div>
             </div>
         <?php endif; ?>
