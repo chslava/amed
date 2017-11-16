@@ -111,6 +111,11 @@
             .price-box {
                 margin: @indent__s 0 @indent__m;
                 float: right;
+                line-height: 1.4rem;
+                min-height: 35px;
+                .lib-vendor-prefix-display(flex);
+                .lib-vendor-prefix-flex-direction(column);
+                justify-content: center;
                 
                 .price {
                     color: @amedical-text_color;
@@ -125,11 +130,22 @@
                 }
             }
 
+            .special-price {
+                .price{
+                    color: @amedical-brand-color;
+                }
+            }
+
             .old-price {
                 margin: @indent__xs 0;
+                text-decoration: line-through;
                 
                 .price {
                     font-weight: normal;
+                }
+
+                .price-label {
+                    &:extend(.abs-visually-hidden all);
                 }
             }
 
@@ -296,6 +312,7 @@
             .price-box {
                 margin: 28px 0 0 0;
                 float: left;
+                line-height: 1.4rem;
 
                 .price {
                     font-weight: 400;
@@ -444,6 +461,12 @@
             }
         }
     }
+
+    .product {
+        .price-box {
+            margin: 0;
+        }
+    }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
@@ -470,7 +493,7 @@
         .product-item {
             .price-box {
                 position: absolute;
-                bottom: 10px;
+                bottom: 15px;
                 right: 15px;
                 margin: 0;
             }
@@ -748,7 +771,7 @@
                 }
 
                 .price-box {
-                    bottom: 22px;
+                    bottom: 10px;
                 }
             }
         }
