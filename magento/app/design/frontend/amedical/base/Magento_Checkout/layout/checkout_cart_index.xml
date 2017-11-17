@@ -8,20 +8,20 @@
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="breadcrumbs">
+        <referenceBlock name="breadcrumbs" translate="crumbInfo.label crumbInfo.title">
             <action method="addCrumb" >
                 <argument name="crumbName" xsi:type="string">home</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Sākums</item>
-                    <item name="label" xsi:type="string">Sākums</item>
+                    <item name="title" translate="true" xsi:type="string">Home</item>
+                    <item name="label" translate="true" xsi:type="string">Home</item>
                     <item name="link" xsi:type="string">/</item>
                 </argument>
             </action>
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">Shopping Cart</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Pirkumu grozs</item>
-                    <item name="label" xsi:type="string">Pirkumu grozs</item>
+                    <item name="title" translate="true" xsi:type="string">Shopping Cart</item>
+                    <item name="label" translate="true" xsi:type="string">Shopping Cart</item>
                 </argument>
             </action>
         </referenceBlock>

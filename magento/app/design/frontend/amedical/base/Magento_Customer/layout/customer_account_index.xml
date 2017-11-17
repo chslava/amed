@@ -12,16 +12,16 @@
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">home</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Sākums</item>
-                    <item name="label" xsi:type="string">Sākums</item>
+                    <item name="title" translate="true" xsi:type="string">Home</item>
+                    <item name="label" translate="true" xsi:type="string">Home</item>
                     <item name="link" xsi:type="string">/</item>
                 </argument>
             </action>
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">account</argument>
                 <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Account</item>
-                    <item name="label" xsi:type="string">Account</item>
+                    <item name="title" translate="true" xsi:type="string">Account</item>
+                    <item name="label" translate="true" xsi:type="string">Account</item>
                 </argument>
             </action>
         </referenceBlock>
