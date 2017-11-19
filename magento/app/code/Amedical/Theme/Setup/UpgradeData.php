@@ -211,6 +211,41 @@ class UpgradeData implements UpgradeDataInterface
             $this->addColumnsMass($tableNames, $columns, $setup->getConnection());
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.5') < 0) {
+
+            /** @var CustomerSetup $customerSetup */
+            $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
+
+            $attributesInfo = [
+                'company' => [
+                    'label' => 'Company',
+                    'type' => 'varchar',
+                    'input' => 'text',
+                    'position' => 1040,
+                    'visible' => true,
+                    'required' => false,
+                    'system' => 0,
+                    'user_defined' => true,
+                ]
+            ];
+            $customerEntity = $customerSetup->getEavConfig()->getEntityType('customer');
+            $attributeSetId = $customerEntity->getDefaultAttributeSetId();
+            /** @var $attributeSet AttributeSet */
+            $attributeSet = $this->attributeSetFactory->create();
+            $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
+            foreach ($attributesInfo as $attributeCode => $attributeParams) {
+                $customerSetup->addAttribute(Customer::ENTITY, $attributeCode, $attributeParams);
+
+                $attribute = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, $attributeCode);
+                $attribute->addData([
+                    'attribute_set_id' => $attributeSetId,
+                    'attribute_group_id' => $attributeGroupId,
+                    'used_in_forms' => ['adminhtml_customer', 'adminhtml_checkout', 'customer_account_edit', 'customer_account_create', 'checkout_register'],
+                ]);
+                $attribute->save();
+            }
+        }
+
         $setup->endSetup();
     }
 

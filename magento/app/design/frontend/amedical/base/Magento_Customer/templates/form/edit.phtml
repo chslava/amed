@@ -15,30 +15,31 @@ $legal_group_id = $this->helper('Amedical\Theme\Helper\Data')->getConfig('amedic
     <fieldset class="fieldset info">
         <?php echo $block->getBlockHtml('formkey')?>
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Account Information') ?></span></legend><br>
+        <?php echo $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($customer)->toHtml() ?>
         <?php if($customer->getGroupId() === $legal_group_id): ?>
             <div class="field company-name">
-                <label for="company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
+                <label for="company" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
                 <div class="control">
-                    <input type="text" name="company_name" id="company_name" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company_name')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
+                    <input type="text" name="company" id="company" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
                 </div>
             </div>
             <div class="field company-registration-number">
-                <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Registration number') ?></span></label>
+                <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Position Occupation') ?></span></label>
                 <div class="control">
-                    <input type="text" name="company_registration_number" id="company_registration_number" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company_registration_number')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
+                    <input type="text" name="position_occupation" id="position_occupation" value="<?php echo $block->escapeHtml($customer->getCustomAttribute('position_occupation')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
                 </div>
             </div>
+            <?php $_taxvat = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Taxvat') ?>
+            <?php if ($_taxvat->isEnabled()): ?>
+                <?php echo $_taxvat->setTaxvat($customer->getTaxvat())->toHtml() ?>
+            <?php endif ?>
         <?php endif; ?>
-        <?php echo $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($customer)->toHtml() ?>
 
         <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
-        <?php $_taxvat = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Taxvat') ?>
+
         <?php $_gender = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Gender') ?>
         <?php if ($_dob->isEnabled()): ?>
             <?php echo $_dob->setDate($customer->getDob())->toHtml() ?>
-        <?php endif ?>
-        <?php if ($_taxvat->isEnabled()): ?>
-            <?php echo $_taxvat->setTaxvat($customer->getTaxvat())->toHtml() ?>
         <?php endif ?>
         <?php if ($_gender->isEnabled()): ?>
             <?php echo $_gender->setGender($customer->getGender())->toHtml() ?>
