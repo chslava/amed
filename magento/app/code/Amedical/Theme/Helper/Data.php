@@ -98,4 +98,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
+
+    public function getCustomerCustomAttributeValue(\Magento\Customer\Api\Data\CustomerInterface $customer, $attributeCode) {
+        $attribute = $customer->getCustomAttribute($attributeCode);
+        return $attribute ? $attribute->getValue() : "";
+    }
 }

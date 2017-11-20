@@ -9,7 +9,8 @@
 /** @var \Magento\Customer\Block\Form\Edit $block */
 
 $customer = $block->getCustomer();
-$legal_group_id = $this->helper('Amedical\Theme\Helper\Data')->getConfig('amedical_theme/configuration/customer_legal_group_id');
+$helper = $this->helper('Amedical\Theme\Helper\Data');
+$legal_group_id = $helper->getConfig('amedical_theme/configuration/customer_legal_group_id');
 ?>
 <form class="form form-edit-account" action="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/account/editPost') ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" autocomplete="off">
     <fieldset class="fieldset info">
@@ -20,13 +21,13 @@ $legal_group_id = $this->helper('Amedical\Theme\Helper\Data')->getConfig('amedic
             <div class="field company-name">
                 <label for="company" class="label"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
                 <div class="control">
-                    <input type="text" name="company" id="company" value="<?php //echo $block->escapeHtml($customer->getCustomAttribute('company')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
+                    <input type="text" name="company" id="company" value="<?php echo $block->escapeHtml($helper->getCustomerCustomAttributeValue($customer,'company')) ?>" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" class="input-text">
                 </div>
             </div>
             <div class="field company-registration-number">
                 <label for="company_registration_number" class="label"><span><?php /* @escapeNotVerified */ echo __('Position Occupation') ?></span></label>
                 <div class="control">
-                    <input type="text" name="position_occupation" id="position_occupation" value="<?php echo $block->escapeHtml($customer->getCustomAttribute('position_occupation')->getValue()) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
+                    <input type="text" name="position_occupation" id="position_occupation" value="<?php echo $block->escapeHtml($helper->getCustomerCustomAttributeValue($customer,'position_occupation')) ?>" title="<?php /* @escapeNotVerified */ echo __('Registration number') ?>" class="input-text">
                 </div>
             </div>
             <?php $_taxvat = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Taxvat') ?>

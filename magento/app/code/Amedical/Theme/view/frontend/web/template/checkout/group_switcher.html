@@ -2,10 +2,16 @@
     <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
     <span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i>Legal person</span>
     <span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i>Private person</span>
-    <div class="field position-occupation">
-        <label for="position-occupation" class="label"><span data-bind="i18n: 'Position Occupation'" ></span></label>
+    <div class="field company">
+        <label for="company" class="label"><span data-bind="i18n: 'Company'"  data-role="title" ></span></label>
         <div class="control">
-            <input type="text" name="position_occupation" id="position-occupation" data-bind="i18n: 'Position Occupation'" data-role="title" value="" class="input-text">
+            <input type="text" name="company" id="company" data-bind="event: {change: companyHasChanged}" value="" class="input-text">
+        </div>
+    </div>
+    <div class="field position-occupation">
+        <label for="position-occupation" class="label"><span data-bind="i18n: 'Position Occupation'"  data-role="title" ></span></label>
+        <div class="control">
+            <input type="text" name="position_occupation" id="position-occupation" data-bind="event: {change: positionOccupationHasChanged}" value="" class="input-text">
         </div>
     </div>
 </div>

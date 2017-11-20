@@ -74,6 +74,9 @@ class LayoutProcessor
                 $billingFields = $paymentLayout[$componentNode]['children'][$paymentMethodCode . '-form']['children']['form-fields']['children'];
 
                 $billingPostcodeFields = $this->getFields('billingAddressshared' . '.custom_attributes', 'billing');
+                if(isset($billingFields['company'])) {
+                    $billingFields['company']['visible'] = false; // Hide 'company' field in billing address
+                }
 
                 $billingFields = array_replace_recursive($billingFields, $billingPostcodeFields);
 

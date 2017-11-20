@@ -34,13 +34,13 @@
                                                                         <!-- additional register form fields -->
                                                                         <item name="group-switcher" xsi:type="array">
                                                                             <item name="sortOrder" xsi:type="string">2</item>
-                                                                            <item name="component" xsi:type="string">Amedical_Theme/js/view/customer/group_switcher</item>
+                                                                            <item name="component" xsi:type="string">Amedical_Theme/js/view/checkout/group_switcher</item>
                                                                             <item name="displayArea" xsi:type="string">additional-register-form-fields</item>
                                                                             <item name="config" xsi:type="array">
                                                                                 <item name="template" xsi:type="string">Amedical_Theme/checkout/group_switcher</item>
                                                                                 <item name="defaultGroup" xsi:type="string">4</item>
                                                                                 <item name="toggleSelector" xsi:type="string">.group-switcher .group</item>
-                                                                                <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .bank-name-field, .bank-account-field, div[name='shippingAddress.company']</item>
+                                                                                <item name="slideUpSelector" xsi:type="string">.field.position-occupation, .bank-name-field, .bank-account-field, .field.company</item>
                                                                                 <item name="slideUpValue" xsi:type="string">1</item>
                                                                             </item>
                                                                         </item>
@@ -56,6 +56,9 @@
                                                                             <item name="description" xsi:type="string" translate="true">VAT ID.</item>
                                                                         </item>
                                                                     </item>
+                                                                </item>
+                                                                <item name="company" xsi:type="array">
+                                                                    <item name="visible" xsi:type="boolean">false</item>
                                                                 </item>
                                                             </item>
                                                         </item>
