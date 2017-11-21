@@ -27,6 +27,10 @@ console.log(quote);
                     });
                 }
 
+                if (quote['extension_attributes']['company'] !== undefined) {
+                    billingAddress['company'] = quote['extension_attributes']['company'];
+                }
+
             }
 
             return originalAction(messageContainer);

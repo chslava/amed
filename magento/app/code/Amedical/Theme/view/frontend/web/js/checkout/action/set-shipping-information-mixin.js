@@ -27,6 +27,10 @@ define([
                 });
             }
 
+            if (quote['extension_attributes']['company'] !== undefined) {
+                shippingAddress['company'] = quote['extension_attributes']['company'];
+            }
+
             return originalAction(messageContainer);
         });
     };
