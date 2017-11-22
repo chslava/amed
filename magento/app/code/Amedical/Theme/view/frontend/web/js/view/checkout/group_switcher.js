@@ -14,16 +14,11 @@ define([
             company: "",
             positionOccupation: ""
         },
+
         initialize: function () {
             //initialize parent Component
             this._super();
             this.group = ko.observable(this.defaultGroup);
-
-            if (quote['extension_attributes'] === undefined) {
-                quote['extension_attributes'] = {};
-            }
-
-            quote['extension_attributes']['customerGroup'] = this.group();
         },
 
         switchGroup: function(c, event) {
@@ -41,17 +36,25 @@ define([
                 }
             }
 
-            quote['extension_attributes']['customerGroup'] = this.group();
+            this.assignCustomAttributes('customer_group_id', this.group());
         },
 
         companyHasChanged: function (c, event) {
             this.company = event.target.value;
-            quote['extension_attributes']['company'] = this.company;
+            this.assignCustomAttributes('customer_company', this.company);
         },
 
         positionOccupationHasChanged: function (c, event) {
             this.positionOccupation = event.target.value;
-            quote['extension_attributes']['positionOccupation'] = this.positionOccupation;
+            this.assignCustomAttributes('customer_position_occupation', this.positionOccupation);
+        },
+
+        assignCustomAttributes: function(key, value) {
+            if(quote['custom_data'] === undefined) {
+                quote['custom_data'] = {};
+            }
+
+            quote['custom_data'][key] = value;
         }
     });
 });
