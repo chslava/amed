@@ -27,8 +27,17 @@ console.log(quote);
                     });
                 }
 
-                if (quote['extension_attributes']['company'] !== undefined) {
-                    billingAddress['company'] = quote['extension_attributes']['company'];
+                if(quote.custom_data !== undefined) {
+                    $.each(quote.custom_data , function( key, value ) {
+
+                        if($.isPlainObject(value)){
+                            value = value['value'];
+                        }
+
+                        billingAddress['customAttributes'][key] = value;
+                        billingAddress['extension_attributes'][key] = value;
+
+                    });
                 }
 
             }

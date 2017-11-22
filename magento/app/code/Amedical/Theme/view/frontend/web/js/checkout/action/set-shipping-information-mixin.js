@@ -27,8 +27,17 @@ define([
                 });
             }
 
-            if (quote['extension_attributes']['company'] !== undefined) {
-                shippingAddress['company'] = quote['extension_attributes']['company'];
+            if(quote.custom_data !== undefined) {
+                $.each(quote.custom_data , function( key, value ) {
+
+                    if($.isPlainObject(value)){
+                        value = value['value'];
+                    }
+
+                    shippingAddress['customAttributes'][key] = value;
+                    shippingAddress['extension_attributes'][key] = value;
+
+                });
             }
 
             return originalAction(messageContainer);
