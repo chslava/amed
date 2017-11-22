@@ -31,3 +31,6 @@ shop/config.php
 /nginx.conf
 /wp-content/cache/*
 /wp-content/advanced-cache.php
+
+/magento/pub/media/*
+/magento/generated/*
