@@ -32,5 +32,6 @@ shop/config.php
 /wp-content/cache/*
 /wp-content/advanced-cache.php
 
-/magento/pub/media/old_shop_data/*
-/magento/pub/media/hanza_cache/*
+/magento/pub/media/*
+/magento/generated/*
+
