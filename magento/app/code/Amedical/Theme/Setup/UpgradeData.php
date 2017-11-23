@@ -246,6 +246,65 @@ class UpgradeData implements UpgradeDataInterface
             }
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.6') < 0) {
+            $connection = $setup->getConnection();
+//            $connection->changeColumn(
+//                'sales_order',
+//                'customer_group',
+//                'customer_group_assign',
+//                [
+//                    'type' => Table::TYPE_INTEGER,
+//                    'nullable' => true,
+//                    'default' => null,
+//                    'comment' => 'Assign to Customer Group ID',
+//                ]
+//            );
+//
+//            $connection->changeColumn(
+//                'quote',
+//                'customer_group',
+//                'customer_group_assign',
+//                [
+//                    'type' => Table::TYPE_INTEGER,
+//                    'nullable' => true,
+//                    'default' => null,
+//                    'comment' => 'Assign to Customer Group ID',
+//                ]
+//            );
+//
+//            $connection->changeColumn(
+//                'sales_order',
+//                'position_occupation',
+//                'customer_position_occupation',
+//                [
+//                    'type' => Table::TYPE_TEXT,
+//                    'nullable' => true,
+//                    'default' => null,
+//                    'length' => 255,
+//                    'comment' => 'Customer Position Occupation',
+//                ]
+//            );
+//
+//            $connection->changeColumn(
+//                'quote',
+//                'position_occupation',
+//                'customer_position_occupation',
+//                [
+//                    'type' => Table::TYPE_TEXT,
+//                    'nullable' => true,
+//                    'default' => null,
+//                    'length' => 255,
+//                    'comment' => 'Customer Position Occupation',
+//                ]
+//            );
+//
+//            $connection->dropColumn('customer_address_entity', 'bank_name');
+//            $connection->dropColumn('customer_address_entity', 'bank_account');
+
+            $connection->dropColumn('quote', 'customer_position_occupation');
+            $connection->dropColumn('quote', 'customer_group_assign');
+        }
+
         $setup->endSetup();
     }
 

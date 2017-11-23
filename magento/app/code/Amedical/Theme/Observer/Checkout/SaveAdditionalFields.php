@@ -41,6 +41,12 @@ class SaveAdditionalFields implements ObserverInterface
         $quoteBillingAddress = $quoteInstance->getBillingAddress();
         $orderShippingAddress = $orderInstance->getShippingAddress();
         $orderBillingAddress = $orderInstance->getBillingAddress();
+
+        $quoteExtAttributes = $quoteInstance->getExtensionAttributes();
+        if (!empty($quoteExtAttributes)) {
+            $orderInstance->setCustomerGroupAssign($quoteExtAttributes->getCustomerGroupAssign());
+            $orderInstance->setCustomerPositionOccupation($quoteExtAttributes->getCustomerPositionOccupation());
+        }
         if ($orderShippingAddress !== null && $quoteShippingAddress !== null) {
             $orderShippingAddress->addData([
                 'bank_name' => $quoteShippingAddress->getData('bank_name'),

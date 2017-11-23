@@ -19,6 +19,7 @@ define([
             //initialize parent Component
             this._super();
             this.group = ko.observable(this.defaultGroup);
+            this.assignCustomAttributes('customer_group_assign', this.defaultGroup);
         },
 
         switchGroup: function(c, event) {
@@ -36,7 +37,7 @@ define([
                 }
             }
 
-            this.assignCustomAttributes('customer_group_id', this.group());
+            this.assignCustomAttributes('customer_group_assign', this.group());
         },
 
         companyHasChanged: function (c, event) {

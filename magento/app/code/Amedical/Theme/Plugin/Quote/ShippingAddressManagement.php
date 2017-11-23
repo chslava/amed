@@ -37,9 +37,8 @@ class ShippingAddressManagement
                 $address->setBankAccount($extAttributes->getBankAccount());
                 $address->setCompany($extAttributes->getCustomerCompany());
 
-                $quote->setCustomerGroupAssign($extAttributes->getCustomerGroupAssign());
-                $quote->setCustomerCompany($extAttributes->getCustomerCompany());
-                $quote->setCustomerPositionOccupation($extAttributes->getCustomerPositionOccupation());
+                $quote->getExtensionAttributes()->setCustomerGroupAssign($extAttributes->getCustomerGroupAssign());
+                $quote->getExtensionAttributes()->setCustomerPositionOccupation($extAttributes->getCustomerPositionOccupation());
             } catch (\Exception $e) {
                 $this->logger->critical($e->getMessage());
             }

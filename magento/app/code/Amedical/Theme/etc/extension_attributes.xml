@@ -8,4 +8,8 @@
         <attribute code="customer_company" type="string" />
         <attribute code="customer_position_occupation" type="string" />
     </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="customer_group_assign" type="string" />
+        <attribute code="customer_position_occupation" type="string" />
+    </extension_attributes>
 </config>
