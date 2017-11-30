@@ -33,3 +33,6 @@ shop/config.php
 /wp-content/advanced-cache.php
 
 !/shop/include/favicon.ico
+
+magento/genereted/*
+magento/generated/
