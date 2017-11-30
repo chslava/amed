@@ -25,7 +25,7 @@ atlassian*
 /.grunt
 
 /pub/media/*.*
-/pub/media/logo/*
+
 !/pub/media/.htaccess
 /pub/media/catalog/*
 !/pub/media/catalog/.htaccess
@@ -53,3 +53,12 @@ atlassian*
 cache_clean.bash
 
 *.log
+
+!/pub/media/wysiwyg/logo
+
+/pub/media/wysiwyg/
+
+/pub/media/hanza_cache/*
+/pub/media/old_shop_data/*
+/pub/media/import_cache/*
+/genereted/*
