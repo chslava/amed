@@ -32,6 +32,7 @@ shop/config.php
 /wp-content/cache/*
 /wp-content/advanced-cache.php
 
-/magento/pub/media/*
-/magento/generated/*
+magento/genereted/*
+magento/generated/
 
+!/shop/include/favicon.ico
