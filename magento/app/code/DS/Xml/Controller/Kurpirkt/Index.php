@@ -23,7 +23,7 @@ class Index extends \Magento\Framework\App\Action\Action
         $this->_h_categories = $this->_objectManager->create('\DS\Importer\Helper\Categories');
         $this->_h_cache = $this->_objectManager->create('DS\Importer\Helper\Cache');
 
-
+        $this->store = $this->_objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore();
 
 
         parent::__construct($context);
@@ -53,43 +53,55 @@ class Index extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $xml_data = $this->_h_cache->get_cache_data("kurpirkt","xml",24 * 3600);
+
         if ($xml_data && false){
             print($xml_data);
             die();
         }
 
+
+
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
         $collection = $productCollection->create()
             ->addAttributeToSelect('*')
+            ->addAttributeToFilter('status',\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED)
             ->load();
 
         $items="";
 
         foreach ($collection as $product) {
 
+            $category_id=null;
+            $category_name=null;
+
             $category_tree = $this->_h_categories->get_category_tree_names($product->getCategoryIds());
-            $category_tree_names = $category_tree["names"];
-            $category_tree_names = implode(" &gt; ",$category_tree_names);
-            $category_name = end($category_tree["names"]);
-            $category_id = end($category_tree["ids"]);
+
+            if (isset($category_tree["names"])){
+                $category_tree_names = $category_tree["names"];
+                $category_tree_names = implode(" &gt; ",$category_tree_names);
+                $category_name = end($category_tree["names"]);
+                $category_id = end($category_tree["ids"]);
+            } else {
+                $category_tree_names = "";
+            }
+
             $price = $product->getFinalPrice();
             if ($price<0.01){
                 continue;
             }
 
             if ($product->getImage()){
-                $image_url= $this->_h_image->create()->init($product, 'image')->getUrl();
+                $image_url = $this->store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $product->getImage();
                 if (substr_count($image_url,"placeholder")){
                     $image_url="";
                 }
             }
-            $category_link=$this->_h_categories->get_url($category_id);
-            $product_link=$this->_h_categories->get_url($category_id);
 
-            if (!empty($image_url)){
-                print_r($image_url);
-                die();
+            if ($category_id){
+                $category_link=$this->_h_categories->get_url($category_id);
             }
+
+            $product_link=$product->getProductUrl();
 
             $item_xml = $this->get_xml_template();
             $item_xml = str_replace("[name]",$product->getName(),$item_xml);
