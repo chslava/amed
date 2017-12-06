@@ -1,6 +1,5 @@
 <?php
 
-
 namespace DS\XML\Controller\Kurpirkt;
 
 use Magento\Framework\App\Action\Context;
@@ -14,7 +13,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory)
     {
-
+        set_time_limit(120);
 
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
@@ -54,7 +53,7 @@ class Index extends \Magento\Framework\App\Action\Action
     {
         $xml_data = $this->_h_cache->get_cache_data("kurpirkt","xml",24 * 3600);
 
-        if ($xml_data && false){
+        if ($xml_data){
             print($xml_data);
             die();
         }
@@ -63,7 +62,9 @@ class Index extends \Magento\Framework\App\Action\Action
 
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
         $collection = $productCollection->create()
+            ->setStoreId(1)
             ->addAttributeToSelect('*')
+            ->addAttributeToFilter('type_id', \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE)
             ->addAttributeToFilter('status',\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED)
             ->load();
 
@@ -86,9 +87,14 @@ class Index extends \Magento\Framework\App\Action\Action
             }
 
             $price = $product->getFinalPrice();
+
             if ($price<0.01){
-                continue;
+                $price=0;
+            } else {
+                $price = (float) $product->getPriceInfo()->getPrice('final_price')->getAmount()->getValue();
             }
+            $price = number_format($price,2);
+
 
             if ($product->getImage()){
                 $image_url = $this->store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $product->getImage();
