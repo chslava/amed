@@ -36,9 +36,11 @@ class Checkcategoryvisibility extends \Magento\Framework\App\Action\Action
             //categories from current store will be fetched
             foreach($categories as $cat){
                 $c = $this->_objectManager->create('Magento\Catalog\Model\Category')->setStoreId(1)->load($cat->getId());
-                if (!$c->getData("include_in_menu")){
+                if (!$c->getData("include_in_menu") || !$c->getData("is_active")){
                     print("include in menu:");
                     var_dump($c->getData("include_in_menu"));
+                    print("enable:");
+                    var_dump($c->getData("is_active"));
 
 
 
