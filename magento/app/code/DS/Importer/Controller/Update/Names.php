@@ -17,7 +17,7 @@ class Names extends \Magento\Framework\App\Action\Action
 
     public function __construct(Context $context)
     {
-
+        die("disabled");
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 
         $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');

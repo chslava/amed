@@ -17,6 +17,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory, \Magento\Store\Model\StoreManagerInterface $storeManager)
     {
+        die("disabled");
         $this->_storeManager = $storeManager;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
         $this->helper = $this->_objectManager->create('DS\Importer\Helper\Data');
