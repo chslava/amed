@@ -18,7 +18,10 @@ var config = {
             },
             'Magento_Checkout/js/action/create-billing-address': {
                 'Amedical_Theme/js/checkout/action/set-billing-address-mixin': true
-            }
+            },
+            'Magento_Checkout/js/model/place-order': {
+                'Amedical_Theme/js/checkout/action/place-order-mixin': true
+            },
         }
     }
 };

@@ -10,4 +10,5 @@
         <plugin disabled="false" name="amedical_theme_plugin_quote_customer_address_update" sortOrder="1" type="Amedical\Theme\Plugin\Quote\AddressUpdate"/>
     </type>
     <preference for="Magento\Customer\Model\Data\Address" type="Amedical\Theme\Model\Customer\Data\Address"/>
+    <preference for="Amedical\Theme\Api\GuestPaymentInformationManagementInterface" type="Amedical\Theme\Model\Checkout\GuestPaymentInformationManagement" />
 </config>

@@ -51,11 +51,11 @@ define([
         },
 
         assignCustomAttributes: function(key, value) {
-            if(quote['custom_data'] === undefined) {
-                quote['custom_data'] = {};
+            if(quote['custom_attributes'] === undefined) {
+                quote['custom_attributes'] = {};
             }
 
-            quote['custom_data'][key] = value;
+            quote['custom_attributes'][key] = value;
         }
     });
 });
