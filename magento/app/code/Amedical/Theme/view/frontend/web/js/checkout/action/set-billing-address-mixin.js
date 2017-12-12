@@ -27,19 +27,10 @@ console.log(quote);
                     });
                 }
 
-                if(quote.custom_data !== undefined) {
-                    $.each(quote.custom_data , function( key, value ) {
-
-                        if($.isPlainObject(value)){
-                            value = value['value'];
-                        }
-
-                        billingAddress['customAttributes'][key] = value;
-                        billingAddress['extension_attributes'][key] = value;
-
-                    });
+                if(quote.custom_attributes !== undefined && quote.custom_attributes['customer_company'] !== undefined) {
+                    billingAddress['customAttributes']['customer_company'] = quote.custom_attributes['customer_company'];
+                    billingAddress['extension_attributes']['customer_company'] = quote.custom_attributes['customer_company'];
                 }
-
             }
 
             return originalAction(messageContainer);

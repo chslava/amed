@@ -27,17 +27,9 @@ define([
                 });
             }
 
-            if(quote.custom_data !== undefined) {
-                $.each(quote.custom_data , function( key, value ) {
-
-                    if($.isPlainObject(value)){
-                        value = value['value'];
-                    }
-
-                    shippingAddress['customAttributes'][key] = value;
-                    shippingAddress['extension_attributes'][key] = value;
-
-                });
+            if(quote.custom_attributes !== undefined && quote.custom_attributes['customer_company'] !== undefined) {
+                shippingAddress['customAttributes']['customer_company'] = quote.custom_attributes['customer_company'];
+                shippingAddress['extension_attributes']['customer_company'] = quote.custom_attributes['customer_company'];
             }
 
             return originalAction(messageContainer);
