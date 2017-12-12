@@ -31,8 +31,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory)
     {
-
-
+        die("disabled");
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager=\Magento\Framework\App\ObjectManager::getInstance();
 

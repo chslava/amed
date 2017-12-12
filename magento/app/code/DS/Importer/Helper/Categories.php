@@ -206,15 +206,7 @@ class Categories extends AbstractHelper
         $cat_tree = [];
 
         foreach($cat_ids as $in_cat){
-
             $cat_tree[] = $this->get_parent_cats($in_cat,$all_cats);
-
-            if (count($cat_tree)>1){
-                print("<pre>");
-                print_r($cat_tree);
-                print("<pre>");
-                die();
-            }
         }
         return $cat_tree;
     }
