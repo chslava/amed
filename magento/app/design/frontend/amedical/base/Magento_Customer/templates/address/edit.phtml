@@ -13,6 +13,8 @@
  *
  * @var $block \Magento\Customer\Block\Address\Edit
  */
+$address = $block->getAddress();
+$helper = $this->helper('Amedical\Theme\Helper\Data');
 ?>
 <?php $_fax = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Fax') ?>
 <form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
@@ -28,18 +30,20 @@
                 <input type="text" name="company" id="company" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getCompany()) ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
             </div>
         </div>
+        <?php if($block->getCustomer()->getGroupId() === $helper->getConfig('amedical_theme/configuration/customer_legal_group_id')): ?>
         <div class="field bank-name">
             <label class="label" for="bank_name"><span><?php /* @escapeNotVerified */ echo __('Bank Name') ?></span></label>
             <div class="control">
-                <input type="text" name="bank_name" id="bank-name" title="<?php /* @escapeNotVerified */ echo __('Bank Name') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getBankName()) ?>" class="input-text">
+                <input type="text" name="bank_name" id="bank-name" title="<?php /* @escapeNotVerified */ echo __('Bank Name') ?>" value="<?php echo $block->escapeHtml($address->getCustomAttribute('bank_account') ? $address->getCustomAttribute('bank_name')->getValue() : '') ?>" class="input-text">
             </div>
         </div>
         <div class="field bank-account">
             <label class="label" for="bank_account"><span><?php /* @escapeNotVerified */ echo __('Bank Account') ?></span></label>
             <div class="control">
-                <input type="text" name="bank_account" id="bank-account" title="<?php /* @escapeNotVerified */ echo __('Bank Account') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getBankAccount()) ?>" class="input-text">
+                <input type="text" name="bank_account" id="bank-account" title="<?php /* @escapeNotVerified */ echo __('Bank Account') ?>" value="<?php echo $block->escapeHtml($address->getCustomAttribute('bank_account') ? $address->getCustomAttribute('bank_account')->getValue() : '') ?>" class="input-text">
             </div>
         </div>
+        <?php endif; ?>
         <div class="field telephone required">
             <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone Number') ?></span></label>
             <div class="control">
