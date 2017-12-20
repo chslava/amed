@@ -38,6 +38,10 @@
         <?php echo $block->getChildHtml('form_bottom'); ?>
     </form>
 </div>
+<?php
+    $price_format =json_decode($block->getJsonConfig());
+    $price_format->priceFormat->groupLength = 6;
+?>
 <script>
     require([
         'jquery',
@@ -51,6 +55,6 @@
             return !$(elem).find('.price-from').length;
         });
 
-        priceBoxes.priceBox({'priceConfig': <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>});
+        priceBoxes.priceBox({'priceConfig': <?php /* @escapeNotVerified */ echo json_encode($price_format); ?>});
     });
 </script>
