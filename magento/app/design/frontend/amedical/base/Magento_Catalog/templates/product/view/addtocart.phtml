@@ -17,7 +17,7 @@ $productUrl = $_themeHelper->get_current_url();
 $productName = $_product->getName();
 $productSku= $_product->getSku();
 $productId= $_product->getId();
-$contactUrl = $contactUrl."?pid=".$productId."&sku=".$productSku."&pname=".$productName."&url=".urlencode($productUrl)."#gform_fields_1";
+$contactUrl = $contactUrl."?pid=".$productId."&sku=".$productSku."&pname=".$productName."&url=".urlencode($productUrl)."#contact-form";
 $price = $_product->getPrice();
 if ($price<0.01){
     $price = 0;
