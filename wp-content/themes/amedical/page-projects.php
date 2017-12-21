@@ -60,7 +60,7 @@ get_header();
                             <?php the_field("cta_block_tagline"); ?>
                         </h3>
                         <p>
-                            <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>?<?php print(sanitize_title($page_title)); ?>">
+                            <a class="ui basic fluid button" href="<?php the_field("cta_block_link"); ?>?<?php print(sanitize_title($page_title)); ?>#contact-form">
                                 <?php the_field("cta_block_button"); ?>
                             </a>
                         </p>
