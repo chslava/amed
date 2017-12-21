@@ -35,7 +35,7 @@ get_header();
                             <p>
                                 <a class="ui basic fluid button"
                                    id="service-cta-button"
-                                   href="<?php the_field("service_cta_button_link"); ?>#contact-form">
+                                   href="<?php the_field("service_cta_button_link"); ?>">
                                     <?php the_field("service_cta_button_text"); ?>
                                 </a>
                             </p>
