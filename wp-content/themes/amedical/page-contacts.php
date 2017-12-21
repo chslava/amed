@@ -134,7 +134,7 @@ add_filter('wpseo_breadcrumb_single_link', 'timersys_remove_links', 10, 2);
 
 </main>
 <div id='hidden-info'><span class='map-info'><?php echo the_field('map_info_window', 'option'); ?><span></div>
-<section class="contact-form">
+<section class="contact-form" id="contact-form">
     <div class="ui container">
         <div class="ui grid">
             <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
