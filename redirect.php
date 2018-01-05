@@ -5,9 +5,7 @@ $redirect_map = array(
     // Navigation
     'lv/kontakti'               => 'http://www.amedical.eu/par-mums/kontakti',
     'kontakti'                  => 'http://www.amedical.eu/par-mums/kontakti',
-    'lv/par-mums/jaunumi'       => 'http://www.amedical.eu/',
-    'par-mums/jaunumi'          => 'http://www.amedical.eu/',
-    'jaunumi'                   => 'http://www.amedical.eu/',
+
 
 
     'lv/par-mums/par-mums'      => 'http://amedical.eu/par-mums/',
