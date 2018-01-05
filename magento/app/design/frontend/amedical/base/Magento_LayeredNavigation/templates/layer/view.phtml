@@ -30,22 +30,29 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                     <?php if (!$wrapOptions): ?>
                         <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
                     <?php  $wrapOptions = true; endif; ?>
-                    <?php if ($filter instanceof Category):?>
+                    <?php if ($filter instanceof Category): ?>
+                        <?php
+
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                        $cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
+                        $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
+
+
+                        $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+
+
+                        if (!$currentCat){
+                        continue;
+                        }
+
+                        ?>
 
                         <div class="filter-options-item categories">
                             <div class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
                             <div class="filter-options-content" id="categories-list-filter-desktop">
                                 <?php
 
-                                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-                                $cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
-                                $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
 
-
-                                $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
-
-
-                                //print($currentId);
                                 $categoryObj = $categoryRepository->get($currentCat->getId());
                                 $subcategories = $categoryObj->getChildrenCategories();
 
