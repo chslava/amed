@@ -31,12 +31,143 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                         <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
                     <?php  $wrapOptions = true; endif; ?>
                     <?php if ($filter instanceof Category):?>
+
                         <div class="filter-options-item categories">
                             <div class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
                             <div class="filter-options-content" id="categories-list-filter-desktop">
-                                <?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?>
+                                <?php
+
+                                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                $cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
+                                $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
+
+
+                                $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+
+
+                                //print($currentId);
+                                $categoryObj = $categoryRepository->get($currentCat->getId());
+                                $subcategories = $categoryObj->getChildrenCategories();
+
+                                $subCatReorder = [];
+                                foreach($subcategories as $cat){
+                                    if (!isset($subCatReorder[$cat->getPosition()]))
+                                    {
+                                        $subCatReorder[$cat->getPosition()] = [];
+                                    }
+                                    $subCatReorder[$cat->getPosition()][$cat->getName()] = $cat;
+                                }
+                                $subcategories = [];
+                                foreach($subCatReorder as $catPositions){
+                                    sort($catPositions);
+                                    foreach($catPositions as $cat){
+                                        $subcategories[] = $cat;
+                                    }
+                                }
+
+                                ?>
+                                <ol class="items sidebar-magemenu">
+                                   <?php foreach($subcategories as $cat): ?>
+                                       <?php
+                                       $cateinstance = $objectManager->create('Magento\Catalog\Model\CategoryFactory');
+                                       $allcategoryproduct = $cateinstance->create()
+                                           ->load($cat->getId())
+                                           ->getProductCollection()
+                                           ->addAttributeToSelect('*');
+                                       if ($allcategoryproduct->count()<1){
+                                           //skpiing category if prods 0
+                                           continue;
+                                       }
+                                       ?>
+                                       <li class="item">
+                                           <?php $c = $categoryRepository->get($cat->getId()); ?>
+                                           <a class="attribute-name" href="<?= $cat_helper->getCategoryUrl($c); ?>">
+                                            <?= $cat->getName() ?>
+                                               <span class="count">
+
+                                                   <?= $allcategoryproduct->count(); ?>
+                                               </span>
+                                           </a>
+                                           <?php $subcats = $cat->getChildrenCategories() ?>
+                                           <?php if ($subcats->count()>0): ?>
+
+                                               <?php
+
+                                               $subCatReorder = [];
+                                               foreach($subcats as $scat){
+                                                   if (!isset($subCatReorder[$scat->getPosition()]))
+                                                   {
+                                                       $subCatReorder[$scat->getPosition()] = [];
+                                                   }
+                                                   $subCatReorder[$scat->getPosition()][$scat->getName()] = $scat;
+                                               }
+                                               $subcats = [];
+                                               foreach($subCatReorder as $catPositions){
+                                                   sort($catPositions);
+                                                   foreach($catPositions as $scat){
+                                                       $subcats[] = $scat;
+                                                   }
+                                               }
+                                               ?>
+                                           <ul class="sidebar-magemenu-submenu">
+                                               <li class="item search-item">
+                                                   <?php
+                                                   /**
+                                                    * Copyright © Magento, Inc. All rights reserved.
+                                                    * See COPYING.txt for license details.
+                                                    */
+
+                                                   // @codingStandardsIgnoreFile
+                                                   ?>
+                                                   <?php
+                                                   /** @var $block \Magento\Framework\View\Element\Template */
+                                                   /** @var $helper \Magento\Search\Helper\Data */
+                                                   $helper = $this->helper('Magento\Search\Helper\Data');
+                                                   ?>
+
+                                                           <form class="form minisearch" id="search_mini_form" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get">
+                                                               <div class="field search">
+                                                                   <div class="control">
+                                                                       <input id="search"
+                                                                              data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?= /* @escapeNotVerified */ $block->getUrl('search/ajax/suggest', ['_secure' => $block->getRequest()->isSecure()]) ?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                                                                              type="text"
+                                                                              name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                                                                              value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                                                                              placeholder="<?= /* @escapeNotVerified */ __('Search entire store here...') ?>"
+                                                                              class="input-text"
+                                                                              maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+                                                                              role="combobox"
+                                                                              aria-haspopup="false"
+                                                                              aria-autocomplete="both"
+                                                                              autocomplete="off"/>
+                                                                       <div id="search_autocomplete" class="search-autocomplete"></div>
+                                                                       <?= $block->getChildHtml() ?>
+                                                                   </div>
+                                                               </div>
+                                                           </form>
+
+                                               </li>
+                                                <?php foreach($subcats as $scat): ?>
+                                                    <?php $c = $categoryRepository->get($scat->getId()); ?>
+                                                   <li class="item">
+                                                       <a class="attribute-name" href="<?= $cat_helper->getCategoryUrl($c); ?>">
+                                                           <?= $scat->getName(); ?>
+                                                           <i class="long arrow right icon"></i>
+                                                       </a>
+                                                   </li>
+                                                <?php endforeach; ?>
+                                           </ul>
+                                           <?php endif; ?>
+                                       </li>
+                                    <?php endforeach; ?>
+                                </ol>
                             </div>
                         </div>
+
                     <?php else: ?>
                         <?php if (!$filterHeader): ?>
                             <div class="filter-options-title attributes-title"><span><?php echo __('Filter') ?></span>
