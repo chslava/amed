@@ -1,0 +1,87 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_cp = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+if ($_cp){
+
+    $cat_tree = null;
+
+    $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
+    $_h_cat = $objectManager->create('\Magento\Catalog\Helper\Category');
+    $_cat_model = $objectManager->create('\Magento\Catalog\Model\CategoryRepository');
+
+    $categoryIds = $_cp->getCategoryIds();
+    $catId = array_shift($categoryIds);
+
+    $c=$_cat_model->get($catId);
+
+    $cat_tree = [];
+    $cat_tree[] = [
+        "id" => $c->getId(),
+        "name"=>$c->getName(),
+        "url"=>$_h_cat->getCategoryUrl($c)
+    ];
+
+    while ($c->getParentId() && $c->getParentId()!=2){
+
+        $c=$_cat_model->get($c->getParentId());
+        array_unshift($cat_tree,[
+            "id" => $c->getId(),
+            "name"=>$c->getName(),
+            "url"=>$_h_cat->getCategoryUrl($c)
+        ]);
+
+    }
+
+    $new_crumbs = [];
+    $cats_added = false;
+    foreach($crumbs as $name => $crumb){
+        if ($name=="home"){
+            $new_crumbs[$name] = $crumb;
+        }
+        if (substr_count($name,"category")){
+            if (!$cats_added){
+                $cats_added = true;
+                foreach($cat_tree as $c){
+                    $new_crumbs["category".$c["id"]] = [
+                        "label" => $c["name"],
+                        "link" =>  $c["url"],
+                        "title" => $c["name"],
+                        "first" => false,
+                        "last" => false,
+                        "readonly" => false
+                    ];
+                }
+            }
+        }
+        if ($name=="product"){
+            $new_crumbs[$name] = $crumb;
+        }
+    }
+    $crumbs = $new_crumbs;
+}
+
+?>
+<?php if ($crumbs && is_array($crumbs)) : ?>
+<div class="breadcrumbs">
+    <ul class="items">
+        <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+            <li class="item <?= /* @escapeNotVerified */ $crumbName ?>">
+            <?php if ($crumbInfo['link']) : ?>
+                <a href="<?= /* @escapeNotVerified */ $crumbInfo['link'] ?>" title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+            <?php elseif ($crumbInfo['last']) : ?>
+                <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+            <?php else: ?>
+                <?= $block->escapeHtml($crumbInfo['label']) ?>
+            <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
