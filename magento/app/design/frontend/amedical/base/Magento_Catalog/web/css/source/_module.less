@@ -1562,9 +1562,20 @@ ol.sidebar-magemenu > li
     height:42px;
     overflow:visible;
 }
+
 ul.sidebar-magemenu-submenu
 {
     display:none;
+}
+
+ol.sidebar-magemenu > li:hover > a
+{
+    color:@amedical-brand-color;
+}
+
+ol.sidebar-magemenu a:hover
+{
+    color:@amedical-brand-color;
 }
 
 ol.sidebar-magemenu > li:hover > ul.sidebar-magemenu-submenu {
@@ -1609,9 +1620,11 @@ ul.sidebar-magemenu-submenu > li > a > i.icon.long.arrow.right::before {
     position: relative;
     top: -1px;
 }
+
 ul.sidebar-magemenu-submenu > li > a > i.icon.long.arrow.right::before {
     content: "\e926" !important;
 }
+
 ul.sidebar-magemenu-submenu > li > a > i.icon:not(.button) {
     height: 0.86666667em;
     opacity: 0.8;
