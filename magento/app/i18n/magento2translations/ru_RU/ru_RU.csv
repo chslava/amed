@@ -1,3 +1,32 @@
+"Please select a region, state or province.","Выберите, пожалуйста, регион, область или край.",module,Magento_Customer
+"Highlight differences","Выделите различия"
+"Compare Products","Сравнение товаров"
+"You added product %1 to the comparison list.","Вы добавили продукт %1 в список сравнения.",module,Magento_Catalog
+"Adding...","Добавление..."
+"Added","Добавленной"
+"Clear compare list","Очистить список сравнения"
+"Compare selected","См. Список сравнения"
+"Adding to compare list...","Pievieno salīdzināšanai"
+"Clear Selected","Очистить фильтры"
+"Logout","Выйти"
+"You saved the address.","Адрес сохранен"
+"Set a New Password","Установите новый пароль"
+"If there is an account associated with %1 you will receive an email with a link to reset your password.","Если есть учетная запись, связанная с %1, вы получите электронное письмо со ссылкой для сброса пароля"
+"There is already an account with this email address. If you are sure that it is your email address, <a href=""%1"">click here</a> to get your password and access your account.","Этот адрес электронной почты уже зарегистрирован. Если вы уверены, что это ваш адрес электронной почты, нажмите <a href=""%1"">здесь</a>, чтобы получить свой пароль и получить доступ к своей учетной записи."
+"Invalid login or password.","Неправильный логин или пароль."
+"For delivery questions.","Для вопросов доставки."
+"Payment","Оплата"
+"We'll send your order confirmation here.","Мы пришлем вам подтверждение заказа."
+"This is a required field.","Поля должны быть заполнены."
+"Provided Zip/Postal Code seems to be invalid. Example: 1234. If you believe it is the right one you can ignore this notice.","Введённый почтовый индекс неверный. Индекс должен состоять только из цифр (пример 1001)"
+"Please enter a valid email address.","Введите, пожалуйста, действующий адрес электронной почты.",module,Magento_Newsletter
+"Cart Subtotal","Промежуточный итог",module,Magento_Checkout
+"Check out","Платить"
+"View and edit cart","Просмотр корзину",module,Magento_Checkout
+"View and edit cart","Просмотр корзину"
+"Login","Войти"
+"Please specify a shipping method.","Пожалуйста выберите способ доставки."
+"Please specify a shipping method.","Пожалуйста выберите способ доставки.",module,Magento_Checkout
 "Read Details",Подробнее,module,Magento_AdminNotification
 "Mark as Read","Пометить как прочитанное",module,Magento_AdminNotification
 "Are you sure?","Вы уверены?",module,Magento_AdminNotification
@@ -6,7 +35,7 @@ Remove,Удалить,module,Magento_AdminNotification
 "You have %1 new system messages","У вас есть новые системные сообщения %1",module,Magento_AdminNotification
 "You have %1 new system message","У вас есть %1 новое системное сообщение",module,Magento_AdminNotification
 "Incoming Message","Входящее сообщение",module,Magento_AdminNotification
-close,закрыть,module,Magento_AdminNotification
+"Close","Закрыть",module,Magento_AdminNotification
 Notifications,Уведомления,module,Magento_AdminNotification
 "The message has been marked as Read.","Сообщение было помечено как прочитанное.",module,Magento_AdminNotification
 "We couldn't mark the notification as Read because of an error.","Мы не можем пометить уведомление как прочитанное из-за ошибки.",module,Magento_AdminNotification
@@ -35,7 +64,7 @@ notice,уведомление,module,Magento_AdminNotification
 "Critical System Messages","Критичные системные сообщения",module,Magento_AdminNotification
 "Major System Messages","Основные системные сообщения",module,Magento_AdminNotification
 "System messages","Системные сообщения",module,Magento_AdminNotification
-Close,Закрыть,module,Magento_AdminNotification
+"Close","Закрыть",module,Magento_AdminNotification
 "See All (","Просмотреть все (",module,Magento_AdminNotification
 "Please correct the data sent.","Пожалуйста, исправьте отправленные данные.",module,Magento_AdvancedPricingImportExport
 "Entity type model '%1' is not found","Введеный тип модели '%1' не найден",module,Magento_AdvancedPricingImportExport
@@ -191,6 +220,7 @@ Code,Код,module,Magento_Backend
 "Root Category","Корневая категория",module,Magento_Backend
 "Default Store View","Представление магазина по умолчанию",module,Magento_Backend
 "Store View Information","Информация о представлении магазина",module,Magento_Backend
+Code,Код,module,Magento_Backend
 Status,Статус,module,Magento_Backend
 Disabled,Отключено,module,Magento_Backend
 Enabled,Включено,module,Magento_Backend
@@ -283,6 +313,8 @@ System,Система,module,Magento_Backend
 "Before modifying the store view code please make sure it is not used in index.php.","Перед изменением кода магазина пожалуйста, убедитесь, что он не используется в index.php.",module,Magento_Backend
 "All Stores","Все магазины",module,Magento_Backend
 "You saved the website.","Вы сохранили веб-сайт.",module,Magento_Backend
+"An inactive store view cannot be saved as default store view","Представление неактивного магазина нельзя сохранить как представление магазина по умолчанию",module,Magento_Backend
+"You saved the store.","Вы сохранили магазин.",module,Magento_Backend
 "The default store cannot be disabled","Магазин по умолчанию не может быть отключен",module,Magento_Backend
 "You saved the store view.","Вы сохранили представление магазина.",module,Magento_Backend
 "An inactive store view cannot be saved as default store view","Представление неактивного магазина нельзя сохранить как представление магазина по умолчанию",module,Magento_Backend
@@ -326,13 +358,13 @@ password,пароль,module,Magento_Backend
 "Customer View","Просмотр клиента",module,Magento_Backend
 "Sign Out",Выход,module,Magento_Backend
 "About the calendar","О календаре",module,Magento_Backend
-Close,Закрыть,module,Magento_Backend
+"Close","Закрыть",module,Magento_Backend
 "Go Today","Перейти сегодня",module,Magento_Backend
 Previous,Предыдущий,module,Magento_Backend
-Next,Дальше,module,Magento_Backend
-Time,Время,module,Magento_Backend
-Hour,Час,module,Magento_Backend
-Minute,Минута,module,Magento_Backend
+"Next","Дальше",module,Magento_Backend
+"Time","Время",module,Magento_Backend
+"Hour","Час",module,Magento_Backend
+"Minute","Минута",module,Magento_Backend
 "JavaScript may be disabled in your browser.","JavaScript может быть отключен в вашем браузере.",module,Magento_Backend
 "To use this website you must first enable JavaScript in your browser.","Чтобы использовать этот веб-сайт необходимо сначала включить JavaScript в вашем браузере.",module,Magento_Backend
 "This is only a demo store. You can browse and place orders, but nothing will be processed.","Это демонстрационный магазин. Любые заказы, оформленные на этом сайте, не будут обработаны или выполнены.",module,Magento_Backend
@@ -463,7 +495,7 @@ Fixed,Исправлено,module,Magento_Bundle
 "Create New Option","Создать новую опцию",module,Magento_Bundle
 "Bundle Items","Элементы комплекта",module,Magento_Bundle
 "Add Products to Option","Добавить товар для опции",module,Magento_Bundle
-Close,Закрыть,module,Magento_Bundle
+"Close","Закрыть",module,Magento_Bundle
 "Delete Option","Удалить опцию",module,Magento_Bundle
 "What are you looking for?","Что вы ищете?",module,Magento_Bundle
 Product,Товар,module,Magento_Bundle
@@ -786,7 +818,7 @@ Action,Действие,module,Magento_Catalog
 "Out of stock","Нет в наличии",module,Magento_Catalog
 "Add to Wish List","Добавить в список желаний",module,Magento_Catalog
 Compare,Сравнить,module,Magento_Catalog
-Next,Дальше,module,Magento_Catalog
+"Next","Дальше",module,Magento_Catalog
 "Add to Compare","Добавить в сравнение",module,Magento_Catalog
 "select all","выбрать все",module,Magento_Catalog
 "per page","на странице",module,Magento_Catalog
@@ -919,6 +951,7 @@ Images,Изображения,module,Magento_ConfigurableProduct
 Cancel,Отмена,module,Magento_ConfigurableProduct
 "Page not found.","Страница не найдена.",module,Magento_Contact
 "Thanks for contacting us with your comments and questions. We'll respond to you very soon.","Спасибо за обращение к нам с вашими комментариями и вопросами. Мы ответим вам очень скоро.",module,Magento_Contact
+"We can't process your request right now. Sorry, that's all we know.","Мы не можем обработать ваш запрос прямо сейчас. К сожалению, это все что мы знаем.",module,Magento_Contact
 "* Required Fields","* Обязательные поля",module,Magento_Contact
 Name,Название,module,Magento_Contact
 Email,"Электронная почта",module,Magento_Contact
@@ -1003,6 +1036,9 @@ Change,Изменить,module,Magento_Customer
 or,или,module,Magento_Customer
 "Delete Address","Удалить адрес",module,Magento_Customer
 "* Required Fields","* Обязательные поля",module,Magento_Customer
+Company,Компания,module,Magento_Customer
+"Phone Number","Номер телефона",module,Magento_Customer
+Fax,Факс,module,Magento_Customer
 Address,Адрес,module,Magento_Customer
 "VAT Number","Номер НДС",module,Magento_Customer
 City,Город,module,Magento_Customer
@@ -1218,7 +1254,7 @@ Order,Заказ,module,Magento_Paypal
 "Order Total","Сумма заказа",module,Magento_Paypal
 Help,Помощь,module,Magento_Paypal
 Configure,Настроить,module,Magento_Paypal
-Close,Закрыть,module,Magento_Paypal
+"Close","Закрыть",module,Magento_Paypal
 "View Demo","Просмотреть демо",module,Magento_Paypal
 "Incl. Tax","Включая налог",module,Magento_Paypal
 Sales,Продажи,module,Magento_Paypal
@@ -1314,7 +1350,7 @@ Product,Товар,module,Magento_Review
 Status,Статус,module,Magento_Review
 Visibility,Видимость,module,Magento_Review
 Previous,Предыдущий,module,Magento_Review
-Next,Дальше,module,Magento_Review
+"Next","Дальше",module,Magento_Review
 "Are you sure you want to do this?","Вы уверены, что вы хотите это сделать?",module,Magento_Review
 Administrator,Администратор,module,Magento_Review
 Guest,Гость,module,Magento_Review
@@ -1511,7 +1547,7 @@ Continue,Продолжить,module,Magento_Sales
 Date,Дата,module,Magento_Sales
 Actions,Действия,module,Magento_Sales
 "Invoice #","Счет #",module,Magento_Sales
-Close,Закрыть,module,Magento_Sales
+"Close","Закрыть",module,Magento_Sales
 "Add to Cart","Добавить в корзину",module,Magento_Sales
 Search,Поиск,module,Magento_Sales
 "Search Term","Поисковый запрос",module,Magento_Search
@@ -1638,16 +1674,16 @@ General,Общие,module,Magento_Theme
 Remove,Удалить,module,Magento_Theme
 Page,Страница,module,Magento_Theme
 Previous,Предыдущий,module,Magento_Theme
-Next,Дальше,module,Magento_Theme
+"Next","Дальше",module,Magento_Theme
 "per page","на странице",module,Magento_Theme
 "About the calendar","О календаре",module,Magento_Theme
-Close,Закрыть,module,Magento_Theme
+"Close","Закрыть",module,Magento_Theme
 Time,Время,module,Magento_Theme
 Hour,Час,module,Magento_Theme
 Minute,Минута,module,Magento_Theme
 Cancel,Отмена,module,Magento_Ui
 Back,Вернуться,module,Magento_Ui
-Next,Дальше,module,Magento_Ui
+"Next","Дальше",module,Magento_Ui
 Pounds,Фунты,module,Magento_Ups
 Kilograms,Килограммы,module,Magento_Ups
 None,Нет,module,Magento_Ups
@@ -1707,7 +1743,7 @@ Action,Действие,module,Magento_Weee
 "Excl. Tax","Без налога",module,Magento_Weee
 Total,Всего,module,Magento_Weee
 "Incl. Tax","Включая налог",module,Magento_Weee
-Close,Закрыть,module,Magento_Widget
+"Close","Закрыть",module,Magento_Widget
 "-- Please Select --","-- Выберите --",module,Magento_Widget
 "Save and Continue Edit","Сохранить и продолжить редактирование",module,Magento_Widget
 Type,Тип,module,Magento_Widget
@@ -1755,7 +1791,10 @@ Total:,Всего:,module,Magento_Checkout
 Password,Пароль,module,Magento_Checkout
 "Forgot Your Password?","Забыли Ваш пароль?",module,Magento_Checkout
 Cancel,Отмена,module,Magento_Checkout
+items,позиции,module,Magento_Checkout
 Remove,Удалить,module,Magento_Checkout
+"Shipping Address","Адрес доставки",module,Magento_Checkout
+"Next","Дальше",module,Magento_Checkout
 "Welcome to %store_name.","Добро пожаловать на %store_name.",module,Magento_Customer
 Email:,"Электронная почта:",module,Magento_Customer
 Password:,Пароль:,module,Magento_Customer
@@ -1802,7 +1841,7 @@ Delete,Удалить,module,Magento_ProductVideo
 Ok,Oк,module,Magento_Sales
 "Invalid format.","Недопустимый формат.",module,Magento_Ui
 "HTML tags are not allowed.","HTML теги не разрешены.",module,Magento_Ui
-Close,Закрыть,module,Magento_Ui
+"Close","Закрыть",module,Magento_Ui
 Ok,Oк,module,Magento_Ui
 "Show Toolbar","Показать панель инструментов",module,Magento_AdminNotification
 "Show List","Показать список",module,Magento_AdminNotification
@@ -1844,6 +1883,7 @@ Elements,Элементы,module,Magento_Backend
 Design,Дизайн,module,Magento_Backend
 Schedule,Расписание,module,Magento_Backend
 Settings,Настройки,module,Magento_Backend
+"All Stores","Все магазины",module,Magento_Backend
 Attributes,Атрибуты,module,Magento_Backend
 "Other Settings","Другие настройки",module,Magento_Backend
 "Data Transfer","Обмен данными",module,Magento_Backend
@@ -1903,7 +1943,7 @@ Country,Страна,module,Magento_Backend
 Region/State,Область,module,Magento_Backend
 "ZIP/Postal Code","Почтовый Индекс",module,Magento_Backend
 City,Город,module,Magento_Backend
-"Street Address","Почтовый адрес",module,Magento_Backend
+"Street Address","Адрес",module,Magento_Backend
 "Street Address Line 2","Строка адреса 2",module,Magento_Backend
 "VAT Number","Номер плательщика НДС",module,Magento_Backend
 "Single-Store Mode","Режим одного магазина",module,Magento_Backend
@@ -1969,17 +2009,19 @@ Description,Описание,module,Magento_Backend
 Tags,Метки,module,Magento_Backend
 "<h1 class=""page-heading"">404 Error</h1><p>Page not found.</p>","<h1 class=""page-heading""> Ошибка 404</h1> <p>Страница не найдена.</p>",module,Magento_Backend
 "Default Theme","Тема по умолчанию",module,Magento_Backend
+"Applied Theme","Приложенная Тема",module,Magento_Backend
 "If no value is specified, the system default is used. The system default may be modified by third party extensions.","Если значение не указано, используется системное значение по умолчанию. Система по умолчанию может быть изменена с помощью сторонних расширений.",module,Magento_Backend
 "Applied Theme","Приложенная Тема",module,Magento_Backend
 "Design Rule","Правила дизайна",module,Magento_Backend
 "User Agent Rules","Правила User Agen",module,Magento_Backend
 Pagination,Пагинация,module,Magento_Backend
-"How many links to display at once.","Сколько ссылок, чтобы отобразить сразу.",module,Magento_Backend
 "Pagination Frame","Паганиция фреймов",module,Magento_Backend
-"If current frame position does not cover utmost pages, it renders the link to current position plus/minus this value.","Если текущая позиция фрейма не распространяется на все страницы, он отображает ссылку на текущую позицию: плюс/минус этого значения.",module,Magento_Backend
+"How many links to display at once.","Сколько ссылок, чтобы отобразить сразу.",module,Magento_Backend
 "Pagination Frame Skip","Пропуск паганиции фреймов",module,Magento_Backend
-"Alternative text for the previous pages link in the pagination menu. If empty, the default arrow image is used.","Альтернативный текст для предыдущей страницы отображается в постраничном меню. Если пустое значение, то используется изображение стрелок по умолчанию.",module,Magento_Backend
+"If current frame position does not cover utmost pages, it renders the link to current position plus/minus this value.","Если текущая позиция фрейма не распространяется на все страницы, он отображает ссылку на текущую позицию: плюс/минус этого значения.",module,Magento_Backend
 "Anchor Text for Previous","Якорный текст для перехода к предыдущим",module,Magento_Backend
+"Alternative text for the previous pages link in the pagination menu. If empty, the default arrow image is used.","Альтернативный текст для предыдущей страницы отображается в постраничном меню. Если пустое значение, то используется изображение стрелок по умолчанию.",module,Magento_Backend
+"Anchor Text for Next","Якорный текст для следующей",module,Magento_Backend
 "Alternative text for the next pages link in the pagination menu. If empty, default arrow image is used.","Альтернативный текст для следующей страницы отображается в постраничном меню. Если пустое значение, то используется изображение стрелок по умолчанию.",module,Magento_Backend
 "Anchor Text for Next","Якорный текст для следующей",module,Magento_Backend
 "Theme Name","Название темы",module,Magento_Backend
@@ -2204,8 +2246,10 @@ Layouts,Макеты,module,Magento_Store
 State/Region,Область/Регион,module,Magento_Tax
 "Order Total","Сумма заказа",module,Magento_Tax
 "1 column","1 колонка",module,Magento_Theme
+"Default Description","Описание по умолчанию",module,Magento_Theme
 "Default welcome msg!","Приветствие по умолчанию!",module,Magento_Theme
 "Favicon Icon","Значок Favicon",module,Magento_Theme
+"Default Keywords","Ключевые слова по умолчанию",module,Magento_Theme
 "Display Demo Store Notice","Отображать уведомление о том, что это демонстрационный сайт",module,Magento_Theme
 "2 columns with left bar","2 колонки с левой полосой",module,Magento_Theme
 "2 columns with right bar","2 колонки с правой полосой",module,Magento_Theme
@@ -2241,5 +2285,67 @@ Quantity,Количество,module,Magento_Wishlist
 Action,Действие,module,Magento_Wishlist
 Configure,Настроить,module,Magento_Wishlist
 Delete,Удалить,module,Magento_Wishlist
-"Address Book","Адресная книга",theme,frontend/Magento/luma
 "Account Information","Данные учётной записи",theme,frontend/Magento/luma
+"Address Book","Адресная книга",theme,frontend/Magento/luma
+"Adding...","Добавляется..."
+"Added","Добавлен"
+"Add to Cart","Добавить"
+"Discount for box %s"," Скидка при покупке коробки %s"
+"Discount for package %s","Скидка при покупке пакета %s"
+"pair","пара"
+"pairs","пары"
+"VAT Number","Номер плательщика НДС"
+"Please enter a password with at least 8 characters.","Введите пароль длиной не менее 8 символов."
+"Box","Коробка"
+"Boxes","Коробки"
+"Package","Упаковка"
+"Packages","Упаковки"
+"item will be added to the cart","штука будет добавлен в корзину"
+"items will be added to the cart","штуки будут добавлены в корзину"
+"package will be added to the cart","упаковка будет добавлена в корзину"
+"packages will be added to the cart","упаковки будут добавлены в корзину"
+"box will be added to the cart","коробка будет добавлена в корзину"
+"boxes will be added to the cart","коробки будут добавлены в корзину"
+"No","Нет"
+"Yes","Да"
+"Is eko product?","Является ли продукт экологийским?"
+"Tax VAT Number","Номер плательщика НДС"
+"Provided Zip/Postal Code seems to be invalid.","Введённый почтовый индекс неверный."
+" Example: "," Индекс должен состоять только из цифр (пример 1001) "
+"If you believe it is the right one you can ignore this notice."," "
+"Please enter a valid email address (Ex: johndoe@domain.com).","Введите, пожалуйста, действующий адрес электронной почты. (пример janis@uznemums.lv)."
+"Please specify a shipping method.","Пожалуйста выберите способ доставки."
+"Please specify a shipping method.","Пожалуйста выберите способ доставки.",module,Magento_Checkout
+"Order Total","Сумма"
+"We will contact you or update status of purchase shortly.","Mēs drīzumā sazināsimies vai atjaunosim pirkuma statusu."
+"If you have questions about your order, you can email us at <a href=""mailto:%store_email"">%store_email</a>","В случае возникновения вопросов, просим связаться с нами по электронной почте <a href=""mailto:%store_email"">%store_email</a>"
+"or call us at <a href=""tel:%store_phone"">%store_phone</a>","или по телефону <a href=""tel:%store_phone"">%store_phone</a>"
+"Our hours are <span class=""no-link"">%store_hours</span>.","Время работы <span class=""no-link"">%store_hours</span>."
+"Email Address","Эл. адрес  *",module,Magento_Checkout
+"Company name","Название предприятия,компании *",module,Magento_Checkout
+"Legal address","Юридический адрес *",module,Magento_Checkout
+"Bank","Банк *",module,Magento_Checkout
+"Bank code","Код банка *",module,Magento_Checkout
+"Bank account","Номер счета *",module,Magento_Checkout
+"Account number","Номер счета *",module,Magento_Checkout
+"Registration number","Регистрацинный номер предприятия,компании *",module,Magento_Checkout
+"Tax VAT Number","Регистрационный номер плательщика PVN *",module,Magento_Checkout
+"Tax/VAT number","Регистрационный номер плательщика PVN *",module,Magento_Checkout
+"VAT number","Регистрационный номер плательщика PVN *",module,Magento_Checkout
+"Name","Имя *",module,Magento_Customer
+"Street Address","Адрес *",module,Magento_Checkout
+"City","Город *",module,Magento_Checkout
+"Country","Страна *",module,Magento_Checkout
+"First Name","Имя *",module,Magento_Customer
+"First Name","Имя *",module,Magento_Checkout
+"Last Name","Фамилия *",module,Magento_Customer
+"Last Name","Фамилия *",module,Magento_Checkout
+"Zip/Postal Code","Почтовый индекс *",module,Magento_Checkout
+"Company","Название предприятия,компании *",module,Magento_Checkout
+"Phone Number","Номер телефонаs *",module,Magento_Checkout
+"Email","Эл. адрес *",module,Magento_Checkout
+"Email Address","Эл. адрес *",module,Magento_Checkout
+"Email","Эл. адрес *",module,Magento_Customer
+"Email Address","Эл. адрес *",module,Magento_Customer
+"Legal person","Юридическое лицо *",module,Magento_Checkout
+"Individual","Физическое лицо *",module,Magento_Checkout
