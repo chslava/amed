@@ -78,6 +78,8 @@ class LayoutProcessor
                     $billingFields['company']['visible'] = false; // Hide 'company' field in billing address
                 }
 
+                $billingFields['telephone']['validation']['validate-digits'] = true;
+
                 $billingFields = array_replace_recursive($billingFields, $billingPostcodeFields);
 
                 $jsLayout['components']['checkout']['children']['steps']['children']

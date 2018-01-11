@@ -60,6 +60,11 @@
                                                                 <item name="company" xsi:type="array">
                                                                     <item name="visible" xsi:type="boolean">false</item>
                                                                 </item>
+                                                                <item name="telephone" xsi:type="array">
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="validate-digits" xsi:type="string">true</item>
+                                                                    </item>
+                                                                </item>
                                                             </item>
                                                         </item>
                                                     </item>
