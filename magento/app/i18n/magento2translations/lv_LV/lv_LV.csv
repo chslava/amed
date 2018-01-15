@@ -4163,3 +4163,6 @@ State/Province,Štats/Province,module,Magento_Checkout
 "Have Discount Code?","Jums ir atlaides kods?"
 "Order Total Incl. Tax","Summa iekļaujot PVN"
 "Edit item","Rediģēt"
+"Order Total Excl. Tax", "Summa bez PVN"
+"Legal person","Juriska persona"
+"Private person","Privāta persona"
