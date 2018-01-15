@@ -13,12 +13,12 @@
     </label>
 
     <div class="control" data-bind="css: {'_with-tooltip': element.tooltip}">
-        <!-- ko ifnot: element.hasAddons() -->
-            <!-- ko template: element.elementTmpl --><!-- /ko -->
-        <!-- /ko -->
-        
         <!-- ko if: element.name=="checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode" -->
         <div class="input-prefix">LV -</div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: element.hasAddons() -->
+            <!-- ko template: element.elementTmpl --><!-- /ko -->
         <!-- /ko -->
 
         <!-- ko if: element.hasAddons() -->
