@@ -2834,18 +2834,18 @@ Filters,Filtri,module,Magento_Ui
 "View all Wish List items","Skatīt visus Vēlmju saraksta produktus",module,Magento_Wishlist
 "Welcome to %store_name","Laipni lūgti %store_name",theme,frontend/Magento/luma
 "Welcome to %store_name.","Laipni lūgti %store_name.",theme,frontend/Magento/luma
-"To sign in to our site, use these credentials during checkout or on the <a href=""%customer_url"">My Account</a> page:","Lai pieslēgtos sistēmai, lietojiet šos datus iepērkoties <a href=""%customer_url"">Mans konts</a> sadaļā:",theme,frontend/Magento/luma
+"To sign in to our site, use these credentials during checkout or on the <a href=""%customer_url"">My Account</a> page:","Lai pieslēgtos sistēmai, lai pieslēgtos sistēmai, atveriet <a href=""%customer_url"">Mans konts</a> un izmantojiet šos datus:"
 Email:,E-pasts:,theme,frontend/Magento/luma
 Password:,Parole:,theme,frontend/Magento/luma
-"Password you set when creating account","Parole kuru ievadījāt izveidojot kontu",theme,frontend/Magento/luma
+"Password you set when creating account","Parole, ko ievadījāt izveidojot kontu"
 "Forgot your account password? Click <a href=""%reset_url"">here</a> to reset it.","Aizmirsāt paroli? <a href=""%reset_url"">Atjaunot paroli</a>.",theme,frontend/Magento/luma
 "When you sign in to your account, you will be able to:","Pieslēdzoties kontam Jūs varēsiet:",theme,frontend/Magento/luma
 "Quick Checkout","Ātrā iepirkšanās",theme,frontend/Magento/luma
-"Proceed through checkout faster","Iespērcieties ātrāk",theme,frontend/Magento/luma
+"Proceed through checkout faster","Ātrāk noformēt pasūtījumu"
 "Order Status","Pasūtījuma statuss",theme,frontend/Magento/luma
-"Check the status of orders","Pārbaudīt pasūtījumu statusu",theme,frontend/Magento/luma
+"Check the status of orders","Pārbaudīt pasūtījumu statusu"
 "Manage Addresses","Pārvaldīt adreses",theme,frontend/Magento/luma
-"Store alternative addresses","Saglabāt papildus adreses",theme,frontend/Magento/luma
+"Store alternative addresses","Saglabāt vairākas piegādes adreses",theme,frontend/Magento/luma
 "For shipping to multiple family members and friends","Piegādei vairākiem saņēmējiem",theme,frontend/Magento/luma
 "Order History","Pasūtījumu vēsture",theme,frontend/Magento/luma
 "View past orders","Apskatīt iepriekšējos pasūtījumus",theme,frontend/Magento/luma
@@ -4167,3 +4167,6 @@ State/Province,Štats/Province,module,Magento_Checkout
 "Legal person","Juriska persona"
 "Private person","Privāta persona"
 "Position Occupation","Amats"
+"You are signed out","Tu esi izrakstījies"
+"You aren't subscribed to our newsletter.","Tu neesi pierakstījies jaunumu saņemšanai."
+"You have signed out and will go to our homepage in 5 seconds.","Tu esi izrakstījies un tiksi pārvirzīts uz sākumlapu aptuveni pēc 5 sekundēm."
