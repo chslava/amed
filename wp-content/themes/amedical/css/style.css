@@ -36,7 +36,13 @@ footer > .ui.grid {
     margin-bottom: 85px !important;
   }
 
- .about-us .ui.header ~ p {
-     margin-right: -2rem;
-     padding-bottom: 8px;
-   }
+  .about-us .ui.header ~ p {
+    margin-right: -2rem;
+    padding-bottom: 8px;
+  }
+}
+
+.ui.form .mc4wp-response > .mc4wp-alert {
+  font-weight: bold;
+  margin-top: -85px;
+}
