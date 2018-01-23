@@ -1,0 +1,48 @@
+[
+    {
+        "name": "ebizmarts/mailchimp-lib",
+        "version": "3.0.16",
+        "version_normalized": "3.0.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ebizmarts/mailchimp-lib.git",
+            "reference": "95d6d83c42a68d7cd36359af5ae04268df585644"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ebizmarts/mailchimp-lib/zipball/95d6d83c42a68d7cd36359af5ae04268df585644",
+            "reference": "95d6d83c42a68d7cd36359af5ae04268df585644",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "time": "2017-10-25T14:20:14+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Mailchimp": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ebizmarts Corp.",
+                "email": "info@ebizmarts.com",
+                "homepage": "http://ebizmarts.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "API client library for the MailChimp",
+        "homepage": "https://github.com/ebizmarts/mailchimp-lib",
+        "keywords": [
+            "api",
+            "email",
+            "mailchimp"
+        ]
+    }
+]
