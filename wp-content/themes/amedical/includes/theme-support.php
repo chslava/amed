@@ -21,6 +21,7 @@ function dswp_theme_support() {
 	add_image_size( 'service-side-content-image', 460, 580, true);
 	add_image_size( 'contact-side-content-image', 413, 620, true);
 	add_image_size( 'news-blog-image', 760, 315, true); // added by Eugene
+    add_image_size( 'news-blog-image-open', 1772, 1181, false); // added by AL
 	add_image_size( 'news-gallery-thumb', 220, 150, true); // added by Eugene
 
 	// rss thingy
