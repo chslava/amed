@@ -14,12 +14,13 @@ function dswp_theme_support() {
 
     add_image_size( 'slide-big', 1440, 650, true ); // (cropped)
 	add_image_size( 'brand-logo', 150, 68, true); // (cropped)
+	add_image_size( 'partner-logo', 270, 80); // (NOT cropped)
 	add_image_size( 'homepage-blog-image', 580, 380, true); // (cropped)
 	add_image_size( 'services-images', 380, 260	, true); // (cropped)
 	add_image_size( 'side-content-image', 610, 409, true);
 	add_image_size( 'service-side-content-image', 460, 580, true);
 	add_image_size( 'contact-side-content-image', 413, 620, true);
-	add_image_size( 'news-blog-image', 760, 315, true); // added by Eugene
+	add_image_size( 'news-blog-image', 760, 1772, false); // added by Eugene
     add_image_size( 'news-blog-image-open', 1772, 1181, false); // added by AL
 	add_image_size( 'news-gallery-thumb', 220, 150, true); // added by Eugene
 
