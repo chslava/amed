@@ -16,7 +16,7 @@ get_header();
                         <?php the_title( '<h2 class="ui left header decored">', '</h2>' ); ?>
                         <?php 
                             if ( has_post_thumbnail() ) {
-                                the_post_thumbnail( 'news-blog-image', array('class' => 'ui shadowed image') );
+                                the_post_thumbnail( 'news-blog-image-open', array('class' => 'ui shadowed image') );
                             }
                         ?>
                         <div class="news-img-footer">
