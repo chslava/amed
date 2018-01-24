@@ -9,7 +9,6 @@
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $_cp = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
 if ($_cp){
-
     $cat_tree = null;
 
     $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
@@ -39,6 +38,7 @@ if ($_cp){
 
     }
 
+
     $new_crumbs = [];
     $cats_added = false;
     foreach($crumbs as $name => $crumb){
@@ -61,10 +61,25 @@ if ($_cp){
             }
         }
         if ($name=="product"){
+            if (!$cats_added){
+                $cats_added = true;
+                foreach($cat_tree as $c){
+                    $new_crumbs["category".$c["id"]] = [
+                        "label" => $c["name"],
+                        "link"  =>  $c["url"],
+                        "title" => $c["name"],
+                        "first" => false,
+                        "last"  => false,
+                        "readonly" => false
+                    ];
+                }
+            }
             $new_crumbs[$name] = $crumb;
         }
     }
     $crumbs = $new_crumbs;
+} else {
+
 }
 
 ?>
