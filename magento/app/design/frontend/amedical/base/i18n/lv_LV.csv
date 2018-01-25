@@ -1208,7 +1208,7 @@ Checkout,"Pirkuma noformēšana",module,Magento_Checkout
 Error!,Kļūda!,module,Magento_Checkout
 "DB exception","DB kļūda",module,Magento_Checkout
 Message,Ziņa,module,Magento_Checkout
-"<a href=""%1"" onclick=""this.target='_blank'"" class=""print"">Print receipt</a>","<a href=""%1"" onclick=""this.target='_blank'"" class=""print""> Drukāt rēķinu</a>",module,Magento_Checkout
+"<a href=""%1"" onclick=""this.target='_blank'"" class=""print"">Print receipt</a>","<a href=""%1"" onclick=""this.target='_blank'"" class=""print""> Pasūtījuma izdruka</a>",module,Magento_Checkout
 "Apply Discount Code","Pielietot atlaides kodu",module,Magento_Checkout
 "Enter discount code","Ievadiet atlaides kodu",module,Magento_Checkout
 "Apply Discount","Izmantot atlaidi",module,Magento_Checkout
@@ -1239,7 +1239,7 @@ Loading...,Ielādē...,module,Magento_Checkout
 "Incl. Tax","Ar PVN",module,Magento_Checkout
 "Your order number is: %1.","Jūsu pirkuma numurs ir: %1.",module,Magento_Checkout
 "Your order # is: <span>%1</span>.","Jūsu pirkuma # ir: <span>%1</span>.",module,Magento_Checkout
-"We'll email you an order confirmation with details and tracking info.","Mēs jums nosūtīsim e-pastu ar pasūtījuma apstiprinājumu un detalizētu informāciju, kā arī sekošanas informāciju.",module,Magento_Checkout
+"We'll email you an order confirmation with details and tracking info.","Jums uz e-pastu tiks nosūtīts pasūtījuma apstiprinājums un tuvākajā laikā sazināsimies ar Jums par pasūtījuma piegādi un apmaksu.",module,Magento_Checkout
 "Static Blocks","Statiskie bloki",module,Magento_Cms
 "Add New Block","Pievienot jaunu bloku",module,Magento_Cms
 Back,Atpakaļ,module,Magento_Cms
