@@ -1111,6 +1111,23 @@
         font-size: 14px;
     }
 
+    /* Overrides - grid size */
+    .page-products .products-grid .product-item {
+        width: 25%;
+    }
+
+    .products-grid:not(.products-related):not(.products-upsell):not(.products-crosssell) .product-item:nth-child(3n + 1) {
+        margin-left: 0;
+    }
+
+    .products-grid:not(.products-related):not(.products-upsell):not(.products-crosssell) .product-item:nth-child(4n + 1) {
+        margin-left: -15px;
+    }
+
+    .product-image-wrapper {
+        padding-bottom: 100% !important;
+    }
+
 
 }
 
