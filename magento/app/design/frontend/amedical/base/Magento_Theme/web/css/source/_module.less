@@ -1074,12 +1074,9 @@
     }
 
     /* Overrides - Smaller font size for checkout */
-    .opc-block-summary > .title {
+    .opc-wrapper .step-title, .opc-wrapper .form-login .fieldset .field .label[for=customer-email], .opc-wrapper .form-shipping-address .fieldset .field .label[for=customer-email], .opc-block-summary > .title, .checkout-agreements-items .checkout-agreements-item-title,
+    .cart-summary-inner > .title {
         font-size: 20px;
-    }
-
-    .opc-wrapper .step-title, .opc-wrapper .form-login .fieldset .field .label[for=customer-email], .opc-wrapper .form-shipping-address .fieldset .field .label[for=customer-email], .opc-block-summary > .title, .checkout-agreements-items .checkout-agreements-item-title {
-        font-size: 26px;
     }
 
     .opc-block-summary .table-totals:not(.grand) .mark, .opc-block-summary .table-totals:not(.grand) .amount {
@@ -1087,11 +1084,33 @@
     }
 
     .opc-block-summary .table-totals .grand .mark, .opc-block-summary .table-totals .grand .amount {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .opc-block-summary .items-in-cart > .title strong {
         font-size: 18px;
     }
+
+    .cart-summary .table.totals td, .cart-summary .table.totals th {
+        font-size: 13px;
+    }
+
+    .cart-summary .table.totals .grand > th, .cart-summary .table.totals .grand > td {
+        font-size: 16px;
+    }
+
+    .cart.table-wrapper .cart thead tr th.col {
+        font-size: 16px;
+    }
+
+    .paypal-review .table-paypal-review-items .col.price .price-including-tax, .paypal-review .table-paypal-review-items .col.price .price-excluding-tax, .paypal-review .table-paypal-review-items .col.subtotal .price-including-tax, .paypal-review .table-paypal-review-items .col.subtotal .price-excluding-tax, .cart.table-wrapper .col.price .price-including-tax, .cart.table-wrapper .col.price .price-excluding-tax, .cart.table-wrapper .col.subtotal .price-including-tax, .cart.table-wrapper .col.subtotal .price-excluding-tax, .cart.table-wrapper .col.actions .price-including-tax, .cart.table-wrapper .col.actions .price-excluding-tax, .cart.table-wrapper .col.msrp .price-including-tax, .cart.table-wrapper .col.msrp .price-excluding-tax, .order-details-items .col.price .price-including-tax, .order-details-items .col.price .price-excluding-tax, .order-details-items .col.subtotal .price-including-tax, .order-details-items .col.subtotal .price-excluding-tax {
+        font-size: 16px;
+    }
+
+    .cart.table-wrapper .col.subtotal .price-excluding-tax .price, .order-items.table-wrapper .col.subtotal .price-excluding-tax .price, .cart.table-wrapper .col.price .price-excluding-tax .price, .order-items.table-wrapper .col.price .price-excluding-tax .price, .cart.table-wrapper .col.msrp .price-excluding-tax .price, .order-items.table-wrapper .col.msrp .price-excluding-tax .price {
+        font-size: 14px;
+    }
+
+
 }
 
