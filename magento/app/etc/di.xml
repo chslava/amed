@@ -388,6 +388,11 @@
             <argument name="scopeType" xsi:type="const">Magento\Store\Model\ScopeInterface::SCOPE_STORE</argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\DB\Sequence\SequenceInterface">
+        <arguments>
+            <argument name="pattern" xsi:type="string">%s%'.04d%s</argument>
+        </arguments>
+    </type>
     <virtualType name="layoutArgumentReaderInterpreter" type="Magento\Framework\Data\Argument\Interpreter\Composite">
         <arguments>
             <argument name="interpreters" xsi:type="array">
