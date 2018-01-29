@@ -36,3 +36,6 @@ shop/config.php
 
 magento/genereted/*
 magento/generated/
+
+.vscode/
+.vscode/*

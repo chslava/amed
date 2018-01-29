@@ -91,4 +91,14 @@ jQuery(function($) {
         $('#mobile-search').submit();
     })
 
+
+    if($('.mc4wp-alert .mc4wp-success').length>0){
+
+        if ($('.mc4wp-alert .mc4wp-success').css("display")=="block"){
+            $('html, body').animate({
+                scrollTop: $(".mc4wp-alert .mc4wp-success").offset().top
+            }, 500);
+        }
+
+    }
 })
