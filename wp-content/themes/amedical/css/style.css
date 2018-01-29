@@ -45,5 +45,16 @@ footer > .ui.grid {
 .ui.form .mc4wp-response > .mc4wp-alert {
   font-weight: bold;
   margin-top: -85px;
-  color: #ff6b01;
+  color: #636463;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 6px 10px rgba(64, 64, 64, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .ui.form .mc4wp-response > .mc4wp-alert {
+    margin-top: -30px;
+  }
 }
