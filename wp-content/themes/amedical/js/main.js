@@ -91,14 +91,12 @@ jQuery(function($) {
         $('#mobile-search').submit();
     })
 
-
-    if($('.mc4wp-alert .mc4wp-success').length>0){
-
-        if ($('.mc4wp-alert .mc4wp-success').css("display")=="block"){
+    if($('.mc4wp-alert').length>0){
+        if ($('.mc4wp-alert').css("display")=="block"){
             $('html, body').animate({
-                scrollTop: $(".mc4wp-alert .mc4wp-success").offset().top
+                scrollTop: $(".mc4wp-alert").offset().top
             }, 500);
         }
-
     }
+    
 })
