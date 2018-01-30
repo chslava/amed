@@ -24,12 +24,11 @@
 
               <div class="item">
                 <i class="c-icon icon-place-icon"></i>
-                <?php the_field("address_title","option"); ?>: <?php the_field("address","option"); ?>
+                <?php the_field("address","option"); ?>
               </div>
 
               <div class="item">
                 <i class="c-icon icon-phone-icon"></i>
-                  <?php the_field('phone_title','option'); ?>:
                     <a href="tel:<?php the_field("phone","option"); ?>">
                       <?php the_field("phone","option"); ?>
                     </a>,
@@ -42,7 +41,6 @@
 
               <div class="item">
                 <i class="c-icon icon-mail-icon"></i>
-                <?php the_field('email_title','option'); ?>:
                 <a href="mailto:<?php the_field("email","option"); ?>">
                   <?php the_field("email","option"); ?>
                 </a>
