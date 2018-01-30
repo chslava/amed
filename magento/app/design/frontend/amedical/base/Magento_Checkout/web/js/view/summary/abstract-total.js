@@ -18,10 +18,9 @@ define([
          * @return {*|String}
          */
         getFormattedPrice: function (price) {
-            alert("rice222");
-            alert(price);
-            console.log(quote.getPriceFormat());
-            return priceUtils.formatPrice(price, quote.getPriceFormat());
+            var  priceFormat = quote.getPriceFormat();
+            priceFormat.groupLength = 6;
+            return priceUtils.formatPrice(price, priceFormat);
         },
 
         /**
