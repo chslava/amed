@@ -108,7 +108,7 @@ class LayoutProcessor
                             'additionalClasses' => 'bank-name-field'
                         ],
                         'dataScope' => $scope . '.bank_name',
-                        'label' => 'Bank Name',
+                        'label' => __('Bank Name'),
                         'provider' => 'checkoutProvider',
                         'sortOrder' => 65,
                         'validation' => [
@@ -129,7 +129,7 @@ class LayoutProcessor
                             'additionalClasses' => 'bank-account-field'
                         ],
                         'dataScope' => $scope . '.bank_account',
-                        'label' => 'Bank Account',
+                        'label' => __('Bank Account'),
                         'provider' => 'checkoutProvider',
                         'sortOrder' => 66,
                         'validation' => [
@@ -154,7 +154,7 @@ class LayoutProcessor
                             'elementTmpl' => 'ui/form/element/input',
                         ],
                         'dataScope' => $scope . '.bank_name',
-                        'label' => 'Bank Name',
+                        'label' => __('Bank Name'),
                         'provider' => 'checkoutProvider',
                         'sortOrder' => 65,
                         'validation' => [
@@ -174,7 +174,7 @@ class LayoutProcessor
                             'elementTmpl' => 'ui/form/element/input',
                         ],
                         'dataScope' => $scope . '.bank_account',
-                        'label' => 'Bank Account',
+                        'label' => __('Bank Account'),
                         'provider' => 'checkoutProvider',
                         'sortOrder' => 66,
                         'validation' => [
