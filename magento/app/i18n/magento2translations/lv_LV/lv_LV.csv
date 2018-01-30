@@ -4183,3 +4183,7 @@ State/Province,Štats/Province,module,Magento_Checkout
 "%1 Item(s)","%1 Produkts(i)"
 "Order #","Pasūtījums #"
 "Order # %1","Pasūtījums # %1"
+"Have an account?","Esat jau reģistrējies?"
+"Have an account","Esat jau reģistrējies"
+"Bank Name","Bankas nosaukums"
+"Bank Account","Bankas konta numurs"
