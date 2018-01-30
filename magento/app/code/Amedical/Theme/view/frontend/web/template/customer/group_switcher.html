@@ -1,6 +1,6 @@
 <input type="hidden" id="customer-group" name="customer_group" data-bind="value: group()">
-<span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i><?= __('Legal person'); ?></span>
-<span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i><?= __('Private person'); ?></span>
+<span class="group active" data-bind="attr:{'group': '4'}, click: switchGroup"><i class="radio"></i><span data-bind="i18n: 'Legal person'" ></span></span>
+<span class="group" data-bind="attr:{'group': '1'}, click: switchGroup"><i class="radio"></i><span data-bind="i18n: 'Private person'" ></span></span>
 <div class="field company">
     <label for="company" class="label"><span data-bind="i18n: 'Company'" ></span></label>
     <div class="control">
