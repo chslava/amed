@@ -68,13 +68,18 @@ footer > .ui.grid {
     left: -25%;
     border-color: #e6e6e6;
     padding-top: 0;
-    margin-top: 0;
     position: absolute;
     margin-top: 1.9rem;
   }
 
   .ui.menu .ui.dropdown .menu > .item {
     margin: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  header .desktop .ui.main-menu .ui.dropdown.item .menu > .item:last-child {
+    border-bottom: none;
   }
 
   header .desktop .ui.main-menu .ui.dropdown.item:hover .menu {
