@@ -58,3 +58,21 @@ footer > .ui.grid {
     margin-top: -30px;
   }
 }
+
+@media (min-width: 1024px) {
+  .ui.secondary.menu .dropdown.item > .menu, .ui.text.menu .dropdown.item > .menu {
+    transition: visibility 0.3s linear;
+    transition-delay: 500ms;
+    display: block;
+    visibility: hidden;
+  }
+
+  .ui.menu .ui.dropdown .menu > .item {
+    margin: 10px;
+  }
+
+  header .desktop .ui.main-menu .ui.dropdown.item:hover .menu {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}
