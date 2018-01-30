@@ -9,6 +9,16 @@
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $_cp = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
 if ($_cp){
+
+    $view_count  = $_cp->getViewCounter();
+    if (!$view_count){
+        $view_count=0;
+    }
+    $view_count ++;
+    $_cp->setViewCounter($view_count);
+    $_cp->save();
+
+
     $cat_tree = null;
 
     $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
