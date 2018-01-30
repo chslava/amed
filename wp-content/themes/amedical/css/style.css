@@ -73,8 +73,8 @@ footer > .ui.grid {
   }
 
   .ui.menu .ui.dropdown .menu > .item {
-    margin: 10px;
-    text-align: center;
+    margin: 0 10px !important;
+    text-align: left !important;
     border-bottom: 1px solid #e6e6e6;
   }
 
@@ -85,5 +85,10 @@ footer > .ui.grid {
   header .desktop .ui.main-menu .ui.dropdown.item:hover .menu {
     visibility: visible;
     transition-delay: 0s;
+  }
+
+  header .desktop .ui.main-menu .ui.dropdown.item:hover .menu > .item:hover {
+    background: none !important;
+    color: #ff6b01 !important;
   }
 }
