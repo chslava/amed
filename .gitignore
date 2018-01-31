@@ -39,3 +39,9 @@ magento/generated/
 .vscode/*
 
 !/shop/include/favicon.ico
+
+/magento/app/code/DS/Xml/.git/
+/magento/app/code/DS/Xml/.git/*
+
+/magento/app/code/DS/PopularityByViews/.git/
+/magento/app/code/DS/PopularityByViews/.git/*
