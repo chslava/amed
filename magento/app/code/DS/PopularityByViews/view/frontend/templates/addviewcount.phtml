@@ -1,0 +1,28 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_cp = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+if ($_cp):
+    $pid = $_cp->getId();
+    $url = "/magento/popularity-by-views/add";
+    ?>
+
+    <script>
+        require(['jquery'], function(jQuery){
+
+            // <![CDATA[
+
+            var pid = <?= $pid; ?>;
+            var url = '<?= $url; ?>';
+            var data_in = {'pid' : pid };
+
+            jQuery.post(url, data_in, function(data_out, status){
+                //do nothing everything ok
+                //
+            });
+
+
+            // ]]>
+
+        });
+    </script>
+<?php endif; ?>
