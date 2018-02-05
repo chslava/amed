@@ -32,6 +32,9 @@
                     <action method="setToolbarBlockName">
                         <argument name="name" xsi:type="string">product_list_toolbar</argument>
                     </action>
+                    <action method="setDefaultDirection">
+                        <argument name="dir" xsi:type="string">desc</argument>
+                    </action>
                 </block>
             </block>
             <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
