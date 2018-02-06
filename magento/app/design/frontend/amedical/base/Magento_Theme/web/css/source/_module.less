@@ -1121,7 +1121,7 @@
     }
 
     .products-grid:not(.products-related):not(.products-upsell):not(.products-crosssell) .product-item:nth-child(4n + 1) {
-        margin-left: -15px;
+        margin-left: -15px !important;
     }
 
     .product-image-wrapper {
@@ -1131,6 +1131,12 @@
     .products-grid .product-items {
         justify-content: flex-start;
     }
+
+    .page-products .products-grid .product-item:last-child:not(:nth-child(3n)):not(:nth-child(3n+1)):not(:first-child) {
+        margin-left: 0;
+    }
+
+
 
 
 }
