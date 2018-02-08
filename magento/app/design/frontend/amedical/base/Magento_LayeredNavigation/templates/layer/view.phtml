@@ -13,9 +13,27 @@
  * @var $block \Magento\LayeredNavigation\Block\Navigation
  */
 use \Magento\CatalogSearch\Model\Layer\Filter\Category;
+
+$categories_printed = true;
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
+$categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
+
+$currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+
+
+$categoryObj = $categoryRepository->get($currentCat->getId());
+$subcategories = $categoryObj->getChildrenCategories();
+if (count($subcategories)){
+    $categories_printed = false;
+}
+
+
+
 ?>
 
-<?php if ($block->canShowBlock()): ?>
+<?php if ($block->canShowBlock() || !$categories_printed): ?>
     <div class="block filter" id="layered-filter-block" data-mage-init='{"collapsible":{"openedState": "active", "collapsible": true, "active": false, "collateral": { "openedState": "filter-active", "element": "body" } }}'>
         <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
         <div class="block-title filter-title" data-count="<?php /* @escapeNotVerified */ echo $filtered; ?>">
@@ -27,7 +45,7 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
             <?php $wrapOptions = false; $filterHeader = false; ?>
             <?php
                 $block_filters = $block->getFilters();
-                $categories_printed = false;
+
             ?>
             <?php foreach ($block_filters as $filter): ?>
                 <?php if ($filter->getItemsCount() || !$categories_printed): ?>
@@ -37,11 +55,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                     <?php if ($filter instanceof Category || !$categories_printed): ?>
                         <?php
                         $categories_printed = true;
-                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-                        $cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
-                        $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
-
-                        $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
 
                         if (!$currentCat){
                             continue;
@@ -52,7 +65,6 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
                             <div class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
                             <div class="filter-options-content" id="categories-list-filter-desktop">
                                 <?php
-
 
                                 $categoryObj = $categoryRepository->get($currentCat->getId());
                                 $subcategories = $categoryObj->getChildrenCategories();
