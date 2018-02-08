@@ -25,26 +25,27 @@ use \Magento\CatalogSearch\Model\Layer\Filter\Category;
             <?php echo $block->getChildHtml('state') ?>
 
             <?php $wrapOptions = false; $filterHeader = false; ?>
-            <?php foreach ($block->getFilters() as $filter): ?>
-                <?php if ($filter->getItemsCount()): ?>
+            <?php
+                $block_filters = $block->getFilters();
+                $categories_printed = false;
+            ?>
+            <?php foreach ($block_filters as $filter): ?>
+                <?php if ($filter->getItemsCount() || !$categories_printed): ?>
                     <?php if (!$wrapOptions): ?>
                         <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
                     <?php  $wrapOptions = true; endif; ?>
-                    <?php if ($filter instanceof Category): ?>
+                    <?php if ($filter instanceof Category || !$categories_printed): ?>
                         <?php
-
+                        $categories_printed = true;
                         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                         $cat_helper= $objectManager->create('\Magento\Catalog\Helper\Category');
                         $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryRepository');
 
-
                         $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
-
 
                         if (!$currentCat){
                             continue;
                         }
-
                         ?>
 
                         <div class="filter-options-item categories">
