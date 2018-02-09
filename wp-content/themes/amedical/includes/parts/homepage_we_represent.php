@@ -15,7 +15,13 @@
                         $represent_q->the_post();
                             if ( has_post_thumbnail() && get_field('show_on_homepage') ): ?>
                                 <li>
-                                    <?php the_post_thumbnail("brand-logo"); ?>
+                                    <?php if (get_field('link_to_partner_shop_category')) : ?>
+                                        <a href="<?php the_field('link_to_partner_shop_category'); ?>">
+                                            <?php the_post_thumbnail("brand-logo"); ?>
+                                        </a>
+                                    <?php else: ?>
+                                        <?php the_post_thumbnail("brand-logo"); ?>
+                                    <?php endif; ?>
                                 </li>
                             <?php endif; 
                     endwhile;
