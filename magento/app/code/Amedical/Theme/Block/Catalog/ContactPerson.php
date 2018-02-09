@@ -24,6 +24,7 @@ class ContactPerson extends \Magento\Framework\View\Element\Template
     {
         $this->_categoryFactory = $categoryFactory;
         $this->_registry = $registry;
+        $this->_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         parent::__construct($context, $data);
     }
 
@@ -38,25 +39,42 @@ class ContactPerson extends \Magento\Framework\View\Element\Template
      */
     public function getProduct()
     {
-        return $this->_registry->registry('product');
+        return $this->_registry->registry('current_product');
     }
 
     public function getProductCategoryContacts ()
     {
         $contacts = false;
-        $currentCategory = $this->getCurrentCategory();
-        if ($currentCategory) {
-            $contacts = $this->_getCategoryContacts($currentCategory);
+
+        $p = $this->getProduct();
+
+        $contact_person = trim($p->getData("contact_person"));
+        $contact_phone = trim($p->getData("contact_phone"));
+        if (!empty($contact_person) && !empty($contact_phone)){
+            return [
+                'name' => $contact_person,
+                'phone' => $contact_phone
+            ];
         }
 
-        if ( (!isset($contacts['name']) || !isset($contacts['phone'])) && $this->getProduct()) {
-            $cats = $this->getProduct()->getCategoryIds();
-            usort($cats, function ($a,$b){return ($a > $b) ? -1 : 1;});
-            if (count($cats)) {
-                foreach ($cats as $categoryId) {
-                    $category = $this->_categoryFactory->create()->load($categoryId);
-                    $contacts = $this->_searchCategoryContacts($category);
-                    if (is_array($contacts)) { break; }
+
+
+        $categories = $p->getCategoryIds();
+        if(count($categories)){
+            foreach($categories as $cId){
+                $_cat_model = $this->_objectManager->create('\Magento\Catalog\Model\CategoryRepository');
+                $c=$_cat_model->get($cId);
+                $contact_person = trim($c->getData("contact_person_name"));
+                $contact_phone = trim($c->getData("contact_person_phone"));
+                if (!empty($contact_person) && !empty($contact_phone)){
+                    return [
+                        'name' => $contact_person,
+                        'phone' => $contact_phone
+                    ];
+                }
+                $contacts = $this->_getCategoryContacts($c->getParentId());
+                if (is_array($contacts)){
+                    return $contacts;
                 }
             }
         }
@@ -64,40 +82,25 @@ class ContactPerson extends \Magento\Framework\View\Element\Template
         return $contacts;
     }
 
-    protected function _searchCategoryContacts(\Magento\Catalog\Api\Data\CategoryInterface $category)
+
+    private function _getCategoryContacts ($categoryId)
     {
-        $contacts = $this->_getCategoryContacts($category);
-        if (!$contacts) {
-            $contacts = $this->_getParentCategoryContacts($category);
-        }
-
-        return $contacts;
-    }
-
-    protected function _getCategoryContacts (\Magento\Catalog\Api\Data\CategoryInterface $category)
-    {
-        $contacts = false;
-
-        if ($category->getContactPersonName() && $category->getContactPersonPhone()) {
-            $contacts = ['name' => $category->getContactPersonName(), 'phone' => $category->getContactPersonPhone()];
-        }
-
-        return $contacts;
-    }
-
-    protected function _getParentCategoryContacts (\Magento\Catalog\Api\Data\CategoryInterface $category)
-    {
-        $contacts = false;
-        $parent = $category->getParentCategory();
-
-        if ($parent && $parent->getId() >= 2) {
-            $contacts = $this->_getCategoryContacts($parent);
-
-            if (!$contacts) {
-                $contacts = $this->_getParentCategoryContacts($parent);
+        if ($categoryId>2){
+            $_cat_model = $this->_objectManager->create('\Magento\Catalog\Model\CategoryRepository');
+            $c=$_cat_model->get($categoryId);
+            $contact_person = trim($c->getData("contact_person_name"));
+            $contact_phone = trim($c->getData("contact_person_phone"));
+            if (!empty($contact_person) && !empty($contact_phone)){
+                return [
+                    'name' => $contact_person,
+                    'phone' => $contact_phone
+                ];
+            } else {
+                return $this->_getCategoryContacts($c->getParentId());
             }
-        }
 
-        return $contacts;
+        } else {
+            return false;
+        }
     }
 }

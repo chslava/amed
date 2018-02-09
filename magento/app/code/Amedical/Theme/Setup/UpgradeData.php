@@ -58,7 +58,7 @@ class UpgradeData implements UpgradeDataInterface
                     'input' => 'text',
                     'required' => false,
                     'sort_order' => 110,
-                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
                     'group' => 'General Information',
                 ]
             );
@@ -72,7 +72,7 @@ class UpgradeData implements UpgradeDataInterface
                     'input' => 'text',
                     'required' => false,
                     'sort_order' => 120,
-                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                    'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
                     'group' => 'General Information',
                 ]
             );
