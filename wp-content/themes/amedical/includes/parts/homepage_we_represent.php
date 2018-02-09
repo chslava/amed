@@ -13,16 +13,17 @@
                 if ( $represent_q->have_posts() ) :
                     while ( $represent_q->have_posts() ) :
                         $represent_q->the_post();
-                            
-                            if(get_field('show_on_homepage')): ?>
+                            if ( has_post_thumbnail() && get_field('show_on_homepage') ): ?>
                                 <li>
-                                <?php if ( get_field('partner_logo') ): ?>
-                                    <img src="<?php the_field('partner_logo') ?>" alt="">
-                                <?php else :
-                                    the_post_thumbnail('partner-logo');
-                                endif; ?>
+                                    <?php if (get_field('link_to_partner_shop_category')) : ?>
+                                        <a href="<?php the_field('link_to_partner_shop_category'); ?>">
+                                            <?php the_post_thumbnail("brand-logo"); ?>
+                                        </a>
+                                    <?php else: ?>
+                                        <?php the_post_thumbnail("brand-logo"); ?>
+                                    <?php endif; ?>
                                 </li>
-                            <?php endif;
+                            <?php endif; 
                     endwhile;
                     wp_reset_postdata();
                 endif; ?>
