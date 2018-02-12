@@ -912,7 +912,7 @@ Category,Kategorija,module,Magento_Catalog
 "Please enter a number 0 or greater in this field.","Ievadiet ciparu 0 vai lielāku šajā laukā.",module,Magento_Catalog
 "The value of attribute ""%1"" must be set","Jāiestāda atribūta ""%1"" vērtība",module,Magento_Catalog
 "SKU length should be %1 characters maximum.","Artikula garums nevar būt garāks par %1 simboliem.",module,Magento_Catalog
-"Please enter a valid number in this field.","Ievadiet derīgu ciparu šajā laukā.",module,Magento_Catalog
+"Please enter a valid number in this field.","Ievadiet derīgu ciparu/ciparus šajā laukā.",module,Magento_Catalog
 "We found a duplicate website, tier price, customer group and quantity.","Tika atrasts lapas dublikāts, cenu līmenis, klientu grupa un daudzums.",module,Magento_Catalog
 "Invalid option id %1","Neapreizs opcijas id %1",module,Magento_Catalog
 "Can not create attribute set based on non product attribute set.","Nevar izveidot atribūtu kopu balstītu uz ne produkta atribūtu kopas pamata.",module,Magento_Catalog
@@ -3729,3 +3729,5 @@ Password:,Password:
 "Account","Lietotāja profils"
 "Add New Address","Pievienot jaunu adresi"
 "Default Addresses","Noklusējuma adrese"
+"Please enter more or equal than {0} symbols.","Lūdzu ievadiet vismaz {0} simbolus."
+"Please enter more or equal than %1 symbols.","Lūdzu ievadiet vismaz %1 simbolus."
