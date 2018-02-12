@@ -62,6 +62,8 @@
                                                                 </item>
                                                                 <item name="telephone" xsi:type="array">
                                                                     <item name="validation" xsi:type="array">
+                                                                        <item name="min_text_length" xsi:type="number">6</item>
+                                                                        <item name="max_text_length" xsi:type="number">12</item>
                                                                         <item name="validate-digits" xsi:type="string">true</item>
                                                                     </item>
                                                                 </item>
