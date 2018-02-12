@@ -22,14 +22,13 @@ $categoryRepository = $objectManager->get('\Magento\Catalog\Model\CategoryReposi
 
 $currentCat = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
 
-
-$categoryObj = $categoryRepository->get($currentCat->getId());
-$subcategories = $categoryObj->getChildrenCategories();
-if (count($subcategories)){
-    $categories_printed = false;
+if ($currentCat){
+    $categoryObj = $categoryRepository->get($currentCat->getId());
+    $subcategories = $categoryObj->getChildrenCategories();
+    if (count($subcategories)){
+        $categories_printed = false;
+    }
 }
-
-
 
 ?>
 
