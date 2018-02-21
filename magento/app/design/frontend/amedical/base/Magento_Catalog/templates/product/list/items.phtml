@@ -183,11 +183,20 @@ switch ($type = $block->getType()) {
                 <?php $iterator = 1; ?>
                 <?php foreach ($items as $_item): ?>
                     <?php
-                        $price = $_item->getPrice();
-                        if ($price==0){
-                            $showView=true;
-                            $showCart=false;
+
+                    $price = $_item->getPrice();
+                    if ($_item->getTypeId()=="configurable"){
+                        $_children = $_item->getTypeInstance()->getUsedProducts($_item);
+                        foreach ($_children as $child){
+                            if ($price < $child->getPrice()){
+                                $price = $child->getPrice();
+                            }
                         }
+                    }
+                    if ($price<0.01){
+                        $price = 0;
+                    }
+
                     ?>
                 <?php $available = ''; ?>
                 <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>

@@ -9,8 +9,22 @@
 ?>
 <?php $price = $block->getDisplayValue(); ?>
 <?php
-if ($price==0 && (($block->getSaleableItem()->getTypeId()=="simple") || ($block->getSaleableItem()->getTypeId()=="virtual"))){
-    //dont display price if it is zero
+    $_item = $block->getSaleableItem();
+    $price = $_item->getPrice();
+    if ($_item->getTypeId()=="configurable"){
+        $_children = $_item->getTypeInstance()->getUsedProducts($_item);
+        foreach ($_children as $child){
+            if ($price < $child->getPrice()){
+                $price = $child->getPrice();
+            }
+        }
+    }
+    if ($price<0.01){
+        $price = 0;
+    }
+?>
+<?php
+if ($price===0){
     return;
 }
 ?>
