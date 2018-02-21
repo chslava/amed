@@ -11,4 +11,7 @@
     </type>
     <preference for="Magento\Customer\Model\Data\Address" type="Amedical\Theme\Model\Customer\Data\Address"/>
     <preference for="Amedical\Theme\Api\GuestPaymentInformationManagementInterface" type="Amedical\Theme\Model\Checkout\GuestPaymentInformationManagement" />
+
+    <preference for="Magento\Catalog\Block\Product\ProductList\Toolbar" type="Amedical\Theme\Block\Product\ProductList\Toolbar" />
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="Amedical\Theme\Block\Product\ListProduct" />
 </config>
