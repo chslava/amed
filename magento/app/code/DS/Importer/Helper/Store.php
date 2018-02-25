@@ -121,6 +121,15 @@ class Store extends AbstractHelper
     }
 
 
+    public function get_old_shop_data_dir(){
+        $img_dst_dir= $this->get_absolute_media_path()."old_shop_data";
+        if (!file_exists($img_dst_dir)){
+            mkdir($img_dst_dir,0777,true);
+        }
+        return $img_dst_dir;
+    }
+
+
      public function get_value_maping($type){
 
         switch($type){
