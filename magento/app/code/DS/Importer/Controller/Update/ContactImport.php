@@ -36,42 +36,54 @@ class ContactImport extends \Magento\Framework\App\Action\Action
 
         $contacts_data= json_decode(file_get_contents($this->store->get_old_shop_data_dir()."/contact_persons.json"),true);
 
-        print("<pre>");
-        print_r($contacts_data);
-        print("</pre>");
-        die();
-
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
-        $collection = $productCollection->create()
-            ->addAttributeToSelect('*')
-            ->load();
 
-        foreach ($collection as $p) {
+        foreach($contacts_data as $c){
+            $product_name = $c["name_lv"];
+            $c_name = $c["contact_name"];
+            $c_phone = $c["contact_phone"];
+            $c_email = $c["contact_email"];
 
-            if (!is_object($p)) {
-                $p = $this->products->get_product_by_sku($p);
-            }
-            $sku = $p->getSku();
 
-            foreach($stores as $key => $s){
-                ?>
-                <h8><?= $key ?></h8>
-                <?php
+            $collection = $productCollection->create()
+                ->addAttributeToSelect('*')
+                ->addAttributeToFilter([
+                    [
+                        'attribute'=>'name',
+                        'like'=>"%$product_name%"
+                    ]
+                ]);
+
+            foreach ($collection as $p) {
+
+                if (!is_object($p)) {
+                    $p = $this->products->get_product_by_sku($p);
+                }
+                $sku = $p->getSku();
 
                 try {
                     $this->_objectManager->create('Magento\Catalog\Model\Product')
                         ->load($p->getId())
-                        ->setStoreId($s["storeId"])
-                        ->setDescription(null)
-                        ->setShortDescription(null)
-                        ->setName(null)
+                        ->setStoreId(0)
+                        ->setData("contact_person",$c_name)
+                        ->setData("contact_phone",$c_phone)
+                        ->setData("contact_email",$c_email)
                         ->save();
                     print($sku." saved!<br/>");
                 } catch (\Exception $e) {
                     print($sku." <strong style=\"color:red;\">failed</strong>!<br/>");
                 }
 
+
             }
+
+
+
+
         }
+
+
+
+
     }
 }
