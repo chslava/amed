@@ -34,6 +34,7 @@ class ContactImport extends \Magento\Framework\App\Action\Action
     public function execute()
     {
 
+        die("disabled");
         $contacts_data= json_decode(file_get_contents($this->store->get_old_shop_data_dir()."/contact_persons.json"),true);
 
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
