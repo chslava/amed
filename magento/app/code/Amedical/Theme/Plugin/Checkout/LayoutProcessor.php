@@ -20,6 +20,8 @@ class LayoutProcessor
     }
 
     public function getShippingFormFields($jsLayout){
+
+
         if(isset($jsLayout['components']['checkout']['children']['steps']['children']
             ['shipping-step']['children']['shippingAddress']['children']
             ['shipping-address-fieldset'])
@@ -35,6 +37,11 @@ class LayoutProcessor
                 unset($shippingFields['street']['children'][1]['validation']);
                 unset($shippingFields['street']['children'][2]['validation']);
             }
+
+
+            $shippingFields['telephone']['validation']['min_text_length'] = 6;
+            $shippingFields['telephone']['validation']['max_text_length'] = 12;
+            $shippingFields['telephone']['validation']['validate-digits'] = true;
 
             $shippingFields = array_replace_recursive($shippingFields,$shippingPostcodeFields);
 
@@ -78,7 +85,10 @@ class LayoutProcessor
                     $billingFields['company']['visible'] = false; // Hide 'company' field in billing address
                 }
 
+                $billingFields['telephone']['validation']['min_text_length'] = 6;
+                $billingFields['telephone']['validation']['max_text_length'] = 12;
                 $billingFields['telephone']['validation']['validate-digits'] = true;
+
 
                 $billingFields = array_replace_recursive($billingFields, $billingPostcodeFields);
 
