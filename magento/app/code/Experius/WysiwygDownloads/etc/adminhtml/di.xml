@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+		<plugin disabled="false" name="Experius_WysiwygDownloads_Plugin_Magento_Cms_Model_Wysiwyg_Images_Storage" sortOrder="10" type="Experius\WysiwygDownloads\Plugin\Magento\Cms\Model\Wysiwyg\Images\Storage"/>
+	</type>
+	<preference for="Magento\Framework\Image\Adapter\Gd2" type="Experius\WysiwygDownloads\Image\Adapter\Gd2" />
+</config>
