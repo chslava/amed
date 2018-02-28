@@ -33,7 +33,6 @@ class RemoveStoreViewTexts extends \Magento\Framework\App\Action\Action
     
     public function execute()
     {
-        die("disabled");
         $stores = $this->store->get_magento_stores();
 
         $productCollection = $this->_objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
