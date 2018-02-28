@@ -40,8 +40,9 @@ class RemoveStoreViewTexts extends \Magento\Framework\App\Action\Action
             ->addAttributeToSelect('*')
             ->load();
 
+        $counter=0;
         foreach ($collection as $p) {
-
+            $counter++;
             if (!is_object($p)) {
                 $p = $this->products->get_product_by_sku($p);
             }
@@ -60,9 +61,9 @@ class RemoveStoreViewTexts extends \Magento\Framework\App\Action\Action
                         ->setShortDescription(null)
                         ->setName(null)
                         ->save();
-                    print($sku." saved!<br/>");
+                    print($counter."-".$sku." saved!<br/>");
                 } catch (\Exception $e) {
-                    print($sku." <strong style=\"color:red;\">failed</strong>!<br/>");
+                    print($counter."-".$sku." <strong style=\"color:red;\">failed</strong>!<br/>");
                 }
 
             }
